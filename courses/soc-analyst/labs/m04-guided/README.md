@@ -1,6 +1,6 @@
 # Guided lab SOC-M04-L1 - From raw failures to a validated detection
 
-| | |
+| Field | Value |
 |---|---|
 | **Module** | SOC-M04 Authentication-attack detection and triage |
 | **Outcomes practised** | LO1, LO2, LO3, LO4, LO5, LO6 |

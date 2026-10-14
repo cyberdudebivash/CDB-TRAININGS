@@ -1,6 +1,6 @@
 # Independent lab SOC-M04-L2 - Detect, triage and defend a tuning decision
 
-| | |
+| Field | Value |
 |---|---|
 | **Module** | SOC-M04 Authentication-attack detection and triage |
 | **Outcomes assessed** | LO3, LO4, LO5 (and LO1, LO2, LO6 through the report) |
