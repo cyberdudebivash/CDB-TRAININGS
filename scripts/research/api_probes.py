@@ -281,6 +281,120 @@ PROBES: list[dict] = [
      "code": ""},
     {"id": "typescript-native-compiler", "runtime": "tsc", "pkgs": ["typescript"], "taught_pattern": "tsc version and flags",
      "code": ""},
+    {"id": "http-client-defaults", "runtime": PY, "pkgs": ["requests", "httpx"], "taught_pattern": "requests.get(url) and httpx.get(url) without timeout, redirect or status handling",
+     "code": """
+        import http.server, json, socket, threading
+        import httpx, requests
+
+        silent = socket.socket()                       # accepts connections and never answers
+        silent.bind(("127.0.0.1", 0))
+        silent.listen(5)
+        held = []
+
+        def accept():
+            while True:
+                try:
+                    held.append(silent.accept()[0])
+                except OSError:
+                    return
+
+        threading.Thread(target=accept, daemon=True).start()
+        silent_url = "http://127.0.0.1:%d/" % silent.getsockname()[1]
+
+        class Redirecting(http.server.BaseHTTPRequestHandler):
+            def do_GET(self):
+                if self.path == "/final":
+                    body = b"final"
+                    self.send_response(200)
+                    self.send_header("Content-Length", str(len(body)))
+                    self.end_headers()
+                    self.wfile.write(body)
+                else:
+                    self.send_response(302)
+                    self.send_header("Location", "/final")
+                    self.send_header("Content-Length", "0")
+                    self.end_headers()
+
+            def log_message(self, *args):
+                pass
+
+        server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Redirecting)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        redirect_url = "http://127.0.0.1:%d/start" % server.server_address[1]
+
+        out = {"requests_version": requests.__version__, "httpx_version": httpx.__version__}
+        state = {}
+
+        def call():
+            try:
+                requests.get(silent_url)
+                state["outcome"] = "returned"
+            except Exception as e:
+                state["outcome"] = type(e).__name__
+
+        worker = threading.Thread(target=call, daemon=True)
+        worker.start()
+        worker.join(3.0)
+        out["requests_get_without_timeout_blocked_after_3s"] = worker.is_alive()
+        try:
+            requests.get(silent_url, timeout=0.5)
+        except Exception as e:
+            out["requests_get_timeout_0_5"] = type(e).__name__
+        try:
+            httpx.get(silent_url, timeout=0.5)
+        except Exception as e:
+            out["httpx_get_timeout_0_5"] = type(e).__name__
+        client = httpx.Client()
+        out["httpx_default_timeout"] = {"connect": client.timeout.connect, "read": client.timeout.read, "write": client.timeout.write, "pool": client.timeout.pool}
+        out["httpx_client_follow_redirects_default"] = client.follow_redirects
+        out["httpx_get_redirect_status"] = httpx.get(redirect_url).status_code
+        out["requests_get_redirect_status"] = requests.get(redirect_url, timeout=5).status_code
+        out["requests_session_max_redirects"] = requests.Session().max_redirects
+        print(json.dumps(out))
+     """},
+    {"id": "pydantic-lax-and-strict-validation", "runtime": PY, "pkgs": ["pydantic"], "taught_pattern": "validating decoded JSON with a model: coercion, missing fields, extra fields",
+     "code": """
+        import json
+        import pydantic
+        from pydantic import BaseModel, ConfigDict, ValidationError
+
+        class Item(BaseModel):
+            id: int
+            name: str
+            price_cents: int
+
+        def _ok(call):
+            try:
+                call()
+                return True
+            except ValidationError:
+                return False
+
+        out = {"version": pydantic.VERSION}
+        out["lax_string_to_int"] = repr(Item.model_validate({"id": "5", "name": "n", "price_cents": "250"}).id)
+        out["lax_float_with_fraction_to_int"] = "accepted" if _ok(lambda: Item.model_validate({"id": 5.5, "name": "n", "price_cents": 1})) else "rejected"
+        out["extra_field_ignored_by_default"] = "extra" not in Item.model_validate({"id": 1, "name": "n", "price_cents": 1, "extra": 1}).model_dump()
+        try:
+            Item.model_validate({"id": "5", "name": "n", "price_cents": 1}, strict=True)
+            out["strict_string_to_int"] = "accepted"
+        except ValidationError as e:
+            out["strict_string_to_int"] = e.errors()[0]["type"]
+        try:
+            Item.model_validate({"id": 1, "name": "n"})
+        except ValidationError as e:
+            err = e.errors()[0]
+            out["missing_field_error"] = {"type": err["type"], "loc": list(err["loc"])}
+        out["bool_to_int_in_lax_mode"] = repr(Item.model_validate({"id": True, "name": "n", "price_cents": 1}).id)
+
+        class Strict(Item):
+            model_config = ConfigDict(strict=True, extra="forbid")
+
+        try:
+            Strict.model_validate({"id": 1, "name": "n", "price_cents": 1, "extra": 1})
+        except ValidationError as e:
+            out["forbid_extra_error_type"] = e.errors()[0]["type"]
+        print(json.dumps(out))
+     """},
 ]
 
 

@@ -37,8 +37,8 @@ def run_pytest(cwd: Path, *args: str, env: dict | None = None, timeout: int = 90
     return results
 
 
-def mutation(module_dir: Path, module: str, tests: Path, mutants: Path) -> dict:
-    proc = subprocess.run([sys.executable, str(TOOL), "--module-dir", str(module_dir), "--module", module, "--tests", str(tests), "--mutants", str(mutants), "--json"],
+def mutation(module_dir: Path, module: str, tests: Path, mutants: Path, jobs: int = 1) -> dict:
+    proc = subprocess.run([sys.executable, str(TOOL), "--module-dir", str(module_dir), "--module", module, "--tests", str(tests), "--mutants", str(mutants), "--json", "--jobs", str(jobs)],
                           capture_output=True, text=True, timeout=1200)
     return json.loads(proc.stdout)
 
@@ -284,3 +284,45 @@ def test_m03_independent_reference_passes_every_check():
         pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
     results = run_pytest(M03 / "lab-independent", env={"LAB_PROJECT": str(ref)}, timeout=600)
     assert len(results) == 30 and failing(results) == set(), failing(results)
+
+
+# ------------------------------------------------------------------------------------------------------------------ PY-M05
+M05 = COURSE / "modules" / "PY-M05"
+
+
+def test_m05_guided_solution_passes_every_check():
+    results = run_pytest(M05 / "lab-guided", env={"LAB_TARGET": "solution"})
+    assert len(results) == 65 and failing(results) == set(), failing(results)
+
+
+def test_m05_guided_starter_fails_every_check():
+    results = run_pytest(M05 / "lab-guided")
+    assert len(results) == 65 and set(results.values()) <= {"failed", "error"}, {k: v for k, v in results.items() if v == "passed"}
+
+
+def test_m05_independent_starter_fails_every_published_check():
+    results = run_pytest(M05 / "lab-independent")
+    assert len(results) == 8 and set(results.values()) <= {"failed", "error"}, results
+
+
+@pytest.mark.private_materials
+def test_m05_independent_reference_passes_published_and_hidden_checks():
+    ref = PRIVATE / "PY-M05" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    published = run_pytest(M05 / "lab-independent", env={"LAB_PROJECT": str(ref)})
+    assert len(published) == 8 and failing(published) == set(), failing(published)
+    hidden = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(ref)}, timeout=1200)
+    assert len(hidden) == 138 and failing(hidden) == set(), failing(hidden)
+
+
+@pytest.mark.private_materials
+def test_m05_independent_hidden_suite_is_discriminating_and_starter_fails_it():
+    ref = PRIVATE / "PY-M05" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    report = mutation(ref, "feedsync", ref / "test_hidden.py", ref / "mutants.json", jobs=3)
+    assert report["baseline_passes"] and report["passed"]
+    assert report["required_killed"] == report["required_total"] == 30 and report["all_killed"] == report["total"] == 30, [m for m in report["mutants"] if not m["killed"]]
+    results = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(M05 / "lab-independent" / "starter")}, timeout=1200)
+    assert len(results) == 138 and set(results.values()) <= {"failed", "error"}

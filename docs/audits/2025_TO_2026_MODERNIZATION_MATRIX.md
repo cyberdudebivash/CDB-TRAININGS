@@ -18,10 +18,10 @@ Concept-level differential analysis: for each major concept the legacy PDFs teac
 | COURSE-JAVA-QA | 10 | KEEP 1, UPDATE 5, REPLACE 2, MERGE 1, REMOVE 1 |
 | COURSE-OSINT | 6 | REPLACE 3, ADD 1, REMOVE 2 |
 | COURSE-PY-AUTO | 11 | KEEP 1, UPDATE 4, REPLACE 2, EXPAND 1, ADD 1, REMOVE 2 |
-| COURSE-PY-ENG | 18 | KEEP 1, UPDATE 5, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1 |
+| COURSE-PY-ENG | 19 | KEEP 1, UPDATE 6, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1 |
 | COURSE-SOC | 8 | UPDATE 1, REPLACE 4, EXPAND 1, ADD 1, REMOVE 1 |
 
-Verification mix across 91 records: RESEARCH_VERIFIED 48, MACHINE_ONLY 20, EXECUTED 15, NEEDS_VERIFICATION 7, SECONDARY_ONLY 1.
+Verification mix across 92 records: RESEARCH_VERIFIED 48, MACHINE_ONLY 20, EXECUTED 16, NEEDS_VERIFICATION 7, SECONDARY_ONLY 1.
 
 Page-level (machine) action counts per source are in [OCT2026_COMPLETE_PDF_AUDIT.md](OCT2026_COMPLETE_PDF_AUDIT.md); per-course logs with resolved evidence are in `docs/audits/modernization/`.
 
@@ -147,6 +147,7 @@ Page-level (machine) action counts per source are in [OCT2026_COMPLETE_PDF_AUDIT
 | MC-PYH-16 | Concurrency: GIL explanation | UPDATE | 646 | Concurrency is introduced through the GIL, threading versus multiprocessing questions. | The free-threaded build is officially supported in Python 3.14 (PEP 779); multiple interpreters are in the standard library (PEP 734). | PY-M06 (PLANNED) | R-046 | RESEARCH_VERIFIED |
 | MC-PYH-17 | Testing taught as a five-line pytest introduction | EXPAND | 88 | The pytest page shows install, create test_app.py, one assert and run (p. 88); no chapter teaches test design, boundary analysis or how to judge a test suite (F-PYH-004). | pytest 9.1.1 is current (PyPI, 2026-06-19); pytest.warns(None) raises TypeError and @pytest.yield_fixture is superseded (executed on 9.1.1). | PY-M02 (BUILT) | F-PYH-004, probe:pytest-removed-apis, snapshot:pytest | EXECUTED |
 | MC-PYH-18 | Dataclasses described as providing type validation; type hints with no checker named | UPDATE | 85 | Dataclasses are said to provide init, repr, eq and 'type validation'; type hints are listed as 'bug detection' without a type checker (p. 85; F-PYH-008). | A dataclass accepts a value of the wrong type without error (executed on CPython 3.11-3.15); annotations are ignored at run time; mypy 2.4.0 skips untyped functions by default and flags them under --strict (executed); unquoted forward references work from Python 3.14 (executed; R-046). | PY-M03 (BUILT) | F-PYH-008, snapshot:mypy, R-046 | EXECUTED |
+| MC-PYH-19 | File handling, JSON and HTTP client automation (requests, httpx) | UPDATE | 82-83, 90-91, 125-126, 129, 135 | HTTP calls are shown as requests.get(url) followed by res.json() with no timeout or status check (37 of 38 extracted calls lack an explicit timeout), files are opened with open() and never closed or given an encoding, a bulk rename can destroy files, and an AsyncClient is built per request (pp. 83, 91, 125, 129; F-PYH-009). | requests applies no timeout unless one is passed and httpx defaults to 5 s (documentation and executed probe); a decoded body must be validated (pydantic 2.14.1 coerces by default and is strict on request); RFC 9110 limits automatic retries to idempotent methods; httpx 0.28.1 is the last stable release with a 1.0 pre-release published. | PY-M05 (BUILT) | F-PYH-009, R-087, R-088, R-089, R-090, R-091, R-092, probe:http-client-defaults, probe:pydantic-lax-and-strict-validation, snapshot:httpx | EXECUTED |
 
 ## COURSE-SOC
 

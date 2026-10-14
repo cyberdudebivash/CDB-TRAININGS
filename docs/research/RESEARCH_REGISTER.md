@@ -95,6 +95,12 @@ environment; `OFFICIAL_PAGE_SUMMARY` official page fetched through a summarising
 | R-084 | [Gumroad - pricing and fees](https://gumroad.com/pricing) | Gumroad | page read 2026-10-14 (page shows no update date; tax handling statement refers to 2025-01-01) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG, COURSE-AI-ENG, COURSE-SOC |
 | R-085 | [Google Skills (formerly Google Cloud Skills Boost) - subscriptions](https://www.skills.google/subscriptions) | Google | page read 2026-10-14 (the old cloudskillsboost.google/subscriptions URL redirects permanently here) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-GCP-DE |
 | R-086 | [Pluralsight - pricing page (individual plans listed without prices)](https://www.pluralsight.com/pricing) | Pluralsight | page read 2026-10-14 | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG, COURSE-AI-ENG |
+| R-087 | [Requests - Quickstart (timeouts, redirects, raise_for_status, JSON decoding)](https://requests.readthedocs.io/en/latest/user/quickstart/) | Requests project | page read 2026-10-14 (documentation 'latest'; PyPI snapshot version 2.34.2) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG, COURSE-PY-AUTO |
+| R-088 | [HTTPX - Timeouts and Requests-compatibility pages](https://www.python-httpx.org/advanced/timeouts/) | HTTPX project | pages read 2026-10-14 (PyPI snapshot version 0.28.1, released 2024-12-06; a 1.0.dev6 pre-release exists) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG, COURSE-PY-AUTO |
+| R-089 | [RFC 9110 - HTTP Semantics (idempotent methods; Retry-After)](https://www.rfc-editor.org/rfc/rfc9110.html) | IETF (STD 97, June 2022) | text read 2026-10-14 in two slices (offsets 0-100000 and 200000-300000) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG, COURSE-PY-AUTO |
+| R-090 | [Pydantic - Strict Mode (lax coercion by default)](https://pydantic.dev/docs/validation/latest/concepts/strict_mode/) | Pydantic | page read 2026-10-14 (PyPI snapshot version 2.14.1; the older docs.pydantic.dev URL redirects here) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG |
+| R-091 | [HTTP client defaults (reproduced) - requests 2.34.2 and httpx 0.28.1](https://pypi.org/project/requests/) | PyPI / Requests / HTTPX | requests 2.34.2, httpx 0.28.1 (snapshot versions), CPython 3.13.16 | 2026-10-14 | EXECUTED | COURSE-PY-ENG, COURSE-PY-AUTO |
+| R-092 | [Pydantic lax and strict validation (reproduced) - pydantic 2.14.1](https://pypi.org/project/pydantic/) | PyPI / Pydantic | pydantic 2.14.1 (snapshot version), CPython 3.13.16 | 2026-10-14 | EXECUTED | COURSE-PY-ENG |
 
 ## Findings and resulting changes
 
@@ -527,3 +533,33 @@ environment; `OFFICIAL_PAGE_SUMMARY` official page fetched through a summarising
 
 - **Finding:** The page text lists six individual plans (Core Tech, AI+, Cloud+, Security+, Data+, Complete) and team pricing links but shows no prices in the retrievable text. No price from this vendor is used in the pricing research.
 - **Resulting change:** Recorded as a gap: subscription pricing for this comparable could not be verified from the vendor page.
+
+### R-087 - Requests - Quickstart (timeouts, redirects, raise_for_status, JSON decoding)
+
+- **Finding:** The Timeouts section says "Nearly all production code should use this parameter in nearly all requests. Failure to do so can cause your program to hang indefinitely" and "If no timeout is specified explicitly, requests do not time out." The timeout is not a limit on the whole download but on the time without received bytes. Redirects are followed for all verbs except HEAD by default. r.json() success does not indicate a successful response; use raise_for_status() or check the status code. Network problems raise ConnectionError, timeouts raise Timeout, bad statuses raise HTTPError only through raise_for_status().
+- **Resulting change:** PY-M05 teaches an explicit timeout on every call, status checking and the redirect default, with an executed demonstration (probe http-client-defaults).
+
+### R-088 - HTTPX - Timeouts and Requests-compatibility pages
+
+- **Finding:** Default behaviour is to raise a TimeoutException after 5 seconds of network inactivity; there are four timeout kinds (connect, read, write, pool) raising ConnectTimeout, ReadTimeout, WriteTimeout and PoolTimeout; timeout=None disables them. The compatibility page states "HTTPX defaults to including reasonable timeouts for all network operations, while Requests has no timeouts by default" and that HTTPX "does not follow redirects by default" (follow_redirects=True enables it).
+- **Resulting change:** PY-M05 contrasts the two clients' defaults and teaches an explicit Timeout object; the handbook's per-call AsyncClient pattern is replaced by one shared client.
+
+### R-089 - RFC 9110 - HTTP Semantics (idempotent methods; Retry-After)
+
+- **Finding:** Section 9.2.2: PUT, DELETE and the safe methods are idempotent; "A client SHOULD NOT automatically retry a request with a non-idempotent method" unless it can know the request is effectively idempotent or was not applied. Section 10.2.3: Retry-After is either an HTTP-date or a number of seconds, used with 503 responses and 3xx redirections.
+- **Resulting change:** PY-M05 retries only idempotent requests and honours Retry-After in both formats; POST retries need an idempotency mechanism the lesson names but does not assume.
+
+### R-090 - Pydantic - Strict Mode (lax coercion by default)
+
+- **Finding:** By default Pydantic attempts to coerce values to the desired type (the string "123" becomes the int 123); strict mode errors instead. Strict mode can be enabled per validation call (strict=True), per field (Field(strict=True), Strict metadata, StrictInt) or per model (ConfigDict(strict=True)).
+- **Resulting change:** PY-M05 validates every API response with a model, chooses strict or lax deliberately and tests both.
+
+### R-091 - HTTP client defaults (reproduced) - requests 2.34.2 and httpx 0.28.1
+
+- **Finding:** Against a local socket that accepts connections and never answers, requests.get(url) was still blocked after 3 s while requests.get(url, timeout=0.5) and httpx.get(url, timeout=0.5) both raised ReadTimeout. httpx.Client() has connect, read, write and pool timeouts of 5.0 s and follow_redirects False; against a local 302 redirect httpx.get returned 302 and requests.get returned 200 (requests.Session().max_redirects is 30). Probe: http-client-defaults.
+- **Resulting change:** Finding F-PYH-009; PY-M05 reproduces the demonstration in its lesson.
+
+### R-092 - Pydantic lax and strict validation (reproduced) - pydantic 2.14.1
+
+- **Finding:** A model with int fields accepted the string "5" and the boolean True in lax mode (values 5 and 1), rejected 5.5, ignored an unknown field by default, raised a "missing" error naming the field, raised int_type for the string under strict=True and extra_forbidden under ConfigDict(extra="forbid"). Probe: pydantic-lax-and-strict-validation.
+- **Resulting change:** PY-M05 shows what a schema does and does not catch (coercion, extra fields) before asking learners to choose.

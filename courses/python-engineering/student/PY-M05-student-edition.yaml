@@ -1,0 +1,26 @@
+# Build configuration for the PY-M05 student PREVIEW edition (see scripts/build/build_student_edition.py).
+# Contains the lesson, both lab READMEs and the quiz (questions only). It must NEVER contain instructor material; the build fails if a forbidden path or marker is found.
+# The title says "Preview": the reserved "Premium Edition" title is refused by the build unless every readiness field of the course is MET.
+edition: student-preview
+course: COURSE-PY-ENG
+module: PY-M05
+title: "PY-M05 Files, structured data and HTTP clients - Student Preview Edition"
+version: 0.1.0-preview
+language: en
+attribution: false
+notice_title: "Preview status."
+notice_text: "This edition has not been reviewed by a qualified subject-matter expert, has not been piloted with learners and is not a certified or production-ready course. Completion is awarded only for demonstrated competence on the rubric, never for reading this document."
+edition_metadata: auto
+expected_strings: ["PY-M05", "Preview status", "Student Preview Edition"]
+include:
+  - courses/python-engineering/modules/PY-M05/lesson.md
+  - courses/python-engineering/modules/PY-M05/lab-guided/README.md
+  - courses/python-engineering/modules/PY-M05/lab-independent/README.md
+  - courses/python-engineering/modules/PY-M05/assessment/quiz.md
+forbidden_path_fragments:
+  - /instructor/
+  - answer-key
+  - grading-notes
+  - /solution/
+forbidden_markers:
+  - "INSTRUCTORS ONLY"

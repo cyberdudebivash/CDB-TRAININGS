@@ -16,9 +16,9 @@ This is the ledger behind every currency claim in the modernization: what was ch
 | Method | Entries | What it proves | Usable for customer-facing claims |
 |---|---|---|---|
 | PRIMARY_DOCUMENT_READ | 10 | A primary document/page was downloaded and the cited passage read directly. | Yes |
-| EXECUTED | 2 | The claim was reproduced by running code in a clean environment (see section 4). | Yes, for the stated version only |
+| EXECUTED | 4 | The claim was reproduced by running code in a clean environment (see section 4). | Yes, for the stated version only |
 | REGISTRY_API | 1 | Machine-readable package-registry or lifecycle data retrieved by `scripts/research/fetch_registry_versions.py`. | Yes, for version/date statements |
-| OFFICIAL_PAGE_SUMMARY | 68 | An official page was fetched through a summarising tool; the summary was NOT cross-checked against raw text. | No: re-verify against the primary text first |
+| OFFICIAL_PAGE_SUMMARY | 72 | An official page was fetched through a summarising tool; the summary was NOT cross-checked against raw text. | No: re-verify against the primary text first |
 | SECONDARY_SOURCE | 5 | Trade press or other non-primary coverage; carries a caveat. | No |
 
 Source preference order used throughout: (1) official specification, standard or vendor documentation; (2) the project's own release notes; (3) package-registry metadata; (4) executed behaviour; (5) secondary coverage, always flagged. Marketing pages, social posts and uncited blog claims were not used as evidence.
@@ -44,11 +44,13 @@ Each probe installs pinned, snapshot-current versions into a throw-away virtual 
 | eslint-eslintrc-removed | .eslintrc.json / .eslintrc.js configuration | OK | eslint | eslint@10.12.0 | {} | 2026-10-14T09:10:35Z |
 | fastapi-on-event | @app.on_event('startup') / @app.on_event('shutdown') | OK | Python 3.13.16 | fastapi==0.143.0 | {"has_lifespan_param": true, "on_event": "accepted", "warnings": ["DeprecationWarning"]} | 2026-10-14T09:08:31Z |
 | flask-removed-apis | @app.before_first_request, flask.json.JSONEncoder, from flask import escape | OK | Python 3.13.16 | flask==3.1.3 | {"before_first_request": false, "flask.Markup": false, "flask.escape": false, "flask.json.JSONEncoder": false, "version": "3.1.3"} | 2026-10-14T09:09:10Z |
+| http-client-defaults | requests.get(url) and httpx.get(url) without timeout, redirect or status handling | OK | Python 3.13.16 | requests==2.34.2, httpx==0.28.1 | {"httpx_client_follow_redirects_default": false, "httpx_default_timeout": {"connect": 5.0, "pool": 5.0, "read": 5.0, "write": 5.0}, "httpx_get_redirect_status": 302, "httpx_get_timeout_0_5": "ReadTimeout", "httpx_version": "0.28.1", "requests_get_redirect_s... | 2026-10-14T15:15:46Z |
 | langchain-legacy-imports | from langchain.llms / chains / chat_models / vectorstores / embeddings imports | OK | Python 3.13.16 | langchain==1.4.5 | {"langchain.agents:AgentExecutor": "AttributeError: module 'langchain.agents' has no attribute 'AgentExecutor'", "langchain.agents:create_agent": "ok", "langchain.agents:initialize_agent": "AttributeError: module 'langchain.agents' has no attribute 'initial... | 2026-10-14T09:08:04Z |
 | npm-deprecation-flags | tooling the legacy playbook may recommend | OK | npm-view | - | {"create-react-app": {"deprecated": null, "latest_version": "5.1.0"}, "enzyme": {"deprecated": null, "latest_version": "3.11.0"}, "moment": {"deprecated": null, "latest_version": "2.31.0"}, "node-sass": {"deprecated": "Node Sass is no longer supported. Plea... | 2026-10-14T09:10:53Z |
 | openai-legacy-module-api | openai.ChatCompletion.create(...) / openai.api_key = ... | OK | Python 3.13.16 | openai==3.31.0 | {"ChatCompletion.create": "APIRemovedInV1: \n\nYou tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README", "Completion.create": "APIRemovedInV1: \n\nYou tried to access openai.Completion, but this is no lon... | 2026-10-14T09:10:20Z |
 | pandas-removed-apis | df.append, Series.iteritems, chained assignment, np.float_/np.bool8/np.product | OK | Python 3.13.16 | pandas==3.0.6, numpy==2.5.4 | {"DataFrame.append": false, "DataFrame.applymap": false, "Series.iteritems": false, "chained_assignment_changed_frame": false, "np.Inf": false, "np.NaN": false, "np.bool8": false, "np.cumproduct": false, "np.float_": false, "np.in1d": false, "np.product": f... | 2026-10-14T09:08:47Z |
 | paramiko-host-key-policy | set_missing_host_key_policy(AutoAddPolicy()); DSSKey | OK | Python 3.13.16 | paramiko==5.0.0 | {"AutoAddPolicy": true, "DSSKey": false, "RejectPolicy": true, "version": "5.0.0"} | 2026-10-14T09:09:32Z |
+| pydantic-lax-and-strict-validation | validating decoded JSON with a model: coercion, missing fields, extra fields | OK | Python 3.13.16 | pydantic==2.14.1 | {"bool_to_int_in_lax_mode": "1", "extra_field_ignored_by_default": true, "forbid_extra_error_type": "extra_forbidden", "lax_float_with_fraction_to_int": "rejected", "lax_string_to_int": "5", "missing_field_error": {"loc": ["price_cents"], "type": "missing"}... | 2026-10-14T15:15:55Z |
 | pydantic-v1-style-api | @validator, class Config, .dict(), .json(), parse_obj | OK | Python 3.13.16 | pydantic==2.14.1 | {"validator_import": "present (deprecated)", "version": "2.14.1", "warnings": ["PydanticDeprecatedSince20", "UserWarning"]} | 2026-10-14T09:08:26Z |
 | pyjwt-decode-algorithms | jwt.decode(token, key) without algorithms; HS256 shared secret in source | OK | Python 3.13.16 | pyjwt==2.15.1 | {"decode_without_algorithms": "DecodeError: It is required that you pass in a value for the \"algorithms\" argument when calling decode().", "encode_returns": "str", "version": "2.15.1"} | 2026-10-14T09:09:06Z |
 | pytest-removed-apis | @pytest.yield_fixture, pytest.warns(None), nose-style setup | OK | Python 3.13.16 | pytest==9.1.1 | {"has_fixture": true, "has_importorskip": true, "has_yield_fixture": true, "version": "9.1.1", "warns_none": "TypeError: exceptions must be derived from Warning, not <class 'NoneType'>"} | 2026-10-14T09:08:17Z |
@@ -63,7 +65,7 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 
 ## 5. Research register ledger
 
-86 entries in `docs/research/research_register.yaml`. `Used by` lists the findings, change records and rules that cite the entry.
+92 entries in `docs/research/research_register.yaml`. `Used by` lists the findings, change records and rules that cite the entry.
 
 | Id | Subject | Publisher | Version / state | Method | Verified on | URL | Caveat | Used by |
 |---|---|---|---|---|---|---|---|---|
@@ -153,10 +155,16 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 | R-084 | Gumroad - pricing and fees | Gumroad | page read 2026-10-14 (page shows no update date; tax handling statement refers to 2025-... | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://gumroad.com/pricing | yes | - |
 | R-085 | Google Skills (formerly Google Cloud Skills Boost) - subscriptions | Google | page read 2026-10-14 (the old cloudskillsboost.google/subscriptions URL redirects perma... | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://www.skills.google/subscriptions | yes | - |
 | R-086 | Pluralsight - pricing page (individual plans listed without prices) | Pluralsight | page read 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://www.pluralsight.com/pricing | yes | - |
+| R-087 | Requests - Quickstart (timeouts, redirects, raise_for_status, JSON decoding) | Requests project | page read 2026-10-14 (documentation 'latest'; PyPI snapshot version 2.34.2) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://requests.readthedocs.io/en/latest/user/quickstart/ | yes | DR-PY-023, MC-PYH-19 |
+| R-088 | HTTPX - Timeouts and Requests-compatibility pages | HTTPX project | pages read 2026-10-14 (PyPI snapshot version 0.28.1, released 2024-12-06; a 1.0.dev6 pr... | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://www.python-httpx.org/advanced/timeouts/ | yes | DR-PY-023, MC-PYH-19 |
+| R-089 | RFC 9110 - HTTP Semantics (idempotent methods; Retry-After) | IETF (STD 97, June 2022) | text read 2026-10-14 in two slices (offsets 0-100000 and 200000-300000) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://www.rfc-editor.org/rfc/rfc9110.html | yes | MC-PYH-19 |
+| R-090 | Pydantic - Strict Mode (lax coercion by default) | Pydantic | page read 2026-10-14 (PyPI snapshot version 2.14.1; the older docs.pydantic.dev URL red... | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://pydantic.dev/docs/validation/latest/concepts/strict_mode/ | yes | MC-PYH-19 |
+| R-091 | HTTP client defaults (reproduced) - requests 2.34.2 and httpx 0.28.1 | PyPI / Requests / HTTPX | requests 2.34.2, httpx 0.28.1 (snapshot versions), CPython 3.13.16 | EXECUTED | 2026-10-14 | https://pypi.org/project/requests/ |  | DR-PY-023, MC-PYH-19 |
+| R-092 | Pydantic lax and strict validation (reproduced) - pydantic 2.14.1 | PyPI / Pydantic | pydantic 2.14.1 (snapshot version), CPython 3.13.16 | EXECUTED | 2026-10-14 | https://pypi.org/project/pydantic/ |  | MC-PYH-19 |
 
 ## 6. Limitations and items that must not be used in customer-facing material yet
 
-73 register entries rest on a summarised official page or a secondary source. Re-verify each against the primary text before publication:
+77 register entries rest on a summarised official page or a secondary source. Re-verify each against the primary text before publication:
 
 | Id | Subject | Method | Caveat / what to re-check |
 |---|---|---|---|
@@ -233,6 +241,10 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 | R-084 | Gumroad - pricing and fees | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool; fee schedules change and processing fees may apply beyond what the page shows. |
 | R-085 | Google Skills (formerly Google Cloud Skills Boost) - subscriptions | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool. |
 | R-086 | Pluralsight - pricing page (individual plans listed without prices) | OFFICIAL_PAGE_SUMMARY | Search-result pages from third parties quote USD 449 and 499 per year for an individual plan; the figures conflict and were not used. |
+| R-087 | Requests - Quickstart (timeouts, redirects, raise_for_status, JSON decoding) | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool; quoted sentences were returned by the tool, not cross-checked against the raw page. |
+| R-088 | HTTPX - Timeouts and Requests-compatibility pages | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool (two pages). The newest stable release is almost two years old on the cutoff date, with a 1.0 pre-release published 2026-08-31 (registry snapshot); the lesson pins 0.28.1 and does no... |
+| R-089 | RFC 9110 - HTTP Semantics (idempotent methods; Retry-After) | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool; only the slices named above were read. Retry-After on 429 responses comes from RFC 6585, which was not read here, so the lab treats it as an observed convention, not a cited rule. |
+| R-090 | Pydantic - Strict Mode (lax coercion by default) | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool. |
 
 New developments whose adoption evidence is incomplete (see [NEW_DEVELOPMENTS_2026.md](NEW_DEVELOPMENTS_2026.md)): ND-PY-01, ND-PY-03, ND-AI-01, ND-AI-04, ND-AI-05, ND-JV-03, ND-GC-04, ND-SC-01, ND-OS-01, ND-OS-03.
 

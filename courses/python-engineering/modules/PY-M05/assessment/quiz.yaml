@@ -1,0 +1,35 @@
+# Knowledge check for PY-M05. Questions only: the answer key is held by instructors (see courses/python-engineering/instructor/README.md).
+module: PY-M05
+items:
+  - id: Q1
+    outcome: LO1
+    stem: "A program writes its results by creating a temporary file in the same folder and then calling os.replace to give it the final name. What does this achieve?"
+    options: {A: "The write is faster than writing the final file directly", B: "json.dump is unable to write to a file that already has its final name", C: "A reader sees either the complete old file or the complete new file, even if the program stops halfway", D: "No encoding needs to be specified"}
+  - id: Q2
+    outcome: LO2
+    stem: "A pydantic model has the field `id: int` and is used in its default (lax) mode. What does it do with the input `{\"id\": \"5\"}`?"
+    options: {A: "It succeeds and the value becomes the integer 5", B: "It raises ValidationError because the number is quoted", C: "It succeeds and the value stays the text \"5\"", D: "It raises TypeError when the class is defined"}
+  - id: Q3
+    outcome: LO2
+    stem: "In the guided lab the model for items received from the API ignores unknown fields, while the model for the settings file forbids them. Why is that a sensible choice?"
+    options: {A: "Ignoring unknown fields makes validation run faster", B: "A vendor may add fields to its API that we do not use, whereas an unknown key in our own settings file is most likely a typo", C: "Forbidding extra fields only works for dictionaries read from TOML", D: "pydantic requires ignoring unknown fields for data that comes from the network"}
+  - id: Q4
+    outcome: LO3
+    stem: "`requests.get(url)` is called without a timeout and the server accepts the connection but never answers. What happens?"
+    options: {A: "It raises ReadTimeout after 5 seconds", B: "It raises ConnectionError after 30 seconds", C: "It returns None", D: "It waits indefinitely, because requests applies no timeout unless one is passed"}
+  - id: Q5
+    outcome: LO3
+    stem: "A request for a JSON API returns status 200 but the header `Content-Type: text/html`. What should a careful client do?"
+    options: {A: "Call .json() anyway and hope for the best", B: "Retry the request three times", C: "Treat it as a failure: the content is not JSON, so it is not decoded as JSON and not retried", D: "Ignore the header, because status 200 means the request succeeded"}
+  - id: Q6
+    outcome: LO4
+    stem: "Which failure should a client normally retry, with a limit and a wait between attempts?"
+    options: {A: "A GET request that timed out while waiting for the response", B: "A GET request that returned status 404", C: "A GET request that returned status 401 for a missing credential", D: "A GET request that returned status 200 with a body that is not valid JSON"}
+  - id: Q7
+    outcome: LO4
+    stem: "A client sends a POST that creates an order. The server processes it, but the answer arrives after the client's timeout, and the client retries automatically. What is the risk?"
+    options: {A: "None, because POST requests are idempotent", B: "The order may be created twice, because the client cannot tell whether the first request was applied", C: "The server will reject every retry", D: "The retry always returns the order that was created the first time"}
+  - id: Q8
+    outcome: LO5
+    stem: "A paginated API returns a `next` link in each response. Why should the client require that the link has the same scheme, host and port as the API it was configured for?"
+    options: {A: "To save bandwidth", B: "Because the HTTP standard requires it", C: "So that pagination runs faster", D: "Because a hostile or compromised response could otherwise send the client, and its credentials, to another host"}

@@ -158,6 +158,7 @@ technologies:
   fetch:
   - kind: pypi
     name: pydantic
+  register: [R-045, R-090, R-092]
 - id: sqlalchemy
   name: sqlalchemy
   domain: python
@@ -172,6 +173,7 @@ technologies:
   fetch:
   - kind: pypi
     name: requests
+  register: [R-087, R-091]
 - id: httpx
   name: httpx
   domain: python
@@ -179,6 +181,7 @@ technologies:
   fetch:
   - kind: pypi
     name: httpx
+  register: [R-088, R-091]
 - id: aiohttp
   name: aiohttp
   domain: python

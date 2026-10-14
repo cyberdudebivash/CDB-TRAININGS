@@ -483,6 +483,20 @@ findings:
     detail: "Executed on CPython 3.11-3.15: a dataclass with an int field accepts text without error (the decorator generates __init__, __repr__ and __eq__ and validates nothing). Annotations are ignored at run time; mypy 2.4.0 skips untyped functions by default and reports nothing for them."
     recommendation: "State that annotations are checked only by a type checker, teach mypy --strict with fix-the-cause practice, and validate at run time with code or a library where needed."
     remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M03 (courses/python-engineering/modules/PY-M03)"}
+  - id: F-PYH-009
+    source_id: SRC-PY-HANDBOOK
+    severity: P2
+    dimension: technical_correctness
+    title: "HTTP calls taught without timeouts or status checks; files opened without a context manager or an encoding; a destructive bulk-rename example"
+    evidence:
+      - {page: 125, note: "`requests.get(\"https://api.github.com/users\")` then `print(res.json())` with no timeout and no status check (also pp. 91, 126, 135)."}
+      - {page: 129, note: "`async with httpx.AsyncClient() as client` is created inside the function that fetches one URL, so every call builds a new client."}
+      - {page: 91, note: "Bulk rename `for i, file in enumerate(os.listdir()): os.rename(file, f\"file_{i}.txt\")` renames every entry of the current folder including the script itself, and silently replaces an existing file of the target name on POSIX."}
+      - {page: 83, note: "`json.dump(data, open(\"file.json\",\"w\"))` and `json.load(open(\"file.json\"))` leave the file handle to the garbage collector and pass no encoding (also pp. 90, 168)."}
+    verification: EXECUTED
+    detail: "Scan of the extracted text: 38 requests/httpx calls, one of them with a timeout (p. 336); 26 one-line open(...).read()/json.load(open(...)) patterns; 34 `with open(` uses; no `encoding=` argument anywhere. Executed (probe http-client-defaults, requests 2.34.2): against a server that never answers, requests.get(url) was still blocked after 3 s while a call with timeout=0.5 raised ReadTimeout; httpx defaults to a 5 s timeout. The scan counts come from regular expressions over extracted text, not from a person reading every page."
+    recommendation: "Teach an explicit timeout on every request, status checking before decoding, one shared client, bounded retries for idempotent requests only, pathlib with a with-block or Path.read_text/write_text and an explicit encoding, and validation of decoded data against a schema."
+    remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M05 (courses/python-engineering/modules/PY-M05)"}
 
   # ------------------------------------------------------------------------- Python Automation Training
   - id: F-PYA-001

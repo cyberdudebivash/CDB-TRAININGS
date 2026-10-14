@@ -43,7 +43,7 @@ Outcomes total: **19**; assessed: **6**; labs planned/built/verified: 27/2/2; re
 
 ## COURSE-PY-ENG - Python Engineering Pathway
 
-Outcomes total: **11**; assessed: **5**; labs planned/built/verified: 21/10/10; release status `REENGINEERING`.
+Outcomes total: **11**; assessed: **6**; labs planned/built/verified: 21/12/12; release status `REENGINEERING`.
 
 | Module | Level | Outcome (observable) | Bloom | Planned evidence | Lab / build state | Change records | Developments |
 |---|---|---|---|---|---|---|---|
@@ -51,7 +51,7 @@ Outcomes total: **11**; assessed: **5**; labs planned/built/verified: 21/10/10; 
 | PY-M02 | 1 | Write parametrised pytest tests that detect three seeded defects in a provided module. | Apply | Guided-lab automated checks plus a short rubric-scored artefact | VERIFIED_EXECUTABLE | MC-PYH-15, MC-PYH-17 | - |
 | PY-M03 | 2 | Refactor a script into a typed package that passes a static type checker without errors. | Apply | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
 | PY-M04 | 2 | Build, install and import a wheel produced with python -m build in a clean virtual environment. | Create | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
-| PY-M05 | 2 | Consume a paginated API fixture with retries and timeouts and validate every response against a schema. | Apply | Independent lab graded by automated criteria and a reviewer rubric | PLANNED | - | - |
+| PY-M05 | 2 | Consume a paginated API fixture with retries and timeouts and validate every response against a schema. | Apply | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-19 | - |
 | PY-M06 | 2 | Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark. | Evaluate | Independent lab graded by automated criteria and a reviewer rubric | PLANNED | MC-PYH-16 | ND-PY-02 |
 | PY-M07 | 2 | Find and fix eight seeded vulnerabilities (injection, secrets, TLS, deserialisation) and add a regression test for each. | Analyse | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
 | PY-M08 | 2 | Implement a repository layer using parameterised SQL and demonstrate that an injection attempt fails. | Apply | Independent lab graded by automated criteria and a reviewer rubric | PLANNED | MC-PYH-08 | - |

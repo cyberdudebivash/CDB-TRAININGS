@@ -9,7 +9,7 @@
 | Review confidence | **MEDIUM** |
 | Review coverage | 654/654 pages machine-scanned; ~15 pages read in context (pp. 63-64, 83, 163-164, 220, 427-428, 585-586 and code-failure contexts); 404 code blocks syntax-checked. |
 | Quality score (source as received) | **36 / 100** (internal instrument; see `COURSE_QUALITY_SCORECARD.md`) |
-| Open findings | P0: 1, P1: 3, P2: 4, P3: 0, P4: 0 |
+| Open findings | P0: 1, P1: 3, P2: 5, P3: 0, P4: 0 |
 | Release status | `REENGINEERING` (lifecycle `IN_BUILD`) |
 | Audit date | 2026-10-14 |
 
@@ -40,6 +40,7 @@ Severity scale: **P0** dangerous, materially incorrect, legally problematic or f
 | F-PYH-005 | P2 | Technical currency and relevance | Recommends Python 3.10+, which reached end-of-life on 2026-10-01; no version policy | p. 220 | PRIMARY_SOURCE | NOT_STARTED |
 | F-PYH-006 | P2 | Instructional clarity and sequencing | Thin sections and uncontrolled scope | p. 63 | STATIC_SCAN | PLANNED_IN_TRACK |
 | F-PYH-008 | P2 | Technical correctness and security | Dataclasses described as providing type validation; type hints promise bug detection without naming a checker | p. 85 | EXECUTED | PLANNED_IN_TRACK |
+| F-PYH-009 | P2 | Technical correctness and security | HTTP calls taught without timeouts or status checks; files opened without a context manager or an encoding; a destructive bulk-rename example | p. 83, p. 91, p. 125, p. 129 | EXECUTED | PLANNED_IN_TRACK |
 
 ### F-PYH-001 (P0) Agent 'math tool' evaluates model-controlled input with eval()
 
@@ -124,6 +125,18 @@ Executed on CPython 3.11-3.15: a dataclass with an int field accepts text withou
 **Verification:** EXECUTED. **Recommendation:** State that annotations are checked only by a type checker, teach mypy --strict with fix-the-cause practice, and validate at run time with code or a library where needed.
 **Remediation:** PLANNED_IN_TRACK - Module PY-M03 (courses/python-engineering/modules/PY-M03).
 
+### F-PYH-009 (P2) HTTP calls taught without timeouts or status checks; files opened without a context manager or an encoding; a destructive bulk-rename example
+
+- **p. 125:** `requests.get("https://api.github.com/users")` then `print(res.json())` with no timeout and no status check (also pp. 91, 126, 135).
+- **p. 129:** `async with httpx.AsyncClient() as client` is created inside the function that fetches one URL, so every call builds a new client.
+- **p. 91:** Bulk rename `for i, file in enumerate(os.listdir()): os.rename(file, f"file_{i}.txt")` renames every entry of the current folder including the script itself, and silently replaces an existing file of the target name on POSIX.
+- **p. 83:** `json.dump(data, open("file.json","w"))` and `json.load(open("file.json"))` leave the file handle to the garbage collector and pass no encoding (also pp. 90, 168).
+
+Scan of the extracted text: 38 requests/httpx calls, one of them with a timeout (p. 336); 26 one-line open(...).read()/json.load(open(...)) patterns; 34 `with open(` uses; no `encoding=` argument anywhere. Executed (probe http-client-defaults, requests 2.34.2): against a server that never answers, requests.get(url) was still blocked after 3 s while a call with timeout=0.5 raised ReadTimeout; httpx defaults to a 5 s timeout. The scan counts come from regular expressions over extracted text, not from a person reading every page.
+
+**Verification:** EXECUTED. **Recommendation:** Teach an explicit timeout on every request, status checking before decoding, one shared client, bounded retries for idempotent requests only, pathlib with a with-block or Path.read_text/write_text and an explicit encoding, and validation of decoded data against a schema.
+**Remediation:** PLANNED_IN_TRACK - Module PY-M05 (courses/python-engineering/modules/PY-M05).
+
 ## 4. Mandated-topic coverage (keyword probes)
 
 Zero matches are a definitive gap; a match only shows a term is mentioned, not taught. See `TECHNICAL_GAP_MATRIX.md` for the legend.
@@ -172,5 +185,5 @@ Security-pattern hits in code (each read in context): bare_except=10, debug_true
 
 - Blocking findings recorded in the catalog: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
 - Release status: `REENGINEERING`. A course cannot reach `PRODUCTION_GO` until all 15 gates in `docs/release/RELEASE_GATES.md` pass; this one fails most of them (see `docs/release/PRODUCTION_GO_GATE_REPORT.md`).
-- Notes: Five of eleven modules are built (PY-M01, PY-M02, PY-M03, PY-M04, PY-M07) with ten labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other six modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are not yet covered by any module.
+- Notes: Six of eleven modules are built (PY-M01, PY-M02, PY-M03, PY-M04, PY-M05, PY-M07) with twelve labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other five modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are not yet covered by any module.
 - Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.

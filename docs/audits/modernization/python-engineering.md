@@ -5,19 +5,19 @@
 
 - Course: `COURSE-PY-ENG` (catalog version 0.1.0-build, slug `python-engineering`)
 - Legacy sources: SRC-PY-HANDBOOK (CyberDudeBivash Python Engineering Handbook)
-- Concept-level change records: **18**; new developments assigned: **5**
+- Concept-level change records: **19**; new developments assigned: **5**
 
 ## Page-level audit rollup (machine candidates)
 
 | Source | Pages | Page-level action | Severity | Human-read (finding-cited) | Visual review needed |
 |---|---|---|---|---|---|
-| SRC-PY-HANDBOOK | 654 | KEEP 343, UPDATE 160, REPLACE 63, EXPAND 13, REMOVE 75 | P0 2, P1 12, P2 16, P3 15, P4 13, NONE 596 | 14 | 1 |
+| SRC-PY-HANDBOOK | 654 | KEEP 326, UPDATE 150, REPLACE 92, EXPAND 12, REMOVE 74 | P0 2, P1 12, P2 47, P3 14, P4 12, NONE 567 | 18 | 1 |
 
 These counts are rule outputs over every page; `KEEP` is a candidate, not a verdict.
 
 ## Differential analysis
 
-Actions: KEEP 1, UPDATE 5, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
+Actions: KEEP 1, UPDATE 6, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 
 ### MC-PYH-01 - Python language foundations (installing, syntax, types, control flow, functions, data structures)
 
@@ -257,6 +257,27 @@ Actions: KEEP 1, UPDATE 5, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
   - `F-PYH-008`: P2 Dataclasses described as providing type validation; type hints promise bug detection without naming a checker
   - `snapshot:mypy`: registry snapshot pypi: 2.4.0 (2026-10-01), retrieved 2026-10-14T08:47:30Z
   - `R-046`: What's New In Python 3.14 (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://docs.python.org/3/whatsnew/3.14.html>
+
+### MC-PYH-19 - File handling, JSON and HTTP client automation (requests, httpx)
+
+- **Action:** UPDATE  |  **Source:** SRC-PY-HANDBOOK, pages 82-83, 90-91, 125-126, 129, 135
+- **2025 source state:** HTTP calls are shown as requests.get(url) followed by res.json() with no timeout or status check (37 of 38 extracted calls lack an explicit timeout), files are opened with open() and never closed or given an encoding, a bulk rename can destroy files, and an AsyncClient is built per request (pp. 83, 91, 125, 129; F-PYH-009).
+- **Verified state at 2026-10-14:** requests applies no timeout unless one is passed and httpx defaults to 5 s (documentation and executed probe); a decoded body must be validated (pydantic 2.14.1 coerces by default and is strict on request); RFC 9110 limits automatic retries to idempotent methods; httpx 0.28.1 is the last stable release with a 1.0 pre-release published.
+- **Why:** Availability, data-loss and integrity defects in examples meant to be copied into automation that runs unattended.
+- **Destination:** PY-M05 (BUILT)
+- **Learner impact:** Learners build a client with timeouts, bounded retries, schema validation, safe pagination and atomic output, and are graded against slow, broken and hostile servers.
+- **Verification:** EXECUTED - probes http-client-defaults and pydantic-lax-and-strict-validation; tests/test_python_engineering_labs.py (PY-M05 labs)
+- **Evidence:**
+  - `F-PYH-009`: P2 HTTP calls taught without timeouts or status checks; files opened without a context manager or an encoding; a destructive bulk-rename example
+  - `R-087`: Requests - Quickstart (timeouts, redirects, raise_for_status, JSON decoding) (Requests project; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://requests.readthedocs.io/en/latest/user/quickstart/>
+  - `R-088`: HTTPX - Timeouts and Requests-compatibility pages (HTTPX project; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://www.python-httpx.org/advanced/timeouts/>
+  - `R-089`: RFC 9110 - HTTP Semantics (idempotent methods; Retry-After) (IETF (STD 97, June 2022); OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://www.rfc-editor.org/rfc/rfc9110.html>
+  - `R-090`: Pydantic - Strict Mode (lax coercion by default) (Pydantic; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://pydantic.dev/docs/validation/latest/concepts/strict_mode/>
+  - `R-091`: HTTP client defaults (reproduced) - requests 2.34.2 and httpx 0.28.1 (PyPI / Requests / HTTPX; EXECUTED; verified 2026-10-14) <https://pypi.org/project/requests/>
+  - `R-092`: Pydantic lax and strict validation (reproduced) - pydantic 2.14.1 (PyPI / Pydantic; EXECUTED; verified 2026-10-14) <https://pypi.org/project/pydantic/>
+  - `probe:http-client-defaults`: executed probe, status OK, 2026-10-14T15:15:46Z, Python 3.13.16
+  - `probe:pydantic-lax-and-strict-validation`: executed probe, status OK, 2026-10-14T15:15:55Z, Python 3.13.16
+  - `snapshot:httpx`: registry snapshot pypi: 0.28.1 (2024-12-06), retrieved 2026-10-14T08:47:33Z
 
 ## New developments relevant to this course
 

@@ -1,0 +1,41 @@
+# Source-to-new-content trace for PY-M05. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower). Mapping of pages to this module is a reading by the module author, not a measurement.
+source: SRC-PY-HANDBOOK
+module: PY-M05
+mappings:
+  - source_pages: [82, 83]
+    source_topic: "Serialization with JSON and pickle: json.dumps/loads, json.dump(data, open(...)), json.load(open(...)), pickle.dump/load"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 2 and 3; lab-guided steps A and B"
+    note: "The one-line open() forms leave the handle to the garbage collector and name no encoding (executed: ResourceWarning); replaced by Path.write_text with an encoding and an atomic replace, and decoded data is validated against a schema (F-PYH-009). The page's warning about pickle is kept in spirit; the risks are taught in PY-M07."
+  - source_pages: [90, 91]
+    source_topic: "Real-time examples: reading a config file, an API call, monitoring a log, renaming files in bulk with os.rename"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 2, 4 and 5; lab-guided steps A, C and E"
+    note: "The config and API examples are rebuilt with a schema, a timeout and status checks. The bulk rename renames every entry of the folder (including the script) and silently replaces existing files on POSIX; the lesson executes the failure and teaches plan-then-act (F-PYH-009)."
+  - source_pages: [125, 126]
+    source_topic: "HTTP requests with requests.get/requests.post and no timeout, status check or error handling"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 4 to 6; lab-guided steps C to E; lab-independent"
+    note: "requests applies no timeout unless one is passed (documentation and executed probe); the new lesson teaches explicit timeouts, status and content checks, one shared client and bounded retries (F-PYH-009)."
+  - source_pages: [126, 127]
+    source_topic: "Web scraping with BeautifulSoup and lxml, scraping tables, finding hidden JSON APIs in browser developer tools"
+    disposition: DROPPED
+    new_content: "not covered by PY-M05"
+    note: "Scraping raises legal and ethical questions (terms of use, robots rules, rate limits) for which the course has no policy yet; no replacement is claimed (F-PYH-007: the pages carry no assessable outcome)."
+  - source_pages: [129]
+    source_topic: "API automation with httpx, including an AsyncClient created inside a function that fetches one URL"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 4 and 5; lab-guided step C"
+    note: "httpx is kept as the client (0.28.1; its default timeout is 5 seconds). A client per request defeats connection reuse, so one shared client is taught; asynchronous clients belong to PY-M06 (F-PYH-009)."
+  - source_pages: [135]
+    source_topic: "Fetching URLs concurrently with ThreadPoolExecutor and requests.get, with a '3x faster' claim"
+    disposition: DROPPED
+    new_content: "not covered by PY-M05; concurrency is planned for PY-M06"
+    note: "The example repeats the missing timeout (F-PYH-009) and the speed claim has no evidence in the source; no replacement here."
+  - source_pages: [645, 646, 647, 648, 649, 650]
+    source_topic: "'Certification exam' question lists without answers or rubrics"
+    disposition: REPLACED
+    new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
+    note: "Finding F-PYH-007: recall questions replaced by outcome-mapped items and a rubric-graded independent lab with a hidden suite."

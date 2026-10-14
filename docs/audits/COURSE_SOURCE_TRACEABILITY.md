@@ -28,7 +28,7 @@ Catalog slug `soc-analyst`; legacy sources: SRC-SOC-PLAYBOOK.
 |---|---|---|---|---|---|---|
 | SOC-M01 | SOC fundamentals, roles and the alert lifecycle | 6 | SRC-SOC-PLAYBOOK: 6 pp (1-2, 8-10, 12) | UPDATE 4, REPLACE 1, EXPAND 1 | MC-SOC-08 | - |
 | SOC-M02 | Telemetry: Windows, Linux and network logs | NET_NEW | - | - | MC-SOC-08 | - |
-| SOC-M03 | Log parsing, normalisation and query languages | 72 | SRC-PY-HANDBOOK: 72 pp (123, 171, 312-336, 338-343, ... (+11 more ranges)) | KEEP 39, UPDATE 32, EXPAND 1 | MC-PYH-10, MC-SOC-08 | - |
+| SOC-M03 | Log parsing, normalisation and query languages | 72 | SRC-PY-HANDBOOK: 72 pp (123, 171, 312-336, 338-343, ... (+11 more ranges)) | KEEP 39, UPDATE 30, REPLACE 2, EXPAND 1 | MC-PYH-10, MC-SOC-08 | - |
 | SOC-M04 | Authentication-attack detection and triage | 3 | SRC-SOC-PLAYBOOK: 3 pp (22-24) | REPLACE 3 | MC-SOC-01, MC-SOC-03, MC-SOC-05 | - |
 | SOC-M05 | Alert triage and case management | 20 | SRC-MEGA-P1: 10 pp (228, 458, 899, 988-992, ... (+2 more ranges)); SRC-SOC-PLAYBOOK: 10 pp (3, 11, 13-18, 28, ... (+1 more ranges)) | KEEP 1, UPDATE 9, MERGE 10 | MC-MEG-09, MC-SOC-08 | - |
 | SOC-M06 | Detection engineering with Sigma and ATT&CK | 428 | SRC-MEGA-P1: 293 pp (50-51, 80, 89, 128, ... (+109 more ranges)); SRC-MEGA-P2: 135 pp (15, 17, 45, 47, ... (+42 more ranges)) | REPLACE 21, EXPAND 2, MERGE 405 | MC-MEG-09, MC-SOC-05 | ND-SC-01 |
@@ -47,16 +47,16 @@ Catalog slug `python-engineering`; legacy sources: SRC-PY-HANDBOOK.
 
 | Module | Title | Mapped source pages | Source pages (by PDF) | Page-level actions (candidate) | Change records | New developments |
 |---|---|---|---|---|---|---|
-| PY-M01 | Language core and data structures | 160 | SRC-PY-AUTOMATION: 117 pp (3, 28-42, 279-299, 571-644, ... (+5 more ranges)); SRC-PY-HANDBOOK: 43 pp (1-28, 48-56, 58-61, 63, ... (+1 more ranges)) | KEEP 38, UPDATE 3, REPLACE 2, EXPAND 5, MERGE 112 | MC-PYH-01 | ND-PY-04 |
-| PY-M02 | Functions, errors and testing with pytest | 9 | SRC-PY-HANDBOOK: 9 pp (62, 80-81, 83-84, 87-89, ... (+1 more ranges)) | KEEP 6, UPDATE 2, REPLACE 1 | MC-PYH-15, MC-PYH-17 | - |
+| PY-M01 | Language core and data structures | 161 | SRC-PY-AUTOMATION: 117 pp (3, 28-42, 279-299, 571-644, ... (+5 more ranges)); SRC-PY-HANDBOOK: 44 pp (1-28, 48-56, 58-61, 63, ... (+2 more ranges)) | KEEP 38, UPDATE 3, REPLACE 7, EXPAND 5, MERGE 108 | MC-PYH-01 | ND-PY-04 |
+| PY-M02 | Functions, errors and testing with pytest | 9 | SRC-PY-HANDBOOK: 9 pp (62, 80-81, 83-84, 87-89, ... (+1 more ranges)) | KEEP 6, UPDATE 1, REPLACE 2 | MC-PYH-15, MC-PYH-17 | - |
 | PY-M03 | Types, modules and project layout | NET_NEW | - | - | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | NET_NEW | - | - | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
-| PY-M05 | Files, structured data and HTTP clients | 6 | SRC-PY-HANDBOOK: 6 pp (82, 90, 125-126, 128-129) | KEEP 5, UPDATE 1 | - | - |
+| PY-M05 | Files, structured data and HTTP clients | 6 | SRC-PY-HANDBOOK: 6 pp (82, 90, 125-126, 128-129) | KEEP 3, UPDATE 1, REPLACE 2 | MC-PYH-19 | - |
 | PY-M06 | Concurrency and asynchronous programming | 1 | SRC-PY-HANDBOOK: 1 pp (177) | UPDATE 1 | MC-PYH-16 | ND-PY-02 |
-| PY-M07 | Secure coding for Python | 19 | SRC-PY-HANDBOOK: 19 pp (86, 120, 232, 245, ... (+5 more ranges)) | KEEP 12, UPDATE 6, REPLACE 1 | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
-| PY-M08 | Databases and persistence | 10 | SRC-PY-HANDBOOK: 10 pp (108, 154, 176, 181, ... (+6 more ranges)) | KEEP 7, UPDATE 2, REPLACE 1 | MC-PYH-08 | - |
-| PY-M09 | Profiling, performance and maintainable architecture | 2 | SRC-PY-HANDBOOK: 2 pp (57, 464) | KEEP 2 | - | ND-PY-01 |
-| PY-M10 | API development: typed, tested and secure HTTP services | 27 | SRC-PY-HANDBOOK: 27 pp (226-230, 233-234, 236-240, 242, ... (+7 more ranges)) | KEEP 21, UPDATE 3, REPLACE 2, EXPAND 1 | MC-PYH-06, MC-PYH-08 | - |
+| PY-M07 | Secure coding for Python | 19 | SRC-PY-HANDBOOK: 19 pp (86, 120, 232, 245, ... (+5 more ranges)) | KEEP 12, UPDATE 5, REPLACE 2 | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
+| PY-M08 | Databases and persistence | 10 | SRC-PY-HANDBOOK: 10 pp (108, 154, 176, 181, ... (+6 more ranges)) | KEEP 7, UPDATE 1, REPLACE 2 | MC-PYH-08 | - |
+| PY-M09 | Profiling, performance and maintainable architecture | 2 | SRC-PY-HANDBOOK: 2 pp (57, 464) | KEEP 1, REPLACE 1 | - | ND-PY-01 |
+| PY-M10 | API development: typed, tested and secure HTTP services | 27 | SRC-PY-HANDBOOK: 27 pp (226-230, 233-234, 236-240, 242, ... (+7 more ranges)) | KEEP 20, UPDATE 3, REPLACE 3, EXPAND 1 | MC-PYH-06, MC-PYH-08 | - |
 | PY-M11 | Capstone: typed, tested, documented application with CI | 9 | SRC-PY-HANDBOOK: 9 pp (646-654) | REPLACE 9 | MC-PYH-14 | - |
 
 ## COURSE-PY-AUTO - Python Automation Pathway
@@ -66,14 +66,14 @@ Catalog slug `python-automation`; legacy sources: SRC-PY-AUTOMATION.
 | Module | Title | Mapped source pages | Source pages (by PDF) | Page-level actions (candidate) | Change records | New developments |
 |---|---|---|---|---|---|---|
 | PA-M01 | Automation design and shared Python foundations | 38 | SRC-PY-AUTOMATION: 38 pp (1-2, 12-18, 20-27, 273-278, ... (+7 more ranges)) | KEEP 33, UPDATE 3, REPLACE 1, EXPAND 1 | MC-PYA-01, MC-PYA-02 | - |
-| PA-M02 | Filesystem and document workflows | 80 | SRC-PY-HANDBOOK: 80 pp (29-47, 106-107, 109-110, 112-113, ... (+26 more ranges)) | KEEP 58, UPDATE 19, REPLACE 2, EXPAND 1 | MC-PYA-01, MC-PYA-08 | - |
-| PA-M03 | API integrations and data validation | 219 | SRC-PY-AUTOMATION: 219 pp (5, 61-73, 77, 319-330, ... (+18 more ranges)) | KEEP 180, UPDATE 25, REPLACE 1, EXPAND 11, MERGE 2 | MC-PYA-01 | - |
+| PA-M02 | Filesystem and document workflows | 80 | SRC-PY-HANDBOOK: 80 pp (29-47, 106-107, 109-110, 112-113, ... (+26 more ranges)) | KEEP 54, UPDATE 18, REPLACE 7, EXPAND 1 | MC-PYA-01, MC-PYA-08 | - |
+| PA-M03 | API integrations and data validation | 219 | SRC-PY-AUTOMATION: 219 pp (5, 61-73, 77, 319-330, ... (+18 more ranges)) | KEEP 176, UPDATE 25, REPLACE 5, EXPAND 11, MERGE 2 | MC-PYA-01 | - |
 | PA-M04 | Browser automation with supported tools | 219 | SRC-PY-AUTOMATION: 219 pp (6, 78-86, 88-89, 92-103, ... (+23 more ranges)) | KEEP 162, UPDATE 49, REPLACE 1, EXPAND 7 | MC-PYA-01, MC-PYA-04 | ND-JV-04 |
-| PA-M05 | Scheduling, configuration and secrets | 9 | SRC-PY-HANDBOOK: 9 pp (114, 459-460, 462, 465, ... (+2 more ranges)) | KEEP 4, UPDATE 4, EXPAND 1 | MC-PYA-01, MC-PYA-05 | - |
+| PA-M05 | Scheduling, configuration and secrets | 9 | SRC-PY-HANDBOOK: 9 pp (114, 459-460, 462, 465, ... (+2 more ranges)) | KEEP 3, UPDATE 4, REPLACE 1, EXPAND 1 | MC-PYA-01, MC-PYA-05 | - |
 | PA-M06 | Reliability: retries, idempotency and recovery | NET_NEW | - | - | MC-PYA-01, MC-PYA-08 | - |
-| PA-M07 | Observability and auditable output | 40 | SRC-PY-HANDBOOK: 40 pp (93-96, 98-105, 115, 158, ... (+3 more ranges)) | KEEP 33, UPDATE 4, REPLACE 2, EXPAND 1 | MC-PYA-01, MC-PYA-08 | - |
-| PA-M08 | Testing automations: unit, integration, regression | 374 | SRC-PY-AUTOMATION: 374 pp (4, 9, 19, 43-60, ... (+39 more ranges)) | KEEP 345, UPDATE 23, EXPAND 6 | MC-PYA-01, MC-PYA-03, MC-PYA-09 | - |
-| PA-M09 | Command-line tools and guarded AI-assisted automation | 82 | SRC-PY-AUTOMATION: 75 pp (7, 107-119, 121, 1069-1115, ... (+2 more ranges)); SRC-PY-HANDBOOK: 7 pp (85, 111, 124, 163, ... (+3 more ranges)) | KEEP 72, UPDATE 4, REPLACE 4, EXPAND 1, MERGE 1 | MC-PYA-01, MC-PYA-10, MC-PYH-05 | - |
+| PA-M07 | Observability and auditable output | 40 | SRC-PY-HANDBOOK: 40 pp (93-96, 98-105, 115, 158, ... (+3 more ranges)) | KEEP 31, UPDATE 3, REPLACE 5, EXPAND 1 | MC-PYA-01, MC-PYA-08 | - |
+| PA-M08 | Testing automations: unit, integration, regression | 374 | SRC-PY-AUTOMATION: 374 pp (4, 9, 19, 43-60, ... (+39 more ranges)) | KEEP 344, UPDATE 23, REPLACE 1, EXPAND 6 | MC-PYA-01, MC-PYA-03, MC-PYA-09 | - |
+| PA-M09 | Command-line tools and guarded AI-assisted automation | 82 | SRC-PY-AUTOMATION: 75 pp (7, 107-119, 121, 1069-1115, ... (+2 more ranges)); SRC-PY-HANDBOOK: 7 pp (85, 111, 124, 163, ... (+3 more ranges)) | KEEP 69, UPDATE 3, REPLACE 9, EXPAND 1 | MC-PYA-01, MC-PYA-10, MC-PYH-05 | - |
 | PA-M10 | Capstone: safe operational workflow | 77 | SRC-PY-AUTOMATION: 77 pp (10, 171-178, 180-185, 442-455, ... (+9 more ranges)) | KEEP 66, UPDATE 10, EXPAND 1 | MC-PYA-01, MC-PYA-11 | - |
 
 ## COURSE-JAVA-QA - Java Test Automation Engineer Pathway
@@ -109,7 +109,7 @@ Catalog slug `ai-engineering`; legacy sources: SRC-AI-BUNDLE.
 | AI-M08 | Evaluation suites, observability, cost and latency | 40 | SRC-AI-BUNDLE: 40 pp (67, 69, 87, 100, ... (+21 more ranges)) | KEEP 33, UPDATE 7 | MC-AIB-04 | - |
 | AI-M09 | Governance and responsible deployment (NIST AI RMF) | 140 | SRC-AI-BUNDLE: 140 pp (46-60, 63-65, 68, 71, ... (+28 more ranges)) | KEEP 124, UPDATE 16 | MC-AIB-03 | ND-AI-05, ND-AI-06 |
 | AI-M10 | Model Context Protocol, tool interoperability and multi-agent systems | NET_NEW | - | - | MC-AIB-02, MC-AIB-08 | ND-AI-01 |
-| AI-M11 | Model selection, multimodal inputs and deployment economics | 82 | SRC-PY-HANDBOOK: 82 pp (198-210, 215-225, 264-306, 311, ... (+3 more ranges)) | KEEP 47, UPDATE 24, REPLACE 7, EXPAND 4 | MC-AIB-09, MC-PYH-07, MC-PYH-12 | ND-AI-03, ND-AI-07 |
+| AI-M11 | Model selection, multimodal inputs and deployment economics | 82 | SRC-PY-HANDBOOK: 82 pp (198-210, 215-225, 264-306, 311, ... (+3 more ranges)) | KEEP 46, UPDATE 24, REPLACE 8, EXPAND 4 | MC-AIB-09, MC-PYH-07, MC-PYH-12 | ND-AI-03, ND-AI-07 |
 | AI-M12 | Capstone: secure production-oriented AI assistant | NET_NEW | - | - | - | - |
 
 ## COURSE-OSINT - Lawful OSINT Investigation Pathway
@@ -138,11 +138,11 @@ Catalog slug `gcp-data-engineering`; legacy sources: SRC-GCP-DATAENG.
 | Module | Title | Mapped source pages | Source pages (by PDF) | Page-level actions (candidate) | Change records | New developments |
 |---|---|---|---|---|---|---|
 | GCP-M01 | Cloud foundations, IAM, cost safety and sandbox setup | 61 | SRC-GCP-DATAENG: 61 pp (1, 5-8, 23, 26-27, ... (+21 more ranges)) | KEEP 32, UPDATE 18, REPLACE 2, EXPAND 9 | MC-GCP-05 | - |
-| GCP-M02 | Cloud Storage and batch ingestion | 110 | SRC-AI-BUNDLE: 58 pp (74-83, 85-86, 88-97, 99, ... (+9 more ranges)); SRC-GCP-DATAENG: 9 pp (9, 37-39, 41-44, 50); SRC-PY-HANDBOOK: 43 pp (97, 133-146, 156-157, 168-169, ... (+6 more ranges)) | KEEP 18, UPDATE 30, REPLACE 3, EXPAND 1, MERGE 58 | MC-AIB-06, MC-PYH-13 | ND-PY-04 |
-| GCP-M03 | BigQuery SQL and analytical modelling | 30 | SRC-GCP-DATAENG: 11 pp (2, 10-11, 25, 47, ... (+2 more ranges)); SRC-PY-HANDBOOK: 19 pp (64-79, 179, 354, 374) | KEEP 22, UPDATE 6, REPLACE 1, EXPAND 1 | MC-AIB-06, MC-GCP-03, MC-PYH-13 | ND-AI-07 |
+| GCP-M02 | Cloud Storage and batch ingestion | 110 | SRC-AI-BUNDLE: 58 pp (74-83, 85-86, 88-97, 99, ... (+9 more ranges)); SRC-GCP-DATAENG: 9 pp (9, 37-39, 41-44, 50); SRC-PY-HANDBOOK: 43 pp (97, 133-146, 156-157, 168-169, ... (+6 more ranges)) | KEEP 14, UPDATE 29, REPLACE 8, EXPAND 1, MERGE 58 | MC-AIB-06, MC-PYH-13 | ND-PY-04 |
+| GCP-M03 | BigQuery SQL and analytical modelling | 30 | SRC-GCP-DATAENG: 11 pp (2, 10-11, 25, 47, ... (+2 more ranges)); SRC-PY-HANDBOOK: 19 pp (64-79, 179, 354, 374) | KEEP 21, UPDATE 6, REPLACE 2, EXPAND 1 | MC-AIB-06, MC-GCP-03, MC-PYH-13 | ND-AI-07 |
 | GCP-M04 | Pub/Sub and streaming ingestion | 28 | SRC-GCP-DATAENG: 4 pp (40, 45-46, 58); SRC-PY-HANDBOOK: 24 pp (610-633) | KEEP 13, UPDATE 15 | MC-PYH-13 | - |
 | GCP-M05 | Apache Beam and Dataflow | 8 | SRC-GCP-DATAENG: 8 pp (12, 24, 62-66, 115) | KEEP 2, UPDATE 6 | MC-GCP-06 | ND-GC-04 |
-| GCP-M06 | Orchestration and pipeline reliability | 16 | SRC-GCP-DATAENG: 4 pp (13, 73, 75-76); SRC-PY-HANDBOOK: 12 pp (634-645) | KEEP 9, UPDATE 6, EXPAND 1 | MC-GCP-02, MC-PYH-13 | ND-GC-01 |
+| GCP-M06 | Orchestration and pipeline reliability | 16 | SRC-GCP-DATAENG: 4 pp (13, 73, 75-76); SRC-PY-HANDBOOK: 12 pp (634-645) | KEEP 9, UPDATE 6, REPLACE 1 | MC-GCP-02, MC-PYH-13 | ND-GC-01 |
 | GCP-M07 | Data quality, governance and security | 12 | SRC-GCP-DATAENG: 12 pp (3, 15, 102-103, 105-111, ... (+1 more ranges)) | KEEP 6, UPDATE 4, EXPAND 2 | MC-GCP-04 | ND-GC-02 |
 | GCP-M08 | Infrastructure as code and CI with Workload Identity Federation | 7 | SRC-GCP-DATAENG: 7 pp (14, 81-82, 86, 179-180, ... (+1 more ranges)) | KEEP 1, UPDATE 3, REPLACE 3 | MC-GCP-01 | ND-GC-03, ND-GC-05 |
 | GCP-M09 | Monitoring, SLOs and cost optimisation | 35 | SRC-GCP-DATAENG: 35 pp (4, 56, 77, 91-96, ... (+12 more ranges)) | KEEP 25, UPDATE 8, EXPAND 2 | MC-GCP-05 | - |
@@ -179,7 +179,7 @@ Catalog slug `cybersecurity-tracks`; legacy sources: SRC-MEGA-P1, SRC-MEGA-P2.
 | CYB-M04 | Web and API application security | 136 | SRC-MEGA-P1: 117 pp (244, 273, 289-296, 298-304, ... (+36 more ranges)); SRC-MEGA-P2: 19 pp (172, 187, 258-266, 323, ... (+4 more ranges)) | KEEP 35, UPDATE 93, REPLACE 7, EXPAND 1 | MC-MEG-01, MC-MEG-02 | ND-SC-04 |
 | CYB-M05 | Vulnerability management and authorised assessment | 174 | SRC-MEGA-P1: 146 pp (35-36, 38-46, 48-49, 267-268, ... (+36 more ranges)); SRC-MEGA-P2: 28 pp (166-169, 173-174, 184, 186, ... (+8 more ranges)) | KEEP 85, UPDATE 87, REPLACE 1, EXPAND 1 | MC-MEG-01, MC-MEG-10 | ND-SC-03 |
 | CYB-M06 | Cloud and container security | 299 | SRC-MEGA-P1: 173 pp (37, 146, 242, 270, ... (+69 more ranges)); SRC-MEGA-P2: 126 pp (1-2, 4-9, 26, 39-44, ... (+37 more ranges)) | KEEP 27, UPDATE 243, REPLACE 29 | MC-MEG-01, MC-MEG-04, MC-MEG-05, MC-MEG-12, MC-PYH-09 | ND-SC-05 |
-| CYB-M07 | DevSecOps and software supply-chain defence | 103 | SRC-MEGA-P1: 66 pp (24, 605-609, 611-619, 622, ... (+17 more ranges)); SRC-MEGA-P2: 27 pp (3, 92, 362-363, 365-367, ... (+6 more ranges)); SRC-PY-HANDBOOK: 10 pp (400, 433-436, 438-440, 442-443) | KEEP 10, UPDATE 87, REPLACE 4, EXPAND 2 | MC-MEG-01, MC-MEG-05, MC-MEG-06, MC-MEG-12 | ND-SC-05 |
+| CYB-M07 | DevSecOps and software supply-chain defence | 103 | SRC-MEGA-P1: 66 pp (24, 605-609, 611-619, 622, ... (+17 more ranges)); SRC-MEGA-P2: 27 pp (3, 92, 362-363, 365-367, ... (+6 more ranges)); SRC-PY-HANDBOOK: 10 pp (400, 433-436, 438-440, 442-443) | KEEP 10, UPDATE 85, REPLACE 6, EXPAND 2 | MC-MEG-01, MC-MEG-05, MC-MEG-06, MC-MEG-12 | ND-SC-05 |
 | CYB-M08 | Digital forensics and incident response | 344 | SRC-MEGA-P1: 299 pp (4, 82-84, 108, 175-198, ... (+69 more ranges)); SRC-MEGA-P2: 45 pp (11-14, 16, 18-20, 136, ... (+12 more ranges)) | KEEP 119, UPDATE 201, REPLACE 18, EXPAND 6 | MC-MEG-01 | - |
 | CYB-M09 | Malware analysis and reverse engineering fundamentals (isolated lab) | 267 | SRC-MEGA-P1: 252 pp (3, 85, 199-205, 208, ... (+70 more ranges)); SRC-MEGA-P2: 15 pp (56-65, 140, 293, 421, ... (+2 more ranges)) | KEEP 127, UPDATE 138, REPLACE 1, EXPAND 1 | MC-MEG-01, MC-PYH-10 | - |
 | CYB-M10 | Cyber threat intelligence | 450 | SRC-MEGA-P1: 359 pp (47, 55-57, 65, 77-78, ... (+135 more ranges)); SRC-MEGA-P2: 91 pp (50, 66, 68-76, 109-110, ... (+26 more ranges)) | KEEP 129, UPDATE 304, REPLACE 13, EXPAND 4 | MC-MEG-01, MC-PYH-10 | - |
@@ -202,5 +202,5 @@ Pages mapped by `catalog/source_mapping.yaml` REMOVE rules (career, marketing, o
 | SRC-MEGA-P2 | 3 | 0.4 % |
 | SRC-OSINT-STARTER | 0 | 0.0 % |
 | SRC-PY-AUTOMATION | 339 | 23.3 % |
-| SRC-PY-HANDBOOK | 75 | 11.5 % |
+| SRC-PY-HANDBOOK | 74 | 11.3 % |
 | SRC-SOC-PLAYBOOK | 2 | 4.7 % |

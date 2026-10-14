@@ -6,7 +6,7 @@ mutant (the correct module with exactly one defect injected). A mutant that stil
 tells the learner which behaviour is untested.
 
 Usage:
-    python mutation_check.py --module-dir DIR --module NAME --tests DIR_OR_FILE --mutants FILE.json [--json]
+    python mutation_check.py --module-dir DIR --module NAME --tests DIR_OR_FILE --mutants FILE.json [--json] [--jobs N]
 
     --module-dir   directory that contains the CORRECT NAME.py
     --mutants      JSON list of {"id", "description", "old", "new", "required"}; `old` must occur exactly once in NAME.py
@@ -22,6 +22,7 @@ import os
 import subprocess
 import sys
 import tempfile
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 
@@ -38,7 +39,7 @@ def run_pytest(tests: Path, module_dir: Path) -> tuple[int, str]:
     return proc.returncode, (proc.stdout + proc.stderr)
 
 
-def check(module_dir: Path, module: str, tests: Path, mutants: list[dict]) -> dict:
+def check(module_dir: Path, module: str, tests: Path, mutants: list[dict], jobs: int = 1) -> dict:
     source = (module_dir / f"{module}.py").read_text(encoding="utf-8")
     report: dict = {"module": module, "tests": str(tests), "baseline_passes": None, "mutants": []}
     rc, out = run_pytest(tests, module_dir)
@@ -47,13 +48,18 @@ def check(module_dir: Path, module: str, tests: Path, mutants: list[dict]) -> di
     for m in mutants:
         if source.count(m["old"]) != 1:
             raise SystemExit(f"mutant {m['id']}: `old` must occur exactly once in {module}.py (found {source.count(m['old'])})")
+
+    def judge(m: dict) -> dict:
         with tempfile.TemporaryDirectory() as td:
             (Path(td) / f"{module}.py").write_text(source.replace(m["old"], m["new"]), encoding="utf-8")
             rc_m, out_m = run_pytest(tests, Path(td))
         # pytest exit codes: 0 all passed, 1 tests failed, 2 interrupted/collection error, 5 no tests collected.
         # "No tests" must never count as detecting a defect, so only 1 and 2 kill a mutant.
-        report["mutants"].append({"id": m["id"], "description": m["description"], "required": m.get("required", True), "killed": rc_m in (1, 2),
-                                  "first_failure": next((ln for ln in out_m.splitlines() if "assert" in ln.lower() or "Error" in ln or "FAILED" in ln), "")[:200]})
+        return {"id": m["id"], "description": m["description"], "required": m.get("required", True), "killed": rc_m in (1, 2),
+                "first_failure": next((ln for ln in out_m.splitlines() if "assert" in ln.lower() or "Error" in ln or "FAILED" in ln), "")[:200]}
+
+    with ThreadPoolExecutor(max_workers=max(1, jobs)) as pool:        # each mutant runs in its own directory and process
+        report["mutants"] = list(pool.map(judge, mutants))
     required = [m for m in report["mutants"] if m["required"]]
     report["required_killed"] = sum(1 for m in required if m["killed"])
     report["required_total"] = len(required)
@@ -70,9 +76,10 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--tests", required=True, type=Path)
     ap.add_argument("--mutants", required=True, type=Path)
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--jobs", type=int, default=1, help="mutants judged in parallel (tests must not depend on a fixed port or on exclusive CPU time)")
     a = ap.parse_args(argv)
     mutants = json.loads(a.mutants.read_text(encoding="utf-8"))
-    report = check(a.module_dir.resolve(), a.module, a.tests.resolve(), mutants)
+    report = check(a.module_dir.resolve(), a.module, a.tests.resolve(), mutants, a.jobs)
     if a.json:
         print(json.dumps(report, indent=2, sort_keys=True))
     else:

@@ -1,0 +1,39 @@
+# Outcome traceability for PY-M05: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M05
+outcomes:
+  - id: LO1
+    verb: write
+    statement: "Read and write files and configuration safely: explicit encodings, context managers, TOML and JSON, and writes that either complete or leave the old file untouched."
+    instruction: ["lesson.md#2-files-you-can-trust-lo1"]
+    practice: ["lab-guided/README.md#step-a---read_settings-a-validated-configuration-file-lo1-lo2", "lab-guided/README.md#step-b---write_json_atomic-never-leave-a-half-written-file-lo1", "lab-guided/README.md#step-g---sync-all-or-nothing-lo1-lo5", "lab-independent/README.md"]
+    assessment: ["quiz:Q1", "lab-check:published-feed-checks", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C2"]
+    rubric: [C1, C2]
+  - id: LO2
+    verb: validate
+    statement: "Validate decoded JSON against a schema (a pydantic model), choose strict or lenient checking on purpose, and report what is wrong and where."
+    instruction: ["lesson.md#3-data-you-can-trust-schemas-lo2"]
+    practice: ["lab-guided/README.md#step-a---read_settings-a-validated-configuration-file-lo1-lo2", "lab-guided/README.md#step-f---iter_products-pagination-that-cannot-run-away-lo2-lo5", "lab-independent/README.md"]
+    assessment: ["quiz:Q2", "quiz:Q3", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C2"]
+    rubric: [C1, C2]
+  - id: LO3
+    verb: call
+    statement: "Call an HTTP API with one shared client, an explicit timeout on every request, and checks of the status, the content type and the decoded value."
+    instruction: ["lesson.md#4-talking-to-an-api-requests-responses-and-clients-lo3", "lesson.md#5-timeouts-the-most-expensive-missing-argument-lo3"]
+    practice: ["lab-guided/README.md#step-c---make_client-one-shared-client-with-explicit-limits-lo3", "lab-guided/README.md#step-e---fetch_json-one-request-done-properly-lo3-lo4", "lab-independent/README.md"]
+    assessment: ["quiz:Q4", "quiz:Q5", "lab-check:published-feed-checks", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C2", "rubric:C3"]
+    rubric: [C1, C2, C3]
+  - id: LO4
+    verb: retry
+    statement: "Retry only transient failures of safe requests, with bounded exponential backoff that honours Retry-After, and test the timing without sleeping."
+    instruction: ["lesson.md#6-retries-when-how-often-how-long-lo4"]
+    practice: ["lab-guided/README.md#step-d---delay_for-how-long-to-wait-lo4", "lab-guided/README.md#step-e---fetch_json-one-request-done-properly-lo3-lo4", "lab-independent/README.md"]
+    assessment: ["quiz:Q6", "quiz:Q7", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C2", "rubric:C3"]
+    rubric: [C1, C2, C3]
+  - id: LO5
+    verb: consume
+    statement: "Consume a paginated API completely and safely (cursors, loop and size limits, same-origin links) and publish the result all-or-nothing."
+    instruction: ["lesson.md#7-pagination-reading-everything-without-running-away-lo5", "lesson.md#9-security-and-operations-notes"]
+    practice: ["lab-guided/README.md#step-f---iter_products-pagination-that-cannot-run-away-lo2-lo5", "lab-guided/README.md#step-g---sync-all-or-nothing-lo1-lo5", "lab-independent/README.md"]
+    assessment: ["quiz:Q8", "lab-check:published-feed-checks", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C2", "rubric:C4"]
+    rubric: [C1, C2, C4]

@@ -9,9 +9,9 @@ The ten source PDFs contain **8,186 pages**. Every page has a machine-readable r
 
 | Verification status | Pages | Share | Meaning |
 |---|---|---|---|
-| HUMAN_READ_FINDING_CITED | 98 | 1.2 % | A finding in docs/audits/data/findings.yaml cites this page, and the page text was read in context while writing that finding. This is the only status that implies a person's read; it does not imply the whole page was reviewed for every issue. |
-| MACHINE_FLAGGED_REVIEW_REQUIRED | 463 | 5.7 % | A deterministic rule matched this page (obsolete API, superseded product, unsupported claim, markdown leakage, stub). A person must confirm before the flag is treated as a defect. |
-| MACHINE_SCANNED_NO_FLAGS | 7,567 | 92.4 % | Text extracted and scanned by every rule; nothing matched. This is NOT evidence that the page is correct or current, only that none of the implemented rules fired. |
+| HUMAN_READ_FINDING_CITED | 102 | 1.2 % | A finding in docs/audits/data/findings.yaml cites this page, and the page text was read in context while writing that finding. This is the only status that implies a person's read; it does not imply the whole page was reviewed for every issue. |
+| MACHINE_FLAGGED_REVIEW_REQUIRED | 502 | 6.1 % | A deterministic rule matched this page (obsolete API, superseded product, unsupported claim, markdown leakage, stub). A person must confirm before the flag is treated as a defect. |
+| MACHINE_SCANNED_NO_FLAGS | 7,524 | 91.9 % | Text extracted and scanned by every rule; nothing matched. This is NOT evidence that the page is correct or current, only that none of the implemented rules fired. |
 | MACHINE_SCANNED_NEAR_BLANK | 29 | 0.4 % | Text layer present but almost empty; a person should confirm nothing is lost. |
 | VISUAL_REVIEW_REQUIRED | 29 | 0.4 % | No usable text layer (image-only page). The content has not been read by anyone or anything; it needs a visual read or OCR. |
 
@@ -28,10 +28,10 @@ Consequences that every reader of this audit must keep in mind:
 | Measure | Result |
 |---|---|
 | Pages with a record | 8,186 |
-| Severity | P0 10, P1 71, P2 156, P3 347, P4 178, NONE 7,424 |
-| Machine-derived action (page level) | KEEP 3,300, UPDATE 2,473, REPLACE 447, EXPAND 92, MERGE 941, REMOVE 933 |
+| Severity | P0 10, P1 71, P2 201, P3 345, P4 177, NONE 7,382 |
+| Machine-derived action (page level) | KEEP 3,275, UPDATE 2,462, REPLACE 490, EXPAND 91, MERGE 936, REMOVE 932 |
 | Currency status | BASELINE_AVAILABLE 1,394, CURRENCY_FLAGGED 155, NO_TECHNOLOGY_DETECTED 3,244, UNVERIFIED_CURRENCY 3,393 |
-| Verification status | HUMAN_READ_FINDING_CITED 98, MACHINE_FLAGGED_REVIEW_REQUIRED 463, MACHINE_SCANNED_NO_FLAGS 7,567, MACHINE_SCANNED_NEAR_BLANK 29, VISUAL_REVIEW_REQUIRED 29 |
+| Verification status | HUMAN_READ_FINDING_CITED 102, MACHINE_FLAGGED_REVIEW_REQUIRED 502, MACHINE_SCANNED_NO_FLAGS 7,524, MACHINE_SCANNED_NEAR_BLANK 29, VISUAL_REVIEW_REQUIRED 29 |
 
 Page-level actions are **rule outputs** (precedence REPLACE > REMOVE > EXPAND > MERGE > UPDATE > KEEP-candidate). `REMOVE` pages are those mapped to career/marketing/out-of-scope headings with no destination module (the source is preserved; only the product omits them). `MERGE` pages belong to a topic owned by a different course (single owner per topic). The curated, concept-level differential analysis is in [2025_TO_2026_MODERNIZATION_MATRIX.md](2025_TO_2026_MODERNIZATION_MATRIX.md).
 
@@ -46,8 +46,8 @@ Page-level actions are **rule outputs** (precedence REPLACE > REMOVE > EXPAND > 
 | SRC-MEGA-P1 | Official Mega Course 2026, Part 1 | 2,837 | P1 13, P2 37, P3 169, P4 24, NONE 2,594 | KEEP 695, UPDATE 1,474, REPLACE 102, EXPAND 21, MERGE 544, REMOVE 1 | 15 | 207 | 0 |
 | SRC-MEGA-P2 | Official Mega Course 2026, Part 2 | 827 | P2 9, P3 81, P4 1, NONE 736 | KEEP 121, UPDATE 429, REPLACE 49, EXPAND 1, MERGE 224, REMOVE 3 | 1 | 89 | 0 |
 | SRC-OSINT-STARTER | OSINT Starter Bundle (FULL) | 23 | P0 6, P1 11, P2 6 | REPLACE 23 | 0 | 0 | 23 |
-| SRC-PY-AUTOMATION | Python Automation Training | 1,458 | P1 5, P2 26, P3 29, P4 57, NONE 1,341 | KEEP 856, UPDATE 112, REPLACE 5, EXPAND 31, MERGE 115, REMOVE 339 | 12 | 47 | 1 |
-| SRC-PY-HANDBOOK | CyberDudeBivash Python Engineering Handbook | 654 | P0 2, P1 12, P2 16, P3 15, P4 13, NONE 596 | KEEP 343, UPDATE 160, REPLACE 63, EXPAND 13, REMOVE 75 | 14 | 30 | 1 |
+| SRC-PY-AUTOMATION | Python Automation Training | 1,458 | P1 5, P2 40, P3 28, P4 57, NONE 1,328 | KEEP 848, UPDATE 111, REPLACE 19, EXPAND 31, MERGE 110, REMOVE 339 | 12 | 60 | 1 |
+| SRC-PY-HANDBOOK | CyberDudeBivash Python Engineering Handbook | 654 | P0 2, P1 12, P2 47, P3 14, P4 12, NONE 567 | KEEP 326, UPDATE 150, REPLACE 92, EXPAND 12, REMOVE 74 | 18 | 56 | 1 |
 | SRC-SOC-PLAYBOOK | SOC Analyst Survival Playbook (2026 Edition) | 43 | P1 11, P2 8, P3 8, P4 3, NONE 13 | KEEP 2, UPDATE 33, REPLACE 4, EXPAND 2, REMOVE 2 | 21 | 6 | 1 |
 
 ## 4. Pages that need attention first
@@ -1127,11 +1127,11 @@ Pages by issue type:
 ### SRC-PY-AUTOMATION - Python Automation Training
 
 - PDF: `CYBERDUDEBIVASH-PYTHON-AUTOMATION-TRAINING.pdf`; pages: **1,458**; records: `docs/audits/data/page_records/SRC-PY-AUTOMATION.part*.jsonl`
-- Severity: P1 5, P2 26, P3 29, P4 57, NONE 1,341
-- Page-level action (machine): KEEP 856, UPDATE 112, REPLACE 5, EXPAND 31, MERGE 115, REMOVE 339
-- Verification status: HUMAN_READ_FINDING_CITED 12, MACHINE_FLAGGED_REVIEW_REQUIRED 47, MACHINE_SCANNED_NO_FLAGS 1,398, VISUAL_REVIEW_REQUIRED 1
+- Severity: P1 5, P2 40, P3 28, P4 57, NONE 1,328
+- Page-level action (machine): KEEP 848, UPDATE 111, REPLACE 19, EXPAND 31, MERGE 110, REMOVE 339
+- Verification status: HUMAN_READ_FINDING_CITED 12, MACHINE_FLAGGED_REVIEW_REQUIRED 60, MACHINE_SCANNED_NO_FLAGS 1,385, VISUAL_REVIEW_REQUIRED 1
 - Currency: BASELINE_AVAILABLE 649, CURRENCY_FLAGGED 2, NO_TECHNOLOGY_DETECTED 670, UNVERIFIED_CURRENCY 137
-- Issue types (pages): DUPLICATE_CONTENT 10, END_OF_LIFE_VERSION 1, MARKDOWN_LEAK 23, NO_TEXT_LAYER 1, OBSOLETE_API 1, PERSONAL_DATA_RISK 1, SECURITY_ANTIPATTERN 3, STUB_PAGE 38, UNSUPPORTED_CLAIM 34
+- Issue types (pages): DUPLICATE_CONTENT 10, END_OF_LIFE_VERSION 1, MARKDOWN_LEAK 23, NO_TEXT_LAYER 1, OBSOLETE_API 1, PERSONAL_DATA_RISK 1, SECURITY_ANTIPATTERN 17, STUB_PAGE 38, UNSUPPORTED_CLAIM 34
 - Mapping basis: M-PYA-01 303, M-PYA-02 36, M-PYA-03 77, M-PYA-04 117, M-PYA-05 191, M-PYA-06 143, M-PYA-07 75, M-PYA-08 219, M-PYA-09 219, M-PYA-10 40, M-PYA-13 35, default 3
 - Findings cited by pages: F-PYA-001, F-PYA-002, F-PYA-003, F-PYA-004, F-PYA-005
 
@@ -1162,8 +1162,8 @@ Pages by issue type:
 | STUB_PAGE | 38 | 2, 201-203, 293, 308, 333, 348, 394, 496, 550-551, 597, 628-629, 650, ... (+22 more ranges) |
 | UNSUPPORTED_CLAIM | 34 | 11, 13, 81, 97, 186, 195, 199, 231, 348, 365, 421, 442, ... (+21 more ranges) |
 | MARKDOWN_LEAK | 23 | 530, 592, 599, 638, 667-668, 671-672, 679, 753-754, 783-784, 791, 831-832, 846-847, ... (+4 more ranges) |
+| SECURITY_ANTIPATTERN | 17 | 31, 33, 39, 66, 69, 322, 325, 633, 810, 949, 1011, 1072, ... (+3 more ranges) |
 | DUPLICATE_CONTENT | 10 | 207, 210, 288, 297, 568-569, 587, 831, 846, 1095 |
-| SECURITY_ANTIPATTERN | 3 | 810, 949, 1072 |
 | END_OF_LIFE_VERSION | 1 | 29 |
 | NO_TEXT_LAYER | 1 | 1 |
 | OBSOLETE_API | 1 | 586 |
@@ -1175,9 +1175,9 @@ Pages by issue type:
 |---|---|---|---|---|---|
 | 1-11 | 11 | (front matter / untitled) | KEEP 5, UPDATE 1, REPLACE 1, EXPAND 1, MERGE 1, REMOVE 2 | PA-M01, PA-M08, - | P2 |
 | 12-27 | 16 | VOLUME 1 FOUNDATION | KEEP 15, UPDATE 1 | PA-M01, PA-M08 | P3 |
-| 28-42 | 15 | VOLUME 2 PYTHON FOR AUTOMATION ENGINEERS | MERGE 15 | PY-M01 | P2 |
+| 28-42 | 15 | VOLUME 2 PYTHON FOR AUTOMATION ENGINEERS | REPLACE 3, MERGE 12 | PY-M01 | P2 |
 | 43-60 | 18 | VOLUME 3 PYTEST CORE & FRAMEWORK THINKING | KEEP 18 | PA-M08 | NONE |
-| 61-77 | 17 | VOLUME 4 API AUTOMATION (PROFESSIONAL LEVEL) | KEEP 16, REMOVE 1 | PA-M03, PA-M08, - | NONE |
+| 61-77 | 17 | VOLUME 4 API AUTOMATION (PROFESSIONAL LEVEL) | KEEP 14, REPLACE 2, REMOVE 1 | PA-M03, PA-M08, - | P2 |
 | 78-91 | 14 | VOLUME 5 SELENIUM UI AUTOMATION (ENTERPRISE LEVEL) | KEEP 9, UPDATE 4, REMOVE 1 | PA-M04, PA-M08, - | P2 |
 | 92-106 | 15 | VOLUME 6 PLAYWRIGHT UI AUTOMATION (MODERN & SCALABLE) | KEEP 12, UPDATE 3 | PA-M04, PA-M08 | P3 |
 | 107 | 1 | Volume 7 Preview CLI AUTOMATION (DEVOPS & BACKEND REALITY) | KEEP 1 | PA-M09 | NONE |
@@ -1196,7 +1196,7 @@ Pages by issue type:
 | 277 | 1 | Module 6 Foundation Setup (Standard Environment) | KEEP 1 | PA-M01 | NONE |
 | 278-299 | 22 | Module 7 First Automation Script (Foundation Confidence) | KEEP 1, EXPAND 1, MERGE 20 | PY-M01, PA-M01 | P3 |
 | 300-318 | 19 | VOLUME 3 PYTEST CORE + FRAMEWORK THINKING (ENTERPRISE STYLE) | KEEP 17, EXPAND 1, REMOVE 1 | PA-M08, - | P4 |
-| 319-336 | 18 | VOLUME 4 API AUTOMATION (PROFESSIONAL LEVEL ENTERPRISE STYLE) | KEEP 16, EXPAND 1, REMOVE 1 | PA-M03, PA-M08, - | P4 |
+| 319-336 | 18 | VOLUME 4 API AUTOMATION (PROFESSIONAL LEVEL ENTERPRISE STYLE) | KEEP 14, REPLACE 2, EXPAND 1, REMOVE 1 | PA-M03, PA-M08, - | P2 |
 | 337-355 | 19 | VOLUME 5 SELENIUM UI AUTOMATION (ENTERPRISE LEVEL) | KEEP 12, UPDATE 5, EXPAND 1, REMOVE 1 | PA-M04, - | P2 |
 | 356-371 | 16 | VOLUME 6 PLAYWRIGHT UI AUTOMATION (MODERN & SCALABLE ENTERPRISE STYLE) | KEEP 11, UPDATE 4, REMOVE 1 | PA-M04, - | P3 |
 | 372-388 | 17 | VOLUME 7 CLI AUTOMATION & BACKEND VALIDATION (ENTERPRISE / TESTOPS LEV | KEEP 16, REMOVE 1 | PA-M08, - | NONE |
@@ -1205,7 +1205,7 @@ Pages by issue type:
 | 423-441 | 19 | VOLUME 10 CI/CD, TESTOPS & AUTOMATION OPERATIONS (ENTERPRISE / PRODUCT | KEEP 16, UPDATE 2, REMOVE 1 | PA-M08, - | NONE |
 | 442-457 | 16 | VOLUME 11 REALTIME AUTOMATION PROJECTS & INDUSTRY SIMULATION | KEEP 12, UPDATE 3, REMOVE 1 | PA-M10, - | P2 |
 | 458-570 | 113 | VOLUME 12 INTERVIEW MASTERCLASS & CAREER EXECUTION | REMOVE 113 | - | P1 |
-| 571-646 | 76 | Volume 2: Starter Repo Blueprint (Enterprise Ready) | REPLACE 1, EXPAND 3, MERGE 71, REMOVE 1 | PY-M01, - | P2 |
+| 571-646 | 76 | Volume 2: Starter Repo Blueprint (Enterprise Ready) | REPLACE 2, EXPAND 3, MERGE 70, REMOVE 1 | PY-M01, - | P2 |
 | 647-674 | 28 | Volume 4 Deliverable (What You Now Have) | KEEP 21, UPDATE 5, EXPAND 2 | PA-M03, PA-M08 | P1 |
 | 675-700 | 26 | Volume 4 Part 2: Advanced Framework Hardening (Enterprise Level) | KEEP 20, UPDATE 4, EXPAND 2 | PA-M03, PA-M08 | P4 |
 | 701-803 | 103 | Volume 4 Part 3: Enterprise Features (Reports, Contracts, CI, Ops-Grad | KEEP 87, UPDATE 10, EXPAND 5, REMOVE 1 | PA-M03, PA-M08, - | P4 |
@@ -1218,7 +1218,7 @@ Pages by issue type:
 | 947-994 | 48 | Volume 6 Playwright UI Automation (Python) | KEEP 29, UPDATE 4, REPLACE 1, EXPAND 1, REMOVE 13 | PA-M04, -, PA-M08 | P2 |
 | 995-1003 | 9 | Volume 6 Part 6: Advanced Playwright (Real-world Problem Solving) | KEEP 8, UPDATE 1 | PA-M04 | P2 |
 | 1004-1006 | 3 | Volume 6 Part 3: Enterprise Hardening (Real-world reliability) | KEEP 1, UPDATE 2 | PA-M04 | P4 |
-| 1007-1011 | 5 | Volume 6 Part 4: Advanced Framework Design (fixtures, layers, architec | KEEP 5 | PA-M08 | NONE |
+| 1007-1011 | 5 | Volume 6 Part 4: Advanced Framework Design (fixtures, layers, architec | KEEP 4, REPLACE 1 | PA-M08 | P2 |
 | 1012-1013 | 2 | Volume 6 Part 5: CI/CD + Reporting + Artifacts (production readiness) | KEEP 1, UPDATE 1 | PA-M08 | NONE |
 | 1014-1024 | 11 | Volume 6 Part 6: Security + Auth + Test Data + Parallelization (Enterp | KEEP 10, EXPAND 1 | PA-M10, PA-M04 | P4 |
 | 1025-1029 | 5 | Volume 6 Part 3: Enterprise Hardening (CISO/QA-Lead Grade) | KEEP 4, UPDATE 1 | PA-M04, PA-M08 | NONE |
@@ -1232,10 +1232,10 @@ Pages by issue type:
 | 1070 | 1 | Volume 7 Structure | KEEP 1 | PA-M09 | NONE |
 | 1071-1078 | 8 | Volume 7 Part 1: CLI Automation Fundamentals | KEEP 7, REPLACE 1 | PA-M09 | P3 |
 | 1079-1091 | 13 | Volume 7 Part 2: System & OS Automation (Enterprise-Grade) | KEEP 12, EXPAND 1 | PA-M09 | P4 |
-| 1092-1103 | 12 | Volume 7 Part 3: Backend API Validation (Deep & Real) | KEEP 10, UPDATE 1, MERGE 1 | PA-M09 | P3 |
+| 1092-1103 | 12 | Volume 7 Part 3: Backend API Validation (Deep & Real) | KEEP 8, REPLACE 4 | PA-M09 | P2 |
 | 1104-1115 | 12 | Volume 7 Part 4: Database Validation & Data Integrity Automation | KEEP 12 | PA-M09 | NONE |
 | 1116-1126 | 11 | Volume 7 Part 5: CLI + API + DB Automation in CI/CD (TestOps Level) | KEEP 10, UPDATE 1 | PA-M08 | NONE |
-| 1127-1148 | 22 | Volume 7 Part 6: Realtime Backend Automation Project (End-to-End) | KEEP 19, UPDATE 2, EXPAND 1 | PA-M09, PA-M10, PA-M08 | P3 |
+| 1127-1148 | 22 | Volume 7 Part 6: Realtime Backend Automation Project (End-to-End) | KEEP 18, UPDATE 2, REPLACE 1, EXPAND 1 | PA-M09, PA-M10, PA-M08 | P2 |
 | 1149-1151 | 3 | Volume 8 Start: GUI Automation with PyQt (Desktop Applications) | REMOVE 3 | - | NONE |
 | 1152 | 1 | Volume 9 Automation Framework Design & Architecture | KEEP 1 | PA-M08 | NONE |
 | 1153-1161 | 9 | Volume 9 Part 1: Automation Framework Fundamentals | KEEP 7, UPDATE 1, REMOVE 1 | PA-M08, - | NONE |
@@ -1299,13 +1299,13 @@ Pages by issue type:
 ### SRC-PY-HANDBOOK - CyberDudeBivash Python Engineering Handbook
 
 - PDF: `CyberDudeBivash Python Engineering Handbook.pdf`; pages: **654**; records: `docs/audits/data/page_records/SRC-PY-HANDBOOK.part*.jsonl`
-- Severity: P0 2, P1 12, P2 16, P3 15, P4 13, NONE 596
-- Page-level action (machine): KEEP 343, UPDATE 160, REPLACE 63, EXPAND 13, REMOVE 75
-- Verification status: HUMAN_READ_FINDING_CITED 14, MACHINE_FLAGGED_REVIEW_REQUIRED 30, MACHINE_SCANNED_NO_FLAGS 609, VISUAL_REVIEW_REQUIRED 1
+- Severity: P0 2, P1 12, P2 47, P3 14, P4 12, NONE 567
+- Page-level action (machine): KEEP 326, UPDATE 150, REPLACE 92, EXPAND 12, REMOVE 74
+- Verification status: HUMAN_READ_FINDING_CITED 18, MACHINE_FLAGGED_REVIEW_REQUIRED 56, MACHINE_SCANNED_NO_FLAGS 579, VISUAL_REVIEW_REQUIRED 1
 - Currency: BASELINE_AVAILABLE 295, CURRENCY_FLAGGED 8, NO_TECHNOLOGY_DETECTED 167, UNVERIFIED_CURRENCY 184
-- Issue types (pages): END_OF_LIFE_VERSION 2, LEGAL_ETHICS_REVIEW 2, MARKDOWN_LEAK 1, NO_TEXT_LAYER 1, OBSOLETE_API 5, PERSONAL_DATA_RISK 2, RETIRED_MODEL 2, SECURITY_ANTIPATTERN 19, STUB_PAGE 13, SUPERSEDED_PRODUCT 1, UNSUPPORTED_CLAIM 9
-- Mapping basis: C-PYH-1 42, C-PYH-2 27, C-PYH-3 13, C-PYH-4 45, C-PYH-5 8, M-PYH-01 75, M-PYH-02 9, M-PYH-03 29, M-PYH-06 82, M-PYH-07 16, M-PYH-08 10, M-PYH-09 12, M-PYH-10 24, M-PYH-11 19, M-PYH-13 43, M-PYH-14 10, M-PYH-15 18, M-PYH-15+HEADING_OVERRIDE 1, M-PYH-16 14, M-PYH-17 27, M-PYH-18 10, M-PYH-19 40, M-PYH-20 7, M-PYH-21 1, M-PYH-22 6, M-PYH-23 53, M-PYH-24 1, M-PYH-25 9, M-PYH-28 2, default 1
-- Findings cited by pages: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-005, F-PYH-006, F-PYH-008
+- Issue types (pages): END_OF_LIFE_VERSION 2, LEGAL_ETHICS_REVIEW 2, MARKDOWN_LEAK 1, NO_TEXT_LAYER 1, OBSOLETE_API 5, PERSONAL_DATA_RISK 2, RETIRED_MODEL 2, SECURITY_ANTIPATTERN 49, STUB_PAGE 13, SUPERSEDED_PRODUCT 1, UNSUPPORTED_CLAIM 9
+- Mapping basis: C-PYH-1 42, C-PYH-2 27, C-PYH-3 13, C-PYH-4 45, C-PYH-5 8, M-PYH-01 74, M-PYH-02 9, M-PYH-03 29, M-PYH-06 82, M-PYH-07 16, M-PYH-08 10, M-PYH-09 12, M-PYH-10 24, M-PYH-11 19, M-PYH-13 43, M-PYH-14 10, M-PYH-15 18, M-PYH-15+HEADING_OVERRIDE 1, M-PYH-16 14, M-PYH-17 27, M-PYH-18 10, M-PYH-19 40, M-PYH-20 7, M-PYH-21 1, M-PYH-22 6, M-PYH-23 53, M-PYH-24 1, M-PYH-25 9, M-PYH-28 2, default 1, default+HEADING_OVERRIDE 1
+- Findings cited by pages: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-005, F-PYH-006, F-PYH-008, F-PYH-009
 
 Technologies detected (pages where the registry pattern matched; top 15):
 
@@ -1331,7 +1331,7 @@ Pages by issue type:
 
 | Issue type | Pages | Page numbers |
 |---|---|---|
-| SECURITY_ANTIPATTERN | 19 | 83, 122, 124, 141, 163-164, 222, 228, 252, 269, 286, 373, 402, ... (+5 more ranges) |
+| SECURITY_ANTIPATTERN | 49 | 83, 91, 122, 124-126, 135, 139, 141, 155, 163-164, 167, 181-182, 222, ... (+30 more ranges) |
 | STUB_PAGE | 13 | 23, 113, 115, 123, 157, 221, 279, 308, 409, 412, 443, 462, ... (+1 more ranges) |
 | UNSUPPORTED_CLAIM | 9 | 91, 394, 556-557, 607, 615, 643, 651-652 |
 | OBSOLETE_API | 5 | 64, 188-189, 270, 290 |
@@ -1353,48 +1353,48 @@ Pages by issue type:
 | 29-47 | 19 | MODULE 1 PYTHON FOUNDATIONS (PART 3) | KEEP 19 | PA-M02 | P4 |
 | 48-63 | 16 | MODULE 1 PYTHON FOUNDATIONS (PART 4) | KEEP 14, UPDATE 2 | PY-M01, PY-M09, PY-M02 | P1 |
 | 64-79 | 16 | MODULE 1 PYTHON FOUNDATIONS (PART 5) | KEEP 13, UPDATE 2, REPLACE 1 | GCP-M03 | P1 |
-| 80-91 | 12 | MODULE 1 PYTHON FOUNDATIONS (PART 6) | KEEP 7, UPDATE 4, REPLACE 1 | PY-M02, PY-M05, PA-M09 | P2 |
+| 80-91 | 12 | MODULE 1 PYTHON FOUNDATIONS (PART 6) | KEEP 7, UPDATE 3, REPLACE 2 | PY-M02, PY-M05, PA-M09 | P2 |
 | 92-105 | 14 | MODULE 1 PYTHON FOUNDATIONS (PART 7) | KEEP 14 | PA-M07, PY-M01, GCP-M02 | NONE |
 | 106-118 | 13 | MODULE 2 PYTHON SCRIPTING & AUTOMATION (PART 1) | KEEP 7, UPDATE 4, EXPAND 2 | PA-M02, PY-M08, PA-M09 | P4 |
-| 119-132 | 14 | MODULE 2 PYTHON SCRIPTING & AUTOMATION (PART 2) | KEEP 8, UPDATE 3, REPLACE 2, EXPAND 1 | PA-M02, PY-M05, PY-M07 | P2 |
-| 133-146 | 14 | MODULE 2 PYTHON SCRIPTING & AUTOMATION (PART 3) | KEEP 6, UPDATE 7, REPLACE 1 | GCP-M02 | P2 |
-| 147-158 | 12 | MODULE 2 PART 4 | KEEP 7, UPDATE 4, EXPAND 1 | PA-M02, GCP-M02, PY-M08 | P4 |
-| 159-171 | 13 | MODULE 2 PART 5 | KEEP 9, UPDATE 2, REPLACE 2 | PA-M02, GCP-M02, PA-M09 | P1 |
-| 172-184 | 13 | MODULE 2 PART 6 | KEEP 6, UPDATE 7 | PA-M02, PY-M08, GCP-M02 | NONE |
+| 119-132 | 14 | MODULE 2 PYTHON SCRIPTING & AUTOMATION (PART 2) | KEEP 6, UPDATE 3, REPLACE 4, EXPAND 1 | PA-M02, PY-M05, PY-M07 | P2 |
+| 133-146 | 14 | MODULE 2 PYTHON SCRIPTING & AUTOMATION (PART 3) | KEEP 4, UPDATE 7, REPLACE 3 | GCP-M02 | P2 |
+| 147-158 | 12 | MODULE 2 PART 4 | KEEP 6, UPDATE 4, REPLACE 1, EXPAND 1 | PA-M02, GCP-M02, PY-M08 | P2 |
+| 159-171 | 13 | MODULE 2 PART 5 | KEEP 8, UPDATE 2, REPLACE 3 | PA-M02, GCP-M02, PA-M09 | P1 |
+| 172-184 | 13 | MODULE 2 PART 6 | KEEP 5, UPDATE 6, REPLACE 2 | PA-M02, PY-M08, GCP-M02 | P2 |
 | 185-197 | 13 | MODULE 2 PART 7 | UPDATE 11, REPLACE 2 | GCP-M02, AI-M01, PA-M02 | P1 |
 | 198-214 | 17 | MODULE 2 PART 8 | KEEP 11, UPDATE 6 | AI-M11, PA-M02 | NONE |
 | 215-225 | 11 | MODULE 3 PYTHON WEB DEVELOPMENT (PART 1) | KEEP 6, UPDATE 3, REPLACE 1, EXPAND 1 | AI-M11 | P1 |
 | 226-237 | 12 | MODULE 3 PART 2 | KEEP 11, REPLACE 1 | PY-M10, PY-M08, PY-M07 | P3 |
 | 238-252 | 15 | MODULE 3 PART 3 | KEEP 13, UPDATE 1, REPLACE 1 | PY-M10, PY-M08, PY-M07 | P1 |
 | 253-263 | 11 | MODULE 3 PART 4 | KEEP 9, UPDATE 2 | PY-M07 | NONE |
-| 264-280 | 17 | MODULE 3 PART 5 | KEEP 11, UPDATE 3, REPLACE 2, EXPAND 1 | AI-M11 | P1 |
+| 264-280 | 17 | MODULE 3 PART 5 | KEEP 10, UPDATE 3, REPLACE 3, EXPAND 1 | AI-M11 | P1 |
 | 281-295 | 15 | MODULE 3 PART 6 | KEEP 11, UPDATE 2, REPLACE 2 | AI-M11 | P2 |
 | 296-311 | 16 | MODULE 3 PART 7 | KEEP 5, UPDATE 9, REPLACE 1, EXPAND 1 | AI-M11, PY-M10 | P2 |
 | 312-325 | 14 | MODULE 4 PYTHON CYBERSECURITY DEVELOPMENT | KEEP 4, UPDATE 10 | SOC-M03 | P3 |
-| 326-338 | 13 | MODULE 4 PART 2 | KEEP 4, UPDATE 9 | SOC-M03, PA-M02 | P3 |
-| 339-352 | 14 | MODULE 4 PART 3 | KEEP 12, UPDATE 1, REPLACE 1 | SOC-M03, PA-M02, PY-M07 | NONE |
+| 326-338 | 13 | MODULE 4 PART 2 | KEEP 3, UPDATE 8, REPLACE 2 | SOC-M03, PA-M02 | P2 |
+| 339-352 | 14 | MODULE 4 PART 3 | KEEP 12, UPDATE 1, REPLACE 1 | SOC-M03, PA-M02, PY-M07 | P2 |
 | 353-364 | 12 | MODULE 4 PART 4 | KEEP 3, UPDATE 9 | SOC-M03, GCP-M03, PA-M09 | NONE |
-| 365-381 | 17 | MODULE 4 PART 5 | KEEP 11, UPDATE 4, REPLACE 2 | SOC-M03, AI-M05, PY-M08 | P1 |
-| 382-397 | 16 | MODULE 4 PART 6 (FINAL EXTREME LEVEL) | KEEP 13, UPDATE 3 | SOC-M03, PA-M09, PY-M10 | P3 |
-| 398-407 | 10 | MODULE 5 PYTHON DEVOPS & AUTOMATION ENGINEERING | KEEP 6, UPDATE 3, REPLACE 1 | PA-M02, CYB-M07, PA-M09 | P2 |
+| 365-381 | 17 | MODULE 4 PART 5 | KEEP 10, UPDATE 2, REPLACE 5 | SOC-M03, AI-M05, PY-M08 | P1 |
+| 382-397 | 16 | MODULE 4 PART 6 (FINAL EXTREME LEVEL) | KEEP 13, UPDATE 2, REPLACE 1 | SOC-M03, PA-M09, PY-M10 | P2 |
+| 398-407 | 10 | MODULE 5 PYTHON DEVOPS & AUTOMATION ENGINEERING | KEEP 6, UPDATE 2, REPLACE 2 | PA-M02, CYB-M07, PA-M09 | P2 |
 | 408-419 | 12 | MODULE 5 PART 2 | KEEP 6, UPDATE 3, REPLACE 1, EXPAND 2 | AI-M11 | P2 |
-| 420-432 | 13 | MODULE 5 PART 3 PYTHON NETWORK AUTOMATION + SRE AUTOMATION | KEEP 9, UPDATE 2, REPLACE 2 | PA-M07 | P1 |
-| 433-444 | 12 | MODULE 5 PART 4 PYTHON CI/CD ENGINEERING + DEVSECOPS | KEEP 3, UPDATE 7, REPLACE 1, EXPAND 1 | CYB-M07, GCP-M02, PY-M07 | P2 |
-| 445-458 | 14 | MODULE 5 PART 5 (PYTHON OBSERVABILITY + SRE INCIDENT AUTOMATION) | KEEP 13, UPDATE 1 | PA-M07, PY-M10 | NONE |
-| 459-472 | 14 | MODULE 5 PART 6 | KEEP 5, UPDATE 8, EXPAND 1 | PA-M05, PA-M02, PY-M09 | P2 |
+| 420-432 | 13 | MODULE 5 PART 3 PYTHON NETWORK AUTOMATION + SRE AUTOMATION | KEEP 9, UPDATE 1, REPLACE 3 | PA-M07 | P1 |
+| 433-444 | 12 | MODULE 5 PART 4 PYTHON CI/CD ENGINEERING + DEVSECOPS | KEEP 3, UPDATE 5, REPLACE 3, EXPAND 1 | CYB-M07, GCP-M02, PY-M07 | P2 |
+| 445-458 | 14 | MODULE 5 PART 5 (PYTHON OBSERVABILITY + SRE INCIDENT AUTOMATION) | KEEP 10, UPDATE 1, REPLACE 3 | PA-M07, PY-M10 | P2 |
+| 459-472 | 14 | MODULE 5 PART 6 | KEEP 3, UPDATE 8, REPLACE 2, EXPAND 1 | PA-M05, PA-M02, PY-M09 | P2 |
 | 473-487 | 15 | MODULE 6 PYTHON FOR BLOCKCHAIN, WEB3 & CRYPTO ENGINEERING | REMOVE 15 | - | NONE |
 | 488-501 | 14 | MODULE 6 PART 2 | REMOVE 14 | - | NONE |
 | 502-516 | 15 | MODULE 6 PART 3 | REPLACE 1, REMOVE 14 | -, PY-M07 | P2 |
 | 517-531 | 15 | MODULE 6 PART 4 | REMOVE 15 | - | NONE |
-| 532-548 | 17 | MODULE 6 PART 5 | REMOVE 17 | - | NONE |
+| 532-548 | 17 | MODULE 6 PART 5 | REPLACE 1, REMOVE 16 | -, PY-M01 | P2 |
 | 549-562 | 14 | MODULE 7 PART 1 | KEEP 11, UPDATE 3 | AI-M01 | P3 |
 | 563-574 | 12 | MODULE 7 PART 2 | KEEP 10, UPDATE 1, REPLACE 1 | AI-M01, AI-M11, AI-M05 | NONE |
 | 575-587 | 13 | MODULE 7 PART 3 | REPLACE 13 | AI-M05 | P0 |
 | 588-600 | 13 | MODULE 7 PART 4 | REPLACE 13 | AI-M05 | NONE |
-| 601-609 | 9 | MODULE 8 PART 1 | KEEP 4, UPDATE 5 | GCP-M02 | P3 |
+| 601-609 | 9 | MODULE 8 PART 1 | KEEP 2, UPDATE 5, REPLACE 2 | GCP-M02 | P2 |
 | 610-619 | 10 | MODULE 8 PART 2 | KEEP 6, UPDATE 4 | GCP-M04 | P3 |
 | 620-633 | 14 | MODULE 8 PART 3 | KEEP 5, UPDATE 9 | GCP-M04 | NONE |
-| 634-654 | 21 | MODULE 8 PART 4 | KEEP 6, UPDATE 5, REPLACE 9, EXPAND 1 | GCP-M06, PY-M11 | P3 |
+| 634-654 | 21 | MODULE 8 PART 4 | KEEP 6, UPDATE 5, REPLACE 10 | GCP-M06, PY-M11 | P2 |
 
 </details>
 

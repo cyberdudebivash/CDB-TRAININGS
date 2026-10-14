@@ -11,7 +11,7 @@
 
 | Source | Pages | Page-level action | Severity | Human-read (finding-cited) | Visual review needed |
 |---|---|---|---|---|---|
-| SRC-PY-AUTOMATION | 1,458 | KEEP 856, UPDATE 112, REPLACE 5, EXPAND 31, MERGE 115, REMOVE 339 | P1 5, P2 26, P3 29, P4 57, NONE 1,341 | 12 | 1 |
+| SRC-PY-AUTOMATION | 1,458 | KEEP 848, UPDATE 111, REPLACE 19, EXPAND 31, MERGE 110, REMOVE 339 | P1 5, P2 40, P3 28, P4 57, NONE 1,328 | 12 | 1 |
 
 These counts are rule outputs over every page; `KEEP` is a candidate, not a verdict.
 

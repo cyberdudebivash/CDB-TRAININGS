@@ -11,7 +11,7 @@ Per-course quality-assurance status from the evidence files. Automated check res
 |---|---|---|---|---|---|---|---|---|---|
 | COURSE-FND-DIGITAL | 0 / 6 | 0 / 12 | 0 / 6 | - | 0 / 0 | 0 | 0 / 0 | NOT_RUN | NOT_REVIEWED |
 | COURSE-SOC | 1 / 14 | 2 / 27 | 6 / 19 | 43 | 0 / 11 | 1 | 6 / 8 | PARTIAL | AUTOMATED_ONLY |
-| COURSE-PY-ENG | 5 / 11 | 10 / 21 | 5 / 11 | 654 | 2 / 12 | 1 | 15 / 18 | PARTIAL | AUTOMATED_ONLY |
+| COURSE-PY-ENG | 6 / 11 | 12 / 21 | 6 / 11 | 654 | 2 / 12 | 1 | 16 / 19 | PARTIAL | AUTOMATED_ONLY |
 | COURSE-PY-AUTO | 0 / 10 | 0 / 19 | 0 / 10 | 1,458 | 0 / 5 | 1 | 5 / 11 | NOT_RUN | NOT_REVIEWED |
 | COURSE-JAVA-QA | 0 / 10 | 0 / 19 | 0 / 10 | 709 | 0 / 1 | 1 | 5 / 10 | NOT_RUN | NOT_REVIEWED |
 | COURSE-AI-ENG | 0 / 12 | 0 / 23 | 0 / 12 | 937 | 0 / 10 | 1 | 8 / 9 | NOT_RUN | NOT_REVIEWED |
@@ -60,10 +60,10 @@ Source pages are audited by rules over **all** pages; only finding-cited pages w
 
 ### COURSE-PY-ENG - Python Engineering Pathway
 
-- Built modules: PY-M01, PY-M02, PY-M03, PY-M04, PY-M07.
-- Labs: 21 planned, 10 built, 10 verified executable.
+- Built modules: PY-M01, PY-M02, PY-M03, PY-M04, PY-M05, PY-M07.
+- Labs: 21 planned, 12 built, 12 verified executable.
 - Blocking findings: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
-- Source audit: 654 pages; severity P0 2, P1 12, P2 16, P3 15, P4 13, NONE 596; currency BASELINE_AVAILABLE 295, UNVERIFIED_CURRENCY 184, NO_TECHNOLOGY_DETECTED 167, CURRENCY_FLAGGED 8.
+- Source audit: 654 pages; severity P0 2, P1 12, P2 47, P3 14, P4 12, NONE 567; currency BASELINE_AVAILABLE 295, UNVERIFIED_CURRENCY 184, NO_TECHNOLOGY_DETECTED 167, CURRENCY_FLAGGED 8.
 - Open verification items: MC-PYH-01, MC-PYH-10, MC-PYH-11.
 - Lab matrix: PASS on CPython 3.11.17, CPython 3.12.3, CPython 3.13.16, CPython 3.14.8, CPython 3.15.0; not executed or failing: none.
 
@@ -79,7 +79,7 @@ Source pages are audited by rules over **all** pages; only finding-cited pages w
 - Built modules: none.
 - Labs: 19 planned, 0 built, 0 verified executable.
 - Blocking findings: F-PYA-002, F-PYA-003, F-PYA-005.
-- Source audit: 1,458 pages; severity P1 5, P2 26, P3 29, P4 57, NONE 1,341; currency NO_TECHNOLOGY_DETECTED 670, BASELINE_AVAILABLE 649, UNVERIFIED_CURRENCY 137, CURRENCY_FLAGGED 2.
+- Source audit: 1,458 pages; severity P1 5, P2 40, P3 28, P4 57, NONE 1,328; currency NO_TECHNOLOGY_DETECTED 670, BASELINE_AVAILABLE 649, UNVERIFIED_CURRENCY 137, CURRENCY_FLAGGED 2.
 - Open verification items: MC-PYA-01, MC-PYA-05, MC-PYA-06, MC-PYA-07, MC-PYA-08, MC-PYA-09.
 
 | Blocking finding | Severity | Title |

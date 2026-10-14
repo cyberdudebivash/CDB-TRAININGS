@@ -146,6 +146,39 @@
   {
    "status": "OK",
    "pins": [
+    "requests==2.34.2",
+    "httpx==0.28.1"
+   ],
+   "installed": {
+    "httpx": "0.28.1",
+    "requests": "2.34.2"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "requests_version": "2.34.2",
+    "httpx_version": "0.28.1",
+    "requests_get_without_timeout_blocked_after_3s": true,
+    "requests_get_timeout_0_5": "ReadTimeout",
+    "httpx_get_timeout_0_5": "ReadTimeout",
+    "httpx_default_timeout": {
+     "connect": 5.0,
+     "read": 5.0,
+     "write": 5.0,
+     "pool": 5.0
+    },
+    "httpx_client_follow_redirects_default": false,
+    "httpx_get_redirect_status": 302,
+    "requests_get_redirect_status": 200,
+    "requests_session_max_redirects": 30
+   },
+   "id": "http-client-defaults",
+   "taught_pattern": "requests.get(url) and httpx.get(url) without timeout, redirect or status handling",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T15:15:46Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
     "langchain==1.4.5"
    ],
    "installed": {
@@ -291,6 +324,35 @@
    "taught_pattern": "set_missing_host_key_policy(AutoAddPolicy()); DSSKey",
    "runtime": "python",
    "executed_utc": "2026-10-14T09:09:32Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "pydantic==2.14.1"
+   ],
+   "installed": {
+    "pydantic": "2.14.1"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "version": "2.14.1",
+    "lax_string_to_int": "5",
+    "lax_float_with_fraction_to_int": "rejected",
+    "extra_field_ignored_by_default": true,
+    "strict_string_to_int": "int_type",
+    "missing_field_error": {
+     "type": "missing",
+     "loc": [
+      "price_cents"
+     ]
+    },
+    "bool_to_int_in_lax_mode": "1",
+    "forbid_extra_error_type": "extra_forbidden"
+   },
+   "id": "pydantic-lax-and-strict-validation",
+   "taught_pattern": "validating decoded JSON with a model: coercion, missing fields, extra fields",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T15:15:55Z"
   },
   {
    "status": "OK",
