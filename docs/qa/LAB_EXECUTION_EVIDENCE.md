@@ -5,7 +5,7 @@
 
 ## 1. What this records
 
-Execution of the Python Engineering labs (PY-M01, PY-M02, PY-M03, PY-M04, PY-M07) and of the module-pack checks that run every lesson code block and verify outcome traceability. Each interpreter row is a **fresh virtual environment** with the pinned toolchain from `courses/python-engineering/labs/requirements.txt`; the suites run with that environment's interpreter, and the lab tests start their own sub-processes with it, so the build, install, mutation and exploit steps ran on that Python version.
+Execution of the Python Engineering labs (PY-M01 to PY-M05 and PY-M07) and of the module-pack checks that run every lesson code block and verify outcome traceability. Each interpreter row is a **fresh virtual environment** with the pinned toolchain from `courses/python-engineering/labs/requirements.txt`; the suites run with that environment's interpreter, and the lab tests start their own sub-processes with it, so the build, install, mutation and exploit steps ran on that Python version.
 
 A lab is called *executed* here only for the interpreters listed below, in this environment, at the stated commit. It is not evidence of learner success, subject-matter correctness review, or behaviour on other operating systems.
 
@@ -13,8 +13,8 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Item | Value |
 |---|---|
-| Commit at run time | `8414d7615141` (clean tracked tree) |
-| Run (UTC) | 2026-10-14T15:08:57Z |
+| Commit at run time | `e516be96d8f6` (clean tracked tree) |
+| Run (UTC) | 2026-10-14T16:39:47Z |
 | Host | Linux 6.18.44-fc-v114 x86_64 |
 | Instructor pack present in the environment | yes - private-material tests were executed |
 | Toolchain pins | `courses/python-engineering/labs/requirements.txt` |
@@ -24,11 +24,11 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Requested | Interpreter | Source | pytest | ruff | setuptools | build | Status | Passed / failed / skipped | Seconds |
 |---|---|---|---|---|---|---|---|---|---|
-| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 61 / 0 / 0 | 66.5 |
-| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 61 / 0 / 0 | 72.6 |
-| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 61 / 0 / 0 | 66.3 |
-| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 61 / 0 / 0 | 105.8 |
-| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 61 / 0 / 0 | 104.6 |
+| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 73 / 0 / 0 | 210.9 |
+| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 73 / 0 / 0 | 216.1 |
+| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 73 / 0 / 0 | 217.1 |
+| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 73 / 0 / 0 | 231.7 |
+| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 73 / 0 / 0 | 227.3 |
 
 Interpreters from `uv` are python-build-standalone builds, not python.org installers; behaviour on distribution-packaged or Windows/macOS interpreters is not claimed.
 
@@ -46,6 +46,8 @@ Interpreters from `uv` are python-build-standalone builds, not python.org instal
 | PY-M03 independent | Untyped starter has 27 strict errors and an import cycle that depends on import order and fails all 30 checks; instructor reference passes all 30 (private pack) | pass (2) | pass (2) | pass (2) | pass (2) | pass (2) |
 | PY-M04 guided | Reference project passes all 10 checks; the legacy starter fails exactly the 6 modernisation checks and still builds | pass (2) | pass (2) | pass (2) | pass (2) | pass (2) |
 | PY-M04 independent | Starter fails the 7 packaging checks and passes 2; instructor reference overlay passes all 9 (private pack) | pass (2) | pass (2) | pass (2) | pass (2) | pass (2) |
+| PY-M05 guided | Public solution passes all 65 provided checks against a scripted loopback API (timeouts, retries, pagination, atomic writes); the starter fails all 65 | pass (2) | pass (2) | pass (2) | pass (2) | pass (2) |
+| PY-M05 independent | Starter fails all 8 published checks; instructor reference passes them and the 138-case hidden suite, which kills all 30 seeded defects (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
 | PY-M07 guided | Reference passes all checks; starter works but fails exploit/static checks in all 8 areas; reference regression tests kill 8/8 required mutants | pass (4) | pass (4) | pass (4) | pass (4) | pass (4) |
 | PY-M07 independent | Instructor reference is secure and the starter is not (17 exploit tests fail on it); 9/9 required mutants killed (private pack) | pass (1) | pass (1) | pass (1) | pass (1) | pass (1) |
 
@@ -53,11 +55,11 @@ Interpreters from `uv` are python-build-standalone builds, not python.org instal
 
 | Interpreter | Checks | Passed | Lesson code-block runs | Passed |
 |---|---|---|---|---|
-| 3.11 | 37 | 37 | 5 | 5 |
-| 3.12 | 37 | 37 | 5 | 5 |
-| 3.13 | 37 | 37 | 5 | 5 |
-| 3.14 | 37 | 37 | 5 | 5 |
-| 3.15 | 37 | 37 | 5 | 5 |
+| 3.11 | 44 | 44 | 6 | 6 |
+| 3.12 | 44 | 44 | 6 | 6 |
+| 3.13 | 44 | 44 | 6 | 6 |
+| 3.14 | 44 | 44 | 6 | 6 |
+| 3.15 | 44 | 44 | 6 | 6 |
 
 Each lesson's `python run`, `python module` and `python test` blocks are executed by `scripts/validation/lesson_blocks.py`; a lesson with no executable example fails the check.
 

@@ -1,5 +1,5 @@
 {
- "commit": "8414d7615141",
+ "commit": "e516be96d8f6",
  "cutoff": "2026-10-14",
  "host": "Linux 6.18.44-fc-v114 x86_64",
  "interpreters": [
@@ -8,20 +8,23 @@
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 61,
+    "passed": 73,
     "skipped": 0
    },
-   "duration_s": 66.5,
+   "duration_s": 210.9,
    "executable": "/usr/bin/python3.11",
    "implementation": "CPython",
    "install_exit": 0,
    "interpreter_source": "distribution or PATH interpreter",
    "packages": {
     "build": "1.6.1",
+    "httpx": "0.28.1",
     "pip": "24.0",
+    "pydantic": "2.14.1",
     "pyjwt": "2.15.1",
     "pytest": "9.1.1",
     "pyyaml": "6.0.3",
+    "requests": "2.34.2",
     "ruff": "0.17.0",
     "setuptools": "84.0.0",
     "wheel": "0.48.0"
@@ -129,6 +132,26 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_python_engineering_labs::test_m05_guided_solution_passes_every_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_guided_starter_fails_every_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_starter_fails_every_published_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_reference_passes_published_and_hidden_checks",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_hidden_suite_is_discriminating_and_starter_fails_it",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
      "outcome": "passed"
     },
@@ -142,6 +165,10 @@
     },
     {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -165,6 +192,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M07]",
      "outcome": "passed"
     },
@@ -182,6 +213,10 @@
     },
     {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -205,6 +240,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M07]",
      "outcome": "passed"
     },
@@ -222,6 +261,10 @@
     },
     {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -245,6 +288,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M07]",
      "outcome": "passed"
     },
@@ -262,6 +309,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -283,20 +334,23 @@
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 61,
+    "passed": 73,
     "skipped": 0
    },
-   "duration_s": 72.6,
+   "duration_s": 216.1,
    "executable": "/usr/bin/python3.12",
    "implementation": "CPython",
    "install_exit": 0,
    "interpreter_source": "distribution or PATH interpreter",
    "packages": {
     "build": "1.6.1",
+    "httpx": "0.28.1",
     "pip": "24.0",
+    "pydantic": "2.14.1",
     "pyjwt": "2.15.1",
     "pytest": "9.1.1",
     "pyyaml": "6.0.3",
+    "requests": "2.34.2",
     "ruff": "0.17.0",
     "setuptools": "84.0.0",
     "wheel": "0.48.0"
@@ -404,6 +458,26 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_python_engineering_labs::test_m05_guided_solution_passes_every_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_guided_starter_fails_every_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_starter_fails_every_published_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_reference_passes_published_and_hidden_checks",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_hidden_suite_is_discriminating_and_starter_fails_it",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
      "outcome": "passed"
     },
@@ -417,6 +491,10 @@
     },
     {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -440,6 +518,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M07]",
      "outcome": "passed"
     },
@@ -457,6 +539,10 @@
     },
     {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -480,6 +566,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M07]",
      "outcome": "passed"
     },
@@ -497,6 +587,10 @@
     },
     {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -520,6 +614,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M07]",
      "outcome": "passed"
     },
@@ -537,6 +635,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -558,20 +660,23 @@
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 61,
+    "passed": 73,
     "skipped": 0
    },
-   "duration_s": 66.3,
+   "duration_s": 217.1,
    "executable": "/usr/bin/python3.13",
    "implementation": "CPython",
    "install_exit": 0,
    "interpreter_source": "distribution or PATH interpreter",
    "packages": {
     "build": "1.6.1",
+    "httpx": "0.28.1",
     "pip": "26.2.1",
+    "pydantic": "2.14.1",
     "pyjwt": "2.15.1",
     "pytest": "9.1.1",
     "pyyaml": "6.0.3",
+    "requests": "2.34.2",
     "ruff": "0.17.0",
     "setuptools": "84.0.0",
     "wheel": "0.48.0"
@@ -679,6 +784,26 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_python_engineering_labs::test_m05_guided_solution_passes_every_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_guided_starter_fails_every_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_starter_fails_every_published_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_reference_passes_published_and_hidden_checks",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_hidden_suite_is_discriminating_and_starter_fails_it",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
      "outcome": "passed"
     },
@@ -692,6 +817,10 @@
     },
     {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -715,6 +844,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M07]",
      "outcome": "passed"
     },
@@ -732,6 +865,10 @@
     },
     {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -755,6 +892,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M07]",
      "outcome": "passed"
     },
@@ -772,6 +913,10 @@
     },
     {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -795,6 +940,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M07]",
      "outcome": "passed"
     },
@@ -812,6 +961,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -833,20 +986,23 @@
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 61,
+    "passed": 73,
     "skipped": 0
    },
-   "duration_s": 105.8,
+   "duration_s": 231.7,
    "executable": "/root/.local/bin/python3.14",
    "implementation": "CPython",
    "install_exit": 0,
    "interpreter_source": "uv-managed python-build-standalone build",
    "packages": {
     "build": "1.6.1",
+    "httpx": "0.28.1",
     "pip": "26.2.1",
+    "pydantic": "2.14.1",
     "pyjwt": "2.15.1",
     "pytest": "9.1.1",
     "pyyaml": "6.0.3",
+    "requests": "2.34.2",
     "ruff": "0.17.0",
     "setuptools": "84.0.0",
     "wheel": "0.48.0"
@@ -954,6 +1110,26 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_python_engineering_labs::test_m05_guided_solution_passes_every_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_guided_starter_fails_every_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_starter_fails_every_published_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_reference_passes_published_and_hidden_checks",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_hidden_suite_is_discriminating_and_starter_fails_it",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
      "outcome": "passed"
     },
@@ -967,6 +1143,10 @@
     },
     {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -990,6 +1170,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M07]",
      "outcome": "passed"
     },
@@ -1007,6 +1191,10 @@
     },
     {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -1030,6 +1218,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M07]",
      "outcome": "passed"
     },
@@ -1047,6 +1239,10 @@
     },
     {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -1070,6 +1266,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M07]",
      "outcome": "passed"
     },
@@ -1087,6 +1287,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -1108,20 +1312,23 @@
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 61,
+    "passed": 73,
     "skipped": 0
    },
-   "duration_s": 104.6,
+   "duration_s": 227.3,
    "executable": "/root/.local/bin/python3.15",
    "implementation": "CPython",
    "install_exit": 0,
    "interpreter_source": "uv-managed python-build-standalone build",
    "packages": {
     "build": "1.6.1",
+    "httpx": "0.28.1",
     "pip": "26.2.1",
+    "pydantic": "2.14.1",
     "pyjwt": "2.15.1",
     "pytest": "9.1.1",
     "pyyaml": "6.0.3",
+    "requests": "2.34.2",
     "ruff": "0.17.0",
     "setuptools": "84.0.0",
     "wheel": "0.48.0"
@@ -1229,6 +1436,26 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_python_engineering_labs::test_m05_guided_solution_passes_every_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_guided_starter_fails_every_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_starter_fails_every_published_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_reference_passes_published_and_hidden_checks",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m05_independent_hidden_suite_is_discriminating_and_starter_fails_it",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
      "outcome": "passed"
     },
@@ -1242,6 +1469,10 @@
     },
     {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -1265,6 +1496,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M07]",
      "outcome": "passed"
     },
@@ -1282,6 +1517,10 @@
     },
     {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -1305,6 +1544,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M07]",
      "outcome": "passed"
     },
@@ -1322,6 +1565,10 @@
     },
     {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M05]",
      "outcome": "passed"
     },
     {
@@ -1345,6 +1592,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M07]",
      "outcome": "passed"
     },
@@ -1365,6 +1616,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M07]",
      "outcome": "passed"
     },
@@ -1381,7 +1636,7 @@
  ],
  "private_instructor_pack_present": true,
  "requirements_file": "courses/python-engineering/labs/requirements.txt",
- "run_utc": "2026-10-14T15:08:57Z",
+ "run_utc": "2026-10-14T16:39:47Z",
  "schema_version": 1,
  "suites": [
   "tests/test_python_engineering_labs.py",

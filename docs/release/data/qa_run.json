@@ -1,6 +1,6 @@
 {
   "branch": "claude/cyberdudebivash-training-audit-ilfgze",
-  "commit": "8414d7615141",
+  "commit": "e516be96d8f6",
   "private_instructor_pack_present": true,
   "python": "3.13.16",
   "results": [
@@ -71,7 +71,7 @@
       "title": "Page records (8,186 pages) reproduce from the source PDFs, rules and mapping"
     },
     {
-      "detail": "242 passed, 0 failed, 0 errors, 0 skipped",
+      "detail": "256 passed, 0 failed, 0 errors, 0 skipped",
       "id": "pytest",
       "skipped": [],
       "status": "PASS",
@@ -136,7 +136,7 @@
           "errors": 0,
           "failed": 0,
           "module": "tests/test_build_student_edition",
-          "passed": 28,
+          "passed": 30,
           "skipped": 0
         },
         {
@@ -157,7 +157,7 @@
           "errors": 0,
           "failed": 0,
           "module": "tests/test_module_packs",
-          "passed": 37,
+          "passed": 44,
           "skipped": 0
         },
         {
@@ -171,7 +171,7 @@
           "errors": 0,
           "failed": 0,
           "module": "tests/test_python_engineering_labs",
-          "passed": 24,
+          "passed": 29,
           "skipped": 0
         },
         {
@@ -183,15 +183,15 @@
         }
       ],
       "tail": [
-        "........................................................................ [ 89%]",
-        "..........................                                               [100%]",
-        "242 passed in 85.01s (0:01:25)"
+        "........................................................................ [ 84%]",
+        "........................................                                 [100%]",
+        "256 passed in 210.31s (0:03:30)"
       ],
       "title": "Full pytest suite",
       "totals": {
         "errors": 0,
         "failed": 0,
-        "passed": 242,
+        "passed": 256,
         "skipped": 0
       }
     },
@@ -208,12 +208,12 @@
       "title": "SOC-M04 independent lab with private reference solution"
     },
     {
-      "detail": "--skip-build",
+      "detail": "RESULT: PASS",
       "id": "student-build",
-      "status": "SKIPPED_BY_FLAG",
+      "status": "PASS",
       "title": "Student-edition build (HTML + tagged PDF, strict gates)"
     }
   ],
-  "run_utc": "2026-10-14 15:12",
+  "run_utc": "2026-10-14 16:49",
   "working_tree_dirty": true
 }
