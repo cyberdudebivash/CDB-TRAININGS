@@ -17,14 +17,14 @@ Reference implementation: `courses/soc-analyst/assessments/m04/` and `curriculum
 | Type | Purpose | Scoring | Where |
 |---|---|---|---|
 | Retrieval check | Practise recall inside the lesson | ungraded | lesson |
-| Quiz | Check reasoning against outcomes | answer key and per-option rationales in the private instructor pack | `assessments/<m>/quiz.yaml` (stems, options, outcome tags; no answers) and `quiz.md` (student view) |
+| Quiz | Check reasoning against outcomes | answer key and rationales in the private instructor pack | `assessments/<m>/quiz.yaml` (stems, options, outcome tags; no answers) and `quiz.md` (student view) |
 | Guided-lab checks | Confirm each step worked | automated | lab commands |
 | Independent lab | Transfer the skill to new data | automated criteria + reviewer criteria | rubric |
 | Capstone | Integrate skills | rubric with must-pass criteria | course capstone |
 
 ## 3. Item standards (quiz)
 
-- Each item is tagged to an outcome (`quiz.yaml`), has a stem that can be answered from the lesson and the data, one unambiguously best answer, plausible distractors based on **real misconceptions** (recorded in the lesson), and a rationale for every option. The key and rationales are kept in the private instructor pack, never in `quiz.yaml`.
+- Each item is tagged to an outcome (`quiz.yaml`), has a stem that can be answered from the lesson and the data, one unambiguously best answer, plausible distractors based on **real misconceptions** (recorded in the lesson), and a rationale that says why the key is right and why the common distractors are wrong. The key and rationales are kept in the private instructor pack, never in `quiz.yaml`. *Pilot status:* the SOC-M04 key gives a one-line rationale per item; distractor-by-distractor rationales are a known improvement still to be written.
 - No "all of the above", no negatives in stems unless emphasised, no trick wording.
 - Items that depend on a version-sensitive fact cite the version in the stem.
 - Reading level matches the lesson; items are readable by screen readers (no image-only content).
