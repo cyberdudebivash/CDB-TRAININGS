@@ -5,7 +5,7 @@
 
 ## 1. What this records
 
-Execution of the Python Engineering labs (PY-M02, PY-M04, PY-M07) and of the module-pack checks that run every lesson code block and verify outcome traceability. Each interpreter row is a **fresh virtual environment** with the pinned toolchain from `courses/python-engineering/labs/requirements.txt`; the suites run with that environment's interpreter, and the lab tests start their own sub-processes with it, so the build, install, mutation and exploit steps ran on that Python version.
+Execution of the Python Engineering labs (PY-M01, PY-M02, PY-M03, PY-M04, PY-M07) and of the module-pack checks that run every lesson code block and verify outcome traceability. Each interpreter row is a **fresh virtual environment** with the pinned toolchain from `courses/python-engineering/labs/requirements.txt`; the suites run with that environment's interpreter, and the lab tests start their own sub-processes with it, so the build, install, mutation and exploit steps ran on that Python version.
 
 A lab is called *executed* here only for the interpreters listed below, in this environment, at the stated commit. It is not evidence of learner success, subject-matter correctness review, or behaviour on other operating systems.
 
@@ -13,8 +13,8 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Item | Value |
 |---|---|
-| Commit at run time | `23dde7568205` (clean tracked tree) |
-| Run (UTC) | 2026-10-14T14:16:30Z |
+| Commit at run time | `8414d7615141` (clean tracked tree) |
+| Run (UTC) | 2026-10-14T15:08:57Z |
 | Host | Linux 6.18.44-fc-v114 x86_64 |
 | Instructor pack present in the environment | yes - private-material tests were executed |
 | Toolchain pins | `courses/python-engineering/labs/requirements.txt` |
@@ -24,11 +24,11 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Requested | Interpreter | Source | pytest | ruff | setuptools | build | Status | Passed / failed / skipped | Seconds |
 |---|---|---|---|---|---|---|---|---|---|
-| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 36 / 0 / 0 | 49.1 |
-| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 36 / 0 / 0 | 53.2 |
-| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 36 / 0 / 0 | 47.7 |
-| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 36 / 0 / 0 | 75.2 |
-| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 36 / 0 / 0 | 77.8 |
+| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 61 / 0 / 0 | 66.5 |
+| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 61 / 0 / 0 | 72.6 |
+| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 61 / 0 / 0 | 66.3 |
+| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 61 / 0 / 0 | 105.8 |
+| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 61 / 0 / 0 | 104.6 |
 
 Interpreters from `uv` are python-build-standalone builds, not python.org installers; behaviour on distribution-packaged or Windows/macOS interpreters is not claimed.
 
@@ -38,8 +38,12 @@ Interpreters from `uv` are python-build-standalone builds, not python.org instal
 
 | Lab | Property checked | 3.11 | 3.12 | 3.13 | 3.14 | 3.15 |
 |---|---|---|---|---|---|---|
+| PY-M01 guided | Public solution passes all 21 provided checks; the starter (every function unimplemented) fails all 21 | pass (2) | pass (2) | pass (2) | pass (2) | pass (2) |
+| PY-M01 independent | Starter fails the published examples; instructor reference passes them, the 34-case hidden suite and the report script, and the hidden suite kills all 16 required mutants (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
 | PY-M02 guided | Reference tests kill all 7 mutants; they detect the 3 seeded defects in the starter; the shipped test template is not a solution | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
 | PY-M02 independent | Starter module correct, template empty; instructor reference suite kills all 12 required hidden mutants (private pack) | pass (2) | pass (2) | pass (2) | pass (2) | pass (2) |
+| PY-M03 guided | Reference package passes all 27 checks (strict mypy, layout, behaviour); the untyped starter passes default mypy, fails --strict and 4 of 5 of its own tests, and fails every package check | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
+| PY-M03 independent | Untyped starter has 27 strict errors and an import cycle that depends on import order and fails all 30 checks; instructor reference passes all 30 (private pack) | pass (2) | pass (2) | pass (2) | pass (2) | pass (2) |
 | PY-M04 guided | Reference project passes all 10 checks; the legacy starter fails exactly the 6 modernisation checks and still builds | pass (2) | pass (2) | pass (2) | pass (2) | pass (2) |
 | PY-M04 independent | Starter fails the 7 packaging checks and passes 2; instructor reference overlay passes all 9 (private pack) | pass (2) | pass (2) | pass (2) | pass (2) | pass (2) |
 | PY-M07 guided | Reference passes all checks; starter works but fails exploit/static checks in all 8 areas; reference regression tests kill 8/8 required mutants | pass (4) | pass (4) | pass (4) | pass (4) | pass (4) |
@@ -49,11 +53,11 @@ Interpreters from `uv` are python-build-standalone builds, not python.org instal
 
 | Interpreter | Checks | Passed | Lesson code-block runs | Passed |
 |---|---|---|---|---|
-| 3.11 | 22 | 22 | 3 | 3 |
-| 3.12 | 22 | 22 | 3 | 3 |
-| 3.13 | 22 | 22 | 3 | 3 |
-| 3.14 | 22 | 22 | 3 | 3 |
-| 3.15 | 22 | 22 | 3 | 3 |
+| 3.11 | 37 | 37 | 5 | 5 |
+| 3.12 | 37 | 37 | 5 | 5 |
+| 3.13 | 37 | 37 | 5 | 5 |
+| 3.14 | 37 | 37 | 5 | 5 |
+| 3.15 | 37 | 37 | 5 | 5 |
 
 Each lesson's `python run`, `python module` and `python test` blocks are executed by `scripts/validation/lesson_blocks.py`; a lesson with no executable example fails the check.
 
