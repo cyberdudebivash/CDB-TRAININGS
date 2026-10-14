@@ -52,7 +52,7 @@ patterns, bracket depth, docstring state). Python blocks are checked with `ast.p
 
 **Claim, currency, security, secret and PII patterns.** Regular expressions flag candidates; every hit used in a
 finding was read in context. Secret scanning ignores obvious placeholders (all-`x` tokens). PII scanning never stores
-raw values: counts, page numbers and irreversibly masked forms only.
+raw values: counts, page numbers and irreversibly masked forms only. Credential-shaped literals that the sources use as teaching placeholders (for example weak sample passwords in code examples) are replaced by `<redacted>` in stored snippets (`redact_credentials` in `forensics_lib.py`) so that secret scanners on this public repository do not mistake the evidence for a leak; counts and page numbers are unchanged. A hygiene test fails if such literals reappear in `docs/audits/`.
 
 **Topic probes.** Keyword families per course derived from section 7 of the mission directive. Zero matches are a
 definitive gap for that keyword family; non-zero matches only show a mention.
@@ -79,6 +79,7 @@ page text; they must be re-verified before customer-facing use.
    the probe was corrected and the Handbook's SQL listed as a strength.
 5. **PII handling.** An early forensic file contained a snippet with third-party contact details. It was removed from the
    (unpushed) local commit before publication and the scanner now stores only masked forms.
+6. **Placeholder credentials in evidence.** The first pushed evidence files quoted sample passwords from the Python Handbook's code examples. They are teaching placeholders, not real credentials, but GitGuardian flagged the pull request. Later commits redact them; the earlier commits stay in the PR history (no rewrite of pushed history), so the scanner's finding on those commits needs to be marked a false positive in the GitGuardian dashboard by the repository owner.
 
 ## 5. What was not done
 

@@ -450,6 +450,20 @@ def _is_placeholder(token: str) -> bool:
     return len(set(body.lower())) <= 3 or bool(re.search(r"(x{6,}|\*{4,}|your[_-]|example|changeme)", token, re.I))
 
 
+# Evidence files are committed to a public repository. Credential-shaped literals that the sources use as teaching
+# placeholders are redacted from stored snippets so that secret scanners do not mistake the evidence for a leak;
+# the finding (page, pattern, count) is unchanged.
+_CRED_ASSIGN = re.compile(r"""(?i)(\b(?:password|passwd|pwd|pass|secret|token|api[_-]?key)\s*=\s*)(["'])[^"']*\2""")
+_CRED_AUTH = re.compile(r"""(?i)(\bauth\s*=\s*\(\s*)(["'])[^"']*\2(\s*,\s*)(["'])[^"']*\4""")
+_CRED_WEAK = re.compile(r"""(["'])(?:password\d+|admin\d+|pass\d+|123456|changeme)\1""", re.I)
+
+
+def redact_credentials(text: str) -> str:
+    text = _CRED_ASSIGN.sub(lambda m: f"{m.group(1)}{m.group(2)}<redacted>{m.group(2)}", text)
+    text = _CRED_AUTH.sub(lambda m: f"{m.group(1)}{m.group(2)}<redacted>{m.group(2)}{m.group(3)}{m.group(4)}<redacted>{m.group(4)}", text)
+    return _CRED_WEAK.sub(lambda m: f"{m.group(1)}<redacted>{m.group(1)}", text)
+
+
 def scan(pages: list[str], patterns: dict[str, str], flags=re.I, max_examples: int = 5, skip_placeholders: bool = False) -> dict:
     """Count matches per pattern and keep a few (page, snippet) examples."""
     result = {}
@@ -466,7 +480,7 @@ def scan(pages: list[str], patterns: dict[str, str], flags=re.I, max_examples: i
                 pages_hit.add(i)
                 if len(examples) < max_examples:
                     s = max(0, m.start() - 50)
-                    snippet = re.sub(r"\s+", " ", pg[s : m.end() + 70]).strip()
+                    snippet = redact_credentials(re.sub(r"\s+", " ", pg[s : m.end() + 70]).strip())
                     examples.append({"page": i, "snippet": snippet[:200]})
         result[key] = {"count": count, "pages": len(pages_hit), "examples": examples}
     return result
@@ -479,7 +493,7 @@ def scan_code_blocks(blocks: list[CodeBlock], patterns: dict[str, str]) -> dict:
         hits = []
         for b in blocks:
             for m in rx.finditer(b.text):
-                hits.append({"page": b.page, "snippet": re.sub(r"\s+", " ", b.text[max(0, m.start() - 30) : m.end() + 50]).strip()[:160]})
+                hits.append({"page": b.page, "snippet": redact_credentials(re.sub(r"\s+", " ", b.text[max(0, m.start() - 30) : m.end() + 50]).strip())[:160]})
         out[key] = {"count": len(hits), "examples": hits[:5]}
     return out
 
@@ -527,7 +541,7 @@ def cross_duplication(fps: dict[str, dict[str, list[int]]]) -> list[dict]:
                     "shared_long_lines": len(shared),
                     "share_of_a": round(len(shared) / max(len(sa), 1), 4),
                     "share_of_b": round(len(shared) / max(len(sb), 1), 4),
-                    "examples": [s[:120] for s in sorted(shared, key=len, reverse=True)[:3]],
+                    "examples": [s[:120] for s in sorted(shared, key=lambda x: (-len(x), x))[:3]],
                 }
             )
     rows.sort(key=lambda r: -r["shared_long_lines"])
@@ -544,7 +558,7 @@ def heading_overlap(outlines: dict[str, list[dict]]) -> list[dict]:
         for b in names[i + 1 :]:
             shared = sets[a] & sets[b]
             if len(shared) >= 5:
-                rows.append({"a": a, "b": b, "shared_headings": len(shared), "examples": sorted(shared, key=len, reverse=True)[:4]})
+                rows.append({"a": a, "b": b, "shared_headings": len(shared), "examples": sorted(shared, key=lambda x: (-len(x), x))[:4]})
     rows.sort(key=lambda r: -r["shared_headings"])
     return rows
 

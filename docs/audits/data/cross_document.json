@@ -6,8 +6,8 @@
       "examples": [
         "aslr address space layout randomization",
         "5 format string vulnerabilities",
-        "phase 7 continuous improvement",
-        "iam identity access management"
+        "iam identity access management",
+        "phase 7 continuous improvement"
       ],
       "shared_headings": 105
     },
@@ -15,10 +15,10 @@
       "a": "SRC-MEGA-P2",
       "b": "SRC-PY-HANDBOOK",
       "examples": [
-        "module 8 part 2",
+        "module 4 part 2",
         "module 4 part 3",
-        "module 7 part 4",
-        "module 6 part 3"
+        "module 4 part 4",
+        "module 4 part 5"
       ],
       "shared_headings": 20
     },
@@ -48,10 +48,10 @@
       "a": "SRC-JAVA-AUTOTEST",
       "b": "SRC-PY-HANDBOOK",
       "examples": [
-        "assignment 2",
-        "assignment 5",
         "assignment 1",
-        "assignment 3"
+        "assignment 2",
+        "assignment 3",
+        "assignment 4"
       ],
       "shared_headings": 5
     }

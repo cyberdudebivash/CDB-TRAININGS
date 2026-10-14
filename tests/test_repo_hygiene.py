@@ -281,3 +281,22 @@ def test_lab_readme_states_the_pinned_lab_requirements():
         line = line.split("#")[0].strip()
         if line:
             assert f"`{line}`" in readme, f"guided lab README does not state the pinned requirement {line}"
+
+
+def test_audit_evidence_contains_no_credential_shaped_literals():
+    """The sources quote placeholder passwords in their examples; stored evidence must not repeat them (secret scanners cannot tell)."""
+    paths = [f for f in git_files("docs/audits") if f.endswith((".json", ".yaml", ".md"))]
+    assert paths
+    offenders = []
+    for f in paths:
+        text = (ROOT / f).read_text(encoding="utf-8")
+        if fx.redact_credentials(text) != text:
+            offenders.append(f)
+    assert offenders == [], f"credential-shaped literals in evidence files: {offenders}"
+
+
+def test_forensics_output_ordering_is_deterministic():
+    inv = json.loads((ROOT / "docs" / "audits" / "data" / "cross_document.json").read_text(encoding="utf-8"))
+    for row in inv["shared_headings"] if isinstance(inv.get("shared_headings"), list) else []:
+        ex = row["examples"]
+        assert ex == sorted(ex, key=lambda x: (-len(x), x)), "examples must be sorted for reproducibility"

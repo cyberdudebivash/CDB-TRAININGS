@@ -54,13 +54,13 @@ eval on LLM output is remote code execution through prompt injection (OWASP LLM0
 
 ### F-PYH-002 (P1) Automation examples teach insecure credential, TLS, SSH and shell patterns without warnings
 
-- **p. 163:** servers.json inventory stores plaintext passwords ('pass123', 'admin123').
+- **p. 163:** servers.json inventory stores plaintext passwords (trivially guessable placeholder values).
 - **p. 164:** paramiko `set_missing_host_key_policy(AutoAddPolicy())` - accepts any SSH host key (MITM risk).
 - **p. 168:** Patch runner passes srv['password'] from the inventory.
-- **p. 428:** requests with auth=('admin','pass') and verify=False for load-balancer APIs (also p. 427).
+- **p. 428:** requests with hard-coded credentials in auth= and verify=False for load-balancer APIs (also p. 427).
 - **p. 269:** JWT signing secret hard-coded as a string literal.
 - **p. 221:** Flask app.run(debug=True) (also p. 228).
-- **p. 252:** Seed admin user with password 'password123'.
+- **p. 252:** Seed admin user created with a trivially guessable hard-coded password.
 - **p. 373:** os.system(f"iptables -A INPUT -s {ip} -j DROP") (also p. 122: os.system with f-string host) - shell injection.
 
 The scanner flagged 10 bare-except, 6 hard-coded secrets, 3 AutoAddPolicy, 2 verify=False, 2 debug=True, 4 weak default passwords, 2 os.system uses; each was read in context (some carry a one-line 'never store raw passwords' note, none shows the safe pattern).

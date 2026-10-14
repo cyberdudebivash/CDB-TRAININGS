@@ -3291,23 +3291,23 @@
       "examples": [
         {
           "page": 124,
-          "snippet": "t(\"1.2.3.4\", username=\"root\", password=\"pass\")"
+          "snippet": "t(\"1.2.3.4\", username=\"root\", password=\"<redacted>\")"
         },
         {
           "page": 141,
-          "snippet": "alhost\", user=\"root\", password=\"pass\", database=\"test\" ) cursor = db.cursor() curso"
+          "snippet": "alhost\", user=\"root\", password=\"<redacted>\", database=\"test\" ) cursor = db.cursor() curso"
         },
         {
           "page": 269,
-          "snippet": "me import datetime, timedelta SECRET = \"CYBERDUDEBIVASH_SECRET\" ALGORITHM = \"HS256\" def create_token(data: dict,"
+          "snippet": "me import datetime, timedelta SECRET = \"<redacted>\" ALGORITHM = \"HS256\" def create_token(data: dict,"
         },
         {
           "page": 402,
-          "snippet": "2.168.1.10\", username=\"root\", password=\"pass\")"
+          "snippet": "2.168.1.10\", username=\"root\", password=\"<redacted>\")"
         },
         {
           "page": 419,
-          "snippet": "(url='http://localhost:8200', token='mytoken') secret = client.secrets.kv.v2.read_secret_versio"
+          "snippet": "(url='http://localhost:8200', token='<redacted>') secret = client.secrets.kv.v2.read_secret_versio"
         }
       ]
     },
@@ -3375,7 +3375,7 @@
         },
         {
           "page": 428,
-          "snippet": "pool\", auth=(\"admin\",\"pass\"), verify=False) print(resp.json())"
+          "snippet": "pool\", auth=(\"<redacted>\",\"<redacted>\"), verify=False) print(resp.json())"
         }
       ]
     },
@@ -3384,19 +3384,19 @@
       "examples": [
         {
           "page": 124,
-          "snippet": "t(\"1.2.3.4\", username=\"root\", password=\"pass\")"
+          "snippet": "t(\"1.2.3.4\", username=\"root\", password=\"<redacted>\")"
         },
         {
           "page": 141,
-          "snippet": "alhost\", user=\"root\", password=\"pass\", database=\"test\" ) cursor = db.cursor() curso"
+          "snippet": "alhost\", user=\"root\", password=\"<redacted>\", database=\"test\" ) cursor = db.cursor() curso"
         },
         {
           "page": 252,
-          "snippet": "ssword=generate_password_hash(\"password123\")) db.session.add(admin) db.session.commit"
+          "snippet": "ssword=generate_password_hash(\"<redacted>\")) db.session.add(admin) db.session.commit"
         },
         {
           "page": 402,
-          "snippet": "2.168.1.10\", username=\"root\", password=\"pass\")"
+          "snippet": "2.168.1.10\", username=\"root\", password=\"<redacted>\")"
         }
       ]
     },
@@ -3416,11 +3416,11 @@
       "examples": [
         {
           "page": 252,
-          "snippet": "app_context(): admin = Admin(username=\"admin\", password=generate_password_hash(\"password123\")) db.session.add(admin) db.session.commit() ⭐"
+          "snippet": "app_context(): admin = Admin(username=\"admin\", password=generate_password_hash(\"<redacted>\")) db.session.add(admin) db.session.commit() ⭐"
         },
         {
           "page": 269,
-          "snippet": "jwt from datetime import datetime, timedelta SECRET = \"CYBERDUDEBIVASH_SECRET\" 268"
+          "snippet": "jwt from datetime import datetime, timedelta SECRET = \"<redacted>\" 268"
         }
       ],
       "pages": 2

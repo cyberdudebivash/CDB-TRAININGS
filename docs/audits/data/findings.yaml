@@ -404,13 +404,13 @@ findings:
     dimension: technical_correctness
     title: "Automation examples teach insecure credential, TLS, SSH and shell patterns without warnings"
     evidence:
-      - {page: 163, note: "servers.json inventory stores plaintext passwords ('pass123', 'admin123')."}
+      - {page: 163, note: "servers.json inventory stores plaintext passwords (trivially guessable placeholder values)."}
       - {page: 164, note: "paramiko `set_missing_host_key_policy(AutoAddPolicy())` - accepts any SSH host key (MITM risk)."}
       - {page: 168, note: "Patch runner passes srv['password'] from the inventory."}
-      - {page: 428, note: "requests with auth=('admin','pass') and verify=False for load-balancer APIs (also p. 427)."}
+      - {page: 428, note: "requests with hard-coded credentials in auth= and verify=False for load-balancer APIs (also p. 427)."}
       - {page: 269, note: "JWT signing secret hard-coded as a string literal."}
       - {page: 221, note: "Flask app.run(debug=True) (also p. 228)."}
-      - {page: 252, note: "Seed admin user with password 'password123'."}
+      - {page: 252, note: "Seed admin user created with a trivially guessable hard-coded password."}
       - {page: 373, note: "os.system(f\"iptables -A INPUT -s {ip} -j DROP\") (also p. 122: os.system with f-string host) - shell injection."}
     verification: STATIC_SCAN
     detail: "The scanner flagged 10 bare-except, 6 hard-coded secrets, 3 AutoAddPolicy, 2 verify=False, 2 debug=True, 4 weak default passwords, 2 os.system uses; each was read in context (some carry a one-line 'never store raw passwords' note, none shows the safe pattern)."
