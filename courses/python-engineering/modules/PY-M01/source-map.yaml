@@ -1,0 +1,76 @@
+# Source-to-new-content trace for PY-M01. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower). Mapping of pages to this module is a reading by the module author, not a measurement.
+source: SRC-PY-HANDBOOK
+module: PY-M01
+mappings:
+  - source_pages: [2, 3]
+    source_topic: "What Python is and 'Why Python took over the industry' (a list of reasons without sources)"
+    disposition: DROPPED
+    new_content: "lesson.md section 1 (a short motivation that makes no adoption claims)"
+    note: "The pages state popularity and 'most taught language' claims that cannot be checked from the text; nothing replaces them because the course does not need them."
+  - source_pages: [4, 5]
+    source_topic: "Downloading Python and checking the version (sample output 'Python 3.12.0')"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md sections 2 and 7"
+    note: "The sample output is an example, not an error. The new lesson states the supported set on 2026-10-14 (3.11 to 3.15; 3.10 ended on 2026-10-01) and executes a version-gated feature table on 3.11-3.15 (F-PYH-004)."
+  - source_pages: [6]
+    source_topic: "Running Python: interactive shell, script file, VS Code"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 2; lab-guided step A"
+    note: "Kept the shell and script forms; editor installation steps are tool-interface instructions that change often and are not repeated. Adds traceback reading and sys.executable."
+  - source_pages: [7, 8, 9, 10, 11]
+    source_topic: "Syntax, variables, strings, dictionaries and comparison operators"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md sections 3 and 4; lab-guided steps B, C and E"
+    note: "Concepts kept; every listing is replaced by an executed assertion block (F-PYH-004). Adds the float and is-versus-equals traps that the pages do not mention."
+  - source_pages: [12, 13]
+    source_topic: "Conditional statements; break, continue, pass"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 5"
+    note: "Kept; adds match statements, early returns and purity as the style used by the labs."
+  - source_pages: [14, 28]
+    source_topic: "Basic and advanced functions (defaults, *args, keyword-only, **kwargs) and docstrings"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 5; docstrings serve as the specification in lab-guided/starter/datakit.py"
+    note: "Only small pure functions and early returns are taught here; argument-passing details are not repeated in this module. The mutable default argument trap is taught in PY-M02."
+  - source_pages: [15, 16, 17, 18, 19, 20, 21, 22, 27]
+    source_topic: "Lists, tuples, sets, dictionary operations and zip"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 4; lab-guided steps B to E"
+    note: "Kept as a choose-the-collection table with executed examples; the guided lab turns them into functions with provided tests."
+  - source_pages: [23]
+    source_topic: "String methods, slicing, splitting, joining and 'Checking Patterns'"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md sections 4 and 6 ('Text tools you will use in the labs')"
+    note: "Expanded with partition, Counter, strptime and a short regular-expression introduction, because the labs need them; adds the non-ASCII digit trap."
+  - source_pages: [24, 26]
+    source_topic: "Mutability and immutability; sharing a list through two names; slicing"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md sections 3 and 4; quiz Q4"
+    note: "The shared-list example is kept and executed. The claim that immutability exists mainly for performance and thread safety is not repeated because the module has no evidence for it."
+  - source_pages: [25]
+    source_topic: "'Python memory model': variables are names on the stack and objects live on the heap"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 3 and 9"
+    note: "Stack and heap describe one implementation, not the language. The new lesson teaches names bound to objects in namespaces and shows the module namespace as a dictionary (executed; F-PYH-004)."
+  - source_pages: [48, 49, 50, 51, 52, 53, 54, 55]
+    source_topic: "Object-oriented programming: classes, access conventions, properties, MRO, polymorphism, composition, design patterns"
+    disposition: DROPPED
+    new_content: "not covered by PY-M01; no module of COURSE-PY-ENG currently teaches classes"
+    note: "Outside this module's five outcomes. This is a coverage gap in the course plan, recorded in the course README, not an editorial decision that the topic is unimportant (F-PYH-007: no assessable outcomes existed for it)."
+  - source_pages: [56, 57, 60]
+    source_topic: "Reference counting, interning, bytecode and other 'internals'"
+    disposition: DROPPED
+    new_content: "not covered by PY-M01"
+    note: "Implementation detail of CPython, not needed for the module outcomes; may be revisited in the profiling module PY-M09. Not claimed as covered (F-PYH-007)."
+  - source_pages: [58, 59, 61]
+    source_topic: "Dictionary comprehensions, higher-order functions (map, filter, reduce) and namespaces and scope"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md sections 3 and 4 (comprehensions, namespaces as dictionaries)"
+    note: "Comprehensions and namespaces are kept; map, filter and reduce are not taught here because comprehensions cover the labs' needs."
+  - source_pages: [92]
+    source_topic: "Real-time project: log analysis script (parse auth.log)"
+    disposition: REPLACED
+    new_content: "lab-independent (logkit and report.py)"
+    note: "The page lists a project idea without a specification or checks. Replaced by a specified log-processing lab with published examples, a hidden suite and a reviewer rubric (F-PYH-007)."

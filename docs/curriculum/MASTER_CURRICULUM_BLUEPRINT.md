@@ -45,9 +45,9 @@ Rules that keep this a single curriculum rather than ten documents:
 | Measure | Value |
 |---|---:|
 | Courses | 10 |
-| Modules planned / with built content | 111 / 5 |
-| Labs planned / built / verified executable in QA | 213 / 10 / 10 |
-| Module outcomes total / assessed | 116 / 10 |
+| Modules planned / with built content | 111 / 6 |
+| Labs planned / built / verified executable in QA | 213 / 12 / 12 |
+| Module outcomes total / assessed | 116 / 11 |
 | Courses with SME review recorded | 0 |
 | Courses with a named owner | 0 |
 | Courses by release status | REENGINEERING: 10 |
@@ -58,7 +58,7 @@ Rules that keep this a single curriculum rather than ten documents:
 |---|---|---|---:|---:|---|---:|---|---|
 | Digital and Technical Foundations | `COURSE-FND-DIGITAL` | L0-L0 | 6 | 32 | 12 / 0 / 0 | 0/6 | PLANNED | `REENGINEERING` |
 | SOC Analyst Professional Pathway | `COURSE-SOC` | L1-L3 | 14 | 104 | 27 / 2 / 2 | 6/19 | PILOT_BUILT | `REENGINEERING` |
-| Python Engineering Pathway | `COURSE-PY-ENG` | L1-L3 | 11 | 92 | 21 / 8 / 8 | 4/11 | IN_BUILD | `REENGINEERING` |
+| Python Engineering Pathway | `COURSE-PY-ENG` | L1-L3 | 11 | 92 | 21 / 10 / 10 | 5/11 | IN_BUILD | `REENGINEERING` |
 | Python Automation Pathway | `COURSE-PY-AUTO` | L2-L3 | 10 | 73 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
 | Java Test Automation Engineer Pathway | `COURSE-JAVA-QA` | L1-L3 | 10 | 92 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
 | Applied AI and LLM Engineering Pathway | `COURSE-AI-ENG` | L1-L3 | 12 | 114 | 23 / 0 / 0 | 0/12 | IN_DESIGN | `REENGINEERING` |
@@ -180,7 +180,7 @@ Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 92 · Capstone: A typed,
 
 | Module | Title | Level | Hours | State | Primary outcome (observable) |
 |---|---|---:|---:|---|---|
-| `PY-M01` | Language core and data structures | L1 | 12 | PLANNED | Implement five data-processing functions that pass provided unit tests. |
+| `PY-M01` | Language core and data structures | L1 | 12 | BUILT / lab VERIFIED_EXECUTABLE | Implement five data-processing functions that pass provided unit tests. |
 | `PY-M02` | Functions, errors and testing with pytest | L1 | 8 | BUILT / lab VERIFIED_EXECUTABLE | Write parametrised pytest tests that detect three seeded defects in a provided module. |
 | `PY-M03` | Types, modules and project layout | L2 | 6 | BUILT / lab VERIFIED_EXECUTABLE | Refactor a script into a typed package that passes a static type checker without errors. |
 | `PY-M04` | Environments, dependencies and packaging (pyproject, build) | L2 | 6 | BUILT / lab VERIFIED_EXECUTABLE | Build, install and import a wheel produced with python -m build in a clean virtual environment. |

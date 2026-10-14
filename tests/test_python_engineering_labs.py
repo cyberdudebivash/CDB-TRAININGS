@@ -47,6 +47,57 @@ def failing(results: dict[str, str]) -> set[str]:
     return {k for k, v in results.items() if v in ("failed", "error")}
 
 
+# ------------------------------------------------------------------------------------------------------------------ PY-M01
+M01 = COURSE / "modules" / "PY-M01"
+
+
+def test_m01_guided_solution_passes_every_check():
+    results = run_pytest(M01 / "lab-guided", env={"LAB_TARGET": "solution"})
+    assert len(results) == 21 and failing(results) == set(), failing(results)
+
+
+def test_m01_guided_starter_fails_every_check():
+    results = run_pytest(M01 / "lab-guided")
+    assert len(results) == 21 and set(results.values()) <= {"failed", "error"}, {k: v for k, v in results.items() if v == "passed"}
+
+
+def test_m01_independent_starter_fails_the_published_examples():
+    results = run_pytest(M01 / "lab-independent")
+    assert list(results.values()) == ["failed"], results
+
+
+@pytest.mark.private_materials
+def test_m01_independent_reference_passes_examples_hidden_suite_and_report_script():
+    ref = PRIVATE / "PY-M01" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    assert list(run_pytest(M01 / "lab-independent", env={"LAB_PROJECT": str(ref)}).values()) == ["passed"]
+    hidden = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(ref)})
+    assert len(hidden) == 34 and failing(hidden) == set(), failing(hidden)
+    sample = M01 / "lab-independent" / "starter" / "sample.log"
+    done = subprocess.run([sys.executable, "report.py", str(sample)], cwd=ref, capture_output=True, text=True, env=dict(os.environ, PYTHONPATH=str(ref)))
+    assert done.returncode == 0 and json.loads(done.stdout) == {
+        "levels": {"DEBUG": 1, "INFO": 2, "WARNING": 1, "ERROR": 2, "INVALID": 1},
+        "top_messages": [["service started", 2], ["cache warm", 1], ["paiement \u00e9chou\u00e9 for order 7", 1]],
+        "busiest_hour": "2026-10-14 09"}
+    assert "\\u00e9" not in done.stdout, "accented letters must not be escaped"
+    missing = subprocess.run([sys.executable, "report.py", str(ref / "no-such-file.log")], cwd=ref, capture_output=True, text=True, env=dict(os.environ, PYTHONPATH=str(ref)))
+    assert missing.returncode == 2 and "Traceback" not in missing.stderr and missing.stderr.count("\n") == 1
+
+
+@pytest.mark.private_materials
+def test_m01_hidden_suite_is_discriminating_and_starter_fails_it():
+    ref = PRIVATE / "PY-M01" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    report = mutation(ref, "logkit", ref / "test_hidden.py", ref / "mutants.json")
+    assert report["baseline_passes"] and report["passed"]
+    assert report["required_killed"] == report["required_total"] == 16 and report["all_killed"] == report["total"] == 16
+    starter = M01 / "lab-independent" / "starter"
+    results = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(starter)})
+    assert len(results) == 34 and set(results.values()) <= {"failed", "error"}
+
+
 # ------------------------------------------------------------------------------------------------------------------ PY-M02
 M02 = COURSE / "modules" / "PY-M02"
 

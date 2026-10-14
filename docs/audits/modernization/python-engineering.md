@@ -25,9 +25,9 @@ Actions: KEEP 1, UPDATE 5, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 - **2025 source state:** Module 1 teaches core Python with many small examples; its code blocks are syntactically valid but were never executed (F-PYH-004).
 - **Verified state at 2026-10-14:** Core language semantics are stable; the supported runtime set is 3.11-3.15 (3.10 ended 2026-10-01).
 - **Why:** Foundational content is timeless but must be re-run on a declared version.
-- **Destination:** PY-M01, FND-M05 (PLANNED)
+- **Destination:** PY-M01, FND-M05 (PARTIAL)
 - **Learner impact:** Same concepts, now with tests that prove each example runs.
-- **Verification:** MACHINE_ONLY - Syntax-checked in the first audit; execution pending in the module build.
+- **Verification:** MACHINE_ONLY - Syntax-checked in the first audit. PY-M01 re-teaches pp. 2-28, 58 and 61 with every lesson example executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md); the object-oriented, internals and higher-order-function pages (pp. 48-57, 59, 60) are not covered by any module yet.
 - **Evidence:**
   - `F-PYH-004`: P2 Code is mostly syntactically valid but unexecuted and untested
   - `R-024`: What's New In Python 3.15 (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://docs.python.org/3/whatsnew/3.15.html>
@@ -274,7 +274,7 @@ Maturity labels and evidence are explained in [NEW_DEVELOPMENTS_2026.md](../../r
 
 | ID | Concept | Status | What is missing |
 |---|---|---|---|
-| MC-PYH-01 | Python language foundations (installing, syntax, types, control flow, functions, data structures) | MACHINE_ONLY | Syntax-checked in the first audit; execution pending in the module build. |
+| MC-PYH-01 | Python language foundations (installing, syntax, types, control flow, functions, data structures) | MACHINE_ONLY | Syntax-checked in the first audit. PY-M01 re-teaches pp. 2-28, 58 and 61 with every lesson example executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md); the object-oriented, internals and higher-order-function pages (pp. 48-57, 59, 60) are not covered by any module yet. |
 | MC-PYH-10 | Python cybersecurity development (mini SIEM, EDR agent, IDS/IPS, TIP, malware sandbox) | NEEDS_VERIFICATION | Page-level read pending; mapping is heuristic. |
 | MC-PYH-11 | Python for blockchain, Web3 and crypto engineering | MACHINE_ONLY | Heading-level mapping; no technical claim is made about the content. |
 
