@@ -1,4 +1,5 @@
 """The student-edition build: safety gates must reject instructor material; the artefact must meet the accessibility checks."""
+import re
 import shutil
 import textwrap
 
@@ -101,6 +102,10 @@ def test_full_build_passes_all_checks(tmp_path):
     html = (tmp_path / m["html"]["file"]).read_text(encoding="utf-8")
     for needle in ("Pilot status", "Triage records passed: 5/5", "© 2026 The MITRE Corporation"):
         assert needle in html
+    low = html.lower()
+    assert "<script" not in low and "<link" not in low and "<iframe" not in low, "student edition must be a self-contained document"
+    assert not re.search(r"""(src|srcset|poster|data)=["']?(https?:)?//""", low), "student edition must make no external requests"
+    assert "@import" not in low and "url(http" not in low
     assert "answer key" not in html.lower().replace("the answer key is held by instructors and is not published", "").replace("the answer key is held by instructors, not published", "")
 
 

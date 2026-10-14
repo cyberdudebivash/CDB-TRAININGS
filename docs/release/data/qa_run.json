@@ -1,0 +1,143 @@
+{
+  "branch": "claude/cyberdudebivash-training-audit-ilfgze",
+  "commit": "379f8d20f58b",
+  "private_instructor_pack_present": true,
+  "python": "3.13.16",
+  "results": [
+    {
+      "detail": "catalog validation OK: 10 courses, 102 modules, 11 pathways",
+      "id": "catalog",
+      "status": "PASS",
+      "title": "Catalog schema and cross-reference validation"
+    },
+    {
+      "detail": "contrast check OK: 24 pairs",
+      "id": "design-contrast",
+      "status": "PASS",
+      "title": "Design-token WCAG contrast pairs"
+    },
+    {
+      "detail": "generated audit documents are reproducible from data files",
+      "id": "audit-render",
+      "status": "PASS",
+      "title": "Audit documents reproducible from findings/scores data"
+    },
+    {
+      "detail": "140 passed, 0 failed, 0 errors, 0 skipped",
+      "id": "pytest",
+      "skipped": [],
+      "status": "PASS",
+      "suites": [
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/pilot/test_curriculum",
+          "passed": 11,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/pilot/test_detection_gap",
+          "passed": 2,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/pilot/test_evaluate_triage",
+          "passed": 18,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/pilot/test_generator",
+          "passed": 12,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/pilot/test_guided_lab",
+          "passed": 11,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/pilot/test_independent_lab",
+          "passed": 4,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/pilot/test_sigma_lite",
+          "passed": 36,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/pilot/test_sigma_spec_validity",
+          "passed": 6,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/test_build_student_edition",
+          "passed": 20,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/test_design_system",
+          "passed": 2,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/test_repo_hygiene",
+          "passed": 18,
+          "skipped": 0
+        }
+      ],
+      "tail": [
+        "....................................................................     [100%]",
+        "---------------- generated xml file: /tmp/tmpa6uu50go/junit.xml ----------------",
+        "140 passed in 5.67s"
+      ],
+      "title": "Full pytest suite",
+      "totals": {
+        "errors": 0,
+        "failed": 0,
+        "passed": 140,
+        "skipped": 0
+      }
+    },
+    {
+      "detail": "5/5 attack scenarios detected, 6/6 alerts true positive, 0 false-positive alerts, 2 suppressed (0 hid real attacks)",
+      "id": "lab-guided-e2e",
+      "status": "PASS",
+      "title": "SOC-M04 guided lab: generate, enrich, lint, detect, evaluate, check-triage (public reference solution)"
+    },
+    {
+      "detail": "private pack present locally; this result is not reproducible from a public clone. 2/2 attack scenarios detected, 26/26 alerts true positive, 0 false-positive alerts, 2 suppressed (0 hid real attacks)",
+      "id": "lab-independent-e2e",
+      "status": "PASS",
+      "title": "SOC-M04 independent lab with private reference solution"
+    },
+    {
+      "detail": "RESULT: PASS",
+      "id": "student-build",
+      "status": "PASS",
+      "title": "Student-edition build (HTML + tagged PDF, strict gates)"
+    }
+  ],
+  "run_utc": "2026-10-14 08:04",
+  "working_tree_dirty": true
+}

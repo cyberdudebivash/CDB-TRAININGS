@@ -29,7 +29,7 @@ findings:
       Rev. 2 had four phases (Table 1 of r3). The six-step model is a common practitioner model, not NIST's.
       The two sections of the PDF contradict each other.
     recommendation: "Describe r3 as CSF-2.0-Function based; present Preparation-Identification-Containment-Eradication-Recovery-Lessons as a practitioner model and cite its actual origin."
-    remediation: {status: DONE_IN_PILOT, where: "courses/soc-analyst/lessons/03-auth-detection/lesson.md (IR framing note)"}
+    remediation: {status: DONE_IN_PILOT, where: "courses/soc-analyst/lessons/m04-auth-detection/lesson.md (IR framing note)"}
   - id: F-SOC-002
     source_id: SRC-SOC-PLAYBOOK
     severity: P2
@@ -68,7 +68,7 @@ findings:
       the per-user threshold. The correct signal is distinct target accounts per source within a window. Reproduced
       with a deterministic dataset in the pilot (naive rule misses the spray scenarios, improved rule detects them).
     recommendation: "Teach threshold, distinct-count and per-account logic as separate detections and validate each against labelled data."
-    remediation: {status: DONE_IN_PILOT, where: "courses/soc-analyst/labs/auth-detection + tests/pilot/test_detection_gap.py"}
+    remediation: {status: DONE_IN_PILOT, where: "courses/soc-analyst/labs/m04-guided + tests/pilot/test_detection_gap.py (executed: naive rule detects 1 of 5 attack scenarios)"}
   - id: F-SOC-005
     source_id: SRC-SOC-PLAYBOOK
     severity: P1
@@ -102,7 +102,7 @@ findings:
     verification: MANUAL_READ
     detail: "No reference list exists; the extent of derivation from vendor material is unknown. FortiSIEM rule names and UI paths were not checked against current product documentation (NEEDS_VERIFICATION)."
     recommendation: "Rewrite from primary standards and independently authored labs; add references; verify product-specific claims or drop them."
-    remediation: {status: DONE_IN_PILOT, where: "Pilot unit is independently authored; vendor-neutral Sigma + synthetic data"}
+    remediation: {status: DONE_IN_PILOT, where: "courses/soc-analyst/curriculum/source-map.yaml (independently authored; vendor-neutral Sigma and synthetic data)"}
   - id: F-SOC-007
     source_id: SRC-SOC-PLAYBOOK
     severity: P2
@@ -114,7 +114,7 @@ findings:
     verification: MANUAL_READ
     detail: "Time-window exclusions and higher thresholds are exactly where low-and-slow attacks hide. No before/after recall measurement is taught."
     recommendation: "Teach tuning as a measured change: every exclusion needs an owner, an expiry and a regression test against attack scenarios."
-    remediation: {status: DONE_IN_PILOT, where: "Pilot independent lab (tuning without losing recall)"}
+    remediation: {status: DONE_IN_PILOT, where: "courses/soc-analyst/labs/m04-independent/README.md (tuning measured against recall)"}
   - id: F-SOC-008
     source_id: SRC-SOC-PLAYBOOK
     severity: P3
@@ -138,7 +138,7 @@ findings:
     verification: MANUAL_READ
     detail: "Zero learning outcomes, zero graded exercises, zero test data. 43 pages / 6,799 words of advice."
     recommendation: "Add synthetic telemetry, runnable detections, graded triage exercises and a capstone investigation."
-    remediation: {status: DONE_IN_PILOT, where: "courses/soc-analyst (one unit built; remaining units planned)"}
+    remediation: {status: DONE_IN_PILOT, where: "courses/soc-analyst/{labs,assessments}/m04* (one unit built; remaining units planned)"}
   - id: F-SOC-010
     source_id: SRC-SOC-PLAYBOOK
     severity: P1

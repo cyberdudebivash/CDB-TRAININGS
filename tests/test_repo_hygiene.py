@@ -4,6 +4,7 @@ import hashlib
 import json
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -220,3 +221,55 @@ def test_workflows_do_not_run_automatically():
         doc = yaml.safe_load(f.read_text(encoding="utf-8"))
         triggers = doc.get("on", doc.get(True))
         assert triggers == {"workflow_dispatch": None} or list(triggers) == ["workflow_dispatch"], f"{f.name} must be manual-only (billing constraint)"
+
+
+REQUIRED_DELIVERABLES = [
+    "docs/audits/SOURCE_INVENTORY.md", "docs/audits/SOURCE_PROVENANCE.md", "docs/audits/MISSING_MATERIALS.md",
+    "docs/audits/IP_AND_LICENSE_REVIEW.md", "docs/curriculum/MASTER_CURRICULUM_BLUEPRINT.md", "docs/audits/COURSE_QUALITY_SCORECARD.md",
+    "docs/audits/TECHNICAL_GAP_MATRIX.md", "docs/curriculum/COMPETENCY_PATHWAYS.md", "docs/standards/PRACTICAL_LAB_STANDARDS.md",
+    "docs/standards/ASSESSMENT_FRAMEWORK.md", "docs/standards/DESIGN_SYSTEM.md", "docs/commercial/COURSE_PRODUCT_CATALOG.md",
+    "docs/commercial/COMMERCIAL_READINESS.md", "docs/release/AUTOMATED_QA_REPORT.md", "docs/release/PRODUCTION_GO_GATE_REPORT.md",
+    "docs/execution/EXECUTION_PROGRESS.md", "docs/execution/EXECUTION_HANDOFF.md",
+]
+
+
+def test_required_deliverables_exist():
+    missing = [f for f in REQUIRED_DELIVERABLES if not (ROOT / f).is_file() or (ROOT / f).stat().st_size < 500]
+    assert missing == [], f"missing or empty deliverables: {missing}"
+    index = (ROOT / "docs" / "README.md").read_text(encoding="utf-8")
+    for f in REQUIRED_DELIVERABLES:
+        assert f.removeprefix("docs/") in index, f"{f} is not listed in docs/README.md"
+
+
+def test_generated_program_documents_are_current():
+    result = subprocess.run([sys.executable, str(ROOT / "scripts" / "build" / "render_program_docs.py"), "--check"], capture_output=True, text=True)
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_pathways_reference_only_real_modules_and_prerequisites_hold():
+    # validate_catalog covers pathways; this pins that the check is part of the aggregate validation.
+    assert validate_catalog.validate() == []
+    data = load(ROOT / "catalog" / "learning-pathways.yaml")
+    assert len(data["pathways"]) >= 8 and [lv["id"] for lv in data["levels"]] == [0, 1, 2, 3]
+
+
+def test_top_level_policy_documents_exist():
+    for f in ("README.md", "LICENSE-STATUS.md", "CONTRIBUTING.md"):
+        assert (ROOT / f).is_file(), f
+    status = (ROOT / "LICENSE-STATUS.md").read_text(encoding="utf-8")
+    if not (ROOT / "LICENSE").exists():
+        assert "no `LICENSE` file" in status, "LICENSE-STATUS.md must say that no licence has been chosen"
+    else:
+        assert "no `LICENSE` file" not in status, "a LICENSE exists now; update LICENSE-STATUS.md"
+
+
+def test_no_project_files_are_hidden_by_gitignore():
+    """A file that exists locally but is git-ignored makes tests pass here and fail in a clean clone."""
+    out = subprocess.run(["git", "ls-files", "--others", "--ignored", "--exclude-standard"], cwd=ROOT, capture_output=True, text=True)
+    if out.returncode != 0:
+        pytest.skip("not a git checkout")
+    hidden = [f for f in out.stdout.splitlines()
+              if f.startswith(("scripts/", "tests/", "courses/", "catalog/", "docs/", "shared/", ".github/"))
+              and "__pycache__" not in f and not f.endswith(".pyc")
+              and not re.match(r"courses/[^/]+/instructor/(?!README\.md$)", f)]
+    assert hidden == [], f"ignored project files (would be missing from a clean clone): {hidden[:10]}"

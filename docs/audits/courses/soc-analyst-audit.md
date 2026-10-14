@@ -55,7 +55,7 @@ NIST SP 800-61r3 defines no phase list; it organises incident response around th
 *Reference R-001:* NIST SP 800-61 Rev. 3 - Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile - NIST, April 2025 (final); supersedes SP 800-61 Rev. 2 (Aug 2012) (verified 2026-10-14, method PRIMARY_DOCUMENT_READ).
 
 **Verification:** PRIMARY_SOURCE. **Recommendation:** Describe r3 as CSF-2.0-Function based; present Preparation-Identification-Containment-Eradication-Recovery-Lessons as a practitioner model and cite its actual origin.
-**Remediation:** DONE_IN_PILOT - courses/soc-analyst/lessons/03-auth-detection/lesson.md (IR framing note).
+**Remediation:** DONE_IN_PILOT - courses/soc-analyst/lessons/m04-auth-detection/lesson.md (IR framing note).
 
 ### F-SOC-004 (P1) Example brute-force correlation rule cannot detect password spraying
 
@@ -65,7 +65,7 @@ NIST SP 800-61r3 defines no phase list; it organises incident response around th
 Grouping by target user means an attacker trying 1-2 passwords against many accounts from one IP never exceeds the per-user threshold. The correct signal is distinct target accounts per source within a window. Reproduced with a deterministic dataset in the pilot (naive rule misses the spray scenarios, improved rule detects them).
 
 **Verification:** MANUAL_READ. **Recommendation:** Teach threshold, distinct-count and per-account logic as separate detections and validate each against labelled data.
-**Remediation:** DONE_IN_PILOT - courses/soc-analyst/labs/auth-detection + tests/pilot/test_detection_gap.py.
+**Remediation:** DONE_IN_PILOT - courses/soc-analyst/labs/m04-guided + tests/pilot/test_detection_gap.py (executed: naive rule detects 1 of 5 attack scenarios).
 
 ### F-SOC-005 (P1) Uncited statistics, salary bands and workforce numbers presented as 2026 benchmarks
 
@@ -92,7 +92,7 @@ About 80 percentage/salary figures were counted (STATIC_SCAN). None carries a re
 Zero learning outcomes, zero graded exercises, zero test data. 43 pages / 6,799 words of advice.
 
 **Verification:** MANUAL_READ. **Recommendation:** Add synthetic telemetry, runnable detections, graded triage exercises and a capstone investigation.
-**Remediation:** DONE_IN_PILOT - courses/soc-analyst (one unit built; remaining units planned).
+**Remediation:** DONE_IN_PILOT - courses/soc-analyst/{labs,assessments}/m04* (one unit built; remaining units planned).
 
 ### F-SOC-010 (P1) Core SOC topics absent: Windows event IDs, Sysmon, SIEM query languages, log normalisation, reporting
 
@@ -132,7 +132,7 @@ The Directions require reporting of the incident types in Annexure I within 6 ho
 No reference list exists; the extent of derivation from vendor material is unknown. FortiSIEM rule names and UI paths were not checked against current product documentation (NEEDS_VERIFICATION).
 
 **Verification:** MANUAL_READ. **Recommendation:** Rewrite from primary standards and independently authored labs; add references; verify product-specific claims or drop them.
-**Remediation:** DONE_IN_PILOT - Pilot unit is independently authored; vendor-neutral Sigma + synthetic data.
+**Remediation:** DONE_IN_PILOT - courses/soc-analyst/curriculum/source-map.yaml (independently authored; vendor-neutral Sigma and synthetic data).
 
 ### F-SOC-007 (P2) Tuning advice trades detection coverage for noise without measuring the trade-off
 
@@ -142,7 +142,7 @@ No reference list exists; the extent of derivation from vendor material is unkno
 Time-window exclusions and higher thresholds are exactly where low-and-slow attacks hide. No before/after recall measurement is taught.
 
 **Verification:** MANUAL_READ. **Recommendation:** Teach tuning as a measured change: every exclusion needs an owner, an expiry and a regression test against attack scenarios.
-**Remediation:** DONE_IN_PILOT - Pilot independent lab (tuning without losing recall).
+**Remediation:** DONE_IN_PILOT - courses/soc-analyst/labs/m04-independent/README.md (tuning measured against recall).
 
 ### F-SOC-008 (P3) Internal contradictions in escalation and metric guidance
 
@@ -210,7 +210,7 @@ Zero matches are a definitive gap; a match only shows a term is mentioned, not t
 
 ## 7. Release blockers and disposition
 
-- Blocking findings recorded in the catalog: F-SOC-004, F-SOC-005, F-SOC-009, F-SOC-010.
+- Blocking findings recorded in the catalog: F-SOC-001, F-SOC-004, F-SOC-005, F-SOC-009, F-SOC-010.
 - Release status: `REENGINEERING`. A course cannot reach `PRODUCTION_GO` until all 15 gates in `docs/release/RELEASE_GATES.md` pass; this one fails most of them (see `docs/release/PRODUCTION_GO_GATE_REPORT.md`).
-- Notes: Pilot course. Only module SOC-M04 is built; it replaces the playbook's rule example (F-SOC-004) with a validated lab. SME review is outstanding.
+- Notes: Pilot course. Only module SOC-M04 is built; it replaces the playbook's rule example (F-SOC-004) with a validated lab. Its two labs pass the automated QA run (docs/release/AUTOMATED_QA_REPORT.md); the independent-lab result depends on the git-ignored instructor pack and is not reproducible from a public clone. SME review and a learner pilot are outstanding, so qa_status stays PARTIAL.
 - Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.

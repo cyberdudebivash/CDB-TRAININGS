@@ -29,6 +29,9 @@ environment; `OFFICIAL_PAGE_SUMMARY` official page fetched through a summarising
 | R-018 | [datetime.datetime.utcnow() deprecation (reproduced)](https://docs.python.org/3/library/datetime.html#datetime.datetime.utcnow) | Python Software Foundation | CPython 3.13.16 | 2026-10-14 | EXECUTED | COURSE-AI-ENG |
 | R-019 | [MITRE ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/) | MITRE | page footer year 2026 | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-SOC, COURSE-CYBER-MEGA |
 | R-020 | [SigmaHQ licences](https://github.com/SigmaHQ/sigma) | SigmaHQ | repository pages as of 2026-10-14 | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-SOC |
+| R-021 | [Microsoft Learn - 4625(F) An account failed to log on (Windows 10 security auditing reference)](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625) | Microsoft | page ms.date 2026-03-29 (archived Windows 10 reference) | 2026-10-14 | PRIMARY_DOCUMENT_READ | COURSE-SOC |
+| R-022 | [MITRE ATT&CK - T1110 Brute Force](https://attack.mitre.org/techniques/T1110/) | MITRE | technique page v2.8, last modified 12 May 2026; ATT&CK release v20 (2026-10-13) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-SOC |
+| R-023 | [Sigma Rules and Correlation Rules Specifications](https://github.com/SigmaHQ/sigma-specification) | SigmaHQ | specification 2.1.0, released 2025-08-02 | 2026-10-14 | PRIMARY_DOCUMENT_READ | COURSE-SOC |
 
 ## Findings and resulting changes
 
@@ -131,3 +134,18 @@ environment; `OFFICIAL_PAGE_SUMMARY` official page fetched through a summarising
 
 - **Finding:** The SigmaHQ rules repository states its content is released under the Detection Rule License (DRL) 1.1; the DRL terms were not read. The Sigma specification repository's licence could not be determined from the page; the highest specification version mentioned there is 2.1.0.
 - **Resulting change:** Pilot rules are original work and do not copy SigmaHQ rules; specification features are verified against the spec text before use.
+
+### R-021 - Microsoft Learn - 4625(F) An account failed to log on (Windows 10 security auditing reference)
+
+- **Finding:** Defines the 4625 fields (Logon Type, Account For Which Logon Failed, Failure Information Status/Sub Status, Network Information workstation and source address) and the logon-type table (2 Interactive, 3 Network, 4 Batch, 5 Service, 7 Unlock, 8 NetworkCleartext, 9 NewCredentials, 10 RemoteInteractive, 11 CachedInteractive). Documented Status values include 0xC0000064 (bad user name; several in a row can indicate user enumeration), 0xC000006A (bad password), 0xC000006D (bad user name or authentication information), 0xC0000072 (account disabled), 0xC0000193 (expired account), 0xC0000234 (account locked out). The page is an archived Windows 10 reference.
+- **Resulting change:** Pilot lesson field and status tables; only documented status codes are used.
+
+### R-022 - MITRE ATT&CK - T1110 Brute Force
+
+- **Finding:** T1110 (Credential Access, TA0006) has sub-techniques T1110.001 Password Guessing, T1110.002 Password Cracking, T1110.003 Password Spraying, T1110.004 Credential Stuffing. Detection strategy DET0463 'Brute Force Authentication Failures with Multi-Platform Log Correlation' lists analytics AN1275-AN1279. The page summary did not describe the spraying/stuffing difference, so that explanation in the lesson is the course's own wording.
+- **Resulting change:** Pilot lesson maps scenarios to T1110.001/.003 and cites the ATT&CK version; attribution notice added.
+
+### R-023 - Sigma Rules and Correlation Rules Specifications
+
+- **Finding:** Correlation rules are separate YAML documents with correlation.type (event_count, value_count, temporal, temporal_ordered), rules (by id or name), group-by, timespan (Xs/Xm/Xh/Xd) and a single-criterion condition (gt, gte, lt, lte, eq, neq; value_count adds `field`). Value modifiers include contains, startswith, endswith, all, exists, re, cidr and numeric lt/lte/gt/gte. Condition grammar: and/or/not, brackets, `1 of`/`all of` with patterns and `them`. pySigma 2.0.1 parses both rule kinds (executed).
+- **Resulting change:** Pilot rules and the teaching evaluator (shared sigma_lite) follow this subset; unsupported features fail closed.

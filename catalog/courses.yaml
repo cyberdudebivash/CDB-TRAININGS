@@ -6,6 +6,9 @@
 #   * release_status uses the six gates from docs/release/RELEASE_GATES.md. No course is PRODUCTION_GO.
 #   * lifecycle says how far the replacement content has progressed; release_status says whether it may ship.
 #   * lab_coverage.verified_executable counts only labs whose automated check passed in the recorded QA run.
+#   * blocking_findings must list EVERY P0/P1 finding against the course's sources until the course is fully rebuilt (lifecycle VALIDATED);
+#     a fix in one pilot module (remediation DONE_IN_PILOT) does not clear a finding for the whole course.
+#   * lab_coverage.planned follows the module unit contract: a guided and an independent lab per module, one lab for a capstone module.
 schema_version: 1
 catalog_version: 0.1.0
 last_verified: 2026-10-14
@@ -28,7 +31,7 @@ courses:
       - {id: FND-M05, title: "Programming fundamentals with Python", level: 0, status: PLANNED, estimated_hours: 10, primary_outcome: "Write a Python script with functions that passes a provided automated test suite."}
       - {id: FND-M06, title: "Troubleshooting and safe computing", level: 0, status: PLANNED, estimated_hours: 3, primary_outcome: "Diagnose a deliberately broken script from its error output and describe the fix and the safe-lab rules followed."}
     estimated_duration_hours: 32
-    lab_coverage: {planned: 6, built: 0, verified_executable: 0}
+    lab_coverage: {planned: 12, built: 0, verified_executable: 0}
     assessment_coverage: {outcomes_total: 6, outcomes_assessed: 0}
     capstone: "Automate a small file-reporting task in a Git repository, with tests, a README and a pull request reviewed against a checklist."
     review_status: NOT_REVIEWED
@@ -53,7 +56,7 @@ courses:
       - {id: SOC-M01, title: "SOC fundamentals, roles and the alert lifecycle", level: 1, status: PLANNED, estimated_hours: 4, primary_outcome: "Explain the alert lifecycle and map each stage to the role and artefact responsible for it."}
       - {id: SOC-M02, title: "Telemetry: Windows, Linux and network logs", level: 1, status: PLANNED, estimated_hours: 8, primary_outcome: "Identify the log source and event ID or field that evidences a given behaviour in Windows, Linux and network data."}
       - {id: SOC-M03, title: "Log parsing, normalisation and query languages", level: 1, status: PLANNED, estimated_hours: 8, primary_outcome: "Parse a raw log sample into a normalised schema and answer five investigative questions with queries."}
-      - {id: SOC-M04, title: "Authentication-attack detection and triage", level: 2, status: BUILT_PILOT, estimated_hours: 6, lab_state: UNVERIFIED, primary_outcome: "Build and validate detections for brute-force and password-spray activity and triage the resulting alerts with documented evidence.", reuses: [SOC-M02]}
+      - {id: SOC-M04, title: "Authentication-attack detection and triage", level: 2, status: BUILT_PILOT, estimated_hours: 6, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Build and validate detections for brute-force and password-spray activity and triage the resulting alerts with documented evidence.", reuses: [SOC-M02]}
       - {id: SOC-M05, title: "Alert triage and case management", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Triage a queue of ten synthetic alerts, classify each with evidence and produce a handover record."}
       - {id: SOC-M06, title: "Detection engineering with Sigma and ATT&CK", level: 2, status: PLANNED, estimated_hours: 10, primary_outcome: "Author a Sigma rule mapped to an ATT&CK technique and demonstrate its precision and recall on labelled data."}
       - {id: SOC-M07, title: "Threat-intelligence enrichment and false-positive reduction", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Reduce false positives of a noisy rule by at least 50 percent without losing any true-positive scenario."}
@@ -63,18 +66,18 @@ courses:
       - {id: SOC-M11, title: "Executive and technical incident reporting", level: 3, status: PLANNED, estimated_hours: 4, primary_outcome: "Write an executive summary and a technical appendix for one incident that pass the reporting rubric."}
       - {id: SOC-M12, title: "Capstone: end-to-end SOC investigation", level: 3, status: PLANNED, estimated_hours: 12, primary_outcome: "Investigate a multi-stage synthetic intrusion, improve one detection and deliver an evidence-based incident report."}
     estimated_duration_hours: 88
-    lab_coverage: {planned: 12, built: 2, verified_executable: 0}
+    lab_coverage: {planned: 23, built: 2, verified_executable: 2}
     assessment_coverage: {outcomes_total: 17, outcomes_assessed: 6}
     capstone: "End-to-end synthetic intrusion investigation with a detection improvement validated on labelled telemetry and a graded incident report."
     review_status: AUTOMATED_ONLY
-    qa_status: NOT_RUN
+    qa_status: PARTIAL
     release_status: REENGINEERING
     lifecycle: PILOT_BUILT
-    blocking_findings: [F-SOC-004, F-SOC-005, F-SOC-009, F-SOC-010]
+    blocking_findings: [F-SOC-001, F-SOC-004, F-SOC-005, F-SOC-009, F-SOC-010]
     owner: UNASSIGNED
     reviewers: []
     last_verified: 2026-10-14
-    notes: "Pilot course. Only module SOC-M04 is built; it replaces the playbook's rule example (F-SOC-004) with a validated lab. SME review is outstanding."
+    notes: "Pilot course. Only module SOC-M04 is built; it replaces the playbook's rule example (F-SOC-004) with a validated lab. Its two labs pass the automated QA run (docs/release/AUTOMATED_QA_REPORT.md); the independent-lab result depends on the git-ignored instructor pack and is not reproducible from a public clone. SME review and a learner pilot are outstanding, so qa_status stays PARTIAL."
 
   # ------------------------------------------------------------------ Remaining source-derived courses (blueprint only)
   - id: COURSE-PY-ENG
@@ -97,7 +100,7 @@ courses:
       - {id: PY-M09, title: "Profiling, performance and maintainable architecture", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent."}
       - {id: PY-M10, title: "Capstone: typed, tested, documented application with CI", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a packaged application whose tests, type checks and security scan pass in a clean environment."}
     estimated_duration_hours: 84
-    lab_coverage: {planned: 10, built: 0, verified_executable: 0}
+    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
     assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
     capstone: "A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan."
     review_status: NOT_REVIEWED
@@ -128,7 +131,7 @@ courses:
       - {id: PA-M08, title: "Testing automations: unit, integration, regression", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Reach a defined test pass and fault-injection suite for a provided automation."}
       - {id: PA-M09, title: "Capstone: safe operational workflow", level: 3, status: PLANNED, estimated_hours: 12, primary_outcome: "Deliver a reproducible workflow that performs a real operational task and emits auditable output."}
     estimated_duration_hours: 65
-    lab_coverage: {planned: 9, built: 0, verified_executable: 0}
+    lab_coverage: {planned: 17, built: 0, verified_executable: 0}
     assessment_coverage: {outcomes_total: 9, outcomes_assessed: 0}
     capstone: "A safe, reproducible automation of a real operational workflow with auditable output and a fault-injection test suite."
     review_status: NOT_REVIEWED
@@ -161,7 +164,7 @@ courses:
       - {id: JQA-M09, title: "Reporting, evidence and release readiness", level: 3, status: PLANNED, estimated_hours: 4, primary_outcome: "Generate a test report with failure evidence that a reviewer can use to decide on release."}
       - {id: JQA-M10, title: "Capstone: UI and API automation framework", level: 3, status: PLANNED, estimated_hours: 16, primary_outcome: "Deliver a reproducible end-to-end framework whose acceptance suite passes against the sample application."}
     estimated_duration_hours: 92
-    lab_coverage: {planned: 10, built: 0, verified_executable: 0}
+    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
     assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
     capstone: "Reproducible UI and API automation framework (Java, Maven, CI) against an authorised sample application."
     review_status: NOT_REVIEWED
@@ -193,7 +196,7 @@ courses:
       - {id: AI-M09, title: "Governance and responsible deployment (NIST AI RMF)", level: 3, status: PLANNED, estimated_hours: 6, primary_outcome: "Produce a risk register and human-oversight design for one AI use case mapped to NIST AI RMF functions."}
       - {id: AI-M10, title: "Capstone: secure production-oriented AI assistant", level: 3, status: PLANNED, estimated_hours: 16, primary_outcome: "Deliver an assistant with a threat model, evaluation suite, enforced tool permissions, logging and reproducible tests."}
     estimated_duration_hours: 96
-    lab_coverage: {planned: 10, built: 0, verified_executable: 0}
+    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
     assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
     capstone: "Production-oriented AI assistant with documented threat model, evaluation suite, secure tool permissions, logging, failure handling and reproducible tests."
     review_status: NOT_REVIEWED
@@ -226,14 +229,14 @@ courses:
       - {id: OSINT-M09, title: "Reporting and intelligence communication", level: 2, status: PLANNED, estimated_hours: 4, primary_outcome: "Write an intelligence report with sourcing, uncertainty language and ethical-collection record."}
       - {id: OSINT-M10, title: "Capstone: defensible OSINT report", level: 2, status: PLANNED, estimated_hours: 10, primary_outcome: "Deliver a report on a synthetic case with provenance for every claim and an ethical-collection log."}
     estimated_duration_hours: 56
-    lab_coverage: {planned: 10, built: 0, verified_executable: 0}
+    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
     assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
     capstone: "Defensible OSINT intelligence report on a synthetic or consented case with source provenance, uncertainty analysis and ethical collection records."
     review_status: NOT_REVIEWED
     qa_status: NOT_RUN
     release_status: REENGINEERING
     lifecycle: IN_DESIGN
-    blocking_findings: [F-OSINT-001, F-OSINT-002, F-OSINT-003]
+    blocking_findings: [F-OSINT-001, F-OSINT-002, F-OSINT-003, F-OSINT-004, F-OSINT-005]
     owner: UNASSIGNED
     reviewers: []
     last_verified: 2026-10-14
@@ -259,7 +262,7 @@ courses:
       - {id: GCP-M09, title: "Monitoring, SLOs and cost optimisation", level: 3, status: PLANNED, estimated_hours: 6, primary_outcome: "Define SLOs and alerts for a pipeline and cut the cost of a provided workload by a measured amount."}
       - {id: GCP-M10, title: "Capstone: monitored, secure, cost-aware pipeline", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a documented pipeline with monitoring, security controls, tests and a cost report."}
     estimated_duration_hours: 88
-    lab_coverage: {planned: 10, built: 0, verified_executable: 0}
+    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
     assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
     capstone: "A documented, monitored, secure, cost-aware batch and streaming data pipeline with tests and a teardown script."
     review_status: NOT_REVIEWED
@@ -293,7 +296,7 @@ courses:
       - {id: FE-M10, title: "Git workflow, pull requests and code review standards", level: 2, status: PLANNED, estimated_hours: 4, primary_outcome: "Open a pull request that satisfies a written review checklist and respond to review comments."}
       - {id: FE-M11, title: "Capstone: secure responsive feature", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a secure, tested, responsive feature integrated with a controlled API fixture."}
     estimated_duration_hours: 92
-    lab_coverage: {planned: 11, built: 0, verified_executable: 0}
+    lab_coverage: {planned: 21, built: 0, verified_executable: 0}
     assessment_coverage: {outcomes_total: 11, outcomes_assessed: 0}
     capstone: "A secure, tested, responsive, accessible frontend feature integrated with a controlled API fixture or authorised development environment."
     review_status: NOT_REVIEWED
@@ -327,10 +330,10 @@ courses:
       - {id: CYB-M10, title: "Cyber threat intelligence", level: 3, status: PLANNED, estimated_hours: 10, primary_outcome: "Produce a STIX-formatted intelligence product from provided reporting with confidence levels."}
       - {id: CYB-M11, title: "Red, blue and purple team operations (authorised, simulated)", level: 3, status: PLANNED, estimated_hours: 12, primary_outcome: "Run a scoped adversary-emulation exercise in a lab and convert its gaps into validated detections."}
       - {id: CYB-M12, title: "Security architecture, governance and leadership", level: 3, status: PLANNED, estimated_hours: 10, primary_outcome: "Produce a zero-trust architecture proposal with a risk register and board-level summary."}
-      - {id: CYB-M13, title: "AI security and emerging threats", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Assess an AI-enabled workflow against the OWASP LLM Top 10 and recommend controls.", reuses: [AI-M07]}
+      - {id: CYB-M13, title: "AI security and emerging threats", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Assess an AI-enabled workflow against the OWASP LLM Top 10 and recommend controls."}
       - {id: CYB-M14, title: "Capstone: assessed security programme exercise", level: 3, status: PLANNED, estimated_hours: 20, primary_outcome: "Complete a multi-domain exercise with a graded technical report and an executive briefing."}
     estimated_duration_hours: 188
-    lab_coverage: {planned: 14, built: 0, verified_executable: 0}
+    lab_coverage: {planned: 27, built: 0, verified_executable: 0}
     assessment_coverage: {outcomes_total: 14, outcomes_assessed: 0}
     capstone: "Multi-domain, authorised, simulated security exercise delivering a graded technical report and executive briefing."
     review_status: NOT_REVIEWED
@@ -341,4 +344,4 @@ courses:
     owner: UNASSIGNED
     reviewers: []
     last_verified: 2026-10-14
-    notes: "Replaces a ~3,660-page two-PDF source with modular tracks. SOC and AI-security specialisms are delivered by COURSE-SOC and COURSE-AI-ENG (overlap removed rather than duplicated)."
+    notes: "Replaces a ~3,660-page two-PDF source with modular tracks. SOC and AI-security specialisms are delivered by COURSE-SOC and COURSE-AI-ENG (overlap removed rather than duplicated). CYB-M13 is an assessment-level module for security practitioners; it shares the OWASP LLM Top 10 reference sheet with AI-M07 but has a different outcome (assess and recommend, not build and test), so it is not a reuse."

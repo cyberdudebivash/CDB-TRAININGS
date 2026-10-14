@@ -35,7 +35,7 @@ depend on* but that does not exist in the repository. Each item blocks only the 
 | D3 | OSINT bundle: legal review of redistributing GPL tools under a proprietary licence (and Maltego CE / SpiderFoot HX terms). | Blocks any VM or bundle distribution. | High |
 | D4 | Which entity owns the copyright and may license the training content (CyberDudeBivash Pvt. Ltd. vs individual authors)? Add a LICENSE. | The repository has no licence; default is all rights reserved but the intent for a public repo is unclear. | High |
 | D5 | Qualified subject-matter reviewers (name and credentials) per course. | No course can be SME_REVIEWED without them. | Medium |
-| D6 | Target Academy platform constraints (LMS/hosting), payment and delivery stack. | Needed to verify fulfilment (release gate 13). | Medium |
+| D6 | Target Academy platform constraints (LMS/hosting), payment and delivery stack. | Needed before any fulfilment work (see `docs/commercial/COMMERCIAL_READINESS.md` section 4). | Medium |
 | D7 | Approved budget for any paid cloud/API usage (current policy: none). | GCP and AI labs default to local-first, free alternatives. | Low |
 | D8 | Approve using a private repository for instructor packs (answer keys, solutions). | Repository is public. | Medium |
 
