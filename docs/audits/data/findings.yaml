@@ -1,0 +1,839 @@
+# Findings register -- single source of truth for audit defects.
+#
+# Page numbers are PDF page indices (1-based). Printed page labels in the PDFs are usually one lower.
+# severity:    P0 dangerous / materially incorrect / legally problematic / unusable
+#              P1 major competency, reproducibility, assessment or commercial release blocker
+#              P2 significant educational or experience deficiency
+#              P3 minor improvement          P4 cosmetic
+# dimension:   technical_correctness | practical_effectiveness | professional_outcomes | assessment_validity |
+#              instructional_clarity | technical_currency | accessibility_experience | commercial_readiness
+# verification: PRIMARY_SOURCE (checked against the primary document) | EXECUTED (reproduced by running code) |
+#              VISUAL_REVIEW (page rendered and read) | MANUAL_READ (text read in context) |
+#              STATIC_SCAN (deterministic scan, triaged) | NEEDS_VERIFICATION (suspected, unproven)
+# remediation.status: NOT_STARTED | DONE_IN_PILOT | PLANNED_IN_TRACK
+# The findings describe the SOURCE PDFs. A finding is only closed when replacement content passes its gate.
+findings:
+  # ------------------------------------------------------------------------- SOC Analyst Survival Playbook
+  - id: F-SOC-001
+    source_id: SRC-SOC-PLAYBOOK
+    severity: P1
+    dimension: technical_correctness
+    title: "Six-phase IR lifecycle attributed to NIST SP 800-61 Rev. 3 / Rev. 2"
+    evidence:
+      - {page: 6, note: "Summary section says 'Follow NIST SP 800-61r3 (2025 update) phases' then lists 6 phases."}
+      - {page: 30, note: "Detail section says r3 has no rigid lifecycle, then says 'we stick to the classic 6 phases (inspired by r2...)'."}
+    verification: PRIMARY_SOURCE
+    reference: [R-001]
+    detail: >-
+      NIST SP 800-61r3 defines no phase list; it organises incident response around the six CSF 2.0 Functions.
+      Rev. 2 had four phases (Table 1 of r3). The six-step model is a common practitioner model, not NIST's.
+      The two sections of the PDF contradict each other.
+    recommendation: "Describe r3 as CSF-2.0-Function based; present Preparation-Identification-Containment-Eradication-Recovery-Lessons as a practitioner model and cite its actual origin."
+    remediation: {status: DONE_IN_PILOT, where: "courses/soc-analyst/lessons/03-auth-detection/lesson.md (IR framing note)"}
+  - id: F-SOC-002
+    source_id: SRC-SOC-PLAYBOOK
+    severity: P2
+    dimension: technical_currency
+    title: "CSF 1.1 category code 'RS.RP' cited as a CSF 2.0 subcategory"
+    evidence:
+      - {page: 30, note: "'outcomes mapped to CSF subcategories (e.g., RS.RP for response planning)'."}
+    verification: PRIMARY_SOURCE
+    reference: [R-002]
+    detail: "CSF 2.0 Respond categories are RS.MA, RS.AN, RS.CO, RS.MI; the string RS.RP does not appear in CSWP 29."
+    recommendation: "Use RS.MA/RS.AN/RS.CO/RS.MI and name the CSF version."
+    remediation: {status: NOT_STARTED, where: "Track SOC-4 (IR module)"}
+  - id: F-SOC-003
+    source_id: SRC-SOC-PLAYBOOK
+    severity: P2
+    dimension: technical_correctness
+    title: "CERT-In 6-hour reporting presented as applying to 'critical' incidents"
+    evidence:
+      - {page: 32, note: "'Regulatory trigger (e.g., CERT-In reporting within 6h for critical)'."}
+    verification: PRIMARY_SOURCE
+    reference: [R-003]
+    detail: "The Directions require reporting of the incident types in Annexure I within 6 hours of noticing, irrespective of a 'critical' label."
+    recommendation: "Quote the Directions precisely, link the primary text, and add a 'check current law with counsel' note."
+    remediation: {status: NOT_STARTED, where: "Track SOC-4"}
+  - id: F-SOC-004
+    source_id: SRC-SOC-PLAYBOOK
+    severity: P1
+    dimension: technical_correctness
+    title: "Example brute-force correlation rule cannot detect password spraying"
+    evidence:
+      - {page: 22, note: "Rule groups by Source IP + Target User + Target Host with COUNT(*) > 5 in 300 s."}
+      - {page: 17, note: "Decision tree example 2 assumes >10 failures from a single IP to a privileged account."}
+    verification: MANUAL_READ
+    detail: >-
+      Grouping by target user means an attacker trying 1-2 passwords against many accounts from one IP never exceeds
+      the per-user threshold. The correct signal is distinct target accounts per source within a window. Reproduced
+      with a deterministic dataset in the pilot (naive rule misses the spray scenarios, improved rule detects them).
+    recommendation: "Teach threshold, distinct-count and per-account logic as separate detections and validate each against labelled data."
+    remediation: {status: DONE_IN_PILOT, where: "courses/soc-analyst/labs/auth-detection + tests/pilot/test_detection_gap.py"}
+  - id: F-SOC-005
+    source_id: SRC-SOC-PLAYBOOK
+    severity: P1
+    dimension: professional_outcomes
+    title: "Uncited statistics, salary bands and workforce numbers presented as 2026 benchmarks"
+    evidence:
+      - {page: 3, note: "'AI handles ~70-90% of Tier 1 routine triage'."}
+      - {page: 11, note: "'Handle 80-150 alerts (down from 500+ pre-AI)', '95%+ closure accuracy'."}
+      - {page: 25, note: "FP-rate figures attributed to vendor reports without citations."}
+      - {page: 28, note: "Technique impact table with FP-reduction percentage ranges."}
+      - {page: 36, note: "'3-4M unfilled cyber roles (NASSCOM/ISC2 2026 estimates), India ~280K-500K gap'."}
+      - {page: 37, note: "US and India salary bands attributed to job-site aggregators."}
+      - {page: 39, note: "'80% of hires want proof'."}
+    verification: PRIMARY_SOURCE
+    reference: [R-012]
+    detail: >-
+      About 80 percentage/salary figures were counted (STATIC_SCAN). None carries a retrievable citation. ISC2's 2024
+      study (4,763,963 gap) excludes India and China from its workforce estimate, so an ISC2-derived India gap cannot
+      exist; the cited 2026 ISC2/NASSCOM estimates were not found.
+    recommendation: "Remove or replace with dated, linked sources; label estimates as estimates; never use salary bands in marketing."
+    remediation: {status: NOT_STARTED, where: "Track SOC-1 editorial pass"}
+  - id: F-SOC-006
+    source_id: SRC-SOC-PLAYBOOK
+    severity: P2
+    dimension: commercial_readiness
+    title: "Content adapted from named vendors/blogs without attribution or licence review"
+    evidence:
+      - {page: 14, note: "'Adapted from Dropzone AI, Radiant Security, Prophet best practices'."}
+      - {page: 20, note: "'adapted from Fortinet best practices, Stellar Cyber, DNIF'."}
+      - {page: 23, note: "'Inspired by: FortiSIEM PH_RULE_ANOMALY_LATERAL_MOVEMENT patterns'."}
+    verification: MANUAL_READ
+    detail: "No reference list exists; the extent of derivation from vendor material is unknown. FortiSIEM rule names and UI paths were not checked against current product documentation (NEEDS_VERIFICATION)."
+    recommendation: "Rewrite from primary standards and independently authored labs; add references; verify product-specific claims or drop them."
+    remediation: {status: DONE_IN_PILOT, where: "Pilot unit is independently authored; vendor-neutral Sigma + synthetic data"}
+  - id: F-SOC-007
+    source_id: SRC-SOC-PLAYBOOK
+    severity: P2
+    dimension: technical_correctness
+    title: "Tuning advice trades detection coverage for noise without measuring the trade-off"
+    evidence:
+      - {page: 26, note: "Exclude 02:00-04:00 patching windows; raise thresholds from >5 to >10 in 5 min; whitelist IP/user/process/hash lists."}
+      - {page: 29, note: "Pitfalls list says 'test changes!' but no method or dataset is provided."}
+    verification: MANUAL_READ
+    detail: "Time-window exclusions and higher thresholds are exactly where low-and-slow attacks hide. No before/after recall measurement is taught."
+    recommendation: "Teach tuning as a measured change: every exclusion needs an owner, an expiry and a regression test against attack scenarios."
+    remediation: {status: DONE_IN_PILOT, where: "Pilot independent lab (tuning without losing recall)"}
+  - id: F-SOC-008
+    source_id: SRC-SOC-PLAYBOOK
+    severity: P3
+    dimension: instructional_clarity
+    title: "Internal contradictions in escalation and metric guidance"
+    evidence:
+      - {page: 13, note: "Escalation rate 5-15% is healthy; 'too high = poor tuning'. MTTA '<5-10 min' and 'target <15 min overall'."}
+      - {page: 19, note: "'If unsure: Escalate anyway'."}
+      - {page: 30, note: "'better over-escalate than under'."}
+    verification: MANUAL_READ
+    recommendation: "Define escalation criteria by evidence thresholds and severity; state one metric definition per KPI."
+    remediation: {status: NOT_STARTED, where: "Track SOC-2"}
+  - id: F-SOC-009
+    source_id: SRC-SOC-PLAYBOOK
+    severity: P1
+    dimension: practical_effectiveness
+    title: "No executable labs, datasets, assessments or capstone"
+    evidence:
+      - {page: 22, note: "Detection logic is 'Pseudo-FortiSIEM' text, not runnable."}
+      - {page: 17, note: "Decision trees are text diagrams without sample alerts."}
+    verification: MANUAL_READ
+    detail: "Zero learning outcomes, zero graded exercises, zero test data. 43 pages / 6,799 words of advice."
+    recommendation: "Add synthetic telemetry, runnable detections, graded triage exercises and a capstone investigation."
+    remediation: {status: DONE_IN_PILOT, where: "courses/soc-analyst (one unit built; remaining units planned)"}
+  - id: F-SOC-010
+    source_id: SRC-SOC-PLAYBOOK
+    severity: P1
+    dimension: practical_effectiveness
+    title: "Core SOC topics absent: Windows event IDs, Sysmon, SIEM query languages, log normalisation, reporting"
+    evidence:
+      - {page: 0, note: "Keyword coverage probes return zero matches across all 43 pages (Windows event IDs 4624/4625/4688, Sysmon, SPL/KQL/EQL, ECS/OCSF/CIM, report templates)."}
+    verification: STATIC_SCAN
+    recommendation: "Add telemetry fundamentals (Windows/Linux/network), parsing/normalisation and query-language modules before detection engineering."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track SOC-1..SOC-3"}
+  - id: F-SOC-011
+    source_id: SRC-SOC-PLAYBOOK
+    severity: P3
+    dimension: technical_currency
+    title: "Certification names and product claims need verification"
+    evidence:
+      - {page: 38, note: "Tier certification lists (e.g., EC-Council CSA, OSTH) and vendor-specific paths."}
+    verification: NEEDS_VERIFICATION
+    recommendation: "Verify each certification name/status against the issuer; avoid ranking certifications by 'priority'."
+    remediation: {status: NOT_STARTED, where: "Track SOC-1"}
+  - id: F-SOC-012
+    source_id: SRC-SOC-PLAYBOOK
+    severity: P4
+    dimension: commercial_readiness
+    title: "Inconsistent author location and branding"
+    evidence:
+      - {page: 8, note: "Section 1 byline gives 'Bhubaneswar'; Sections 2-6 bylines (pp. 13, 19, 25, 29, 36) give 'Channagiri, Karnataka'; closing page (p. 42) gives 'Bhubaneswar, Odisha'."}
+    verification: MANUAL_READ
+    recommendation: "Standardise the byline and legal entity text."
+    remediation: {status: NOT_STARTED, where: "Design system front-matter template"}
+
+  # ------------------------------------------------------------------------- OSINT Starter Bundle
+  - id: F-OSINT-001
+    source_id: SRC-OSINT-STARTER
+    severity: P1
+    dimension: practical_effectiveness
+    title: "Document is a marketing brochure for a bundle, not a course; promised components are absent"
+    evidence:
+      - {page: 6, note: "Tools 'preinstalled, configured, optimized' (Maltego CE, theHarvester, SpiderFoot HX, Recon-ng, Sherlock, ExifTool)."}
+      - {page: 7, note: "Preconfigured OSINT VM, one-click workflows, auto-report generation."}
+      - {page: 8, note: "'OSINT Playbook (PDF, 300+ Pages)'; video tutorials and hands-on labs on p. 9; cheat sheets on p. 10; daily CVE feeds on pp. 10-11; Splunk/ELK dashboards on p. 11; Python launcher on pp. 12-13."}
+      - {page: 22, note: "'The blog post itself includes affiliate-style hooks throughout' - the text is a blog/SEO draft."}
+    verification: VISUAL_REVIEW
+    detail: "All 23 pages were read. There are no learning outcomes, no step-by-step lab, no dataset, no assessment and no legal framework. None of the described VM, playbook, videos, dashboards, feeds or launcher exist in this repository."
+    recommendation: "Treat the PDF as a product-concept brief. Build a real OSINT course from the mandate (docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md) and do not advertise the bundle components until they exist and are verified."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track OSINT-1..OSINT-4"}
+  - id: F-OSINT-002
+    source_id: SRC-OSINT-STARTER
+    severity: P0
+    dimension: commercial_readiness
+    title: "Proposes redistributing third-party tools under a 'CyberDudeBivash proprietary license'"
+    evidence:
+      - {page: 7, note: "'Branded & Secure -> Licensed under the CyberDudeBivash proprietary license'."}
+      - {page: 14, note: "'distributed under a CyberDudeBivash proprietary license ... Verified Integrity'."}
+      - {page: 6, note: "Preinstalled tools named: theHarvester, Recon-ng, Sherlock, Maltego CE, SpiderFoot HX, ExifTool."}
+    verification: PRIMARY_SOURCE
+    reference: [R-013]
+    detail: >-
+      theHarvester is GPL-2.0-only, recon-ng is GPL-3.0 and Sherlock is MIT (repository pages). Copyleft components cannot
+      be relicensed as proprietary, and Maltego CE / SpiderFoot HX terms were not checked (NEEDS_VERIFICATION).
+      This is a licensing/legal blocker for any VM or bundle distribution. Not legal advice; counsel review required.
+    recommendation: "Do not ship a bundled VM until each component's licence and redistribution terms are reviewed; prefer install scripts that fetch tools from upstream."
+    remediation: {status: NOT_STARTED, where: "docs/audits/IP_AND_LICENSE_REVIEW.md (open action)"}
+  - id: F-OSINT-003
+    source_id: SRC-OSINT-STARTER
+    severity: P0
+    dimension: technical_correctness
+    title: "No lawful/ethical collection framework; instructs correlation with leaked data and alias tracking"
+    evidence:
+      - {page: 9, note: "Social Media Recon lab: 'Cross-reference with leaked data dumps'."}
+      - {page: 11, note: "'Cross-reference with dark web leak feeds' to find exposed employee credentials."}
+      - {page: 7, note: "'Track a Cybercriminal Alias' with Sherlock; p. 19 'Track online aliases across platforms'."}
+      - {page: 14, note: "Bug-bounty scenario: 'focus on exploiting findings'; p. 18 'cashing out rewards'."}
+      - {page: 5, note: "Legal and ethics are reduced to 'some data sources may fall into gray areas'."}
+    verification: VISUAL_REVIEW
+    detail: "No consent, scope, authorisation, data-protection (e.g., GDPR/DPDP) or evidence-handling rules are taught, contrary to the course mandate for lawful, privacy-preserving OSINT."
+    recommendation: "Rebuild around synthetic cases and consented subjects; teach scoping, legal basis, minimisation and a prohibited-activities list before any tool use."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track OSINT-1 (legal and ethics first)"}
+  - id: F-OSINT-004
+    source_id: SRC-OSINT-STARTER
+    severity: P1
+    dimension: commercial_readiness
+    title: "Internal go-to-market and SEO strategy embedded in customer-facing text"
+    evidence:
+      - {page: 10, note: "'consuming high-quality, Google-proof content'."}
+      - {page: 15, note: "'Google-Proof Content -> SEO-optimized with high CPC keywords'."}
+      - {page: 16, note: "Free tier as 'Lead Magnet'; 'For SEO & Marketing: Free downloads drive backlinks'."}
+      - {page: 17, note: "'Freemium Funnel'; pricing keywords listed inline."}
+      - {page: 20, note: "'Integrated Affiliate Hooks'; 'a marketing machine for your skills'."}
+    verification: VISUAL_REVIEW
+    recommendation: "Remove internal strategy text; keep strategy in docs/commercial and out of learner-facing artifacts."
+    remediation: {status: NOT_STARTED, where: "Track OSINT-5 (commercial packaging)"}
+  - id: F-OSINT-005
+    source_id: SRC-OSINT-STARTER
+    severity: P1
+    dimension: professional_outcomes
+    title: "Absolute or unsupported claims"
+    evidence:
+      - {page: 2, note: "'projected to cost the world more than $10.5 trillion annually by 2025' - a vendor projection presented as fact."}
+      - {page: 3, note: "'over 3.5 million unfilled positions in 2025' - not ISC2's 2024 figure (4,763,963)."}
+      - {page: 14, note: "'Tools curated and tested for security, no hidden backdoors'."}
+      - {page: 18, note: "'from zero experience to conducting a full OSINT investigation in days, not months'."}
+      - {page: 21, note: "'the only package that truly bridges the gap between learning and earning'."}
+    verification: PRIMARY_SOURCE
+    reference: [R-012]
+    recommendation: "Replace with sourced, dated statements; remove security guarantees and time-to-competence promises."
+    remediation: {status: NOT_STARTED, where: "Track OSINT-5"}
+  - id: F-OSINT-006
+    source_id: SRC-OSINT-STARTER
+    severity: P2
+    dimension: accessibility_experience
+    title: "No text layer: text is vector outlines; PDF is not searchable, tagged or screen-reader accessible"
+    evidence:
+      - {page: 2, note: "Content stream is ~2.3 MB of path operators; pdftotext returns no text for pages 2-23; no tags, no bookmarks."}
+    verification: EXECUTED
+    detail: "Generated by a text-to-PDF converter (producer pdf-lib). Fails basic accessibility and search requirements."
+    recommendation: "Regenerate from source text with a tagged-PDF pipeline."
+    remediation: {status: NOT_STARTED, where: "scripts/build (accessible PDF build)"}
+  - id: F-OSINT-007
+    source_id: SRC-OSINT-STARTER
+    severity: P2
+    dimension: commercial_readiness
+    title: "Naming and tier ambiguity; unreleased products promoted alongside CTAs"
+    evidence:
+      - {page: 1, note: "Cover reads 'Cybersecurity Starter Bundle with OSINT focus'; filename says 'OSINT_Starter_Bundle_FULL'; p. 2 title says 'OSINT Edition'."}
+      - {page: 15, note: "SessionShield / PhishRadar AI / Threat Analyser described as 'Future integration'."}
+      - {page: 22, note: "CTA says 'Try SessionShield & PhishRadar AI' and 'Bundle users get early access discounts'."}
+    verification: VISUAL_REVIEW
+    recommendation: "Fix one product name and tier definition; do not promote integrations that are not shipped."
+    remediation: {status: NOT_STARTED, where: "Track OSINT-5"}
+  - id: F-OSINT-008
+    source_id: SRC-OSINT-STARTER
+    severity: P3
+    dimension: commercial_readiness
+    title: "Cover artwork provenance unknown"
+    evidence:
+      - {page: 1, note: "1536x1024 raster cover; no credit or licence note."}
+    verification: NEEDS_VERIFICATION
+    recommendation: "Record the artwork's origin and rights in docs/audits/IP_AND_LICENSE_REVIEW.md or replace it."
+    remediation: {status: NOT_STARTED, where: "IP review"}
+
+  # ------------------------------------------------------------------------- Complete AI Training Bundle 2026
+  - id: F-AI-001
+    source_id: SRC-AI-BUNDLE
+    severity: P1
+    dimension: technical_currency
+    title: "Flagship RAG lab does not run on the current LangChain stack"
+    evidence:
+      - {page: 400, note: "requirements list is unpinned (openai, langchain, faiss-cpu, tiktoken, python-dotenv)."}
+      - {page: 401, note: "Imports langchain.embeddings.OpenAIEmbeddings and langchain.vectorstores.FAISS (build_embeddings.py)."}
+      - {page: 403, note: "Imports langchain.llms.OpenAI and calls llm(prompt) with temperature=0."}
+    verification: EXECUTED
+    reference: [R-004]
+    detail: "On langchain 1.4.5 all three imports fail (ImportError / ModuleNotFoundError). A learner following the lab today hits errors before the first query."
+    recommendation: "Rebuild the lab with pinned versions, current provider packages and a local/offline model option so it is free to run."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track AI-3"}
+  - id: F-AI-002
+    source_id: SRC-AI-BUNDLE
+    severity: P1
+    dimension: technical_correctness
+    title: "RAG lab safeguards are dead code: refusal path never fires and governance prompts are never loaded"
+    evidence:
+      - {page: 404, note: "`if not context: print('Insufficient information available.')` - similarity_search(k=3) returns documents whenever the index is non-empty."}
+      - {page: 402, note: "system_prompt.txt, task_prompt.txt and validation_prompt.txt are defined; app.py builds its own prompt and never reads them."}
+      - {page: 404, note: "Retrieved text and user query are concatenated into the prompt with no injection controls."}
+    verification: MANUAL_READ
+    detail: "The lab claims 'enterprise-style, defensible' grounding while the stated refusal and validation behaviour cannot occur."
+    recommendation: "Use a relevance-score threshold for refusal, load/version prompts, add an answer-grounding check and an injection test set."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track AI-3"}
+  - id: F-AI-003
+    source_id: SRC-AI-BUNDLE
+    severity: P1
+    dimension: practical_effectiveness
+    title: "'Agentic' safety lab implements none of the controls its README claims"
+    evidence:
+      - {page: 421, note: "README claims tool allowlists, kill switches and human-in-the-loop."}
+      - {page: 424, note: "Intent classifier is a substring test for 'outage'; planner is a fixed list; no LLM is involved."}
+      - {page: 425, note: "Validator is a substring denylist (execute/shutdown/delete)."}
+      - {page: 426, note: "is_tool_allowed() is defined but the controller never calls it."}
+      - {page: 427, note: "Audit log uses datetime.utcnow() (deprecated; raises DeprecationWarning under -W error on Python 3.13)."}
+    verification: EXECUTED
+    reference: [R-018]
+    detail: "No kill switch, timeout, tool-call enforcement or tamper-evident audit trail exists in code."
+    recommendation: "Build an agent harness with enforced tool permissions, step/time budgets, approval gates and adversarial tests."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track AI-4"}
+  - id: F-AI-004
+    source_id: SRC-AI-BUNDLE
+    severity: P1
+    dimension: technical_currency
+    title: "Mandated LLM-security and RAG-evaluation topics are absent"
+    evidence:
+      - {page: 0, note: "0 matches in 937 pages for: OWASP LLM Top 10, MITRE ATLAS, retrieval metrics (recall@k, MRR, nDCG, RAGAS, faithfulness), reranking, context engineering, Model Context Protocol. NIST AI RMF: 1 match; ISO 42001: 1; EU AI Act: 2."}
+    verification: STATIC_SCAN
+    reference: [R-009]
+    detail: "Prompt injection is mentioned (42 lines) but never tied to the OWASP LLM Top 10 (2025) or to tool-permission design (LLM06 Excessive Agency)."
+    recommendation: "Add modules for retrieval evaluation, OWASP LLM Top 10 2025 threat modelling, MITRE ATLAS mapping and AI RMF-aligned governance artefacts."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track AI-2..AI-5"}
+  - id: F-AI-005
+    source_id: SRC-AI-BUNDLE
+    severity: P2
+    dimension: instructional_clarity
+    title: "Conceptual volumes are bullet outlines without worked examples"
+    evidence:
+      - {page: 229, note: "'Controlling Hallucinations' is two short bullet lists; 'Evaluating GenAI systems' (p. 230) is four bullets."}
+    verification: STATIC_SCAN
+    detail: "Median bookmarked section is 24 words; 89% of 2,298 sections are under 40 words and none exceeds 400."
+    recommendation: "Convert outlines into lessons with worked examples, failure cases and exercises (master lesson standard)."
+    remediation: {status: PLANNED_IN_TRACK, where: "Blueprint lesson standard"}
+  - id: F-AI-006
+    source_id: SRC-AI-BUNDLE
+    severity: P2
+    dimension: instructional_clarity
+    title: "Structural inconsistency: 'PROGRAM COMPLETE' mid-document, duplicate volume, runaway chapter numbering"
+    evidence:
+      - {page: 351, note: "'PROGRAM COMPLETE - AI ZERO TO LEADER' appears 586 pages before the end."}
+      - {page: 777, note: "Volume 9 begins after the declared completion; Volumes 10-12 follow."}
+      - {page: 878, note: "Volume 12 appears at p. 878 and again, with a different title, at p. 890."}
+    verification: MANUAL_READ
+    recommendation: "Produce one authoritative table of contents and unique chapter IDs."
+    remediation: {status: PLANNED_IN_TRACK, where: "catalog/courses.yaml module IDs"}
+  - id: F-AI-007
+    source_id: SRC-AI-BUNDLE
+    severity: P2
+    dimension: professional_outcomes
+    title: "Unsupported comparative and outcome claims"
+    evidence:
+      - {page: 74, note: "'70-80% of AI projects fail' (no citation)."}
+      - {page: 285, note: "'puts you ahead of 90% of GenAI teams'."}
+      - {page: 432, note: "'separates you from 99% of candidates'."}
+      - {page: 351, note: "'full-stack, end-to-end AI mastery path'; 'AI Zero -> Leader'."}
+    verification: MANUAL_READ
+    recommendation: "Remove percentile claims; state measurable outcomes the assessments actually test."
+    remediation: {status: NOT_STARTED, where: "Track AI-1 editorial pass"}
+  - id: F-AI-008
+    source_id: SRC-AI-BUNDLE
+    severity: P3
+    dimension: accessibility_experience
+    title: "Raw Markdown syntax leaks into the PDF"
+    evidence:
+      - {page: 367, note: "A literal ```txt fence appears; p. 366 shows '# **requirements.txt**' with visible markup."}
+    verification: STATIC_SCAN
+    detail: "12 code fences, 107 ATX header markers and 34 horizontal-rule lines were counted as literal text."
+    recommendation: "Generate distribution artefacts from Markdown with a real renderer."
+    remediation: {status: NOT_STARTED, where: "scripts/build"}
+
+  # ------------------------------------------------------------------------- Python Engineering Handbook
+  - id: F-PYH-001
+    source_id: SRC-PY-HANDBOOK
+    severity: P0
+    dimension: technical_correctness
+    title: "Agent 'math tool' evaluates model-controlled input with eval()"
+    evidence:
+      - {page: 585, note: "`def math_tool(expr): return eval(expr)` in the agent tools example; no warning."}
+      - {page: 586, note: "'This is how ChatGPT Agents run.' (unsupported)."}
+    verification: MANUAL_READ
+    reference: [R-009]
+    detail: "eval on LLM output is remote code execution through prompt injection (OWASP LLM05 Improper Output Handling / LLM06 Excessive Agency). It is taught as a pattern in a course that markets AI security."
+    recommendation: "Replace with a restricted expression parser (e.g., ast-based allowlist) and teach the failure mode with a test."
+    remediation: {status: NOT_STARTED, where: "Track PY-5"}
+  - id: F-PYH-002
+    source_id: SRC-PY-HANDBOOK
+    severity: P1
+    dimension: technical_correctness
+    title: "Automation examples teach insecure credential, TLS, SSH and shell patterns without warnings"
+    evidence:
+      - {page: 163, note: "servers.json inventory stores plaintext passwords ('pass123', 'admin123')."}
+      - {page: 164, note: "paramiko `set_missing_host_key_policy(AutoAddPolicy())` - accepts any SSH host key (MITM risk)."}
+      - {page: 168, note: "Patch runner passes srv['password'] from the inventory."}
+      - {page: 428, note: "requests with auth=('admin','pass') and verify=False for load-balancer APIs (also p. 427)."}
+      - {page: 269, note: "JWT signing secret hard-coded as a string literal."}
+      - {page: 221, note: "Flask app.run(debug=True) (also p. 228)."}
+      - {page: 252, note: "Seed admin user with password 'password123'."}
+      - {page: 373, note: "os.system(f\"iptables -A INPUT -s {ip} -j DROP\") (also p. 122: os.system with f-string host) - shell injection."}
+    verification: STATIC_SCAN
+    detail: "The scanner flagged 10 bare-except, 6 hard-coded secrets, 3 AutoAddPolicy, 2 verify=False, 2 debug=True, 4 weak default passwords, 2 os.system uses; each was read in context (some carry a one-line 'never store raw passwords' note, none shows the safe pattern)."
+    recommendation: "Teach secrets via environment/secret managers, pinned host keys, TLS verification, subprocess without shell, and show insecure variants only as labelled anti-patterns with exploit tests."
+    remediation: {status: NOT_STARTED, where: "Track PY-5"}
+  - id: F-PYH-003
+    source_id: SRC-PY-HANDBOOK
+    severity: P1
+    dimension: technical_currency
+    title: "Packaging taught as `python setup.py sdist`; no pyproject.toml or build workflow"
+    evidence:
+      - {page: 63, note: "'43. PACKAGING PYTHON APPS' lists four steps ending with 'Add setup.py'."}
+      - {page: 64, note: "'python setup.py sdist' is the only command shown."}
+    verification: PRIMARY_SOURCE
+    reference: [R-006]
+    detail: "PyPA states these commands MUST NOT be run anymore. The whole packaging 'chapter' is seven lines."
+    recommendation: "Teach pyproject.toml, `python -m build`, editable installs, version pinning and wheel inspection with a graded packaging lab."
+    remediation: {status: NOT_STARTED, where: "Track PY-4"}
+  - id: F-PYH-004
+    source_id: SRC-PY-HANDBOOK
+    severity: P2
+    dimension: practical_effectiveness
+    title: "Code is mostly syntactically valid but unexecuted and untested"
+    evidence:
+      - {page: 0, note: "397 of 404 heuristically extracted Python blocks parse; of the 7 failures 2 are '...' placeholders (pp. 289, 567) and 5 are extractor limits after triage."}
+    verification: STATIC_SCAN
+    detail: "Syntax validity only; no snippet was executed. unittest.mock is never mentioned and pytest appears but no testing chapter teaches test design."
+    recommendation: "Ship the code as a tested repository with CI; every lesson snippet is an executed doctest or test."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track PY-1..PY-6"}
+  - id: F-PYH-005
+    source_id: SRC-PY-HANDBOOK
+    severity: P2
+    dimension: technical_currency
+    title: "Recommends Python 3.10+, which reached end-of-life on 2026-10-01; no version policy"
+    evidence:
+      - {page: 220, note: "'Install Python 3.10+ recommended'."}
+    verification: PRIMARY_SOURCE
+    reference: [R-005]
+    recommendation: "Target 3.12/3.13 (supported) and document a tested-version matrix."
+    remediation: {status: NOT_STARTED, where: "Track PY-1"}
+  - id: F-PYH-006
+    source_id: SRC-PY-HANDBOOK
+    severity: P2
+    dimension: instructional_clarity
+    title: "Thin sections and uncontrolled scope"
+    evidence:
+      - {page: 63, note: "Logging section is basicConfig plus a list of levels."}
+    verification: STATIC_SCAN
+    detail: "Median bookmarked section is 17 words; 84% under 40 words. The 'Python engineering' handbook also covers network automation, AI agents and a toy EVM (p. 503), diluting the engineering path."
+    recommendation: "Split into a foundations path and applied branches; keep engineering practice (typing, testing, packaging, CI) central."
+    remediation: {status: PLANNED_IN_TRACK, where: "Blueprint track PY"}
+  - id: F-PYH-007
+    source_id: SRC-PY-HANDBOOK
+    severity: P1
+    dimension: assessment_validity
+    title: "No graded assessment, rubric or capstone acceptance criteria"
+    evidence:
+      - {page: 0, note: "Signal scan over 654 pages: 0 rubric mentions, 0 answer-key mentions, 1 capstone mention, 9 quiz/assessment-term mentions."}
+    verification: STATIC_SCAN
+    recommendation: "Add diagnostic, formative and project assessments with rubrics (docs/architecture/ASSESSMENT_FRAMEWORK.md)."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track PY-6 capstone"}
+
+  # ------------------------------------------------------------------------- Python Automation Training
+  - id: F-PYA-001
+    source_id: SRC-PY-AUTOMATION
+    severity: P2
+    dimension: practical_effectiveness
+    title: "Long code lines wrap at the page margin and break statements and string literals when copied"
+    evidence:
+      - {page: 270, note: "`from PyQt6.QtWidgets import ... QVBoxLayout,` continues on the next line without parentheses (verified on the rendered page)."}
+      - {page: 630, note: "f-string literal split across lines."}
+      - {page: 659, note: "f-string inside assert split across lines."}
+      - {page: 667, note: "string literal 'Automation Issue' split across lines."}
+    verification: VISUAL_REVIEW
+    detail: "Of 535 extracted blocks, 504 parse; after triage 4 failures are confirmed PDF line-wrap defects, the rest are extractor limits. The PDF is not a reliable copy-paste source."
+    recommendation: "Distribute code as a repository; use fixed-width code blocks in generated documents."
+    remediation: {status: NOT_STARTED, where: "scripts/build; Track PA-1"}
+  - id: F-PYA-002
+    source_id: SRC-PY-AUTOMATION
+    severity: P1
+    dimension: instructional_clarity
+    title: "Non-linear structure: complete framework build precedes 'Volume 1 Starts Here'; repeated scaffolds"
+    evidence:
+      - {page: 200, note: "'Build a Complete GitHub Automation Framework (Repo + Code)'."}
+      - {page: 273, note: "'Volume 1 Starts Here - Python Automation Zero-to-Hero (Foundation)'."}
+      - {page: 502, note: "The framework scaffold is introduced again as '3) Build a complete GitHub Automation Framework'."}
+    verification: MANUAL_READ
+    detail: "Repeated header 'PYTHON AUTOMATION ZERO-TO-HERO' appears 20+ times as a bookmark; 10% of long lines repeat (highest of all courses)."
+    recommendation: "Re-sequence into prerequisites-first modules with one canonical framework repository."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track PA-1"}
+  - id: F-PYA-003
+    source_id: SRC-PY-AUTOMATION
+    severity: P1
+    dimension: practical_effectiveness
+    title: "No executable companion repository, CI evidence or verified lab results"
+    evidence:
+      - {page: 200, note: "Framework promised as 'Repo + Code' but only listings inside the PDF exist."}
+      - {page: 651, note: ".env.example placeholder token (all 'x') - not a leaked secret; documented as a false positive."}
+    verification: MANUAL_READ
+    detail: "Dependency pinning is inconsistent: pytest==8.3.3 is pinned (pp. 282, 764, 998, 1058) while a pyproject listing uses ranges such as selenium>=4.20.0 (p. 203)."
+    recommendation: "Create the repository, pin versions, run the labs in CI and record results."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track PA-2..PA-6"}
+  - id: F-PYA-004
+    source_id: SRC-PY-AUTOMATION
+    severity: P2
+    dimension: professional_outcomes
+    title: "'Job-ready' and guarantee-style outcome statements without validation"
+    evidence:
+      - {page: 11, note: "'Outcome: Learner is job-ready'."}
+      - {page: 231, note: "'Goal: Make you job-ready'."}
+      - {page: 458, note: "'What This Volume Guarantees (If You Execute)'."}
+    verification: MANUAL_READ
+    recommendation: "Replace with assessed, measurable outcomes; remove readiness/guarantee language."
+    remediation: {status: NOT_STARTED, where: "Track PA-1 editorial pass"}
+  - id: F-PYA-005
+    source_id: SRC-PY-AUTOMATION
+    severity: P1
+    dimension: assessment_validity
+    title: "Assessment is interview-question lists; no rubric-graded work"
+    evidence:
+      - {page: 474, note: "'PYTHON AUTOMATION INTERVIEW MASTER Q&A (120+)'; p. 506 '100+ Real Interview Q&A'."}
+    verification: MANUAL_READ
+    detail: "80 bookmarks mention interviews; 0 rubrics."
+    recommendation: "Add executable acceptance tests and rubric-based reviews for each capstone."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track PA-6"}
+  - id: F-PYA-006
+    source_id: SRC-PY-AUTOMATION
+    severity: P2
+    dimension: technical_correctness
+    title: "Safe-automation topics are thin: idempotent file operations, atomic writes, audit logging"
+    evidence:
+      - {page: 0, note: "'atomic/tempfile/os.replace' appears on 3 pages; 'audit log' on 1-2 pages in 1,458 pages."}
+    verification: STATIC_SCAN
+    recommendation: "Add idempotency/atomicity labs with failure-injection tests."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track PA-3"}
+
+  # ------------------------------------------------------------------------- Java Automation Test Engineer
+  - id: F-JAV-001
+    source_id: SRC-JAVA-AUTOTEST
+    severity: P1
+    dimension: practical_effectiveness
+    title: "709-page 'Real Time Job Training' contains no Java code"
+    evidence:
+      - {page: 0, note: "Strict scans for statements ending in ';', 'import x.y', '@Test', 'new X(', 'By.id/xpath', 'driver.', 'pom.xml' return 0 hits in the text layer; no code blocks were detectable."}
+    verification: STATIC_SCAN
+    detail: "The mandated capstone (reproducible UI + API automation framework) cannot be built from this source."
+    recommendation: "Create the framework repository and rebuild chapters as code-first lessons with executed tests."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track JQA-1..JQA-6"}
+  - id: F-JAV-002
+    source_id: SRC-JAVA-AUTOTEST
+    severity: P1
+    dimension: technical_currency
+    title: "Baseline and tooling out of date: Java 8/11/17 only; no JUnit 5/6, Selenium 4 features or Playwright Java"
+    evidence:
+      - {page: 22, note: "'Java 8, 11, or 17 are commonly used'."}
+      - {page: 0, note: "Probe matches: JUnit 5 = 0, Playwright = 0, Selenium 4 features = 0, Testcontainers/Docker = 0, Java 17/21/25 = 0 (TestNG: 18 mentions, Maven: 11)."}
+    verification: PRIMARY_SOURCE
+    reference: [R-007, R-008]
+    detail: "Java 21 and 25 are current LTS releases; JUnit 6 is the current JUnit generation."
+    recommendation: "Baseline on Java 21 or 25, JUnit 6 (or TestNG with justification), Selenium 4 and Playwright Java."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track JQA-1"}
+  - id: F-JAV-003
+    source_id: SRC-JAVA-AUTOTEST
+    severity: P2
+    dimension: instructional_clarity
+    title: "A ~14-page block is duplicated (Volume 5)"
+    evidence:
+      - {page: 553, note: "Volume 5 (Final) begins; the same chapter headings and sentences reappear at p. 567 (offset 14)."}
+      - {page: 567, note: "Duplicate of pp. 553-566 ('Monetizing Automation Expertise & Industry Authority')."}
+    verification: STATIC_SCAN
+    recommendation: "Remove the duplicate and re-verify the table of contents."
+    remediation: {status: NOT_STARTED, where: "Track JQA-1"}
+  - id: F-JAV-004
+    source_id: SRC-JAVA-AUTOTEST
+    severity: P2
+    dimension: professional_outcomes
+    title: "Career-readiness framing without assessed outcomes; monetisation volume out of scope"
+    evidence:
+      - {page: 172, note: "'Transition from learner to job-ready engineer'."}
+      - {page: 553, note: "Volumes on monetising automation expertise and consulting."}
+    verification: MANUAL_READ
+    detail: "Chapter 12 (p. 280) gives a sensible definition of job-readiness, but no assessment tests it."
+    recommendation: "Keep a short career module; move monetisation to a separate optional product."
+    remediation: {status: PLANNED_IN_TRACK, where: "Blueprint track JQA"}
+  - id: F-JAV-005
+    source_id: SRC-JAVA-AUTOTEST
+    severity: P1
+    dimension: assessment_validity
+    title: "No rubrics, answer keys or graded labs"
+    evidence:
+      - {page: 0, note: "Signals: 0 rubric mentions, 3 lab mentions, 2 capstone mentions across 709 pages; 31 interview-oriented headings."}
+    verification: STATIC_SCAN
+    recommendation: "Add graded framework labs and a capstone with an automated acceptance suite."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track JQA-6"}
+
+  # ------------------------------------------------------------------------- GCP Data Engineer
+  - id: F-GCP-001
+    source_id: SRC-GCP-DATAENG
+    severity: P1
+    dimension: technical_correctness
+    title: "CI examples authenticate with a long-lived service-account JSON key"
+    evidence:
+      - {page: 179, note: "`echo \"${{ secrets.GCP_SA_KEY }}\" | base64 -d > sa.json` then `gcloud auth activate-service-account --key-file=sa.json`."}
+      - {page: 180, note: "Same pattern repeated; also p. 182."}
+    verification: PRIMARY_SOURCE
+    reference: [R-014, R-015]
+    detail: "Google recommends Workload Identity Federation over keys; for organisations created on/after 2024-05-03 key creation is blocked by default, so the example fails there."
+    recommendation: "Teach Workload Identity Federation (OIDC) for GitHub Actions with least-privilege roles."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track GCP-6"}
+  - id: F-GCP-002
+    source_id: SRC-GCP-DATAENG
+    severity: P1
+    dimension: practical_effectiveness
+    title: "Billable labs have no cost estimate, opt-in, spending guard, free-tier path or cleanup"
+    evidence:
+      - {page: 163, note: "Teardown/cleanup is mentioned on only two pages (163-164) in a 257-page course."}
+      - {page: 0, note: "Probe 'free tier / sandbox / emulator' = 0 matches; BigQuery, Dataflow and Cloud Composer (Composer appears on 12 pages, e.g., pp. 13, 32, 72) are used in projects."}
+    verification: STATIC_SCAN
+    detail: "Cloud Composer environments incur continuous charges. Learners may incur unexpected cost."
+    recommendation: "Every lab needs cost estimate, budget alert, opt-in, teardown script and a local/emulator alternative."
+    remediation: {status: PLANNED_IN_TRACK, where: "docs/architecture/PRACTICAL_LAB_STANDARDS.md; Track GCP-1"}
+  - id: F-GCP-003
+    source_id: SRC-GCP-DATAENG
+    severity: P1
+    dimension: practical_effectiveness
+    title: "'Real-world projects' are four-bullet specifications without data, steps or acceptance criteria"
+    evidence:
+      - {page: 48, note: "Project 1 'Vendor File Ingestion': four bullets."}
+      - {page: 49, note: "Project 3 'Streaming Events Pipeline': four bullets; 'These are exact replicas of real jobs'."}
+    verification: MANUAL_READ
+    detail: "Median bookmarked section is 12 words; 95% under 40 words. Only 8 heuristically detected code blocks exist in 257 pages."
+    recommendation: "Provide synthetic datasets, step-by-step guided builds, tests and cost-bounded teardown."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track GCP-2..GCP-5"}
+  - id: F-GCP-004
+    source_id: SRC-GCP-DATAENG
+    severity: P2
+    dimension: technical_currency
+    title: "Current-stack gaps and unverified certification alignment"
+    evidence:
+      - {page: 179, note: "gsutil used (also pp. 181-182); Google's current storage docs use `gcloud storage`. Deprecation status of gsutil NOT verified."}
+      - {page: 0, note: "Probes absent: Dataform/dbt, Dataplex/Data Catalog, BigLake/Iceberg, certification alignment."}
+    verification: NEEDS_VERIFICATION
+    reference: [R-016, R-017]
+    detail: "The Professional Data Engineer page lists five assessed areas (design, ingest/process, store, prepare/use, maintain/automate). Alignment to the exam guide was not verified."
+    recommendation: "Map modules to the current exam guide; update tooling; do not claim exam readiness without evidence."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track GCP-1"}
+  - id: F-GCP-005
+    source_id: SRC-GCP-DATAENG
+    severity: P2
+    dimension: professional_outcomes
+    title: "Outcome and equivalence claims without evidence"
+    evidence:
+      - {page: 49, note: "'These are exact replicas of real jobs.'"}
+      - {page: 50, note: "'Avoid these and you are already above average'; 'After Phase 2, the learner can ... build production-ready ingestion systems'."}
+    verification: MANUAL_READ
+    recommendation: "State outcomes as assessed capabilities with acceptance tests."
+    remediation: {status: NOT_STARTED, where: "Track GCP-1 editorial pass"}
+
+  # ------------------------------------------------------------------------- Frontend onboarding
+  - id: F-FE-001
+    source_id: SRC-FRONTEND-ONBOARD
+    severity: P0
+    dimension: commercial_readiness
+    title: "Third-party personal data (name, personal e-mail, phone, city) in sample resumes"
+    evidence:
+      - {page: 357, note: "Sample 'senior frontend' resume shows a named individual's personal e-mail, +91 phone number and city (values deliberately not reproduced here; masked forms are in the forensic data)."}
+      - {page: 360, note: "E-mail repeated on a second resume page."}
+    verification: VISUAL_REVIEW
+    detail: "Unless the person is the document owner or gave documented consent, publishing this is a privacy/legal exposure (GDPR/DPDP-type regimes)."
+    recommendation: "Confirm consent or remove; replace with fully synthetic resumes. Consider whether the already-committed PDF requires removal from history by the repository owner."
+    remediation: {status: NOT_STARTED, where: "Owner action required (see MISSING_MATERIALS.md / IP review)"}
+  - id: F-FE-002
+    source_id: SRC-FRONTEND-ONBOARD
+    severity: P1
+    dimension: commercial_readiness
+    title: "'INTERNAL' playbook describes undisclosed internal practices; provenance and applicability unverified"
+    evidence:
+      - {page: 1, note: "Title: 'INTERNAL FRONTEND DEVELOPER ONBOARDING PLAYBOOK'."}
+      - {page: 17, note: "'INTERNAL BRIEFING'; further 'Internal standard', 'Internal UI kits', 'INTERNAL OPERATIONS' headings."}
+    verification: NEEDS_VERIFICATION
+    detail: "It is unknown which organisation's practices are described and whether they match the ecosystem's real stack (the mandate says not to invent dependencies). If it is another party's internal document it is a confidentiality/IP risk."
+    recommendation: "Owner must confirm origin; re-base the course on the real ecosystem repositories and remove 'INTERNAL' framing from any customer product."
+    remediation: {status: NOT_STARTED, where: "Owner confirmation; Track FE-1"}
+  - id: F-FE-003
+    source_id: SRC-FRONTEND-ONBOARD
+    severity: P1
+    dimension: practical_effectiveness
+    title: "No labs, capstone or runnable project; security coverage is a single page"
+    evidence:
+      - {page: 84, note: "XSS/CSP/Content-Security-Policy appear on one page only."}
+    verification: STATIC_SCAN
+    detail: "Lab headings: 0; capstone: 0; auth concepts (OAuth/JWT/OIDC): 1 page; dependency security: 5 pages; Core Web Vitals present."
+    recommendation: "Add a secure, tested, responsive feature capstone with an API fixture; teach CSP/XSS/CSRF with exploit-and-fix labs."
+    remediation: {status: PLANNED_IN_TRACK, where: "Track FE-3..FE-5"}
+  - id: F-FE-004
+    source_id: SRC-FRONTEND-ONBOARD
+    severity: P2
+    dimension: professional_outcomes
+    title: "Big-tech positioning and interview scripts substitute for assessed skills"
+    evidence:
+      - {page: 71, note: "'Enterprise / FAANG-style model' promotion framework."}
+      - {page: 395, note: "'FAANG / PRODUCT COMPANY SENIOR FRONTEND ENGINEER - STAR CHEAT SHEET'."}
+    verification: MANUAL_READ
+    recommendation: "Keep a short career module; do not use FAANG-equivalence claims in marketing."
+    remediation: {status: NOT_STARTED, where: "Track FE-1"}
+  - id: F-FE-005
+    source_id: SRC-FRONTEND-ONBOARD
+    severity: P3
+    dimension: accessibility_experience
+    title: "Raw Markdown markers in the PDF; shallow sections"
+    evidence:
+      - {page: 0, note: "88 ATX header markers, 64 divider lines, 20 bold markers appear as text; median bookmarked section 30 words (71% under 40)."}
+    verification: STATIC_SCAN
+    recommendation: "Regenerate from Markdown source."
+    remediation: {status: NOT_STARTED, where: "scripts/build"}
+
+  # ------------------------------------------------------------------------- Mega Course Parts 1 & 2
+  - id: F-MEGA-001
+    source_id: SRC-MEGA-P1
+    severity: P1
+    dimension: instructional_clarity
+    title: "Part 1 promises 16 modules but delivers three; Part 2 numbering and titles conflict with Part 1"
+    evidence:
+      - {page: 2, note: "TOC pp. 2-6 lists Modules 1-16; TOC Module 2 = 'Networking for Cybersecurity', Module 3 = 'Linux & Windows Security', Module 5 = 'Vulnerability Assessment & Exploitation', Module 8 = 'Threat Hunting'."}
+      - {page: 7, note: "Module 1 body runs pp. 7-1495 as ~100 numbered chapters."}
+      - {page: 1496, note: "Body 'MODULE 2' is titled 'Advanced Cybersecurity Engineering, Ethical Offense Theory & Zero-Trust Defense' (Parts 1-100, pp. 1496-2479) - not the TOC's Module 2. Module 3 Part 1 starts p. 2480."}
+    verification: MANUAL_READ
+    detail: "Part 2 (separate PDF) begins 'MODULE 3 - PART 36' and uses Module 5 = Cloud Security & DevSecOps, Module 8 = Enterprise Security Architecture, Modules 10-15 with different subjects. 105 normalised headings are shared between the parts. No single curriculum map exists."
+    recommendation: "Build a unified module map (see blueprint) with unique IDs and prerequisites; split into tracks."
+    remediation: {status: PLANNED_IN_TRACK, where: "docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md"}
+  - id: F-MEGA-002
+    source_id: SRC-MEGA-P1
+    severity: P1
+    dimension: practical_effectiveness
+    title: "Breadth without depth: ~81% of sections under 40 words; labs lack environment, data and verification"
+    evidence:
+      - {page: 1449, note: "Chapter 96 'Ethical Offensive Security' = check-mark bullet fragments across pp. 1449-1452; no example, exercise or source."}
+      - {page: 15, note: "'LAB 1 - Attack Surface Identification': objective + seven imperative steps; references a template 'provided later' (also p. 1246) that was not located."}
+      - {page: 15, note: "'LAB 2 - Weak Password Audit' uses a 'RockYou list (sanitized)' - a leaked-password corpus with unclear provenance/licence."}
+    verification: STATIC_SCAN
+    detail: "Median bookmarked section: 14 words (Part 1) and 15 words (Part 2). 140 'LAB' headings exist; none specifies environment, versions, expected output or verification."
+    recommendation: "Re-found each module with a lesson standard, runnable lab specification and assessment."
+    remediation: {status: PLANNED_IN_TRACK, where: "Blueprint lab standard"}
+  - id: F-MEGA-003
+    source_id: SRC-MEGA-P1
+    severity: P1
+    dimension: professional_outcomes
+    title: "Uncited breach statistics and an explicit job guarantee"
+    evidence:
+      - {page: 1748, note: "'Become elite in these -> guaranteed job.'"}
+      - {page: 20, note: "'80% of breaches start with human error'."}
+      - {page: 38, note: "'95% of cloud breaches are misconfigurations, not hacking'."}
+      - {page: 113, note: "'90% of breaches occur because old accounts are left active'."}
+      - {page: 250, note: "'92% of modern breaches involve weak or compromised identity'."}
+      - {page: 1748, note: "'This module makes you: Database Pentester, SQL/NoSQL Exploitation Expert' (same page as the job guarantee)."}
+    verification: MANUAL_READ
+    detail: "109 percentage-statistic hits in Part 1 (STATIC_SCAN); the ones read have no citation."
+    recommendation: "Remove or source each statistic; delete employment-guarantee language (misleading-advertising risk)."
+    remediation: {status: NOT_STARTED, where: "Track CYB-0 editorial pass"}
+  - id: F-MEGA-004
+    source_id: SRC-MEGA-P1
+    severity: P2
+    dimension: technical_correctness
+    title: "Re-branded proprietary 'frameworks' obscure standard models"
+    evidence:
+      - {page: 28, note: "'CyberDudeBivash Unified Attack Lifecycle (New!)'."}
+      - {page: 1056, note: "'CDB 7-Phase Method' for malware analysis."}
+    verification: STATIC_SCAN
+    detail: "714 branded-framework tokens in Part 1 and 256 in Part 2 (e.g., CDB-*, 'Blueprint', 'Model'). No evidence or validation accompanies them."
+    recommendation: "Teach the standard (ATT&CK, CSF, kill chain) and show any house method as an applied checklist that maps to it."
+    remediation: {status: PLANNED_IN_TRACK, where: "Blueprint terminology guide"}
+  - id: F-MEGA-005
+    source_id: SRC-MEGA-P1
+    severity: P1
+    dimension: technical_correctness
+    title: "Offensive-security labs lack an authorised, isolated lab specification"
+    evidence:
+      - {page: 487, note: "LAB 103 msfvenom reverse-shell payload generation (loopback LHOST)."}
+      - {page: 488, note: "LAB 104 ROP gadget discovery."}
+      - {page: 1685, note: "'Active Directory Pentesting (HARDCORE SECTION)'."}
+    verification: MANUAL_READ
+    detail: "78 offensive-tool references in Part 1 and 26 in Part 2. Authorisation words are frequent (117 mentions) but no lab network, snapshot/teardown or scope statement is defined per lab."
+    recommendation: "Mark offensive labs BLOCKED_SECURITY until each has an isolated environment, authorisation text and a defensive learning objective."
+    remediation: {status: PLANNED_IN_TRACK, where: "docs/architecture/PRACTICAL_LAB_STANDARDS.md"}
+  - id: F-MEGA-006
+    source_id: SRC-MEGA-P1
+    severity: P2
+    dimension: accessibility_experience
+    title: "Navigation inflated by repeated running headers and shared headings"
+    evidence:
+      - {page: 7, note: "'MODULE 1 - FOUNDATIONS OF CYBERSECURITY' appears as a bookmark 93 times; 9,198 bookmarks in 2,837 pages."}
+    verification: STATIC_SCAN
+    recommendation: "Generate a clean outline from structured source."
+    remediation: {status: NOT_STARTED, where: "scripts/build"}
+  - id: F-MEGA-007
+    source_id: SRC-MEGA-P2
+    severity: P1
+    dimension: assessment_validity
+    title: "No answer keys, rubrics or graded assessments across ~3,660 pages"
+    evidence:
+      - {page: 0, note: "Rubric mentions: 0 in both parts; answer-key mentions: 3 (Part 1), 0 (Part 2); 'Certification exam + capstone' appears only as a TOC line (Part 1 p. 6)."}
+    verification: STATIC_SCAN
+    recommendation: "Build the assessment framework and a real capstone per track."
+    remediation: {status: PLANNED_IN_TRACK, where: "docs/architecture/ASSESSMENT_FRAMEWORK.md"}
+  - id: F-MEGA-008
+    source_id: SRC-MEGA-P2
+    severity: P2
+    dimension: technical_currency
+    title: "Framework versions unpinned; ATT&CK current release is v20 (2026-10-13)"
+    evidence:
+      - {page: 0, note: "MITRE ATT&CK, NIST CSF and OWASP are referenced without versions (OWASP appears; CSF/ATT&CK versions never stated in sampled pages)."}
+    verification: PRIMARY_SOURCE
+    reference: [R-010]
+    recommendation: "Pin every external framework by version and review date in each module."
+    remediation: {status: NOT_STARTED, where: "Track CYB-0"}
+  - id: F-MEGA-009
+    source_id: SRC-MEGA-P2
+    severity: P3
+    dimension: professional_outcomes
+    title: "Unsupported attribution of methods to named companies"
+    evidence:
+      - {page: 787, note: "'This is the professional method used by Microsoft, CrowdStrike, Mandiant, etc.' for the 'CDB' adversary-simulation pyramid."}
+    verification: MANUAL_READ
+    detail: "Sampled Part 2 pages (3-4, 12-13, 786-787) are technically plausible checklists; for example the Windows event-ID list on pp. 12-13 is accurate in the sampled IDs. They remain list-level with no commands, data or verification."
+    recommendation: "Remove endorsement-style attributions unless a citation exists; keep the accurate checklists as reference material inside lessons that add labs."
+    remediation: {status: NOT_STARTED, where: "Track CYB-0 editorial pass"}

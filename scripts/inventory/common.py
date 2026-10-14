@@ -23,6 +23,10 @@ TEXT_DIR = WORK_DIR / "text"
 DATA_DIR = REPO_ROOT / "docs" / "audits" / "data"
 SOURCES_DIR = REPO_ROOT  # PDFs currently live at the repo root (see docs/audits/SOURCE_PROVENANCE.md)
 
+# Commit at which the source PDFs were inventoried (main at the start of the audit). Pinned so that
+# generated artefacts stay byte-identical when re-run on later commits.
+BASELINE_COMMIT = "f2ba7d0e3448a83dee1230d6b16a985076dcb059"
+
 # The ten documents the owner declared as the intended corpus (task directive section 3).
 INTENDED_SOURCES = [
     "Complete AI Training Bundle 2026.pdf",

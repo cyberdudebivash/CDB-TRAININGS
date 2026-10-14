@@ -1,0 +1,255 @@
+# Research register -- every externally sourced statement that an audit finding or course change relies on.
+#
+# verified_on:  2026-10-14 (all entries below were checked on this date).
+# method values:
+#   PRIMARY_DOCUMENT_READ   the primary document/PDF was downloaded and the cited passage was read directly
+#   EXECUTED                the claim was reproduced by running code in a clean environment
+#   OFFICIAL_PAGE_SUMMARY   an official web page was fetched through a summarising tool; the summary was
+#                           NOT cross-checked against the raw page text. Re-verify against the primary text
+#                           before the statement is used in any customer-facing material.
+# Entries never contain extracted text from the audited training PDFs.
+register:
+  - id: R-001
+    title: "NIST SP 800-61 Rev. 3 - Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile"
+    url: https://csrc.nist.gov/pubs/sp/800/61/r3/final
+    primary_url: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf
+    publisher: NIST
+    version: "April 2025 (final); supersedes SP 800-61 Rev. 2 (Aug 2012)"
+    verified_on: 2026-10-14
+    method: PRIMARY_DOCUMENT_READ
+    finding: >
+      Section 2.1 contrasts the previous (Rev. 2) life-cycle model with a model based on the six CSF 2.0 Functions
+      (Govern, Identify, Protect, Detect, Respond, Recover). Table 1 maps the four Rev. 2 phases (Preparation;
+      Detection & Analysis; Containment, Eradication & Recovery; Post-Incident Activity) to CSF 2.0 Functions.
+      Rev. 3 does not define a six-phase lifecycle; Rev. 2 had four phases.
+    applies_to: [COURSE-SOC]
+    resulting_change: "Findings F-SOC-001; pilot unit text uses the NIST-accurate description and labels PICERL as a common practitioner model, not NIST."
+  - id: R-002
+    title: "NIST CSWP 29 - The NIST Cybersecurity Framework (CSF) 2.0"
+    url: https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final
+    primary_url: https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf
+    publisher: NIST
+    version: "CSF 2.0 (Feb 2024)"
+    verified_on: 2026-10-14
+    method: PRIMARY_DOCUMENT_READ
+    finding: >
+      The Respond (RS) function lists categories RS.MA (Incident Management), RS.AN (Incident Analysis),
+      RS.CO (Incident Response Reporting and Communication) and RS.MI (Incident Mitigation). The identifier
+      "RS.RP" does not occur anywhere in the CSF 2.0 document (0 matches).
+    applies_to: [COURSE-SOC]
+    resulting_change: "Finding F-SOC-002."
+  - id: R-003
+    title: "CERT-In Directions No. 20(3)/2022-CERT-In under section 70B(6) of the IT Act 2000"
+    url: https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf
+    publisher: Indian Computer Emergency Response Team (MeitY)
+    version: "28 April 2022"
+    verified_on: 2026-10-14
+    method: PRIMARY_DOCUMENT_READ
+    finding: >
+      Direction (ii): service providers, intermediaries, data centres, body corporates and Government organisations
+      must report cyber incidents listed in Annexure I to CERT-In within 6 hours of noticing them or being
+      brought to notice about them. The obligation is tied to Annexure I incident types, not to "critical" severity.
+    applies_to: [COURSE-SOC]
+    resulting_change: "Finding F-SOC-003."
+  - id: R-004
+    title: "LangChain 1.x import-path removal (reproduced)"
+    url: https://pypi.org/project/langchain/
+    publisher: PyPI / LangChain
+    version: "langchain 1.4.5, langchain-core 1.6.10, openai 3.31.0, faiss-cpu 1.15.1 (latest at test time)"
+    verified_on: 2026-10-14
+    method: EXECUTED
+    finding: >
+      In a clean virtual environment, `from langchain.embeddings import OpenAIEmbeddings` raises ImportError;
+      `from langchain.vectorstores import FAISS` and `from langchain.llms import OpenAI` raise ModuleNotFoundError.
+      The audited RAG lab uses all three imports with an unpinned requirements list.
+    applies_to: [COURSE-AI-ENG]
+    resulting_change: "Finding F-AI-001; lab status UNVERIFIED -> FAILING_ON_CURRENT_STACK until rebuilt with pinned, current packages."
+  - id: R-005
+    title: "Python Developer's Guide - Status of Python versions"
+    url: https://devguide.python.org/versions/
+    publisher: Python Software Foundation
+    version: "as published 2026-10-14"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: >
+      Supported: 3.11, 3.12, 3.13, 3.14, 3.15 (3.15 first released 2026-10-09). Python 3.10 reached end-of-life on
+      2026-10-01; 3.9 on 2025-10-31; 3.8 on 2024-10-07.
+    applies_to: [COURSE-PY-ENG, COURSE-PY-AUTO, COURSE-SOC]
+    resulting_change: "Finding F-PYH-005; new courseware targets Python >= 3.11 and is tested on 3.13."
+  - id: R-006
+    title: "Python Packaging User Guide - Is setup.py deprecated?"
+    url: https://packaging.python.org/en/latest/discussions/setup-py-deprecated/
+    publisher: Python Packaging Authority (PyPA)
+    version: "latest as of 2026-10-14"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: >
+      Using setup.py as a command-line tool is deprecated; commands such as install, develop, sdist and bdist_wheel
+      "MUST NOT be run anymore". Recommended: pip for installs, `python -m build` for sdist/wheel, and a
+      pyproject.toml [build-system] table.
+    applies_to: [COURSE-PY-ENG]
+    resulting_change: "Finding F-PYH-003."
+  - id: R-007
+    title: "Eclipse Adoptium - Supported platforms / LTS release support"
+    url: https://adoptium.net/support/
+    publisher: Eclipse Adoptium
+    version: "as published 2026-10-14"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: "LTS releases: Java 8, 11, 17, 21 and 25 (25 first available Sep 2025, supported at least to Sep 2031)."
+    applies_to: [COURSE-JAVA-QA]
+    resulting_change: "Finding F-JAV-002. Oracle's own roadmap page returned HTTP 403 and was not read."
+  - id: R-008
+    title: "JUnit - current generation"
+    url: https://junit.org/
+    publisher: JUnit team
+    version: "JUnit 6 (Java 17 baseline)"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: "JUnit 6 is presented as the current generation and requires Java 17+. Release date not stated on the page."
+    applies_to: [COURSE-JAVA-QA]
+    resulting_change: "Finding F-JAV-002."
+  - id: R-009
+    title: "OWASP Top 10 for LLM Applications 2025"
+    url: https://genai.owasp.org/llm-top-10/
+    publisher: OWASP GenAI Security Project
+    version: "2025"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: >
+      LLM01 Prompt Injection; LLM02 Sensitive Information Disclosure; LLM03 Supply Chain; LLM04 Data and Model
+      Poisoning; LLM05 Improper Output Handling; LLM06 Excessive Agency; LLM07 System Prompt Leakage;
+      LLM08 Vector and Embedding Weaknesses; LLM09 Misinformation; LLM10 Unbounded Consumption.
+    applies_to: [COURSE-AI-ENG, COURSE-PY-ENG]
+    resulting_change: "Findings F-AI-004, F-PYH-001 (LLM05/LLM06 map to eval() in an agent tool)."
+  - id: R-010
+    title: "MITRE ATT&CK - version history / updates"
+    url: https://attack.mitre.org/resources/updates/
+    publisher: MITRE
+    version: "ATT&CK v20, 2026-10-13 (Enterprise: 227 techniques, 479 sub-techniques)"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: "v20 is the current release as of the verification date. Courses should name the ATT&CK version they map to."
+    applies_to: [COURSE-SOC, COURSE-CYBER-MEGA]
+    resulting_change: "Course content must pin the ATT&CK version (see pilot unit)."
+  - id: R-011
+    title: "Web Content Accessibility Guidelines (WCAG) 2.2"
+    url: https://www.w3.org/TR/WCAG22/
+    publisher: W3C
+    version: "W3C Recommendation (page dated 12 December 2024)"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: >
+      WCAG 2.2 adds nine success criteria over 2.1 (2.4.11, 2.4.12, 2.4.13, 2.5.7, 2.5.8, 3.2.6, 3.3.7, 3.3.8, 3.3.9)
+      and removes 4.1.1 Parsing.
+    applies_to: [COURSE-FE-ONBOARD, ALL]
+    resulting_change: "Design system targets WCAG 2.2 AA (docs/architecture/DESIGN_SYSTEM.md)."
+  - id: R-012
+    title: "ISC2 2024 Cybersecurity Workforce Study"
+    url: https://www.isc2.org/Insights/2024/10/ISC2-2024-Cybersecurity-Workforce-Study
+    publisher: ISC2
+    version: "2024 (published Oct 2024)"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: >
+      Global workforce gap estimated at 4,763,963 (+19.1% vs 2023). Survey of 15,852 professionals run with Forrester
+      in Apr-May 2024; the workforce estimate excludes China and India.
+    applies_to: [COURSE-SOC, COURSE-OSINT]
+    resulting_change: "Findings F-SOC-005, F-OSINT-005: an 'India gap from ISC2' cannot come from this study; '3.5M' figures are not ISC2's 2024 number."
+  - id: R-013
+    title: "Licences of tools proposed for redistribution in the OSINT bundle"
+    url: https://github.com/laramies/theHarvester
+    publisher: GitHub repositories (theHarvester, recon-ng, Sherlock)
+    version: "repository pages as of 2026-10-14"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: >
+      theHarvester: GPL-2.0 only. recon-ng (lanmaster53): GPL-3.0. Sherlock: MIT. The licences of Maltego CE and
+      SpiderFoot HX were NOT checked (NEEDS_VERIFICATION). The GitHub REST licence API returned HTTP 403 through the
+      session proxy, so repository pages were read instead.
+    applies_to: [COURSE-OSINT]
+    resulting_change: "Finding F-OSINT-002; docs/audits/IP_AND_LICENSE_REVIEW.md."
+  - id: R-014
+    title: "google-github-actions/auth README - authentication options"
+    url: https://github.com/google-github-actions/auth
+    publisher: Google (open-source GitHub Action)
+    version: "README as of 2026-10-14"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: >
+      "Workload Identity Federation is recommended over Service Account Keys"; service-account key JSON must be
+      treated like a password and never expires by default.
+    applies_to: [COURSE-GCP-DE]
+    resulting_change: "Finding F-GCP-001."
+  - id: R-015
+    title: "Google Cloud IAM - Best practices for managing service account keys"
+    url: https://docs.cloud.google.com/iam/docs/best-practices-for-managing-service-account-keys
+    publisher: Google Cloud
+    version: "as published 2026-10-14"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: >
+      Service account keys "can become a security risk if not managed carefully"; treat key use as an exception;
+      use organization-policy constraints to block key creation. For organizations created on or after 2024-05-03
+      these constraints are enforced by default.
+    applies_to: [COURSE-GCP-DE]
+    resulting_change: "Finding F-GCP-001 (key-based CI examples fail by default in newer organizations)."
+  - id: R-016
+    title: "Google Cloud - Professional Data Engineer certification"
+    url: https://cloud.google.com/learn/certification/data-engineer
+    publisher: Google Cloud
+    version: "as published 2026-10-14"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: >
+      Exam assesses five areas: design data processing systems; ingest and process the data; store the data;
+      prepare and use data for analysis; maintain and automate data workloads. 2 hours, 40-50 questions, USD 200,
+      valid 2 years, recommended 3+ years industry / 1+ year on Google Cloud. The exam-guide PDF itself was not read.
+    applies_to: [COURSE-GCP-DE]
+    resulting_change: "Finding F-GCP-004; certification alignment must be re-verified against the exam guide before it is claimed."
+  - id: R-017
+    title: "Google Cloud Storage docs - 'Discover object storage'"
+    url: https://docs.cloud.google.com/storage/docs/discover-object-storage-gsutil
+    publisher: Google Cloud
+    version: "as published 2026-10-14"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: "The page uses only `gcloud storage` commands. It does not state whether gsutil is deprecated (status NOT verified)."
+    applies_to: [COURSE-GCP-DE]
+    resulting_change: "Finding F-GCP-004 records gsutil status as NEEDS_VERIFICATION."
+  - id: R-018
+    title: "datetime.datetime.utcnow() deprecation (reproduced)"
+    url: https://docs.python.org/3/library/datetime.html#datetime.datetime.utcnow
+    publisher: Python Software Foundation
+    version: "CPython 3.13.16"
+    verified_on: 2026-10-14
+    method: EXECUTED
+    finding: "Under `python -W error`, datetime.datetime.utcnow() raises DeprecationWarning recommending timezone-aware now(UTC)."
+    applies_to: [COURSE-AI-ENG]
+    resulting_change: "Finding F-AI-003 (minor)."
+  - id: R-019
+    title: "MITRE ATT&CK Terms of Use"
+    url: https://attack.mitre.org/resources/legal-and-branding/terms-of-use/
+    publisher: MITRE
+    version: "page footer year 2026"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: >
+      Non-exclusive, royalty-free licence to use ATT&CK for research, development and commercial purposes; copies must
+      reproduce MITRE's copyright designation: "(c) 2026 The MITRE Corporation. This work is reproduced and distributed with the
+      permission of The MITRE Corporation." Provided AS IS; ATT&CK is a registered trademark. Derivative-work terms not addressed.
+    applies_to: [COURSE-SOC, COURSE-CYBER-MEGA]
+    resulting_change: "Every courseware page that reproduces ATT&CK content carries the notice (shared/templates/attribution-notices.md); IP review item IP-7."
+  - id: R-020
+    title: "SigmaHQ licences"
+    url: https://github.com/SigmaHQ/sigma
+    publisher: SigmaHQ
+    version: "repository pages as of 2026-10-14"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: >
+      The SigmaHQ rules repository states its content is released under the Detection Rule License (DRL) 1.1; the DRL terms
+      were not read. The Sigma specification repository's licence could not be determined from the page; the highest
+      specification version mentioned there is 2.1.0.
+    applies_to: [COURSE-SOC]
+    resulting_change: "Pilot rules are original work and do not copy SigmaHQ rules; specification features are verified against the spec text before use."

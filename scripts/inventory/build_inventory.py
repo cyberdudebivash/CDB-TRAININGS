@@ -19,7 +19,7 @@ from common import (
     REPO_ROOT,
     SOURCE_IDS,
     extract_pages,
-    git_head,
+    BASELINE_COMMIT,
     list_pdfs,
     read_outline,
     sha256_file,
@@ -117,7 +117,7 @@ def main() -> None:
     exact_duplicates = sorted(sorted(v) for v in hash_groups.values() if len(v) > 1)
 
     result = {
-        "baseline_commit": git_head(),
+        "baseline_commit": BASELINE_COMMIT,
         "source_root": ".",
         "intended_count": len(INTENDED_SOURCES),
         "present_count": sum(1 for r in reconciliation if r["status"] == "PRESENT"),

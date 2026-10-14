@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/cyberdudebivash/CDB-TRAININGS/catalog/schema/course-catalog.schema.json",
+  "title": "CDB Academy course catalog",
+  "type": "object",
+  "required": ["schema_version", "catalog_version", "courses"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 1},
+    "catalog_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "last_verified": {"type": "string", "format": "date"},
+    "courses": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/course"}}
+  },
+  "$defs": {
+    "release_status": {
+      "enum": ["SOURCE_PENDING", "AUDIT_PENDING", "REENGINEERING", "VALIDATION", "REVIEW_REQUIRED", "PRODUCTION_GO"]
+    },
+    "lifecycle": {"enum": ["PLANNED", "IN_DESIGN", "IN_BUILD", "PILOT_BUILT", "VALIDATED"]},
+    "lab_state": {
+      "enum": ["VERIFIED_EXECUTABLE", "VERIFIED_MANUAL", "UNVERIFIED", "BLOCKED_ENVIRONMENT", "BLOCKED_COST", "BLOCKED_SECURITY", "PLANNED"]
+    },
+    "course": {
+      "type": "object",
+      "required": ["id", "slug", "title", "version", "source_ids", "audience", "competency_levels", "prerequisites",
+                   "modules", "estimated_duration_hours", "lab_coverage", "assessment_coverage", "capstone",
+                   "review_status", "qa_status", "release_status", "lifecycle", "owner", "reviewers", "last_verified"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^COURSE-[A-Z0-9]+(-[A-Z0-9]+)*$"},
+        "slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+        "title": {"type": "string", "minLength": 5},
+        "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(-[a-z0-9.]+)?$"},
+        "source_ids": {"type": "array", "items": {"type": "string", "pattern": "^SRC-[A-Z0-9-]+$"}},
+        "audience": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "competency_levels": {"type": "array", "minItems": 1, "items": {"enum": [0, 1, 2, 3]}},
+        "prerequisites": {"type": "array", "items": {"type": "string", "pattern": "^COURSE-[A-Z0-9-]+$"}},
+        "modules": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/module"}},
+        "estimated_duration_hours": {"type": "number", "minimum": 1, "description": "Planning estimate, not a measured value."},
+        "lab_coverage": {
+          "type": "object",
+          "required": ["planned", "built", "verified_executable"],
+          "additionalProperties": false,
+          "properties": {
+            "planned": {"type": "integer", "minimum": 0},
+            "built": {"type": "integer", "minimum": 0},
+            "verified_executable": {"type": "integer", "minimum": 0}
+          }
+        },
+        "assessment_coverage": {
+          "type": "object",
+          "required": ["outcomes_total", "outcomes_assessed"],
+          "additionalProperties": false,
+          "properties": {
+            "outcomes_total": {"type": "integer", "minimum": 0},
+            "outcomes_assessed": {"type": "integer", "minimum": 0}
+          }
+        },
+        "capstone": {"type": "string", "minLength": 10},
+        "review_status": {"enum": ["NOT_REVIEWED", "AUTOMATED_ONLY", "SME_REVIEWED"]},
+        "qa_status": {"enum": ["NOT_RUN", "PARTIAL", "PASSING"]},
+        "release_status": {"$ref": "#/$defs/release_status"},
+        "lifecycle": {"$ref": "#/$defs/lifecycle"},
+        "blocking_findings": {"type": "array", "items": {"type": "string", "pattern": "^F-[A-Z]+-\\d{3}$"}},
+        "owner": {"type": "string"},
+        "reviewers": {"type": "array", "items": {"type": "string"}},
+        "last_verified": {"type": "string", "format": "date"},
+        "notes": {"type": "string"}
+      }
+    },
+    "module": {
+      "type": "object",
+      "required": ["id", "title", "level", "status", "estimated_hours", "primary_outcome"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^[A-Z]+-M\\d{2}$"},
+        "title": {"type": "string", "minLength": 5},
+        "level": {"enum": [0, 1, 2, 3]},
+        "status": {"enum": ["PLANNED", "BUILT_PILOT", "VALIDATED"]},
+        "estimated_hours": {"type": "number", "minimum": 0.5},
+        "primary_outcome": {"type": "string", "minLength": 20, "description": "One measurable outcome that starts with an action verb."},
+        "lab_state": {"$ref": "#/$defs/lab_state"},
+        "reuses": {"type": "array", "items": {"type": "string", "pattern": "^[A-Z]+-M\\d{2}$"}}
+      }
+    }
+  }
+}
