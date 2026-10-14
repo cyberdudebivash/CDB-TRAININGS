@@ -1,6 +1,6 @@
 {
   "branch": "claude/cyberdudebivash-training-audit-ilfgze",
-  "commit": "f1da112703f8",
+  "commit": "28a667111a13",
   "private_instructor_pack_present": true,
   "python": "3.13.16",
   "results": [
@@ -23,7 +23,7 @@
       "title": "Audit documents reproducible from findings/scores data"
     },
     {
-      "detail": "142 passed, 0 failed, 0 errors, 0 skipped",
+      "detail": "144 passed, 0 failed, 0 errors, 0 skipped",
       "id": "pytest",
       "skipped": [],
       "status": "PASS",
@@ -102,20 +102,20 @@
           "errors": 0,
           "failed": 0,
           "module": "tests/test_repo_hygiene",
-          "passed": 20,
+          "passed": 22,
           "skipped": 0
         }
       ],
       "tail": [
-        "......................................................................   [100%]",
-        "---------------- generated xml file: /tmp/tmpra8j7q_c/junit.xml ----------------",
-        "142 passed in 5.55s"
+        "........................................................................ [100%]",
+        "---------------- generated xml file: /tmp/tmpd1t9qc5i/junit.xml ----------------",
+        "144 passed in 5.86s"
       ],
       "title": "Full pytest suite",
       "totals": {
         "errors": 0,
         "failed": 0,
-        "passed": 142,
+        "passed": 144,
         "skipped": 0
       }
     },
@@ -138,6 +138,6 @@
       "title": "Student-edition build (HTML + tagged PDF, strict gates)"
     }
   ],
-  "run_utc": "2026-10-14 08:06",
+  "run_utc": "2026-10-14 08:12",
   "working_tree_dirty": false
 }
