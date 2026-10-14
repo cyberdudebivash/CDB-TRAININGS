@@ -1,11 +1,11 @@
 {
   "branch": "claude/cyberdudebivash-training-audit-ilfgze",
-  "commit": "28a667111a13",
+  "commit": "574ecfbfb55a",
   "private_instructor_pack_present": true,
   "python": "3.13.16",
   "results": [
     {
-      "detail": "catalog validation OK: 10 courses, 102 modules, 11 pathways",
+      "detail": "catalog validation OK: 10 courses, 111 modules, 11 pathways",
       "id": "catalog",
       "status": "PASS",
       "title": "Catalog schema and cross-reference validation"
@@ -23,7 +23,55 @@
       "title": "Audit documents reproducible from findings/scores data"
     },
     {
-      "detail": "144 passed, 0 failed, 0 errors, 0 skipped",
+      "detail": "all evidence references resolve",
+      "id": "modernization-data",
+      "status": "PASS",
+      "title": "Modernization, new-development and rule data: every F-/R-/probe/snapshot/module reference resolves"
+    },
+    {
+      "detail": "documents match the data",
+      "id": "audit-docs-render",
+      "status": "PASS",
+      "title": "Generated audit documents (complete audit, traceability, matrix, per-course logs) reproduce from data"
+    },
+    {
+      "detail": "documents match the catalog",
+      "id": "curriculum-docs-render",
+      "status": "PASS",
+      "title": "Generated curriculum documents (skill pathways, competency outcomes) reproduce from the catalog"
+    },
+    {
+      "detail": "documents match the data",
+      "id": "readiness-docs-render",
+      "status": "PASS",
+      "title": "Generated readiness, premium-catalog, Stage B checklist and QA documents reproduce from data"
+    },
+    {
+      "detail": "report matches the recorded run",
+      "id": "lab-evidence-render",
+      "status": "PASS",
+      "title": "Lab execution evidence report reproduces from its recorded JSON"
+    },
+    {
+      "detail": "quiz files match",
+      "id": "module-assets-render",
+      "status": "PASS",
+      "title": "Generated quiz files (questions only) reproduce from quiz.yaml"
+    },
+    {
+      "detail": "documents match the data",
+      "id": "research-docs-render",
+      "status": "PASS",
+      "title": "Generated research documents (baselines, verification, new developments) reproduce from data"
+    },
+    {
+      "detail": "committed page records equal a fresh rebuild",
+      "id": "page-records-rebuild",
+      "status": "PASS",
+      "title": "Page records (8,186 pages) reproduce from the source PDFs, rules and mapping"
+    },
+    {
+      "detail": "215 passed, 0 failed, 0 errors, 0 skipped",
       "id": "pytest",
       "skipped": [],
       "status": "PASS",
@@ -88,7 +136,7 @@
           "errors": 0,
           "failed": 0,
           "module": "tests/test_build_student_edition",
-          "passed": 20,
+          "passed": 26,
           "skipped": 0
         },
         {
@@ -101,21 +149,49 @@
         {
           "errors": 0,
           "failed": 0,
-          "module": "tests/test_repo_hygiene",
+          "module": "tests/test_modernization_data",
+          "passed": 18,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/test_module_packs",
           "passed": 22,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/test_page_records",
+          "passed": 10,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/test_python_engineering_labs",
+          "passed": 14,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/test_repo_hygiene",
+          "passed": 23,
           "skipped": 0
         }
       ],
       "tail": [
-        "........................................................................ [100%]",
-        "---------------- generated xml file: /tmp/tmpd1t9qc5i/junit.xml ----------------",
-        "144 passed in 5.86s"
+        "........................................................................ [ 66%]",
+        ".......................................................................  [100%]",
+        "215 passed in 60.98s (0:01:00)"
       ],
       "title": "Full pytest suite",
       "totals": {
         "errors": 0,
         "failed": 0,
-        "passed": 144,
+        "passed": 215,
         "skipped": 0
       }
     },
@@ -132,12 +208,12 @@
       "title": "SOC-M04 independent lab with private reference solution"
     },
     {
-      "detail": "RESULT: PASS",
+      "detail": "--skip-build",
       "id": "student-build",
-      "status": "PASS",
+      "status": "SKIPPED_BY_FLAG",
       "title": "Student-edition build (HTML + tagged PDF, strict gates)"
     }
   ],
-  "run_utc": "2026-10-14 08:12",
+  "run_utc": "2026-10-14 14:21",
   "working_tree_dirty": false
 }
