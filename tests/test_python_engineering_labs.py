@@ -86,7 +86,7 @@ def test_m01_independent_reference_passes_examples_hidden_suite_and_report_scrip
 
 
 @pytest.mark.private_materials
-def test_m01_hidden_suite_is_discriminating_and_starter_fails_it():
+def test_m01_independent_hidden_suite_is_discriminating_and_starter_fails_it():
     ref = PRIVATE / "PY-M01" / "independent-reference"
     if not ref.exists():
         pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
