@@ -117,7 +117,8 @@ def test_relative_markdown_links_resolve():
     problems = []
     for rel in md_files():
         src = ROOT / rel
-        for m in re.finditer(r"\]\(([^)\s]+)\)", src.read_text(encoding="utf-8")):
+        prose = re.sub(r"`{3,}.*?`{3,}", "", src.read_text(encoding="utf-8"), flags=re.S)       # code blocks can contain "](" without being links
+        for m in re.finditer(r"\]\(([^)\s]+)\)", prose):
             target = m.group(1)
             if re.match(r"^[a-z][a-z0-9+.-]*:", target) or target.startswith("#") and False:
                 continue
@@ -302,3 +303,24 @@ def test_forensics_output_ordering_is_deterministic():
     for row in inv["shared_headings"] if isinstance(inv.get("shared_headings"), list) else []:
         ex = row["examples"]
         assert ex == sorted(ex, key=lambda x: (-len(x), x)), "examples must be sorted for reproducibility"
+
+
+OCT2026_ARTIFACTS = [
+    "docs/audits/OCT2026_COMPLETE_PDF_AUDIT.md", "docs/audits/2025_TO_2026_MODERNIZATION_MATRIX.md", "docs/research/TECHNOLOGY_BASELINES_2026.md",
+    "docs/research/RESEARCH_VERIFICATION_2026.md", "docs/research/NEW_DEVELOPMENTS_2026.md", "docs/curriculum/MASTER_SKILL_PATHWAYS_2026.md",
+    "docs/curriculum/COMPETENCY_OUTCOMES_2026.md", "docs/qa/ALL_COURSES_QA_REPORT.md", "docs/qa/LAB_EXECUTION_EVIDENCE.md", "docs/audits/COURSE_SOURCE_TRACEABILITY.md",
+    "docs/commercial/PREMIUM_COURSE_CATALOG_2026.md", "docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md", "docs/release/OCT2026_PRODUCTION_READINESS.md",
+    "docs/release/OCT24_FINAL_REFRESH_CHECKLIST.md", "docs/ops/MODERNIZATION_PROGRESS.md", "docs/ops/NEXT_EXECUTION_HANDOFF.md",
+]
+
+
+def test_october_2026_artifacts_exist_are_substantial_and_indexed():
+    index = (ROOT / "docs" / "README.md").read_text(encoding="utf-8")
+    problems = []
+    for f in OCT2026_ARTIFACTS:
+        p = ROOT / f
+        if not p.is_file() or p.stat().st_size < 2000:
+            problems.append(f"missing or too small: {f}")
+        if f.split("docs/", 1)[1] not in index:
+            problems.append(f"not in docs/README.md: {f}")
+    assert problems == [], problems

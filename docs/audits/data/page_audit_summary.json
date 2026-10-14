@@ -993,13 +993,13 @@
     "P0": 2,
     "P1": 12,
     "P2": 15,
-    "P3": 16,
-    "P4": 12
+    "P3": 15,
+    "P4": 13
    },
    "status": {
     "HUMAN_READ_FINDING_CITED": 13,
-    "MACHINE_FLAGGED_REVIEW_REQUIRED": 31,
-    "MACHINE_SCANNED_NO_FLAGS": 609,
+    "MACHINE_FLAGGED_REVIEW_REQUIRED": 30,
+    "MACHINE_SCANNED_NO_FLAGS": 610,
     "VISUAL_REVIEW_REQUIRED": 1
    },
    "top_technologies": [
@@ -1199,12 +1199,12 @@
   "severity:P0": 10,
   "severity:P1": 71,
   "severity:P2": 155,
-  "severity:P3": 348,
-  "severity:P4": 177,
+  "severity:P3": 347,
+  "severity:P4": 178,
   "status:HUMAN_READ_FINDING_CITED": 97,
-  "status:MACHINE_FLAGGED_REVIEW_REQUIRED": 464,
+  "status:MACHINE_FLAGGED_REVIEW_REQUIRED": 463,
   "status:MACHINE_SCANNED_NEAR_BLANK": 29,
-  "status:MACHINE_SCANNED_NO_FLAGS": 7567,
+  "status:MACHINE_SCANNED_NO_FLAGS": 7568,
   "status:VISUAL_REVIEW_REQUIRED": 29
  }
 }

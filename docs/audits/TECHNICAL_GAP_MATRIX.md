@@ -111,7 +111,7 @@
 | F-PYA-002 | P1 | `COURSE-PY-AUTO` | Non-linear structure: complete framework build precedes 'Volume 1 Starts Here'; repeated scaffolds | p. 200, p. 273, p. 502 | PLANNED_IN_TRACK |
 | F-PYA-003 | P1 | `COURSE-PY-AUTO` | No executable companion repository, CI evidence or verified lab results | p. 200, p. 651 | PLANNED_IN_TRACK |
 | F-PYA-005 | P1 | `COURSE-PY-AUTO` | Assessment is interview-question lists; no rubric-graded work | p. 474 | PLANNED_IN_TRACK |
-| F-PYH-002 | P1 | `COURSE-PY-ENG` | Automation examples teach insecure credential, TLS, SSH and shell patterns without warnings | p. 163, p. 164, p. 168, p. 221, p. 252, p. 269, p. 373, p. 428 | NOT_STARTED |
+| F-PYH-002 | P1 | `COURSE-PY-ENG` | Automation examples teach insecure credential, TLS, SSH and shell patterns without warnings | p. 163, p. 164, p. 168, p. 222, p. 252, p. 269, p. 373, p. 428 | NOT_STARTED |
 | F-PYH-003 | P1 | `COURSE-PY-ENG` | Packaging taught as `python setup.py sdist`; no pyproject.toml or build workflow | p. 63, p. 64 | NOT_STARTED |
 | F-PYH-007 | P1 | `COURSE-PY-ENG` | No graded assessment, rubric or capstone acceptance criteria | document-wide scan | PLANNED_IN_TRACK |
 | F-SOC-001 | P1 | `COURSE-SOC` | Six-phase IR lifecycle attributed to NIST SP 800-61 Rev. 3 / Rev. 2 | p. 6, p. 30 | DONE_IN_PILOT |

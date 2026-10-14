@@ -18,7 +18,7 @@ This is the ledger behind every currency claim in the modernization: what was ch
 | PRIMARY_DOCUMENT_READ | 10 | A primary document/page was downloaded and the cited passage read directly. | Yes |
 | EXECUTED | 2 | The claim was reproduced by running code in a clean environment (see section 4). | Yes, for the stated version only |
 | REGISTRY_API | 1 | Machine-readable package-registry or lifecycle data retrieved by `scripts/research/fetch_registry_versions.py`. | Yes, for version/date statements |
-| OFFICIAL_PAGE_SUMMARY | 58 | An official page was fetched through a summarising tool; the summary was NOT cross-checked against raw text. | No: re-verify against the primary text first |
+| OFFICIAL_PAGE_SUMMARY | 68 | An official page was fetched through a summarising tool; the summary was NOT cross-checked against raw text. | No: re-verify against the primary text first |
 | SECONDARY_SOURCE | 5 | Trade press or other non-primary coverage; carries a caveat. | No |
 
 Source preference order used throughout: (1) official specification, standard or vendor documentation; (2) the project's own release notes; (3) package-registry metadata; (4) executed behaviour; (5) secondary coverage, always flagged. Marketing pages, social posts and uncited blog claims were not used as evidence.
@@ -63,7 +63,7 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 
 ## 5. Research register ledger
 
-76 entries in `docs/research/research_register.yaml`. `Used by` lists the findings, change records and rules that cite the entry.
+86 entries in `docs/research/research_register.yaml`. `Used by` lists the findings, change records and rules that cite the entry.
 
 | Id | Subject | Publisher | Version / state | Method | Verified on | URL | Caveat | Used by |
 |---|---|---|---|---|---|---|---|---|
@@ -143,10 +143,20 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 | R-074 | New name for Azure Active Directory - Microsoft Entra ID | Microsoft Learn | page ms.date 2025-05-07, updated_at 2026-06-15; rename announced 2023-07-11, SKU displa... | PRIMARY_DOCUMENT_READ | 2026-10-14 | https://learn.microsoft.com/en-us/entra/fundamentals/new-name |  | DR-SC-005, MC-MEG-03, MC-SOC-07, ND-SC-06 |
 | R-075 | Migrate from Container Registry to Artifact Registry | Google Cloud | page read 2026-10-14; Container Registry shut down 2025-03-18 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://docs.cloud.google.com/artifact-registry/docs/transition/transition-from-gcr |  | DR-GC-002, MC-MEG-05, ND-GC-05 |
 | R-076 | PCI DSS and ISO/IEC 27001 edition currency (NOT VERIFIED) | PCI Security Standards Council; ISO | not established | SECONDARY_SOURCE | 2026-10-14 | https://www.pcisecuritystandards.org/standards/pci-dss/ | yes | DR-SC-007, MC-MEG-07 |
+| R-077 | PyPA specification - Inline script metadata (PEP 723) | Python Packaging Authority | specification page; history: approved October 2023 (PEP 723), block type renamed to 'sc... | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://packaging.python.org/en/latest/specifications/inline-script-metadata/ | yes | - |
+| R-078 | PyPA specification - Dependency Groups (PEP 735) | Python Packaging Authority | specification page; history: approved October 2024 (PEP 735) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://packaging.python.org/en/latest/specifications/dependency-groups/ |  | - |
+| R-079 | Python Packaging User Guide - Writing your pyproject.toml | Python Packaging Authority | guide page read 2026-10-14 (no version shown) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://packaging.python.org/en/latest/guides/writing-pyproject-toml/ |  | - |
+| R-080 | Coursera Plus - plan page (pricing, inclusions, refund policy) | Coursera | page read 2026-10-14 (no date shown on page) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://coursera.org/courseraplus | yes | - |
+| R-081 | TryHackMe - pricing page | TryHackMe | page read 2026-10-14 (EUR display; promotion banner 'Cyber Awareness Month') | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://tryhackme.com/pricing | yes | - |
+| R-082 | SANS SEC504 Hacker Tools, Techniques and Incident Handling - course page (prices by format) | SANS Institute | page read 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://www.sans.org/cyber-security-courses/hacker-techniques-incident-handling/ | yes | - |
+| R-083 | Python Institute - PCAP certification page (exam price, format) | Python Institute | page read 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://pythoninstitute.org/pcap | yes | - |
+| R-084 | Gumroad - pricing and fees | Gumroad | page read 2026-10-14 (page shows no update date; tax handling statement refers to 2025-... | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://gumroad.com/pricing | yes | - |
+| R-085 | Google Skills (formerly Google Cloud Skills Boost) - subscriptions | Google | page read 2026-10-14 (the old cloudskillsboost.google/subscriptions URL redirects perma... | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://www.skills.google/subscriptions | yes | - |
+| R-086 | Pluralsight - pricing page (individual plans listed without prices) | Pluralsight | page read 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://www.pluralsight.com/pricing | yes | - |
 
 ## 6. Limitations and items that must not be used in customer-facing material yet
 
-63 register entries rest on a summarised official page or a secondary source. Re-verify each against the primary text before publication:
+73 register entries rest on a summarised official page or a secondary source. Re-verify each against the primary text before publication:
 
 | Id | Subject | Method | Caveat / what to re-check |
 |---|---|---|---|
@@ -213,6 +223,16 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 | R-073 | OWASP Web Security Testing Guide | OFFICIAL_PAGE_SUMMARY | re-verify against the primary page text |
 | R-075 | Migrate from Container Registry to Artifact Registry | OFFICIAL_PAGE_SUMMARY | re-verify against the primary page text |
 | R-076 | PCI DSS and ISO/IEC 27001 edition currency (NOT VERIFIED) | SECONDARY_SOURCE | The PCI SSC landing page did not state the current version or retirement dates, and iso.org returned HTTP 403. No claim about PCI DSS v4.0.1 or the ISO/IEC 27001:2022 transition is made from this entry. |
+| R-077 | PyPA specification - Inline script metadata (PEP 723) | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool with literal quotations requested; the regular expression should be compared with the raw page before it is printed in customer-facing material. |
+| R-078 | PyPA specification - Dependency Groups (PEP 735) | OFFICIAL_PAGE_SUMMARY | re-verify against the primary page text |
+| R-079 | Python Packaging User Guide - Writing your pyproject.toml | OFFICIAL_PAGE_SUMMARY | re-verify against the primary page text |
+| R-080 | Coursera Plus - plan page (pricing, inclusions, refund policy) | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool; prices are USD for the viewer's location at fetch time and promotions change. |
+| R-081 | TryHackMe - pricing page | OFFICIAL_PAGE_SUMMARY | Prices shown in euro with promotions applied; the page text does not make the billing arithmetic unambiguous. Do not quote figures without re-reading the live page. |
+| R-082 | SANS SEC504 Hacker Tools, Techniques and Incident Handling - course page (prices by format) | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool; only 10 of 47 events were visible. |
+| R-083 | Python Institute - PCAP certification page (exam price, format) | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool. |
+| R-084 | Gumroad - pricing and fees | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool; fee schedules change and processing fees may apply beyond what the page shows. |
+| R-085 | Google Skills (formerly Google Cloud Skills Boost) - subscriptions | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool. |
+| R-086 | Pluralsight - pricing page (individual plans listed without prices) | OFFICIAL_PAGE_SUMMARY | Search-result pages from third parties quote USD 449 and 499 per year for an individual plan; the figures conflict and were not used. |
 
 New developments whose adoption evidence is incomplete (see [NEW_DEVELOPMENTS_2026.md](NEW_DEVELOPMENTS_2026.md)): ND-PY-01, ND-PY-03, ND-AI-01, ND-AI-04, ND-AI-05, ND-JV-03, ND-GC-04, ND-SC-01, ND-OS-01, ND-OS-03.
 

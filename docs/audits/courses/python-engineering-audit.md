@@ -10,7 +10,7 @@
 | Review coverage | 654/654 pages machine-scanned; ~15 pages read in context (pp. 63-64, 83, 163-164, 220, 427-428, 585-586 and code-failure contexts); 404 code blocks syntax-checked. |
 | Quality score (source as received) | **36 / 100** (internal instrument; see `COURSE_QUALITY_SCORECARD.md`) |
 | Open findings | P0: 1, P1: 3, P2: 3, P3: 0, P4: 0 |
-| Release status | `REENGINEERING` (lifecycle `IN_DESIGN`) |
+| Release status | `REENGINEERING` (lifecycle `IN_BUILD`) |
 | Audit date | 2026-10-14 |
 
 ## 1. What the source is
@@ -33,7 +33,7 @@ Severity scale: **P0** dangerous, materially incorrect, legally problematic or f
 | ID | Sev | Dimension | Title | Evidence | Verified by | Remediation |
 |---|---|---|---|---|---|---|
 | F-PYH-001 | P0 | Technical correctness and security | Agent 'math tool' evaluates model-controlled input with eval() | p. 585, p. 586 | MANUAL_READ | NOT_STARTED |
-| F-PYH-002 | P1 | Technical correctness and security | Automation examples teach insecure credential, TLS, SSH and shell patterns without warnings | p. 163, p. 164, p. 168, p. 221, p. 252, p. 269, p. 373, p. 428 | STATIC_SCAN | NOT_STARTED |
+| F-PYH-002 | P1 | Technical correctness and security | Automation examples teach insecure credential, TLS, SSH and shell patterns without warnings | p. 163, p. 164, p. 168, p. 222, p. 252, p. 269, p. 373, p. 428 | STATIC_SCAN | NOT_STARTED |
 | F-PYH-003 | P1 | Technical currency and relevance | Packaging taught as `python setup.py sdist`; no pyproject.toml or build workflow | p. 63, p. 64 | PRIMARY_SOURCE | NOT_STARTED |
 | F-PYH-007 | P1 | Assessment validity and rigor | No graded assessment, rubric or capstone acceptance criteria | document-wide scan | STATIC_SCAN | PLANNED_IN_TRACK |
 | F-PYH-004 | P2 | Hands-on practical effectiveness | Code is mostly syntactically valid but unexecuted and untested | document-wide scan | STATIC_SCAN | PLANNED_IN_TRACK |
@@ -59,7 +59,7 @@ eval on LLM output is remote code execution through prompt injection (OWASP LLM0
 - **p. 168:** Patch runner passes srv['password'] from the inventory.
 - **p. 428:** requests with hard-coded credentials in auth= and verify=False for load-balancer APIs (also p. 427).
 - **p. 269:** JWT signing secret hard-coded as a string literal.
-- **p. 221:** Flask app.run(debug=True) (also p. 228).
+- **p. 222:** Flask app.run(debug=True) (also p. 228).
 - **p. 252:** Seed admin user created with a trivially guessable hard-coded password.
 - **p. 373:** os.system(f"iptables -A INPUT -s {ip} -j DROP") (also p. 122: os.system with f-string host) - shell injection.
 
@@ -162,4 +162,5 @@ Security-pattern hits in code (each read in context): bare_except=10, debug_true
 
 - Blocking findings recorded in the catalog: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
 - Release status: `REENGINEERING`. A course cannot reach `PRODUCTION_GO` until all 15 gates in `docs/release/RELEASE_GATES.md` pass; this one fails most of them (see `docs/release/PRODUCTION_GO_GATE_REPORT.md`).
+- Notes: Three of eleven modules are built (PY-M02, PY-M04, PY-M07) with six labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other eight modules are planned only.
 - Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.

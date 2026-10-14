@@ -85,6 +85,16 @@ environment; `OFFICIAL_PAGE_SUMMARY` official page fetched through a summarising
 | R-074 | [New name for Azure Active Directory - Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/new-name) | Microsoft Learn | page ms.date 2025-05-07, updated_at 2026-06-15; rename announced 2023-07-11, SKU display names changed 2023-10-01 | 2026-10-14 | PRIMARY_DOCUMENT_READ | COURSE-SOC, COURSE-CYBER-MEGA |
 | R-075 | [Migrate from Container Registry to Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/transition/transition-from-gcr) | Google Cloud | page read 2026-10-14; Container Registry shut down 2025-03-18 | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-GCP-DE, COURSE-CYBER-MEGA |
 | R-076 | [PCI DSS and ISO/IEC 27001 edition currency (NOT VERIFIED)](https://www.pcisecuritystandards.org/standards/pci-dss/) | PCI Security Standards Council; ISO | not established | 2026-10-14 | SECONDARY_SOURCE | COURSE-CYBER-MEGA |
+| R-077 | [PyPA specification - Inline script metadata (PEP 723)](https://packaging.python.org/en/latest/specifications/inline-script-metadata/) | Python Packaging Authority | specification page; history: approved October 2023 (PEP 723), block type renamed to 'script' January 2024 | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG, COURSE-PY-AUTO |
+| R-078 | [PyPA specification - Dependency Groups (PEP 735)](https://packaging.python.org/en/latest/specifications/dependency-groups/) | Python Packaging Authority | specification page; history: approved October 2024 (PEP 735) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG, COURSE-PY-AUTO |
+| R-079 | [Python Packaging User Guide - Writing your pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) | Python Packaging Authority | guide page read 2026-10-14 (no version shown) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG, COURSE-PY-AUTO |
+| R-080 | [Coursera Plus - plan page (pricing, inclusions, refund policy)](https://coursera.org/courseraplus) | Coursera | page read 2026-10-14 (no date shown on page) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG, COURSE-AI-ENG, COURSE-GCP-DE |
+| R-081 | [TryHackMe - pricing page](https://tryhackme.com/pricing) | TryHackMe | page read 2026-10-14 (EUR display; promotion banner 'Cyber Awareness Month') | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-SOC, COURSE-CYBER-MEGA, COURSE-OSINT |
+| R-082 | [SANS SEC504 Hacker Tools, Techniques and Incident Handling - course page (prices by format)](https://www.sans.org/cyber-security-courses/hacker-techniques-incident-handling/) | SANS Institute | page read 2026-10-14 | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-SOC, COURSE-CYBER-MEGA |
+| R-083 | [Python Institute - PCAP certification page (exam price, format)](https://pythoninstitute.org/pcap) | Python Institute | page read 2026-10-14 | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG |
+| R-084 | [Gumroad - pricing and fees](https://gumroad.com/pricing) | Gumroad | page read 2026-10-14 (page shows no update date; tax handling statement refers to 2025-01-01) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG, COURSE-AI-ENG, COURSE-SOC |
+| R-085 | [Google Skills (formerly Google Cloud Skills Boost) - subscriptions](https://www.skills.google/subscriptions) | Google | page read 2026-10-14 (the old cloudskillsboost.google/subscriptions URL redirects permanently here) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-GCP-DE |
+| R-086 | [Pluralsight - pricing page (individual plans listed without prices)](https://www.pluralsight.com/pricing) | Pluralsight | page read 2026-10-14 | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG, COURSE-AI-ENG |
 
 ## Findings and resulting changes
 
@@ -467,3 +477,53 @@ environment; `OFFICIAL_PAGE_SUMMARY` official page fetched through a summarising
 
 - **Finding:** Edition and transition facts for PCI DSS and ISO/IEC 27001 could not be verified in this session.
 - **Resulting change:** Compliance pages that name PCI DSS or ISO 27001 editions are marked STANDARD_VERSION_UNVERIFIED until a primary document is read.
+
+### R-077 - PyPA specification - Inline script metadata (PEP 723)
+
+- **Finding:** A script block starts with the line '# /// script' and ends with '# ///'; the type name uses ASCII letters, digits and hyphens; the block may contain the top-level fields dependencies and requires-python and an optional [tool] table. The page gives the reference regular expression (?m)^# /// (?P<type>[a-zA-Z0-9-]+)$\s(?P<content>(^#(| .*)$\s)+)^# ///$ and a reader example for Python 3.11+.
+- **Resulting change:** PY-M04 independent lab parses a script block with the specification's regular expression.
+
+### R-078 - PyPA specification - Dependency Groups (PEP 735)
+
+- **Finding:** Dependency groups are a [dependency-groups] table in pyproject.toml; keys must be valid non-normalised names and tools normalise them before comparison; a group can include another with {include-group = "name"}. Example from the page: test = ["pytest>7", {include-group = "coverage"}].
+- **Resulting change:** PY-M04 lessons and independent lab use [dependency-groups] for development tools instead of requirements files.
+
+### R-079 - Python Packaging User Guide - Writing your pyproject.toml
+
+- **Finding:** setuptools example: [build-system] requires = ["setuptools >= 77.0.3"], build-backend = "setuptools.build_meta". Licences are declared per PEP 639 with license (an SPDX expression such as "GPL-3.0-or-later") and license-files; the older table form of license (file/text keys) is deprecated. Console commands go in [project.scripts]; a dynamic version is declared with dynamic = ["version"] and filled by the build backend; extras use [project.optional-dependencies]; requires-python is a specifier string.
+- **Resulting change:** PY-M04 guided lab asks for a pyproject.toml with these tables and no setup.py.
+
+### R-080 - Coursera Plus - plan page (pricing, inclusions, refund policy)
+
+- **Finding:** Monthly plan $59/month with a 7-day free trial; annual plan $399/year with a 14-day money-back guarantee (certificates earned in that window are revoked on refund). Includes access to more than 10,000 courses, Projects, Specializations and Professional Certificate programs (some excluded; degrees and MasterTrack excluded) and unlimited certificates. A 'Save 40%' label appears without a stated comparison or end date.
+- **Resulting change:** PRICING_AND_POSITIONING_RESEARCH.md uses it as a subscription-bundle comparable (hypothesis input only).
+
+### R-081 - TryHackMe - pricing page
+
+- **Finding:** Plans Free (EUR 0), Premium (shown as EUR 16.99 and EUR 7.35/month, 'billed annually', 'Save 56%') and MAX (shown as EUR 29.11 and EUR 17.99/month, 'billed annually', 'Save 38%'). The relationship between the two figures per plan is not labelled in the page text. Premium includes full beginner learning paths, a certificate per path and unlimited AttackBox time; MAX adds advanced paths and persistent AttackBox. A discount coupon and a 30% promotion are displayed.
+- **Resulting change:** Used as a hands-on security-lab subscription comparable in the pricing research.
+
+### R-082 - SANS SEC504 Hacker Tools, Techniques and Incident Handling - course page (prices by format)
+
+- **Finding:** OnDemand price $8,780 USD with 4 months of access; live events priced between $8,780 and $8,900 USD and in other currencies (for example GBP 7,160, EUR 8,230). The course lists 44 hands-on labs, printed and digital books, MP3 audio and lab walkthroughs. A GIAC exam attempt is an optional add-on and is not part of the course price.
+- **Resulting change:** Upper bound of the instructor-led security training market in the pricing research.
+
+### R-083 - Python Institute - PCAP certification page (exam price, format)
+
+- **Finding:** Exam from $295 (currency code not named), exam with retake from $345, with retake and practice test from $359; 40 questions, 65 minutes plus 10 minutes for the NDA and tutorial, 70% passing score, 15-day wait before a retake.
+- **Resulting change:** External certification price comparable; this academy issues no third-party certification and makes no equivalence claim.
+
+### R-084 - Gumroad - pricing and fees
+
+- **Finding:** Direct sales through a seller's profile or links: 10% plus a fixed $0.50 per transaction. Sales to new customers through Gumroad Discover: 30% per transaction. No monthly fee. Gumroad handles sales-tax obligations since 2025-01-01. Payment-processing and payout fees are not mentioned on the page.
+- **Resulting change:** Channel-cost input to the pricing hypotheses (marketplace fees reduce net revenue per sale).
+
+### R-085 - Google Skills (formerly Google Cloud Skills Boost) - subscriptions
+
+- **Finding:** Starter plan at no cost with 35 free credits per month and limited labs and skill badges; Pro plan at $29 per month (currency code not named) with unlimited hands-on labs and access to thousands of courses and labs.
+- **Resulting change:** Vendor-provided cloud-lab comparable for the GCP data engineering course; also records the Cloud Skills Boost to Google Skills rename.
+
+### R-086 - Pluralsight - pricing page (individual plans listed without prices)
+
+- **Finding:** The page text lists six individual plans (Core Tech, AI+, Cloud+, Security+, Data+, Complete) and team pricing links but shows no prices in the retrievable text. No price from this vendor is used in the pricing research.
+- **Resulting change:** Recorded as a gap: subscription pricing for this comparable could not be verified from the vendor page.

@@ -10,8 +10,8 @@ The ten source PDFs contain **8,186 pages**. Every page has a machine-readable r
 | Verification status | Pages | Share | Meaning |
 |---|---|---|---|
 | HUMAN_READ_FINDING_CITED | 97 | 1.2 % | A finding in docs/audits/data/findings.yaml cites this page, and the page text was read in context while writing that finding. This is the only status that implies a person's read; it does not imply the whole page was reviewed for every issue. |
-| MACHINE_FLAGGED_REVIEW_REQUIRED | 464 | 5.7 % | A deterministic rule matched this page (obsolete API, superseded product, unsupported claim, markdown leakage, stub). A person must confirm before the flag is treated as a defect. |
-| MACHINE_SCANNED_NO_FLAGS | 7,567 | 92.4 % | Text extracted and scanned by every rule; nothing matched. This is NOT evidence that the page is correct or current, only that none of the implemented rules fired. |
+| MACHINE_FLAGGED_REVIEW_REQUIRED | 463 | 5.7 % | A deterministic rule matched this page (obsolete API, superseded product, unsupported claim, markdown leakage, stub). A person must confirm before the flag is treated as a defect. |
+| MACHINE_SCANNED_NO_FLAGS | 7,568 | 92.5 % | Text extracted and scanned by every rule; nothing matched. This is NOT evidence that the page is correct or current, only that none of the implemented rules fired. |
 | MACHINE_SCANNED_NEAR_BLANK | 29 | 0.4 % | Text layer present but almost empty; a person should confirm nothing is lost. |
 | VISUAL_REVIEW_REQUIRED | 29 | 0.4 % | No usable text layer (image-only page). The content has not been read by anyone or anything; it needs a visual read or OCR. |
 
@@ -28,10 +28,10 @@ Consequences that every reader of this audit must keep in mind:
 | Measure | Result |
 |---|---|
 | Pages with a record | 8,186 |
-| Severity | P0 10, P1 71, P2 155, P3 348, P4 177, NONE 7,425 |
+| Severity | P0 10, P1 71, P2 155, P3 347, P4 178, NONE 7,425 |
 | Machine-derived action (page level) | KEEP 3,301, UPDATE 2,472, REPLACE 447, EXPAND 92, MERGE 941, REMOVE 933 |
 | Currency status | BASELINE_AVAILABLE 1,394, CURRENCY_FLAGGED 155, NO_TECHNOLOGY_DETECTED 3,244, UNVERIFIED_CURRENCY 3,393 |
-| Verification status | HUMAN_READ_FINDING_CITED 97, MACHINE_FLAGGED_REVIEW_REQUIRED 464, MACHINE_SCANNED_NO_FLAGS 7,567, MACHINE_SCANNED_NEAR_BLANK 29, VISUAL_REVIEW_REQUIRED 29 |
+| Verification status | HUMAN_READ_FINDING_CITED 97, MACHINE_FLAGGED_REVIEW_REQUIRED 463, MACHINE_SCANNED_NO_FLAGS 7,568, MACHINE_SCANNED_NEAR_BLANK 29, VISUAL_REVIEW_REQUIRED 29 |
 
 Page-level actions are **rule outputs** (precedence REPLACE > REMOVE > EXPAND > MERGE > UPDATE > KEEP-candidate). `REMOVE` pages are those mapped to career/marketing/out-of-scope headings with no destination module (the source is preserved; only the product omits them). `MERGE` pages belong to a topic owned by a different course (single owner per topic). The curated, concept-level differential analysis is in [2025_TO_2026_MODERNIZATION_MATRIX.md](2025_TO_2026_MODERNIZATION_MATRIX.md).
 
@@ -47,7 +47,7 @@ Page-level actions are **rule outputs** (precedence REPLACE > REMOVE > EXPAND > 
 | SRC-MEGA-P2 | Official Mega Course 2026, Part 2 | 827 | P2 9, P3 81, P4 1, NONE 736 | KEEP 121, UPDATE 429, REPLACE 49, EXPAND 1, MERGE 224, REMOVE 3 | 1 | 89 | 0 |
 | SRC-OSINT-STARTER | OSINT Starter Bundle (FULL) | 23 | P0 6, P1 11, P2 6 | REPLACE 23 | 0 | 0 | 23 |
 | SRC-PY-AUTOMATION | Python Automation Training | 1,458 | P1 5, P2 26, P3 29, P4 57, NONE 1,341 | KEEP 856, UPDATE 112, REPLACE 5, EXPAND 31, MERGE 115, REMOVE 339 | 12 | 47 | 1 |
-| SRC-PY-HANDBOOK | CyberDudeBivash Python Engineering Handbook | 654 | P0 2, P1 12, P2 15, P3 16, P4 12, NONE 597 | KEEP 344, UPDATE 159, REPLACE 63, EXPAND 13, REMOVE 75 | 13 | 31 | 1 |
+| SRC-PY-HANDBOOK | CyberDudeBivash Python Engineering Handbook | 654 | P0 2, P1 12, P2 15, P3 15, P4 13, NONE 597 | KEEP 344, UPDATE 159, REPLACE 63, EXPAND 13, REMOVE 75 | 13 | 30 | 1 |
 | SRC-SOC-PLAYBOOK | SOC Analyst Survival Playbook (2026 Edition) | 43 | P1 11, P2 8, P3 8, P4 3, NONE 13 | KEEP 2, UPDATE 33, REPLACE 4, EXPAND 2, REMOVE 2 | 21 | 6 | 1 |
 
 ## 4. Pages that need attention first
@@ -119,7 +119,7 @@ Pages rated P0 or P1 by the rules or by a finding. Every one is also in the page
 | P1 | SRC-PY-HANDBOOK | 168 | NONE | F-PYH-002 | UPDATE | GCP-M02 |
 | P1 | SRC-PY-HANDBOOK | 188 | OBSOLETE_API, RETIRED_MODEL | - | REPLACE | GCP-M02 |
 | P1 | SRC-PY-HANDBOOK | 189 | OBSOLETE_API, RETIRED_MODEL | - | REPLACE | GCP-M02 |
-| P1 | SRC-PY-HANDBOOK | 221 | STUB_PAGE | F-PYH-002 | EXPAND | AI-M11 |
+| P1 | SRC-PY-HANDBOOK | 222 | SECURITY_ANTIPATTERN | F-PYH-002 | REPLACE | AI-M11 |
 | P1 | SRC-PY-HANDBOOK | 252 | SECURITY_ANTIPATTERN | F-PYH-002 | REPLACE | PY-M10 |
 | P1 | SRC-PY-HANDBOOK | 269 | SECURITY_ANTIPATTERN | F-PYH-002 | REPLACE | AI-M11 |
 | P1 | SRC-PY-HANDBOOK | 373 | SECURITY_ANTIPATTERN | F-PYH-002 | REPLACE | PY-M08 |
@@ -1299,9 +1299,9 @@ Pages by issue type:
 ### SRC-PY-HANDBOOK - CyberDudeBivash Python Engineering Handbook
 
 - PDF: `CyberDudeBivash Python Engineering Handbook.pdf`; pages: **654**; records: `docs/audits/data/page_records/SRC-PY-HANDBOOK.part*.jsonl`
-- Severity: P0 2, P1 12, P2 15, P3 16, P4 12, NONE 597
+- Severity: P0 2, P1 12, P2 15, P3 15, P4 13, NONE 597
 - Page-level action (machine): KEEP 344, UPDATE 159, REPLACE 63, EXPAND 13, REMOVE 75
-- Verification status: HUMAN_READ_FINDING_CITED 13, MACHINE_FLAGGED_REVIEW_REQUIRED 31, MACHINE_SCANNED_NO_FLAGS 609, VISUAL_REVIEW_REQUIRED 1
+- Verification status: HUMAN_READ_FINDING_CITED 13, MACHINE_FLAGGED_REVIEW_REQUIRED 30, MACHINE_SCANNED_NO_FLAGS 610, VISUAL_REVIEW_REQUIRED 1
 - Currency: BASELINE_AVAILABLE 295, CURRENCY_FLAGGED 8, NO_TECHNOLOGY_DETECTED 167, UNVERIFIED_CURRENCY 184
 - Issue types (pages): END_OF_LIFE_VERSION 2, LEGAL_ETHICS_REVIEW 2, MARKDOWN_LEAK 1, NO_TEXT_LAYER 1, OBSOLETE_API 5, PERSONAL_DATA_RISK 2, RETIRED_MODEL 2, SECURITY_ANTIPATTERN 19, STUB_PAGE 13, SUPERSEDED_PRODUCT 1, UNSUPPORTED_CLAIM 9
 - Mapping basis: C-PYH-1 42, C-PYH-2 27, C-PYH-3 13, C-PYH-4 45, C-PYH-5 8, M-PYH-01 75, M-PYH-02 9, M-PYH-03 29, M-PYH-06 82, M-PYH-07 16, M-PYH-08 10, M-PYH-09 12, M-PYH-10 24, M-PYH-11 19, M-PYH-13 43, M-PYH-14 10, M-PYH-15 18, M-PYH-15+HEADING_OVERRIDE 1, M-PYH-16 14, M-PYH-17 27, M-PYH-18 10, M-PYH-19 40, M-PYH-20 7, M-PYH-21 1, M-PYH-22 6, M-PYH-23 53, M-PYH-24 1, M-PYH-25 9, M-PYH-28 2, default 1

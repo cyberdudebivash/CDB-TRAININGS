@@ -114,3 +114,36 @@ def test_html_build_is_deterministic(tmp_path):
     cfg = yaml.safe_load(CFG.read_text(encoding="utf-8"))
     srcs = be.check_sources(cfg)
     assert be.build_html(cfg, srcs) == be.build_html(cfg, srcs)
+
+
+# ------------------------------------------------------------------ edition labels and disclosure (October 2026)
+
+PY_CONFIGS = sorted((be.ROOT / "courses" / "python-engineering" / "student").glob("*-student-edition.yaml"))
+
+
+@pytest.mark.parametrize("config", PY_CONFIGS, ids=lambda p: p.name)
+def test_python_engineering_preview_configs_are_clean_and_honestly_labelled(config):
+    cfg = yaml.safe_load(config.read_text(encoding="utf-8"))
+    assert be.check_sources(cfg)
+    assert "Preview Edition" in cfg["title"] and "Premium" not in cfg["title"]
+    assert cfg["edition_metadata"] == "auto"
+
+
+def test_premium_title_is_refused_while_readiness_fields_are_unmet(tmp_path):
+    cfg = yaml.safe_load(PY_CONFIGS[0].read_text(encoding="utf-8"))
+    cfg["title"] = "CYBERDUDEBIVASH — Python Engineering Pathway — October 2026 Premium Edition"
+    with pytest.raises(be.BuildError, match="Premium Edition.*unmet readiness fields"):
+        be.edition_gate(cfg)
+
+
+def test_non_premium_titles_pass_the_gate():
+    be.edition_gate(yaml.safe_load(CFG.read_text(encoding="utf-8")))
+
+
+def test_auto_metadata_states_dates_baseline_and_open_items():
+    cfg = yaml.safe_load(PY_CONFIGS[0].read_text(encoding="utf-8"))
+    fm, _ = be.strip_front_matter((be.ROOT / cfg["include"][0]).read_text(encoding="utf-8"))
+    meta = be.auto_metadata(cfg, fm)
+    assert set(meta) == {"content_revision_date", "research_verification_date", "technical_baseline", "unverified_external_changes", "next_review_date"}
+    assert "PENDING_FUTURE_REFRESH" in meta["research_verification_date"] and "2026-10-14" in meta["research_verification_date"]
+    assert "pytest" in meta["technical_baseline"]

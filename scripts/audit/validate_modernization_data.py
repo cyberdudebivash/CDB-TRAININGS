@@ -31,7 +31,7 @@ CUTOFF = "2026-10-14"
 ACTIONS = {"KEEP", "UPDATE", "REPLACE", "DEPRECATE", "EXPAND", "ADD", "MERGE", "REMOVE"}
 VERIFICATION = {"EXECUTED", "RESEARCH_VERIFIED", "SECONDARY_ONLY", "MACHINE_ONLY", "NEEDS_VERIFICATION"}
 MATURITY = {"STABLE", "EMERGING", "EXPERIMENTAL", "SPECULATIVE"}
-IMPL_STATUS = {"PLANNED", "PILOT_BUILT", "BUILT"}
+IMPL_STATUS = {"PLANNED", "PARTIAL", "PILOT_BUILT", "BUILT"}
 
 CHANGE_REQUIRED = ["id", "course", "source", "pages", "concept", "action", "original", "current", "reason", "ref",
                    "implemented", "learner_impact", "verification"]
@@ -43,6 +43,17 @@ def load(path: str):
     return yaml.safe_load((ROOT / path).read_text(encoding="utf-8"))
 
 
+def computed_status(module_ids: list[str], module_status: dict[str, str]) -> str:
+    """Delivery status of a change record derived from the catalog: PLANNED (nothing built), PARTIAL, PILOT_BUILT (only the SOC-M04 pilot) or BUILT."""
+    states = [module_status[m] for m in module_ids]
+    built = [s for s in states if s != "PLANNED"]
+    if not module_ids or not built:
+        return "PLANNED"
+    if len(built) < len(states):
+        return "PARTIAL"
+    return "PILOT_BUILT" if all(s == "BUILT_PILOT" for s in states) else "BUILT"
+
+
 def reference_universe() -> dict:
     findings = {f["id"] for f in load("docs/audits/data/findings.yaml")["findings"]}
     register = {r["id"] for r in load("docs/research/research_register.yaml")["register"]}
@@ -51,15 +62,17 @@ def reference_universe() -> dict:
     snapshot = {r["tech_id"] for r in snap["records"]}
     catalog = load("catalog/courses.yaml")
     modules, courses, sources = set(), set(), set()
+    module_status: dict[str, str] = {}
     for c in catalog["courses"]:
         courses.add(c["id"])
         sources.update(c.get("source_ids") or [])
         for m in c["modules"]:
             modules.add(m["id"])
+            module_status[m["id"]] = m["status"]
     inv = json.loads((ROOT / "docs/audits/data/page_records/INDEX.json").read_text())
     sources.update(p["source_id"] for p in inv["parts"])
     return {"F": findings, "R": register, "probe": probes, "snapshot": snapshot, "module": modules,
-            "course": courses, "source": sources}
+            "course": courses, "source": sources, "module_status": module_status}
 
 
 def check_ref(ref: str, uni: dict, where: str, errors: list) -> None:
@@ -127,6 +140,9 @@ def validate() -> list[str]:
             for fid in re.findall(r"\bF-[A-Z]+-\d{3}\b", str(ch.get(key, ""))):
                 if fid not in uni["F"]:
                     errors.append(f"{cid}: {key} cites unknown finding {fid}")
+        expected = computed_status(impl.get("modules", []), uni["module_status"])
+        if impl.get("status") != expected:
+            errors.append(f"{cid}: implemented.status is {impl.get('status')} but the catalog says {expected} for modules {impl.get('modules')}")
         if impl.get("status") == "BUILT":
             if v.get("status") not in {"EXECUTED", "RESEARCH_VERIFIED"}:
                 errors.append(f"{cid}: BUILT requires EXECUTED or RESEARCH_VERIFIED evidence")
@@ -161,6 +177,17 @@ def validate() -> list[str]:
         for r in e.get("register", []) or []:
             if r not in uni["R"]:
                 errors.append(f"registry {tid}: unknown research entry {r}")
+    inputs = load("docs/release/data/readiness_inputs_2026.yaml")
+    sb_ids = [c["id"] for c in inputs["stage_b_checks"]]
+    if len(sb_ids) != len(set(sb_ids)):
+        errors.append("readiness inputs: duplicate Stage B check id")
+    for c in inputs["stage_b_checks"]:
+        for r in c["evidence"]:
+            if r not in uni["R"]:
+                errors.append(f"{c['id']}: unknown research entry {r}")
+    for cid in inputs["course_overrides"]:
+        if cid not in uni["course"]:
+            errors.append(f"readiness inputs: unknown course {cid}")
     rules = load("docs/research/deprecation_rules.yaml")
     rule_list = rules.get("rules", rules) if isinstance(rules, dict) else rules
     for r in rule_list:

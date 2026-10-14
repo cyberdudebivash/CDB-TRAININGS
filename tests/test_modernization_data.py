@@ -10,6 +10,8 @@ import yaml
 
 import modern_data as M
 import render_audit_docs
+import render_curriculum_2026
+import render_readiness_2026
 import render_research_docs
 import validate_modernization_data as V
 
@@ -101,3 +103,51 @@ def test_audit_document_does_not_claim_complete_human_review():
 
 def test_snapshot_registry_ids_exist_in_the_registry(data):
     assert set(data.snapshot_all) <= set(data.registry)
+
+
+def test_generated_curriculum_documents_are_current(data):
+    for path, text in render_curriculum_2026.render_all(data).items():
+        assert path.exists() and path.read_text(encoding="utf-8") == text, f"stale: {path.relative_to(ROOT)} (run scripts/build/render_curriculum_2026.py)"
+
+
+def test_generated_readiness_documents_are_current(data):
+    for path, text in render_readiness_2026.render_all(data).items():
+        assert path.exists() and path.read_text(encoding="utf-8") == text, f"stale: {path.relative_to(ROOT)} (run scripts/build/render_readiness_2026.py)"
+
+
+def test_no_course_is_recommended_for_production_go(data):
+    report = render_readiness_2026.Report(data)
+    assert not any(m["go"] for m in report.metrics.values())
+    for cid, m in report.metrics.items():
+        assert m["fields"]["human_approval"]["status"] != "MET", "human approval can only be recorded by a person, outside the automation"
+        assert m["unmet"], cid
+    text = (ROOT / "docs/release/OCT2026_PRODUCTION_READINESS.md").read_text(encoding="utf-8")
+    assert "PRODUCTION_GO is not recommended for any course" in text
+    premium = (ROOT / "docs/commercial/PREMIUM_COURSE_CATALOG_2026.md").read_text(encoding="utf-8")
+    assert "No edition may be titled" in premium
+
+
+def test_stage_b_is_never_reported_as_done():
+    for rel in ("docs/release/OCT24_FINAL_REFRESH_CHECKLIST.md", "docs/release/OCT2026_PRODUCTION_READINESS.md", "docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md"):
+        assert "PENDING_FUTURE_REFRESH" in (ROOT / rel).read_text(encoding="utf-8"), rel
+    checklist = (ROOT / "docs/release/OCT24_FINAL_REFRESH_CHECKLIST.md").read_text(encoding="utf-8")
+    assert "[x]" not in checklist.lower().replace("[ ]", "")
+
+
+def test_documents_cite_only_existing_research_entries(data):
+    import re
+
+    cited = {}
+    for md_path in list((ROOT / "docs").rglob("*.md")) + list((ROOT / "courses").rglob("*.md")):
+        if md_path.name in ("RESEARCH_REGISTER.md",):
+            continue
+        for rid in set(re.findall(r"\bR-\d{3}\b", md_path.read_text(encoding="utf-8"))):
+            if rid not in data.register:
+                cited.setdefault(str(md_path.relative_to(ROOT)), []).append(rid)
+    assert cited == {}, cited
+
+
+def test_pricing_research_is_labelled_as_hypotheses_and_sets_no_price():
+    text = (ROOT / "docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md").read_text(encoding="utf-8")
+    assert "Status: hypotheses" in text and "No price has been set" in text
+    assert "guarantee" in text.lower() and "Prohibited" in text

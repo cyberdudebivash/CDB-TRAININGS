@@ -48,7 +48,7 @@ Catalog slug `python-engineering`; legacy sources: SRC-PY-HANDBOOK.
 | Module | Title | Mapped source pages | Source pages (by PDF) | Page-level actions (candidate) | Change records | New developments |
 |---|---|---|---|---|---|---|
 | PY-M01 | Language core and data structures | 160 | SRC-PY-AUTOMATION: 117 pp (3, 28-42, 279-299, 571-644, ... (+5 more ranges)); SRC-PY-HANDBOOK: 43 pp (1-28, 48-56, 58-61, 63, ... (+1 more ranges)) | KEEP 38, UPDATE 3, REPLACE 2, EXPAND 5, MERGE 112 | MC-PYH-01 | ND-PY-04 |
-| PY-M02 | Functions, errors and testing with pytest | 9 | SRC-PY-HANDBOOK: 9 pp (62, 80-81, 83-84, 87-89, ... (+1 more ranges)) | KEEP 6, UPDATE 2, REPLACE 1 | MC-PYH-15 | - |
+| PY-M02 | Functions, errors and testing with pytest | 9 | SRC-PY-HANDBOOK: 9 pp (62, 80-81, 83-84, 87-89, ... (+1 more ranges)) | KEEP 6, UPDATE 2, REPLACE 1 | MC-PYH-15, MC-PYH-17 | - |
 | PY-M03 | Types, modules and project layout | NET_NEW | - | - | MC-PYH-15 | ND-PY-02 |
 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | NET_NEW | - | - | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
 | PY-M05 | Files, structured data and HTTP clients | 6 | SRC-PY-HANDBOOK: 6 pp (82, 90, 125-126, 128-129) | KEEP 5, UPDATE 1 | - | - |

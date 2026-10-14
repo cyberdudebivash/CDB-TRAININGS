@@ -409,7 +409,7 @@ findings:
       - {page: 168, note: "Patch runner passes srv['password'] from the inventory."}
       - {page: 428, note: "requests with hard-coded credentials in auth= and verify=False for load-balancer APIs (also p. 427)."}
       - {page: 269, note: "JWT signing secret hard-coded as a string literal."}
-      - {page: 221, note: "Flask app.run(debug=True) (also p. 228)."}
+      - {page: 222, note: "Flask app.run(debug=True) (also p. 228)."}
       - {page: 252, note: "Seed admin user created with a trivially guessable hard-coded password."}
       - {page: 373, note: "os.system(f\"iptables -A INPUT -s {ip} -j DROP\") (also p. 122: os.system with f-string host) - shell injection."}
     verification: STATIC_SCAN

@@ -152,7 +152,7 @@
    "first_page": 1,
    "last_page": 500,
    "records": 500,
-   "sha256": "3d0927d99bb163c943508def4c22733264f569f11fae1e913132b3e4c94a607e"
+   "sha256": "de7a447338c0ec0777a7fa434b2551cd9d20cb2d69a30d1c400892cb93903907"
   },
   {
    "file": "docs/audits/data/page_records/SRC-PY-HANDBOOK.part02.jsonl",
@@ -160,7 +160,7 @@
    "first_page": 501,
    "last_page": 654,
    "records": 154,
-   "sha256": "d7ec1c08fded7700e26e8b85167051d5bd4833d41a46b54ab42f189ae73060fc"
+   "sha256": "59d8094822ce7fc05237a70f338f40697864e7465aa676312dc303cafcae43b2"
   },
   {
    "file": "docs/audits/data/page_records/SRC-SOC-PLAYBOOK.part01.jsonl",

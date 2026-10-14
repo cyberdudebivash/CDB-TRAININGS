@@ -25,7 +25,7 @@ Actions: UPDATE 1, REPLACE 4, EXPAND 1, ADD 1, REMOVE 1.
 - **2025 source state:** Cites 'RS.RP' as a CSF subcategory for response planning (F-SOC-002).
 - **Verified state at 2026-10-14:** CSF 2.0 Respond categories are RS.MA, RS.AN, RS.CO, RS.MI; 'RS.RP' does not occur in CSF 2.0.
 - **Why:** Incorrect identifier.
-- **Destination:** SOC-M04, SOC-M08 (PILOT_BUILT)
+- **Destination:** SOC-M04, SOC-M08 (PARTIAL)
 - **Learner impact:** Correct CSF 2.0 mapping (pilot lesson uses it).
 - **Verification:** RESEARCH_VERIFIED - CSF 2.0 document searched: 0 matches for RS.RP
 - **Evidence:**
@@ -76,7 +76,7 @@ Actions: UPDATE 1, REPLACE 4, EXPAND 1, ADD 1, REMOVE 1.
 - **2025 source state:** Content 'adapted from' named vendors without attribution; pseudo-vendor rule text (F-SOC-006, F-SOC-009).
 - **Verified state at 2026-10-14:** Vendor-neutral Sigma 2.1.0 rules, measured on synthetic labelled data; SigmaHQ rules are under the DRL 1.1.
 - **Why:** Attribution risk and non-runnable logic.
-- **Destination:** SOC-M04, SOC-M06, SOC-M07 (PILOT_BUILT)
+- **Destination:** SOC-M04, SOC-M06, SOC-M07 (PARTIAL)
 - **Learner impact:** Runnable rules and a measured tuning exercise.
 - **Verification:** EXECUTED - pySigma validates the pilot rules (tests/pilot/test_sigma_spec_validity.py)
 - **Evidence:**

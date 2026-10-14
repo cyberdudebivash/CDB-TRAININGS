@@ -66,7 +66,7 @@ technologies:
   name: pyproject
   domain: python
   detect: pyproject\.toml
-  register: [R-047]
+  register: [R-047, R-079, R-078, R-077]
 - id: pytest
   name: pytest
   domain: python

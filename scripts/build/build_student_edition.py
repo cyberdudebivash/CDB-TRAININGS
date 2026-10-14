@@ -32,6 +32,8 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "audit"))
+sys.path.insert(0, str(ROOT / "scripts" / "build"))
 CSS_PATH = ROOT / "shared" / "design" / "cdb-academy.css"
 ATTRIBUTION = ("© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.")
 
@@ -93,6 +95,47 @@ def check_sources(cfg: dict) -> list[Path]:
                 raise BuildError(f"forbidden marker '{marker}' found in {rel}")
         paths.append(p)
     return paths
+
+
+def edition_gate(cfg: dict) -> None:
+    """A title may say "Premium Edition" only for a course whose ten readiness fields are all MET (docs/release/OCT2026_PRODUCTION_READINESS.md)."""
+    if "premium edition" not in cfg["title"].lower():
+        return
+    import modern_data as M
+    import render_readiness_2026 as R
+
+    report = R.Report(M.Data())
+    metrics = report.metrics.get(cfg["course"])
+    if metrics is None or not metrics["go"]:
+        unmet = ", ".join(metrics["unmet"]) if metrics else "unknown course"
+        raise BuildError(f"title claims 'Premium Edition' but {cfg['course']} has unmet readiness fields: {unmet}")
+
+
+def auto_metadata(cfg: dict, front_matter: dict) -> dict:
+    """Edition disclosure computed from the module's lesson, the change records and the research cutoff."""
+    import modern_data as M
+
+    d = M.Data()
+    module = cfg["module"]
+    open_status = {"NEEDS_VERIFICATION", "SECONDARY_ONLY", "MACHINE_ONLY"}
+    open_changes = [ch for ch in d.changes if module in ch["implemented"]["modules"] and ch["verification"]["status"] in open_status]
+    cited = front_matter.get("versions_cited", {})
+    return {
+        "content_revision_date": str(front_matter.get("last_verified", "n/a")),
+        "research_verification_date": f"{M.CUTOFF} (Stage A); the {M.REFRESH_TARGET} refresh is PENDING_FUTURE_REFRESH",
+        "technical_baseline": "; ".join(f"{k}: {v}" for k, v in cited.items()) or "not stated in the lesson",
+        "unverified_external_changes": "; ".join(f"{ch['id']} ({ch['verification']['status']}): {ch['concept']}" for ch in open_changes) or "none recorded for this module's change records",
+        "next_review_date": f"{M.REFRESH_TARGET} (Stage B refresh), then at least every 90 days (proposed)",
+    }
+
+
+DISCLOSURE_LABELS = [("content_revision_date", "Content revision date"), ("research_verification_date", "Research verification date"), ("technical_baseline", "Technical baseline"),
+                     ("unverified_external_changes", "Unverified external changes"), ("next_review_date", "Next review date")]
+
+
+def disclosure_html(meta: dict) -> str:
+    items = "".join(f"<dt>{html.escape(label)}</dt><dd>{html.escape(str(meta[k]))}</dd>" for k, label in DISCLOSURE_LABELS)
+    return f'<section class="disclosure" aria-labelledby="disclosure"><h2 id="disclosure">Edition disclosure</h2><dl>{items}</dl></section>'
 
 
 def strip_front_matter(text: str) -> tuple[dict, str]:
@@ -164,6 +207,14 @@ def build_html(cfg: dict, sources: list[Path]) -> str:
     for sec_id, frag in sections:
         body.append(f'<section class="edition-section" id="{sec_id}">{frag}</section>')
     verified = meta.get("last_verified", "n/a")
+    edition_meta = cfg.get("edition_metadata")
+    if edition_meta == "auto":
+        edition_meta = auto_metadata(cfg, meta)
+    disclosure = disclosure_html(edition_meta) if edition_meta else ""
+    notice_title = cfg.get("notice_title", "Pilot status.")
+    notice_text = cfg.get("notice_text", "This edition has not been reviewed by a qualified subject-matter expert and is not a certified or production-ready course. "
+                                         "Completion is awarded only for demonstrated competence on the rubric, never for reading this document.")
+    attribution = (f"<p>{html.escape(ATTRIBUTION)} MITRE ATT&amp;CK® is a registered trademark of The MITRE Corporation.</p>\n" if cfg.get("attribution", True) else "")
     versions = meta.get("versions_cited", {})
     vers = "; ".join(f"{k}: {v}" for k, v in versions.items())
     return f"""<!doctype html>
@@ -183,7 +234,8 @@ def build_html(cfg: dict, sources: list[Path]) -> str:
 <header class="doc">
 <h1>{html.escape(title)}</h1>
 <p class="meta">Course {html.escape(cfg['course'])} · Module {html.escape(cfg['module'])} · Edition version {html.escape(str(cfg['version']))} · Content last verified {html.escape(str(verified))}</p>
-<p class="notice"><strong>Pilot status.</strong> This edition has not been reviewed by a qualified subject-matter expert and is not a certified or production-ready course. Completion is awarded only for demonstrated competence on the rubric, never for reading this document.</p>
+<p class="notice"><strong>{html.escape(notice_title)}</strong> {html.escape(notice_text)}</p>
+{disclosure}
 {toc_html(sections)}
 </header>
 <main id="main">
@@ -191,8 +243,7 @@ def build_html(cfg: dict, sources: list[Path]) -> str:
 </main>
 <footer class="doc">
 <h2 id="notices">Notices and build information</h2>
-<p>{html.escape(ATTRIBUTION)} MITRE ATT&amp;CK® is a registered trademark of The MITRE Corporation.</p>
-<p>Licence status: not yet licensed for redistribution (see <span class="repo-ref">LICENSE-STATUS.md</span> in the repository). Versions cited: {html.escape(vers)}.</p>
+{attribution}<p>Licence status: not yet licensed for redistribution (see <span class="repo-ref">LICENSE-STATUS.md</span> in the repository). Versions cited: {html.escape(vers)}.</p>
 <p class="meta">Source digest (sha256, first 16): {digest.hexdigest()[:16]}. All data used in the labs is synthetic.</p>
 </footer>
 </body>
@@ -407,6 +458,7 @@ def check_pdf(pdf: Path, title: str, expected: list[str], forbidden: list[str], 
 
 def build(config_path: Path, out_dir: Path, strict: bool = False) -> dict:
     cfg = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    edition_gate(cfg)
     sources = check_sources(cfg)
     out_dir.mkdir(parents=True, exist_ok=True)
     stem = f"{cfg['module']}-{cfg['edition']}-{cfg['version']}"
@@ -418,8 +470,10 @@ def build(config_path: Path, out_dir: Path, strict: bool = False) -> dict:
     problems["mobile_360px"] = [] if ok_mobile else [f"horizontal overflow or probe failure: {mobile_detail}"]
     pdf_path = out_dir / f"{stem}.pdf"
     cmd = render_pdf(html_path, pdf_path)
-    pdf_problems, pdf_summary = check_pdf(pdf_path, cfg["title"], [cfg["module"], "Pilot status", "Pilot", "Triage records passed", ATTRIBUTION[:40]],
-                                          cfg["forbidden_markers"], strict)
+    expected = cfg.get("expected_strings") or [cfg["module"], "Pilot status", "Pilot", "Triage records passed", ATTRIBUTION[:40]]
+    if cfg.get("edition_metadata"):
+        expected = expected + ["Edition disclosure", "Research verification date", "PENDING_FUTURE_REFRESH"]
+    pdf_problems, pdf_summary = check_pdf(pdf_path, cfg["title"], expected, cfg["forbidden_markers"], strict)
     problems["pdf"] = pdf_problems
     manifest = {
         "edition": stem,
