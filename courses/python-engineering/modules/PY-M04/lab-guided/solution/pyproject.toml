@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tinycsv"
+dynamic = ["version"]
+description = "Summarise a CSV file"
+readme = "README.md"
+requires-python = ">= 3.11"
+license = "LicenseRef-Training-Example"
+license-files = ["LICENSE"]
+dependencies = []
+
+[project.scripts]
+tinycsv-summary = "tinycsv.cli:main"
+
+[dependency-groups]
+test = ["pytest >= 8"]
+
+[tool.setuptools.dynamic]
+version = { attr = "tinycsv.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["tinycsv*"]
+
+[tool.setuptools.package-data]
+tinycsv = ["py.typed"]

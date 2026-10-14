@@ -1,0 +1,39 @@
+# Outcome traceability for PY-M02: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M02
+outcomes:
+  - id: LO1
+    verb: write
+    statement: "Write unit tests with plain assert statements, run them with python -m pytest and read a failure report."
+    instruction: ["lesson.md#4-your-first-tests-lo1"]
+    practice: ["lab-guided/README.md#step-a---run-your-first-test-lo1"]
+    assessment: ["quiz:Q1", "quiz:Q2", "lab-check:tests-pass-on-correct-module", "rubric:C1", "rubric:C4"]
+    rubric: [C1, C4]
+  - id: LO2
+    verb: cover
+    statement: "Cover valid, boundary and invalid inputs of a function in one parametrised test."
+    instruction: ["lesson.md#5-one-test-many-cases-lo2"]
+    practice: ["lab-guided/README.md#step-c---discount-tier-boundaries-lo2", "lab-independent/README.md"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:required-mutants-killed", "rubric:C2", "rubric:C3"]
+    rubric: [C2, C3]
+  - id: LO3
+    verb: assert
+    statement: "Assert that code raises the right exception, with the right message, using pytest.raises."
+    instruction: ["lesson.md#3-errors-are-part-of-the-contract-lo3", "lesson.md#6-testing-that-the-right-thing-fails-lo3"]
+    practice: ["lab-guided/README.md#step-b---invalid-quantities-must-raise-lo3", "lab-independent/README.md"]
+    assessment: ["quiz:Q5", "lab-check:required-mutants-killed", "rubric:C2", "rubric:C3"]
+    rubric: [C2, C3]
+  - id: LO4
+    verb: explain
+    statement: "Explain why a mutable default argument shares state between calls and write a test that detects it."
+    instruction: ["lesson.md#7-the-shared-state-trap-lo4"]
+    practice: ["lab-guided/README.md#step-d---no-shared-state-lo4"]
+    assessment: ["quiz:Q6", "quiz:Q7", "lab-check:required-mutants-killed"]
+    rubric: [C2]
+  - id: LO5
+    verb: use
+    statement: "Use surviving mutants to find and close gaps in your own test suite."
+    instruction: ["lesson.md#8-are-your-tests-any-good-mutation-thinking-lo5"]
+    practice: ["lab-guided/README.md#step-f---run-the-mutation-check-lo5", "lab-independent/README.md"]
+    assessment: ["quiz:Q8", "lab-check:required-mutants-killed", "rubric:C2", "rubric:C5"]
+    rubric: [C2, C5]

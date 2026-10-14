@@ -1,0 +1,39 @@
+# Outcome traceability for PY-M04: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M04
+outcomes:
+  - id: LO1
+    verb: create
+    statement: "Create and use an isolated virtual environment and explain which interpreter and packages it uses."
+    instruction: ["lesson.md#2-isolated-environments-lo1"]
+    practice: ["lab-guided/README.md#step-a---a-clean-environment-lo1"]
+    assessment: ["quiz:Q1", "quiz:Q2", "lab-check:wheel-installs-into-a-clean-environment"]
+    rubric: [C3]
+  - id: LO2
+    verb: declare
+    statement: "Declare a project's metadata, dependencies and console command in pyproject.toml without a setup.py."
+    instruction: ["lesson.md#3-describe-the-project-in-pyprojecttoml-lo2"]
+    practice: ["lab-guided/README.md#step-b---write-pyprojecttoml-lo2", "lab-independent/README.md"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:project-metadata", "rubric:C1", "rubric:C5"]
+    rubric: [C1, C5]
+  - id: LO3
+    verb: build
+    statement: "Build a source distribution and a wheel with python -m build and inspect what each contains."
+    instruction: ["lesson.md#4-build-an-sdist-and-a-wheel-lo3"]
+    practice: ["lab-guided/README.md#step-c---build-and-inspect-lo3", "lab-independent/README.md"]
+    assessment: ["quiz:Q5", "lab-check:wheel-contents", "rubric:C2"]
+    rubric: [C2]
+  - id: LO4
+    verb: install
+    statement: "Install the wheel into a clean environment, run its command and verify the result with pip check."
+    instruction: ["lesson.md#5-install-in-a-clean-environment-and-verify-lo4"]
+    practice: ["lab-guided/README.md#step-d---install-run-and-verify-lo4", "lab-independent/README.md"]
+    assessment: ["quiz:Q6", "lab-check:installed-command-runs", "rubric:C3", "rubric:C6"]
+    rubric: [C3, C6]
+  - id: LO5
+    verb: separate
+    statement: "Separate runtime dependencies, optional extras and development dependency groups, and say which tool installs each."
+    instruction: ["lesson.md#6-three-kinds-of-dependencies-lo5", "lesson.md#7-single-file-scripts-inline-metadata"]
+    practice: ["lab-independent/README.md"]
+    assessment: ["quiz:Q7", "quiz:Q8", "lab-check:extras-and-dependency-groups", "rubric:C4", "rubric:C5"]
+    rubric: [C4, C5]

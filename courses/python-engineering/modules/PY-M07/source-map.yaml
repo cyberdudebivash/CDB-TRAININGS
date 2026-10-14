@@ -1,0 +1,46 @@
+# Source-to-new-content trace for PY-M07. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower).
+source: SRC-PY-HANDBOOK
+module: PY-M07
+mappings:
+  - source_pages: [585, 586]
+    source_topic: "Agent 'math tool' that runs eval(expr) on model-controlled text; 'this is how ChatGPT Agents run'"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 2-3; guided-lab vulnerability V1 (calculate)"
+    note: "Finding F-PYH-001 (P0). Replaced by an allow-list parser with tests that attack it; the LLM05 and LLM06 risks are named (R-028)."
+  - source_pages: [163, 164, 168]
+    source_topic: "Plaintext passwords in servers.json; paramiko AutoAddPolicy; patch runner passing the stored password"
+    disposition: CORRECTED
+    new_content: "lesson.md section 5; guided-lab vulnerability V8 and the secrets guidance"
+    note: "Finding F-PYH-002. Credential values are not reproduced. paramiko's rejecting policy is named from an executed probe."
+  - source_pages: [427, 428]
+    source_topic: "requests with hard-coded credentials and verify=False for load-balancer APIs"
+    disposition: CORRECTED
+    new_content: "lesson.md section 4 (TLS); guided-lab vulnerability V7 (make_tls_context)"
+    note: "Finding F-PYH-002."
+  - source_pages: [269]
+    source_topic: "JWT signing secret hard-coded as a string literal"
+    disposition: CORRECTED
+    new_content: "lesson.md section 5; lab-independent (notes_service token handling)"
+    note: "Finding F-PYH-002. PyJWT 2.15.1 behaviour is from an executed probe."
+  - source_pages: [222, 228, 252]
+    source_topic: "Flask app.run(debug=True); seed admin user with a trivially guessable hard-coded password"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 5 and 7"
+    note: "Finding F-PYH-002. The Flask web-development content itself is handled in PY-M10."
+  - source_pages: [122, 373]
+    source_topic: "os.system with an f-string host or IP address (shell injection)"
+    disposition: CORRECTED
+    new_content: "lesson.md section 4; guided-lab vulnerability V3 (list_files)"
+    note: "Finding F-PYH-002."
+  - source_pages: [83]
+    source_topic: "Pickle (Python object serialisation) presented without a warning"
+    disposition: CORRECTED
+    new_content: "lesson.md section 4 (parsers); guided-lab vulnerability V5"
+    note: "The mechanism is kept; the lesson states that loading untrusted pickle executes code and tests for the side effect."
+  - source_pages: [645, 646, 647, 648, 649, 650]
+    source_topic: "'Certification exam' question lists without answers or rubrics"
+    disposition: REPLACED
+    new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
+    note: "Finding F-PYH-007."
