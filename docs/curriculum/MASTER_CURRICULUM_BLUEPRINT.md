@@ -45,9 +45,9 @@ Rules that keep this a single curriculum rather than ten documents:
 | Measure | Value |
 |---|---:|
 | Courses | 10 |
-| Modules planned / with built content | 102 / 1 |
-| Labs planned / built / verified executable in QA | 195 / 2 / 2 |
-| Module outcomes total / assessed | 107 / 6 |
+| Modules planned / with built content | 111 / 1 |
+| Labs planned / built / verified executable in QA | 213 / 2 / 2 |
+| Module outcomes total / assessed | 116 / 6 |
 | Courses with SME review recorded | 0 |
 | Courses with a named owner | 0 |
 | Courses by release status | REENGINEERING: 10 |
@@ -57,16 +57,16 @@ Rules that keep this a single curriculum rather than ten documents:
 | Course | ID | Level span | Modules | Planned hours | Labs planned / built / verified | Outcomes assessed | Lifecycle | Release status |
 |---|---|---|---:|---:|---|---:|---|---|
 | Digital and Technical Foundations | `COURSE-FND-DIGITAL` | L0-L0 | 6 | 32 | 12 / 0 / 0 | 0/6 | PLANNED | `REENGINEERING` |
-| SOC Analyst Professional Pathway | `COURSE-SOC` | L1-L3 | 12 | 88 | 23 / 2 / 2 | 6/17 | PILOT_BUILT | `REENGINEERING` |
-| Python Engineering Pathway | `COURSE-PY-ENG` | L1-L3 | 10 | 84 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
-| Python Automation Pathway | `COURSE-PY-AUTO` | L2-L3 | 9 | 65 | 17 / 0 / 0 | 0/9 | IN_DESIGN | `REENGINEERING` |
+| SOC Analyst Professional Pathway | `COURSE-SOC` | L1-L3 | 14 | 104 | 27 / 2 / 2 | 6/19 | PILOT_BUILT | `REENGINEERING` |
+| Python Engineering Pathway | `COURSE-PY-ENG` | L1-L3 | 11 | 92 | 21 / 0 / 0 | 0/11 | IN_DESIGN | `REENGINEERING` |
+| Python Automation Pathway | `COURSE-PY-AUTO` | L2-L3 | 10 | 73 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
 | Java Test Automation Engineer Pathway | `COURSE-JAVA-QA` | L1-L3 | 10 | 92 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
-| Applied AI and LLM Engineering Pathway | `COURSE-AI-ENG` | L1-L3 | 10 | 96 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
-| Lawful OSINT Investigation Pathway | `COURSE-OSINT` | L1-L2 | 10 | 56 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
-| Google Cloud Data Engineering Pathway | `COURSE-GCP-DE` | L2-L3 | 10 | 88 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
+| Applied AI and LLM Engineering Pathway | `COURSE-AI-ENG` | L1-L3 | 12 | 114 | 23 / 0 / 0 | 0/12 | IN_DESIGN | `REENGINEERING` |
+| Lawful OSINT Investigation Pathway | `COURSE-OSINT` | L1-L2 | 12 | 66 | 23 / 0 / 0 | 0/12 | IN_DESIGN | `REENGINEERING` |
+| Google Cloud Data Engineering Pathway | `COURSE-GCP-DE` | L2-L3 | 11 | 94 | 21 / 0 / 0 | 0/11 | IN_DESIGN | `REENGINEERING` |
 | Frontend Engineering Onboarding Pathway | `COURSE-FE-ONBOARD` | L1-L3 | 11 | 92 | 21 / 0 / 0 | 0/11 | IN_DESIGN | `REENGINEERING` |
 | Cybersecurity Specialist Tracks (from the Mega Course) | `COURSE-CYBER-MEGA` | L1-L3 | 14 | 188 | 27 / 0 / 0 | 0/14 | IN_DESIGN | `REENGINEERING` |
-| **Total** | | | **102** | **881** | **195** planned | | | |
+| **Total** | | | **111** | **947** | **213** planned | | | |
 
 Hours are **planning estimates** (module authoring budgets), not measured learner times. The portfolio total counts modules that appear in several pathways once.
 <!-- END GENERATED: portfolio -->
@@ -77,13 +77,13 @@ Level spread (modules per level):
 | Course | L0 | L1 | L2 | L3 |
 |---|---:|---:|---:|---:|
 | `COURSE-FND-DIGITAL` | 6 | · | · | · |
-| `COURSE-SOC` | · | 3 | 5 | 4 |
-| `COURSE-PY-ENG` | · | 2 | 6 | 2 |
-| `COURSE-PY-AUTO` | · | · | 5 | 4 |
+| `COURSE-SOC` | · | 3 | 5 | 6 |
+| `COURSE-PY-ENG` | · | 2 | 7 | 2 |
+| `COURSE-PY-AUTO` | · | · | 5 | 5 |
 | `COURSE-JAVA-QA` | · | 3 | 4 | 3 |
-| `COURSE-AI-ENG` | · | 1 | 3 | 6 |
-| `COURSE-OSINT` | · | 3 | 7 | · |
-| `COURSE-GCP-DE` | · | · | 4 | 6 |
+| `COURSE-AI-ENG` | · | 1 | 4 | 7 |
+| `COURSE-OSINT` | · | 3 | 9 | · |
+| `COURSE-GCP-DE` | · | · | 4 | 7 |
 | `COURSE-FE-ONBOARD` | · | 3 | 6 | 2 |
 | `COURSE-CYBER-MEGA` | · | 2 | 5 | 7 |
 <!-- END GENERATED: level-matrix -->
@@ -155,7 +155,7 @@ Prerequisites: none · Estimated hours: 32 · Capstone: Automate a small file-re
 
 ### SOC Analyst Professional Pathway (`COURSE-SOC`)
 
-Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 88 · Capstone: End-to-end synthetic intrusion investigation with a detection improvement validated on labelled telemetry and a graded incident report.
+Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 104 · Capstone: End-to-end synthetic intrusion investigation with a detection improvement validated on labelled telemetry and a graded incident report.
 
 | Module | Title | Level | Hours | State | Primary outcome (observable) |
 |---|---|---:|---:|---|---|
@@ -170,11 +170,13 @@ Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 88 · Capstone: End-to-e
 | `SOC-M09` | Threat hunting | L3 | 8 | PLANNED | Plan and execute a hypothesis-driven hunt against a dataset and report negative and positive findings. |
 | `SOC-M10` | Malware-analysis fundamentals in an isolated lab | L3 | 8 | PLANNED | Perform static triage of a safe benign sample in an isolated VM and document indicators with confidence levels. |
 | `SOC-M11` | Executive and technical incident reporting | L3 | 4 | PLANNED | Write an executive summary and a technical appendix for one incident that pass the reporting rubric. |
-| `SOC-M12` | Capstone: end-to-end SOC investigation | L3 | 12 | PLANNED | Investigate a multi-stage synthetic intrusion, improve one detection and deliver an evidence-based incident report. |
+| `SOC-M12` | Cloud and identity threat detection | L3 | 8 | PLANNED | Detect and triage a synthetic identity-compromise and cloud-misuse scenario using normalised cloud audit logs. |
+| `SOC-M13` | SOAR playbooks and AI-assisted investigation automation | L3 | 8 | PLANNED | Implement a playbook that enriches and routes alerts with a human approval gate and measure its effect on triage time on labelled alerts. |
+| `SOC-M14` | Capstone: end-to-end SOC investigation | L3 | 12 | PLANNED | Investigate a multi-stage synthetic intrusion, improve one detection and deliver an evidence-based incident report. |
 
 ### Python Engineering Pathway (`COURSE-PY-ENG`)
 
-Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 84 · Capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
+Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 92 · Capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
 
 | Module | Title | Level | Hours | State | Primary outcome (observable) |
 |---|---|---:|---:|---|---|
@@ -187,11 +189,12 @@ Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 84 · Capstone: A typed,
 | `PY-M07` | Secure coding for Python | L2 | 8 | PLANNED | Find and fix eight seeded vulnerabilities (injection, secrets, TLS, deserialisation) and add a regression test for each. |
 | `PY-M08` | Databases and persistence | L2 | 6 | PLANNED | Implement a repository layer using parameterised SQL and demonstrate that an injection attempt fails. |
 | `PY-M09` | Profiling, performance and maintainable architecture | L3 | 8 | PLANNED | Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent. |
-| `PY-M10` | Capstone: typed, tested, documented application with CI | L3 | 14 | PLANNED | Deliver a packaged application whose tests, type checks and security scan pass in a clean environment. |
+| `PY-M10` | API development: typed, tested and secure HTTP services | L2 | 8 | PLANNED | Build a typed HTTP API with request validation and authentication that passes contract tests and an injection test suite. |
+| `PY-M11` | Capstone: typed, tested, documented application with CI | L3 | 14 | PLANNED | Deliver a packaged application whose tests, type checks and security scan pass in a clean environment. |
 
 ### Python Automation Pathway (`COURSE-PY-AUTO`)
 
-Prerequisites: `COURSE-PY-ENG` · Estimated hours: 65 · Capstone: A safe, reproducible automation of a real operational workflow with auditable output and a fault-injection test suite.
+Prerequisites: `COURSE-PY-ENG` · Estimated hours: 73 · Capstone: A safe, reproducible automation of a real operational workflow with auditable output and a fault-injection test suite.
 
 | Module | Title | Level | Hours | State | Primary outcome (observable) |
 |---|---|---:|---:|---|---|
@@ -203,7 +206,8 @@ Prerequisites: `COURSE-PY-ENG` · Estimated hours: 65 · Capstone: A safe, repro
 | `PA-M06` | Reliability: retries, idempotency and recovery | L3 | 8 | PLANNED | Show that re-running a failed job after injected faults produces exactly-once results. |
 | `PA-M07` | Observability and auditable output | L3 | 5 | PLANNED | Produce structured logs and an audit report that allow a reviewer to reconstruct every action of a run. |
 | `PA-M08` | Testing automations: unit, integration, regression | L3 | 8 | PLANNED | Reach a defined test pass and fault-injection suite for a provided automation. |
-| `PA-M09` | Capstone: safe operational workflow | L3 | 12 | PLANNED | Deliver a reproducible workflow that performs a real operational task and emits auditable output. |
+| `PA-M09` | Command-line tools and guarded AI-assisted automation | L3 | 8 | PLANNED | Build a tested command-line tool and add an AI-assisted step whose output is validated, logged and cannot trigger an unreviewed action. |
+| `PA-M10` | Capstone: safe operational workflow | L3 | 12 | PLANNED | Deliver a reproducible workflow that performs a real operational task and emits auditable output. |
 
 ### Java Test Automation Engineer Pathway (`COURSE-JAVA-QA`)
 
@@ -224,7 +228,7 @@ Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 92 · Capstone: Reproduc
 
 ### Applied AI and LLM Engineering Pathway (`COURSE-AI-ENG`)
 
-Prerequisites: `COURSE-PY-ENG` · Estimated hours: 96 · Capstone: Production-oriented AI assistant with documented threat model, evaluation suite, secure tool permissions, logging, failure handling and reproducible tests.
+Prerequisites: `COURSE-PY-ENG` · Estimated hours: 114 · Capstone: Production-oriented AI assistant with documented threat model, evaluation suite, secure tool permissions, logging, failure handling and reproducible tests.
 
 | Module | Title | Level | Hours | State | Primary outcome (observable) |
 |---|---|---:|---:|---|---|
@@ -237,11 +241,13 @@ Prerequisites: `COURSE-PY-ENG` · Estimated hours: 96 · Capstone: Production-or
 | `AI-M07` | LLM security: OWASP LLM Top 10 (2025), prompt injection and red teaming | L3 | 10 | PLANNED | Threat-model an LLM application against the OWASP LLM Top 10 and demonstrate two mitigated attacks with tests. |
 | `AI-M08` | Evaluation suites, observability, cost and latency | L3 | 8 | PLANNED | Operate an evaluation suite and dashboard that detect a seeded quality regression and a cost spike. |
 | `AI-M09` | Governance and responsible deployment (NIST AI RMF) | L3 | 6 | PLANNED | Produce a risk register and human-oversight design for one AI use case mapped to NIST AI RMF functions. |
-| `AI-M10` | Capstone: secure production-oriented AI assistant | L3 | 16 | PLANNED | Deliver an assistant with a threat model, evaluation suite, enforced tool permissions, logging and reproducible tests. |
+| `AI-M10` | Model Context Protocol, tool interoperability and multi-agent systems | L3 | 10 | PLANNED | Implement an MCP server and client against specification revision 2026-07-28 and demonstrate permission-scoped tool access across two cooperating agents. |
+| `AI-M11` | Model selection, multimodal inputs and deployment economics | L2 | 8 | PLANNED | Select a model for a task from measured quality, latency and cost on a labelled set and document the decision. |
+| `AI-M12` | Capstone: secure production-oriented AI assistant | L3 | 16 | PLANNED | Deliver an assistant with a threat model, evaluation suite, enforced tool permissions, logging and reproducible tests. |
 
 ### Lawful OSINT Investigation Pathway (`COURSE-OSINT`)
 
-Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 56 · Capstone: Defensible OSINT intelligence report on a synthetic or consented case with source provenance, uncertainty analysis and ethical collection records.
+Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 66 · Capstone: Defensible OSINT intelligence report on a synthetic or consented case with source provenance, uncertainty analysis and ethical collection records.
 
 | Module | Title | Level | Hours | State | Primary outcome (observable) |
 |---|---|---:|---:|---|---|
@@ -254,11 +260,13 @@ Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 56 · Capstone: Defensib
 | `OSINT-M07` | Researcher operational security | L2 | 4 | PLANNED | Configure an isolated research environment and document the controls that protect the researcher. |
 | `OSINT-M08` | Disinformation awareness | L2 | 4 | PLANNED | Assess a synthetic influence campaign using provenance and behavioural indicators. |
 | `OSINT-M09` | Reporting and intelligence communication | L2 | 4 | PLANNED | Write an intelligence report with sourcing, uncertainty language and ethical-collection record. |
-| `OSINT-M10` | Capstone: defensible OSINT report | L2 | 10 | PLANNED | Deliver a report on a synthetic case with provenance for every claim and an ethical-collection log. |
+| `OSINT-M10` | Passive domain and infrastructure intelligence | L2 | 5 | PLANNED | Map the public infrastructure of a synthetic domain using passive sources and record the provenance and legal basis of every observation. |
+| `OSINT-M11` | AI-assisted investigation and synthetic-media verification | L2 | 5 | PLANNED | Verify a set of synthetic images and a claim using provenance signals and document where AI assistance was used and checked. |
+| `OSINT-M12` | Capstone: defensible OSINT report | L2 | 10 | PLANNED | Deliver a report on a synthetic case with provenance for every claim and an ethical-collection log. |
 
 ### Google Cloud Data Engineering Pathway (`COURSE-GCP-DE`)
 
-Prerequisites: `COURSE-PY-ENG` · Estimated hours: 88 · Capstone: A documented, monitored, secure, cost-aware batch and streaming data pipeline with tests and a teardown script.
+Prerequisites: `COURSE-PY-ENG` · Estimated hours: 94 · Capstone: A documented, monitored, secure, cost-aware batch and streaming data pipeline with tests and a teardown script.
 
 | Module | Title | Level | Hours | State | Primary outcome (observable) |
 |---|---|---:|---:|---|---|
@@ -271,7 +279,8 @@ Prerequisites: `COURSE-PY-ENG` · Estimated hours: 88 · Capstone: A documented,
 | `GCP-M07` | Data quality, governance and security | L3 | 8 | PLANNED | Enforce data-quality assertions and column-level access policies and show a blocked unauthorised query. |
 | `GCP-M08` | Infrastructure as code and CI with Workload Identity Federation | L3 | 8 | PLANNED | Deploy infrastructure from CI without any long-lived service-account key. |
 | `GCP-M09` | Monitoring, SLOs and cost optimisation | L3 | 6 | PLANNED | Define SLOs and alerts for a pipeline and cut the cost of a provided workload by a measured amount. |
-| `GCP-M10` | Capstone: monitored, secure, cost-aware pipeline | L3 | 14 | PLANNED | Deliver a documented pipeline with monitoring, security controls, tests and a cost report. |
+| `GCP-M10` | Reliability, disaster recovery and operational procedures | L3 | 6 | PLANNED | Execute a documented recovery drill for a pipeline and measure recovery time and data loss against stated objectives. |
+| `GCP-M11` | Capstone: monitored, secure, cost-aware pipeline | L3 | 14 | PLANNED | Deliver a documented pipeline with monitoring, security controls, tests and a cost report. |
 
 ### Frontend Engineering Onboarding Pathway (`COURSE-FE-ONBOARD`)
 

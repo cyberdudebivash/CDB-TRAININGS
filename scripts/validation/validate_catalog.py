@@ -31,7 +31,7 @@ ACTION_VERBS = {
     "open", "operate", "orchestrate", "parse", "perform", "plan", "process", "produce", "prove", "rate", "reach",
     "reconstruct", "reduce", "refactor", "run", "show", "specify", "threat-model", "trace", "train", "triage",
     "validate", "write", "add", "author", "define", "harden", "evaluate", "estimate", "extract", "preserve",
-    "recommend", "remediate", "reproduce", "review", "submit", "verify",
+    "recommend", "remediate", "reproduce", "review", "select", "submit", "verify",
 }
 BANNED_PHRASES = ["understand everything", "become an expert", "master ", "be able to understand", "learn about"]
 

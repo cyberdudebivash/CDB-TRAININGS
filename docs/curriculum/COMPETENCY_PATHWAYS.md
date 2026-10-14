@@ -28,13 +28,13 @@ Levels describe **evidence collected inside this academy**. They are not job tit
 | Course | L0 | L1 | L2 | L3 |
 |---|---:|---:|---:|---:|
 | `COURSE-FND-DIGITAL` | 6 | · | · | · |
-| `COURSE-SOC` | · | 3 | 5 | 4 |
-| `COURSE-PY-ENG` | · | 2 | 6 | 2 |
-| `COURSE-PY-AUTO` | · | · | 5 | 4 |
+| `COURSE-SOC` | · | 3 | 5 | 6 |
+| `COURSE-PY-ENG` | · | 2 | 7 | 2 |
+| `COURSE-PY-AUTO` | · | · | 5 | 5 |
 | `COURSE-JAVA-QA` | · | 3 | 4 | 3 |
-| `COURSE-AI-ENG` | · | 1 | 3 | 6 |
-| `COURSE-OSINT` | · | 3 | 7 | · |
-| `COURSE-GCP-DE` | · | · | 4 | 6 |
+| `COURSE-AI-ENG` | · | 1 | 4 | 7 |
+| `COURSE-OSINT` | · | 3 | 9 | · |
+| `COURSE-GCP-DE` | · | · | 4 | 7 |
 | `COURSE-FE-ONBOARD` | · | 3 | 6 | 2 |
 | `COURSE-CYBER-MEGA` | · | 2 | 5 | 7 |
 <!-- END GENERATED: level-matrix -->
@@ -44,16 +44,16 @@ Levels describe **evidence collected inside this academy**. They are not job tit
 <!-- BEGIN GENERATED: pathways -->
 | Pathway | Modules | Planning hours | Capstone | Courses in order |
 |---|---:|---:|---|---|
-| **SOC analyst** (`PATH-SOC-ANALYST`) | 20 | 140 | `SOC-M12` | `FND-DIGITAL` → `PY-ENG`* → `SOC` |
+| **SOC analyst** (`PATH-SOC-ANALYST`) | 22 | 156 | `SOC-M14` | `FND-DIGITAL` → `PY-ENG`* → `SOC` |
 | **Detection engineer** (`PATH-DETECTION-ENGINEER`) | 18 | 132 | `CYB-M11` | `FND-DIGITAL` → `PY-ENG`* → `SOC`* → `CYBER-MEGA`* |
-| **Python engineer** (`PATH-PYTHON-ENGINEER`) | 16 | 116 | `PY-M10` | `FND-DIGITAL` → `PY-ENG` |
-| **Automation engineer (Python)** (`PATH-AUTOMATION-ENGINEER`) | 20 | 137 | `PA-M09` | `FND-DIGITAL` → `PY-ENG`* → `PY-AUTO` |
+| **Python engineer** (`PATH-PYTHON-ENGINEER`) | 17 | 124 | `PY-M11` | `FND-DIGITAL` → `PY-ENG` |
+| **Automation engineer (Python)** (`PATH-AUTOMATION-ENGINEER`) | 21 | 145 | `PA-M10` | `FND-DIGITAL` → `PY-ENG`* → `PY-AUTO` |
 | **Test automation engineer (Java)** (`PATH-TEST-AUTOMATION-JAVA`) | 16 | 124 | `JQA-M10` | `FND-DIGITAL` → `JAVA-QA` |
-| **Applied AI / LLM engineer** (`PATH-AI-ENGINEER`) | 26 | 212 | `AI-M10` | `FND-DIGITAL` → `PY-ENG` → `AI-ENG` |
-| **AI security practitioner** (`PATH-AI-SECURITY`) | 18 | 138 | `AI-M07` | `FND-DIGITAL` → `PY-ENG`* → `AI-ENG`* → `CYBER-MEGA`* |
-| **Data engineer (Google Cloud)** (`PATH-DATA-ENGINEER-GCP`) | 21 | 160 | `GCP-M10` | `FND-DIGITAL` → `PY-ENG`* → `GCP-DE` |
+| **Applied AI / LLM engineer** (`PATH-AI-ENGINEER`) | 29 | 238 | `AI-M12` | `FND-DIGITAL` → `PY-ENG` → `AI-ENG` |
+| **AI security practitioner** (`PATH-AI-SECURITY`) | 19 | 148 | `AI-M07` | `FND-DIGITAL` → `PY-ENG`* → `AI-ENG`* → `CYBER-MEGA`* |
+| **Data engineer (Google Cloud)** (`PATH-DATA-ENGINEER-GCP`) | 22 | 166 | `GCP-M11` | `FND-DIGITAL` → `PY-ENG`* → `GCP-DE` |
 | **Frontend engineer** (`PATH-FRONTEND-ENGINEER`) | 17 | 124 | `FE-M11` | `FND-DIGITAL` → `FE-ONBOARD` |
-| **Lawful OSINT analyst** (`PATH-OSINT-ANALYST`) | 16 | 88 | `OSINT-M10` | `FND-DIGITAL` → `OSINT` |
+| **Lawful OSINT analyst** (`PATH-OSINT-ANALYST`) | 18 | 98 | `OSINT-M12` | `FND-DIGITAL` → `OSINT` |
 | **Cybersecurity generalist** (`PATH-SECURITY-GENERALIST`) | 20 | 220 | `CYB-M14` | `FND-DIGITAL` → `CYBER-MEGA` |
 
 `*` = only the listed modules of that course. Hours are planning estimates.
@@ -65,12 +65,12 @@ Levels describe **evidence collected inside this academy**. They are not job tit
 ### SOC analyst (`PATH-SOC-ANALYST`)
 
 _Audience:_ Learners aiming at Tier-1/Tier-2 security-operations work  
-_Capstone evidence:_ `SOC-M12`  
-_Total:_ 20 modules, 140 planning hours
+_Capstone evidence:_ `SOC-M14`  
+_Total:_ 22 modules, 156 planning hours
 
 1. Digital and Technical Foundations (`COURSE-FND-DIGITAL`): all modules · 6 modules · 32 h
 2. Python Engineering Pathway (`COURSE-PY-ENG`): PY-M01, PY-M02 · 2 modules · 20 h — Python needed for the detection and triage labs
-3. SOC Analyst Professional Pathway (`COURSE-SOC`): all modules · 12 modules · 88 h
+3. SOC Analyst Professional Pathway (`COURSE-SOC`): all modules · 14 modules · 104 h
 
 ### Detection engineer (`PATH-DETECTION-ENGINEER`)
 
@@ -86,21 +86,21 @@ _Total:_ 18 modules, 132 planning hours
 ### Python engineer (`PATH-PYTHON-ENGINEER`)
 
 _Audience:_ Developers and analysts who need production-quality Python  
-_Capstone evidence:_ `PY-M10`  
-_Total:_ 16 modules, 116 planning hours
+_Capstone evidence:_ `PY-M11`  
+_Total:_ 17 modules, 124 planning hours
 
 1. Digital and Technical Foundations (`COURSE-FND-DIGITAL`): all modules · 6 modules · 32 h
-2. Python Engineering Pathway (`COURSE-PY-ENG`): all modules · 10 modules · 84 h
+2. Python Engineering Pathway (`COURSE-PY-ENG`): all modules · 11 modules · 92 h
 
 ### Automation engineer (Python) (`PATH-AUTOMATION-ENGINEER`)
 
 _Audience:_ Operations, QA and security staff automating repeatable work  
-_Capstone evidence:_ `PA-M09`  
-_Total:_ 20 modules, 137 planning hours
+_Capstone evidence:_ `PA-M10`  
+_Total:_ 21 modules, 145 planning hours
 
 1. Digital and Technical Foundations (`COURSE-FND-DIGITAL`): all modules · 6 modules · 32 h
 2. Python Engineering Pathway (`COURSE-PY-ENG`): PY-M01, PY-M02, PY-M03, PY-M04, PY-M05 · 5 modules · 40 h
-3. Python Automation Pathway (`COURSE-PY-AUTO`): all modules · 9 modules · 65 h
+3. Python Automation Pathway (`COURSE-PY-AUTO`): all modules · 10 modules · 73 h
 
 ### Test automation engineer (Java) (`PATH-TEST-AUTOMATION-JAVA`)
 
@@ -114,33 +114,33 @@ _Total:_ 16 modules, 124 planning hours
 ### Applied AI / LLM engineer (`PATH-AI-ENGINEER`)
 
 _Audience:_ Engineers building LLM-based applications  
-_Capstone evidence:_ `AI-M10`  
-_Total:_ 26 modules, 212 planning hours
+_Capstone evidence:_ `AI-M12`  
+_Total:_ 29 modules, 238 planning hours
 
 1. Digital and Technical Foundations (`COURSE-FND-DIGITAL`): all modules · 6 modules · 32 h
-2. Python Engineering Pathway (`COURSE-PY-ENG`): all modules · 10 modules · 84 h
-3. Applied AI and LLM Engineering Pathway (`COURSE-AI-ENG`): all modules · 10 modules · 96 h
+2. Python Engineering Pathway (`COURSE-PY-ENG`): all modules · 11 modules · 92 h
+3. Applied AI and LLM Engineering Pathway (`COURSE-AI-ENG`): all modules · 12 modules · 114 h
 
 ### AI security practitioner (`PATH-AI-SECURITY`)
 
 _Audience:_ Security staff assessing AI-enabled systems  
 _Capstone evidence:_ `AI-M07`  
-_Total:_ 18 modules, 138 planning hours
+_Total:_ 19 modules, 148 planning hours
 
 1. Digital and Technical Foundations (`COURSE-FND-DIGITAL`): all modules · 6 modules · 32 h
 2. Python Engineering Pathway (`COURSE-PY-ENG`): PY-M01, PY-M02, PY-M05, PY-M07 · 4 modules · 36 h
-3. Applied AI and LLM Engineering Pathway (`COURSE-AI-ENG`): AI-M01, AI-M02, AI-M03, AI-M05, AI-M07, AI-M08, AI-M09 · 7 modules · 62 h
+3. Applied AI and LLM Engineering Pathway (`COURSE-AI-ENG`): AI-M01, AI-M02, AI-M03, AI-M05, AI-M07, AI-M08, AI-M09, AI-M10 · 8 modules · 72 h
 4. Cybersecurity Specialist Tracks (from the Mega Course) (`COURSE-CYBER-MEGA`): CYB-M13 · 1 modules · 8 h
 
 ### Data engineer (Google Cloud) (`PATH-DATA-ENGINEER-GCP`)
 
 _Audience:_ Data and software engineers building pipelines on Google Cloud  
-_Capstone evidence:_ `GCP-M10`  
-_Total:_ 21 modules, 160 planning hours
+_Capstone evidence:_ `GCP-M11`  
+_Total:_ 22 modules, 166 planning hours
 
 1. Digital and Technical Foundations (`COURSE-FND-DIGITAL`): all modules · 6 modules · 32 h
 2. Python Engineering Pathway (`COURSE-PY-ENG`): PY-M01, PY-M02, PY-M03, PY-M05, PY-M08 · 5 modules · 40 h
-3. Google Cloud Data Engineering Pathway (`COURSE-GCP-DE`): all modules · 10 modules · 88 h
+3. Google Cloud Data Engineering Pathway (`COURSE-GCP-DE`): all modules · 11 modules · 94 h
 
 ### Frontend engineer (`PATH-FRONTEND-ENGINEER`)
 
@@ -154,11 +154,11 @@ _Total:_ 17 modules, 124 planning hours
 ### Lawful OSINT analyst (`PATH-OSINT-ANALYST`)
 
 _Audience:_ Analysts, journalists and security staff who need defensible open-source research  
-_Capstone evidence:_ `OSINT-M10`  
-_Total:_ 16 modules, 88 planning hours
+_Capstone evidence:_ `OSINT-M12`  
+_Total:_ 18 modules, 98 planning hours
 
 1. Digital and Technical Foundations (`COURSE-FND-DIGITAL`): all modules · 6 modules · 32 h
-2. Lawful OSINT Investigation Pathway (`COURSE-OSINT`): all modules · 10 modules · 56 h
+2. Lawful OSINT Investigation Pathway (`COURSE-OSINT`): all modules · 12 modules · 66 h
 
 ### Cybersecurity generalist (`PATH-SECURITY-GENERALIST`)
 
