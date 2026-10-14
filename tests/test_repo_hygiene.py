@@ -74,7 +74,9 @@ def test_research_register_entries_are_complete():
     for r in reg:
         for k in ("title", "url", "publisher", "version", "verified_on", "method", "finding", "applies_to", "resulting_change"):
             assert r.get(k), f"{r['id']} missing {k}"
-        assert r["method"] in {"PRIMARY_DOCUMENT_READ", "EXECUTED", "OFFICIAL_PAGE_SUMMARY"}
+        assert r["method"] in {"PRIMARY_DOCUMENT_READ", "EXECUTED", "OFFICIAL_PAGE_SUMMARY", "REGISTRY_API", "SECONDARY_SOURCE"}
+        if r["method"] == "SECONDARY_SOURCE":
+            assert r.get("caveat"), f"{r['id']}: a secondary source needs an explicit caveat"
         assert r["url"].startswith("https://")
 
 

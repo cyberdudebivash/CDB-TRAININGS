@@ -1,0 +1,1874 @@
+# Generated once from the exploratory scan, then maintained by hand. See scripts/research/fetch_registry_versions.py.
+schema_version: 1
+description: 'Technology registry: detection patterns (used by the page-level audit), reproducible version sources, and baseline facts. Baseline facts live in the
+  generated snapshot and the research register; this file only declares WHAT to look for and WHERE to verify it.'
+technologies:
+- id: python
+  name: python
+  domain: python
+  detect: \bPython\b
+  fetch:
+  - kind: endoflife
+    product: python
+  official_docs: https://docs.python.org/3/
+- id: pip
+  name: pip
+  domain: python
+  detect: \bpip3?\b
+  fetch:
+  - kind: pypi
+    name: pip
+- id: venv
+  name: venv
+  domain: python
+  detect: \bvenv\b|virtualenv
+  fetch:
+  - kind: pypi
+    name: virtualenv
+- id: poetry
+  name: poetry
+  domain: python
+  detect: \bPoetry\b
+  fetch:
+  - kind: pypi
+    name: poetry
+- id: uv
+  name: uv
+  domain: python
+  detect: \buv (?:pip|run|venv|add|sync)\b
+  detect_case_sensitive: true
+  fetch:
+  - kind: pypi
+    name: uv
+- id: pipenv
+  name: pipenv
+  domain: python
+  detect: \bpipenv\b
+  fetch:
+  - kind: pypi
+    name: pipenv
+- id: conda
+  name: conda
+  domain: python
+  detect: \b(?:conda|anaconda|miniconda)\b
+- id: setup.py
+  name: setup.py
+  domain: python
+  detect: setup\.py
+  fetch:
+  - kind: pypi
+    name: setuptools
+  - kind: pypi
+    name: build
+- id: pyproject
+  name: pyproject
+  domain: python
+  detect: pyproject\.toml
+- id: pytest
+  name: pytest
+  domain: python
+  detect: \bpytest\b
+  fetch:
+  - kind: pypi
+    name: pytest
+- id: unittest
+  name: unittest
+  domain: python
+  detect: \bunittest\b
+- id: tox
+  name: tox
+  domain: python
+  detect: \btox\b
+  fetch:
+  - kind: pypi
+    name: tox
+- id: black
+  name: black
+  domain: python
+  detect: \bBlack\b(?=.{0,20}(?:format|code))
+  detect_case_sensitive: true
+  fetch:
+  - kind: pypi
+    name: black
+- id: flake8
+  name: flake8
+  domain: python
+  detect: \bflake8\b
+  fetch:
+  - kind: pypi
+    name: flake8
+- id: pylint
+  name: pylint
+  domain: python
+  detect: \bpylint\b
+  fetch:
+  - kind: pypi
+    name: pylint
+- id: ruff
+  name: ruff
+  domain: python
+  detect: \bRuff\b
+  fetch:
+  - kind: pypi
+    name: ruff
+- id: mypy
+  name: mypy
+  domain: python
+  detect: \bmypy\b
+  fetch:
+  - kind: pypi
+    name: mypy
+- id: pyright
+  name: pyright
+  domain: python
+  detect: \bpyright\b
+  fetch:
+  - kind: pypi
+    name: pyright
+- id: fastapi
+  name: fastapi
+  domain: python
+  detect: \bFastAPI\b
+  fetch:
+  - kind: pypi
+    name: fastapi
+- id: flask
+  name: flask
+  domain: python
+  detect: \bFlask\b
+  fetch:
+  - kind: pypi
+    name: flask
+- id: django
+  name: django
+  domain: python
+  detect: \bDjango\b
+  fetch:
+  - kind: pypi
+    name: django
+  - kind: endoflife
+    product: django
+- id: pydantic
+  name: pydantic
+  domain: python
+  detect: \bpydantic\b
+  fetch:
+  - kind: pypi
+    name: pydantic
+- id: sqlalchemy
+  name: sqlalchemy
+  domain: python
+  detect: \bSQLAlchemy\b
+  fetch:
+  - kind: pypi
+    name: sqlalchemy
+- id: requests
+  name: requests
+  domain: python
+  detect: \brequests\.(?:get|post|put|session)|import requests
+  fetch:
+  - kind: pypi
+    name: requests
+- id: httpx
+  name: httpx
+  domain: python
+  detect: \bhttpx\b
+  fetch:
+  - kind: pypi
+    name: httpx
+- id: aiohttp
+  name: aiohttp
+  domain: python
+  detect: \baiohttp\b
+  fetch:
+  - kind: pypi
+    name: aiohttp
+- id: asyncio
+  name: asyncio
+  domain: python
+  detect: \basyncio\b
+- id: pandas
+  name: pandas
+  domain: python
+  detect: \bpandas\b
+  fetch:
+  - kind: pypi
+    name: pandas
+- id: numpy
+  name: numpy
+  domain: python
+  detect: \bnumpy\b
+  fetch:
+  - kind: pypi
+    name: numpy
+- id: polars
+  name: polars
+  domain: python
+  detect: \bpolars\b
+  fetch:
+  - kind: pypi
+    name: polars
+- id: duckdb
+  name: duckdb
+  domain: python
+  detect: \bDuckDB\b
+  fetch:
+  - kind: pypi
+    name: duckdb
+- id: celery
+  name: celery
+  domain: python
+  detect: \bCelery\b
+  fetch:
+  - kind: pypi
+    name: celery
+- id: airflow
+  name: airflow
+  domain: python
+  detect: \bAirflow\b
+  fetch:
+  - kind: pypi
+    name: apache-airflow
+  - kind: endoflife
+    product: apache-airflow
+- id: prefect
+  name: prefect
+  domain: python
+  detect: \bPrefect\b
+  fetch:
+  - kind: pypi
+    name: prefect
+- id: dagster
+  name: dagster
+  domain: python
+  detect: \bDagster\b
+  fetch:
+  - kind: pypi
+    name: dagster
+- id: pyinstaller
+  name: pyinstaller
+  domain: python
+  detect: \bPyInstaller\b
+  fetch:
+  - kind: pypi
+    name: pyinstaller
+- id: docker
+  name: docker
+  domain: security-engineering
+  detect: \bDocker\b
+  fetch:
+  - kind: endoflife
+    product: docker-engine
+- id: kubernetes
+  name: kubernetes
+  domain: security-engineering
+  detect: \bKubernetes\b|\bk8s\b
+  fetch:
+  - kind: endoflife
+    product: kubernetes
+  official_docs: https://kubernetes.io/docs/
+- id: helm
+  name: helm
+  domain: security-engineering
+  detect: \bHelm\b
+- id: terraform
+  name: terraform
+  domain: gcp-data
+  detect: \bTerraform\b
+  fetch:
+  - kind: endoflife
+    product: terraform
+  - kind: github
+    repo: hashicorp/terraform
+- id: ansible
+  name: ansible
+  domain: security-engineering
+  detect: \bAnsible\b
+  fetch:
+  - kind: endoflife
+    product: ansible
+  - kind: pypi
+    name: ansible-core
+- id: github_actions
+  name: github_actions
+  domain: security-engineering
+  detect: GitHub Actions
+- id: jenkins
+  name: jenkins
+  domain: security-engineering
+  detect: \bJenkins\b
+  fetch:
+  - kind: endoflife
+    product: jenkins
+- id: gitlab_ci
+  name: gitlab_ci
+  domain: security-engineering
+  detect: GitLab CI
+- id: selenium
+  name: selenium
+  domain: test-automation
+  detect: \bSelenium\b
+  fetch:
+  - kind: pypi
+    name: selenium
+  - kind: maven
+    coord: org.seleniumhq.selenium:selenium-java
+  official_docs: https://www.selenium.dev/documentation/
+- id: playwright
+  name: playwright
+  domain: test-automation
+  detect: \bPlaywright\b
+  fetch:
+  - kind: pypi
+    name: playwright
+  - kind: npm
+    name: playwright
+  - kind: maven
+    coord: com.microsoft.playwright:playwright
+  official_docs: https://playwright.dev/
+- id: cypress
+  name: cypress
+  domain: test-automation
+  detect: \bCypress\b
+  fetch:
+  - kind: npm
+    name: cypress
+- id: puppeteer
+  name: puppeteer
+  domain: test-automation
+  detect: \bPuppeteer\b
+  fetch:
+  - kind: npm
+    name: puppeteer
+- id: beautifulsoup
+  name: beautifulsoup
+  domain: python
+  detect: BeautifulSoup|bs4
+  fetch:
+  - kind: pypi
+    name: beautifulsoup4
+- id: scrapy
+  name: scrapy
+  domain: python
+  detect: \bScrapy\b
+  fetch:
+  - kind: pypi
+    name: scrapy
+- id: paramiko
+  name: paramiko
+  domain: python
+  detect: \bparamiko\b
+  fetch:
+  - kind: pypi
+    name: paramiko
+- id: pyautogui
+  name: pyautogui
+  domain: python
+  detect: \bPyAutoGUI\b
+- id: find_element_by
+  name: find_element_by
+  domain: test-automation
+  detect: find_elements?_by_\w+
+- id: webdriver_manager
+  name: webdriver_manager
+  domain: test-automation
+  detect: webdriver[_-]manager|ChromeDriverManager
+- id: java
+  name: java
+  domain: test-automation
+  detect: \bJava\b
+  fetch:
+  - kind: endoflife
+    product: eclipse-temurin
+  - kind: endoflife
+    product: oracle-jdk
+  official_docs: https://docs.oracle.com/en/java/
+- id: jdk
+  name: jdk
+  domain: test-automation
+  detect: \bJDK\b
+  fetch:
+  - kind: endoflife
+    product: eclipse-temurin
+- id: maven
+  name: maven
+  domain: test-automation
+  detect: \bMaven\b
+  fetch:
+  - kind: maven
+    coord: org.apache.maven:maven-core
+  - kind: endoflife
+    product: apache-maven
+- id: gradle
+  name: gradle
+  domain: test-automation
+  detect: \bGradle\b
+  fetch:
+  - kind: endoflife
+    product: gradle
+- id: junit
+  name: junit
+  domain: test-automation
+  detect: \bJUnit\b
+  fetch:
+  - kind: maven
+    coord: org.junit.jupiter:junit-jupiter
+  - kind: maven
+    coord: junit:junit
+  official_docs: https://docs.junit.org/
+- id: junit4_import
+  name: junit4_import
+  domain: test-automation
+  detect: org\.junit\.(?:Test|Before|After|Assert)\b|@RunWith
+- id: testng
+  name: testng
+  domain: test-automation
+  detect: \bTestNG\b
+  fetch:
+  - kind: maven
+    coord: org.testng:testng
+- id: restassured
+  name: restassured
+  domain: test-automation
+  detect: REST[- ]?Assured|RestAssured
+  fetch:
+  - kind: maven
+    coord: io.rest-assured:rest-assured
+- id: cucumber
+  name: cucumber
+  domain: test-automation
+  detect: \bCucumber\b
+  fetch:
+  - kind: maven
+    coord: io.cucumber:cucumber-java
+- id: selenium_grid
+  name: selenium_grid
+  domain: test-automation
+  detect: Selenium Grid
+- id: allure
+  name: allure
+  domain: test-automation
+  detect: \bAllure\b
+  fetch:
+  - kind: maven
+    coord: io.qameta.allure:allure-java-commons
+- id: extentreports
+  name: extentreports
+  domain: test-automation
+  detect: Extent ?Reports
+- id: log4j
+  name: log4j
+  domain: test-automation
+  detect: \bLog4j\b|log4j2?
+  fetch:
+  - kind: maven
+    coord: org.apache.logging.log4j:log4j-core
+- id: jackson
+  name: jackson
+  domain: test-automation
+  detect: \bJackson\b
+  fetch:
+  - kind: maven
+    coord: com.fasterxml.jackson.core:jackson-databind
+- id: spring
+  name: spring
+  domain: test-automation
+  detect: '\bSpring(?: Boot)?\b'
+  fetch:
+  - kind: maven
+    coord: org.springframework.boot:spring-boot
+  - kind: endoflife
+    product: spring-boot
+- id: thread_sleep
+  name: thread_sleep
+  domain: test-automation
+  detect: Thread\.sleep
+- id: implicit_wait
+  name: implicit_wait
+  domain: test-automation
+  detect: implicitlyWait
+- id: wait_until
+  name: wait_until
+  domain: test-automation
+  detect: WebDriverWait|ExpectedConditions
+- id: testcontainers
+  name: testcontainers
+  domain: test-automation
+  detect: Testcontainers
+  fetch:
+  - kind: maven
+    coord: org.testcontainers:testcontainers
+- id: mockito
+  name: mockito
+  domain: test-automation
+  detect: \bMockito\b
+  fetch:
+  - kind: maven
+    coord: org.mockito:mockito-core
+- id: wiremock
+  name: wiremock
+  domain: test-automation
+  detect: \bWireMock\b
+  fetch:
+  - kind: maven
+    coord: org.wiremock:wiremock
+- id: jmeter
+  name: jmeter
+  domain: test-automation
+  detect: \bJMeter\b
+- id: appium
+  name: appium
+  domain: test-automation
+  detect: \bAppium\b
+- id: sonarqube
+  name: sonarqube
+  domain: test-automation
+  detect: \bSonarQube\b
+- id: llm
+  name: llm
+  domain: ai
+  detect: \bLLMs?\b
+- id: openai
+  name: openai
+  domain: ai
+  detect: \bOpenAI\b
+  fetch:
+  - kind: pypi
+    name: openai
+- id: gpt
+  name: gpt
+  domain: ai
+  detect: \bGPT-?\d(?:\.\d)?[\w-]*
+- id: chatgpt
+  name: chatgpt
+  domain: ai
+  detect: ChatGPT
+- id: claude
+  name: claude
+  domain: ai
+  detect: \bClaude\b
+  fetch:
+  - kind: pypi
+    name: anthropic
+- id: gemini
+  name: gemini
+  domain: ai
+  detect: \bGemini\b
+  fetch:
+  - kind: pypi
+    name: google-genai
+- id: llama
+  name: llama
+  domain: ai
+  detect: \bLlama\b
+- id: mistral
+  name: mistral
+  domain: ai
+  detect: \bMistral\b
+- id: huggingface
+  name: huggingface
+  domain: ai
+  detect: Hugging ?Face
+  fetch:
+  - kind: pypi
+    name: huggingface-hub
+- id: transformers
+  name: transformers
+  domain: ai
+  detect: \btransformers\b
+  fetch:
+  - kind: pypi
+    name: transformers
+- id: langchain
+  name: langchain
+  domain: ai
+  detect: \bLangChain\b
+  fetch:
+  - kind: pypi
+    name: langchain
+- id: langgraph
+  name: langgraph
+  domain: ai
+  detect: \bLangGraph\b
+  fetch:
+  - kind: pypi
+    name: langgraph
+- id: llamaindex
+  name: llamaindex
+  domain: ai
+  detect: LlamaIndex
+  fetch:
+  - kind: pypi
+    name: llama-index
+- id: crewai
+  name: crewai
+  domain: ai
+  detect: CrewAI
+  fetch:
+  - kind: pypi
+    name: crewai
+- id: autogen
+  name: autogen
+  domain: ai
+  detect: \bAutoGen\b
+  fetch:
+  - kind: pypi
+    name: autogen-agentchat
+- id: openai_legacy
+  name: openai_legacy
+  domain: ai
+  detect: openai\.(?:ChatCompletion|Completion)|text-davinci|gpt-3\.5
+- id: langchain_legacy
+  name: langchain_legacy
+  domain: ai
+  detect: LLMChain|ConversationalRetrievalChain|from langchain\.(?:llms|chat_models|embeddings|vectorstores)
+- id: rag
+  name: rag
+  domain: ai
+  detect: \bRAG\b|retrieval[- ]augmented
+- id: vector_db
+  name: vector_db
+  domain: ai
+  detect: vector (?:database|store|DB)
+- id: faiss
+  name: faiss
+  domain: ai
+  detect: \bFAISS\b
+  fetch:
+  - kind: pypi
+    name: faiss-cpu
+- id: chroma
+  name: chroma
+  domain: ai
+  detect: \bChroma(?:DB)?\b
+  fetch:
+  - kind: pypi
+    name: chromadb
+- id: pinecone
+  name: pinecone
+  domain: ai
+  detect: \bPinecone\b
+  fetch:
+  - kind: pypi
+    name: pinecone
+- id: weaviate
+  name: weaviate
+  domain: ai
+  detect: \bWeaviate\b
+  fetch:
+  - kind: pypi
+    name: weaviate-client
+- id: qdrant
+  name: qdrant
+  domain: ai
+  detect: \bQdrant\b
+  fetch:
+  - kind: pypi
+    name: qdrant-client
+- id: pgvector
+  name: pgvector
+  domain: ai
+  detect: pgvector
+- id: mcp
+  name: mcp
+  domain: ai
+  detect: \bMCP\b|Model Context Protocol
+  fetch:
+  - kind: pypi
+    name: mcp
+  - kind: npm
+    name: '@modelcontextprotocol/sdk'
+  - kind: github
+    repo: modelcontextprotocol/modelcontextprotocol
+  official_docs: https://modelcontextprotocol.io/specification/
+- id: a2a
+  name: a2a
+  domain: ai
+  detect: \bA2A\b|Agent2Agent
+  fetch:
+  - kind: github
+    repo: a2aproject/A2A
+- id: agents
+  name: agents
+  domain: ai
+  detect: \bagentic\b|AI agents?
+- id: tool_calling
+  name: tool_calling
+  domain: ai
+  detect: tool calling|function calling
+- id: prompt_injection
+  name: prompt_injection
+  domain: ai
+  detect: prompt injection
+- id: owasp_llm
+  name: owasp_llm
+  domain: ai
+  detect: OWASP (?:Top 10 )?(?:for )?LLM
+  official_docs: https://genai.owasp.org/llm-top-10/
+- id: nist_ai_rmf
+  name: nist_ai_rmf
+  domain: ai
+  detect: AI RMF
+  official_docs: https://www.nist.gov/itl/ai-risk-management-framework
+- id: eu_ai_act
+  name: eu_ai_act
+  domain: ai
+  detect: EU AI Act
+  official_docs: https://artificialintelligenceact.eu/
+- id: iso42001
+  name: iso42001
+  domain: ai
+  detect: ISO[/ ]?(?:IEC )?42001
+- id: tensorflow
+  name: tensorflow
+  domain: ai
+  detect: \bTensorFlow\b
+  fetch:
+  - kind: pypi
+    name: tensorflow
+- id: pytorch
+  name: pytorch
+  domain: ai
+  detect: \bPyTorch\b
+  fetch:
+  - kind: pypi
+    name: torch
+- id: keras
+  name: keras
+  domain: ai
+  detect: \bKeras\b
+  fetch:
+  - kind: pypi
+    name: keras
+- id: sklearn
+  name: sklearn
+  domain: ai
+  detect: scikit-learn|sklearn
+  fetch:
+  - kind: pypi
+    name: scikit-learn
+- id: xgboost
+  name: xgboost
+  domain: ai
+  detect: \bXGBoost\b
+  fetch:
+  - kind: pypi
+    name: xgboost
+- id: mlflow
+  name: mlflow
+  domain: ai
+  detect: \bMLflow\b
+  fetch:
+  - kind: pypi
+    name: mlflow
+- id: vertex_ai
+  name: vertex_ai
+  domain: ai
+  detect: Vertex AI
+- id: bedrock
+  name: bedrock
+  domain: ai
+  detect: \bBedrock\b
+- id: azure_openai
+  name: azure_openai
+  domain: ai
+  detect: Azure OpenAI
+- id: ollama
+  name: ollama
+  domain: ai
+  detect: \bOllama\b
+  fetch:
+  - kind: github
+    repo: ollama/ollama
+- id: vllm
+  name: vllm
+  domain: ai
+  detect: \bvLLM\b
+  fetch:
+  - kind: pypi
+    name: vllm
+- id: lora
+  name: lora
+  domain: ai
+  detect: \bLoRA\b|\bQLoRA\b
+- id: rlhf
+  name: rlhf
+  domain: ai
+  detect: \bRLHF\b
+- id: diffusion
+  name: diffusion
+  domain: ai
+  detect: Stable Diffusion|diffusion model
+- id: whisper
+  name: whisper
+  domain: ai
+  detect: \bWhisper\b
+  fetch:
+  - kind: pypi
+    name: openai-whisper
+- id: bert
+  name: bert
+  domain: ai
+  detect: \bBERT\b
+- id: bigquery
+  name: bigquery
+  domain: gcp-data
+  detect: \bBigQuery\b
+  fetch:
+  - kind: pypi
+    name: google-cloud-bigquery
+  official_docs: https://cloud.google.com/bigquery/docs
+- id: gcs
+  name: gcs
+  domain: gcp-data
+  detect: Cloud Storage|\bGCS\b
+  detect_case_sensitive: true
+  fetch:
+  - kind: pypi
+    name: google-cloud-storage
+- id: pubsub
+  name: pubsub
+  domain: gcp-data
+  detect: Pub/Sub
+  fetch:
+  - kind: pypi
+    name: google-cloud-pubsub
+  official_docs: https://cloud.google.com/pubsub/docs
+- id: dataflow
+  name: dataflow
+  domain: gcp-data
+  detect: \bDataflow\b
+  official_docs: https://cloud.google.com/dataflow/docs
+- id: beam
+  name: beam
+  domain: gcp-data
+  detect: Apache Beam
+  fetch:
+  - kind: pypi
+    name: apache-beam
+- id: composer
+  name: composer
+  domain: gcp-data
+  detect: Cloud Composer
+  fetch:
+  - kind: pypi
+    name: apache-airflow
+- id: dataproc
+  name: dataproc
+  domain: gcp-data
+  detect: \bDataproc\b
+- id: spark
+  name: spark
+  domain: gcp-data
+  detect: \bSpark\b
+  fetch:
+  - kind: pypi
+    name: pyspark
+  - kind: endoflife
+    product: apache-spark
+- id: kafka
+  name: kafka
+  domain: gcp-data
+  detect: \bKafka\b
+  fetch:
+  - kind: endoflife
+    product: apache-kafka
+- id: dbt
+  name: dbt
+  domain: gcp-data
+  detect: \bdbt\b
+  fetch:
+  - kind: pypi
+    name: dbt-core
+- id: dataform
+  name: dataform
+  domain: gcp-data
+  detect: \bDataform\b
+- id: looker
+  name: looker
+  domain: gcp-data
+  detect: \bLooker\b
+- id: dataplex
+  name: dataplex
+  domain: gcp-data
+  detect: \bDataplex\b
+- id: data_catalog
+  name: data_catalog
+  domain: gcp-data
+  detect: Data Catalog
+- id: bigtable
+  name: bigtable
+  domain: gcp-data
+  detect: \bBigtable\b
+- id: spanner
+  name: spanner
+  domain: gcp-data
+  detect: \bSpanner\b
+- id: cloud_sql
+  name: cloud_sql
+  domain: gcp-data
+  detect: Cloud SQL
+- id: alloydb
+  name: alloydb
+  domain: gcp-data
+  detect: \bAlloyDB\b
+- id: datastream
+  name: datastream
+  domain: gcp-data
+  detect: \bDatastream\b
+- id: data_fusion
+  name: data_fusion
+  domain: gcp-data
+  detect: Data Fusion
+- id: dataprep
+  name: dataprep
+  domain: gcp-data
+  detect: \bDataprep\b
+- id: ai_platform
+  name: ai_platform
+  domain: gcp-data
+  detect: AI Platform
+- id: container_registry
+  name: container_registry
+  domain: gcp-data
+  detect: Container Registry|gcr\.io
+- id: artifact_registry
+  name: artifact_registry
+  domain: gcp-data
+  detect: Artifact Registry
+- id: cloud_functions
+  name: cloud_functions
+  domain: gcp-data
+  detect: Cloud Functions
+- id: cloud_run
+  name: cloud_run
+  domain: gcp-data
+  detect: Cloud Run
+- id: gke
+  name: gke
+  domain: gcp-data
+  detect: \bGKE\b
+- id: iam
+  name: iam
+  domain: gcp-data
+  detect: \bIAM\b
+- id: service_account_key
+  name: service_account_key
+  domain: gcp-data
+  detect: service[- ]account (?:JSON )?key|key-file|GOOGLE_APPLICATION_CREDENTIALS
+- id: wif
+  name: wif
+  domain: gcp-data
+  detect: Workload Identity
+- id: vpc_sc
+  name: vpc_sc
+  domain: gcp-data
+  detect: VPC Service Controls
+- id: gcloud
+  name: gcloud
+  domain: gcp-data
+  detect: \bgcloud\b
+- id: bq_cli
+  name: bq_cli
+  domain: gcp-data
+  detect: \bbq (?:query|load|mk|ls)\b
+  detect_case_sensitive: true
+- id: legacy_sql
+  name: legacy_sql
+  domain: gcp-data
+  detect: legacy SQL|#legacySQL
+- id: cdc
+  name: cdc
+  domain: gcp-data
+  detect: \bCDC\b
+- id: lakehouse
+  name: lakehouse
+  domain: gcp-data
+  detect: lakehouse|Iceberg|Delta Lake|BigLake
+- id: snowflake
+  name: snowflake
+  domain: gcp-data
+  detect: \bSnowflake\b
+- id: databricks
+  name: databricks
+  domain: gcp-data
+  detect: \bDatabricks\b
+- id: redshift
+  name: redshift
+  domain: gcp-data
+  detect: \bRedshift\b
+- id: terraform_gcp
+  name: terraform_gcp
+  domain: gcp-data
+  detect: google_bigquery|google_pubsub
+- id: html5
+  name: html5
+  domain: frontend
+  detect: HTML5
+- id: css
+  name: css
+  domain: frontend
+  detect: \bCSS3?\b
+- id: flexbox
+  name: flexbox
+  domain: frontend
+  detect: \bFlexbox\b
+- id: grid
+  name: grid
+  domain: frontend
+  detect: CSS Grid
+- id: javascript
+  name: javascript
+  domain: frontend
+  detect: \bJavaScript\b
+- id: typescript
+  name: typescript
+  domain: frontend
+  detect: \bTypeScript\b
+  fetch:
+  - kind: npm
+    name: typescript
+  official_docs: https://www.typescriptlang.org/docs/
+- id: react
+  name: react
+  domain: frontend
+  detect: \bReact(?:\.js)?\b
+  fetch:
+  - kind: npm
+    name: react
+  - kind: endoflife
+    product: react
+  official_docs: https://react.dev/
+- id: react_legacy
+  name: react_legacy
+  domain: frontend
+  detect: ReactDOM\.render|componentWill\w+|create-react-app|\bReact\.FC\b|class \w+ extends (?:React\.)?Component
+  fetch:
+  - kind: npm
+    name: create-react-app
+- id: nextjs
+  name: nextjs
+  domain: frontend
+  detect: Next\.js
+  fetch:
+  - kind: npm
+    name: next
+  - kind: endoflife
+    product: nextjs
+- id: vue
+  name: vue
+  domain: frontend
+  detect: \bVue(?:\.js)?\b
+  fetch:
+  - kind: npm
+    name: vue
+  - kind: endoflife
+    product: vue
+- id: angular
+  name: angular
+  domain: frontend
+  detect: \bAngular\b
+  fetch:
+  - kind: npm
+    name: '@angular/core'
+  - kind: endoflife
+    product: angular
+- id: svelte
+  name: svelte
+  domain: frontend
+  detect: \bSvelte\b
+  fetch:
+  - kind: npm
+    name: svelte
+- id: redux
+  name: redux
+  domain: frontend
+  detect: \bRedux\b
+  fetch:
+  - kind: npm
+    name: '@reduxjs/toolkit'
+- id: zustand
+  name: zustand
+  domain: frontend
+  detect: \bZustand\b
+  fetch:
+  - kind: npm
+    name: zustand
+- id: vite
+  name: vite
+  domain: frontend
+  detect: \bVite\b
+  fetch:
+  - kind: npm
+    name: vite
+- id: webpack
+  name: webpack
+  domain: frontend
+  detect: \bWebpack\b
+  fetch:
+  - kind: npm
+    name: webpack
+- id: babel
+  name: babel
+  domain: frontend
+  detect: \bBabel\b
+  fetch:
+  - kind: npm
+    name: '@babel/core'
+- id: eslint
+  name: eslint
+  domain: frontend
+  detect: \bESLint\b
+  fetch:
+  - kind: npm
+    name: eslint
+  - kind: endoflife
+    product: eslint
+- id: prettier
+  name: prettier
+  domain: frontend
+  detect: \bPrettier\b
+  fetch:
+  - kind: npm
+    name: prettier
+- id: jest
+  name: jest
+  domain: frontend
+  detect: \bJest\b
+  fetch:
+  - kind: npm
+    name: jest
+- id: vitest
+  name: vitest
+  domain: frontend
+  detect: \bVitest\b
+  fetch:
+  - kind: npm
+    name: vitest
+- id: rtl
+  name: rtl
+  domain: frontend
+  detect: React Testing Library
+  fetch:
+  - kind: npm
+    name: '@testing-library/react'
+- id: storybook
+  name: storybook
+  domain: frontend
+  detect: \bStorybook\b
+  fetch:
+  - kind: npm
+    name: storybook
+- id: tailwind
+  name: tailwind
+  domain: frontend
+  detect: \bTailwind\b
+  fetch:
+  - kind: npm
+    name: tailwindcss
+- id: bootstrap
+  name: bootstrap
+  domain: frontend
+  detect: \bBootstrap\b
+  fetch:
+  - kind: npm
+    name: bootstrap
+  - kind: endoflife
+    product: bootstrap
+- id: jquery
+  name: jquery
+  domain: frontend
+  detect: \bjQuery\b
+  fetch:
+  - kind: npm
+    name: jquery
+  - kind: endoflife
+    product: jquery
+- id: node
+  name: node
+  domain: frontend
+  detect: \bNode(?:\.js)?\b
+  fetch:
+  - kind: endoflife
+    product: nodejs
+- id: npm
+  name: npm
+  domain: frontend
+  detect: \bnpm\b
+  fetch:
+  - kind: npm
+    name: npm
+- id: yarn
+  name: yarn
+  domain: frontend
+  detect: \bYarn\b
+  fetch:
+  - kind: npm
+    name: '@yarnpkg/cli-dist'
+- id: pnpm
+  name: pnpm
+  domain: frontend
+  detect: \bpnpm\b
+  fetch:
+  - kind: npm
+    name: pnpm
+- id: webvitals
+  name: webvitals
+  domain: frontend
+  detect: Core Web Vitals|\bLCP\b|\bCLS\b|\bINP\b|\bFID\b
+  fetch:
+  - kind: npm
+    name: web-vitals
+- id: fid
+  name: fid
+  domain: frontend
+  detect: \bFID\b|First Input Delay
+- id: wcag
+  name: wcag
+  domain: frontend
+  detect: \bWCAG\b
+  official_docs: https://www.w3.org/TR/WCAG22/
+- id: aria
+  name: aria
+  domain: frontend
+  detect: \bARIA\b
+  fetch:
+  - kind: npm
+    name: axe-core
+- id: csp
+  name: csp
+  domain: frontend
+  detect: Content[- ]Security[- ]Policy|\bCSP\b
+- id: xss
+  name: xss
+  domain: frontend
+  detect: \bXSS\b
+- id: oauth
+  name: oauth
+  domain: frontend
+  detect: \bOAuth\b
+- id: oidc
+  name: oidc
+  domain: frontend
+  detect: OpenID Connect|\bOIDC\b
+- id: jwt
+  name: jwt
+  domain: frontend
+  detect: \bJWT\b
+  fetch:
+  - kind: npm
+    name: jsonwebtoken
+  - kind: pypi
+    name: pyjwt
+- id: graphql
+  name: graphql
+  domain: frontend
+  detect: \bGraphQL\b
+  fetch:
+  - kind: npm
+    name: graphql
+- id: websocket
+  name: websocket
+  domain: frontend
+  detect: WebSocket
+- id: pwa
+  name: pwa
+  domain: frontend
+  detect: \bPWA\b|Service Worker
+- id: webassembly
+  name: webassembly
+  domain: frontend
+  detect: WebAssembly|\bWASM\b
+- id: cypress_fe
+  name: cypress_fe
+  domain: frontend
+  detect: \bCypress\b
+- id: sass
+  name: sass
+  domain: frontend
+  detect: \bSass\b|\bSCSS\b
+  fetch:
+  - kind: npm
+    name: sass
+- id: attack
+  name: attack
+  domain: soc
+  detect: MITRE ATT&CK|ATT&CK
+  fetch:
+  - kind: github
+    repo: mitre-attack/attack-stix-data
+  official_docs: https://attack.mitre.org/
+- id: sigma
+  name: sigma
+  domain: soc
+  detect: \bSigma\b
+  fetch:
+  - kind: pypi
+    name: pysigma
+  - kind: github
+    repo: SigmaHQ/sigma
+  official_docs: https://sigmahq.io/docs/
+- id: yara
+  name: yara
+  domain: soc
+  detect: \bYARA\b
+  fetch:
+  - kind: github
+    repo: VirusTotal/yara
+- id: splunk
+  name: splunk
+  domain: soc
+  detect: \bSplunk\b
+- id: qradar
+  name: qradar
+  domain: soc
+  detect: \bQRadar\b
+- id: sentinel
+  name: sentinel
+  domain: soc
+  detect: Microsoft Sentinel|Azure Sentinel
+- id: elastic
+  name: elastic
+  domain: soc
+  detect: \bElastic(?:search| Security)?\b|\bELK\b
+- id: wazuh
+  name: wazuh
+  domain: soc
+  detect: \bWazuh\b
+  fetch:
+  - kind: github
+    repo: wazuh/wazuh
+- id: fortisiem
+  name: fortisiem
+  domain: soc
+  detect: FortiSIEM
+- id: crowdstrike
+  name: crowdstrike
+  domain: soc
+  detect: CrowdStrike
+- id: defender
+  name: defender
+  domain: soc
+  detect: Defender
+- id: sysmon
+  name: sysmon
+  domain: soc
+  detect: \bSysmon\b
+- id: kql
+  name: kql
+  domain: soc
+  detect: \bKQL\b
+- id: spl
+  name: spl
+  domain: soc
+  detect: \bSPL\b
+  detect_case_sensitive: true
+- id: eql
+  name: eql
+  domain: soc
+  detect: \bEQL\b
+- id: soar
+  name: soar
+  domain: soc
+  detect: \bSOAR\b
+- id: edr
+  name: edr
+  domain: soc
+  detect: \bEDR\b|\bXDR\b
+- id: ndr
+  name: ndr
+  domain: soc
+  detect: \bNDR\b
+- id: zeek
+  name: zeek
+  domain: soc
+  detect: \bZeek\b|\bBro\b
+  fetch:
+  - kind: github
+    repo: zeek/zeek
+- id: suricata
+  name: suricata
+  domain: soc
+  detect: \bSuricata\b|\bSnort\b
+  fetch:
+  - kind: github
+    repo: OISF/suricata
+- id: wireshark
+  name: wireshark
+  domain: soc
+  detect: \bWireshark\b
+- id: velociraptor
+  name: velociraptor
+  domain: soc
+  detect: \bVelociraptor\b
+  fetch:
+  - kind: github
+    repo: Velocidex/velociraptor
+- id: volatility
+  name: volatility
+  domain: soc
+  detect: \bVolatility\b
+  fetch:
+  - kind: github
+    repo: volatilityfoundation/volatility3
+- id: autopsy
+  name: autopsy
+  domain: soc
+  detect: \bAutopsy\b
+- id: misp
+  name: misp
+  domain: soc
+  detect: \bMISP\b
+  fetch:
+  - kind: github
+    repo: MISP/MISP
+- id: opencti
+  name: opencti
+  domain: soc
+  detect: OpenCTI
+  fetch:
+  - kind: github
+    repo: OpenCTI-Platform/opencti
+- id: stix
+  name: stix
+  domain: soc
+  detect: \bSTIX\b
+  fetch:
+  - kind: pypi
+    name: stix2
+- id: taxii
+  name: taxii
+  domain: soc
+  detect: \bTAXII\b
+- id: ocsf
+  name: ocsf
+  domain: soc
+  detect: \bOCSF\b
+  detect_case_sensitive: true
+  fetch:
+  - kind: github
+    repo: ocsf/ocsf-schema
+- id: ecs
+  name: ecs
+  domain: soc
+  detect: Elastic Common Schema
+  detect_case_sensitive: true
+- id: cvss
+  name: cvss
+  domain: soc
+  detect: \bCVSS\b
+- id: cvss4
+  name: cvss4
+  domain: soc
+  detect: CVSS (?:v)?4
+  official_docs: https://www.first.org/cvss/v4-0/
+- id: epss
+  name: epss
+  domain: soc
+  detect: \bEPSS\b
+- id: kev
+  name: kev
+  domain: soc
+  detect: \bKEV\b|Known Exploited
+  detect_case_sensitive: true
+- id: cve
+  name: cve
+  domain: soc
+  detect: \bCVE-\d{4}-\d+
+- id: nvd
+  name: nvd
+  domain: soc
+  detect: \bNVD\b
+- id: nist800_61
+  name: nist800_61
+  domain: soc
+  detect: 800-61
+  official_docs: https://csrc.nist.gov/pubs/sp/800/61/r3/final
+- id: nist_csf
+  name: nist_csf
+  domain: soc
+  detect: NIST CSF|Cybersecurity Framework
+  official_docs: https://www.nist.gov/cyberframework
+- id: nist800_53
+  name: nist800_53
+  domain: soc
+  detect: 800-53
+- id: iso27001
+  name: iso27001
+  domain: soc
+  detect: ISO[/ ]?(?:IEC )?27001
+- id: owasp_top10
+  name: owasp_top10
+  domain: soc
+  detect: OWASP Top ?10
+- id: cis_controls
+  name: cis_controls
+  domain: soc
+  detect: CIS Controls?
+- id: pci
+  name: pci
+  domain: soc
+  detect: PCI[- ]DSS
+- id: gdpr
+  name: gdpr
+  domain: soc
+  detect: \bGDPR\b
+- id: dpdp
+  name: dpdp
+  domain: soc
+  detect: \bDPDP\b|Digital Personal Data Protection
+- id: hipaa
+  name: hipaa
+  domain: soc
+  detect: \bHIPAA\b
+- id: cert_in
+  name: cert_in
+  domain: soc
+  detect: CERT-In
+- id: dora
+  name: dora
+  domain: soc
+  detect: \bDORA\b
+  detect_case_sensitive: true
+- id: nis2
+  name: nis2
+  domain: soc
+  detect: \bNIS2\b
+- id: sbom
+  name: sbom
+  domain: security-engineering
+  detect: \bSBOM\b|CycloneDX|\bSPDX\b
+  fetch:
+  - kind: github
+    repo: CycloneDX/specification
+  - kind: github
+    repo: spdx/spdx-spec
+- id: slsa
+  name: slsa
+  domain: security-engineering
+  detect: \bSLSA\b
+  fetch:
+  - kind: github
+    repo: slsa-framework/slsa
+- id: sigstore
+  name: sigstore
+  domain: security-engineering
+  detect: Sigstore|cosign
+  fetch:
+  - kind: github
+    repo: sigstore/cosign
+- id: log4shell
+  name: log4shell
+  domain: security-engineering
+  detect: Log4Shell|CVE-2021-44228
+- id: metasploit
+  name: metasploit
+  domain: security-engineering
+  detect: \bMetasploit\b
+  fetch:
+  - kind: github
+    repo: rapid7/metasploit-framework
+- id: burp
+  name: burp
+  domain: security-engineering
+  detect: \bBurp\b
+- id: nmap
+  name: nmap
+  domain: security-engineering
+  detect: \bNmap\b
+  fetch:
+  - kind: github
+    repo: nmap/nmap
+- id: kali
+  name: kali
+  domain: security-engineering
+  detect: \bKali\b
+- id: cobalt_strike
+  name: cobalt_strike
+  domain: security-engineering
+  detect: Cobalt Strike
+- id: mimikatz
+  name: mimikatz
+  domain: security-engineering
+  detect: \bMimikatz\b
+- id: bloodhound
+  name: bloodhound
+  domain: security-engineering
+  detect: \bBloodHound\b
+  fetch:
+  - kind: github
+    repo: SpecterOps/BloodHound
+- id: sqlmap
+  name: sqlmap
+  domain: security-engineering
+  detect: \bsqlmap\b
+  fetch:
+  - kind: github
+    repo: sqlmapproject/sqlmap
+- id: nessus
+  name: nessus
+  domain: security-engineering
+  detect: \bNessus\b|\bOpenVAS\b
+- id: owasp_zap
+  name: owasp_zap
+  domain: security-engineering
+  detect: OWASP ZAP|\bZAP\b
+  fetch:
+  - kind: github
+    repo: zaproxy/zaproxy
+- id: falco
+  name: falco
+  domain: security-engineering
+  detect: \bFalco\b
+  fetch:
+  - kind: github
+    repo: falcosecurity/falco
+- id: trivy
+  name: trivy
+  domain: security-engineering
+  detect: \bTrivy\b
+  fetch:
+  - kind: github
+    repo: aquasecurity/trivy
+- id: zero_trust
+  name: zero_trust
+  domain: security-engineering
+  detect: Zero[- ]Trust
+- id: ztna
+  name: ztna
+  domain: security-engineering
+  detect: \bZTNA\b
+- id: sase
+  name: sase
+  domain: security-engineering
+  detect: \bSASE\b
+  detect_case_sensitive: true
+- id: passkeys
+  name: passkeys
+  domain: security-engineering
+  detect: \bpasskeys?\b|FIDO2|WebAuthn
+- id: mfa
+  name: mfa
+  domain: security-engineering
+  detect: \bMFA\b
+- id: tls13
+  name: tls13
+  domain: security-engineering
+  detect: TLS ?1\.3
+- id: tls_old
+  name: tls_old
+  domain: security-engineering
+  detect: TLS ?1\.[01]\b|SSL ?v?3
+- id: md5
+  name: md5
+  domain: security-engineering
+  detect: \bMD5\b|\bSHA-?1\b
+- id: pqc
+  name: pqc
+  domain: security-engineering
+  detect: post-quantum|\bPQC\b|ML-KEM|Kyber|Dilithium
+- id: ransomware
+  name: ransomware
+  domain: soc
+  detect: '[Rr]ansomware'
+- id: log4j_vuln
+  name: log4j_vuln
+  domain: soc
+  detect: Log4j
+- id: solarwinds
+  name: solarwinds
+  domain: soc
+  detect: SolarWinds
+- id: moveit
+  name: moveit
+  domain: soc
+  detect: \bMOVEit\b
+- id: volt_typhoon
+  name: volt_typhoon
+  domain: soc
+  detect: Volt Typhoon|Salt Typhoon|Scattered Spider|LockBit|\bAkira\b|Lazarus
+- id: maltego
+  name: maltego
+  domain: osint
+  detect: \bMaltego\b
+- id: shodan
+  name: shodan
+  domain: osint
+  detect: \bShodan\b
+  fetch:
+  - kind: pypi
+    name: shodan
+- id: censys
+  name: censys
+  domain: osint
+  detect: \bCensys\b
+  fetch:
+  - kind: pypi
+    name: censys
+- id: spiderfoot
+  name: spiderfoot
+  domain: osint
+  detect: \bSpiderFoot\b
+  fetch:
+  - kind: github
+    repo: smicallef/spiderfoot
+- id: theharvester
+  name: theharvester
+  domain: osint
+  detect: theHarvester
+  fetch:
+  - kind: github
+    repo: laramies/theHarvester
+- id: reconng
+  name: reconng
+  domain: osint
+  detect: recon-ng
+  fetch:
+  - kind: github
+    repo: lanmaster53/recon-ng
+- id: sherlock
+  name: sherlock
+  domain: osint
+  detect: \bSherlock\b
+  fetch:
+  - kind: github
+    repo: sherlock-project/sherlock
+- id: wayback
+  name: wayback
+  domain: osint
+  detect: Wayback
+- id: google_dorks
+  name: google_dorks
+  domain: osint
+  detect: Google [Dd]ork|\bdorking\b
+- id: whois
+  name: whois
+  domain: osint
+  detect: \bWHOIS\b|\bRDAP\b
+- id: crtsh
+  name: crtsh
+  domain: osint
+  detect: crt\.sh|Certificate Transparency
+- id: exiftool
+  name: exiftool
+  domain: osint
+  detect: \bExifTool\b|\bEXIF\b
+  fetch:
+  - kind: pypi
+    name: pyexiftool
+- id: geoguessr
+  name: geoguessr
+  domain: osint
+  detect: geolocation|geolocat
+- id: bellingcat
+  name: bellingcat
+  domain: osint
+  detect: \bBellingcat\b
+- id: twitter_api
+  name: twitter_api
+  domain: osint
+  detect: Twitter API|X API|\bTwitter\b
+- id: facebook_graph
+  name: facebook_graph
+  domain: osint
+  detect: Facebook Graph|Graph Search
+- id: linkedin
+  name: linkedin
+  domain: osint
+  detect: \bLinkedIn\b
+- id: tineye
+  name: tineye
+  domain: osint
+  detect: TinEye|reverse image
+- id: hibp
+  name: hibp
+  domain: osint
+  detect: HaveIBeenPwned|Have I Been Pwned
+- id: breach_data
+  name: breach_data
+  domain: osint
+  detect: breach(?:ed)? (?:data|database|dump)|leaked (?:data|database|credentials)
+- id: deepfake
+  name: deepfake
+  domain: osint
+  detect: '[Dd]eepfake'
+- id: c2pa
+  name: c2pa
+  domain: osint
+  detect: \bC2PA\b|Content Credentials
+- id: tor
+  name: tor
+  domain: osint
+  detect: \bTor\b|dark ?web
+  detect_case_sensitive: true
+- id: osint_framework
+  name: osint_framework
+  domain: osint
+  detect: OSINT Framework
+- id: intelx
+  name: intelx
+  domain: osint
+  detect: IntelX|Intelligence X
+- id: dehashed
+  name: dehashed
+  domain: osint
+  detect: \bDeHashed\b
+- id: pimeyes
+  name: pimeyes
+  domain: osint
+  detect: PimEyes
+- id: social_engineering
+  name: social_engineering
+  domain: security-engineering
+  detect: social engineering|phishing
+- id: aws
+  name: aws
+  domain: security-engineering
+  detect: \bAWS\b
+- id: azure
+  name: azure
+  domain: security-engineering
+  detect: \bAzure\b
+- id: gcp
+  name: gcp
+  domain: gcp-data
+  detect: \bGCP\b|Google Cloud
+- id: entra
+  name: entra
+  domain: security-engineering
+  detect: \bEntra\b|Azure AD
+- id: okta
+  name: okta
+  domain: security-engineering
+  detect: \bOkta\b
+- id: s3
+  name: s3
+  domain: security-engineering
+  detect: \bS3\b
+- id: lambda
+  name: lambda
+  domain: security-engineering
+  detect: \bLambda\b
+- id: cloudtrail
+  name: cloudtrail
+  domain: security-engineering
+  detect: CloudTrail
+- id: guardduty
+  name: guardduty
+  domain: security-engineering
+  detect: GuardDuty
+- id: prowler
+  name: prowler
+  domain: security-engineering
+  detect: \bProwler\b
+  fetch:
+  - kind: github
+    repo: prowler-cloud/prowler
+- id: cspm
+  name: cspm
+  domain: security-engineering
+  detect: \bCSPM\b|\bCNAPP\b
+- id: devsecops
+  name: devsecops
+  domain: security-engineering
+  detect: DevSecOps

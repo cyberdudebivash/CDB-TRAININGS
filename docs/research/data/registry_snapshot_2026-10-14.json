@@ -1,0 +1,4589 @@
+{
+ "cutoff_date": "2026-10-14",
+ "started_utc": "2026-10-14T08:47:25Z",
+ "finished_utc": "2026-10-14T08:57:56Z",
+ "script": "scripts/research/fetch_registry_versions.py",
+ "records": [
+  {
+   "tech_id": "python",
+   "kind": "endoflife",
+   "spec": {
+    "product": "python"
+   },
+   "retrieved_utc": "2026-10-14T08:47:25Z",
+   "product": "python",
+   "current": {
+    "version": "3.15.0",
+    "date": "2026-10-09"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "3.15",
+     "latest": "3.15.0",
+     "latest_release_date": "2026-10-09",
+     "release_date": "2026-10-09",
+     "eol": "2031-10-31",
+     "lts": false,
+     "support": "2028-10-09"
+    },
+    {
+     "cycle": "3.14",
+     "latest": "3.14.8",
+     "latest_release_date": "2026-09-30",
+     "release_date": "2025-10-07",
+     "eol": "2030-10-31",
+     "lts": false,
+     "support": "2027-10-01"
+    },
+    {
+     "cycle": "3.13",
+     "latest": "3.13.16",
+     "latest_release_date": "2026-09-30",
+     "release_date": "2024-10-07",
+     "eol": "2029-10-31",
+     "lts": false,
+     "support": "2026-10-01"
+    },
+    {
+     "cycle": "3.12",
+     "latest": "3.12.15",
+     "latest_release_date": "2026-10-01",
+     "release_date": "2023-10-02",
+     "eol": "2028-10-31",
+     "lts": false,
+     "support": "2025-04-02"
+    },
+    {
+     "cycle": "3.11",
+     "latest": "3.11.17",
+     "latest_release_date": "2026-10-01",
+     "release_date": "2022-10-24",
+     "eol": "2027-10-31",
+     "lts": false,
+     "support": "2024-04-01"
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "3.10",
+     "latest": "3.10.22",
+     "latest_release_date": "2026-10-01",
+     "release_date": "2021-10-04",
+     "eol": "2026-10-01",
+     "lts": false,
+     "support": "2023-04-05"
+    },
+    {
+     "cycle": "3.9",
+     "latest": "3.9.25",
+     "latest_release_date": "2025-10-31",
+     "release_date": "2020-10-05",
+     "eol": "2025-10-31",
+     "lts": false,
+     "support": "2022-05-17"
+    },
+    {
+     "cycle": "3.8",
+     "latest": "3.8.20",
+     "latest_release_date": "2024-09-06",
+     "release_date": "2019-10-14",
+     "eol": "2024-10-07",
+     "lts": false,
+     "support": "2021-05-03"
+    },
+    {
+     "cycle": "3.7",
+     "latest": "3.7.17",
+     "latest_release_date": "2023-06-05",
+     "release_date": "2018-06-27",
+     "eol": "2023-06-27",
+     "lts": false,
+     "support": "2020-06-27"
+    }
+   ],
+   "url": "https://endoflife.date/python",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pip",
+   "kind": "pypi",
+   "spec": {
+    "name": "pip"
+   },
+   "retrieved_utc": "2026-10-14T08:47:26Z",
+   "package": "pip",
+   "current": {
+    "version": "26.2.1",
+    "date": "2026-08-04"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pip/",
+   "requires_python": ">=3.10",
+   "summary": "The PyPA recommended tool for installing Python packages.",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "venv",
+   "kind": "pypi",
+   "spec": {
+    "name": "virtualenv"
+   },
+   "retrieved_utc": "2026-10-14T08:47:26Z",
+   "package": "virtualenv",
+   "current": {
+    "version": "21.14.7",
+    "date": "2026-10-12"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/virtualenv/",
+   "requires_python": ">=3.9",
+   "summary": "Virtual Python Environment builder",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "poetry",
+   "kind": "pypi",
+   "spec": {
+    "name": "poetry"
+   },
+   "retrieved_utc": "2026-10-14T08:47:26Z",
+   "package": "poetry",
+   "current": {
+    "version": "2.5.1",
+    "date": "2026-09-20"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/poetry/",
+   "requires_python": "<4.0,>=3.10",
+   "summary": "Python dependency management and packaging made easy.",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "uv",
+   "kind": "pypi",
+   "spec": {
+    "name": "uv"
+   },
+   "retrieved_utc": "2026-10-14T08:47:26Z",
+   "package": "uv",
+   "current": {
+    "version": "0.13.1",
+    "date": "2026-10-14"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/uv/",
+   "requires_python": ">=3.8",
+   "summary": "An extremely fast Python package and project manager, written in Rust.",
+   "license": "MIT OR Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pipenv",
+   "kind": "pypi",
+   "spec": {
+    "name": "pipenv"
+   },
+   "retrieved_utc": "2026-10-14T08:47:27Z",
+   "package": "pipenv",
+   "current": {
+    "version": "2026.9.1",
+    "date": "2026-10-11"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pipenv/",
+   "requires_python": ">=3.10",
+   "summary": "Python Development Workflow for Humans.",
+   "license": "MIT License (MIT)",
+   "status": "OK"
+  },
+  {
+   "tech_id": "setup.py",
+   "kind": "pypi",
+   "spec": {
+    "name": "setuptools"
+   },
+   "retrieved_utc": "2026-10-14T08:47:27Z",
+   "package": "setuptools",
+   "current": {
+    "version": "84.0.0",
+    "date": "2026-08-08"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/setuptools/",
+   "requires_python": ">=3.10",
+   "summary": "Most extensible Python build backend with support for C/C++ extension modules",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "setup.py",
+   "kind": "pypi",
+   "spec": {
+    "name": "build"
+   },
+   "retrieved_utc": "2026-10-14T08:47:27Z",
+   "package": "build",
+   "current": {
+    "version": "1.6.1",
+    "date": "2026-09-10"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/build/",
+   "requires_python": ">=3.10",
+   "summary": "A simple, correct Python build frontend",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pytest",
+   "kind": "pypi",
+   "spec": {
+    "name": "pytest"
+   },
+   "retrieved_utc": "2026-10-14T08:47:28Z",
+   "package": "pytest",
+   "current": {
+    "version": "9.1.1",
+    "date": "2026-06-19"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pytest/",
+   "requires_python": ">=3.10",
+   "summary": "pytest: simple powerful testing with Python",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "tox",
+   "kind": "pypi",
+   "spec": {
+    "name": "tox"
+   },
+   "retrieved_utc": "2026-10-14T08:47:28Z",
+   "package": "tox",
+   "current": {
+    "version": "4.65.5",
+    "date": "2026-10-14"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/tox/",
+   "requires_python": ">=3.11",
+   "summary": "tox is a generic virtualenv management and test command line tool",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "black",
+   "kind": "pypi",
+   "spec": {
+    "name": "black"
+   },
+   "retrieved_utc": "2026-10-14T08:47:28Z",
+   "package": "black",
+   "current": {
+    "version": "26.10.1",
+    "date": "2026-10-10"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/black/",
+   "requires_python": ">=3.10",
+   "summary": "The uncompromising code formatter.",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "flake8",
+   "kind": "pypi",
+   "spec": {
+    "name": "flake8"
+   },
+   "retrieved_utc": "2026-10-14T08:47:28Z",
+   "package": "flake8",
+   "current": {
+    "version": "7.4.1",
+    "date": "2026-09-23"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/flake8/",
+   "requires_python": ">=3.10",
+   "summary": "the modular source code checker: pep8 pyflakes and co",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pylint",
+   "kind": "pypi",
+   "spec": {
+    "name": "pylint"
+   },
+   "retrieved_utc": "2026-10-14T08:47:29Z",
+   "package": "pylint",
+   "current": {
+    "version": "4.1.3",
+    "date": "2026-10-11"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pylint/",
+   "requires_python": ">=3.10.0",
+   "summary": "python code static checker",
+   "license": "GPL-2.0-or-later",
+   "status": "OK"
+  },
+  {
+   "tech_id": "ruff",
+   "kind": "pypi",
+   "spec": {
+    "name": "ruff"
+   },
+   "retrieved_utc": "2026-10-14T08:47:29Z",
+   "package": "ruff",
+   "current": {
+    "version": "0.17.0",
+    "date": "2026-10-09"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/ruff/",
+   "requires_python": ">=3.7",
+   "summary": "An extremely fast Python linter and code formatter, written in Rust.",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "mypy",
+   "kind": "pypi",
+   "spec": {
+    "name": "mypy"
+   },
+   "retrieved_utc": "2026-10-14T08:47:30Z",
+   "package": "mypy",
+   "current": {
+    "version": "2.4.0",
+    "date": "2026-10-01"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/mypy/",
+   "requires_python": ">=3.10",
+   "summary": "Optional static typing for Python",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pyright",
+   "kind": "pypi",
+   "spec": {
+    "name": "pyright"
+   },
+   "retrieved_utc": "2026-10-14T08:47:30Z",
+   "package": "pyright",
+   "current": {
+    "version": "1.1.414",
+    "date": "2026-09-10"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pyright/",
+   "requires_python": ">=3.7",
+   "summary": "Command line wrapper for pyright",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "fastapi",
+   "kind": "pypi",
+   "spec": {
+    "name": "fastapi"
+   },
+   "retrieved_utc": "2026-10-14T08:47:31Z",
+   "package": "fastapi",
+   "current": {
+    "version": "0.143.0",
+    "date": "2026-10-08"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/fastapi/",
+   "requires_python": ">=3.10",
+   "summary": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "flask",
+   "kind": "pypi",
+   "spec": {
+    "name": "flask"
+   },
+   "retrieved_utc": "2026-10-14T08:47:31Z",
+   "package": "flask",
+   "current": {
+    "version": "3.1.3",
+    "date": "2026-02-19"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/flask/",
+   "requires_python": ">=3.9",
+   "summary": "A simple framework for building complex web applications.",
+   "license": "BSD-3-Clause",
+   "status": "OK"
+  },
+  {
+   "tech_id": "django",
+   "kind": "pypi",
+   "spec": {
+    "name": "django"
+   },
+   "retrieved_utc": "2026-10-14T08:47:31Z",
+   "package": "django",
+   "current": {
+    "version": "6.1.2",
+    "date": "2026-10-06"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/django/",
+   "requires_python": ">=3.12",
+   "summary": "A high-level Python web framework that encourages rapid development and clean, pragmatic design.",
+   "license": "BSD-3-Clause",
+   "status": "OK"
+  },
+  {
+   "tech_id": "django",
+   "kind": "endoflife",
+   "spec": {
+    "product": "django"
+   },
+   "retrieved_utc": "2026-10-14T08:47:31Z",
+   "product": "django",
+   "current": {
+    "version": "6.1.2",
+    "date": "2026-10-06"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "6.1",
+     "latest": "6.1.2",
+     "latest_release_date": "2026-10-06",
+     "release_date": "2026-08-05",
+     "eol": "2027-12-31",
+     "lts": false,
+     "support": "2027-04-30"
+    },
+    {
+     "cycle": "6.0",
+     "latest": "6.0.9",
+     "latest_release_date": "2026-10-06",
+     "release_date": "2025-12-03",
+     "eol": "2027-04-30",
+     "lts": false,
+     "support": "2026-08-04"
+    },
+    {
+     "cycle": "5.2",
+     "latest": "5.2.18",
+     "latest_release_date": "2026-10-06",
+     "release_date": "2025-04-02",
+     "eol": "2028-04-30",
+     "lts": true,
+     "support": "2025-12-03"
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "5.1",
+     "latest": "5.1.15",
+     "latest_release_date": "2025-12-02",
+     "release_date": "2024-08-07",
+     "eol": "2025-12-03",
+     "lts": false,
+     "support": "2025-04-02"
+    },
+    {
+     "cycle": "5.0",
+     "latest": "5.0.14",
+     "latest_release_date": "2025-04-02",
+     "release_date": "2023-12-04",
+     "eol": "2025-04-02",
+     "lts": false,
+     "support": "2024-08-07"
+    },
+    {
+     "cycle": "4.2",
+     "latest": "4.2.30",
+     "latest_release_date": "2026-04-07",
+     "release_date": "2023-04-03",
+     "eol": "2026-04-07",
+     "lts": true,
+     "support": "2023-12-04"
+    },
+    {
+     "cycle": "4.1",
+     "latest": "4.1.13",
+     "latest_release_date": "2023-11-01",
+     "release_date": "2022-08-03",
+     "eol": "2023-12-01",
+     "lts": false,
+     "support": "2023-04-05"
+    }
+   ],
+   "url": "https://endoflife.date/django",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pydantic",
+   "kind": "pypi",
+   "spec": {
+    "name": "pydantic"
+   },
+   "retrieved_utc": "2026-10-14T08:47:32Z",
+   "package": "pydantic",
+   "current": {
+    "version": "2.14.1",
+    "date": "2026-10-11"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pydantic/",
+   "requires_python": ">=3.10",
+   "summary": "Data validation using Python type hints",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "sqlalchemy",
+   "kind": "pypi",
+   "spec": {
+    "name": "sqlalchemy"
+   },
+   "retrieved_utc": "2026-10-14T08:47:32Z",
+   "package": "sqlalchemy",
+   "current": {
+    "version": "2.1.4",
+    "date": "2026-10-07"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/sqlalchemy/",
+   "requires_python": ">=3.11",
+   "summary": "Database Abstraction Library",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "requests",
+   "kind": "pypi",
+   "spec": {
+    "name": "requests"
+   },
+   "retrieved_utc": "2026-10-14T08:47:32Z",
+   "package": "requests",
+   "current": {
+    "version": "2.34.2",
+    "date": "2026-05-14"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/requests/",
+   "requires_python": ">=3.10",
+   "summary": "Python HTTP for Humans.",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "httpx",
+   "kind": "pypi",
+   "spec": {
+    "name": "httpx"
+   },
+   "retrieved_utc": "2026-10-14T08:47:33Z",
+   "package": "httpx",
+   "current": {
+    "version": "0.28.1",
+    "date": "2024-12-06"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/httpx/",
+   "requires_python": ">=3.8",
+   "summary": "The next generation HTTP client.",
+   "license": "BSD-3-Clause",
+   "newer_prerelease": {
+    "version": "1.0.dev6",
+    "date": "2026-08-31"
+   },
+   "status": "OK"
+  },
+  {
+   "tech_id": "aiohttp",
+   "kind": "pypi",
+   "spec": {
+    "name": "aiohttp"
+   },
+   "retrieved_utc": "2026-10-14T08:47:33Z",
+   "package": "aiohttp",
+   "current": {
+    "version": "3.14.5",
+    "date": "2026-10-11"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/aiohttp/",
+   "requires_python": ">=3.10",
+   "summary": "Async http client/server framework (asyncio)",
+   "license": "Apache-2.0 AND MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pandas",
+   "kind": "pypi",
+   "spec": {
+    "name": "pandas"
+   },
+   "retrieved_utc": "2026-10-14T08:47:34Z",
+   "package": "pandas",
+   "current": {
+    "version": "3.0.6",
+    "date": "2026-09-17"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pandas/",
+   "requires_python": ">=3.11",
+   "summary": "Powerful data structures for data analysis, time series, and statistics",
+   "license": "BSD 3-Clause License\n         \n         Copyright (c) 2008-2011, AQR Capital Man",
+   "newer_prerelease": {
+    "version": "3.1.0rc0",
+    "date": "2026-09-30"
+   },
+   "status": "OK"
+  },
+  {
+   "tech_id": "numpy",
+   "kind": "pypi",
+   "spec": {
+    "name": "numpy"
+   },
+   "retrieved_utc": "2026-10-14T08:47:34Z",
+   "package": "numpy",
+   "current": {
+    "version": "2.5.4",
+    "date": "2026-10-10"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/numpy/",
+   "requires_python": ">=3.12",
+   "summary": "Fundamental package for array computing in Python",
+   "license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "polars",
+   "kind": "pypi",
+   "spec": {
+    "name": "polars"
+   },
+   "retrieved_utc": "2026-10-14T08:47:35Z",
+   "package": "polars",
+   "current": {
+    "version": "2.0.0",
+    "date": "2026-10-06"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/polars/",
+   "requires_python": ">=3.10",
+   "summary": "Blazingly fast DataFrame library",
+   "license": "Copyright (c) 2025 Ritchie Vink\n        Copyright (c) 2024 (Some portions) NVIDI",
+   "status": "OK"
+  },
+  {
+   "tech_id": "duckdb",
+   "kind": "pypi",
+   "spec": {
+    "name": "duckdb"
+   },
+   "retrieved_utc": "2026-10-14T08:47:35Z",
+   "package": "duckdb",
+   "current": {
+    "version": "1.5.6",
+    "date": "2026-09-28"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/duckdb/",
+   "requires_python": ">=3.10.0",
+   "summary": "DuckDB in-process database",
+   "license": "",
+   "newer_prerelease": {
+    "version": "2.0.0.dev2610011535",
+    "date": "2026-10-02"
+   },
+   "status": "OK"
+  },
+  {
+   "tech_id": "celery",
+   "kind": "pypi",
+   "spec": {
+    "name": "celery"
+   },
+   "retrieved_utc": "2026-10-14T08:47:36Z",
+   "package": "celery",
+   "current": {
+    "version": "5.6.3",
+    "date": "2026-03-26"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/celery/",
+   "requires_python": ">=3.9",
+   "summary": "Distributed Task Queue.",
+   "license": "BSD-3-Clause",
+   "newer_prerelease": {
+    "version": "5.7.0b1",
+    "date": "2026-10-06"
+   },
+   "status": "OK"
+  },
+  {
+   "tech_id": "airflow",
+   "kind": "pypi",
+   "spec": {
+    "name": "apache-airflow"
+   },
+   "retrieved_utc": "2026-10-14T08:47:36Z",
+   "package": "apache-airflow",
+   "current": {
+    "version": "3.3.2",
+    "date": "2026-09-17"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/apache-airflow/",
+   "requires_python": "!=3.15,>=3.10",
+   "summary": "Programmatically author, schedule and monitor data pipelines",
+   "license": "Apache-2.0",
+   "newer_prerelease": {
+    "version": "3.4.0b1",
+    "date": "2026-10-13"
+   },
+   "status": "OK"
+  },
+  {
+   "tech_id": "airflow",
+   "kind": "endoflife",
+   "spec": {
+    "product": "apache-airflow"
+   },
+   "retrieved_utc": "2026-10-14T08:47:36Z",
+   "product": "apache-airflow",
+   "current": {
+    "version": "3.3.2",
+    "date": "2026-09-17"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "3.3",
+     "latest": "3.3.2",
+     "latest_release_date": "2026-09-17",
+     "release_date": "2026-07-06",
+     "eol": false,
+     "lts": false,
+     "support": true
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "3.2",
+     "latest": "3.2.2",
+     "latest_release_date": "2026-05-29",
+     "release_date": "2026-04-07",
+     "eol": "2026-07-06",
+     "lts": false,
+     "support": "2026-07-06"
+    },
+    {
+     "cycle": "3.1",
+     "latest": "3.1.8",
+     "latest_release_date": "2026-03-11",
+     "release_date": "2025-09-25",
+     "eol": "2026-04-07",
+     "lts": false,
+     "support": "2026-04-07"
+    },
+    {
+     "cycle": "3.0",
+     "latest": "3.0.6",
+     "latest_release_date": "2025-08-29",
+     "release_date": "2025-04-22",
+     "eol": "2025-09-25",
+     "lts": false,
+     "support": "2025-09-25"
+    },
+    {
+     "cycle": "2",
+     "latest": "2.11.2",
+     "latest_release_date": "2026-03-14",
+     "release_date": "2020-12-17",
+     "eol": "2026-04-22",
+     "lts": false,
+     "support": "2025-10-22"
+    }
+   ],
+   "url": "https://endoflife.date/apache-airflow",
+   "status": "OK"
+  },
+  {
+   "tech_id": "prefect",
+   "kind": "pypi",
+   "spec": {
+    "name": "prefect"
+   },
+   "retrieved_utc": "2026-10-14T08:47:37Z",
+   "package": "prefect",
+   "current": {
+    "version": "3.8.8",
+    "date": "2026-10-06"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/prefect/",
+   "requires_python": "<3.15,>=3.10",
+   "summary": "Workflow orchestration and management.",
+   "license": "Apache-2.0",
+   "newer_prerelease": {
+    "version": "3.8.9.dev3",
+    "date": "2026-10-13"
+   },
+   "status": "OK"
+  },
+  {
+   "tech_id": "dagster",
+   "kind": "pypi",
+   "spec": {
+    "name": "dagster"
+   },
+   "retrieved_utc": "2026-10-14T08:47:37Z",
+   "package": "dagster",
+   "current": {
+    "version": "1.13.26",
+    "date": "2026-10-09"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/dagster/",
+   "requires_python": "<3.15,>=3.10",
+   "summary": "Dagster is an orchestration platform for the development, production, and observation of data assets.",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pyinstaller",
+   "kind": "pypi",
+   "spec": {
+    "name": "pyinstaller"
+   },
+   "retrieved_utc": "2026-10-14T08:47:37Z",
+   "package": "pyinstaller",
+   "current": {
+    "version": "6.22.3",
+    "date": "2026-09-12"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pyinstaller/",
+   "requires_python": "<3.16,>=3.8",
+   "summary": "PyInstaller bundles a Python application and all its dependencies into a single package.",
+   "license": "GPLv2-or-later with a special exception which allows to use PyInstaller to build",
+   "status": "OK"
+  },
+  {
+   "tech_id": "docker",
+   "kind": "endoflife",
+   "spec": {
+    "product": "docker-engine"
+   },
+   "retrieved_utc": "2026-10-14T08:47:38Z",
+   "product": "docker-engine",
+   "current": {
+    "version": "29.9.0",
+    "date": "2026-10-08"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "29",
+     "latest": "29.9.0",
+     "latest_release_date": "2026-10-08",
+     "release_date": "2025-11-10",
+     "eol": false,
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "25.0",
+     "latest": "25.0.18",
+     "latest_release_date": "2026-09-30",
+     "release_date": "2024-01-19",
+     "eol": "2026-12-04",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "28",
+     "latest": "28.5.2",
+     "latest_release_date": "2025-11-05",
+     "release_date": "2025-02-20",
+     "eol": "2026-05-13",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "27",
+     "latest": "27.5.1",
+     "latest_release_date": "2025-01-22",
+     "release_date": "2024-06-25",
+     "eol": "2025-05-03",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "26.1",
+     "latest": "26.1.5",
+     "latest_release_date": "2024-07-23",
+     "release_date": "2024-04-22",
+     "eol": "2025-02-17",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "26.0",
+     "latest": "26.0.2",
+     "latest_release_date": "2024-04-18",
+     "release_date": "2024-03-20",
+     "eol": "2024-06-08",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "url": "https://endoflife.date/docker-engine",
+   "status": "OK"
+  },
+  {
+   "tech_id": "kubernetes",
+   "kind": "endoflife",
+   "spec": {
+    "product": "kubernetes"
+   },
+   "retrieved_utc": "2026-10-14T08:47:38Z",
+   "product": "kubernetes",
+   "current": {
+    "version": "1.37.1",
+    "date": "2026-09-23"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "1.37",
+     "latest": "1.37.1",
+     "latest_release_date": "2026-09-23",
+     "release_date": "2026-08-26",
+     "eol": "2027-10-28",
+     "lts": false,
+     "support": "2027-08-28"
+    },
+    {
+     "cycle": "1.36",
+     "latest": "1.36.5",
+     "latest_release_date": "2026-09-23",
+     "release_date": "2026-04-22",
+     "eol": "2027-06-28",
+     "lts": false,
+     "support": "2027-04-28"
+    },
+    {
+     "cycle": "1.35",
+     "latest": "1.35.9",
+     "latest_release_date": "2026-09-23",
+     "release_date": "2025-12-17",
+     "eol": "2027-02-28",
+     "lts": false,
+     "support": "2026-12-28"
+    },
+    {
+     "cycle": "1.34",
+     "latest": "1.34.12",
+     "latest_release_date": "2026-09-23",
+     "release_date": "2025-08-27",
+     "eol": "2026-10-27",
+     "lts": false,
+     "support": "2026-08-27"
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "1.33",
+     "latest": "1.33.13",
+     "latest_release_date": "2026-06-11",
+     "release_date": "2025-04-23",
+     "eol": "2026-06-28",
+     "lts": false,
+     "support": "2026-04-28"
+    },
+    {
+     "cycle": "1.32",
+     "latest": "1.32.13",
+     "latest_release_date": "2026-02-26",
+     "release_date": "2024-12-11",
+     "eol": "2026-02-28",
+     "lts": false,
+     "support": "2025-12-28"
+    },
+    {
+     "cycle": "1.31",
+     "latest": "1.31.14",
+     "latest_release_date": "2025-11-11",
+     "release_date": "2024-08-13",
+     "eol": "2025-11-11",
+     "lts": false,
+     "support": "2025-08-28"
+    },
+    {
+     "cycle": "1.30",
+     "latest": "1.30.14",
+     "latest_release_date": "2025-06-17",
+     "release_date": "2024-04-17",
+     "eol": "2025-07-15",
+     "lts": false,
+     "support": "2025-04-28"
+    }
+   ],
+   "url": "https://endoflife.date/kubernetes",
+   "status": "OK"
+  },
+  {
+   "tech_id": "terraform",
+   "kind": "endoflife",
+   "spec": {
+    "product": "terraform"
+   },
+   "retrieved_utc": "2026-10-14T08:47:38Z",
+   "product": "terraform",
+   "current": {
+    "version": "1.16.5",
+    "date": "2026-09-30"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "1.16",
+     "latest": "1.16.5",
+     "latest_release_date": "2026-09-30",
+     "release_date": "2026-08-26",
+     "eol": false,
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "1.15",
+     "latest": "1.15.9",
+     "latest_release_date": "2026-08-19",
+     "release_date": "2026-04-29",
+     "eol": false,
+     "lts": false,
+     "support": null
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "1.14",
+     "latest": "1.14.9",
+     "latest_release_date": "2026-04-20",
+     "release_date": "2025-11-19",
+     "eol": "2026-08-26",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "1.13",
+     "latest": "1.13.5",
+     "latest_release_date": "2025-11-05",
+     "release_date": "2025-08-20",
+     "eol": "2026-04-29",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "1.12",
+     "latest": "1.12.2",
+     "latest_release_date": "2025-06-11",
+     "release_date": "2025-05-14",
+     "eol": "2025-11-19",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "1.11",
+     "latest": "1.11.4",
+     "latest_release_date": "2025-04-09",
+     "release_date": "2025-02-27",
+     "eol": "2025-08-20",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "url": "https://endoflife.date/terraform",
+   "status": "OK"
+  },
+  {
+   "tech_id": "terraform",
+   "kind": "github",
+   "spec": {
+    "repo": "hashicorp/terraform"
+   },
+   "retrieved_utc": "2026-10-14T08:47:39Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "ansible",
+   "kind": "endoflife",
+   "spec": {
+    "product": "ansible"
+   },
+   "retrieved_utc": "2026-10-14T08:47:39Z",
+   "product": "ansible",
+   "current": {
+    "version": "14.5.0",
+    "date": "2026-10-06"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "14",
+     "latest": "14.5.0",
+     "latest_release_date": "2026-10-06",
+     "release_date": "2026-06-02",
+     "eol": false,
+     "lts": false,
+     "support": null
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "13",
+     "latest": "13.8.0",
+     "latest_release_date": "2026-06-18",
+     "release_date": "2025-11-19",
+     "eol": "2026-06-18",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "12",
+     "latest": "12.3.0",
+     "latest_release_date": "2025-12-09",
+     "release_date": "2025-09-09",
+     "eol": "2025-12-09",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "11",
+     "latest": "11.13.0",
+     "latest_release_date": "2025-12-09",
+     "release_date": "2024-11-19",
+     "eol": "2025-12-09",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "10",
+     "latest": "10.7.0",
+     "latest_release_date": "2024-12-03",
+     "release_date": "2024-06-04",
+     "eol": "2024-12-03",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "url": "https://endoflife.date/ansible",
+   "status": "OK"
+  },
+  {
+   "tech_id": "ansible",
+   "kind": "pypi",
+   "spec": {
+    "name": "ansible-core"
+   },
+   "retrieved_utc": "2026-10-14T08:47:39Z",
+   "package": "ansible-core",
+   "current": {
+    "version": "2.21.5",
+    "date": "2026-10-05"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/ansible-core/",
+   "requires_python": ">=3.12",
+   "summary": "Radically simple IT automation",
+   "license": "GPL-3.0-or-later",
+   "newer_prerelease": {
+    "version": "2.22.0rc1",
+    "date": "2026-10-13"
+   },
+   "status": "OK"
+  },
+  {
+   "tech_id": "jenkins",
+   "kind": "endoflife",
+   "spec": {
+    "product": "jenkins"
+   },
+   "retrieved_utc": "2026-10-14T08:47:39Z",
+   "product": "jenkins",
+   "current": {
+    "version": "2.585",
+    "date": "2026-10-06"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "2",
+     "latest": "2.585",
+     "latest_release_date": "2026-10-06",
+     "release_date": "2016-04-20",
+     "eol": false,
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "2.568",
+     "latest": "2.568.3",
+     "latest_release_date": "2026-08-31",
+     "release_date": "2026-06-10",
+     "eol": false,
+     "lts": "2026-07-09",
+     "support": null
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "2.555",
+     "latest": "2.555.3",
+     "latest_release_date": "2026-06-08",
+     "release_date": "2026-03-18",
+     "eol": "2026-06-10",
+     "lts": "2026-04-15",
+     "support": null
+    },
+    {
+     "cycle": "2.541",
+     "latest": "2.541.3",
+     "latest_release_date": "2026-03-16",
+     "release_date": "2025-12-10",
+     "eol": "2026-04-15",
+     "lts": "2026-01-21",
+     "support": null
+    },
+    {
+     "cycle": "2.528",
+     "latest": "2.528.3",
+     "latest_release_date": "2025-12-08",
+     "release_date": "2025-09-17",
+     "eol": "2026-01-21",
+     "lts": "2025-10-15",
+     "support": null
+    },
+    {
+     "cycle": "2.516",
+     "latest": "2.516.3",
+     "latest_release_date": "2025-09-15",
+     "release_date": "2025-06-24",
+     "eol": "2025-10-15",
+     "lts": "2025-07-23",
+     "support": null
+    }
+   ],
+   "url": "https://endoflife.date/jenkins",
+   "status": "OK"
+  },
+  {
+   "tech_id": "cypress",
+   "kind": "npm",
+   "spec": {
+    "name": "cypress"
+   },
+   "retrieved_utc": "2026-10-14T08:48:42Z",
+   "package": "cypress",
+   "current": {
+    "version": "16.1.1",
+    "date": "2026-09-29"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "16.1.1",
+   "url": "https://www.npmjs.com/package/cypress",
+   "engines": {
+    "node": "^22.0.0 || ^24.0.0 || >=26.0.0"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "puppeteer",
+   "kind": "npm",
+   "spec": {
+    "name": "puppeteer"
+   },
+   "retrieved_utc": "2026-10-14T08:48:42Z",
+   "package": "puppeteer",
+   "current": {
+    "version": "25.13.0",
+    "date": "2026-10-08"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "25.13.0",
+   "url": "https://www.npmjs.com/package/puppeteer",
+   "engines": {
+    "node": ">=22.12.0"
+   },
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "beautifulsoup",
+   "kind": "pypi",
+   "spec": {
+    "name": "beautifulsoup4"
+   },
+   "retrieved_utc": "2026-10-14T08:48:42Z",
+   "package": "beautifulsoup4",
+   "current": {
+    "version": "4.15.0",
+    "date": "2026-06-07"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/beautifulsoup4/",
+   "requires_python": ">=3.7.0",
+   "summary": "Screen-scraping library",
+   "license": "MIT License",
+   "status": "OK"
+  },
+  {
+   "tech_id": "scrapy",
+   "kind": "pypi",
+   "spec": {
+    "name": "scrapy"
+   },
+   "retrieved_utc": "2026-10-14T08:48:42Z",
+   "package": "scrapy",
+   "current": {
+    "version": "2.19.0",
+    "date": "2026-09-10"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/scrapy/",
+   "requires_python": ">=3.10",
+   "summary": "A high-level Web Crawling and Web Scraping framework",
+   "license": "BSD-3-Clause",
+   "status": "OK"
+  },
+  {
+   "tech_id": "paramiko",
+   "kind": "pypi",
+   "spec": {
+    "name": "paramiko"
+   },
+   "retrieved_utc": "2026-10-14T08:48:42Z",
+   "package": "paramiko",
+   "current": {
+    "version": "5.0.0",
+    "date": "2026-05-09"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/paramiko/",
+   "requires_python": ">=3.9",
+   "summary": "SSH2 protocol library",
+   "license": "LGPL-2.1",
+   "status": "OK"
+  },
+  {
+   "tech_id": "java",
+   "kind": "endoflife",
+   "spec": {
+    "product": "eclipse-temurin"
+   },
+   "retrieved_utc": "2026-10-14T08:48:43Z",
+   "product": "eclipse-temurin",
+   "current": {
+    "version": "27+35",
+    "date": "2026-09-21"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "27",
+     "latest": "27+35",
+     "latest_release_date": "2026-09-21",
+     "release_date": "2026-09-22",
+     "eol": "2027-03-23",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "25",
+     "latest": "25.0.4.1+1",
+     "latest_release_date": "2026-08-19",
+     "release_date": "2025-09-22",
+     "eol": "2031-09-30",
+     "lts": true,
+     "support": null
+    },
+    {
+     "cycle": "21",
+     "latest": "21.0.12.1+1",
+     "latest_release_date": "2026-08-19",
+     "release_date": "2023-10-10",
+     "eol": "2029-12-31",
+     "lts": true,
+     "support": null
+    },
+    {
+     "cycle": "17",
+     "latest": "17.0.20.1+1",
+     "latest_release_date": "2026-08-19",
+     "release_date": "2021-09-22",
+     "eol": "2027-10-31",
+     "lts": true,
+     "support": null
+    },
+    {
+     "cycle": "11",
+     "latest": "11.0.32.1+1",
+     "latest_release_date": "2026-08-24",
+     "release_date": "2021-08-01",
+     "eol": "2027-10-31",
+     "lts": true,
+     "support": null
+    },
+    {
+     "cycle": "8",
+     "latest": "8u504-b01",
+     "latest_release_date": "2026-08-25",
+     "release_date": "2021-07-29",
+     "eol": "2030-12-31",
+     "lts": true,
+     "support": null
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "26",
+     "latest": "26.0.2.1+1",
+     "latest_release_date": "2026-08-25",
+     "release_date": "2026-03-23",
+     "eol": "2026-09-22",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "24",
+     "latest": "24.0.2+12",
+     "latest_release_date": "2025-07-17",
+     "release_date": "2025-03-20",
+     "eol": "2025-09-22",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "23",
+     "latest": "23.0.2+7",
+     "latest_release_date": "2025-01-23",
+     "release_date": "2024-09-17",
+     "eol": "2025-03-18",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "22",
+     "latest": "22.0.2+9",
+     "latest_release_date": "2024-07-17",
+     "release_date": "2024-03-20",
+     "eol": "2024-09-17",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "url": "https://endoflife.date/eclipse-temurin",
+   "status": "OK"
+  },
+  {
+   "tech_id": "java",
+   "kind": "endoflife",
+   "spec": {
+    "product": "oracle-jdk"
+   },
+   "retrieved_utc": "2026-10-14T08:48:43Z",
+   "product": "oracle-jdk",
+   "current": {
+    "version": "27",
+    "date": "2026-09-15"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "27",
+     "latest": "27",
+     "latest_release_date": "2026-09-15",
+     "release_date": "2026-09-15",
+     "eol": "2027-03-31",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "25",
+     "latest": "25.0.4.1",
+     "latest_release_date": "2026-08-18",
+     "release_date": "2025-09-16",
+     "eol": "2030-09-30",
+     "lts": true,
+     "support": null
+    },
+    {
+     "cycle": "21",
+     "latest": "21.0.12.1",
+     "latest_release_date": "2026-08-18",
+     "release_date": "2023-09-19",
+     "eol": "2028-09-30",
+     "lts": true,
+     "support": null
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "26",
+     "latest": "26.0.2.1",
+     "latest_release_date": "2026-08-18",
+     "release_date": "2026-03-17",
+     "eol": "2026-09-18",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "24",
+     "latest": "24.0.2",
+     "latest_release_date": "2025-07-15",
+     "release_date": "2025-03-18",
+     "eol": "2025-09-16",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "23",
+     "latest": "23.0.2",
+     "latest_release_date": "2025-01-21",
+     "release_date": "2024-09-17",
+     "eol": "2025-03-18",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "22",
+     "latest": "22.0.2",
+     "latest_release_date": "2024-07-16",
+     "release_date": "2024-03-19",
+     "eol": "2024-09-17",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "url": "https://endoflife.date/oracle-jdk",
+   "status": "OK"
+  },
+  {
+   "tech_id": "jdk",
+   "kind": "endoflife",
+   "spec": {
+    "product": "eclipse-temurin"
+   },
+   "retrieved_utc": "2026-10-14T08:48:44Z",
+   "product": "eclipse-temurin",
+   "current": {
+    "version": "27+35",
+    "date": "2026-09-21"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "27",
+     "latest": "27+35",
+     "latest_release_date": "2026-09-21",
+     "release_date": "2026-09-22",
+     "eol": "2027-03-23",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "25",
+     "latest": "25.0.4.1+1",
+     "latest_release_date": "2026-08-19",
+     "release_date": "2025-09-22",
+     "eol": "2031-09-30",
+     "lts": true,
+     "support": null
+    },
+    {
+     "cycle": "21",
+     "latest": "21.0.12.1+1",
+     "latest_release_date": "2026-08-19",
+     "release_date": "2023-10-10",
+     "eol": "2029-12-31",
+     "lts": true,
+     "support": null
+    },
+    {
+     "cycle": "17",
+     "latest": "17.0.20.1+1",
+     "latest_release_date": "2026-08-19",
+     "release_date": "2021-09-22",
+     "eol": "2027-10-31",
+     "lts": true,
+     "support": null
+    },
+    {
+     "cycle": "11",
+     "latest": "11.0.32.1+1",
+     "latest_release_date": "2026-08-24",
+     "release_date": "2021-08-01",
+     "eol": "2027-10-31",
+     "lts": true,
+     "support": null
+    },
+    {
+     "cycle": "8",
+     "latest": "8u504-b01",
+     "latest_release_date": "2026-08-25",
+     "release_date": "2021-07-29",
+     "eol": "2030-12-31",
+     "lts": true,
+     "support": null
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "26",
+     "latest": "26.0.2.1+1",
+     "latest_release_date": "2026-08-25",
+     "release_date": "2026-03-23",
+     "eol": "2026-09-22",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "24",
+     "latest": "24.0.2+12",
+     "latest_release_date": "2025-07-17",
+     "release_date": "2025-03-20",
+     "eol": "2025-09-22",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "23",
+     "latest": "23.0.2+7",
+     "latest_release_date": "2025-01-23",
+     "release_date": "2024-09-17",
+     "eol": "2025-03-18",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "22",
+     "latest": "22.0.2+9",
+     "latest_release_date": "2024-07-17",
+     "release_date": "2024-03-20",
+     "eol": "2024-09-17",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "url": "https://endoflife.date/eclipse-temurin",
+   "status": "OK"
+  },
+  {
+   "tech_id": "gradle",
+   "kind": "endoflife",
+   "spec": {
+    "product": "gradle"
+   },
+   "retrieved_utc": "2026-10-14T08:49:27Z",
+   "product": "gradle",
+   "current": {
+    "version": "9.8.1",
+    "date": "2026-10-07"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "9",
+     "latest": "9.8.1",
+     "latest_release_date": "2026-10-07",
+     "release_date": "2025-07-31",
+     "eol": false,
+     "lts": false,
+     "support": true
+    },
+    {
+     "cycle": "8",
+     "latest": "8.14.6",
+     "latest_release_date": "2026-10-08",
+     "release_date": "2023-02-10",
+     "eol": false,
+     "lts": false,
+     "support": "2025-07-31"
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "7",
+     "latest": "7.6.6",
+     "latest_release_date": "2025-07-03",
+     "release_date": "2021-04-09",
+     "eol": "2025-07-31",
+     "lts": false,
+     "support": "2023-02-10"
+    },
+    {
+     "cycle": "6",
+     "latest": "6.9.4",
+     "latest_release_date": "2023-02-21",
+     "release_date": "2019-11-08",
+     "eol": "2023-02-10",
+     "lts": false,
+     "support": "2021-04-09"
+    },
+    {
+     "cycle": "5",
+     "latest": "5.6.4",
+     "latest_release_date": "2019-10-31",
+     "release_date": "2018-11-23",
+     "eol": "2019-11-08",
+     "lts": false,
+     "support": "2019-11-08"
+    },
+    {
+     "cycle": "4",
+     "latest": "4.10.3",
+     "latest_release_date": "2018-12-04",
+     "release_date": "2017-06-14",
+     "eol": "2018-11-26",
+     "lts": false,
+     "support": "2018-11-26"
+    }
+   ],
+   "url": "https://endoflife.date/gradle",
+   "status": "OK"
+  },
+  {
+   "tech_id": "openai",
+   "kind": "pypi",
+   "spec": {
+    "name": "openai"
+   },
+   "retrieved_utc": "2026-10-14T08:51:33Z",
+   "package": "openai",
+   "current": {
+    "version": "3.31.0",
+    "date": "2026-10-14"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/openai/",
+   "requires_python": ">=3.10",
+   "summary": "The official Python library for the openai API",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "claude",
+   "kind": "pypi",
+   "spec": {
+    "name": "anthropic"
+   },
+   "retrieved_utc": "2026-10-14T08:51:33Z",
+   "package": "anthropic",
+   "current": {
+    "version": "1.13.0",
+    "date": "2026-10-09"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/anthropic/",
+   "requires_python": ">=3.10",
+   "summary": "The official Python library for the anthropic API",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "gemini",
+   "kind": "pypi",
+   "spec": {
+    "name": "google-genai"
+   },
+   "retrieved_utc": "2026-10-14T08:51:33Z",
+   "package": "google-genai",
+   "current": {
+    "version": "2.30.1",
+    "date": "2026-10-13"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/google-genai/",
+   "requires_python": ">=3.10",
+   "summary": "GenAI Python SDK",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "huggingface",
+   "kind": "pypi",
+   "spec": {
+    "name": "huggingface-hub"
+   },
+   "retrieved_utc": "2026-10-14T08:51:34Z",
+   "package": "huggingface-hub",
+   "current": {
+    "version": "2.2.0",
+    "date": "2026-10-08"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/huggingface-hub/",
+   "requires_python": ">=3.10.0",
+   "summary": "Client library to download and publish models, datasets and other repos on the huggingface.co hub",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "transformers",
+   "kind": "pypi",
+   "spec": {
+    "name": "transformers"
+   },
+   "retrieved_utc": "2026-10-14T08:51:34Z",
+   "package": "transformers",
+   "current": {
+    "version": "5.19.0",
+    "date": "2026-10-06"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/transformers/",
+   "requires_python": ">=3.10.0",
+   "summary": "Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and ",
+   "license": "Apache 2.0 License",
+   "status": "OK"
+  },
+  {
+   "tech_id": "langchain",
+   "kind": "pypi",
+   "spec": {
+    "name": "langchain"
+   },
+   "retrieved_utc": "2026-10-14T08:51:34Z",
+   "package": "langchain",
+   "current": {
+    "version": "1.4.5",
+    "date": "2026-10-12"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/langchain/",
+   "requires_python": "<4.0.0,>=3.10.0",
+   "summary": "Building applications with LLMs through composability",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "langgraph",
+   "kind": "pypi",
+   "spec": {
+    "name": "langgraph"
+   },
+   "retrieved_utc": "2026-10-14T08:51:34Z",
+   "package": "langgraph",
+   "current": {
+    "version": "1.2.15",
+    "date": "2026-10-12"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/langgraph/",
+   "requires_python": ">=3.10",
+   "summary": "Building stateful, multi-actor applications with LLMs",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "llamaindex",
+   "kind": "pypi",
+   "spec": {
+    "name": "llama-index"
+   },
+   "retrieved_utc": "2026-10-14T08:51:35Z",
+   "package": "llama-index",
+   "current": {
+    "version": "0.14.25",
+    "date": "2026-09-21"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/llama-index/",
+   "requires_python": "<4.0,>=3.10",
+   "summary": "Interface between LLMs and your data",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "crewai",
+   "kind": "pypi",
+   "spec": {
+    "name": "crewai"
+   },
+   "retrieved_utc": "2026-10-14T08:51:35Z",
+   "package": "crewai",
+   "current": {
+    "version": "1.15.28",
+    "date": "2026-10-14"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/crewai/",
+   "requires_python": "<3.14,>=3.10",
+   "summary": "Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together se",
+   "license": "",
+   "status": "OK"
+  },
+  {
+   "tech_id": "autogen",
+   "kind": "pypi",
+   "spec": {
+    "name": "autogen-agentchat"
+   },
+   "retrieved_utc": "2026-10-14T08:51:35Z",
+   "package": "autogen-agentchat",
+   "current": {
+    "version": "0.7.5",
+    "date": "2025-09-30"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/autogen-agentchat/",
+   "requires_python": ">=3.10",
+   "summary": "AutoGen agents and teams library",
+   "license": "MIT License\n        \n            Copyright (c) Microsoft Corporation.\n        \n ",
+   "status": "OK"
+  },
+  {
+   "tech_id": "faiss",
+   "kind": "pypi",
+   "spec": {
+    "name": "faiss-cpu"
+   },
+   "retrieved_utc": "2026-10-14T08:51:35Z",
+   "package": "faiss-cpu",
+   "current": {
+    "version": "1.15.1",
+    "date": "2026-09-16"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/faiss-cpu/",
+   "requires_python": ">=3.10",
+   "summary": "A library for efficient similarity search and clustering of dense vectors.",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "chroma",
+   "kind": "pypi",
+   "spec": {
+    "name": "chromadb"
+   },
+   "retrieved_utc": "2026-10-14T08:51:36Z",
+   "package": "chromadb",
+   "current": {
+    "version": "1.5.9",
+    "date": "2026-05-05"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/chromadb/",
+   "requires_python": ">=3.9",
+   "summary": "Chroma.",
+   "license": "",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pinecone",
+   "kind": "pypi",
+   "spec": {
+    "name": "pinecone"
+   },
+   "retrieved_utc": "2026-10-14T08:51:36Z",
+   "package": "pinecone",
+   "current": {
+    "version": "10.0.0",
+    "date": "2026-09-03"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pinecone/",
+   "requires_python": ">=3.10",
+   "summary": "Pinecone Python SDK",
+   "license": "Apache-2.0",
+   "newer_prerelease": {
+    "version": "10.1.0rc1",
+    "date": "2026-10-07"
+   },
+   "status": "OK"
+  },
+  {
+   "tech_id": "weaviate",
+   "kind": "pypi",
+   "spec": {
+    "name": "weaviate-client"
+   },
+   "retrieved_utc": "2026-10-14T08:51:36Z",
+   "package": "weaviate-client",
+   "current": {
+    "version": "4.23.1",
+    "date": "2026-09-07"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/weaviate-client/",
+   "requires_python": ">=3.10",
+   "summary": "A python native Weaviate client",
+   "license": "BSD 3-clause",
+   "status": "OK"
+  },
+  {
+   "tech_id": "qdrant",
+   "kind": "pypi",
+   "spec": {
+    "name": "qdrant-client"
+   },
+   "retrieved_utc": "2026-10-14T08:51:36Z",
+   "package": "qdrant-client",
+   "current": {
+    "version": "1.19.1",
+    "date": "2026-09-16"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/qdrant-client/",
+   "requires_python": ">=3.10",
+   "summary": "Client library for the Qdrant vector search engine",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "mcp",
+   "kind": "pypi",
+   "spec": {
+    "name": "mcp"
+   },
+   "retrieved_utc": "2026-10-14T08:51:36Z",
+   "package": "mcp",
+   "current": {
+    "version": "2.3.0",
+    "date": "2026-10-02"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/mcp/",
+   "requires_python": ">=3.10",
+   "summary": "Model Context Protocol SDK",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "mcp",
+   "kind": "npm",
+   "spec": {
+    "name": "@modelcontextprotocol/sdk"
+   },
+   "retrieved_utc": "2026-10-14T08:51:37Z",
+   "package": "@modelcontextprotocol/sdk",
+   "current": {
+    "version": "1.32.1",
+    "date": "2026-10-05"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "1.32.1",
+   "url": "https://www.npmjs.com/package/@modelcontextprotocol/sdk",
+   "engines": {
+    "node": ">=18"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "mcp",
+   "kind": "github",
+   "spec": {
+    "repo": "modelcontextprotocol/modelcontextprotocol"
+   },
+   "retrieved_utc": "2026-10-14T08:51:37Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "a2a",
+   "kind": "github",
+   "spec": {
+    "repo": "a2aproject/A2A"
+   },
+   "retrieved_utc": "2026-10-14T08:51:37Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "tensorflow",
+   "kind": "pypi",
+   "spec": {
+    "name": "tensorflow"
+   },
+   "retrieved_utc": "2026-10-14T08:51:37Z",
+   "package": "tensorflow",
+   "current": {
+    "version": "2.21.0",
+    "date": "2026-03-06"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/tensorflow/",
+   "requires_python": ">=3.10",
+   "summary": "TensorFlow is an open source machine learning framework for everyone.",
+   "license": "Apache 2.0",
+   "newer_prerelease": {
+    "version": "2.22.0rc0",
+    "date": "2026-09-22"
+   },
+   "status": "OK"
+  },
+  {
+   "tech_id": "pytorch",
+   "kind": "pypi",
+   "spec": {
+    "name": "torch"
+   },
+   "retrieved_utc": "2026-10-14T08:51:37Z",
+   "package": "torch",
+   "current": {
+    "version": "2.14.1",
+    "date": "2026-09-30"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/torch/",
+   "requires_python": ">=3.10",
+   "summary": "Tensors and Dynamic neural networks in Python with strong GPU acceleration",
+   "license": "Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause ",
+   "status": "OK"
+  },
+  {
+   "tech_id": "keras",
+   "kind": "pypi",
+   "spec": {
+    "name": "keras"
+   },
+   "retrieved_utc": "2026-10-14T08:51:37Z",
+   "package": "keras",
+   "current": {
+    "version": "3.15.1",
+    "date": "2026-07-29"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/keras/",
+   "requires_python": ">=3.11",
+   "summary": "Multi-backend Keras",
+   "license": "Apache License 2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "sklearn",
+   "kind": "pypi",
+   "spec": {
+    "name": "scikit-learn"
+   },
+   "retrieved_utc": "2026-10-14T08:51:38Z",
+   "package": "scikit-learn",
+   "current": {
+    "version": "1.9.1",
+    "date": "2026-09-10"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/scikit-learn/",
+   "requires_python": ">=3.11",
+   "summary": "A set of python modules for machine learning and data mining",
+   "license": "BSD-3-Clause",
+   "status": "OK"
+  },
+  {
+   "tech_id": "xgboost",
+   "kind": "pypi",
+   "spec": {
+    "name": "xgboost"
+   },
+   "retrieved_utc": "2026-10-14T08:51:38Z",
+   "package": "xgboost",
+   "current": {
+    "version": "3.4.1",
+    "date": "2026-08-15"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/xgboost/",
+   "requires_python": ">=3.12",
+   "summary": "XGBoost Python Package",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "mlflow",
+   "kind": "pypi",
+   "spec": {
+    "name": "mlflow"
+   },
+   "retrieved_utc": "2026-10-14T08:51:38Z",
+   "package": "mlflow",
+   "current": {
+    "version": "3.17.1",
+    "date": "2026-10-13"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/mlflow/",
+   "requires_python": ">=3.10",
+   "summary": "MLflow is an open source platform for the complete machine learning lifecycle",
+   "license": "Copyright 2018 Databricks, Inc.  All rights reserved.\n        \n        \t\t\t\tApach",
+   "status": "OK"
+  },
+  {
+   "tech_id": "ollama",
+   "kind": "github",
+   "spec": {
+    "repo": "ollama/ollama"
+   },
+   "retrieved_utc": "2026-10-14T08:51:38Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "vllm",
+   "kind": "pypi",
+   "spec": {
+    "name": "vllm"
+   },
+   "retrieved_utc": "2026-10-14T08:51:38Z",
+   "package": "vllm",
+   "current": {
+    "version": "0.31.0",
+    "date": "2026-10-05"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/vllm/",
+   "requires_python": "<3.15,>=3.10",
+   "summary": "A high-throughput and memory-efficient inference and serving engine for LLMs",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "whisper",
+   "kind": "pypi",
+   "spec": {
+    "name": "openai-whisper"
+   },
+   "retrieved_utc": "2026-10-14T08:51:39Z",
+   "package": "openai-whisper",
+   "current": {
+    "version": "20250625",
+    "date": "2025-06-26"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/openai-whisper/",
+   "requires_python": ">=3.8",
+   "summary": "Robust Speech Recognition via Large-Scale Weak Supervision",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "bigquery",
+   "kind": "pypi",
+   "spec": {
+    "name": "google-cloud-bigquery"
+   },
+   "retrieved_utc": "2026-10-14T08:51:39Z",
+   "package": "google-cloud-bigquery",
+   "current": {
+    "version": "3.46.1",
+    "date": "2026-10-02"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/google-cloud-bigquery/",
+   "requires_python": ">=3.10",
+   "summary": "Google BigQuery API client library",
+   "license": "Apache 2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "gcs",
+   "kind": "pypi",
+   "spec": {
+    "name": "google-cloud-storage"
+   },
+   "retrieved_utc": "2026-10-14T08:51:39Z",
+   "package": "google-cloud-storage",
+   "current": {
+    "version": "3.17.0",
+    "date": "2026-10-08"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/google-cloud-storage/",
+   "requires_python": ">=3.10",
+   "summary": "Google Cloud Storage API client library",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pubsub",
+   "kind": "pypi",
+   "spec": {
+    "name": "google-cloud-pubsub"
+   },
+   "retrieved_utc": "2026-10-14T08:51:39Z",
+   "package": "google-cloud-pubsub",
+   "current": {
+    "version": "2.42.0",
+    "date": "2026-10-01"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/google-cloud-pubsub/",
+   "requires_python": ">=3.10",
+   "summary": "Google Cloud Pub/Sub API client library",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "beam",
+   "kind": "pypi",
+   "spec": {
+    "name": "apache-beam"
+   },
+   "retrieved_utc": "2026-10-14T08:51:40Z",
+   "package": "apache-beam",
+   "current": {
+    "version": "2.77.0",
+    "date": "2026-10-07"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/apache-beam/",
+   "requires_python": ">=3.10",
+   "summary": "Apache Beam SDK for Python",
+   "license": "Apache License, Version 2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "composer",
+   "kind": "pypi",
+   "spec": {
+    "name": "apache-airflow"
+   },
+   "retrieved_utc": "2026-10-14T08:51:40Z",
+   "package": "apache-airflow",
+   "current": {
+    "version": "3.3.2",
+    "date": "2026-09-17"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/apache-airflow/",
+   "requires_python": "!=3.15,>=3.10",
+   "summary": "Programmatically author, schedule and monitor data pipelines",
+   "license": "Apache-2.0",
+   "newer_prerelease": {
+    "version": "3.4.0b1",
+    "date": "2026-10-13"
+   },
+   "status": "OK"
+  },
+  {
+   "tech_id": "spark",
+   "kind": "pypi",
+   "spec": {
+    "name": "pyspark"
+   },
+   "retrieved_utc": "2026-10-14T08:51:40Z",
+   "package": "pyspark",
+   "current": {
+    "version": "4.2.0",
+    "date": "2026-07-14"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pyspark/",
+   "requires_python": ">=3.10",
+   "summary": "Apache Spark Python API",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "spark",
+   "kind": "endoflife",
+   "spec": {
+    "product": "apache-spark"
+   },
+   "retrieved_utc": "2026-10-14T08:51:40Z",
+   "product": "apache-spark",
+   "current": {
+    "version": "4.2.0",
+    "date": "2026-07-11"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "4.2",
+     "latest": "4.2.0",
+     "latest_release_date": "2026-07-11",
+     "release_date": "2026-07-14",
+     "eol": "2028-01-11",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "4.1",
+     "latest": "4.1.3",
+     "latest_release_date": "2026-07-11",
+     "release_date": "2025-12-11",
+     "eol": "2027-06-11",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "4.0",
+     "latest": "4.0.4",
+     "latest_release_date": "2026-07-12",
+     "release_date": "2025-05-19",
+     "eol": "2026-11-23",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.5",
+     "latest": "3.5.9",
+     "latest_release_date": "2026-07-12",
+     "release_date": "2023-09-09",
+     "eol": "2027-11-30",
+     "lts": true,
+     "support": null
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "3.4",
+     "latest": "3.4.4",
+     "latest_release_date": "2024-10-21",
+     "release_date": "2023-04-07",
+     "eol": "2024-10-21",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.3",
+     "latest": "3.3.4",
+     "latest_release_date": "2023-12-08",
+     "release_date": "2022-06-09",
+     "eol": "2023-12-09",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.2",
+     "latest": "3.2.4",
+     "latest_release_date": "2023-04-09",
+     "release_date": "2021-10-06",
+     "eol": "2023-04-09",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.1",
+     "latest": "3.1.3",
+     "latest_release_date": "2022-02-06",
+     "release_date": "2021-02-22",
+     "eol": "2022-08-22",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "url": "https://endoflife.date/apache-spark",
+   "status": "OK"
+  },
+  {
+   "tech_id": "kafka",
+   "kind": "endoflife",
+   "spec": {
+    "product": "apache-kafka"
+   },
+   "retrieved_utc": "2026-10-14T08:51:41Z",
+   "product": "apache-kafka",
+   "current": {
+    "version": "4.3.1",
+    "date": "2026-06-23"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "4.3",
+     "latest": "4.3.1",
+     "latest_release_date": "2026-06-23",
+     "release_date": "2026-05-20",
+     "eol": false,
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "4.2",
+     "latest": "4.2.2",
+     "latest_release_date": "2026-09-28",
+     "release_date": "2026-02-17",
+     "eol": false,
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "4.1",
+     "latest": "4.1.2",
+     "latest_release_date": "2026-03-16",
+     "release_date": "2025-09-02",
+     "eol": false,
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "4.0",
+     "latest": "4.0.2",
+     "latest_release_date": "2026-03-18",
+     "release_date": "2025-03-18",
+     "eol": false,
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.9",
+     "latest": "3.9.2",
+     "latest_release_date": "2026-02-21",
+     "release_date": "2024-11-06",
+     "eol": false,
+     "lts": false,
+     "support": null
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "3.8",
+     "latest": "3.8.1",
+     "latest_release_date": "2024-10-29",
+     "release_date": "2024-07-26",
+     "eol": "2024-11-06",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.7",
+     "latest": "3.7.2",
+     "latest_release_date": "2024-12-04",
+     "release_date": "2024-02-26",
+     "eol": "2024-07-26",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.6",
+     "latest": "3.6.2",
+     "latest_release_date": "2024-04-04",
+     "release_date": "2023-10-03",
+     "eol": "2024-02-27",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.5",
+     "latest": "3.5.2",
+     "latest_release_date": "2023-12-08",
+     "release_date": "2023-06-13",
+     "eol": "2023-10-03",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "url": "https://endoflife.date/apache-kafka",
+   "status": "OK"
+  },
+  {
+   "tech_id": "dbt",
+   "kind": "pypi",
+   "spec": {
+    "name": "dbt-core"
+   },
+   "retrieved_utc": "2026-10-14T08:51:41Z",
+   "package": "dbt-core",
+   "current": {
+    "version": "1.12.5",
+    "date": "2026-09-15"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/dbt-core/",
+   "requires_python": ">=3.10",
+   "summary": "With dbt, data analysts and engineers can build analytics the way engineers build applications.",
+   "license": "Apache-2.0",
+   "newer_prerelease": {
+    "version": "2.0.0rc9",
+    "date": "2026-10-14"
+   },
+   "status": "OK"
+  },
+  {
+   "tech_id": "typescript",
+   "kind": "npm",
+   "spec": {
+    "name": "typescript"
+   },
+   "retrieved_utc": "2026-10-14T08:51:41Z",
+   "package": "typescript",
+   "current": {
+    "version": "7.0.2",
+    "date": "2026-07-08"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "7.0.2",
+   "url": "https://www.npmjs.com/package/typescript",
+   "engines": {
+    "node": ">=16.20.0"
+   },
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "react",
+   "kind": "npm",
+   "spec": {
+    "name": "react"
+   },
+   "retrieved_utc": "2026-10-14T08:51:42Z",
+   "package": "react",
+   "current": {
+    "version": "19.3.0",
+    "date": "2026-09-09"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "19.3.0",
+   "url": "https://www.npmjs.com/package/react",
+   "engines": {
+    "node": ">=0.10.0"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "react",
+   "kind": "endoflife",
+   "spec": {
+    "product": "react"
+   },
+   "retrieved_utc": "2026-10-14T08:51:42Z",
+   "product": "react",
+   "current": {
+    "version": "19.3.0",
+    "date": "2026-09-09"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "19",
+     "latest": "19.3.0",
+     "latest_release_date": "2026-09-09",
+     "release_date": "2024-12-05",
+     "eol": false,
+     "lts": false,
+     "support": true
+    },
+    {
+     "cycle": "18",
+     "latest": "18.3.1",
+     "latest_release_date": "2024-04-26",
+     "release_date": "2022-03-29",
+     "eol": false,
+     "lts": false,
+     "support": "2024-12-05"
+    },
+    {
+     "cycle": "17",
+     "latest": "17.0.2",
+     "latest_release_date": "2021-03-22",
+     "release_date": "2020-10-20",
+     "eol": false,
+     "lts": false,
+     "support": "2022-03-29"
+    },
+    {
+     "cycle": "16",
+     "latest": "16.14.0",
+     "latest_release_date": "2020-10-14",
+     "release_date": "2017-09-26",
+     "eol": false,
+     "lts": false,
+     "support": "2020-10-20"
+    },
+    {
+     "cycle": "15",
+     "latest": "15.7.0",
+     "latest_release_date": "2020-10-14",
+     "release_date": "2016-04-07",
+     "eol": false,
+     "lts": false,
+     "support": "2020-10-14"
+    }
+   ],
+   "recently_ended_cycles": [],
+   "url": "https://endoflife.date/react",
+   "status": "OK"
+  },
+  {
+   "tech_id": "react_legacy",
+   "kind": "npm",
+   "spec": {
+    "name": "create-react-app"
+   },
+   "retrieved_utc": "2026-10-14T08:51:42Z",
+   "package": "create-react-app",
+   "current": {
+    "version": "5.1.0",
+    "date": "2025-02-15"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "5.1.0",
+   "url": "https://www.npmjs.com/package/create-react-app",
+   "engines": {
+    "node": ">=14"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "nextjs",
+   "kind": "npm",
+   "spec": {
+    "name": "next"
+   },
+   "retrieved_utc": "2026-10-14T08:51:43Z",
+   "package": "next",
+   "current": {
+    "version": "16.4.0",
+    "date": "2026-10-06"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "16.4.0",
+   "url": "https://www.npmjs.com/package/next",
+   "engines": {
+    "node": ">=20.9.0"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "nextjs",
+   "kind": "endoflife",
+   "spec": {
+    "product": "nextjs"
+   },
+   "retrieved_utc": "2026-10-14T08:51:43Z",
+   "product": "nextjs",
+   "current": {
+    "version": "16.4.0",
+    "date": "2026-10-06"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "16",
+     "latest": "16.4.0",
+     "latest_release_date": "2026-10-06",
+     "release_date": "2025-10-22",
+     "eol": false,
+     "lts": true,
+     "support": null
+    },
+    {
+     "cycle": "15",
+     "latest": "15.5.27",
+     "latest_release_date": "2026-09-30",
+     "release_date": "2024-10-21",
+     "eol": "2026-10-21",
+     "lts": true,
+     "support": null
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "14",
+     "latest": "14.2.35",
+     "latest_release_date": "2025-12-11",
+     "release_date": "2023-10-26",
+     "eol": "2025-10-26",
+     "lts": true,
+     "support": null
+    },
+    {
+     "cycle": "13",
+     "latest": "13.5.11",
+     "latest_release_date": "2025-03-27",
+     "release_date": "2022-10-25",
+     "eol": "2024-12-21",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "12",
+     "latest": "12.3.7",
+     "latest_release_date": "2025-03-28",
+     "release_date": "2021-10-26",
+     "eol": "2022-11-21",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "11",
+     "latest": "11.1.4",
+     "latest_release_date": "2022-01-27",
+     "release_date": "2021-06-15",
+     "eol": "2022-01-27",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "url": "https://endoflife.date/nextjs",
+   "status": "OK"
+  },
+  {
+   "tech_id": "vue",
+   "kind": "npm",
+   "spec": {
+    "name": "vue"
+   },
+   "retrieved_utc": "2026-10-14T08:51:44Z",
+   "package": "vue",
+   "current": {
+    "version": "3.5.44",
+    "date": "2026-10-13"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "3.5.44",
+   "url": "https://www.npmjs.com/package/vue",
+   "engines": null,
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "vue",
+   "kind": "endoflife",
+   "spec": {
+    "product": "vue"
+   },
+   "retrieved_utc": "2026-10-14T08:51:44Z",
+   "product": "vue",
+   "current": {
+    "version": "3.5.43",
+    "date": "2026-09-17"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "3.5",
+     "latest": "3.5.43",
+     "latest_release_date": "2026-09-17",
+     "release_date": "2024-09-03",
+     "eol": false,
+     "lts": false,
+     "support": true
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "3.4",
+     "latest": "3.4.38",
+     "latest_release_date": "2024-08-15",
+     "release_date": "2023-12-29",
+     "eol": "2024-09-03",
+     "lts": false,
+     "support": "2024-09-03"
+    },
+    {
+     "cycle": "3.3",
+     "latest": "3.3.13",
+     "latest_release_date": "2023-12-19",
+     "release_date": "2023-05-11",
+     "eol": "2023-12-29",
+     "lts": false,
+     "support": "2023-12-29"
+    },
+    {
+     "cycle": "2.7",
+     "latest": "2.7.16",
+     "latest_release_date": "2023-12-24",
+     "release_date": "2022-07-01",
+     "eol": "2023-12-31",
+     "lts": false,
+     "support": "2023-12-31"
+    },
+    {
+     "cycle": "3.2",
+     "latest": "3.2.47",
+     "latest_release_date": "2023-02-02",
+     "release_date": "2021-08-09",
+     "eol": "2023-05-11",
+     "lts": false,
+     "support": "2023-05-11"
+    }
+   ],
+   "url": "https://endoflife.date/vue",
+   "status": "OK"
+  },
+  {
+   "tech_id": "angular",
+   "kind": "npm",
+   "spec": {
+    "name": "@angular/core"
+   },
+   "retrieved_utc": "2026-10-14T08:51:44Z",
+   "package": "@angular/core",
+   "current": {
+    "version": "22.2.2",
+    "date": "2026-10-08"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "22.2.2",
+   "url": "https://www.npmjs.com/package/@angular/core",
+   "engines": {
+    "node": "^22.22.3 || ^24.15.0 || >=26.0.0"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "angular",
+   "kind": "endoflife",
+   "spec": {
+    "product": "angular"
+   },
+   "retrieved_utc": "2026-10-14T08:51:44Z",
+   "product": "angular",
+   "current": {
+    "version": "22.2.2",
+    "date": "2026-10-08"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "22",
+     "latest": "22.2.2",
+     "latest_release_date": "2026-10-08",
+     "release_date": "2026-06-03",
+     "eol": "2028-06-30",
+     "lts": false,
+     "support": "2027-06-30"
+    },
+    {
+     "cycle": "21",
+     "latest": "21.2.25",
+     "latest_release_date": "2026-09-30",
+     "release_date": "2025-11-19",
+     "eol": "2027-06-30",
+     "lts": false,
+     "support": "2026-06-03"
+    },
+    {
+     "cycle": "20",
+     "latest": "20.3.33",
+     "latest_release_date": "2026-09-30",
+     "release_date": "2025-05-28",
+     "eol": "2026-11-28",
+     "lts": false,
+     "support": "2025-11-19"
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "19",
+     "latest": "19.2.25",
+     "latest_release_date": "2026-06-02",
+     "release_date": "2024-11-19",
+     "eol": "2026-05-19",
+     "lts": false,
+     "support": "2025-05-28"
+    },
+    {
+     "cycle": "18",
+     "latest": "18.2.14",
+     "latest_release_date": "2025-09-10",
+     "release_date": "2024-05-22",
+     "eol": "2025-11-21",
+     "lts": false,
+     "support": "2024-11-19"
+    },
+    {
+     "cycle": "17",
+     "latest": "17.3.12",
+     "latest_release_date": "2024-07-17",
+     "release_date": "2023-11-08",
+     "eol": "2025-05-15",
+     "lts": false,
+     "support": "2024-05-08"
+    },
+    {
+     "cycle": "16",
+     "latest": "16.2.12",
+     "latest_release_date": "2023-11-02",
+     "release_date": "2023-05-03",
+     "eol": "2024-11-08",
+     "lts": false,
+     "support": "2023-11-08"
+    }
+   ],
+   "url": "https://endoflife.date/angular",
+   "status": "OK"
+  },
+  {
+   "tech_id": "svelte",
+   "kind": "npm",
+   "spec": {
+    "name": "svelte"
+   },
+   "retrieved_utc": "2026-10-14T08:51:45Z",
+   "package": "svelte",
+   "current": {
+    "version": "5.57.2",
+    "date": "2026-10-06"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "5.57.2",
+   "url": "https://www.npmjs.com/package/svelte",
+   "engines": {
+    "node": ">=18"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "redux",
+   "kind": "npm",
+   "spec": {
+    "name": "@reduxjs/toolkit"
+   },
+   "retrieved_utc": "2026-10-14T08:51:45Z",
+   "package": "@reduxjs/toolkit",
+   "current": {
+    "version": "2.13.0",
+    "date": "2026-09-29"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "2.13.0",
+   "url": "https://www.npmjs.com/package/@reduxjs/toolkit",
+   "engines": null,
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "zustand",
+   "kind": "npm",
+   "spec": {
+    "name": "zustand"
+   },
+   "retrieved_utc": "2026-10-14T08:51:45Z",
+   "package": "zustand",
+   "current": {
+    "version": "5.0.15",
+    "date": "2026-08-13"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "5.0.15",
+   "url": "https://www.npmjs.com/package/zustand",
+   "engines": {
+    "node": ">=12.20.0"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "vite",
+   "kind": "npm",
+   "spec": {
+    "name": "vite"
+   },
+   "retrieved_utc": "2026-10-14T08:51:45Z",
+   "package": "vite",
+   "current": {
+    "version": "8.3.4",
+    "date": "2026-10-08"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "8.3.4",
+   "url": "https://www.npmjs.com/package/vite",
+   "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "webpack",
+   "kind": "npm",
+   "spec": {
+    "name": "webpack"
+   },
+   "retrieved_utc": "2026-10-14T08:51:46Z",
+   "package": "webpack",
+   "current": {
+    "version": "5.111.1",
+    "date": "2026-09-18"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "5.111.1",
+   "url": "https://www.npmjs.com/package/webpack",
+   "engines": {
+    "node": ">=10.13.0"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "babel",
+   "kind": "npm",
+   "spec": {
+    "name": "@babel/core"
+   },
+   "retrieved_utc": "2026-10-14T08:51:47Z",
+   "package": "@babel/core",
+   "current": {
+    "version": "8.0.7",
+    "date": "2026-10-07"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "8.0.7",
+   "url": "https://www.npmjs.com/package/@babel/core",
+   "engines": {
+    "node": "^22.18.0 || >=24.11.0"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "eslint",
+   "kind": "npm",
+   "spec": {
+    "name": "eslint"
+   },
+   "retrieved_utc": "2026-10-14T08:51:47Z",
+   "package": "eslint",
+   "current": {
+    "version": "10.12.0",
+    "date": "2026-10-02"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "10.12.0",
+   "url": "https://www.npmjs.com/package/eslint",
+   "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "eslint",
+   "kind": "endoflife",
+   "spec": {
+    "product": "eslint"
+   },
+   "retrieved_utc": "2026-10-14T08:51:47Z",
+   "product": "eslint",
+   "current": {
+    "version": "10.12.0",
+    "date": "2026-10-02"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "10",
+     "latest": "10.12.0",
+     "latest_release_date": "2026-10-02",
+     "release_date": "2026-02-06",
+     "eol": false,
+     "lts": false,
+     "support": true
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "9",
+     "latest": "9.39.5",
+     "latest_release_date": "2026-07-10",
+     "release_date": "2024-04-05",
+     "eol": "2026-08-06",
+     "lts": false,
+     "support": "2025-11-14"
+    },
+    {
+     "cycle": "8",
+     "latest": "8.57.1",
+     "latest_release_date": "2024-09-16",
+     "release_date": "2021-10-09",
+     "eol": "2024-10-05",
+     "lts": false,
+     "support": "2024-04-05"
+    },
+    {
+     "cycle": "7",
+     "latest": "7.32.0",
+     "latest_release_date": "2021-07-30",
+     "release_date": "2020-05-08",
+     "eol": "2022-04-09",
+     "lts": false,
+     "support": "2021-10-09"
+    },
+    {
+     "cycle": "6",
+     "latest": "6.8.0",
+     "latest_release_date": "2019-12-20",
+     "release_date": "2019-06-21",
+     "eol": "2020-11-08",
+     "lts": false,
+     "support": "2020-05-08"
+    }
+   ],
+   "url": "https://endoflife.date/eslint",
+   "status": "OK"
+  },
+  {
+   "tech_id": "prettier",
+   "kind": "npm",
+   "spec": {
+    "name": "prettier"
+   },
+   "retrieved_utc": "2026-10-14T08:51:47Z",
+   "package": "prettier",
+   "current": {
+    "version": "3.9.10",
+    "date": "2026-10-10"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "3.9.10",
+   "url": "https://www.npmjs.com/package/prettier",
+   "engines": {
+    "node": ">=14"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "jest",
+   "kind": "npm",
+   "spec": {
+    "name": "jest"
+   },
+   "retrieved_utc": "2026-10-14T08:51:48Z",
+   "package": "jest",
+   "current": {
+    "version": "30.5.2",
+    "date": "2026-09-18"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "30.5.2",
+   "url": "https://www.npmjs.com/package/jest",
+   "engines": {
+    "node": "^18.14.0 || ^20.0.0 || ^22.0.0 || >=24.0.0"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "vitest",
+   "kind": "npm",
+   "spec": {
+    "name": "vitest"
+   },
+   "retrieved_utc": "2026-10-14T08:51:48Z",
+   "package": "vitest",
+   "current": {
+    "version": "5.0.4",
+    "date": "2026-10-12"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "5.0.4",
+   "url": "https://www.npmjs.com/package/vitest",
+   "engines": {
+    "node": "^22.12.0 || ^24.0.0 || >=26.0.0"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "rtl",
+   "kind": "npm",
+   "spec": {
+    "name": "@testing-library/react"
+   },
+   "retrieved_utc": "2026-10-14T08:51:48Z",
+   "package": "@testing-library/react",
+   "current": {
+    "version": "16.3.3",
+    "date": "2026-08-27"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "16.3.3",
+   "url": "https://www.npmjs.com/package/@testing-library/react",
+   "engines": {
+    "node": ">=18"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "storybook",
+   "kind": "npm",
+   "spec": {
+    "name": "storybook"
+   },
+   "retrieved_utc": "2026-10-14T08:51:48Z",
+   "package": "storybook",
+   "current": {
+    "version": "10.6.2",
+    "date": "2026-10-12"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "10.6.2",
+   "url": "https://www.npmjs.com/package/storybook",
+   "engines": null,
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "tailwind",
+   "kind": "npm",
+   "spec": {
+    "name": "tailwindcss"
+   },
+   "retrieved_utc": "2026-10-14T08:51:49Z",
+   "package": "tailwindcss",
+   "current": {
+    "version": "4.3.3",
+    "date": "2026-07-16"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "4.3.3",
+   "url": "https://www.npmjs.com/package/tailwindcss",
+   "engines": null,
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "bootstrap",
+   "kind": "npm",
+   "spec": {
+    "name": "bootstrap"
+   },
+   "retrieved_utc": "2026-10-14T08:51:50Z",
+   "package": "bootstrap",
+   "current": {
+    "version": "5.3.8",
+    "date": "2025-08-26"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "5.3.8",
+   "url": "https://www.npmjs.com/package/bootstrap",
+   "engines": null,
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "bootstrap",
+   "kind": "endoflife",
+   "spec": {
+    "product": "bootstrap"
+   },
+   "retrieved_utc": "2026-10-14T08:51:50Z",
+   "product": "bootstrap",
+   "current": {
+    "version": "5.3.8",
+    "date": "2025-08-25"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "5",
+     "latest": "5.3.8",
+     "latest_release_date": "2025-08-25",
+     "release_date": "2021-05-05",
+     "eol": false,
+     "lts": "2022-07-19",
+     "support": true
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "4",
+     "latest": "4.6.2",
+     "latest_release_date": "2022-07-19",
+     "release_date": "2018-01-18",
+     "eol": "2023-01-01",
+     "lts": "2019-11-26",
+     "support": "2021-11-01"
+    },
+    {
+     "cycle": "3",
+     "latest": "3.4.1",
+     "latest_release_date": "2019-02-13",
+     "release_date": "2013-08-19",
+     "eol": "2019-07-24",
+     "lts": "2014-11-01",
+     "support": "2016-09-05"
+    },
+    {
+     "cycle": "2",
+     "latest": "2.3.2",
+     "latest_release_date": "2013-07-26",
+     "release_date": "2012-01-31",
+     "eol": "2013-08-19",
+     "lts": false,
+     "support": "2013-08-19"
+    }
+   ],
+   "url": "https://endoflife.date/bootstrap",
+   "status": "OK"
+  },
+  {
+   "tech_id": "jquery",
+   "kind": "npm",
+   "spec": {
+    "name": "jquery"
+   },
+   "retrieved_utc": "2026-10-14T08:51:50Z",
+   "package": "jquery",
+   "current": {
+    "version": "4.0.0",
+    "date": "2026-01-18"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "4.0.0",
+   "url": "https://www.npmjs.com/package/jquery",
+   "engines": null,
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "jquery",
+   "kind": "endoflife",
+   "spec": {
+    "product": "jquery"
+   },
+   "retrieved_utc": "2026-10-14T08:51:50Z",
+   "product": "jquery",
+   "current": {
+    "version": "4.0.0",
+    "date": "2026-01-17"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "4",
+     "latest": "4.0.0",
+     "latest_release_date": "2026-01-17",
+     "release_date": "2026-01-17",
+     "eol": false,
+     "lts": false,
+     "support": true
+    },
+    {
+     "cycle": "3",
+     "latest": "3.7.1",
+     "latest_release_date": "2023-08-28",
+     "release_date": "2016-06-09",
+     "eol": false,
+     "lts": false,
+     "support": "2026-01-17"
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "2",
+     "latest": "2.2.4",
+     "latest_release_date": "2016-05-20",
+     "release_date": "2013-04-18",
+     "eol": true,
+     "lts": false,
+     "support": false
+    },
+    {
+     "cycle": "1",
+     "latest": "1.12.4",
+     "latest_release_date": "2016-05-20",
+     "release_date": "2006-08-31",
+     "eol": true,
+     "lts": false,
+     "support": false
+    }
+   ],
+   "url": "https://endoflife.date/jquery",
+   "status": "OK"
+  },
+  {
+   "tech_id": "node",
+   "kind": "endoflife",
+   "spec": {
+    "product": "nodejs"
+   },
+   "retrieved_utc": "2026-10-14T08:51:51Z",
+   "product": "nodejs",
+   "current": {
+    "version": "26.11.1",
+    "date": "2026-10-08"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "26",
+     "latest": "26.11.1",
+     "latest_release_date": "2026-10-08",
+     "release_date": "2026-05-05",
+     "eol": "2029-04-30",
+     "lts": "2026-10-28",
+     "support": "2027-10-27"
+    },
+    {
+     "cycle": "24",
+     "latest": "24.21.0",
+     "latest_release_date": "2026-09-08",
+     "release_date": "2025-05-06",
+     "eol": "2028-04-30",
+     "lts": "2025-10-28",
+     "support": "2026-10-20"
+    },
+    {
+     "cycle": "22",
+     "latest": "22.23.3",
+     "latest_release_date": "2026-09-23",
+     "release_date": "2024-04-24",
+     "eol": "2027-04-30",
+     "lts": "2024-10-29",
+     "support": "2025-10-21"
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "25",
+     "latest": "25.9.0",
+     "latest_release_date": "2026-04-01",
+     "release_date": "2025-10-15",
+     "eol": "2026-06-01",
+     "lts": false,
+     "support": "2026-04-01"
+    },
+    {
+     "cycle": "23",
+     "latest": "23.11.1",
+     "latest_release_date": "2025-05-14",
+     "release_date": "2024-10-16",
+     "eol": "2025-06-01",
+     "lts": false,
+     "support": "2025-04-01"
+    },
+    {
+     "cycle": "21",
+     "latest": "21.7.3",
+     "latest_release_date": "2024-04-10",
+     "release_date": "2023-10-17",
+     "eol": "2024-06-01",
+     "lts": false,
+     "support": "2024-04-01"
+    },
+    {
+     "cycle": "20",
+     "latest": "20.20.2",
+     "latest_release_date": "2026-03-24",
+     "release_date": "2023-04-18",
+     "eol": "2026-04-30",
+     "lts": "2023-10-24",
+     "support": "2024-10-22"
+    }
+   ],
+   "url": "https://endoflife.date/nodejs",
+   "status": "OK"
+  },
+  {
+   "tech_id": "npm",
+   "kind": "npm",
+   "spec": {
+    "name": "npm"
+   },
+   "retrieved_utc": "2026-10-14T08:51:51Z",
+   "package": "npm",
+   "current": {
+    "version": "12.2.0",
+    "date": "2026-09-30"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "12.2.0",
+   "url": "https://www.npmjs.com/package/npm",
+   "engines": {
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+   },
+   "license": "Artistic-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pnpm",
+   "kind": "npm",
+   "spec": {
+    "name": "pnpm"
+   },
+   "retrieved_utc": "2026-10-14T08:51:52Z",
+   "package": "pnpm",
+   "current": {
+    "version": "12.13.0",
+    "date": "2026-10-13"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "12.11.2",
+   "url": "https://www.npmjs.com/package/pnpm",
+   "engines": {
+    "node": ">=18.*"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "webvitals",
+   "kind": "npm",
+   "spec": {
+    "name": "web-vitals"
+   },
+   "retrieved_utc": "2026-10-14T08:51:52Z",
+   "package": "web-vitals",
+   "current": {
+    "version": "6.2.3",
+    "date": "2026-10-05"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "6.2.3",
+   "url": "https://www.npmjs.com/package/web-vitals",
+   "engines": null,
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "aria",
+   "kind": "npm",
+   "spec": {
+    "name": "axe-core"
+   },
+   "retrieved_utc": "2026-10-14T08:51:52Z",
+   "package": "axe-core",
+   "current": {
+    "version": "4.14.0",
+    "date": "2026-10-05"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "4.14.0",
+   "url": "https://www.npmjs.com/package/axe-core",
+   "engines": {
+    "node": ">=4"
+   },
+   "license": "MPL-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "jwt",
+   "kind": "npm",
+   "spec": {
+    "name": "jsonwebtoken"
+   },
+   "retrieved_utc": "2026-10-14T08:51:53Z",
+   "package": "jsonwebtoken",
+   "current": {
+    "version": "9.0.3",
+    "date": "2025-12-04"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "9.0.3",
+   "url": "https://www.npmjs.com/package/jsonwebtoken",
+   "engines": {
+    "npm": ">=6",
+    "node": ">=12"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "jwt",
+   "kind": "pypi",
+   "spec": {
+    "name": "pyjwt"
+   },
+   "retrieved_utc": "2026-10-14T08:51:53Z",
+   "package": "pyjwt",
+   "current": {
+    "version": "2.15.1",
+    "date": "2026-09-28"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pyjwt/",
+   "requires_python": ">=3.9",
+   "summary": "JSON Web Token implementation in Python",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "graphql",
+   "kind": "npm",
+   "spec": {
+    "name": "graphql"
+   },
+   "retrieved_utc": "2026-10-14T08:51:53Z",
+   "package": "graphql",
+   "current": {
+    "version": "17.0.2",
+    "date": "2026-07-03"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "17.0.2",
+   "url": "https://www.npmjs.com/package/graphql",
+   "engines": {
+    "node": "^22.0.0 || ^24.0.0 || ^25.0.0 || >=26.0.0"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "sass",
+   "kind": "npm",
+   "spec": {
+    "name": "sass"
+   },
+   "retrieved_utc": "2026-10-14T08:51:53Z",
+   "package": "sass",
+   "current": {
+    "version": "1.105.1",
+    "date": "2026-09-29"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "1.105.1",
+   "url": "https://www.npmjs.com/package/sass",
+   "engines": {
+    "node": ">=20.19.0"
+   },
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "attack",
+   "kind": "github",
+   "spec": {
+    "repo": "mitre-attack/attack-stix-data"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "sigma",
+   "kind": "pypi",
+   "spec": {
+    "name": "pysigma"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "package": "pysigma",
+   "current": {
+    "version": "2.0.1",
+    "date": "2026-10-11"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pysigma/",
+   "requires_python": "<4.0,>=3.11",
+   "summary": "Sigma rule processing and conversion tools",
+   "license": "LGPL-2.1-only",
+   "status": "OK"
+  },
+  {
+   "tech_id": "sigma",
+   "kind": "github",
+   "spec": {
+    "repo": "SigmaHQ/sigma"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "yara",
+   "kind": "github",
+   "spec": {
+    "repo": "VirusTotal/yara"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "wazuh",
+   "kind": "github",
+   "spec": {
+    "repo": "wazuh/wazuh"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "zeek",
+   "kind": "github",
+   "spec": {
+    "repo": "zeek/zeek"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "suricata",
+   "kind": "github",
+   "spec": {
+    "repo": "OISF/suricata"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "velociraptor",
+   "kind": "github",
+   "spec": {
+    "repo": "Velocidex/velociraptor"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "volatility",
+   "kind": "github",
+   "spec": {
+    "repo": "volatilityfoundation/volatility3"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "misp",
+   "kind": "github",
+   "spec": {
+    "repo": "MISP/MISP"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "opencti",
+   "kind": "github",
+   "spec": {
+    "repo": "OpenCTI-Platform/opencti"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "stix",
+   "kind": "pypi",
+   "spec": {
+    "name": "stix2"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "package": "stix2",
+   "current": {
+    "version": "3.0.2",
+    "date": "2026-02-12"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/stix2/",
+   "requires_python": ">=3.10",
+   "summary": "Produce and consume STIX 2 JSON content",
+   "license": "BSD",
+   "status": "OK"
+  },
+  {
+   "tech_id": "ocsf",
+   "kind": "github",
+   "spec": {
+    "repo": "ocsf/ocsf-schema"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "sbom",
+   "kind": "github",
+   "spec": {
+    "repo": "CycloneDX/specification"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "sbom",
+   "kind": "github",
+   "spec": {
+    "repo": "spdx/spdx-spec"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "slsa",
+   "kind": "github",
+   "spec": {
+    "repo": "slsa-framework/slsa"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "sigstore",
+   "kind": "github",
+   "spec": {
+    "repo": "sigstore/cosign"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "metasploit",
+   "kind": "github",
+   "spec": {
+    "repo": "rapid7/metasploit-framework"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "nmap",
+   "kind": "github",
+   "spec": {
+    "repo": "nmap/nmap"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "bloodhound",
+   "kind": "github",
+   "spec": {
+    "repo": "SpecterOps/BloodHound"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "sqlmap",
+   "kind": "github",
+   "spec": {
+    "repo": "sqlmapproject/sqlmap"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "owasp_zap",
+   "kind": "github",
+   "spec": {
+    "repo": "zaproxy/zaproxy"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "falco",
+   "kind": "github",
+   "spec": {
+    "repo": "falcosecurity/falco"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "trivy",
+   "kind": "github",
+   "spec": {
+    "repo": "aquasecurity/trivy"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "shodan",
+   "kind": "pypi",
+   "spec": {
+    "name": "shodan"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "package": "shodan",
+   "current": {
+    "version": "1.31.0",
+    "date": "2023-12-17"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/shodan/",
+   "requires_python": "",
+   "summary": "Python library and command-line utility for Shodan (https://developer.shodan.io)",
+   "license": "",
+   "status": "OK"
+  },
+  {
+   "tech_id": "censys",
+   "kind": "pypi",
+   "spec": {
+    "name": "censys"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "package": "censys",
+   "current": {
+    "version": "2.3.0",
+    "date": "2026-08-28"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/censys/",
+   "requires_python": ">=3.9",
+   "summary": "An easy-to-use and lightweight API wrapper for Censys APIs (censys.io).",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "spiderfoot",
+   "kind": "github",
+   "spec": {
+    "repo": "smicallef/spiderfoot"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "theharvester",
+   "kind": "github",
+   "spec": {
+    "repo": "laramies/theHarvester"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "reconng",
+   "kind": "github",
+   "spec": {
+    "repo": "lanmaster53/recon-ng"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "sherlock",
+   "kind": "github",
+   "spec": {
+    "repo": "sherlock-project/sherlock"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "exiftool",
+   "kind": "pypi",
+   "spec": {
+    "name": "pyexiftool"
+   },
+   "retrieved_utc": "2026-10-14T08:51:54Z",
+   "package": "pyexiftool",
+   "current": {
+    "version": "0.5.6",
+    "date": "2023-10-22"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/pyexiftool/",
+   "requires_python": ">=3.6",
+   "summary": "Python wrapper for exiftool",
+   "license": "GPLv3+/BSD",
+   "status": "OK"
+  },
+  {
+   "tech_id": "prowler",
+   "kind": "github",
+   "spec": {
+    "repo": "prowler-cloud/prowler"
+   },
+   "retrieved_utc": "2026-10-14T08:51:55Z",
+   "status": "SKIPPED_GITHUB_NOT_ENABLED"
+  },
+  {
+   "tech_id": "selenium",
+   "kind": "pypi",
+   "spec": {
+    "name": "selenium"
+   },
+   "retrieved_utc": "2026-10-14T08:49:50Z",
+   "package": "selenium",
+   "current": {
+    "version": "4.51.0",
+    "date": "2026-10-09"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/selenium/",
+   "requires_python": ">=3.10",
+   "summary": "Official Python bindings for Selenium WebDriver",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "selenium",
+   "kind": "maven",
+   "spec": {
+    "coord": "org.seleniumhq.selenium:selenium-java"
+   },
+   "retrieved_utc": "2026-10-14T08:49:52Z",
+   "coordinate": "org.seleniumhq.selenium:selenium-java",
+   "current": {
+    "version": "4.51.0",
+    "date": "2026-10-09"
+   },
+   "after_cutoff": [],
+   "versions_listed": 187,
+   "metadata_latest": "4.51.0",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/org.seleniumhq.selenium/selenium-java",
+   "status": "OK"
+  },
+  {
+   "tech_id": "playwright",
+   "kind": "pypi",
+   "spec": {
+    "name": "playwright"
+   },
+   "retrieved_utc": "2026-10-14T08:50:57Z",
+   "package": "playwright",
+   "current": {
+    "version": "1.64.0",
+    "date": "2026-10-13"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/playwright/",
+   "requires_python": ">=3.10",
+   "summary": "A high-level API to automate web browsers",
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "playwright",
+   "kind": "npm",
+   "spec": {
+    "name": "playwright"
+   },
+   "retrieved_utc": "2026-10-14T08:50:59Z",
+   "package": "playwright",
+   "current": {
+    "version": "1.64.0",
+    "date": "2026-10-07"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "1.64.0",
+   "url": "https://www.npmjs.com/package/playwright",
+   "engines": {
+    "node": ">=20"
+   },
+   "license": "Apache-2.0",
+   "status": "OK"
+  },
+  {
+   "tech_id": "playwright",
+   "kind": "maven",
+   "spec": {
+    "coord": "com.microsoft.playwright:playwright"
+   },
+   "retrieved_utc": "2026-10-14T08:51:01Z",
+   "coordinate": "com.microsoft.playwright:playwright",
+   "current": {
+    "version": "1.63.0",
+    "date": "2026-09-14"
+   },
+   "after_cutoff": [],
+   "versions_listed": 88,
+   "metadata_latest": "1.63.0",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/com.microsoft.playwright/playwright",
+   "status": "OK"
+  },
+  {
+   "tech_id": "maven",
+   "kind": "maven",
+   "spec": {
+    "coord": "org.apache.maven:maven-core"
+   },
+   "retrieved_utc": "2026-10-14T08:51:04Z",
+   "coordinate": "org.apache.maven:maven-core",
+   "current": {
+    "version": "3.10.0",
+    "date": "2026-09-27"
+   },
+   "after_cutoff": [],
+   "versions_listed": 106,
+   "metadata_latest": "4.0.0-rc-7",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/org.apache.maven/maven-core",
+   "status": "OK"
+  },
+  {
+   "tech_id": "maven",
+   "kind": "endoflife",
+   "spec": {
+    "product": "apache-maven"
+   },
+   "retrieved_utc": "2026-10-14T08:51:07Z",
+   "product": "apache-maven",
+   "current": {
+    "version": "3.10.0",
+    "date": "2026-10-01"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "3.10",
+     "latest": "3.10.0",
+     "latest_release_date": "2026-10-01",
+     "release_date": "2026-09-27",
+     "eol": false,
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.9",
+     "latest": "3.9.16",
+     "latest_release_date": "2026-05-17",
+     "release_date": "2023-01-31",
+     "eol": false,
+     "lts": false,
+     "support": null
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "3.8",
+     "latest": "3.8.9",
+     "latest_release_date": "2025-06-14",
+     "release_date": "2021-03-30",
+     "eol": "2025-06-14",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.6",
+     "latest": "3.6.3",
+     "latest_release_date": "2019-11-19",
+     "release_date": "2018-10-24",
+     "eol": "2021-03-30",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.5",
+     "latest": "3.5.4",
+     "latest_release_date": "2018-06-17",
+     "release_date": "2017-04-03",
+     "eol": "2018-10-24",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.3",
+     "latest": "3.3.9",
+     "latest_release_date": "2015-11-10",
+     "release_date": "2015-03-13",
+     "eol": "2017-04-03",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "url": "https://endoflife.date/apache-maven",
+   "status": "OK"
+  },
+  {
+   "tech_id": "junit",
+   "kind": "maven",
+   "spec": {
+    "coord": "org.junit.jupiter:junit-jupiter"
+   },
+   "retrieved_utc": "2026-10-14T08:51:10Z",
+   "coordinate": "org.junit.jupiter:junit-jupiter",
+   "current": {
+    "version": "6.1.3",
+    "date": "2026-08-07"
+   },
+   "after_cutoff": [],
+   "versions_listed": 87,
+   "metadata_latest": "6.1.3",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/org.junit.jupiter/junit-jupiter",
+   "status": "OK"
+  },
+  {
+   "tech_id": "junit",
+   "kind": "maven",
+   "spec": {
+    "coord": "junit:junit"
+   },
+   "retrieved_utc": "2026-10-14T08:51:33Z",
+   "coordinate": "junit:junit",
+   "current": {
+    "version": "4.13.2",
+    "date": "2021-02-13"
+   },
+   "after_cutoff": [],
+   "versions_listed": 32,
+   "metadata_latest": "4.13.2",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/junit/junit",
+   "status": "OK"
+  },
+  {
+   "tech_id": "testng",
+   "kind": "maven",
+   "spec": {
+    "coord": "org.testng:testng"
+   },
+   "retrieved_utc": "2026-10-14T08:51:36Z",
+   "coordinate": "org.testng:testng",
+   "current": {
+    "version": "7.12.0",
+    "date": "2026-01-22"
+   },
+   "after_cutoff": [],
+   "versions_listed": 90,
+   "metadata_latest": "7.12.0",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/org.testng/testng",
+   "status": "OK"
+  },
+  {
+   "tech_id": "restassured",
+   "kind": "maven",
+   "spec": {
+    "coord": "io.rest-assured:rest-assured"
+   },
+   "retrieved_utc": "2026-10-14T08:51:59Z",
+   "coordinate": "io.rest-assured:rest-assured",
+   "current": {
+    "version": "6.1.0",
+    "date": "2026-10-09"
+   },
+   "after_cutoff": [],
+   "versions_listed": 46,
+   "metadata_latest": "6.1.0",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/io.rest-assured/rest-assured",
+   "status": "OK"
+  },
+  {
+   "tech_id": "cucumber",
+   "kind": "maven",
+   "spec": {
+    "coord": "io.cucumber:cucumber-java"
+   },
+   "retrieved_utc": "2026-10-14T08:52:23Z",
+   "coordinate": "io.cucumber:cucumber-java",
+   "current": {
+    "version": "8.0.4",
+    "date": "2026-10-02"
+   },
+   "after_cutoff": [],
+   "versions_listed": 157,
+   "metadata_latest": "8.0.4",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/io.cucumber/cucumber-java",
+   "status": "OK"
+  },
+  {
+   "tech_id": "allure",
+   "kind": "maven",
+   "spec": {
+    "coord": "io.qameta.allure:allure-java-commons"
+   },
+   "retrieved_utc": "2026-10-14T08:53:27Z",
+   "coordinate": "io.qameta.allure:allure-java-commons",
+   "current": {
+    "version": "3.0.0",
+    "date": "2026-09-11"
+   },
+   "after_cutoff": [],
+   "versions_listed": 76,
+   "metadata_latest": "3.0.0",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/io.qameta.allure/allure-java-commons",
+   "status": "OK"
+  },
+  {
+   "tech_id": "log4j",
+   "kind": "maven",
+   "spec": {
+    "coord": "org.apache.logging.log4j:log4j-core"
+   },
+   "retrieved_utc": "2026-10-14T08:53:50Z",
+   "coordinate": "org.apache.logging.log4j:log4j-core",
+   "current": {
+    "version": "2.26.1",
+    "date": "2026-06-29"
+   },
+   "after_cutoff": [],
+   "versions_listed": 78,
+   "metadata_latest": "3.0.0-beta3",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/org.apache.logging.log4j/log4j-core",
+   "status": "OK"
+  },
+  {
+   "tech_id": "jackson",
+   "kind": "maven",
+   "spec": {
+    "coord": "com.fasterxml.jackson.core:jackson-databind"
+   },
+   "retrieved_utc": "2026-10-14T08:54:54Z",
+   "coordinate": "com.fasterxml.jackson.core:jackson-databind",
+   "current": {
+    "version": "2.22.3",
+    "date": "2026-09-21"
+   },
+   "after_cutoff": [],
+   "versions_listed": 235,
+   "metadata_latest": "2.22.3",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/com.fasterxml.jackson.core/jackson-databind",
+   "status": "OK"
+  },
+  {
+   "tech_id": "spring",
+   "kind": "maven",
+   "spec": {
+    "coord": "org.springframework.boot:spring-boot"
+   },
+   "retrieved_utc": "2026-10-14T08:54:57Z",
+   "coordinate": "org.springframework.boot:spring-boot",
+   "current": {
+    "version": "4.1.1",
+    "date": "2026-08-20"
+   },
+   "after_cutoff": [],
+   "versions_listed": 294,
+   "metadata_latest": "4.2.0-M2",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/org.springframework.boot/spring-boot",
+   "status": "OK"
+  },
+  {
+   "tech_id": "spring",
+   "kind": "endoflife",
+   "spec": {
+    "product": "spring-boot"
+   },
+   "retrieved_utc": "2026-10-14T08:57:01Z",
+   "product": "spring-boot",
+   "current": {
+    "version": "4.1.1",
+    "date": "2026-08-20"
+   },
+   "supported_cycles": [
+    {
+     "cycle": "4.1",
+     "latest": "4.1.1",
+     "latest_release_date": "2026-08-20",
+     "release_date": "2026-06-30",
+     "eol": "2027-07-31",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "4.0",
+     "latest": "4.0.8",
+     "latest_release_date": "2026-08-20",
+     "release_date": "2025-11-30",
+     "eol": "2026-12-31",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "recently_ended_cycles": [
+    {
+     "cycle": "3.5",
+     "latest": "3.5.16",
+     "latest_release_date": "2026-06-25",
+     "release_date": "2025-05-31",
+     "eol": "2026-06-30",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.4",
+     "latest": "3.4.13",
+     "latest_release_date": "2025-12-18",
+     "release_date": "2024-11-30",
+     "eol": "2025-12-31",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.3",
+     "latest": "3.3.13",
+     "latest_release_date": "2025-06-19",
+     "release_date": "2024-05-31",
+     "eol": "2025-06-30",
+     "lts": false,
+     "support": null
+    },
+    {
+     "cycle": "3.2",
+     "latest": "3.2.12",
+     "latest_release_date": "2024-11-21",
+     "release_date": "2023-11-30",
+     "eol": "2024-12-31",
+     "lts": false,
+     "support": null
+    }
+   ],
+   "url": "https://endoflife.date/spring-boot",
+   "status": "OK"
+  },
+  {
+   "tech_id": "testcontainers",
+   "kind": "maven",
+   "spec": {
+    "coord": "org.testcontainers:testcontainers"
+   },
+   "retrieved_utc": "2026-10-14T08:57:04Z",
+   "coordinate": "org.testcontainers:testcontainers",
+   "current": {
+    "version": "2.0.5",
+    "date": "2026-04-20"
+   },
+   "after_cutoff": [],
+   "versions_listed": 113,
+   "metadata_latest": "2.0.5",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/org.testcontainers/testcontainers",
+   "status": "OK"
+  },
+  {
+   "tech_id": "mockito",
+   "kind": "maven",
+   "spec": {
+    "coord": "org.mockito:mockito-core"
+   },
+   "retrieved_utc": "2026-10-14T08:57:07Z",
+   "coordinate": "org.mockito:mockito-core",
+   "current": {
+    "version": "5.24.0",
+    "date": "2026-09-23"
+   },
+   "after_cutoff": [],
+   "versions_listed": 350,
+   "metadata_latest": "5.24.0",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/org.mockito/mockito-core",
+   "status": "OK"
+  },
+  {
+   "tech_id": "wiremock",
+   "kind": "maven",
+   "spec": {
+    "coord": "org.wiremock:wiremock"
+   },
+   "retrieved_utc": "2026-10-14T08:57:30Z",
+   "coordinate": "org.wiremock:wiremock",
+   "current": {
+    "version": "3.13.2",
+    "date": "2025-11-14"
+   },
+   "after_cutoff": [],
+   "versions_listed": 75,
+   "metadata_latest": "4.0.0-beta.40",
+   "date_basis": "Last-Modified of the .pom on Maven Central (upload time, not necessarily the project's announcement date)",
+   "url": "https://central.sonatype.com/artifact/org.wiremock/wiremock",
+   "status": "OK"
+  },
+  {
+   "tech_id": "yarn",
+   "kind": "npm",
+   "spec": {
+    "name": "@yarnpkg/cli-dist"
+   },
+   "retrieved_utc": "2026-10-14T08:57:54Z",
+   "package": "@yarnpkg/cli-dist",
+   "current": {
+    "version": "4.18.1",
+    "date": "2026-09-24"
+   },
+   "after_cutoff": [],
+   "dist_tag_latest": "4.18.1",
+   "url": "https://www.npmjs.com/package/@yarnpkg/cli-dist",
+   "engines": {
+    "node": ">=18.12.0"
+   },
+   "license": "BSD-2-Clause",
+   "status": "OK"
+  }
+ ]
+}
