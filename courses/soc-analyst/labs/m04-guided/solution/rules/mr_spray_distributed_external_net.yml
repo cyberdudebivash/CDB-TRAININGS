@@ -1,0 +1,24 @@
+title: Distributed Password Spraying From One External Network
+name: mr_spray_distributed_external_net
+id: 4d5e6f7a-8b9c-4d0e-9f2a-3b4c5d6e7f13
+status: test
+description: >
+  Low-and-slow spraying spreads attempts over several addresses so no single address looks noisy. Grouping by the /24
+  network of an EXTERNAL source and counting distinct accounts over 3 hours catches attackers who stay inside one network.
+  (Attackers who use many networks need an account-centric rule instead - see the independent lab.)
+author: CDB Academy
+date: 2026-10-14
+correlation:
+  type: value_count
+  rules:
+    - win_failed_logon_external
+  group-by:
+    - SrcNet24
+  timespan: 3h
+  condition:
+    field: TargetUserName
+    gte: 15
+level: high
+tags:
+  - attack.credential_access
+  - attack.t1110.003

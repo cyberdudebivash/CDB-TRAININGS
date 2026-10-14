@@ -1,0 +1,40 @@
+# Source-to-new-content trace. Original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+source: SRC-SOC-PLAYBOOK
+module: SOC-M04
+mappings:
+  - source_pages: [14, 15, 16]
+    source_topic: "5/6-step triage framework and quick triage card"
+    disposition: RETAINED_IDEA
+    new_content: "lessons/m04-auth-detection/lesson.md section 5; labs/m04-guided step D; soc_lab triage record schema"
+    note: "Re-authored as a graded record with a machine-checkable schema; vendor-derived wording not reused (finding F-SOC-006)."
+  - source_pages: [17]
+    source_topic: "Decision tree example 2 (multiple failed logins)"
+    disposition: CORRECTED
+    new_content: "lesson.md section 5 decision table"
+    note: "The branch structure conflated threshold tuning with success-after-failure (F-SOC-008); replaced by an ordered check list ending in the success search."
+  - source_pages: [22]
+    source_topic: "Pseudo-FortiSIEM brute-force rule (count > 5 / 300 s grouped by source, user, host)"
+    disposition: CORRECTED
+    new_content: "labs/m04-guided/rules/naive_playbook (baseline) and solution/rules; tests/pilot/test_detection_gap.py"
+    note: "Expressed as real Sigma and MEASURED: detects 1 of 5 attack scenarios, misses all spray variants (F-SOC-004)."
+  - source_pages: [26, 29]
+    source_topic: "Tuning: time-window exclusions, higher thresholds, whitelists, 'test changes!'"
+    disposition: CORRECTED
+    new_content: "lesson.md section 6; exceptions lint (narrow, owned, expiring); independent-lab C2/C3"
+    note: "Adds the missing measurement method: recall must be re-measured after every suppression (F-SOC-007)."
+  - source_pages: [30, 31, 32, 33, 34]
+    source_topic: "Incident-response structure attributed to NIST SP 800-61r3"
+    disposition: CORRECTED
+    new_content: "lesson.md section 7; quiz Q9, Q10"
+    note: "States what r3 actually is (CSF 2.0 Function-based) and labels the six-step list a practitioner convention (F-SOC-001, F-SOC-002, F-SOC-003)."
+  - source_pages: [36, 37, 38, 39]
+    source_topic: "Career section: salaries, workforce numbers, certification lists"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Uncited statistics (F-SOC-005); belongs in a separately sourced career module if retained."
+  - source_pages: [3, 5, 6, 7]
+    source_topic: "Shift workflow, FP techniques, runbook template"
+    disposition: DEFERRED
+    new_content: "planned: SOC-M01, SOC-M05, SOC-M07, SOC-M08"
+    note: "Not yet re-engineered; remains in the preserved source PDF."

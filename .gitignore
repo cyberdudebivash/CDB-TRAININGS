@@ -12,3 +12,8 @@ dist/
 Thumbs.db
 .idea/
 .vscode/
+
+# Instructor-only material (answer keys, reference solutions, grading notes) must never be committed to this PUBLIC repository.
+# Only the README that describes the private pack is tracked.
+courses/*/instructor/*
+!courses/*/instructor/README.md

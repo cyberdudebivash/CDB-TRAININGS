@@ -64,7 +64,7 @@ courses:
       - {id: SOC-M12, title: "Capstone: end-to-end SOC investigation", level: 3, status: PLANNED, estimated_hours: 12, primary_outcome: "Investigate a multi-stage synthetic intrusion, improve one detection and deliver an evidence-based incident report."}
     estimated_duration_hours: 88
     lab_coverage: {planned: 12, built: 2, verified_executable: 0}
-    assessment_coverage: {outcomes_total: 15, outcomes_assessed: 6}
+    assessment_coverage: {outcomes_total: 17, outcomes_assessed: 6}
     capstone: "End-to-end synthetic intrusion investigation with a detection improvement validated on labelled telemetry and a graded incident report."
     review_status: AUTOMATED_ONLY
     qa_status: NOT_RUN

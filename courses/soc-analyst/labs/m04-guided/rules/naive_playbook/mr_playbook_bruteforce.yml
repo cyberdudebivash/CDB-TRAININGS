@@ -1,0 +1,24 @@
+title: Playbook brute-force rule (baseline)
+name: mr_playbook_bruteforce
+id: 3d9a6f10-8b2c-4e55-a1d7-5c0e9b7a2f02
+status: experimental
+description: >
+  The rule from the SOC Analyst Survival Playbook (p. 22) expressed in Sigma correlation syntax: more than 5 failures
+  in 300 s grouped by source IP, target user and target host. Used as the BASELINE the lab measures.
+author: CDB Academy
+date: 2026-10-14
+correlation:
+  type: event_count
+  rules:
+    - win_failed_logon
+  group-by:
+    - IpAddress
+    - TargetUserName
+    - Computer
+  timespan: 5m
+  condition:
+    gt: 5
+level: high
+tags:
+  - attack.credential_access
+  - attack.t1110

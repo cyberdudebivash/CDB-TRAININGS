@@ -1,0 +1,46 @@
+# Outcome traceability for built module SOC-M04: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/pilot/test_curriculum.py (every referenced item must exist).
+module: SOC-M04
+outcomes:
+  - id: LO1
+    verb: distinguish
+    statement: "Distinguish password guessing, password spraying and credential stuffing from event patterns and explain which evidence supports each."
+    instruction: ["lessons/m04-auth-detection/lesson.md#3-three-patterns-one-family-lo1"]
+    practice: ["labs/m04-guided/README.md#step-b---measure-the-playbook-rule-lo1-lo3"]
+    assessment: ["quiz:Q3", "triage-check:classification", "rubric:C5"]
+    rubric: [C5]
+  - id: LO2
+    verb: interpret
+    statement: "Interpret Windows 4624/4625 fields (logon type, status and sub-status, source address) to say how a logon was attempted and why it failed."
+    instruction: ["lessons/m04-auth-detection/lesson.md#2-read-the-evidence-lo2"]
+    practice: ["labs/m04-guided/README.md#step-a---look-at-the-data-lo2"]
+    assessment: ["quiz:Q1", "quiz:Q2", "rubric:C5"]
+    rubric: [C5]
+  - id: LO3
+    verb: implement
+    statement: "Implement Sigma correlation rules for single-account guessing, single-source spraying and distributed spraying, and measure their precision and recall on labelled telemetry."
+    instruction: ["lessons/m04-auth-detection/lesson.md#4-detections-that-work---and-one-that-does-not-lo3"]
+    practice: ["labs/m04-guided/README.md#step-c---build-better-rules-lo3", "labs/m04-independent/README.md"]
+    assessment: ["quiz:Q4", "quiz:Q5", "lab-check:recall", "rubric:C1", "rubric:C6", "rubric:C9"]
+    rubric: [C1, C6, C9]
+  - id: LO4
+    verb: triage
+    statement: "Triage an alert into a documented decision with evidence, including checking for a success after failures."
+    instruction: ["lessons/m04-auth-detection/lesson.md#5-triage-lo4"]
+    practice: ["labs/m04-guided/README.md#step-d---triage-five-alerts-lo4"]
+    assessment: ["quiz:Q6", "triage-check:records", "rubric:C4", "rubric:C5"]
+    rubric: [C4, C5]
+  - id: LO5
+    verb: tune
+    statement: "Tune a noisy detection with a narrow, owned, expiring suppression and show that no attack scenario was lost."
+    instruction: ["lessons/m04-auth-detection/lesson.md#6-tune-without-blinding-yourself-lo5"]
+    practice: ["labs/m04-guided/README.md#step-e---tune-two-false-positives-and-re-measure-lo5", "labs/m04-independent/README.md"]
+    assessment: ["quiz:Q7", "quiz:Q8", "lab-check:noise-and-suppression", "lab-check:exception-lint", "rubric:C2", "rubric:C3", "rubric:C7"]
+    rubric: [C2, C3, C7]
+  - id: LO6
+    verb: map
+    statement: "Map the activity and your actions to ATT&CK T1110 sub-techniques and CSF 2.0 Functions, citing the framework versions."
+    instruction: ["lessons/m04-auth-detection/lesson.md#7-frameworks-and-response-context-lo6"]
+    practice: ["labs/m04-independent/README.md"]
+    assessment: ["quiz:Q9", "quiz:Q10", "triage-check:mitre", "rubric:C8"]
+    rubric: [C8]

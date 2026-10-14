@@ -1,0 +1,3 @@
+# Offline lab harness: no network access is needed after installation.
+PyYAML==6.0.1
+jsonschema==4.26.0

@@ -1,0 +1,23 @@
+title: Password Guessing Against One Account From One Source
+name: mr_bruteforce_single_account
+id: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c10
+status: test
+description: >
+  At least 10 failed logons for the same account from the same source within 5 minutes.
+  Detects classic online password guessing (ATT&CK T1110.001).
+author: CDB Academy
+date: 2026-10-14
+correlation:
+  type: event_count
+  rules:
+    - win_failed_logon
+  group-by:
+    - TargetUserName
+    - IpAddress
+  timespan: 5m
+  condition:
+    gte: 10
+level: high
+tags:
+  - attack.credential_access
+  - attack.t1110.001

@@ -253,3 +253,48 @@ register:
       specification version mentioned there is 2.1.0.
     applies_to: [COURSE-SOC]
     resulting_change: "Pilot rules are original work and do not copy SigmaHQ rules; specification features are verified against the spec text before use."
+  - id: R-021
+    title: "Microsoft Learn - 4625(F) An account failed to log on (Windows 10 security auditing reference)"
+    url: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625
+    publisher: Microsoft
+    version: "page ms.date 2026-03-29 (archived Windows 10 reference)"
+    verified_on: 2026-10-14
+    method: PRIMARY_DOCUMENT_READ
+    finding: >
+      Defines the 4625 fields (Logon Type, Account For Which Logon Failed, Failure Information Status/Sub Status, Network
+      Information workstation and source address) and the logon-type table (2 Interactive, 3 Network, 4 Batch, 5 Service,
+      7 Unlock, 8 NetworkCleartext, 9 NewCredentials, 10 RemoteInteractive, 11 CachedInteractive). Documented Status values
+      include 0xC0000064 (bad user name; several in a row can indicate user enumeration), 0xC000006A (bad password),
+      0xC000006D (bad user name or authentication information), 0xC0000072 (account disabled), 0xC0000193 (expired account),
+      0xC0000234 (account locked out). The page is an archived Windows 10 reference.
+    applies_to: [COURSE-SOC]
+    resulting_change: "Pilot lesson field and status tables; only documented status codes are used."
+  - id: R-022
+    title: "MITRE ATT&CK - T1110 Brute Force"
+    url: https://attack.mitre.org/techniques/T1110/
+    publisher: MITRE
+    version: "technique page v2.8, last modified 12 May 2026; ATT&CK release v20 (2026-10-13)"
+    verified_on: 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: >
+      T1110 (Credential Access, TA0006) has sub-techniques T1110.001 Password Guessing, T1110.002 Password Cracking,
+      T1110.003 Password Spraying, T1110.004 Credential Stuffing. Detection strategy DET0463 'Brute Force Authentication
+      Failures with Multi-Platform Log Correlation' lists analytics AN1275-AN1279. The page summary did not describe the
+      spraying/stuffing difference, so that explanation in the lesson is the course's own wording.
+    applies_to: [COURSE-SOC]
+    resulting_change: "Pilot lesson maps scenarios to T1110.001/.003 and cites the ATT&CK version; attribution notice added."
+  - id: R-023
+    title: "Sigma Rules and Correlation Rules Specifications"
+    url: https://github.com/SigmaHQ/sigma-specification
+    publisher: SigmaHQ
+    version: "specification 2.1.0, released 2025-08-02"
+    verified_on: 2026-10-14
+    method: PRIMARY_DOCUMENT_READ
+    finding: >
+      Correlation rules are separate YAML documents with correlation.type (event_count, value_count, temporal,
+      temporal_ordered), rules (by id or name), group-by, timespan (Xs/Xm/Xh/Xd) and a single-criterion condition
+      (gt, gte, lt, lte, eq, neq; value_count adds `field`). Value modifiers include contains, startswith, endswith, all,
+      exists, re, cidr and numeric lt/lte/gt/gte. Condition grammar: and/or/not, brackets, `1 of`/`all of` with
+      patterns and `them`. pySigma 2.0.1 parses both rule kinds (executed).
+    applies_to: [COURSE-SOC]
+    resulting_change: "Pilot rules and the teaching evaluator (shared sigma_lite) follow this subset; unsupported features fail closed."

@@ -1,0 +1,35 @@
+{
+  "alert_id": "ALT-0a8d8a6e",
+  "classification": "TRUE_POSITIVE_COMPROMISE",
+  "severity": "critical",
+  "confidence": "high",
+  "mitre_technique": "T1110.003",
+  "evidence": [
+    {
+      "event_id": "evt-001066",
+      "observation": "First of 30 failures from external 203.0.113.88, each against a different account, ten seconds apart: password spraying."
+    },
+    {
+      "event_id": "evt-001098",
+      "observation": "Successful RemoteInteractive (type 10) logon for m.lee from the SAME address at 14:07:20Z, minutes after the spray: the spray succeeded."
+    },
+    {
+      "event_id": "evt-001108",
+      "observation": "Second type 10 logon for m.lee from the same address at 14:11:20Z followed by a type 3 logon (evt-001141): the attacker is moving to the file server."
+    }
+  ],
+  "context_checked": [
+    "asset_inventory",
+    "user_directory",
+    "threat_intel",
+    "success_events"
+  ],
+  "disposition": "ESCALATE_IR",
+  "rationale": "Distinct-account failures from one external source followed by a successful remote logon for one of the sprayed accounts from that source is the classic spray-to-access sequence. Treat the account as compromised and start incident handling immediately.",
+  "next_steps": [
+    "Disable or reset m.lee and revoke active sessions",
+    "Isolate the RDS01 session and review activity after 14:07Z",
+    "Hunt for other successes from 203.0.113.0/24",
+    "Open an incident and record the timeline"
+  ]
+}

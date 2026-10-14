@@ -1,0 +1,16 @@
+{
+  "alert_id": "ALT-00000000",
+  "classification": "SUSPICIOUS_NEEDS_MORE_DATA",
+  "severity": "medium",
+  "confidence": "low",
+  "mitre_technique": "T1110.003",
+  "evidence": [
+    {"event_id": "evt-000001", "observation": "Replace: what this event shows and why it matters (at least 15 characters)."},
+    {"event_id": "evt-000002", "observation": "Replace: a second distinct observation."},
+    {"event_id": "evt-000003", "observation": "Replace: a third observation, for example the success you looked for."}
+  ],
+  "context_checked": ["asset_inventory"],
+  "disposition": "WATCHLIST",
+  "rationale": "Replace with your reasoning in at least 80 characters: what pattern you saw, what context you checked, why the decision follows.",
+  "next_steps": ["Replace with at least one concrete next step"]
+}

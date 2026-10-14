@@ -1,0 +1,33 @@
+{
+  "alert_id": "ALT-420c3cd4",
+  "classification": "TRUE_POSITIVE_ATTACK",
+  "severity": "high",
+  "confidence": "medium",
+  "mitre_technique": "T1110.003",
+  "evidence": [
+    {
+      "event_id": "evt-001100",
+      "observation": "First failure from 10.0.5.20 (VULNSCAN01) at 14:10:00Z; the asset inventory says this host is the authorised scanner."
+    },
+    {
+      "event_id": "evt-001102",
+      "observation": "Failures against many different accounts again, one per ~20 seconds, matching the spray shape rather than a scan of one host."
+    },
+    {
+      "event_id": "evt-001144",
+      "observation": "Activity continues to 14:20:53Z, outside change CHG-1042 whose window was 10:00-10:30Z; no approved change covers this time."
+    }
+  ],
+  "context_checked": [
+    "asset_inventory",
+    "change_calendar",
+    "user_directory"
+  ],
+  "disposition": "ESCALATE_IR",
+  "rationale": "The scanner address is trusted only during its approved change window. The same source spraying accounts at 14:10Z has no change ticket, so the host may be compromised or misused. Do not extend the morning exception to it.",
+  "next_steps": [
+    "Ask secops whether any scan was scheduled at 14:10Z",
+    "Isolate VULNSCAN01 pending investigation",
+    "Review the scanner service account svc-scanner for misuse"
+  ]
+}

@@ -1,0 +1,69 @@
+title: Failed Windows Logon
+name: win_failed_logon
+id: 7f3c8a52-5d1e-4b7a-9c64-0a1b2c3d4e01
+status: test
+description: A logon attempt failed (Windows Security event 4625).
+author: CDB Academy
+date: 2026-10-14
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4625
+  condition: selection
+level: informational
+---
+title: Failed Windows Logon From A Source That Is Not The VPN NAT Gateway
+name: win_failed_logon_not_vpn
+id: 0b6e1c77-9a34-4d2f-8e51-6f7a8b9c0d03
+status: test
+description: >
+  Failed logons excluding the VPN gateway address, where many users legitimately share one source IP.
+  Uses the SrcRole field added by `soc_lab enrich` from the asset inventory.
+author: CDB Academy
+date: 2026-10-14
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4625
+  filter_vpn:
+    SrcRole: vpn_nat
+  condition: selection and not filter_vpn
+level: informational
+---
+title: Failed Windows Logon Through The VPN NAT Gateway
+name: win_failed_logon_vpn
+id: 5c2d4e88-1f09-4a63-b7c5-8d9e0f1a2b04
+status: test
+description: Failed logons whose source is the VPN gateway (many users, one address).
+author: CDB Academy
+date: 2026-10-14
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4625
+    SrcRole: vpn_nat
+  condition: selection
+level: informational
+---
+title: Failed Windows Logon From An External Address
+name: win_failed_logon_external
+id: 9e8d7c66-2b13-4c58-a4f9-1a2b3c4d5e05
+status: test
+description: Failed logons whose source is neither RFC 1918 nor a known asset (SrcRole external).
+author: CDB Academy
+date: 2026-10-14
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4625
+    SrcRole: external
+  condition: selection
+level: informational

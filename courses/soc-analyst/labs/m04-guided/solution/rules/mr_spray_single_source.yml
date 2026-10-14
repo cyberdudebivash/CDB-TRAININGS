@@ -1,0 +1,47 @@
+title: Password Spraying From One Source
+name: mr_spray_single_source
+id: 2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d11
+status: test
+description: >
+  Failures for at least 10 DIFFERENT accounts from one source within 10 minutes. The grouping key is the source, not the
+  account: spraying tries one or two passwords per account, so a per-account count never fires (ATT&CK T1110.003).
+author: CDB Academy
+date: 2026-10-14
+correlation:
+  type: value_count
+  rules:
+    - win_failed_logon_not_vpn
+  group-by:
+    - IpAddress
+  timespan: 10m
+  condition:
+    field: TargetUserName
+    gte: 10
+level: high
+tags:
+  - attack.credential_access
+  - attack.t1110.003
+---
+title: Password Spraying Through The VPN NAT Gateway
+name: mr_spray_vpn_nat
+id: 3c4d5e6f-7a8b-4c9d-8e1f-2a3b4c5d6e12
+status: test
+description: >
+  Role-aware threshold: many users legitimately share the VPN gateway address, so the distinct-account threshold is
+  raised to 30 within 10 minutes (the morning-rush baseline in this dataset peaks at 14).
+author: CDB Academy
+date: 2026-10-14
+correlation:
+  type: value_count
+  rules:
+    - win_failed_logon_vpn
+  group-by:
+    - IpAddress
+  timespan: 10m
+  condition:
+    field: TargetUserName
+    gte: 30
+level: high
+tags:
+  - attack.credential_access
+  - attack.t1110.003

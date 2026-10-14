@@ -1,0 +1,15 @@
+title: Failed Windows Logon
+name: win_failed_logon
+id: 7f3c8a52-5d1e-4b7a-9c64-0a1b2c3d4e01
+status: test
+description: A logon attempt failed (Windows Security event 4625).
+author: CDB Academy
+date: 2026-10-14
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4625
+  condition: selection
+level: informational
