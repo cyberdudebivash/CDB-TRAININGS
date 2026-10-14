@@ -318,9 +318,9 @@ def main() -> int:
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M")
     dirty = bool(sh(["git", "status", "--porcelain", "--untracked-files=no"]))
     private_pack = (INSTRUCTOR / "m04-independent-reference").exists()
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-    (DATA_DIR / "qa_run.json").write_text(json.dumps({"private_instructor_pack_present": private_pack, "commit": head, "branch": branch, "working_tree_dirty": dirty, "run_utc": now, "python": sys.version.split()[0], "results": results}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    if not a.no_report:
+    if not a.no_report:  # --no-report leaves tracked files untouched
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        (DATA_DIR / "qa_run.json").write_text(json.dumps({"private_instructor_pack_present": private_pack, "commit": head, "branch": branch, "working_tree_dirty": dirty, "run_utc": now, "python": sys.version.split()[0], "results": results}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         render_reports(results, head + (" (+uncommitted changes)" if dirty else ""), branch, now, private_pack)
     for r in results:
         print(f"{r['status']:<26} {r['title']}")
