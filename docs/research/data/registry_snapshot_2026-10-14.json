@@ -1,7 +1,7 @@
 {
  "cutoff_date": "2026-10-14",
  "started_utc": "2026-10-14T08:47:25Z",
- "finished_utc": "2026-10-14T08:57:56Z",
+ "finished_utc": "2026-10-14T13:11:26Z",
  "script": "scripts/research/fetch_registry_versions.py",
  "records": [
   {
@@ -4583,6 +4583,44 @@
     "node": ">=18.12.0"
    },
    "license": "BSD-2-Clause",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pyyaml",
+   "kind": "pypi",
+   "spec": {
+    "name": "PyYAML"
+   },
+   "retrieved_utc": "2026-10-14T13:11:26Z",
+   "package": "PyYAML",
+   "current": {
+    "version": "6.0.3",
+    "date": "2025-09-25"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/PyYAML/",
+   "requires_python": ">=3.8",
+   "summary": "YAML parser and emitter for Python",
+   "license": "MIT",
+   "status": "OK"
+  },
+  {
+   "tech_id": "pyjwt",
+   "kind": "pypi",
+   "spec": {
+    "name": "PyJWT"
+   },
+   "retrieved_utc": "2026-10-14T13:11:26Z",
+   "package": "PyJWT",
+   "current": {
+    "version": "2.15.1",
+    "date": "2026-09-28"
+   },
+   "after_cutoff": [],
+   "url": "https://pypi.org/project/PyJWT/",
+   "requires_python": ">=3.9",
+   "summary": "JSON Web Token implementation in Python",
+   "license": "MIT",
    "status": "OK"
   }
  ]

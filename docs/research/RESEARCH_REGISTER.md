@@ -82,6 +82,9 @@ environment; `OFFICIAL_PAGE_SUMMARY` official page fetched through a summarising
 | R-071 | [C2PA Content Credentials specification](https://spec.c2pa.org/specifications/specifications/2.2/index.html) | Coalition for Content Provenance and Authenticity | hub lists 2.2 and newer 2.3 and 2.4 | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-OSINT, COURSE-AI-ENG |
 | R-072 | [Bellingcat resources index](https://www.bellingcat.com/resources/) | Bellingcat | page read 2026-10-14 (articles dated through 2026-06-30) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-OSINT |
 | R-073 | [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/) | OWASP Foundation | stable v4.2 (release date not on page); v5.0 in development | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-CYBER-MEGA, COURSE-FE-ONBOARD |
+| R-074 | [New name for Azure Active Directory - Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/new-name) | Microsoft Learn | page ms.date 2025-05-07, updated_at 2026-06-15; rename announced 2023-07-11, SKU display names changed 2023-10-01 | 2026-10-14 | PRIMARY_DOCUMENT_READ | COURSE-SOC, COURSE-CYBER-MEGA |
+| R-075 | [Migrate from Container Registry to Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/transition/transition-from-gcr) | Google Cloud | page read 2026-10-14; Container Registry shut down 2025-03-18 | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-GCP-DE, COURSE-CYBER-MEGA |
+| R-076 | [PCI DSS and ISO/IEC 27001 edition currency (NOT VERIFIED)](https://www.pcisecuritystandards.org/standards/pci-dss/) | PCI Security Standards Council; ISO | not established | 2026-10-14 | SECONDARY_SOURCE | COURSE-CYBER-MEGA |
 
 ## Findings and resulting changes
 
@@ -449,3 +452,18 @@ environment; `OFFICIAL_PAGE_SUMMARY` official page fetched through a summarising
 
 - **Finding:** WSTG v4.2 is the latest stable version; v5.0 is a draft.
 - **Resulting change:** Web testing labs cite WSTG v4.2 test IDs and state v5.0 is not final.
+
+### R-074 - New name for Azure Active Directory - Microsoft Entra ID
+
+- **Finding:** Azure Active Directory (Azure AD) was renamed Microsoft Entra ID; Azure AD Premium P1/P2 became Microsoft Entra ID P1/P2; Windows Server Active Directory and AD FS keep their names; ADAL is deprecated in favour of MSAL; Azure AD Graph is deprecated in favour of Microsoft Graph; Azure AD PowerShell is superseded by Microsoft Graph PowerShell; DirSync and Azure AD Sync no longer work (use Microsoft Entra Connect); Azure AD B2C was not purchasable by new customers from 2025-05-01.
+- **Resulting change:** Identity content uses Microsoft Entra ID and notes the legacy name once; Azure AD Graph / ADAL / Azure AD PowerShell examples are marked REPLACE.
+
+### R-075 - Migrate from Container Registry to Artifact Registry
+
+- **Finding:** Container Registry no longer accepts writes since 2025-03-18; Artifact Registry is the replacement, and gcr.io URLs can continue to work when backed by Artifact Registry gcr.io repositories; new work should use pkg.dev repositories that already exist before push or pull.
+- **Resulting change:** Container examples use Artifact Registry pkg.dev; gcr.io write instructions are REPLACE.
+
+### R-076 - PCI DSS and ISO/IEC 27001 edition currency (NOT VERIFIED)
+
+- **Finding:** Edition and transition facts for PCI DSS and ISO/IEC 27001 could not be verified in this session.
+- **Resulting change:** Compliance pages that name PCI DSS or ISO 27001 editions are marked STANDARD_VERSION_UNVERIFIED until a primary document is read.

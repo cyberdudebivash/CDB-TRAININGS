@@ -1063,3 +1063,48 @@ register:
     - COURSE-FE-ONBOARD
     resulting_change: Web testing labs cite WSTG v4.2 test IDs and state v5.0 is not final.
     verified_on: '2026-10-14'
+  - id: R-074
+    title: New name for Azure Active Directory - Microsoft Entra ID
+    url: https://learn.microsoft.com/en-us/entra/fundamentals/new-name
+    publisher: Microsoft Learn
+    version: page ms.date 2025-05-07, updated_at 2026-06-15; rename announced 2023-07-11, SKU display names changed 2023-10-01
+    method: PRIMARY_DOCUMENT_READ
+    finding: Azure Active Directory (Azure AD) was renamed Microsoft Entra ID; Azure AD Premium P1/P2 became Microsoft Entra
+      ID P1/P2; Windows Server Active Directory and AD FS keep their names; ADAL is deprecated in favour of MSAL; Azure AD
+      Graph is deprecated in favour of Microsoft Graph; Azure AD PowerShell is superseded by Microsoft Graph PowerShell; DirSync
+      and Azure AD Sync no longer work (use Microsoft Entra Connect); Azure AD B2C was not purchasable by new customers from
+      2025-05-01.
+    applies_to:
+    - COURSE-SOC
+    - COURSE-CYBER-MEGA
+    resulting_change: Identity content uses Microsoft Entra ID and notes the legacy name once; Azure AD Graph / ADAL / Azure
+      AD PowerShell examples are marked REPLACE.
+    verified_on: '2026-10-14'
+  - id: R-075
+    title: Migrate from Container Registry to Artifact Registry
+    url: https://docs.cloud.google.com/artifact-registry/docs/transition/transition-from-gcr
+    publisher: Google Cloud
+    version: page read 2026-10-14; Container Registry shut down 2025-03-18
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Container Registry no longer accepts writes since 2025-03-18; Artifact Registry is the replacement, and gcr.io
+      URLs can continue to work when backed by Artifact Registry gcr.io repositories; new work should use pkg.dev repositories
+      that already exist before push or pull.
+    applies_to:
+    - COURSE-GCP-DE
+    - COURSE-CYBER-MEGA
+    resulting_change: Container examples use Artifact Registry pkg.dev; gcr.io write instructions are REPLACE.
+    verified_on: '2026-10-14'
+  - id: R-076
+    title: PCI DSS and ISO/IEC 27001 edition currency (NOT VERIFIED)
+    url: https://www.pcisecuritystandards.org/standards/pci-dss/
+    publisher: PCI Security Standards Council; ISO
+    version: not established
+    method: SECONDARY_SOURCE
+    finding: Edition and transition facts for PCI DSS and ISO/IEC 27001 could not be verified in this session.
+    applies_to:
+    - COURSE-CYBER-MEGA
+    resulting_change: Compliance pages that name PCI DSS or ISO 27001 editions are marked STANDARD_VERSION_UNVERIFIED until
+      a primary document is read.
+    caveat: The PCI SSC landing page did not state the current version or retirement dates, and iso.org returned HTTP 403.
+      No claim about PCI DSS v4.0.1 or the ISO/IEC 27001:2022 transition is made from this entry.
+    verified_on: '2026-10-14'

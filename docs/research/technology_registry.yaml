@@ -11,6 +11,7 @@ technologies:
   - kind: endoflife
     product: python
   official_docs: https://docs.python.org/3/
+  register: [R-005, R-024, R-046]
 - id: pip
   name: pip
   domain: python
@@ -60,10 +61,12 @@ technologies:
     name: setuptools
   - kind: pypi
     name: build
+  register: [R-006]
 - id: pyproject
   name: pyproject
   domain: python
   detect: pyproject\.toml
+  register: [R-047]
 - id: pytest
   name: pytest
   domain: python
@@ -231,6 +234,7 @@ technologies:
     name: apache-airflow
   - kind: endoflife
     product: apache-airflow
+  register: [R-066]
 - id: prefect
   name: prefect
   domain: python
@@ -267,6 +271,7 @@ technologies:
   - kind: endoflife
     product: kubernetes
   official_docs: https://kubernetes.io/docs/
+  register: [R-029, R-058]
 - id: helm
   name: helm
   domain: security-engineering
@@ -314,6 +319,7 @@ technologies:
   - kind: maven
     coord: org.seleniumhq.selenium:selenium-java
   official_docs: https://www.selenium.dev/documentation/
+  register: [R-050]
 - id: playwright
   name: playwright
   domain: test-automation
@@ -326,6 +332,7 @@ technologies:
   - kind: maven
     coord: com.microsoft.playwright:playwright
   official_docs: https://playwright.dev/
+  register: [R-051]
 - id: cypress
   name: cypress
   domain: test-automation
@@ -383,6 +390,7 @@ technologies:
   - kind: endoflife
     product: oracle-jdk
   official_docs: https://docs.oracle.com/en/java/
+  register: [R-025, R-068, R-007]
 - id: jdk
   name: jdk
   domain: test-automation
@@ -390,6 +398,7 @@ technologies:
   fetch:
   - kind: endoflife
     product: eclipse-temurin
+  register: [R-025, R-068, R-007]
 - id: maven
   name: maven
   domain: test-automation
@@ -399,6 +408,7 @@ technologies:
     coord: org.apache.maven:maven-core
   - kind: endoflife
     product: apache-maven
+  register: [R-049]
 - id: gradle
   name: gradle
   domain: test-automation
@@ -416,6 +426,7 @@ technologies:
   - kind: maven
     coord: junit:junit
   official_docs: https://docs.junit.org/
+  register: [R-048, R-008]
 - id: junit4_import
   name: junit4_import
   domain: test-automation
@@ -535,10 +546,12 @@ technologies:
   fetch:
   - kind: pypi
     name: openai
+  register: [R-037]
 - id: gpt
   name: gpt
   domain: ai
   detect: \bGPT-?\d(?:\.\d)?[\w-]*
+  register: [R-037]
 - id: chatgpt
   name: chatgpt
   domain: ai
@@ -550,6 +563,7 @@ technologies:
   fetch:
   - kind: pypi
     name: anthropic
+  register: [R-038]
 - id: gemini
   name: gemini
   domain: ai
@@ -557,6 +571,7 @@ technologies:
   fetch:
   - kind: pypi
     name: google-genai
+  register: [R-039, R-067]
 - id: llama
   name: llama
   domain: ai
@@ -586,6 +601,7 @@ technologies:
   fetch:
   - kind: pypi
     name: langchain
+  register: [R-063, R-004]
 - id: langgraph
   name: langgraph
   domain: ai
@@ -618,10 +634,12 @@ technologies:
   name: openai_legacy
   domain: ai
   detect: openai\.(?:ChatCompletion|Completion)|text-davinci|gpt-3\.5
+  register: [R-037]
 - id: langchain_legacy
   name: langchain_legacy
   domain: ai
   detect: LLMChain|ConversationalRetrievalChain|from langchain\.(?:llms|chat_models|embeddings|vectorstores)
+  register: [R-063, R-004]
 - id: rag
   name: rag
   domain: ai
@@ -681,6 +699,7 @@ technologies:
   - kind: github
     repo: modelcontextprotocol/modelcontextprotocol
   official_docs: https://modelcontextprotocol.io/specification/
+  register: [R-026, R-027]
 - id: a2a
   name: a2a
   domain: ai
@@ -705,16 +724,19 @@ technologies:
   domain: ai
   detect: OWASP (?:Top 10 )?(?:for )?LLM
   official_docs: https://genai.owasp.org/llm-top-10/
+  register: [R-028, R-009]
 - id: nist_ai_rmf
   name: nist_ai_rmf
   domain: ai
   detect: AI RMF
   official_docs: https://www.nist.gov/itl/ai-risk-management-framework
+  register: [R-043]
 - id: eu_ai_act
   name: eu_ai_act
   domain: ai
   detect: EU AI Act
   official_docs: https://artificialintelligenceact.eu/
+  register: [R-042, R-064]
 - id: iso42001
   name: iso42001
   domain: ai
@@ -765,6 +787,7 @@ technologies:
   name: vertex_ai
   domain: ai
   detect: Vertex AI
+  register: [R-067]
 - id: bedrock
   name: bedrock
   domain: ai
@@ -818,6 +841,7 @@ technologies:
   - kind: pypi
     name: google-cloud-bigquery
   official_docs: https://cloud.google.com/bigquery/docs
+  register: [R-030]
 - id: gcs
   name: gcs
   domain: gcp-data
@@ -839,6 +863,7 @@ technologies:
   domain: gcp-data
   detect: \bDataflow\b
   official_docs: https://cloud.google.com/dataflow/docs
+  register: [R-031]
 - id: beam
   name: beam
   domain: gcp-data
@@ -846,6 +871,7 @@ technologies:
   fetch:
   - kind: pypi
     name: apache-beam
+  register: [R-062]
 - id: composer
   name: composer
   domain: gcp-data
@@ -853,6 +879,7 @@ technologies:
   fetch:
   - kind: pypi
     name: apache-airflow
+  register: [R-032]
 - id: dataproc
   name: dataproc
   domain: gcp-data
@@ -892,10 +919,12 @@ technologies:
   name: dataplex
   domain: gcp-data
   detect: \bDataplex\b
+  register: [R-034]
 - id: data_catalog
   name: data_catalog
   domain: gcp-data
   detect: Data Catalog
+  register: [R-034]
 - id: bigtable
   name: bigtable
   domain: gcp-data
@@ -932,10 +961,12 @@ technologies:
   name: container_registry
   domain: gcp-data
   detect: Container Registry|gcr\.io
+  register: [R-075]
 - id: artifact_registry
   name: artifact_registry
   domain: gcp-data
   detect: Artifact Registry
+  register: [R-075]
 - id: cloud_functions
   name: cloud_functions
   domain: gcp-data
@@ -956,6 +987,7 @@ technologies:
   name: service_account_key
   domain: gcp-data
   detect: service[- ]account (?:JSON )?key|key-file|GOOGLE_APPLICATION_CREDENTIALS
+  register: [R-033, R-015]
 - id: wif
   name: wif
   domain: gcp-data
@@ -1029,6 +1061,7 @@ technologies:
   - kind: npm
     name: typescript
   official_docs: https://www.typescriptlang.org/docs/
+  register: [R-052]
 - id: react
   name: react
   domain: frontend
@@ -1039,6 +1072,7 @@ technologies:
   - kind: endoflife
     product: react
   official_docs: https://react.dev/
+  register: [R-069, R-070]
 - id: react_legacy
   name: react_legacy
   domain: frontend
@@ -1046,6 +1080,7 @@ technologies:
   fetch:
   - kind: npm
     name: create-react-app
+  register: [R-044]
 - id: nextjs
   name: nextjs
   domain: frontend
@@ -1191,6 +1226,7 @@ technologies:
   fetch:
   - kind: endoflife
     product: nodejs
+  register: [R-040]
 - id: npm
   name: npm
   domain: frontend
@@ -1219,15 +1255,18 @@ technologies:
   fetch:
   - kind: npm
     name: web-vitals
+  register: [R-054]
 - id: fid
   name: fid
   domain: frontend
   detect: \bFID\b|First Input Delay
+  register: [R-054]
 - id: wcag
   name: wcag
   domain: frontend
   detect: \bWCAG\b
   official_docs: https://www.w3.org/TR/WCAG22/
+  register: [R-053, R-011]
 - id: aria
   name: aria
   domain: frontend
@@ -1298,6 +1337,7 @@ technologies:
   - kind: github
     repo: mitre-attack/attack-stix-data
   official_docs: https://attack.mitre.org/
+  register: [R-036, R-010, R-022]
 - id: sigma
   name: sigma
   domain: soc
@@ -1308,6 +1348,7 @@ technologies:
   - kind: github
     repo: SigmaHQ/sigma
   official_docs: https://sigmahq.io/docs/
+  register: [R-020, R-023]
 - id: yara
   name: yara
   domain: soc
@@ -1327,6 +1368,7 @@ technologies:
   name: sentinel
   domain: soc
   detect: Microsoft Sentinel|Azure Sentinel
+  register: [R-057]
 - id: elastic
   name: elastic
   domain: soc
@@ -1457,11 +1499,13 @@ technologies:
   name: cvss
   domain: soc
   detect: \bCVSS\b
+  register: [R-059]
 - id: cvss4
   name: cvss4
   domain: soc
   detect: CVSS (?:v)?4
   official_docs: https://www.first.org/cvss/v4-0/
+  register: [R-059]
 - id: epss
   name: epss
   domain: soc
@@ -1471,6 +1515,7 @@ technologies:
   domain: soc
   detect: \bKEV\b|Known Exploited
   detect_case_sensitive: true
+  register: [R-060]
 - id: cve
   name: cve
   domain: soc
@@ -1484,11 +1529,13 @@ technologies:
   domain: soc
   detect: 800-61
   official_docs: https://csrc.nist.gov/pubs/sp/800/61/r3/final
+  register: [R-001]
 - id: nist_csf
   name: nist_csf
   domain: soc
   detect: NIST CSF|Cybersecurity Framework
   official_docs: https://www.nist.gov/cyberframework
+  register: [R-002]
 - id: nist800_53
   name: nist800_53
   domain: soc
@@ -1497,10 +1544,12 @@ technologies:
   name: iso27001
   domain: soc
   detect: ISO[/ ]?(?:IEC )?27001
+  register: [R-076]
 - id: owasp_top10
   name: owasp_top10
   domain: soc
   detect: OWASP Top ?10
+  register: [R-035]
 - id: cis_controls
   name: cis_controls
   domain: soc
@@ -1509,6 +1558,7 @@ technologies:
   name: pci
   domain: soc
   detect: PCI[- ]DSS
+  register: [R-076]
 - id: gdpr
   name: gdpr
   domain: soc
@@ -1517,6 +1567,7 @@ technologies:
   name: dpdp
   domain: soc
   detect: \bDPDP\b|Digital Personal Data Protection
+  register: [R-065]
 - id: hipaa
   name: hipaa
   domain: soc
@@ -1525,6 +1576,7 @@ technologies:
   name: cert_in
   domain: soc
   detect: CERT-In
+  register: [R-003]
 - id: dora
   name: dora
   domain: soc
@@ -1550,6 +1602,7 @@ technologies:
   fetch:
   - kind: github
     repo: slsa-framework/slsa
+  register: [R-055]
 - id: sigstore
   name: sigstore
   domain: security-engineering
@@ -1667,6 +1720,7 @@ technologies:
   name: pqc
   domain: security-engineering
   detect: post-quantum|\bPQC\b|ML-KEM|Kyber|Dilithium
+  register: [R-056]
 - id: ransomware
   name: ransomware
   domain: soc
@@ -1796,6 +1850,7 @@ technologies:
   name: c2pa
   domain: osint
   detect: \bC2PA\b|Content Credentials
+  register: [R-071]
 - id: tor
   name: tor
   domain: osint
@@ -1837,6 +1892,7 @@ technologies:
   name: entra
   domain: security-engineering
   detect: \bEntra\b|Azure AD
+  register: [R-074]
 - id: okta
   name: okta
   domain: security-engineering
@@ -1872,3 +1928,17 @@ technologies:
   name: devsecops
   domain: security-engineering
   detect: DevSecOps
+- id: pyyaml
+  name: pyyaml
+  domain: python
+  detect: \bPyYAML\b|\byaml\.(?:load|safe_load|dump)\b
+  fetch:
+  - kind: pypi
+    name: PyYAML
+- id: pyjwt
+  name: pyjwt
+  domain: python
+  detect: \bPyJWT\b|\bimport jwt\b|\bjwt\.(?:encode|decode)\(
+  fetch:
+  - kind: pypi
+    name: PyJWT
