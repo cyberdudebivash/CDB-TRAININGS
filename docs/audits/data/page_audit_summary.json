@@ -1,0 +1,1210 @@
+{
+ "as_of": "2026-10-14",
+ "sources": {
+  "SRC-AI-BUNDLE": {
+   "action": {
+    "KEEP": 434,
+    "MERGE": 58,
+    "REMOVE": 258,
+    "REPLACE": 97,
+    "UPDATE": 90
+   },
+   "currency": {
+    "BASELINE_AVAILABLE": 44,
+    "CURRENCY_FLAGGED": 4,
+    "NO_TECHNOLOGY_DETECTED": 699,
+    "UNVERIFIED_CURRENCY": 190
+   },
+   "destination": {
+    "-": 258,
+    "AI-M01": 199,
+    "AI-M03": 54,
+    "AI-M04": 19,
+    "AI-M05": 76,
+    "AI-M06": 42,
+    "AI-M07": 51,
+    "AI-M08": 40,
+    "AI-M09": 140,
+    "GCP-M02": 58
+   },
+   "human_read_pages": 18,
+   "issue_pages": {
+    "MARKDOWN_LEAK": 24,
+    "NO_TEXT_LAYER": 1,
+    "OBSOLETE_API": 3,
+    "STUB_PAGE": 2,
+    "SUPERSEDED_PRODUCT": 1,
+    "UNSUPPORTED_CLAIM": 34
+   },
+   "mapping": {
+    "keyword_rule": 936,
+    "source_default": 1
+   },
+   "mapping_no_destination": 258,
+   "pages": 937,
+   "rule_hits": {
+    "DR-GC-003": 1,
+    "DR-PY-004": 2,
+    "DR-PY-007": 1
+   },
+   "severity": {
+    "NONE": 863,
+    "P1": 10,
+    "P2": 26,
+    "P3": 14,
+    "P4": 24
+   },
+   "status": {
+    "HUMAN_READ_FINDING_CITED": 18,
+    "MACHINE_FLAGGED_REVIEW_REQUIRED": 31,
+    "MACHINE_SCANNED_NO_FLAGS": 887,
+    "VISUAL_REVIEW_REQUIRED": 1
+   },
+   "top_technologies": [
+    [
+     "llm",
+     75
+    ],
+    [
+     "agents",
+     62
+    ],
+    [
+     "rag",
+     53
+    ],
+    [
+     "transformers",
+     30
+    ],
+    [
+     "prompt_injection",
+     29
+    ],
+    [
+     "python",
+     11
+    ],
+    [
+     "ai_platform",
+     8
+    ],
+    [
+     "sklearn",
+     7
+    ],
+    [
+     "pip",
+     6
+    ],
+    [
+     "pandas",
+     6
+    ],
+    [
+     "vector_db",
+     5
+    ],
+    [
+     "linkedin",
+     5
+    ],
+    [
+     "numpy",
+     4
+    ],
+    [
+     "openai",
+     4
+    ],
+    [
+     "chatgpt",
+     3
+    ]
+   ]
+  },
+  "SRC-FRONTEND-ONBOARD": {
+   "action": {
+    "EXPAND": 4,
+    "KEEP": 303,
+    "REMOVE": 48,
+    "REPLACE": 2,
+    "UPDATE": 84
+   },
+   "currency": {
+    "BASELINE_AVAILABLE": 116,
+    "CURRENCY_FLAGGED": 3,
+    "NO_TECHNOLOGY_DETECTED": 243,
+    "UNVERIFIED_CURRENCY": 79
+   },
+   "destination": {
+    "-": 48,
+    "FE-M01": 13,
+    "FE-M02": 1,
+    "FE-M03": 121,
+    "FE-M04": 18,
+    "FE-M05": 18,
+    "FE-M06": 14,
+    "FE-M07": 3,
+    "FE-M08": 30,
+    "FE-M09": 60,
+    "FE-M10": 80,
+    "FE-M11": 35
+   },
+   "human_read_pages": 7,
+   "issue_pages": {
+    "MARKDOWN_LEAK": 16,
+    "OLD_BASELINE": 3,
+    "PERSONAL_DATA_RISK": 2,
+    "SECURITY_ANTIPATTERN": 2,
+    "STUB_PAGE": 1,
+    "UNSUPPORTED_CLAIM": 15
+   },
+   "mapping": {
+    "keyword_rule": 329,
+    "source_default": 112
+   },
+   "mapping_no_destination": 48,
+   "pages": 441,
+   "rule_hits": {
+    "DR-FE-007": 3
+   },
+   "severity": {
+    "NONE": 403,
+    "P0": 2,
+    "P1": 3,
+    "P2": 6,
+    "P3": 14,
+    "P4": 13
+   },
+   "status": {
+    "HUMAN_READ_FINDING_CITED": 7,
+    "MACHINE_FLAGGED_REVIEW_REQUIRED": 18,
+    "MACHINE_SCANNED_NO_FLAGS": 416
+   },
+   "top_technologies": [
+    [
+     "react",
+     76
+    ],
+    [
+     "css",
+     48
+    ],
+    [
+     "typescript",
+     47
+    ],
+    [
+     "javascript",
+     34
+    ],
+    [
+     "docker",
+     33
+    ],
+    [
+     "webvitals",
+     20
+    ],
+    [
+     "redux",
+     15
+    ],
+    [
+     "aria",
+     15
+    ],
+    [
+     "kubernetes",
+     11
+    ],
+    [
+     "node",
+     10
+    ],
+    [
+     "npm",
+     9
+    ],
+    [
+     "jest",
+     7
+    ],
+    [
+     "linkedin",
+     7
+    ],
+    [
+     "graphql",
+     7
+    ],
+    [
+     "vite",
+     7
+    ]
+   ]
+  },
+  "SRC-GCP-DATAENG": {
+   "action": {
+    "EXPAND": 16,
+    "KEEP": 85,
+    "REMOVE": 94,
+    "REPLACE": 5,
+    "UPDATE": 57
+   },
+   "currency": {
+    "BASELINE_AVAILABLE": 46,
+    "CURRENCY_FLAGGED": 2,
+    "NO_TECHNOLOGY_DETECTED": 116,
+    "UNVERIFIED_CURRENCY": 93
+   },
+   "destination": {
+    "-": 94,
+    "GCP-M01": 61,
+    "GCP-M02": 9,
+    "GCP-M03": 11,
+    "GCP-M04": 4,
+    "GCP-M05": 8,
+    "GCP-M06": 4,
+    "GCP-M07": 12,
+    "GCP-M08": 7,
+    "GCP-M09": 35,
+    "GCP-M11": 12
+   },
+   "human_read_pages": 6,
+   "issue_pages": {
+    "MARKDOWN_LEAK": 8,
+    "NO_TEXT_LAYER": 1,
+    "OBSOLETE_API": 2,
+    "PERSONAL_DATA_RISK": 1,
+    "SECURITY_ANTIPATTERN": 3,
+    "STUB_PAGE": 30,
+    "UNSUPPORTED_CLAIM": 10
+   },
+   "mapping": {
+    "container_default": 1,
+    "keyword_rule": 202,
+    "source_default": 54
+   },
+   "mapping_no_destination": 94,
+   "pages": 257,
+   "rule_hits": {
+    "DR-GC-006": 3,
+    "DR-GC-008": 2
+   },
+   "severity": {
+    "NONE": 200,
+    "P1": 5,
+    "P2": 6,
+    "P3": 9,
+    "P4": 37
+   },
+   "status": {
+    "HUMAN_READ_FINDING_CITED": 6,
+    "MACHINE_FLAGGED_REVIEW_REQUIRED": 13,
+    "MACHINE_SCANNED_NEAR_BLANK": 22,
+    "MACHINE_SCANNED_NO_FLAGS": 215,
+    "VISUAL_REVIEW_REQUIRED": 1
+   },
+   "top_technologies": [
+    [
+     "bigquery",
+     71
+    ],
+    [
+     "gcp",
+     44
+    ],
+    [
+     "dataflow",
+     35
+    ],
+    [
+     "iam",
+     34
+    ],
+    [
+     "airflow",
+     26
+    ],
+    [
+     "python",
+     16
+    ],
+    [
+     "terraform",
+     15
+    ],
+    [
+     "gcs",
+     13
+    ],
+    [
+     "pubsub",
+     7
+    ],
+    [
+     "composer",
+     6
+    ],
+    [
+     "gcloud",
+     5
+    ],
+    [
+     "cdc",
+     4
+    ],
+    [
+     "snowflake",
+     3
+    ],
+    [
+     "beam",
+     3
+    ],
+    [
+     "service_account_key",
+     3
+    ]
+   ]
+  },
+  "SRC-JAVA-AUTOTEST": {
+   "action": {
+    "EXPAND": 4,
+    "KEEP": 461,
+    "REMOVE": 113,
+    "REPLACE": 97,
+    "UPDATE": 34
+   },
+   "currency": {
+    "BASELINE_AVAILABLE": 148,
+    "CURRENCY_FLAGGED": 1,
+    "NO_TECHNOLOGY_DETECTED": 531,
+    "UNVERIFIED_CURRENCY": 29
+   },
+   "destination": {
+    "-": 113,
+    "JQA-M01": 103,
+    "JQA-M02": 68,
+    "JQA-M03": 78,
+    "JQA-M04": 96,
+    "JQA-M05": 93,
+    "JQA-M06": 46,
+    "JQA-M07": 59,
+    "JQA-M08": 33,
+    "JQA-M09": 18,
+    "JQA-M10": 2
+   },
+   "human_read_pages": 4,
+   "issue_pages": {
+    "NO_TEXT_LAYER": 1,
+    "OLD_BASELINE": 1,
+    "STUB_PAGE": 4,
+    "TEST_ANTIPATTERN": 2,
+    "UNSUPPORTED_CLAIM": 21
+   },
+   "mapping": {
+    "container_default": 209,
+    "keyword_rule": 499,
+    "source_default": 1
+   },
+   "mapping_no_destination": 113,
+   "pages": 709,
+   "rule_hits": {
+    "DR-JV-006": 2,
+    "DR-JV-007": 1
+   },
+   "severity": {
+    "NONE": 678,
+    "P1": 1,
+    "P2": 16,
+    "P3": 8,
+    "P4": 6
+   },
+   "status": {
+    "HUMAN_READ_FINDING_CITED": 4,
+    "MACHINE_FLAGGED_REVIEW_REQUIRED": 22,
+    "MACHINE_SCANNED_NO_FLAGS": 682,
+    "VISUAL_REVIEW_REQUIRED": 1
+   },
+   "top_technologies": [
+    [
+     "selenium",
+     109
+    ],
+    [
+     "java",
+     64
+    ],
+    [
+     "testng",
+     16
+    ],
+    [
+     "jenkins",
+     11
+    ],
+    [
+     "junit",
+     10
+    ],
+    [
+     "maven",
+     9
+    ],
+    [
+     "restassured",
+     8
+    ],
+    [
+     "allure",
+     7
+    ],
+    [
+     "gradle",
+     6
+    ],
+    [
+     "github_actions",
+     6
+    ],
+    [
+     "css",
+     5
+    ],
+    [
+     "javascript",
+     5
+    ],
+    [
+     "thread_sleep",
+     5
+    ],
+    [
+     "azure",
+     4
+    ],
+    [
+     "react",
+     3
+    ]
+   ]
+  },
+  "SRC-MEGA-P1": {
+   "action": {
+    "EXPAND": 21,
+    "KEEP": 695,
+    "MERGE": 544,
+    "REMOVE": 1,
+    "REPLACE": 102,
+    "UPDATE": 1474
+   },
+   "currency": {
+    "BASELINE_AVAILABLE": 76,
+    "CURRENCY_FLAGGED": 86,
+    "NO_TECHNOLOGY_DETECTED": 668,
+    "UNVERIFIED_CURRENCY": 2007
+   },
+   "destination": {
+    "-": 1,
+    "CYB-M01": 215,
+    "CYB-M02": 174,
+    "CYB-M03": 185,
+    "CYB-M04": 117,
+    "CYB-M05": 146,
+    "CYB-M06": 173,
+    "CYB-M07": 66,
+    "CYB-M08": 299,
+    "CYB-M09": 252,
+    "CYB-M10": 359,
+    "CYB-M11": 149,
+    "CYB-M12": 76,
+    "CYB-M13": 37,
+    "CYB-M14": 1,
+    "SOC-M05": 10,
+    "SOC-M06": 293,
+    "SOC-M09": 214,
+    "SOC-M12": 51,
+    "SOC-M13": 19
+   },
+   "human_read_pages": 15,
+   "issue_pages": {
+    "END_OF_LIFE_VERSION": 1,
+    "INCORRECT_CLAIM": 6,
+    "LEGAL_ETHICS_REVIEW": 16,
+    "PERSONAL_DATA_RISK": 2,
+    "SECURITY_ANTIPATTERN": 16,
+    "STANDARD_VERSION_UNVERIFIED": 3,
+    "STUB_PAGE": 21,
+    "SUPERSEDED_PRODUCT": 81,
+    "SUPERSEDED_STANDARD": 1,
+    "UNSUPPORTED_CLAIM": 95
+   },
+   "mapping": {
+    "keyword_rule": 2667,
+    "source_default": 170
+   },
+   "mapping_no_destination": 1,
+   "pages": 2837,
+   "rule_hits": {
+    "DR-FE-011": 1,
+    "DR-FE-012": 6,
+    "DR-GC-002": 5,
+    "DR-GC-006": 16,
+    "DR-OS-001": 16,
+    "DR-PY-022": 1,
+    "DR-SC-005": 71,
+    "DR-SC-006": 7,
+    "DR-SC-007": 3
+   },
+   "severity": {
+    "NONE": 2594,
+    "P1": 13,
+    "P2": 37,
+    "P3": 169,
+    "P4": 24
+   },
+   "status": {
+    "HUMAN_READ_FINDING_CITED": 15,
+    "MACHINE_FLAGGED_REVIEW_REQUIRED": 207,
+    "MACHINE_SCANNED_NEAR_BLANK": 5,
+    "MACHINE_SCANNED_NO_FLAGS": 2610
+   },
+   "top_technologies": [
+    [
+     "iam",
+     345
+    ],
+    [
+     "azure",
+     333
+    ],
+    [
+     "edr",
+     304
+    ],
+    [
+     "mfa",
+     300
+    ],
+    [
+     "aws",
+     297
+    ],
+    [
+     "ransomware",
+     286
+    ],
+    [
+     "zero_trust",
+     277
+    ],
+    [
+     "gcp",
+     258
+    ],
+    [
+     "oauth",
+     220
+    ],
+    [
+     "social_engineering",
+     193
+    ],
+    [
+     "defender",
+     186
+    ],
+    [
+     "kubernetes",
+     179
+    ],
+    [
+     "s3",
+     135
+    ],
+    [
+     "sysmon",
+     131
+    ],
+    [
+     "zeek",
+     126
+    ]
+   ]
+  },
+  "SRC-MEGA-P2": {
+   "action": {
+    "EXPAND": 1,
+    "KEEP": 121,
+    "MERGE": 224,
+    "REMOVE": 3,
+    "REPLACE": 49,
+    "UPDATE": 429
+   },
+   "currency": {
+    "BASELINE_AVAILABLE": 20,
+    "CURRENCY_FLAGGED": 47,
+    "NO_TECHNOLOGY_DETECTED": 121,
+    "UNVERIFIED_CURRENCY": 639
+   },
+   "destination": {
+    "-": 3,
+    "CYB-M01": 43,
+    "CYB-M02": 23,
+    "CYB-M03": 8,
+    "CYB-M04": 19,
+    "CYB-M05": 28,
+    "CYB-M06": 126,
+    "CYB-M07": 27,
+    "CYB-M08": 45,
+    "CYB-M09": 15,
+    "CYB-M10": 91,
+    "CYB-M11": 55,
+    "CYB-M12": 98,
+    "SOC-M06": 135,
+    "SOC-M09": 50,
+    "SOC-M12": 19,
+    "SOC-M13": 42
+   },
+   "human_read_pages": 1,
+   "issue_pages": {
+    "LEGAL_ETHICS_REVIEW": 5,
+    "PERSONAL_DATA_RISK": 1,
+    "SECURITY_ANTIPATTERN": 3,
+    "STUB_PAGE": 1,
+    "SUPERSEDED_PRODUCT": 47,
+    "UNSUPPORTED_CLAIM": 36
+   },
+   "mapping": {
+    "keyword_rule": 791,
+    "source_default": 36
+   },
+   "mapping_no_destination": 3,
+   "pages": 827,
+   "rule_hits": {
+    "DR-GC-002": 2,
+    "DR-GC-006": 3,
+    "DR-OS-001": 5,
+    "DR-SC-005": 43,
+    "DR-SC-006": 3
+   },
+   "severity": {
+    "NONE": 736,
+    "P2": 9,
+    "P3": 81,
+    "P4": 1
+   },
+   "status": {
+    "HUMAN_READ_FINDING_CITED": 1,
+    "MACHINE_FLAGGED_REVIEW_REQUIRED": 89,
+    "MACHINE_SCANNED_NO_FLAGS": 737
+   },
+   "top_technologies": [
+    [
+     "iam",
+     173
+    ],
+    [
+     "azure",
+     160
+    ],
+    [
+     "gcp",
+     146
+    ],
+    [
+     "aws",
+     145
+    ],
+    [
+     "edr",
+     140
+    ],
+    [
+     "zero_trust",
+     130
+    ],
+    [
+     "mfa",
+     92
+    ],
+    [
+     "kubernetes",
+     86
+    ],
+    [
+     "s3",
+     84
+    ],
+    [
+     "soar",
+     82
+    ],
+    [
+     "defender",
+     72
+    ],
+    [
+     "cloudtrail",
+     61
+    ],
+    [
+     "attack",
+     57
+    ],
+    [
+     "ransomware",
+     48
+    ],
+    [
+     "social_engineering",
+     47
+    ]
+   ]
+  },
+  "SRC-OSINT-STARTER": {
+   "action": {
+    "REPLACE": 23
+   },
+   "currency": {
+    "NO_TECHNOLOGY_DETECTED": 23
+   },
+   "destination": {
+    "OSINT-M01": 23
+   },
+   "human_read_pages": 0,
+   "issue_pages": {
+    "NO_TEXT_LAYER": 23
+   },
+   "mapping": {
+    "keyword_rule": 23
+   },
+   "mapping_no_destination": 0,
+   "pages": 23,
+   "rule_hits": {},
+   "severity": {
+    "P0": 6,
+    "P1": 11,
+    "P2": 6
+   },
+   "status": {
+    "VISUAL_REVIEW_REQUIRED": 23
+   },
+   "top_technologies": []
+  },
+  "SRC-PY-AUTOMATION": {
+   "action": {
+    "EXPAND": 31,
+    "KEEP": 856,
+    "MERGE": 115,
+    "REMOVE": 339,
+    "REPLACE": 5,
+    "UPDATE": 112
+   },
+   "currency": {
+    "BASELINE_AVAILABLE": 649,
+    "CURRENCY_FLAGGED": 2,
+    "NO_TECHNOLOGY_DETECTED": 670,
+    "UNVERIFIED_CURRENCY": 137
+   },
+   "destination": {
+    "-": 339,
+    "PA-M01": 38,
+    "PA-M03": 219,
+    "PA-M04": 219,
+    "PA-M08": 374,
+    "PA-M09": 75,
+    "PA-M10": 77,
+    "PY-M01": 117
+   },
+   "human_read_pages": 12,
+   "issue_pages": {
+    "DUPLICATE_CONTENT": 10,
+    "END_OF_LIFE_VERSION": 1,
+    "MARKDOWN_LEAK": 23,
+    "NO_TEXT_LAYER": 1,
+    "OBSOLETE_API": 1,
+    "PERSONAL_DATA_RISK": 1,
+    "SECURITY_ANTIPATTERN": 3,
+    "STUB_PAGE": 38,
+    "UNSUPPORTED_CLAIM": 34
+   },
+   "mapping": {
+    "keyword_rule": 1455,
+    "source_default": 3
+   },
+   "mapping_no_destination": 339,
+   "pages": 1458,
+   "rule_hits": {
+    "DR-PY-007": 1,
+    "DR-PY-021": 1
+   },
+   "severity": {
+    "NONE": 1341,
+    "P1": 5,
+    "P2": 26,
+    "P3": 29,
+    "P4": 57
+   },
+   "status": {
+    "HUMAN_READ_FINDING_CITED": 12,
+    "MACHINE_FLAGGED_REVIEW_REQUIRED": 47,
+    "MACHINE_SCANNED_NO_FLAGS": 1398,
+    "VISUAL_REVIEW_REQUIRED": 1
+   },
+   "top_technologies": [
+    [
+     "pytest",
+     412
+    ],
+    [
+     "playwright",
+     200
+    ],
+    [
+     "python",
+     184
+    ],
+    [
+     "selenium",
+     121
+    ],
+    [
+     "pip",
+     79
+    ],
+    [
+     "allure",
+     48
+    ],
+    [
+     "requests",
+     45
+    ],
+    [
+     "github_actions",
+     42
+    ],
+    [
+     "junit",
+     38
+    ],
+    [
+     "pydantic",
+     32
+    ],
+    [
+     "ruff",
+     29
+    ],
+    [
+     "pyproject",
+     27
+    ],
+    [
+     "mypy",
+     19
+    ],
+    [
+     "lambda",
+     17
+    ],
+    [
+     "docker",
+     17
+    ]
+   ]
+  },
+  "SRC-PY-HANDBOOK": {
+   "action": {
+    "EXPAND": 13,
+    "KEEP": 344,
+    "REMOVE": 75,
+    "REPLACE": 63,
+    "UPDATE": 159
+   },
+   "currency": {
+    "BASELINE_AVAILABLE": 295,
+    "CURRENCY_FLAGGED": 8,
+    "NO_TECHNOLOGY_DETECTED": 167,
+    "UNVERIFIED_CURRENCY": 184
+   },
+   "destination": {
+    "-": 75,
+    "AI-M01": 26,
+    "AI-M05": 29,
+    "AI-M11": 82,
+    "CYB-M07": 10,
+    "GCP-M02": 43,
+    "GCP-M03": 19,
+    "GCP-M04": 24,
+    "GCP-M06": 12,
+    "PA-M02": 80,
+    "PA-M05": 9,
+    "PA-M07": 40,
+    "PA-M09": 7,
+    "PY-M01": 43,
+    "PY-M02": 9,
+    "PY-M05": 6,
+    "PY-M06": 1,
+    "PY-M07": 19,
+    "PY-M08": 10,
+    "PY-M09": 2,
+    "PY-M10": 27,
+    "PY-M11": 9,
+    "SOC-M03": 72
+   },
+   "human_read_pages": 13,
+   "issue_pages": {
+    "END_OF_LIFE_VERSION": 2,
+    "LEGAL_ETHICS_REVIEW": 2,
+    "MARKDOWN_LEAK": 1,
+    "NO_TEXT_LAYER": 1,
+    "OBSOLETE_API": 5,
+    "PERSONAL_DATA_RISK": 2,
+    "RETIRED_MODEL": 2,
+    "SECURITY_ANTIPATTERN": 19,
+    "STUB_PAGE": 13,
+    "SUPERSEDED_PRODUCT": 1,
+    "UNSUPPORTED_CLAIM": 9
+   },
+   "mapping": {
+    "container_default": 135,
+    "keyword_rule": 518,
+    "source_default": 1
+   },
+   "mapping_no_destination": 75,
+   "pages": 654,
+   "rule_hits": {
+    "DR-AI-003": 2,
+    "DR-FE-002": 1,
+    "DR-OS-001": 2,
+    "DR-PY-003": 2,
+    "DR-PY-007": 2,
+    "DR-PY-018": 3,
+    "DR-PY-020": 1,
+    "DR-PY-021": 2
+   },
+   "severity": {
+    "NONE": 597,
+    "P0": 2,
+    "P1": 12,
+    "P2": 15,
+    "P3": 16,
+    "P4": 12
+   },
+   "status": {
+    "HUMAN_READ_FINDING_CITED": 13,
+    "MACHINE_FLAGGED_REVIEW_REQUIRED": 31,
+    "MACHINE_SCANNED_NO_FLAGS": 609,
+    "VISUAL_REVIEW_REQUIRED": 1
+   },
+   "top_technologies": [
+    [
+     "python",
+     286
+    ],
+    [
+     "pip",
+     78
+    ],
+    [
+     "flask",
+     50
+    ],
+    [
+     "requests",
+     40
+    ],
+    [
+     "fastapi",
+     36
+    ],
+    [
+     "aws",
+     35
+    ],
+    [
+     "docker",
+     35
+    ],
+    [
+     "kubernetes",
+     28
+    ],
+    [
+     "s3",
+     24
+    ],
+    [
+     "jwt",
+     18
+    ],
+    [
+     "spark",
+     18
+    ],
+    [
+     "kafka",
+     17
+    ],
+    [
+     "gcp",
+     15
+    ],
+    [
+     "llm",
+     15
+    ],
+    [
+     "asyncio",
+     13
+    ]
+   ]
+  },
+  "SRC-SOC-PLAYBOOK": {
+   "action": {
+    "EXPAND": 2,
+    "KEEP": 2,
+    "REMOVE": 2,
+    "REPLACE": 4,
+    "UPDATE": 33
+   },
+   "currency": {
+    "CURRENCY_FLAGGED": 2,
+    "NO_TECHNOLOGY_DETECTED": 6,
+    "UNVERIFIED_CURRENCY": 35
+   },
+   "destination": {
+    "-": 2,
+    "SOC-M01": 6,
+    "SOC-M04": 3,
+    "SOC-M05": 10,
+    "SOC-M07": 8,
+    "SOC-M08": 14
+   },
+   "human_read_pages": 21,
+   "issue_pages": {
+    "NO_TEXT_LAYER": 1,
+    "OLD_BASELINE": 1,
+    "PERSONAL_DATA_RISK": 1,
+    "STUB_PAGE": 2,
+    "SUPERSEDED_STANDARD": 1,
+    "UNSUPPORTED_CLAIM": 16
+   },
+   "mapping": {
+    "keyword_rule": 41,
+    "source_default": 2
+   },
+   "mapping_no_destination": 2,
+   "pages": 43,
+   "rule_hits": {
+    "DR-AI-007": 1,
+    "DR-SC-002": 1
+   },
+   "severity": {
+    "NONE": 13,
+    "P1": 11,
+    "P2": 8,
+    "P3": 8,
+    "P4": 3
+   },
+   "status": {
+    "HUMAN_READ_FINDING_CITED": 21,
+    "MACHINE_FLAGGED_REVIEW_REQUIRED": 6,
+    "MACHINE_SCANNED_NEAR_BLANK": 2,
+    "MACHINE_SCANNED_NO_FLAGS": 13,
+    "VISUAL_REVIEW_REQUIRED": 1
+   },
+   "top_technologies": [
+    [
+     "fortisiem",
+     13
+    ],
+    [
+     "edr",
+     9
+    ],
+    [
+     "splunk",
+     9
+    ],
+    [
+     "soar",
+     9
+    ],
+    [
+     "sigma",
+     6
+    ],
+    [
+     "social_engineering",
+     4
+    ],
+    [
+     "crowdstrike",
+     4
+    ],
+    [
+     "defender",
+     4
+    ],
+    [
+     "ransomware",
+     4
+    ],
+    [
+     "cert_in",
+     4
+    ],
+    [
+     "nist800_61",
+     3
+    ],
+    [
+     "misp",
+     3
+    ],
+    [
+     "linkedin",
+     3
+    ],
+    [
+     "python",
+     3
+    ],
+    [
+     "suricata",
+     2
+    ]
+   ]
+  }
+ },
+ "totals": {
+  "action:EXPAND": 92,
+  "action:KEEP": 3301,
+  "action:MERGE": 941,
+  "action:REMOVE": 933,
+  "action:REPLACE": 447,
+  "action:UPDATE": 2472,
+  "currency:BASELINE_AVAILABLE": 1394,
+  "currency:CURRENCY_FLAGGED": 155,
+  "currency:NO_TECHNOLOGY_DETECTED": 3244,
+  "currency:UNVERIFIED_CURRENCY": 3393,
+  "pages": 8186,
+  "severity:NONE": 7425,
+  "severity:P0": 10,
+  "severity:P1": 71,
+  "severity:P2": 155,
+  "severity:P3": 348,
+  "severity:P4": 177,
+  "status:HUMAN_READ_FINDING_CITED": 97,
+  "status:MACHINE_FLAGGED_REVIEW_REQUIRED": 464,
+  "status:MACHINE_SCANNED_NEAR_BLANK": 29,
+  "status:MACHINE_SCANNED_NO_FLAGS": 7567,
+  "status:VISUAL_REVIEW_REQUIRED": 29
+ }
+}
