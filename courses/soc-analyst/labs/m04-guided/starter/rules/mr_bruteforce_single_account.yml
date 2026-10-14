@@ -1,0 +1,19 @@
+title: Password Guessing Against One Account From One Source
+name: mr_bruteforce_single_account
+id: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c10
+status: experimental
+description: TODO - state in one sentence what this detects and why the group-by key is right.
+author: your name
+date: 2026-10-14
+correlation:
+  type: event_count
+  rules:
+    - win_failed_logon
+  group-by: TODO        # a list of the fields that define "one account from one source"
+  timespan: TODO        # for example 5m
+  condition:
+    gte: TODO           # an integer you can justify from the data
+level: high
+tags:
+  - attack.credential_access
+  - attack.t1110.001

@@ -1,0 +1,19 @@
+# Local working data (extracted text of third-party-licensed sources must never be committed)
+.work/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+/build/
+/dist/
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Instructor-only material (answer keys, reference solutions, grading notes) must never be committed to this PUBLIC repository.
+# Only the README that describes the private pack is tracked.
+courses/*/instructor/*
+!courses/*/instructor/README.md

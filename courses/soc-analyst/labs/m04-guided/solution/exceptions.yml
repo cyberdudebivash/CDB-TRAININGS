@@ -1,0 +1,21 @@
+# Narrow, owned, justified and expiring suppressions (see lesson section 6).
+exceptions:
+  - id: EX-F1-svc-backup-stale-password
+    rule: mr_bruteforce_single_account
+    match:
+      TargetUserName: svc-backup
+      IpAddress: 10.0.2.15
+    reason: "Backup job retries a stale password every 30 s; credential rotation is tracked in INC-5521. Temporary until fixed."
+    ticket: INC-5521
+    owner: it-ops
+    valid_from: "2026-03-02T00:00:00Z"
+    valid_until: "2026-03-09T00:00:00Z"
+  - id: EX-F2-scanner-change-window
+    rule: mr_spray_single_source
+    match:
+      IpAddress: 10.0.5.20
+    reason: "Authorised authenticated vulnerability scan approved in change CHG-1042 for 10:00-10:30 UTC only."
+    ticket: CHG-1042
+    owner: secops
+    valid_from: "2026-03-02T10:00:00Z"
+    valid_until: "2026-03-02T10:30:00Z"

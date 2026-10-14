@@ -1,0 +1,42 @@
+{
+  "alert_id": "ALT-6a56ab28",
+  "classification": "FALSE_POSITIVE_BENIGN_ACTIVITY",
+  "severity": "low",
+  "confidence": "high",
+  "mitre_technique": null,
+  "evidence": [
+    {
+      "event_id": "evt-000355",
+      "observation": "First failure from 10.0.5.20 (VULNSCAN01) at 10:02:00Z, inside the approved scan window."
+    },
+    {
+      "event_id": "evt-000358",
+      "observation": "Failures sweep many accounts from the scanner at a steady pace; the pattern looks like spraying but the source is the scanner."
+    },
+    {
+      "event_id": "evt-000443",
+      "observation": "Sweep ends at about 10:26Z, before the CHG-1042 window closes at 10:30Z; svc-scanner also logged on successfully at the start."
+    }
+  ],
+  "context_checked": [
+    "asset_inventory",
+    "change_calendar"
+  ],
+  "disposition": "CLOSE_WITH_TUNING",
+  "rationale": "Authenticated vulnerability scanning legitimately tries many accounts. The asset inventory identifies 10.0.5.20 as the scanner and change CHG-1042 approves exactly 10:00-10:30Z. Suppress that source only inside that window so the same address misused later is still detected.",
+  "tuning": {
+    "rule": "mr_spray_single_source",
+    "match": {
+      "IpAddress": "10.0.5.20"
+    },
+    "valid_from": "2026-03-02T10:00:00Z",
+    "valid_until": "2026-03-02T10:30:00Z",
+    "ticket": "CHG-1042",
+    "owner": "secops",
+    "reason": "Authorised authenticated vulnerability scan approved in change CHG-1042 for 10:00-10:30 UTC only."
+  },
+  "next_steps": [
+    "Add the time-bounded exception",
+    "Make the scanner schedule feed the change calendar automatically"
+  ]
+}

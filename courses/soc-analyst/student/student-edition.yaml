@@ -1,0 +1,21 @@
+# Build configuration for the SOC-M04 student edition (see scripts/build/build_student_edition.py).
+# The student edition contains the lesson, both lab READMEs, the quiz (questions only) and the public rubric.
+# It must NEVER contain instructor material; the build fails if a forbidden path or marker is found.
+edition: student
+course: COURSE-SOC
+module: SOC-M04
+title: "SOC-M04 Authentication-attack detection and triage - Student Edition"
+version: 0.1.0-pilot
+language: en
+include:
+  - courses/soc-analyst/lessons/m04-auth-detection/lesson.md
+  - courses/soc-analyst/labs/m04-guided/README.md
+  - courses/soc-analyst/labs/m04-independent/README.md
+  - courses/soc-analyst/assessments/m04/quiz.md
+forbidden_path_fragments:
+  - /instructor/
+  - answer-key
+  - grading-notes
+  - /solution/
+forbidden_markers:
+  - "INSTRUCTORS ONLY"

@@ -1,0 +1,547 @@
+# Course quality scores -- internal quality-management instrument, NOT a market ranking and NOT a release approval.
+#
+# Scale per dimension is 0..max. Anchors used for every course:
+#   0-20%   absent, dangerous or unusable      21-40%  material present but major defects
+#   41-60%  partly usable, several significant defects     61-80%  mostly sound, fixable gaps
+#   81-100% verified sound with evidence of validation (executed labs, tested code, primary-source checks)
+# Scores are applied to the SOURCE PDFs as received (baseline commit f2ba7d0). They are re-scored when
+# replacement content is built. Length, polish and visual style earn no points.
+# confidence: HIGH   = the whole source was read in context
+#             MEDIUM = 100% machine-scanned plus targeted reads of high-risk regions
+#             LOW    = machine-scanned plus a small sample; the score may move materially after fuller review
+dimensions:
+  technical_correctness:
+    max: 20
+    label: Technical correctness and security
+  practical_effectiveness:
+    max: 20
+    label: Hands-on practical effectiveness
+  professional_outcomes:
+    max: 15
+    label: Demonstrable professional outcomes
+  assessment_validity:
+    max: 15
+    label: Assessment validity and rigor
+  instructional_clarity:
+    max: 10
+    label: Instructional clarity and sequencing
+  technical_currency:
+    max: 10
+    label: Technical currency and relevance
+  accessibility_experience:
+    max: 5
+    label: Accessibility and learner experience
+  commercial_readiness:
+    max: 5
+    label: Commercial product readiness
+courses:
+  COURSE-SOC:
+    title: SOC Analyst Survival Playbook (2026 Edition)
+    source_ids:
+    - SRC-SOC-PLAYBOOK
+    confidence: HIGH
+    review_coverage: 43/43 pages read in full (text layer); 12 primary-source claims verified.
+    scores:
+      technical_correctness:
+        score: 9
+        justification: Practitioner advice is largely sensible, but the NIST attribution (p. 6/30), CSF code (p. 30), CERT-In scope (p. 32) and the spray-blind correlation
+          rule (p. 22) are wrong or misleading.
+        findings:
+        - F-SOC-001
+        - F-SOC-002
+        - F-SOC-003
+        - F-SOC-004
+      practical_effectiveness:
+        score: 5
+        justification: Checklists, decision trees and a runbook template are usable on the job, but there is no dataset, runnable detection or graded exercise.
+        findings:
+        - F-SOC-009
+        - F-SOC-010
+      professional_outcomes:
+        score: 4
+        justification: No measurable outcomes; career section relies on uncited salary and workforce numbers.
+        findings:
+        - F-SOC-005
+        - F-SOC-011
+      assessment_validity:
+        score: 0
+        justification: No assessment of any kind.
+        findings:
+        - F-SOC-009
+      instructional_clarity:
+        score: 7
+        justification: Short, well-sectioned and readable; contradictions in escalation guidance are minor.
+        findings:
+        - F-SOC-008
+      technical_currency:
+        score: 6
+        justification: Recognises SP 800-61r3 and AI-assisted triage, but ATT&CK/CSF versions are not pinned and a CSF 1.1 code is cited.
+        findings:
+        - F-SOC-002
+        - F-SOC-011
+      accessibility_experience:
+        score: 4
+        justification: Tagged text PDF with real outline; code is not monospaced; minor byline inconsistency.
+        findings:
+        - F-SOC-012
+      commercial_readiness:
+        score: 2
+        justification: Vendor-derived content without attribution and statistics that cannot be defended in marketing.
+        findings:
+        - F-SOC-006
+        - F-SOC-005
+    strengths:
+    - 'Concise, practitioner-oriented structure: handover, triage, tuning, IR and career sections each fit on a few pages (median section 146 words, the deepest of
+      all sources).'
+    - Section 5.1 correctly describes SP 800-61r3 as superseding r2 and organised around CSF 2.0 functions (p. 30); the defect is the contradicting summary on p.
+      6.
+    - 'Good practical artefacts: a 5/6-step triage loop, escalation trigger lists and an incident runbook template (pp. 14-16, 18, 34-35) that can seed graded exercises.'
+    - 'Explicit pitfalls on over-tuning and stale whitelists (p. 29): the right instinct, lacking only a measurement method.'
+  COURSE-OSINT:
+    title: OSINT Starter Bundle (brochure)
+    source_ids:
+    - SRC-OSINT-STARTER
+    confidence: HIGH
+    review_coverage: 23/23 pages read visually (no text layer); licences of 3 named tools verified from repository pages.
+    scores:
+      technical_correctness:
+        score: 3
+        justification: Almost no technical instruction; where it instructs (alias tracking, leaked-data correlation) it omits the lawful-use framework.
+        findings:
+        - F-OSINT-003
+      practical_effectiveness:
+        score: 0
+        justification: Describes labs, a VM and tools that are not in the repository; contains no executable exercise.
+        findings:
+        - F-OSINT-001
+      professional_outcomes:
+        score: 1
+        justification: Time-to-competence and career claims are unsupported.
+        findings:
+        - F-OSINT-005
+      assessment_validity:
+        score: 0
+        justification: No assessment.
+        findings:
+        - F-OSINT-001
+      instructional_clarity:
+        score: 3
+        justification: Readable marketing prose but no learning structure.
+        findings:
+        - F-OSINT-001
+      technical_currency:
+        score: 3
+        justification: 2025-era threat framing; statistics are stale or mis-sourced.
+        findings:
+        - F-OSINT-005
+      accessibility_experience:
+        score: 0
+        justification: 'Text is vector outlines: unsearchable and unreadable by assistive technology.'
+        findings:
+        - F-OSINT-006
+      commercial_readiness:
+        score: 0
+        justification: Proposes relicensing copyleft tools; contains internal SEO/funnel strategy; promotes unreleased products.
+        findings:
+        - F-OSINT-002
+        - F-OSINT-004
+        - F-OSINT-007
+        - F-OSINT-008
+    strengths:
+    - The tool shortlist and scenario ideas (phishing infrastructure, metadata leakage, own-domain footprint; pp. 6-8) are reasonable seeds for synthetic lab design.
+    - States the dual-use nature of OSINT and lists defender, journalist and law-enforcement uses (p. 4).
+  COURSE-AI-ENG:
+    title: Complete AI Training Bundle 2026
+    source_ids:
+    - SRC-AI-BUNDLE
+    confidence: MEDIUM
+    review_coverage: 937/937 pages machine-scanned; 29 pages read in context (pp. 229-231, 294-296, 366-368, 400-404, 421-430, 777-781); full outline reviewed; RAG
+      imports reproduced on langchain 1.4.5.
+    scores:
+      technical_correctness:
+        score: 8
+        justification: Concepts are conventional and safety-minded, but the flagship labs contain dead safeguards and the agent lab does not implement its claimed
+          controls.
+        findings:
+        - F-AI-002
+        - F-AI-003
+      practical_effectiveness:
+        score: 7
+        justification: Eight lab scaffolds with READMEs exist, but the RAG lab fails on current packages and the agent lab is not agentic.
+        findings:
+        - F-AI-001
+        - F-AI-003
+      professional_outcomes:
+        score: 5
+        justification: Portfolio framing is useful; percentile and 'mastery' claims are unsupported.
+        findings:
+        - F-AI-007
+      assessment_validity:
+        score: 3
+        justification: Interview-style questions only; no rubrics or evaluation harness.
+        findings:
+        - F-AI-005
+      instructional_clarity:
+        score: 4
+        justification: Bullet outlines; 'PROGRAM COMPLETE' mid-document; duplicate volume.
+        findings:
+        - F-AI-005
+        - F-AI-006
+      technical_currency:
+        score: 3
+        justification: Removed LangChain paths; no OWASP LLM Top 10 2025, ATLAS, retrieval metrics, context engineering or MCP.
+        findings:
+        - F-AI-001
+        - F-AI-004
+      accessibility_experience:
+        score: 2
+        justification: Raw Markdown leaks into the PDF; extremely sparse pages.
+        findings:
+        - F-AI-008
+      commercial_readiness:
+        score: 1
+        justification: Claims cannot be defended; labs would fail for a paying customer today.
+        findings:
+        - F-AI-001
+        - F-AI-007
+    strengths:
+    - 'Governance-first framing: ''decision support, not an autonomous decision-maker'' (p. 400) and human-approval patterns recur through the labs (pp. 421-423).'
+    - Eight lab scaffolds (ML, MLOps, vision, RAG, prompts, agents, governance, case studies) with README/monitoring/governance layouts give a usable skeleton to
+      rebuild (pp. 351-430).
+    - Prompt-injection and failure-mode vocabulary is present (42 and 6 line matches) and the text consistently says reliability 'does not eliminate risk' (p. 228).
+    - 21 of 22 extracted Python snippets parse; the one failure was an extractor boundary case.
+  COURSE-PY-ENG:
+    title: CyberDudeBivash Python Engineering Handbook
+    source_ids:
+    - SRC-PY-HANDBOOK
+    confidence: MEDIUM
+    review_coverage: 654/654 pages machine-scanned; ~15 pages read in context (pp. 63-64, 83, 163-164, 220, 427-428, 585-586 and code-failure contexts); 404 code
+      blocks syntax-checked.
+    scores:
+      technical_correctness:
+        score: 9
+        justification: 98% of extracted snippets parse, but eval() in an agent tool is a P0 and insecure credential/TLS/SSH/shell patterns are taught without safe
+          versions.
+        findings:
+        - F-PYH-001
+        - F-PYH-002
+        - F-PYH-004
+      practical_effectiveness:
+        score: 9
+        justification: Large quantity of concrete code; none executed or tested; no project with acceptance criteria.
+        findings:
+        - F-PYH-004
+        - F-PYH-007
+      professional_outcomes:
+        score: 4
+        justification: No stated, measurable outcomes or capstone.
+        findings:
+        - F-PYH-007
+      assessment_validity:
+        score: 1
+        justification: No rubrics, answer keys or graded work.
+        findings:
+        - F-PYH-007
+      instructional_clarity:
+        score: 4
+        justification: Median section 17 words; scope sprawls beyond engineering practice.
+        findings:
+        - F-PYH-006
+      technical_currency:
+        score: 4
+        justification: Recommends EOL Python 3.10+; setup.py-based packaging that PyPA says must not be run.
+        findings:
+        - F-PYH-003
+        - F-PYH-005
+      accessibility_experience:
+        score: 3
+        justification: Clean text, few markup leaks; non-monospaced code.
+        findings:
+        - F-PYH-006
+      commercial_readiness:
+        score: 2
+        justification: Unsupported agent claims and scope dilution weaken positioning.
+        findings:
+        - F-PYH-001
+        - F-PYH-006
+    strengths:
+    - Broad, accessible curriculum with 404 extractable code examples of which 397 (98%) are syntactically valid Python.
+    - Its IOC-database SQL uses parameter placeholders rather than string concatenation (pp. 155, 379).
+    - 'Warns that pickle is not safe for untrusted input (p. 83) and advises app passwords instead of raw passwords for SMTP (p. 139): the right warnings, applied
+      inconsistently.'
+  COURSE-PY-AUTO:
+    title: CYBERDUDEBIVASH Python Automation Training
+    source_ids:
+    - SRC-PY-AUTOMATION
+    confidence: MEDIUM
+    review_coverage: 1,458/1,458 pages machine-scanned; ~10 pages read via code-triage contexts plus rendered p. 270; 535 code blocks syntax-checked (504 parse).
+    scores:
+      technical_correctness:
+        score: 12
+        justification: Framework patterns (config, pytest, fixtures, API client) are mostly modern; 4 confirmed copy-breaking line wraps; safety topics thin.
+        findings:
+        - F-PYA-001
+        - F-PYA-006
+      practical_effectiveness:
+        score: 10
+        justification: Substantial scaffolds and mini-projects, but no executable repository or verified runs.
+        findings:
+        - F-PYA-003
+      professional_outcomes:
+        score: 6
+        justification: Concrete project volumes; 'job-ready' and guarantee-style wording is unsupported.
+        findings:
+        - F-PYA-004
+      assessment_validity:
+        score: 3
+        justification: Checkpoints and interview Q&A, no rubric-graded artefacts.
+        findings:
+        - F-PYA-005
+      instructional_clarity:
+        score: 4
+        justification: Framework build precedes Volume 1; repeated headers and scaffolds.
+        findings:
+        - F-PYA-002
+      technical_currency:
+        score: 7
+        justification: Uses Playwright, pydantic and recent pytest; mixed pinning.
+        findings:
+        - F-PYA-003
+      accessibility_experience:
+        score: 2
+        justification: Wrapped code lines; 205 stray Markdown headers.
+        findings:
+        - F-PYA-001
+      commercial_readiness:
+        score: 2
+        justification: Needs a companion repo and claim clean-up before sale.
+        findings:
+        - F-PYA-003
+        - F-PYA-004
+    strengths:
+    - The framework architecture (settings dataclass, pytest fixtures, API client, Playwright/Selenium page layer, structured logging, pydantic models) matches current
+      practice.
+    - 504 of 535 extracted Python blocks parse; pytest is pinned in places (pytest==8.3.3, pp. 282, 764, 998, 1058) and a .env.example correctly uses placeholders
+      (p. 651).
+    - Dedicated volumes for retries/backoff and stability engineering (p. 533 ff.) and for project simulation (p. 442 ff.) are good topic choices.
+  COURSE-JAVA-QA:
+    title: Java Automation Test Engineer - Real Time Job Training
+    source_ids:
+    - SRC-JAVA-AUTOTEST
+    confidence: MEDIUM
+    review_coverage: 709/709 pages machine-scanned; pp. 310-311 and structure read; zero Java code found by strict scans.
+    scores:
+      technical_correctness:
+        score: 9
+        justification: Concepts (page objects, waits, lifecycle) read as sound, but no code exists to verify and the baseline is dated.
+        findings:
+        - F-JAV-001
+        - F-JAV-002
+      practical_effectiveness:
+        score: 2
+        justification: No code, no lab, no framework.
+        findings:
+        - F-JAV-001
+      professional_outcomes:
+        score: 4
+        justification: Career framing with a sensible job-ready definition but no assessed outcome.
+        findings:
+        - F-JAV-004
+      assessment_validity:
+        score: 1
+        justification: No rubric or graded lab.
+        findings:
+        - F-JAV-005
+      instructional_clarity:
+        score: 5
+        justification: Narrative reads well; a 14-page duplicate block; monetisation volumes off-topic.
+        findings:
+        - F-JAV-003
+        - F-JAV-004
+      technical_currency:
+        score: 3
+        justification: Java 8/11/17 baseline; no JUnit 5/6, Selenium 4, Playwright.
+        findings:
+        - F-JAV-002
+      accessibility_experience:
+        score: 3
+        justification: Clean text layer and outline; very sparse pages.
+        findings:
+        - F-JAV-003
+      commercial_readiness:
+        score: 2
+        justification: A 'hands-on' product without code cannot be sold as such.
+        findings:
+        - F-JAV-001
+    strengths:
+    - 'Sound conceptual framing of the automation-engineer role: pages hide WebDriver (p. 31), static WebDriver is called out as a red flag (p. 50), session lifecycle
+      and its failure modes are explained (pp. 310-311).'
+    - Chapter 12 (p. 280) defines 'job-ready' by judgement and product-risk understanding rather than tool memorisation.
+    - Clean text layer with 1,531 usable outline entries and no raw-Markdown leakage.
+  COURSE-GCP-DE:
+    title: GCP Data Engineer Training
+    source_ids:
+    - SRC-GCP-DATAENG
+    confidence: MEDIUM
+    review_coverage: 257/257 pages machine-scanned; 6 pages read in context (pp. 17-19, 48-50); service-account-key guidance verified against Google documentation.
+    scores:
+      technical_correctness:
+        score: 8
+        justification: Outline-level content is conventional; CI examples teach long-lived service-account keys against Google's guidance.
+        findings:
+        - F-GCP-001
+      practical_effectiveness:
+        score: 3
+        justification: Projects are four-bullet specs with no data, steps or acceptance tests; billable services without safeguards.
+        findings:
+        - F-GCP-002
+        - F-GCP-003
+      professional_outcomes:
+        score: 3
+        justification: Capstone is a bullet list; outcome claims untested.
+        findings:
+        - F-GCP-005
+      assessment_validity:
+        score: 1
+        justification: No graded assessment.
+        findings:
+        - F-GCP-003
+      instructional_clarity:
+        score: 6
+        justification: Clear phase/module sequencing (Phase 0-10).
+        findings:
+        - F-GCP-003
+      technical_currency:
+        score: 4
+        justification: gsutil use, no Dataform/Dataplex/BigLake; exam alignment unverified.
+        findings:
+        - F-GCP-004
+      accessibility_experience:
+        score: 3
+        justification: Clean text layer; 315 embedded images (emoji glyphs); sparse pages.
+        findings:
+        - F-GCP-003
+      commercial_readiness:
+        score: 1
+        justification: Cost exposure for learners; claims unverifiable.
+        findings:
+        - F-GCP-002
+        - F-GCP-005
+    strengths:
+    - 'Clear phased structure (Phase 0-10, modules 0.1-9.7) and a role-reality framing that matches the job shape: operate, secure and optimise pipelines (pp. 17-19).'
+    - 'Names the right production concerns: schema evolution, data quality at ingestion, dead-letter handling, backfills, SLIs/SLOs and error budgets (pp. 5, 48-50).'
+    - The capstone intent (batch + streaming, orchestration, monitoring, security, cost control; p. 17) is the right end-to-end shape.
+  COURSE-FE-ONBOARD:
+    title: Internal Frontend Developer Onboarding Playbook
+    source_ids:
+    - SRC-FRONTEND-ONBOARD
+    confidence: MEDIUM
+    review_coverage: 441/441 pages machine-scanned; ~3 pages read in context (pp. 120-121, 357 with values masked); a single page covers XSS/CSP.
+    scores:
+      technical_correctness:
+        score: 9
+        justification: Fundamentals-first guidance is sound where read; security coverage minimal.
+        findings:
+        - F-FE-003
+      practical_effectiveness:
+        score: 4
+        justification: No labs or runnable project.
+        findings:
+        - F-FE-003
+      professional_outcomes:
+        score: 3
+        justification: Interview and seniority scripts replace assessed skills.
+        findings:
+        - F-FE-004
+      assessment_validity:
+        score: 1
+        justification: No rubric; one assessment term.
+        findings:
+        - F-FE-003
+      instructional_clarity:
+        score: 5
+        justification: Phased structure; very short sections.
+        findings:
+        - F-FE-005
+      technical_currency:
+        score: 6
+        justification: Covers WCAG, Core Web Vitals, TypeScript/React; versions not pinned or aligned to ecosystem repositories.
+        findings:
+        - F-FE-002
+      accessibility_experience:
+        score: 2
+        justification: Markdown artefacts in text; personal data in samples.
+        findings:
+        - F-FE-005
+        - F-FE-001
+      commercial_readiness:
+        score: 0
+        justification: Third-party personal data and unresolved 'INTERNAL' provenance block any distribution.
+        findings:
+        - F-FE-001
+        - F-FE-002
+    strengths:
+    - Fundamentals-first stance ('debug from fundamentals upward', pp. 120-121) with semantic HTML, accessibility and performance treated as core, not extras.
+    - WCAG is referenced on six pages and Core Web Vitals are present; junior/mid/senior expectations are articulated per topic.
+    - Process content (feature lifecycle, code review, Jira workflow) is a reasonable base for onboarding if re-based on the real ecosystem.
+  COURSE-CYBER-MEGA:
+    title: Official CyberDudeBivash Mega Course 2026 (Parts 1 and 2)
+    source_ids:
+    - SRC-MEGA-P1
+    - SRC-MEGA-P2
+    confidence: LOW
+    review_coverage: '3,664/3,664 pages machine-scanned; 15 body pages read in context (Part 1: pp. 15-16, 487-488, 1449-1452, 1748; Part 2: pp. 3-4, 12-13, 786-787);
+      outlines (12,226 bookmarks) analysed. Most of the text is unread by a human; scores may move.'
+    scores:
+      technical_correctness:
+        score: 8
+        justification: Sampled checklists are plausible; uncited statistics, branded pseudo-frameworks and unspecified offensive labs reduce trust.
+        findings:
+        - F-MEGA-003
+        - F-MEGA-004
+        - F-MEGA-005
+      practical_effectiveness:
+        score: 4
+        justification: 140+ lab headings but each is a bullet procedure without environment, data or verification.
+        findings:
+        - F-MEGA-002
+        - F-MEGA-005
+      professional_outcomes:
+        score: 3
+        justification: '''Guaranteed job'' and expert-title promises.'
+        findings:
+        - F-MEGA-003
+        - F-MEGA-009
+      assessment_validity:
+        score: 1
+        justification: No rubrics or answer keys in ~3,660 pages.
+        findings:
+        - F-MEGA-007
+      instructional_clarity:
+        score: 3
+        justification: TOC, body and Part 2 disagree on module identity; ~80% of sections under 40 words.
+        findings:
+        - F-MEGA-001
+        - F-MEGA-002
+      technical_currency:
+        score: 5
+        justification: Covers 2025-2026 themes (AI, cloud-native); frameworks unpinned (ATT&CK v20 current).
+        findings:
+        - F-MEGA-008
+      accessibility_experience:
+        score: 2
+        justification: Bookmark inflation (9,198 entries in Part 1); clean text layer.
+        findings:
+        - F-MEGA-006
+      commercial_readiness:
+        score: 1
+        justification: Too large and inconsistent to sell as one product; guarantee claims are a liability.
+        findings:
+        - F-MEGA-001
+        - F-MEGA-003
+    strengths:
+    - 'Very broad domain map (Part 1 TOC: 16 modules; Part 2: Kubernetes, Windows forensics, purple teaming, CTI, supply chain).'
+    - 'Sampled technical checklists are accurate: Windows event IDs 4624/4625/4648/4688/4698/4720/4728/7045 (Part 2 pp. 12-13); Docker/K8s hardening lists (Part 2
+      pp. 3-4).'
+    - Frequent authorisation/defence-only framing on offensive topics (117 authorisation-term mentions) and explicit 'NO weaponization' statements (Part 1 pp. 1452,
+      1466, 1496).

@@ -1,0 +1,512 @@
+{
+  "claims": {
+    "certification_claim": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "expert_promise": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "guarantee": {
+      "count": 2,
+      "examples": [
+        {
+          "page": 445,
+          "snippet": "o physical hosts​ ✔ No direct memory access​ ✔ No guaranteed persistence​ ✔ Logs can disappear​ ✔ Identity compromise is central​"
+        },
+        {
+          "page": 655,
+          "snippet": "token invalidation If offboarding fails → breach guaranteed. You architect the lifecycle. 🔐 8.2.4 — MFA Architecture (Global"
+        }
+      ],
+      "pages": 2
+    },
+    "internal_framework_branding": {
+      "count": 256,
+      "examples": [
+        {
+          "page": 1,
+          "snippet": "s 🧠 3.36.0 — Why Kubernetes Security Matters (CDB Truth) Kubernetes is: ✔ the largest enterprise attack surface​ ✔ highly dy"
+        },
+        {
+          "page": 1,
+          "snippet": "S IMPACT. 🧱 3.36.1 — Kubernetes Architecture (CDB Simplified) A Kubernetes cluster consists of: Control Plane (Brain) ●​ API"
+        },
+        {
+          "page": 3,
+          "snippet": "rs. 🔥 3.36.2 — Top Kubernetes Attack Vectors (CDB K8s Threat Map) 1️⃣ Compromised container image (Malicious or vulnerable"
+        },
+        {
+          "page": 8,
+          "snippet": "ntainers. 🧨 3.36.9 — K8s Attack Path Mapping (CDB Cloud-Native Graph) Example Attack Chain: 1️⃣ Phishing → CI/CD token stolen​ 2️"
+        },
+        {
+          "page": 11,
+          "snippet": "VER lie. 💾 3.37.2 — Master Windows Artifacts (CDB 12 Pillars) These are the 12 most important forensic artifacts on ANY co"
+        }
+      ],
+      "pages": 220
+    },
+    "job_placement": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 696,
+          "snippet": "xtraHop​ 🔥 Palo Alto NDR You architect: ✔ sensor placement​ ✔ VPC mirroring​ ✔ span/traffic taps​ ✔ east-west inspection​ ✔ clou"
+        }
+      ],
+      "pages": 1
+    },
+    "percent_stat": {
+      "count": 20,
+      "examples": [
+        {
+          "page": 37,
+          "snippet": "AI-SOC =​ 99% of alerts auto-resolved​ 1% analyst involvement This is the future."
+        },
+        {
+          "page": 101,
+          "snippet": "rity Frameworks (You MUST Know) These are used by 99% of enterprise clients: 1️⃣ NIST Cybersecurity Framework (NIST CSF) Ide"
+        },
+        {
+          "page": 175,
+          "snippet": "e Directory =​ the brain and identity backbone of 95% of enterprise networks. Attack AD →​ you own EVERYTHING: 🔥 endpoints​"
+        },
+        {
+          "page": 269,
+          "snippet": "gurations​ 🔥 weak identity boundaries This is why 99% of cloud breaches happen in AWS. 🔥 4.14.2.1 — AWS IAM Exploitation I"
+        },
+        {
+          "page": 322,
+          "snippet": "ity Architecture (AWS · Azure · GCP) Cloud is now 60–80% of enterprise infrastructure."
+        }
+      ],
+      "pages": 20
+    },
+    "salary": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 245,
+          "snippet": "ecurity team” 4️⃣ Greed “Reward available”​ “Salary update” 5️⃣ Curiosity “Confidential document shared with you”"
+        }
+      ],
+      "pages": 1
+    },
+    "top_percent": {
+      "count": 12,
+      "examples": [
+        {
+          "page": 22,
+          "snippet": "The CDB Zero Trust Pillars (7-Pillar Framework) A world-class Zero Trust model has 7 core pillars: 1️⃣ Identity Security (User"
+        },
+        {
+          "page": 318,
+          "snippet": "12 — Threat Intelligence Reporting (CDB Format) A world-class intel report includes: ✔ Executive summary​ ✔ Threat actor profile​"
+        },
+        {
+          "page": 351,
+          "snippet": "m repeats​ 5️⃣ Document improvements This is how world-class SOCs evolve. 🎯 4.22.9 — Emulation Plan Design (Safe) Every advers"
+        },
+        {
+          "page": 392,
+          "snippet": "gs​ 🔥 Security Posture Dashboard This blueprint = world-class GCP security foundation. ⚡⚡⚡ MODULE 5 — PART 5 CONTAINER & DOCKER"
+        },
+        {
+          "page": 491,
+          "snippet": "This is world-class network security. ⚡⚡⚡ MODULE 6 — PART 1 ADVANCED PACKET ANALYSIS"
+        }
+      ],
+      "pages": 12
+    }
+  },
+  "code": {
+    "candidate_blocks": 0,
+    "languages_checked": [
+      "python"
+    ],
+    "lines_in_blocks": 0,
+    "not_checked_reason": "",
+    "parse_fail_candidates": 0,
+    "parse_ok": 0,
+    "top_parse_errors": []
+  },
+  "code_block_index": [],
+  "currency_flags": {
+    "angular_js": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated front-end tooling/APIs",
+      "pages": 0
+    },
+    "gcp_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy/superseded GCP tooling",
+      "pages": 0
+    },
+    "java_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Older Java baseline referenced",
+      "pages": 0
+    },
+    "kali_cmds": {
+      "count": 26,
+      "examples": [
+        {
+          "page": 17,
+          "snippet": "mands (-enc)​ ✔ IEX (Invoke-Expression)​ ✔ Invoke-Mimikatz​ ✔ Base64 payloads​ ✔ AMSI bypass attempts PowerShell logs = goldmin"
+        },
+        {
+          "page": 18,
+          "snippet": "ers dump LSASS to steal credentials: Methods: ✔ Mimikatz​ ✔ Procdump​ ✔ Comsvcs.dll​ ✔ Task Manager “Create Dump”​ ✔ RDP crede"
+        },
+        {
+          "page": 18,
+          "snippet": "cessAccess Memory forensics: Search strings: mimikatz sekurlsa wdigest kerberos"
+        },
+        {
+          "page": 54,
+          "snippet": "ns Example (Defender/CrowdStrike logic): Detect Mimikatz: process_name != \"lsass.exe\" AND target_process = \"lsass.exe\" AND"
+        },
+        {
+          "page": 112,
+          "snippet": "eam Tools (Real-World Weapons) ✔ Cobalt Strike​ ✔ Metasploit​ ✔ Empire​ 111"
+        }
+      ],
+      "note": "Offensive tooling reference (check ethical/authorised-use framing)",
+      "pages": 21
+    },
+    "langchain_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated LangChain APIs",
+      "pages": 0
+    },
+    "log4j": {
+      "count": 0,
+      "examples": [],
+      "note": "log4j reference (verify version/security posture)",
+      "pages": 0
+    },
+    "md5_sha1": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 16,
+          "snippet": "✔ file paths​ ✔ executable names​ ✔ timestamps​ ✔ SHA1 hashes Attackers CAN’T escape ShimCache evidence. 🔥 3.37.7 — Pow"
+        }
+      ],
+      "note": "Weak hash referenced (check context: IOC hash vs. integrity use)",
+      "pages": 1
+    },
+    "openai_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy OpenAI models/APIs",
+      "pages": 0
+    },
+    "python2": {
+      "count": 0,
+      "examples": [],
+      "note": "Python 2 reference/syntax",
+      "pages": 0
+    },
+    "python_old_version": {
+      "count": 0,
+      "examples": [],
+      "note": "Python <=3.8 is end-of-life",
+      "pages": 0
+    },
+    "selenium3": {
+      "count": 0,
+      "examples": [],
+      "note": "Selenium 3 era API",
+      "pages": 0
+    },
+    "tf1": {
+      "count": 0,
+      "examples": [],
+      "note": "TensorFlow 1.x API",
+      "pages": 0
+    },
+    "tls_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated TLS/SSL versions referenced",
+      "pages": 0
+    },
+    "windows_old": {
+      "count": 0,
+      "examples": [],
+      "note": "End-of-life OS referenced",
+      "pages": 0
+    }
+  },
+  "depth_profile": {
+    "median_words": 15,
+    "p25_words": 9,
+    "p75_words": 33,
+    "p90_words": 50,
+    "sections": 3028,
+    "share_over_400_words": 0.0,
+    "share_under_100_words": 0.997,
+    "share_under_40_words": 0.807
+  },
+  "intra_duplication": {
+    "long_lines_in_repeats": 11,
+    "long_lines_total": 1039,
+    "share_repeated": 0.011,
+    "top_repeated": [
+      {
+        "count": 4,
+        "pages": [
+          171,
+          187,
+          263,
+          270
+        ],
+        "text": "http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+      },
+      {
+        "count": 3,
+        "pages": [
+          547,
+          548,
+          611
+        ],
+        "text": "| summarize count() by userprincipalname, location, bin(timegenerated, 5m)"
+      },
+      {
+        "count": 2,
+        "pages": [
+          547,
+          611
+        ],
+        "text": "| extend location = tostring(locationdetails.city)"
+      },
+      {
+        "count": 2,
+        "pages": [
+          189,
+          273
+        ],
+        "text": "http://169.254.169.254/metadata/identity/oauth2/token"
+      }
+    ]
+  },
+  "markdown_leakage": {
+    "atx_headers": 0,
+    "bold_markers": 0,
+    "code_fences": 0,
+    "hr_dividers": 1
+  },
+  "pages": 827,
+  "path": "OFFICIAL_CYBERDUDEBIVASH_MEGA_COURSE_2026_Part_2.pdf",
+  "pedagogy_signals": {
+    "answer_key": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "capstone": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "disclaimer_legal": {
+      "in_body": 32,
+      "in_headings": 1
+    },
+    "interview": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "lab_heading": {
+      "in_body": 9,
+      "in_headings": 3
+    },
+    "learning_objective": {
+      "in_body": 2,
+      "in_headings": 0
+    },
+    "prerequisite": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "quiz_or_exam": {
+      "in_body": 8,
+      "in_headings": 1
+    },
+    "reference_or_citation": {
+      "in_body": 66,
+      "in_headings": 22
+    },
+    "rubric": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "troubleshooting": {
+      "in_body": 1,
+      "in_headings": 1
+    },
+    "verification_step": {
+      "in_body": 63,
+      "in_headings": 7
+    }
+  },
+  "pii_scan": {
+    "email": {
+      "review_masked": [
+        "a***@gmail.com"
+      ],
+      "review_needed": 1,
+      "review_pages": [
+        422
+      ],
+      "synthetic_placeholder": 1,
+      "total": 2
+    },
+    "phone_with_country_code": {
+      "masked": [],
+      "pages": [],
+      "total": 0
+    }
+  },
+  "python_security_patterns": {},
+  "secret_scan": {
+    "aws_access_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "generic_assignment": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "github_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "google_api_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "jwt": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "private_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "slack_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    }
+  },
+  "source_id": "SRC-MEGA-P2",
+  "stub_sections_level_le_2": {
+    "count": 2426,
+    "of": 3010
+  },
+  "topic_coverage": {
+    "answer_keys": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "cloud_security": {
+      "first_page": 10,
+      "mentions": 725,
+      "pages_with_mention": 244,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "cti_stix": {
+      "first_page": 133,
+      "mentions": 1,
+      "pages_with_mention": 1,
+      "status": "MENTIONED_ONLY"
+    },
+    "lab_environment_spec": {
+      "first_page": 1,
+      "mentions": 50,
+      "pages_with_mention": 34,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "legal_authorisation": {
+      "first_page": 231,
+      "mentions": 16,
+      "pages_with_mention": 15,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "mitre_attack": {
+      "first_page": 46,
+      "mentions": 141,
+      "pages_with_mention": 72,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "nist_csf": {
+      "first_page": 95,
+      "mentions": 9,
+      "pages_with_mention": 7,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "owasp": {
+      "first_page": 173,
+      "mentions": 7,
+      "pages_with_mention": 7,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "supply_chain_slsa": {
+      "first_page": 93,
+      "mentions": 52,
+      "pages_with_mention": 23,
+      "status": "PRESENT_BY_KEYWORD"
+    }
+  },
+  "urls": {
+    "distinct_urls": 8,
+    "sample": [
+      "http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token",
+      "http://169.254.169.254/latest/meta-data/iam",
+      "http://169.254.169.254/latest/meta-data/iam/security-credentials/",
+      "http://169.254.169.254/metadata/identity/oauth2/token",
+      "http://evil.com/shell.txt",
+      "http://localhost:8080",
+      "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token",
+      "https://account.blob.core.windows.net/container/file"
+    ],
+    "top_domains": [
+      [
+        "169.254.169.254",
+        8
+      ],
+      [
+        "evil.com",
+        1
+      ],
+      [
+        "account.blob.core.windows.net",
+        1
+      ],
+      [
+        "localhost:8080",
+        1
+      ],
+      [
+        "metadata.google.internal",
+        1
+      ]
+    ]
+  }
+}

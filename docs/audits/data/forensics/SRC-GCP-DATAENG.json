@@ -1,0 +1,619 @@
+{
+  "claims": {
+    "certification_claim": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "expert_promise": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "guarantee": {
+      "count": 2,
+      "examples": [
+        {
+          "page": 46,
+          "snippet": "●​ Enables scalability​ It does NOT: ●​ Guarantee ordering by default​ ●​ Clean your data​ ●​ Deduplicate aut"
+        },
+        {
+          "page": 208,
+          "snippet": "thin 5 minutes. ⚠️ Never set SLOs to 100%​ That guarantees burnout and failure. 📘 sre/error-budgets.md ERROR BUDGETS (THE SA"
+        }
+      ],
+      "pages": 2
+    },
+    "internal_framework_branding": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "job_placement": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "percent_stat": {
+      "count": 6,
+      "examples": [
+        {
+          "page": 134,
+          "snippet": "n-call 🔹 Senior Notes ●​ IAM mistakes cause 30–40% of real incidents ●​ Least privilege = audit safety + job safety"
+        },
+        {
+          "page": 207,
+          "snippet": "e SLOs (Enterprise-Realistic) Data Freshness SLO: 99% of datasets available within SLA window. Pipeline Success SLO:"
+        },
+        {
+          "page": 216,
+          "snippet": "SLI ●​ Metric: Delay in minutes 🎯 SLO ●​ 99% of runs < 30 minutes delay"
+        },
+        {
+          "page": 219,
+          "snippet": "🎯 SLI ●​ Daily cost deviation 🎯 SLO ●​ ±10% of baseline Visualization ●​ Cost trend ●​ Anomaly highlight"
+        },
+        {
+          "page": 233,
+          "snippet": "●​ data_freshness_delay_minutes SLO ●​ 99% of data available within 30 minutes Alert Condition Trigger if: Delay >"
+        }
+      ],
+      "pages": 6
+    },
+    "salary": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "top_percent": {
+      "count": 2,
+      "examples": [
+        {
+          "page": 238,
+          "snippet": "Calm. Clear. Trusted. 🏁 WHAT YOU NOW HAVE (TOP 1%) You now own: ✅ True SLO-based alerting​ ✅ Error-budget-driven decisi"
+        },
+        {
+          "page": 248,
+          "snippet": "Calm. Clear. Trusted. 🏁 WHAT YOU NOW HAVE (TOP 1%) You now own: ✅ True SLO-based alerting​ ✅ Error-budget-driven decisi"
+        }
+      ],
+      "pages": 2
+    }
+  },
+  "code": {
+    "candidate_blocks": 8,
+    "languages_checked": [
+      "python"
+    ],
+    "lines_in_blocks": 61,
+    "not_checked_reason": "",
+    "parse_fail_candidates": 0,
+    "parse_ok": 8,
+    "top_parse_errors": []
+  },
+  "code_block_index": [
+    {
+      "first": "def fetch_and_store(api_client, bucket, date):",
+      "lang": "python",
+      "lines": 10,
+      "page": 45,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from google.cloud import storage, bigquery",
+      "lang": "python",
+      "lines": 9,
+      "page": 134,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from google.cloud import storage",
+      "lang": "python",
+      "lines": 4,
+      "page": 140,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from google.cloud import storage, bigquery",
+      "lang": "python",
+      "lines": 22,
+      "page": 141,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from google.cloud import bigquery",
+      "lang": "python",
+      "lines": 4,
+      "page": 142,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import apache_beam as beam",
+      "lang": "python",
+      "lines": 5,
+      "page": 144,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from airflow import DAG",
+      "lang": "python",
+      "lines": 4,
+      "page": 145,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_filename_generation():",
+      "lang": "python",
+      "lines": 3,
+      "page": 171,
+      "status": "PARSE_OK"
+    }
+  ],
+  "currency_flags": {
+    "angular_js": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated front-end tooling/APIs",
+      "pages": 0
+    },
+    "gcp_legacy": {
+      "count": 3,
+      "examples": [
+        {
+          "page": 179,
+          "snippet": "ame: Deploy Airflow DAGs (DEV) run: | gsutil rsync -r 04-orchestration/airflow-dags gs://composer-dev-bucket/dags"
+        },
+        {
+          "page": 181,
+          "snippet": "Deploy Airflow DAGs (STAGE) run: | gsutil rsync -r 04-orchestration/airflow-dags gs://composer-stage-bucket/dag"
+        },
+        {
+          "page": 182,
+          "snippet": "name: Deploy Airflow DAGs (PROD) run: | gsutil rsync -r 04-orchestration/airflow-dags gs://composer-prod-bucket/dags"
+        }
+      ],
+      "note": "Legacy/superseded GCP tooling",
+      "pages": 3
+    },
+    "java_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Older Java baseline referenced",
+      "pages": 0
+    },
+    "kali_cmds": {
+      "count": 0,
+      "examples": [],
+      "note": "Offensive tooling reference (check ethical/authorised-use framing)",
+      "pages": 0
+    },
+    "langchain_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated LangChain APIs",
+      "pages": 0
+    },
+    "log4j": {
+      "count": 0,
+      "examples": [],
+      "note": "log4j reference (verify version/security posture)",
+      "pages": 0
+    },
+    "md5_sha1": {
+      "count": 0,
+      "examples": [],
+      "note": "Weak hash referenced (check context: IOC hash vs. integrity use)",
+      "pages": 0
+    },
+    "openai_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy OpenAI models/APIs",
+      "pages": 0
+    },
+    "python2": {
+      "count": 0,
+      "examples": [],
+      "note": "Python 2 reference/syntax",
+      "pages": 0
+    },
+    "python_old_version": {
+      "count": 0,
+      "examples": [],
+      "note": "Python <=3.8 is end-of-life",
+      "pages": 0
+    },
+    "selenium3": {
+      "count": 0,
+      "examples": [],
+      "note": "Selenium 3 era API",
+      "pages": 0
+    },
+    "tf1": {
+      "count": 0,
+      "examples": [],
+      "note": "TensorFlow 1.x API",
+      "pages": 0
+    },
+    "tls_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated TLS/SSL versions referenced",
+      "pages": 0
+    },
+    "windows_old": {
+      "count": 0,
+      "examples": [],
+      "note": "End-of-life OS referenced",
+      "pages": 0
+    }
+  },
+  "depth_profile": {
+    "median_words": 12,
+    "p25_words": 5,
+    "p75_words": 25,
+    "p90_words": 35,
+    "sections": 966,
+    "share_over_400_words": 0.0,
+    "share_under_100_words": 0.993,
+    "share_under_40_words": 0.949
+  },
+  "intra_duplication": {
+    "long_lines_in_repeats": 18,
+    "long_lines_total": 230,
+    "share_repeated": 0.078,
+    "top_repeated": [
+      {
+        "count": 3,
+        "pages": [
+          179,
+          180,
+          182
+        ],
+        "text": "gcloud config set project ${{ secrets.gcp_project_id }}"
+      },
+      {
+        "count": 3,
+        "pages": [
+          179,
+          180,
+          182
+        ],
+        "text": "gcloud auth activate-service-account --key-file=sa.json"
+      },
+      {
+        "count": 3,
+        "pages": [
+          179,
+          180,
+          182
+        ],
+        "text": "echo \"${{ secrets.gcp_sa_key }}\" | base64 -d > sa.json"
+      },
+      {
+        "count": 3,
+        "pages": [
+          179,
+          181,
+          182
+        ],
+        "text": "bq query --use_legacy_sql=false < 02-bigquery/raw-to-curated/incremental_merge.sql"
+      },
+      {
+        "count": 2,
+        "pages": [
+          234,
+          244
+        ],
+        "text": "🟡 alert 2 – pipeline reliability degradation (sev-2)"
+      },
+      {
+        "count": 2,
+        "pages": [
+          233,
+          243
+        ],
+        "text": "these alerts are tied to service level objectives (slos),"
+      },
+      {
+        "count": 2,
+        "pages": [
+          231,
+          241
+        ],
+        "text": "cloud monitoring alert policies (enterprise grade)"
+      }
+    ]
+  },
+  "markdown_leakage": {
+    "atx_headers": 56,
+    "bold_markers": 7,
+    "code_fences": 2,
+    "hr_dividers": 14
+  },
+  "pages": 257,
+  "path": "GCP-DATA-ENGINEER-TRAINING.pdf",
+  "pedagogy_signals": {
+    "answer_key": {
+      "in_body": 1,
+      "in_headings": 0
+    },
+    "capstone": {
+      "in_body": 2,
+      "in_headings": 2
+    },
+    "disclaimer_legal": {
+      "in_body": 19,
+      "in_headings": 2
+    },
+    "interview": {
+      "in_body": 1,
+      "in_headings": 0
+    },
+    "lab_heading": {
+      "in_body": 40,
+      "in_headings": 21
+    },
+    "learning_objective": {
+      "in_body": 9,
+      "in_headings": 4
+    },
+    "prerequisite": {
+      "in_body": 1,
+      "in_headings": 0
+    },
+    "quiz_or_exam": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "reference_or_citation": {
+      "in_body": 13,
+      "in_headings": 0
+    },
+    "rubric": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "troubleshooting": {
+      "in_body": 6,
+      "in_headings": 3
+    },
+    "verification_step": {
+      "in_body": 27,
+      "in_headings": 8
+    }
+  },
+  "pii_scan": {
+    "email": {
+      "review_masked": [
+        "d***@company-data-dev.iam.gserviceaccount.com"
+      ],
+      "review_needed": 1,
+      "review_pages": [
+        134
+      ],
+      "synthetic_placeholder": 1,
+      "total": 2
+    },
+    "phone_with_country_code": {
+      "masked": [],
+      "pages": [],
+      "total": 0
+    }
+  },
+  "python_security_patterns": {
+    "bare_except": {
+      "count": 0,
+      "examples": []
+    },
+    "debug_true": {
+      "count": 0,
+      "examples": []
+    },
+    "eval_exec": {
+      "count": 0,
+      "examples": []
+    },
+    "hardcoded_secret": {
+      "count": 0,
+      "examples": []
+    },
+    "input_to_sql": {
+      "count": 0,
+      "examples": []
+    },
+    "md5_sha1_use": {
+      "count": 0,
+      "examples": []
+    },
+    "os_system": {
+      "count": 0,
+      "examples": []
+    },
+    "pickle_load": {
+      "count": 0,
+      "examples": []
+    },
+    "shell_true": {
+      "count": 0,
+      "examples": []
+    },
+    "ssh_autoadd_hostkey": {
+      "count": 0,
+      "examples": []
+    },
+    "tmp_insecure": {
+      "count": 0,
+      "examples": []
+    },
+    "verify_false": {
+      "count": 0,
+      "examples": []
+    },
+    "weak_default_password": {
+      "count": 0,
+      "examples": []
+    },
+    "yaml_unsafe": {
+      "count": 0,
+      "examples": []
+    }
+  },
+  "secret_scan": {
+    "aws_access_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "generic_assignment": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "github_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "google_api_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "jwt": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "private_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "slack_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    }
+  },
+  "source_id": "SRC-GCP-DATAENG",
+  "stub_sections_level_le_2": {
+    "count": 741,
+    "of": 779
+  },
+  "topic_coverage": {
+    "biglake_iceberg": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "bigquery": {
+      "first_page": 2,
+      "mentions": 98,
+      "pages_with_mention": 71,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "certification_alignment": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "cleanup_teardown": {
+      "first_page": 163,
+      "mentions": 2,
+      "pages_with_mention": 2,
+      "status": "MENTIONED_ONLY"
+    },
+    "cloud_storage": {
+      "first_page": 2,
+      "mentions": 21,
+      "pages_with_mention": 14,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "composer_airflow": {
+      "first_page": 3,
+      "mentions": 55,
+      "pages_with_mention": 28,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "cost_controls": {
+      "first_page": 3,
+      "mentions": 230,
+      "pages_with_mention": 114,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "data_quality": {
+      "first_page": 3,
+      "mentions": 14,
+      "pages_with_mention": 13,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "dataflow_beam": {
+      "first_page": 2,
+      "mentions": 54,
+      "pages_with_mention": 35,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "dataform_dbt": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "dataplex_catalog": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "datastream_cdc": {
+      "first_page": 2,
+      "mentions": 5,
+      "pages_with_mention": 4,
+      "status": "MENTIONED_ONLY"
+    },
+    "dlp_cmek_vpcsc": {
+      "first_page": 15,
+      "mentions": 2,
+      "pages_with_mention": 2,
+      "status": "MENTIONED_ONLY"
+    },
+    "free_tier_sandbox": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "iam_least_privilege": {
+      "first_page": 4,
+      "mentions": 76,
+      "pages_with_mention": 36,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "partition_cluster": {
+      "first_page": 3,
+      "mentions": 22,
+      "pages_with_mention": 13,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "pubsub": {
+      "first_page": 2,
+      "mentions": 15,
+      "pages_with_mention": 10,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "terraform": {
+      "first_page": 4,
+      "mentions": 28,
+      "pages_with_mention": 15,
+      "status": "PRESENT_BY_KEYWORD"
+    }
+  },
+  "urls": {
+    "distinct_urls": 0,
+    "sample": [],
+    "top_domains": []
+  }
+}

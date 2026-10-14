@@ -1,0 +1,3546 @@
+{
+  "claims": {
+    "certification_claim": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "expert_promise": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 199,
+          "snippet": "ly​ ●​ Grow into senior roles​ You are now Zero → Hero → Professional. Realtime: What an Automation Engineer Does Daily"
+        }
+      ],
+      "pages": 1
+    },
+    "guarantee": {
+      "count": 9,
+      "examples": [
+        {
+          "page": 81,
+          "snippet": "() This ensures: ●​ Clean startup​ ●​ Guaranteed cleanup​ ●​ CI safety​ This is non-negotiable in professional"
+        },
+        {
+          "page": 348,
+          "snippet": "ield d d.quit() Why fixture? ●​ Cleanup guaranteed​ ●​ Parallel safe​ ●​ CI stable​ 12. Explicit Waits (Fl"
+        },
+        {
+          "page": 421,
+          "snippet": "giant utils.py​ ❌ Copy-paste test logic Each one guarantees long-term failure. 17. Mini Project — Design an Enterprise Framew"
+        },
+        {
+          "page": 458,
+          "snippet": "ocused | Growth-Oriented) 0. What This Volume Guarantees (If You Execute) After this volume, you will know: ●​ How to pres"
+        },
+        {
+          "page": 513,
+          "snippet": "is test coverage vs quality? A: coverage doesn’t guarantee meaningful assertions.​ 71.​Q: What is “contract drift”? A: cons"
+        }
+      ],
+      "pages": 9
+    },
+    "internal_framework_branding": {
+      "count": 2,
+      "examples": [
+        {
+          "page": 727,
+          "snippet": "fix() -> str: return os.getenv(\"TEST_PREFIX\", \"cdb-auto\") def unique_repo_name() -> str: # GitHub repo names must be <"
+        },
+        {
+          "page": 761,
+          "snippet": "o permissions and a user context repo_name = f\"cdb-api-test-{int(time.time())}\" created = repos.create_repo(name=repo_name, pr"
+        }
+      ],
+      "pages": 2
+    },
+    "job_placement": {
+      "count": 9,
+      "examples": [
+        {
+          "page": 11,
+          "snippet": "duction failures & fixes​ 🧠 Outcome: Learner is job-ready 🧩 PHASE 12 — REAL JOB PRACTICE + INTERVIEWS Volume 12 ●​ Day-1 j"
+        },
+        {
+          "page": 231,
+          "snippet": "iew Masterclass & Career Execution Goal: Make you job-ready. Includes ●​ 200+ interview Qs (Python + Pytest + Selenium + Pla"
+        },
+        {
+          "page": 442,
+          "snippet": "TION PROJECTS & INDUSTRY SIMULATION (Enterprise / Job-Ready / On-the-Job Experience) 0. What This Volume Actually Is This is"
+        },
+        {
+          "page": 457,
+          "snippet": "-like testing?​ If you answer with confidence → job-ready signal. 17. What You Are Now After Volume 11, you are: ●​ Not"
+        },
+        {
+          "page": 458,
+          "snippet": "ME 12 — INTERVIEW MASTERCLASS & CAREER EXECUTION (Job-Ready | Offer-Focused | Growth-Oriented) 0. What This Volume Guarantees"
+        }
+      ],
+      "pages": 9
+    },
+    "percent_stat": {
+      "count": 9,
+      "examples": [
+        {
+          "page": 97,
+          "snippet": "onable​ ●​ Network to settle​ This removes 80% of flakiness seen in Selenium."
+        },
+        {
+          "page": 365,
+          "snippet": "page = context.new_page() This alone removes 80% of Selenium flakiness. 13. Authentication Handling (Enterprise Patte"
+        },
+        {
+          "page": 826,
+          "snippet": "826 This alone separates you from 90% of candidates. 5) Pytest Configuration (Parallel + Stability) pytest"
+        },
+        {
+          "page": 841,
+          "snippet": "841 This alone separates you from 90% of candidates. 5) Pytest Configuration (Parallel + Stability) pytest"
+        },
+        {
+          "page": 1141,
+          "snippet": "k logic.” That sentence alone separates you from 90% of candidates. Start: Playwright Realtime Project (Full Walkthrough"
+        }
+      ],
+      "pages": 8
+    },
+    "salary": {
+      "count": 8,
+      "examples": [
+        {
+          "page": 11,
+          "snippet": "or)​ ●​ Automation design questions​ ●​ Salary-level answers​ 🧠 Outcome: Learner clears interviews confidently"
+        },
+        {
+          "page": 13,
+          "snippet": "ave money or reduce risk, companies would not pay salaries for automation engineers. Real Business Problems Automation Solves"
+        },
+        {
+          "page": 186,
+          "snippet": "g expectations​ ●​ On-job scenarios​ ●​ Salary-level answers​ ●​ Career roadmap PYTHON AUTOMATION"
+        },
+        {
+          "page": 195,
+          "snippet": "estability.” That’s leadership language. 16. Salary Negotiation (Smart Approach) Never say: ●​ “I need this job”​"
+        },
+        {
+          "page": 470,
+          "snippet": "rms decisions, it doesn’t replace humans. 17. Salary Negotiation (Short & Practical) When asked: “What are your expectati"
+        }
+      ],
+      "pages": 8
+    },
+    "top_percent": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 1369,
+          "snippet": "t customer funds.” That answer places you in the top 1%. What You Practiced in Simulation 4 ●​ Risk-based automation​"
+        }
+      ],
+      "pages": 1
+    }
+  },
+  "code": {
+    "candidate_blocks": 535,
+    "languages_checked": [
+      "python"
+    ],
+    "lines_in_blocks": 5098,
+    "not_checked_reason": "",
+    "parse_fail_candidates": 31,
+    "parse_ok": 504,
+    "top_parse_errors": [
+      [
+        "expected an indented block after function definition on line",
+        11
+      ],
+      [
+        "expected an indented block after class definition on line 3",
+        7
+      ],
+      [
+        "unexpected indent",
+        4
+      ],
+      [
+        "trailing comma not allowed without surrounding parentheses",
+        2
+      ],
+      [
+        "expected an indented block after class definition on line 4",
+        2
+      ],
+      [
+        "unterminated f-string literal (detected at line 39)",
+        1
+      ]
+    ]
+  },
+  "code_block_index": [
+    {
+      "first": "import json",
+      "lang": "python",
+      "lines": 3,
+      "page": 35,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class APIClient:",
+      "lang": "python",
+      "lines": 5,
+      "page": 38,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class AuthClient:",
+      "lang": "python",
+      "lines": 4,
+      "page": 39,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from dataclasses import dataclass",
+      "lang": "python",
+      "lines": 3,
+      "page": 39,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "def retry(times):",
+      "lang": "python",
+      "lines": 11,
+      "page": 40,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import subprocess",
+      "lang": "python",
+      "lines": 6,
+      "page": 41,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 4,
+      "page": 47,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def setup():",
+      "lang": "python",
+      "lines": 4,
+      "page": 47,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture(scope=\"session\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 49,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture(scope=\"session\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 49,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture",
+      "lang": "python",
+      "lines": 7,
+      "page": 50,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture(autouse=True)",
+      "lang": "python",
+      "lines": 3,
+      "page": 50,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 4,
+      "page": 51,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.mark.parametrize(",
+      "lang": "python",
+      "lines": 6,
+      "page": 52,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.mark.smoke",
+      "lang": "python",
+      "lines": 3,
+      "page": 53,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.mark.skip(reason=\"Feature not ready\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 54,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.mark.xfail(reason=\"Known bug\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 54,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 4,
+      "page": 55,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class APIClient:",
+      "lang": "python",
+      "lines": 6,
+      "page": 67,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture(scope=\"session\")",
+      "lang": "python",
+      "lines": 7,
+      "page": 69,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.mark.parametrize(\"user_id\", [1, 2, 3])",
+      "lang": "python",
+      "lines": 4,
+      "page": 73,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium import webdriver",
+      "lang": "python",
+      "lines": 6,
+      "page": 80,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture",
+      "lang": "python",
+      "lines": 5,
+      "page": 81,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium.webdriver.common.by import By",
+      "lang": "python",
+      "lines": 11,
+      "page": 83,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_context(browser):",
+      "lang": "python",
+      "lines": 3,
+      "page": 96,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_login(page):",
+      "lang": "python",
+      "lines": 6,
+      "page": 98,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class LoginPage:",
+      "lang": "python",
+      "lines": 7,
+      "page": 99,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import expect",
+      "lang": "python",
+      "lines": 3,
+      "page": 100,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import subprocess",
+      "lang": "python",
+      "lines": 6,
+      "page": 111,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_cli_help():",
+      "lang": "python",
+      "lines": 8,
+      "page": 114,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 3,
+      "page": 117,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_window_launch(qtbot, app):",
+      "lang": "python",
+      "lines": 3,
+      "page": 128,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_submit_button(qtbot, app):",
+      "lang": "python",
+      "lines": 3,
+      "page": 129,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class APIError(Exception): pass",
+      "lang": "python",
+      "lines": 3,
+      "page": 147,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class UserFactory:",
+      "lang": "python",
+      "lines": 7,
+      "page": 148,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_order_idempotency(api_client):",
+      "lang": "python",
+      "lines": 5,
+      "page": 178,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 7,
+      "page": 204,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def load_settings(env_file: str | None = None) -> Settings:",
+      "lang": "python",
+      "lines": 10,
+      "page": 205,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import logging",
+      "lang": "python",
+      "lines": 11,
+      "page": 206,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 5,
+      "page": 207,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class ApiClient:",
+      "lang": "python",
+      "lines": 21,
+      "page": 207,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 10,
+      "page": 208,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium import webdriver",
+      "lang": "python",
+      "lines": 10,
+      "page": 209,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium.webdriver.support.ui import WebDriverWait",
+      "lang": "python",
+      "lines": 14,
+      "page": 210,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium.webdriver.common.by import By",
+      "lang": "python",
+      "lines": 16,
+      "page": 211,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 15,
+      "page": 212,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import sync_playwright",
+      "lang": "python",
+      "lines": 21,
+      "page": 213,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 14,
+      "page": 214,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 5,
+      "page": 215,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def run_cmd(cmd: list[str], timeout: int = 15) -> CmdResult:",
+      "lang": "python",
+      "lines": 3,
+      "page": 215,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 7,
+      "page": 215,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from PyQt5.QtWidgets import QWidget, QLineEdit, QPushButton, QLabel, Q",
+      "lang": "python",
+      "lines": 24,
+      "page": 216,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 9,
+      "page": 217,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 7,
+      "page": 234,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def load_settings() -> Settings:",
+      "lang": "python",
+      "lines": 9,
+      "page": 235,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import logging",
+      "lang": "python",
+      "lines": 16,
+      "page": 236,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 9,
+      "page": 237,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 22,
+      "page": 237,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from src.framework.api.client import APIClient",
+      "lang": "python",
+      "lines": 11,
+      "page": 239,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium import webdriver",
+      "lang": "python",
+      "lines": 10,
+      "page": 240,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium.webdriver.support.ui import WebDriverWait",
+      "lang": "python",
+      "lines": 12,
+      "page": 240,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium.webdriver.common.by import By",
+      "lang": "python",
+      "lines": 13,
+      "page": 241,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 12,
+      "page": 242,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 16,
+      "page": 243,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 6,
+      "page": 244,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def run_cmd(cmd: List[str], cwd: Optional[str] = None, timeout: int = ",
+      "lang": "python",
+      "lines": 3,
+      "page": 244,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from src.framework.cli.runner import run_cmd",
+      "lang": "python",
+      "lines": 5,
+      "page": 245,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from PyQt5.QtWidgets import QWidget, QLineEdit, QPushButton, QVBoxLayo",
+      "lang": "python",
+      "lines": 32,
+      "page": 245,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from dataclasses import dataclass",
+      "lang": "python",
+      "lines": 5,
+      "page": 258,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def load_settings() -> Settings:",
+      "lang": "python",
+      "lines": 17,
+      "page": 259,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import logging",
+      "lang": "python",
+      "lines": 11,
+      "page": 260,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 15,
+      "page": 260,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import time",
+      "lang": "python",
+      "lines": 17,
+      "page": 261,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 10,
+      "page": 262,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class UserClient:",
+      "lang": "python",
+      "lines": 7,
+      "page": 263,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from src.api.clients.user_client import UserClient",
+      "lang": "python",
+      "lines": 7,
+      "page": 264,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium import webdriver",
+      "lang": "python",
+      "lines": 8,
+      "page": 264,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium.webdriver.common.by import By",
+      "lang": "python",
+      "lines": 18,
+      "page": 265,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 12,
+      "page": 266,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import sync_playwright",
+      "lang": "python",
+      "lines": 16,
+      "page": 267,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 15,
+      "page": 268,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import subprocess",
+      "lang": "python",
+      "lines": 4,
+      "page": 269,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxL",
+      "lang": "python",
+      "lines": 23,
+      "page": 270,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 6,
+      "page": 271,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 7,
+      "page": 278,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 4,
+      "page": 279,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from typing import Any",
+      "lang": "python",
+      "lines": 10,
+      "page": 283,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import json",
+      "lang": "python",
+      "lines": 9,
+      "page": 284,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import json",
+      "lang": "python",
+      "lines": 6,
+      "page": 284,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import csv",
+      "lang": "python",
+      "lines": 6,
+      "page": 285,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import logging",
+      "lang": "python",
+      "lines": 14,
+      "page": 285,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 6,
+      "page": 287,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def settings() -> Settings:",
+      "lang": "python",
+      "lines": 7,
+      "page": 287,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 13,
+      "page": 288,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import json as _json",
+      "lang": "python",
+      "lines": 11,
+      "page": 288,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class BasePage:",
+      "lang": "python",
+      "lines": 8,
+      "page": 289,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import time",
+      "lang": "python",
+      "lines": 16,
+      "page": 290,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import subprocess",
+      "lang": "python",
+      "lines": 10,
+      "page": 291,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import logging",
+      "lang": "python",
+      "lines": 18,
+      "page": 294,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 5,
+      "page": 295,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 15,
+      "page": 296,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 6,
+      "page": 297,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 9,
+      "page": 298,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from src.core.assertions import assert_status",
+      "lang": "python",
+      "lines": 4,
+      "page": 298,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import subprocess",
+      "lang": "python",
+      "lines": 6,
+      "page": 298,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 4,
+      "page": 303,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture(scope=\"session\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 304,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture(scope=\"session\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 305,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture",
+      "lang": "python",
+      "lines": 5,
+      "page": 305,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture",
+      "lang": "python",
+      "lines": 5,
+      "page": 306,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.mark.smoke",
+      "lang": "python",
+      "lines": 3,
+      "page": 308,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "@pytest.mark.parametrize(",
+      "lang": "python",
+      "lines": 9,
+      "page": 309,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture",
+      "lang": "python",
+      "lines": 6,
+      "page": 310,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def assert_status(resp, expected):",
+      "lang": "python",
+      "lines": 5,
+      "page": 311,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_users():",
+      "lang": "python",
+      "lines": 3,
+      "page": 322,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 26,
+      "page": 323,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture(scope=\"session\")",
+      "lang": "python",
+      "lines": 14,
+      "page": 325,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def assert_status(resp, expected):",
+      "lang": "python",
+      "lines": 5,
+      "page": 326,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from jsonschema import validate",
+      "lang": "python",
+      "lines": 3,
+      "page": 328,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def new_user_payload():",
+      "lang": "python",
+      "lines": 5,
+      "page": 330,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_create_user_without_email(api):",
+      "lang": "python",
+      "lines": 3,
+      "page": 331,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def retry(times=3):",
+      "lang": "python",
+      "lines": 11,
+      "page": 332,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_user_lifecycle(api):",
+      "lang": "python",
+      "lines": 8,
+      "page": 332,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium import webdriver",
+      "lang": "python",
+      "lines": 11,
+      "page": 342,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium.webdriver.support.ui import WebDriverWait",
+      "lang": "python",
+      "lines": 16,
+      "page": 343,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium.webdriver.common.by import By",
+      "lang": "python",
+      "lines": 13,
+      "page": 346,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 5,
+      "page": 347,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "@pytest.fixture",
+      "lang": "python",
+      "lines": 5,
+      "page": 347,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.hookimpl(hookwrapper=True)",
+      "lang": "python",
+      "lines": 8,
+      "page": 349,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class BasePage:",
+      "lang": "python",
+      "lines": 3,
+      "page": 361,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class LoginPage(BasePage):",
+      "lang": "python",
+      "lines": 7,
+      "page": 362,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 10,
+      "page": 363,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_user_a(context):",
+      "lang": "python",
+      "lines": 4,
+      "page": 365,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def login_and_save_state(page):",
+      "lang": "python",
+      "lines": 6,
+      "page": 365,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from PyQt6.QtWidgets import QWidget, QLineEdit, QPushButton, QLabel, Q",
+      "lang": "python",
+      "lines": 24,
+      "page": 393,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from login_app import LoginWidget",
+      "lang": "python",
+      "lines": 8,
+      "page": 396,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_login_signal_emitted(qtbot):",
+      "lang": "python",
+      "lines": 8,
+      "page": 397,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_login_flow(qtbot):",
+      "lang": "python",
+      "lines": 10,
+      "page": 398,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from PyQt6.QtGui import QPixmap",
+      "lang": "python",
+      "lines": 3,
+      "page": 400,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from PyQt6.QtWidgets import QMessageBox",
+      "lang": "python",
+      "lines": 4,
+      "page": 401,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_login():",
+      "lang": "python",
+      "lines": 3,
+      "page": 412,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class LoginFlow:",
+      "lang": "python",
+      "lines": 8,
+      "page": 413,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class LoginPage(BasePage):",
+      "lang": "python",
+      "lines": 5,
+      "page": 414,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class UserClient:",
+      "lang": "python",
+      "lines": 3,
+      "page": 414,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def assert_equal(actual, expected, msg=\"\"):",
+      "lang": "python",
+      "lines": 3,
+      "page": 416,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def new_user():",
+      "lang": "python",
+      "lines": 5,
+      "page": 417,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture",
+      "lang": "python",
+      "lines": 3,
+      "page": 418,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.mark.api_smoke",
+      "lang": "python",
+      "lines": 10,
+      "page": 446,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.mark.ui_smoke",
+      "lang": "python",
+      "lines": 8,
+      "page": 448,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_user_created_via_api_can_login(api, page, settings):",
+      "lang": "python",
+      "lines": 8,
+      "page": 449,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.mark.cli",
+      "lang": "python",
+      "lines": 6,
+      "page": 450,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_desktop_login(qtbot):",
+      "lang": "python",
+      "lines": 7,
+      "page": 451,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def validate_user(resp: dict) -> bool:",
+      "lang": "python",
+      "lines": 3,
+      "page": 469,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from dataclasses import dataclass",
+      "lang": "python",
+      "lines": 6,
+      "page": 497,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import logging",
+      "lang": "python",
+      "lines": 15,
+      "page": 498,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import time",
+      "lang": "python",
+      "lines": 9,
+      "page": 499,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 15,
+      "page": 500,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from dataclasses import dataclass",
+      "lang": "python",
+      "lines": 3,
+      "page": 522,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import re",
+      "lang": "python",
+      "lines": 4,
+      "page": 523,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from typing import Any, Dict",
+      "lang": "python",
+      "lines": 7,
+      "page": 524,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def build_headers(token: str | None = None) -> dict:",
+      "lang": "python",
+      "lines": 5,
+      "page": 524,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import json",
+      "lang": "python",
+      "lines": 6,
+      "page": 526,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class ApiError(Exception):",
+      "lang": "python",
+      "lines": 5,
+      "page": 526,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import logging",
+      "lang": "python",
+      "lines": 22,
+      "page": 527,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 3,
+      "page": 528,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from dataclasses import dataclass",
+      "lang": "python",
+      "lines": 5,
+      "page": 529,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def load_config(path: str) -> AppConfig:",
+      "lang": "python",
+      "lines": 11,
+      "page": 529,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pathlib import Path",
+      "lang": "python",
+      "lines": 7,
+      "page": 530,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import csv",
+      "lang": "python",
+      "lines": 5,
+      "page": 531,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 17,
+      "page": 531,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import time",
+      "lang": "python",
+      "lines": 10,
+      "page": 533,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import subprocess",
+      "lang": "python",
+      "lines": 4,
+      "page": 534,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "def run_cmd(cmd: list[str], timeout: int = 30) -> CmdResult:",
+      "lang": "python",
+      "lines": 10,
+      "page": 535,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def assert_contains(text: str, needle: str) -> None:",
+      "lang": "python",
+      "lines": 3,
+      "page": 535,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import random",
+      "lang": "python",
+      "lines": 6,
+      "page": 536,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from dataclasses import dataclass, asdict",
+      "lang": "python",
+      "lines": 3,
+      "page": 536,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "class AuthProvider:",
+      "lang": "python",
+      "lines": 5,
+      "page": 537,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 9,
+      "page": 551,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def _bool(v: str | None, default: bool = False) -> bool:",
+      "lang": "python",
+      "lines": 22,
+      "page": 552,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def get_logger(name: str) -> logging.Logger:",
+      "lang": "python",
+      "lines": 10,
+      "page": 554,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 7,
+      "page": 555,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class HttpClient:",
+      "lang": "python",
+      "lines": 23,
+      "page": 555,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 8,
+      "page": 557,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 12,
+      "page": 558,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 10,
+      "page": 559,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 11,
+      "page": 559,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 10,
+      "page": 560,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 17,
+      "page": 561,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 12,
+      "page": 562,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 8,
+      "page": 562,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 4,
+      "page": 563,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 5,
+      "page": 564,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def run(cmd: list[str], timeout: int = 30) -> CmdResult:",
+      "lang": "python",
+      "lines": 3,
+      "page": 564,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 7,
+      "page": 565,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 10,
+      "page": 565,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 21,
+      "page": 577,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def get(self, dotted: str, default=None):",
+      "lang": "python",
+      "lines": 16,
+      "page": 578,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import logging",
+      "lang": "python",
+      "lines": 22,
+      "page": 580,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 6,
+      "page": 581,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def retry(policy: RetryPolicy):",
+      "lang": "python",
+      "lines": 17,
+      "page": 582,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import time",
+      "lang": "python",
+      "lines": 20,
+      "page": 583,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pathlib import Path",
+      "lang": "python",
+      "lines": 10,
+      "page": 584,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 13,
+      "page": 585,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def build_user() -> UserData:",
+      "lang": "python",
+      "lines": 6,
+      "page": 586,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 6,
+      "page": 586,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class HttpClient:",
+      "lang": "python",
+      "lines": 28,
+      "page": 587,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 9,
+      "page": 589,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 17,
+      "page": 589,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from src.framework.assertions.api_asserts import assert_status",
+      "lang": "python",
+      "lines": 4,
+      "page": 590,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import sys",
+      "lang": "python",
+      "lines": 9,
+      "page": 591,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_user_creation(api_client):",
+      "lang": "python",
+      "lines": 8,
+      "page": 592,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from src.framework.utils.data_gen import build_user",
+      "lang": "python",
+      "lines": 6,
+      "page": 592,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_total_price():",
+      "lang": "python",
+      "lines": 5,
+      "page": 598,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_user_roles():",
+      "lang": "python",
+      "lines": 3,
+      "page": 599,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_flow():",
+      "lang": "python",
+      "lines": 6,
+      "page": 599,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 6,
+      "page": 600,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture(scope=\"session\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 601,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 12,
+      "page": 601,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 8,
+      "page": 602,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 4,
+      "page": 603,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.mark.parametrize(",
+      "lang": "python",
+      "lines": 11,
+      "page": 603,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 6,
+      "page": 604,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 5,
+      "page": 605,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 6,
+      "page": 606,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 15,
+      "page": 606,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 5,
+      "page": 607,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import logging",
+      "lang": "python",
+      "lines": 16,
+      "page": 608,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from src.core.logger import get_logger",
+      "lang": "python",
+      "lines": 5,
+      "page": 609,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import time",
+      "lang": "python",
+      "lines": 10,
+      "page": 610,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_waiter():",
+      "lang": "python",
+      "lines": 4,
+      "page": 611,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class LoginPage:",
+      "lang": "python",
+      "lines": 7,
+      "page": 614,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 11,
+      "page": 614,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import subprocess",
+      "lang": "python",
+      "lines": 5,
+      "page": 615,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import json",
+      "lang": "python",
+      "lines": 4,
+      "page": 616,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import uuid",
+      "lang": "python",
+      "lines": 7,
+      "page": 616,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 9,
+      "page": 617,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 5,
+      "page": 619,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 7,
+      "page": 619,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 4,
+      "page": 629,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "def load_settings() -> Settings:",
+      "lang": "python",
+      "lines": 10,
+      "page": 630,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 52,
+      "page": 630,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from dataclasses import dataclass",
+      "lang": "python",
+      "lines": 5,
+      "page": 633,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class AuthService:",
+      "lang": "python",
+      "lines": 15,
+      "page": 634,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 28,
+      "page": 635,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pydantic import BaseModel, EmailStr, Field",
+      "lang": "python",
+      "lines": 3,
+      "page": 636,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from src.models.user import User",
+      "lang": "python",
+      "lines": 6,
+      "page": 637,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import random",
+      "lang": "python",
+      "lines": 24,
+      "page": 637,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.mark.parametrize(\"bad_payload, expected_status\", [",
+      "lang": "python",
+      "lines": 12,
+      "page": 639,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from jsonschema import validate",
+      "lang": "python",
+      "lines": 3,
+      "page": 640,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from src.validators.schema import assert_json_schema",
+      "lang": "python",
+      "lines": 15,
+      "page": 640,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import random",
+      "lang": "python",
+      "lines": 9,
+      "page": 641,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import time",
+      "lang": "python",
+      "lines": 12,
+      "page": 642,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_eventually_consistent_read(authed_client):",
+      "lang": "python",
+      "lines": 9,
+      "page": 643,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 8,
+      "page": 652,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def _read_yaml(path: str) -> dict:",
+      "lang": "python",
+      "lines": 24,
+      "page": 653,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 14,
+      "page": 655,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 10,
+      "page": 655,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 8,
+      "page": 656,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class HttpClient:",
+      "lang": "python",
+      "lines": 7,
+      "page": 657,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def _url(self, path: str) -> str:",
+      "lang": "python",
+      "lines": 33,
+      "page": 657,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 9,
+      "page": 659,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 18,
+      "page": 660,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 18,
+      "page": 661,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 10,
+      "page": 662,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 3,
+      "page": 662,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 3,
+      "page": 663,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 27,
+      "page": 664,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 6,
+      "page": 665,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 8,
+      "page": 666,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 23,
+      "page": 666,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 22,
+      "page": 667,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 6,
+      "page": 669,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import json",
+      "lang": "python",
+      "lines": 14,
+      "page": 669,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 9,
+      "page": 671,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from dataclasses import dataclass",
+      "lang": "python",
+      "lines": 7,
+      "page": 678,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def redact_headers(headers: dict | None) -> dict:",
+      "lang": "python",
+      "lines": 10,
+      "page": 681,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import logging",
+      "lang": "python",
+      "lines": 16,
+      "page": 681,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import random",
+      "lang": "python",
+      "lines": 5,
+      "page": 682,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def sleep_with_jitter(base: float, cap: float, attempt: int) -> None:",
+      "lang": "python",
+      "lines": 5,
+      "page": 683,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class ApiError(RuntimeError):",
+      "lang": "python",
+      "lines": 7,
+      "page": 683,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 19,
+      "page": 684,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def _rate_limit_wait_seconds(self, resp: Response) -> int:",
+      "lang": "python",
+      "lines": 8,
+      "page": 686,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 38,
+      "page": 687,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 8,
+      "page": 689,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import json",
+      "lang": "python",
+      "lines": 9,
+      "page": 690,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def assert_keys(obj: dict, keys: list[str]) -> None:",
+      "lang": "python",
+      "lines": 7,
+      "page": 691,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 11,
+      "page": 693,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 8,
+      "page": 697,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 9,
+      "page": 698,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 11,
+      "page": 705,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 17,
+      "page": 707,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 13,
+      "page": 708,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 14,
+      "page": 709,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 14,
+      "page": 710,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from src.core.retry import retry",
+      "lang": "python",
+      "lines": 4,
+      "page": 712,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 9,
+      "page": 713,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 13,
+      "page": 713,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 23,
+      "page": 723,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 15,
+      "page": 727,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 5,
+      "page": 728,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 15,
+      "page": 728,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 9,
+      "page": 729,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 13,
+      "page": 731,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def pytest_configure(config: pytest.Config):",
+      "lang": "python",
+      "lines": 4,
+      "page": 733,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 9,
+      "page": 734,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@staticmethod",
+      "lang": "python",
+      "lines": 26,
+      "page": 734,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def close_issue(self, owner: str, repo: str, number: int) -> Dict[str,",
+      "lang": "python",
+      "lines": 4,
+      "page": 736,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 14,
+      "page": 736,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 11,
+      "page": 737,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 8,
+      "page": 738,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class HttpRequestError(FrameworkError):",
+      "lang": "python",
+      "lines": 18,
+      "page": 746,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 6,
+      "page": 747,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def compute_delay(self, attempt: int) -> float:",
+      "lang": "python",
+      "lines": 8,
+      "page": 748,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 6,
+      "page": 749,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@property",
+      "lang": "python",
+      "lines": 20,
+      "page": 749,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 26,
+      "page": 750,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import time",
+      "lang": "python",
+      "lines": 22,
+      "page": 754,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 14,
+      "page": 755,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 16,
+      "page": 757,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 9,
+      "page": 758,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 32,
+      "page": 759,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 16,
+      "page": 760,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 7,
+      "page": 768,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 13,
+      "page": 773,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 13,
+      "page": 774,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 10,
+      "page": 775,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 11,
+      "page": 778,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def attach_text(name: str, text: str) -> None:",
+      "lang": "python",
+      "lines": 26,
+      "page": 779,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 5,
+      "page": 788,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def repo_to_dict(r: Repo) -> dict[str, Any]:",
+      "lang": "python",
+      "lines": 7,
+      "page": 789,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 21,
+      "page": 789,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 25,
+      "page": 794,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 13,
+      "page": 797,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from __future__ import annotations",
+      "lang": "python",
+      "lines": 11,
+      "page": 798,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pydantic import BaseModel",
+      "lang": "python",
+      "lines": 3,
+      "page": 806,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 12,
+      "page": 808,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 12,
+      "page": 809,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from faker import Faker",
+      "lang": "python",
+      "lines": 12,
+      "page": 811,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import json",
+      "lang": "python",
+      "lines": 15,
+      "page": 812,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pydantic import BaseModel",
+      "lang": "python",
+      "lines": 3,
+      "page": 813,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 12,
+      "page": 814,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 15,
+      "page": 814,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from .base import BaseConfig",
+      "lang": "python",
+      "lines": 3,
+      "page": 822,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from .base import BaseConfig",
+      "lang": "python",
+      "lines": 3,
+      "page": 822,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from .base import BaseConfig",
+      "lang": "python",
+      "lines": 3,
+      "page": 823,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 11,
+      "page": 823,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 29,
+      "page": 824,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from .base import BaseConfig",
+      "lang": "python",
+      "lines": 3,
+      "page": 837,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from .base import BaseConfig",
+      "lang": "python",
+      "lines": 3,
+      "page": 837,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from .base import BaseConfig",
+      "lang": "python",
+      "lines": 3,
+      "page": 838,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 11,
+      "page": 838,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 29,
+      "page": 839,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class LoginLocators:",
+      "lang": "python",
+      "lines": 5,
+      "page": 850,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium.webdriver.support.ui import WebDriverWait",
+      "lang": "python",
+      "lines": 14,
+      "page": 851,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium.webdriver.support import expected_conditions as EC",
+      "lang": "python",
+      "lines": 3,
+      "page": 854,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 8,
+      "page": 855,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 10,
+      "page": 856,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.mark.ui",
+      "lang": "python",
+      "lines": 3,
+      "page": 858,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "class Actor:",
+      "lang": "python",
+      "lines": 5,
+      "page": 862,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def ability_to(self, ability_cls):",
+      "lang": "python",
+      "lines": 5,
+      "page": 863,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class BrowseTheWeb:",
+      "lang": "python",
+      "lines": 3,
+      "page": 863,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from ui_automation.pages.login_page import LoginPage",
+      "lang": "python",
+      "lines": 14,
+      "page": 863,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from ui_automation.pages.dashboard_page import DashboardPage",
+      "lang": "python",
+      "lines": 7,
+      "page": 864,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium.webdriver.common.by import By",
+      "lang": "python",
+      "lines": 8,
+      "page": 866,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class DashboardPage(BasePage):",
+      "lang": "python",
+      "lines": 3,
+      "page": 867,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_admin_sees_admin_panel(api_client, driver):",
+      "lang": "python",
+      "lines": 7,
+      "page": 868,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium import webdriver",
+      "lang": "python",
+      "lines": 7,
+      "page": 870,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 27,
+      "page": 877,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 7,
+      "page": 879,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 11,
+      "page": 891,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 3,
+      "page": 892,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from PIL import Image, ImageChops",
+      "lang": "python",
+      "lines": 3,
+      "page": 894,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from dataclasses import dataclass",
+      "lang": "python",
+      "lines": 10,
+      "page": 904,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def get_settings() -> Settings:",
+      "lang": "python",
+      "lines": 7,
+      "page": 905,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 26,
+      "page": 905,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import Page, expect",
+      "lang": "python",
+      "lines": 9,
+      "page": 908,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import Page, expect",
+      "lang": "python",
+      "lines": 20,
+      "page": 909,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from src.pages.login_page import LoginPage",
+      "lang": "python",
+      "lines": 5,
+      "page": 910,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import time",
+      "lang": "python",
+      "lines": 3,
+      "page": 911,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import sync_playwright",
+      "lang": "python",
+      "lines": 17,
+      "page": 912,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture(scope=\"function\")",
+      "lang": "python",
+      "lines": 9,
+      "page": 913,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import expect",
+      "lang": "python",
+      "lines": 3,
+      "page": 913,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_upload(page):",
+      "lang": "python",
+      "lines": 4,
+      "page": 915,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_download(page):",
+      "lang": "python",
+      "lines": 7,
+      "page": 916,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test_opens_new_tab(context, page):",
+      "lang": "python",
+      "lines": 7,
+      "page": 916,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 18,
+      "page": 917,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 7,
+      "page": 918,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Urls:",
+      "lang": "python",
+      "lines": 3,
+      "page": 928,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pydantic import BaseModel",
+      "lang": "python",
+      "lines": 5,
+      "page": 929,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import logging",
+      "lang": "python",
+      "lines": 11,
+      "page": 930,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pathlib import Path",
+      "lang": "python",
+      "lines": 16,
+      "page": 930,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import Page, Locator",
+      "lang": "python",
+      "lines": 7,
+      "page": 931,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import expect, Locator",
+      "lang": "python",
+      "lines": 7,
+      "page": 932,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import json",
+      "lang": "python",
+      "lines": 6,
+      "page": 933,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import Page",
+      "lang": "python",
+      "lines": 13,
+      "page": 933,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import Page",
+      "lang": "python",
+      "lines": 10,
+      "page": 934,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import Page",
+      "lang": "python",
+      "lines": 26,
+      "page": 935,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 25,
+      "page": 937,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@pytest.fixture()",
+      "lang": "python",
+      "lines": 31,
+      "page": 939,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pytest",
+      "lang": "python",
+      "lines": 8,
+      "page": 941,
+      "status": "PARSE_OK"
+    }
+  ],
+  "currency_flags": {
+    "angular_js": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated front-end tooling/APIs",
+      "pages": 0
+    },
+    "gcp_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy/superseded GCP tooling",
+      "pages": 0
+    },
+    "java_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Older Java baseline referenced",
+      "pages": 0
+    },
+    "kali_cmds": {
+      "count": 0,
+      "examples": [],
+      "note": "Offensive tooling reference (check ethical/authorised-use framing)",
+      "pages": 0
+    },
+    "langchain_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated LangChain APIs",
+      "pages": 0
+    },
+    "log4j": {
+      "count": 0,
+      "examples": [],
+      "note": "log4j reference (verify version/security posture)",
+      "pages": 0
+    },
+    "md5_sha1": {
+      "count": 0,
+      "examples": [],
+      "note": "Weak hash referenced (check context: IOC hash vs. integrity use)",
+      "pages": 0
+    },
+    "openai_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy OpenAI models/APIs",
+      "pages": 0
+    },
+    "python2": {
+      "count": 0,
+      "examples": [],
+      "note": "Python 2 reference/syntax",
+      "pages": 0
+    },
+    "python_old_version": {
+      "count": 0,
+      "examples": [],
+      "note": "Python <=3.8 is end-of-life",
+      "pages": 0
+    },
+    "selenium3": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 106,
+          "snippet": "ny UI tests​ Use Playwright as designed, not as Selenium 2.0. 20. Interview Expectations (Playwright) Be ready to explain:"
+        }
+      ],
+      "note": "Selenium 3 era API",
+      "pages": 1
+    },
+    "tf1": {
+      "count": 0,
+      "examples": [],
+      "note": "TensorFlow 1.x API",
+      "pages": 0
+    },
+    "tls_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated TLS/SSL versions referenced",
+      "pages": 0
+    },
+    "windows_old": {
+      "count": 0,
+      "examples": [],
+      "note": "End-of-life OS referenced",
+      "pages": 0
+    }
+  },
+  "depth_profile": {
+    "median_words": 21,
+    "p25_words": 9,
+    "p75_words": 37,
+    "p90_words": 60,
+    "sections": 3346,
+    "share_over_400_words": 0.0,
+    "share_under_100_words": 0.968,
+    "share_under_40_words": 0.771
+  },
+  "intra_duplication": {
+    "long_lines_in_repeats": 263,
+    "long_lines_total": 2638,
+    "share_repeated": 0.1,
+    "top_repeated": [
+      {
+        "count": 9,
+        "pages": [
+          661,
+          662,
+          664,
+          708,
+          709,
+          713
+        ],
+        "text": "from src.clients.github_client import githubclient"
+      },
+      {
+        "count": 7,
+        "pages": [
+          85,
+          210,
+          240,
+          265,
+          343,
+          851
+        ],
+        "text": "from selenium.webdriver.support.ui import webdriverwait"
+      },
+      {
+        "count": 7,
+        "pages": [
+          85,
+          210,
+          240,
+          265,
+          343,
+          851
+        ],
+        "text": "from selenium.webdriver.support import expected_conditions as ec"
+      },
+      {
+        "count": 6,
+        "pages": [
+          917,
+          938,
+          1001,
+          1012,
+          1024,
+          1049
+        ],
+        "text": "ctx.tracing.start(screenshots=true, snapshots=true, sources=true)"
+      },
+      {
+        "count": 5,
+        "pages": [
+          908,
+          912,
+          919,
+          1005,
+          1015
+        ],
+        "text": "page.get_by_role(\"button\", name=\"sign in\").click()"
+      },
+      {
+        "count": 5,
+        "pages": [
+          724,
+          726,
+          771,
+          771,
+          773
+        ],
+        "text": "\"$schema\": \"https://json-schema.org/draft/2020-12/schema\","
+      },
+      {
+        "count": 4,
+        "pages": [
+          207,
+          587,
+          631,
+          1095
+        ],
+        "text": "self.session.headers.update({\"authorization\": f\"bearer {token}\"})"
+      },
+      {
+        "count": 4,
+        "pages": [
+          210,
+          241,
+          344,
+          852
+        ],
+        "text": "return self.wait.until(ec.visibility_of_element_located(locator))"
+      }
+    ]
+  },
+  "markdown_leakage": {
+    "atx_headers": 205,
+    "bold_markers": 26,
+    "code_fences": 3,
+    "hr_dividers": 7
+  },
+  "pages": 1458,
+  "path": "CYBERDUDEBIVASH-PYTHON-AUTOMATION-TRAINING.pdf",
+  "pedagogy_signals": {
+    "answer_key": {
+      "in_body": 1,
+      "in_headings": 0
+    },
+    "capstone": {
+      "in_body": 2,
+      "in_headings": 2
+    },
+    "disclaimer_legal": {
+      "in_body": 8,
+      "in_headings": 1
+    },
+    "interview": {
+      "in_body": 111,
+      "in_headings": 80
+    },
+    "lab_heading": {
+      "in_body": 10,
+      "in_headings": 10
+    },
+    "learning_objective": {
+      "in_body": 77,
+      "in_headings": 3
+    },
+    "prerequisite": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "quiz_or_exam": {
+      "in_body": 2,
+      "in_headings": 1
+    },
+    "reference_or_citation": {
+      "in_body": 25,
+      "in_headings": 5
+    },
+    "rubric": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "troubleshooting": {
+      "in_body": 2,
+      "in_headings": 0
+    },
+    "verification_step": {
+      "in_body": 219,
+      "in_headings": 60
+    }
+  },
+  "pii_scan": {
+    "email": {
+      "review_masked": [
+        "v***@t.com"
+      ],
+      "review_needed": 1,
+      "review_pages": [
+        1035
+      ],
+      "synthetic_placeholder": 19,
+      "total": 20
+    },
+    "phone_with_country_code": {
+      "masked": [],
+      "pages": [],
+      "total": 0
+    }
+  },
+  "python_security_patterns": {
+    "bare_except": {
+      "count": 0,
+      "examples": []
+    },
+    "debug_true": {
+      "count": 0,
+      "examples": []
+    },
+    "eval_exec": {
+      "count": 0,
+      "examples": []
+    },
+    "hardcoded_secret": {
+      "count": 0,
+      "examples": []
+    },
+    "input_to_sql": {
+      "count": 0,
+      "examples": []
+    },
+    "md5_sha1_use": {
+      "count": 0,
+      "examples": []
+    },
+    "os_system": {
+      "count": 0,
+      "examples": []
+    },
+    "pickle_load": {
+      "count": 0,
+      "examples": []
+    },
+    "shell_true": {
+      "count": 0,
+      "examples": []
+    },
+    "ssh_autoadd_hostkey": {
+      "count": 0,
+      "examples": []
+    },
+    "tmp_insecure": {
+      "count": 0,
+      "examples": []
+    },
+    "verify_false": {
+      "count": 0,
+      "examples": []
+    },
+    "weak_default_password": {
+      "count": 0,
+      "examples": []
+    },
+    "yaml_unsafe": {
+      "count": 0,
+      "examples": []
+    }
+  },
+  "secret_scan": {
+    "aws_access_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "generic_assignment": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "github_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "google_api_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "jwt": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "private_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "slack_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    }
+  },
+  "source_id": "SRC-PY-AUTOMATION",
+  "stub_sections_level_le_2": {
+    "count": 1619,
+    "of": 2111
+  },
+  "topic_coverage": {
+    "audit_logging": {
+      "first_page": 102,
+      "mentions": 7,
+      "pages_with_mention": 6,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "browser_automation": {
+      "first_page": 6,
+      "mentions": 662,
+      "pages_with_mention": 271,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "ci_cd": {
+      "first_page": 3,
+      "mentions": 201,
+      "pages_with_mention": 151,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "config_management": {
+      "first_page": 35,
+      "mentions": 18,
+      "pages_with_mention": 18,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "docker": {
+      "first_page": 221,
+      "mentions": 29,
+      "pages_with_mention": 17,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "file_locking_atomic": {
+      "first_page": 514,
+      "mentions": 3,
+      "pages_with_mention": 3,
+      "status": "MENTIONED_ONLY"
+    },
+    "idempotency": {
+      "first_page": 73,
+      "mentions": 30,
+      "pages_with_mention": 27,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "monitoring_alerting": {
+      "first_page": 25,
+      "mentions": 17,
+      "pages_with_mention": 13,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "pytest": {
+      "first_page": 4,
+      "mentions": 910,
+      "pages_with_mention": 412,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "retry_backoff": {
+      "first_page": 5,
+      "mentions": 203,
+      "pages_with_mention": 128,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "scheduling": {
+      "first_page": 8,
+      "mentions": 22,
+      "pages_with_mention": 16,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "secrets_handling": {
+      "first_page": 162,
+      "mentions": 65,
+      "pages_with_mention": 44,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "type_hints": {
+      "first_page": 205,
+      "mentions": 175,
+      "pages_with_mention": 113,
+      "status": "PRESENT_BY_KEYWORD"
+    }
+  },
+  "urls": {
+    "distinct_urls": 48,
+    "sample": [
+      "http://127.0.0.1:8010",
+      "http://localhost:4444",
+      "http://localhost:4444/wd/hub",
+      "http://localhost:8000",
+      "http://localhost:8000/api",
+      "http://localhost:8080",
+      "http://localhost:8080/api",
+      "https://api-qa.example.test",
+      "https://api.example.com",
+      "https://api.example.com/health",
+      "https://api.example.com/login",
+      "https://api.example.test",
+      "https://api.github.com",
+      "https://api.qa.example.com",
+      "https://api.test",
+      "https://api.test/users/1",
+      "https://api.test/users/2",
+      "https://app.company.com/login",
+      "https://app.example.com",
+      "https://app.example.com/dashboard",
+      "https://app.example.com/login",
+      "https://app.test",
+      "https://app.test/login",
+      "https://company.com",
+      "https://dev.company.com",
+      "https://example-api.test",
+      "https://example-qa.test",
+      "https://example-ui.test",
+      "https://example.com",
+      "https://example.com/health",
+      "https://example.test",
+      "https://github.com/PyCQA/bandit",
+      "https://github.com/astral-sh/ruff-pre-commit",
+      "https://github.com/charliermarsh/ruff-pre-commit",
+      "https://github.com/owner/demo",
+      "https://github.com/pre-commit/mirrors-mypy",
+      "https://github.com/pre-commit/pre-commit-hooks",
+      "https://github.com/psf/black",
+      "https://httpbin.org",
+      "https://json-schema.org/draft/2020-12/schema"
+    ],
+    "top_domains": [
+      [
+        "api.github.com",
+        18
+      ],
+      [
+        "github.com",
+        16
+      ],
+      [
+        "example.com",
+        10
+      ],
+      [
+        "api.example.com",
+        7
+      ],
+      [
+        "127.0.0.1:8010",
+        6
+      ],
+      [
+        "api.test",
+        5
+      ],
+      [
+        "example.test",
+        5
+      ],
+      [
+        "json-schema.org",
+        5
+      ],
+      [
+        "app.example.com",
+        4
+      ],
+      [
+        "qa.example.com",
+        3
+      ],
+      [
+        "localhost:4444",
+        3
+      ],
+      [
+        "httpbin.org",
+        3
+      ],
+      [
+        "app.test",
+        2
+      ],
+      [
+        "localhost:8080",
+        2
+      ],
+      [
+        "localhost:8000",
+        2
+      ]
+    ]
+  }
+}

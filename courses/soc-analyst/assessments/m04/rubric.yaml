@@ -1,0 +1,87 @@
+# Public rubric for the SOC-M04 independent lab. Students see exactly how they are graded.
+# Mechanical criteria (kind: automated) are measured with the soc_lab commands in the independent-lab README.
+# Judgement criteria (kind: reviewer) are scored 0-3 by a human reviewer using the level descriptors below.
+rubric_id: RUB-SOC-M04
+module: SOC-M04
+version: 0.1.0
+pass_rule: >
+  Every must-pass criterion is met, no reviewer criterion is scored 0, and the reviewer criteria total at least 60% of their maximum.
+  Finishing the lesson or the guided lab alone is not a completion claim.
+criteria:
+  - id: C1
+    name: "Detection coverage"
+    outcomes: [LO3]
+    kind: automated
+    must_pass: true
+    measure: "soc_lab evaluate: every ATTACK scenario detected (recall 100%)"
+  - id: C2
+    name: "Noise control without blindness"
+    outcomes: [LO3, LO5]
+    kind: automated
+    must_pass: true
+    measure: "soc_lab evaluate: false-positive alerts <= 2 AND suppressed alerts that hid real attacks == 0"
+  - id: C3
+    name: "Suppression discipline"
+    outcomes: [LO5]
+    kind: automated
+    must_pass: true
+    measure: "soc_lab lint --exceptions passes: narrow match, owner, ticket, justification, expiry <= 90 days, no wildcards"
+  - id: C4
+    name: "Triage correctness"
+    outcomes: [LO4]
+    kind: automated
+    must_pass: true
+    measure: "soc_lab check-triage: all records pass and no scenario that requires a record is missing"
+  - id: C5
+    name: "Evidence quality and reasoning"
+    outcomes: [LO1, LO2, LO4]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Conclusions without evidence, or evidence that does not support them."
+      1: "Some correct evidence; the pattern (guessing, spraying, retry loop, scan) is named but not argued."
+      2: "Cites relevant events, reads status/logon type correctly, distinguishes the pattern and checks for success."
+      3: "As 2, plus anticipates an alternative explanation and says what additional data would change the decision."
+  - id: C6
+    name: "Reliability and maintainability of the detections"
+    outcomes: [LO3]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Rules are not reproducible or not documented."
+      1: "Rules run but descriptions, tags or commands to reproduce are missing."
+      2: "Rules are documented, tagged to ATT&CK, and the exact commands and numbers are recorded."
+      3: "As 2, plus a stated threshold rationale from the data and a note on when the rule should be re-reviewed."
+  - id: C7
+    name: "Security thinking and honesty about limits"
+    outcomes: [LO3, LO5, LO6]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Claims complete coverage or ignores risk of the exceptions."
+      1: "Mentions limits generically."
+      2: "States at least two concrete limits of the rules and the risk accepted by each exception."
+      3: "As 2, plus a concrete compensating control or follow-up (for example MFA, lock-out policy review, owner for credential rotation)."
+  - id: C8
+    name: "Framework mapping with versions"
+    outcomes: [LO6]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "No mapping, or a mapping that names a non-existent technique or category."
+      1: "ATT&CK technique IDs given without a version."
+      2: "ATT&CK sub-technique IDs with the ATT&CK version, and CSF 2.0 Functions named correctly."
+      3: "As 2, plus the correct CSF 2.0 categories (for example DE.AE, RS.MA) and a correct statement of how SP 800-61r3 relates to them."
+  - id: C9
+    name: "Independent problem solving"
+    outcomes: [LO3]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Reuses the guided rules unchanged."
+      1: "Adjusts thresholds only."
+      2: "Identifies what the guided rules miss on the new data and designs a different grouping that fixes it."
+      3: "As 2, and explains why the alternative grouping keys (source, network, account) do or do not work for this data."
+remediation:
+  - "A failed must-pass criterion: repeat the relevant guided-lab step with a different seed, then resubmit."
+  - "Reviewer criterion at 0: a short oral or written explanation with the reviewer before resubmission."

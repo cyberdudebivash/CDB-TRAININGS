@@ -1,0 +1,20 @@
+title: Password Spraying From One Source
+name: mr_spray_single_source
+id: 2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d11
+status: experimental
+description: TODO - what varies in a spray, and therefore what do you count?
+author: your name
+date: 2026-10-14
+correlation:
+  type: TODO            # event_count or value_count?
+  rules:
+    - win_failed_logon
+  group-by: TODO
+  timespan: TODO
+  condition:
+    field: TODO         # the field whose DISTINCT values you count
+    gte: TODO
+level: high
+tags:
+  - attack.credential_access
+  - attack.t1110.003

@@ -1,0 +1,2 @@
+# One narrow, owned, justified, expiring exception per false positive you decide to tune.
+exceptions: []

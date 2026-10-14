@@ -1,0 +1,3664 @@
+{
+  "claims": {
+    "certification_claim": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "expert_promise": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "guarantee": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "internal_framework_branding": {
+      "count": 15,
+      "examples": [
+        {
+          "page": 482,
+          "snippet": "thon Coin) Let’s name it: 🔥 CyberDudeBivashCoin (CDBC) 🔥 Add fields to transaction: ●​ sender​ ●​ recipient​"
+        },
+        {
+          "page": 491,
+          "snippet": "Token (Your OWN Cryptocurrency) Let’s create: 🔥 CDB Token (CyberDudeBivash Token) ERC20 Contract: pragma solidity ^0.8.0; c"
+        },
+        {
+          "page": 491,
+          "snippet": "C20 Contract: pragma solidity ^0.8.0; contract CDBToken { string public name = \"CyberDudeBivash Token\"; string pu"
+        },
+        {
+          "page": 493,
+          "snippet": "n/contracts/token/ERC721/ERC721.sol\"; contract CDBNFT is ERC721 { uint public nextId; constructor() ERC721(\"Cyb"
+        },
+        {
+          "page": 493,
+          "snippet": "constructor() ERC721(\"CyberDudeBivash NFT\", \"CDBNFT\") {} function mint() public { _safeMint(msg.sender, n"
+        }
+      ],
+      "pages": 11
+    },
+    "job_placement": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 91,
+          "snippet": "R TO INTERMEDIATE) These projects help you become job-ready. 90"
+        }
+      ],
+      "pages": 1
+    },
+    "percent_stat": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 394,
+          "snippet": ".send(payload) s.close() This template powers 80% of Windows stack exploits."
+        }
+      ],
+      "pages": 1
+    },
+    "salary": {
+      "count": 5,
+      "examples": [
+        {
+          "page": 556,
+          "snippet": "tplotlib.pyplot as plt plt.plot(df[\"age\"], df[\"salary\"]) plt.show() ⭐ 7. Machine Learning Basics ML = making predictio"
+        },
+        {
+          "page": 557,
+          "snippet": "ur First AI Model (scikit-learn) Example: Predict Salary from Experience from sklearn.linear_model import LinearRegression"
+        },
+        {
+          "page": 607,
+          "snippet": "Filter Data df[df[\"salary\"] > 50000] Grouping df.groupby(\"city\").salary.mean() ⭐ 6. Pol"
+        },
+        {
+          "page": 607,
+          "snippet": "salary\"] > 50000] Grouping df.groupby(\"city\").salary.mean() ⭐ 6. Polars — Faster Than Pandas Install: pip install pol"
+        },
+        {
+          "page": 615,
+          "snippet": "s as F w = Window.partitionBy(\"city\").orderBy(\"salary\") df.withColumn(\"rank\", F.rank().over(w)).show() Used for: ✔ r"
+        }
+      ],
+      "pages": 4
+    },
+    "top_percent": {
+      "count": 3,
+      "examples": [
+        {
+          "page": 643,
+          "snippet": "will build a REAL enterprise-grade system used by Big Tech. ⭐ 56.1 Data Sources ●​ Banking transactions​ ●​ Cybersec"
+        },
+        {
+          "page": 651,
+          "snippet": "rofessionals, enterprises, and tech learners with world-class tools, training, research, and automation solutions. What began as a"
+        },
+        {
+          "page": 652,
+          "snippet": "program designed to transform any learner into a world-class Python developer, automation engineer, AI practitioner, data engineer"
+        }
+      ],
+      "pages": 3
+    }
+  },
+  "code": {
+    "candidate_blocks": 404,
+    "languages_checked": [
+      "python"
+    ],
+    "lines_in_blocks": 2588,
+    "not_checked_reason": "",
+    "parse_fail_candidates": 7,
+    "parse_ok": 397,
+    "top_parse_errors": [
+      [
+        "expected an indented block after function definition on line",
+        4
+      ],
+      [
+        "invalid syntax",
+        2
+      ],
+      [
+        "expected an indented block after class definition on line 3",
+        1
+      ]
+    ]
+  },
+  "code_block_index": [
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 4,
+      "page": 33,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Counter:",
+      "lang": "python",
+      "lines": 15,
+      "page": 36,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def numbers():",
+      "lang": "python",
+      "lines": 4,
+      "page": 37,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def infinite():",
+      "lang": "python",
+      "lines": 5,
+      "page": 38,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def log(func):",
+      "lang": "python",
+      "lines": 5,
+      "page": 39,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@log",
+      "lang": "python",
+      "lines": 3,
+      "page": 39,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def trace(fn):",
+      "lang": "python",
+      "lines": 5,
+      "page": 39,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Car:",
+      "lang": "python",
+      "lines": 3,
+      "page": 41,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class User:",
+      "lang": "python",
+      "lines": 4,
+      "page": 42,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class User:",
+      "lang": "python",
+      "lines": 3,
+      "page": 42,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Animal:",
+      "lang": "python",
+      "lines": 6,
+      "page": 42,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Parent:",
+      "lang": "python",
+      "lines": 7,
+      "page": 43,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class A:",
+      "lang": "python",
+      "lines": 4,
+      "page": 43,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from abc import ABC, abstractmethod",
+      "lang": "python",
+      "lines": 5,
+      "page": 44,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Box:",
+      "lang": "python",
+      "lines": 5,
+      "page": 45,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@classmethod",
+      "lang": "python",
+      "lines": 3,
+      "page": 45,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@staticmethod",
+      "lang": "python",
+      "lines": 3,
+      "page": 46,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class User:",
+      "lang": "python",
+      "lines": 3,
+      "page": 48,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Temp:",
+      "lang": "python",
+      "lines": 11,
+      "page": 50,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class A: pass",
+      "lang": "python",
+      "lines": 3,
+      "page": 51,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from abc import ABC, abstractmethod",
+      "lang": "python",
+      "lines": 5,
+      "page": 52,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Circle(Shape):",
+      "lang": "python",
+      "lines": 3,
+      "page": 52,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Dog:",
+      "lang": "python",
+      "lines": 4,
+      "page": 53,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Engine:",
+      "lang": "python",
+      "lines": 6,
+      "page": 53,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Single:",
+      "lang": "python",
+      "lines": 6,
+      "page": 54,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class PaymentStrategy: ...",
+      "lang": "python",
+      "lines": 3,
+      "page": 55,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Subject:",
+      "lang": "python",
+      "lines": 5,
+      "page": 55,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import sys",
+      "lang": "python",
+      "lines": 3,
+      "page": 56,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def f():",
+      "lang": "python",
+      "lines": 3,
+      "page": 62,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import logging",
+      "lang": "python",
+      "lines": 3,
+      "page": 63,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class User:",
+      "lang": "python",
+      "lines": 5,
+      "page": 65,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Box:",
+      "lang": "python",
+      "lines": 3,
+      "page": 66,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Data:",
+      "lang": "python",
+      "lines": 4,
+      "page": 66,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Greeter:",
+      "lang": "python",
+      "lines": 4,
+      "page": 67,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class FileManager:",
+      "lang": "python",
+      "lines": 7,
+      "page": 67,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def outer(msg):",
+      "lang": "python",
+      "lines": 6,
+      "page": 68,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def add(x): return x+10",
+      "lang": "python",
+      "lines": 5,
+      "page": 69,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def coroutine():",
+      "lang": "python",
+      "lines": 6,
+      "page": 70,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import asyncio",
+      "lang": "python",
+      "lines": 5,
+      "page": 71,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import threading",
+      "lang": "python",
+      "lines": 8,
+      "page": 73,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from multiprocessing import Process",
+      "lang": "python",
+      "lines": 6,
+      "page": 74,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import time",
+      "lang": "python",
+      "lines": 5,
+      "page": 76,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from memory_profiler import profile",
+      "lang": "python",
+      "lines": 3,
+      "page": 77,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 6,
+      "page": 77,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Log:",
+      "lang": "python",
+      "lines": 5,
+      "page": 79,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from functools import lru_cache",
+      "lang": "python",
+      "lines": 6,
+      "page": 79,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pickle",
+      "lang": "python",
+      "lines": 3,
+      "page": 83,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import yaml",
+      "lang": "python",
+      "lines": 3,
+      "page": 84,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from dataclasses import dataclass",
+      "lang": "python",
+      "lines": 3,
+      "page": 84,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import argparse",
+      "lang": "python",
+      "lines": 5,
+      "page": 85,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import json",
+      "lang": "python",
+      "lines": 3,
+      "page": 90,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 3,
+      "page": 90,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 3,
+      "page": 91,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def read_log(path):",
+      "lang": "python",
+      "lines": 4,
+      "page": 95,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from utils.config import ALERT_KEYWORDS",
+      "lang": "python",
+      "lines": 6,
+      "page": 95,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from datetime import datetime",
+      "lang": "python",
+      "lines": 3,
+      "page": 96,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def write_summary(counts):",
+      "lang": "python",
+      "lines": 4,
+      "page": 96,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from core.reader import read_log",
+      "lang": "python",
+      "lines": 15,
+      "page": 97,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class ReportBuilder:",
+      "lang": "python",
+      "lines": 15,
+      "page": 98,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class JsonLogger:",
+      "lang": "python",
+      "lines": 8,
+      "page": 99,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class SystemFacade:",
+      "lang": "python",
+      "lines": 10,
+      "page": 100,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import argparse",
+      "lang": "python",
+      "lines": 5,
+      "page": 111,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import subprocess",
+      "lang": "python",
+      "lines": 3,
+      "page": 114,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import schedule, time",
+      "lang": "python",
+      "lines": 7,
+      "page": 115,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 4,
+      "page": 117,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 5,
+      "page": 118,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import hashlib",
+      "lang": "python",
+      "lines": 5,
+      "page": 120,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import tempfile",
+      "lang": "python",
+      "lines": 4,
+      "page": 121,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import psutil",
+      "lang": "python",
+      "lines": 3,
+      "page": 121,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 7,
+      "page": 122,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import socket",
+      "lang": "python",
+      "lines": 11,
+      "page": 123,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import paramiko",
+      "lang": "python",
+      "lines": 4,
+      "page": 124,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 3,
+      "page": 125,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from bs4 import BeautifulSoup",
+      "lang": "python",
+      "lines": 6,
+      "page": 126,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from selenium import webdriver",
+      "lang": "python",
+      "lines": 3,
+      "page": 127,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from playwright.sync_api import sync_playwright",
+      "lang": "python",
+      "lines": 5,
+      "page": 128,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import httpx",
+      "lang": "python",
+      "lines": 3,
+      "page": 129,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 13,
+      "page": 131,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from concurrent.futures import ThreadPoolExecutor",
+      "lang": "python",
+      "lines": 9,
+      "page": 134,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import asyncio",
+      "lang": "python",
+      "lines": 3,
+      "page": 136,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from celery import Celery",
+      "lang": "python",
+      "lines": 5,
+      "page": 138,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import smtplib",
+      "lang": "python",
+      "lines": 6,
+      "page": 139,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 4,
+      "page": 139,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import mysql.connector",
+      "lang": "python",
+      "lines": 11,
+      "page": 141,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import psycopg2",
+      "lang": "python",
+      "lines": 4,
+      "page": 141,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pymongo import MongoClient",
+      "lang": "python",
+      "lines": 4,
+      "page": 142,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import boto3",
+      "lang": "python",
+      "lines": 3,
+      "page": 143,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from google.cloud import storage",
+      "lang": "python",
+      "lines": 4,
+      "page": 143,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import psutil",
+      "lang": "python",
+      "lines": 5,
+      "page": 145,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import socket",
+      "lang": "python",
+      "lines": 4,
+      "page": 145,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import boto3",
+      "lang": "python",
+      "lines": 12,
+      "page": 151,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def load_lines(filename):",
+      "lang": "python",
+      "lines": 5,
+      "page": 152,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from config.settings import KEYWORDS",
+      "lang": "python",
+      "lines": 6,
+      "page": 153,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import re",
+      "lang": "python",
+      "lines": 7,
+      "page": 153,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def ioc_scan(line):",
+      "lang": "python",
+      "lines": 5,
+      "page": 154,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import sqlite3",
+      "lang": "python",
+      "lines": 4,
+      "page": 154,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 5,
+      "page": 155,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import sqlite3",
+      "lang": "python",
+      "lines": 8,
+      "page": 155,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from ingestion.downloader import download_logs",
+      "lang": "python",
+      "lines": 22,
+      "page": 156,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import paramiko",
+      "lang": "python",
+      "lines": 11,
+      "page": 163,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def patch_linux(ssh):",
+      "lang": "python",
+      "lines": 7,
+      "page": 165,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 4,
+      "page": 166,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import smtplib",
+      "lang": "python",
+      "lines": 8,
+      "page": 167,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def write_summary(success, failures):",
+      "lang": "python",
+      "lines": 6,
+      "page": 167,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import json",
+      "lang": "python",
+      "lines": 17,
+      "page": 168,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import httpx",
+      "lang": "python",
+      "lines": 3,
+      "page": 177,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import httpx, json",
+      "lang": "python",
+      "lines": 3,
+      "page": 178,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import re",
+      "lang": "python",
+      "lines": 12,
+      "page": 178,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def normalize(indicator, type, source):",
+      "lang": "python",
+      "lines": 14,
+      "page": 179,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import geoip2.database",
+      "lang": "python",
+      "lines": 8,
+      "page": 180,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 7,
+      "page": 180,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import whois",
+      "lang": "python",
+      "lines": 7,
+      "page": 181,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pymongo import MongoClient",
+      "lang": "python",
+      "lines": 5,
+      "page": 182,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from reportlab.pdfgen import canvas",
+      "lang": "python",
+      "lines": 9,
+      "page": 183,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import asyncio",
+      "lang": "python",
+      "lines": 22,
+      "page": 183,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import openai",
+      "lang": "python",
+      "lines": 8,
+      "page": 188,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import imaplib, email",
+      "lang": "python",
+      "lines": 4,
+      "page": 189,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def classify_email(subject, body):",
+      "lang": "python",
+      "lines": 6,
+      "page": 189,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def lambda_handler(event, context):",
+      "lang": "python",
+      "lines": 3,
+      "page": 190,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from elasticsearch import Elasticsearch",
+      "lang": "python",
+      "lines": 4,
+      "page": 193,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def detect_bruteforce(logs):",
+      "lang": "python",
+      "lines": 8,
+      "page": 194,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def safe_run(func):",
+      "lang": "python",
+      "lines": 7,
+      "page": 195,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from concurrent.futures import ThreadPoolExecutor",
+      "lang": "python",
+      "lines": 8,
+      "page": 199,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import docker",
+      "lang": "python",
+      "lines": 8,
+      "page": 200,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from kubernetes import client, config",
+      "lang": "python",
+      "lines": 3,
+      "page": 202,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from kubernetes.client import AppsV1Api, V1Scale",
+      "lang": "python",
+      "lines": 5,
+      "page": 203,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import subprocess",
+      "lang": "python",
+      "lines": 3,
+      "page": 204,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def engine():",
+      "lang": "python",
+      "lines": 11,
+      "page": 208,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def f(x=[]):",
+      "lang": "python",
+      "lines": 5,
+      "page": 212,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def test(x, y=5, *args, **kwargs):",
+      "lang": "python",
+      "lines": 3,
+      "page": 212,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import asyncio",
+      "lang": "python",
+      "lines": 4,
+      "page": 213,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import Flask",
+      "lang": "python",
+      "lines": 7,
+      "page": 221,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.route(\"/hello\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 222,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.route(\"/user/<name>\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 222,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import render_template",
+      "lang": "python",
+      "lines": 4,
+      "page": 223,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import request",
+      "lang": "python",
+      "lines": 7,
+      "page": 224,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.route(\"/api/data\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 225,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import Flask",
+      "lang": "python",
+      "lines": 7,
+      "page": 227,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from app import create_app",
+      "lang": "python",
+      "lines": 4,
+      "page": 228,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import Blueprint, render_template, request",
+      "lang": "python",
+      "lines": 5,
+      "page": 228,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask_wtf import FlaskForm",
+      "lang": "python",
+      "lines": 7,
+      "page": 231,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from .forms import ContactForm",
+      "lang": "python",
+      "lines": 7,
+      "page": 231,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.before_request",
+      "lang": "python",
+      "lines": 3,
+      "page": 233,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.after_request",
+      "lang": "python",
+      "lines": 4,
+      "page": 233,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 8,
+      "page": 234,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@main.route(\"/api/user\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 235,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask_sqlalchemy import SQLAlchemy",
+      "lang": "python",
+      "lines": 7,
+      "page": 235,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from . import db",
+      "lang": "python",
+      "lines": 4,
+      "page": 236,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from app import create_app, db",
+      "lang": "python",
+      "lines": 4,
+      "page": 236,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Config:",
+      "lang": "python",
+      "lines": 4,
+      "page": 240,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import Flask",
+      "lang": "python",
+      "lines": 17,
+      "page": 240,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from . import db",
+      "lang": "python",
+      "lines": 13,
+      "page": 241,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from .models import Admin",
+      "lang": "python",
+      "lines": 5,
+      "page": 242,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask_wtf import FlaskForm",
+      "lang": "python",
+      "lines": 12,
+      "page": 243,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import Blueprint, render_template, redirect, request, flash",
+      "lang": "python",
+      "lines": 22,
+      "page": 244,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import Blueprint, render_template, redirect, flash, request",
+      "lang": "python",
+      "lines": 23,
+      "page": 245,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask_login import login_required",
+      "lang": "python",
+      "lines": 6,
+      "page": 246,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@main.route(\"/admin/export/json\")",
+      "lang": "python",
+      "lines": 5,
+      "page": 247,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import csv",
+      "lang": "python",
+      "lines": 11,
+      "page": 247,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from app import create_app, db",
+      "lang": "python",
+      "lines": 8,
+      "page": 252,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class User(UserMixin, db.Model):",
+      "lang": "python",
+      "lines": 5,
+      "page": 254,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@auth.route(\"/register\", methods=[\"GET\",\"POST\"])",
+      "lang": "python",
+      "lines": 11,
+      "page": 254,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@auth.route(\"/login\", methods=[\"GET\",\"POST\"])",
+      "lang": "python",
+      "lines": 11,
+      "page": 255,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask_login import login_required",
+      "lang": "python",
+      "lines": 5,
+      "page": 255,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@auth.route(\"/logout\")",
+      "lang": "python",
+      "lines": 5,
+      "page": 256,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask_dance.contrib.google import make_google_blueprint",
+      "lang": "python",
+      "lines": 7,
+      "page": 256,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@auth.route(\"/google\")",
+      "lang": "python",
+      "lines": 7,
+      "page": 257,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@main.route(\"/upload_profile\", methods=[\"POST\"])",
+      "lang": "python",
+      "lines": 10,
+      "page": 258,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@main.route(\"/profile\")",
+      "lang": "python",
+      "lines": 4,
+      "page": 258,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Task(db.Model):",
+      "lang": "python",
+      "lines": 4,
+      "page": 259,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.route(\"/api/tasks\", methods=[\"POST\"])",
+      "lang": "python",
+      "lines": 7,
+      "page": 259,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.route(\"/api/tasks\")",
+      "lang": "python",
+      "lines": 4,
+      "page": 260,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.route(\"/api/tasks/<int:id>\", methods=[\"PUT\"])",
+      "lang": "python",
+      "lines": 8,
+      "page": 260,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.route(\"/api/tasks/<int:id>\", methods=[\"DELETE\"])",
+      "lang": "python",
+      "lines": 6,
+      "page": 260,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask_admin import Admin",
+      "lang": "python",
+      "lines": 5,
+      "page": 263,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from sqlalchemy import create_engine",
+      "lang": "python",
+      "lines": 6,
+      "page": 268,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from sqlalchemy import Column, Integer, String, Boolean",
+      "lang": "python",
+      "lines": 10,
+      "page": 268,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from passlib.context import CryptContext",
+      "lang": "python",
+      "lines": 6,
+      "page": 269,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from jose import jwt",
+      "lang": "python",
+      "lines": 9,
+      "page": 269,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from fastapi import APIRouter, Depends, HTTPException",
+      "lang": "python",
+      "lines": 23,
+      "page": 270,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Verification(Base):",
+      "lang": "python",
+      "lines": 5,
+      "page": 272,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import smtplib",
+      "lang": "python",
+      "lines": 8,
+      "page": 272,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import Flask",
+      "lang": "python",
+      "lines": 7,
+      "page": 274,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import Blueprint, render_template",
+      "lang": "python",
+      "lines": 5,
+      "page": 275,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 16,
+      "page": 275,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Tenant(Base):",
+      "lang": "python",
+      "lines": 6,
+      "page": 284,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class User(Base):",
+      "lang": "python",
+      "lines": 7,
+      "page": 284,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def require_role(user, allowed):",
+      "lang": "python",
+      "lines": 3,
+      "page": 285,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@router.post(\"/billing/checkout\")",
+      "lang": "python",
+      "lines": 15,
+      "page": 286,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@router.post(\"/stripe/webhook\")",
+      "lang": "python",
+      "lines": 16,
+      "page": 287,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from fastapi import BackgroundTasks",
+      "lang": "python",
+      "lines": 4,
+      "page": 289,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "def create_refresh_token(data):",
+      "lang": "python",
+      "lines": 6,
+      "page": 290,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@router.post(\"/refresh\")",
+      "lang": "python",
+      "lines": 5,
+      "page": 290,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from slowapi import Limiter",
+      "lang": "python",
+      "lines": 7,
+      "page": 290,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class AuditLog(Base):",
+      "lang": "python",
+      "lines": 6,
+      "page": 291,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.get(\"/health\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 294,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from fastapi import WebSocket",
+      "lang": "python",
+      "lines": 7,
+      "page": 299,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@router.get(\"/users\")",
+      "lang": "python",
+      "lines": 8,
+      "page": 300,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from celery import Celery",
+      "lang": "python",
+      "lines": 5,
+      "page": 301,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from fastapi import FastAPI",
+      "lang": "python",
+      "lines": 6,
+      "page": 308,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def f(a=[]):",
+      "lang": "python",
+      "lines": 5,
+      "page": 308,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.get(\"/sum\")",
+      "lang": "python",
+      "lines": 4,
+      "page": 309,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import hashlib",
+      "lang": "python",
+      "lines": 6,
+      "page": 319,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import psutil",
+      "lang": "python",
+      "lines": 3,
+      "page": 319,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import socket",
+      "lang": "python",
+      "lines": 5,
+      "page": 320,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from scapy.all import *",
+      "lang": "python",
+      "lines": 3,
+      "page": 321,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from cryptography.fernet import Fernet",
+      "lang": "python",
+      "lines": 5,
+      "page": 322,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pefile",
+      "lang": "python",
+      "lines": 3,
+      "page": 324,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import socket",
+      "lang": "python",
+      "lines": 16,
+      "page": 326,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import socket, threading",
+      "lang": "python",
+      "lines": 13,
+      "page": 327,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from scapy.all import *",
+      "lang": "python",
+      "lines": 11,
+      "page": 328,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import socket",
+      "lang": "python",
+      "lines": 12,
+      "page": 329,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from scapy.all import ARP, Ether, srp",
+      "lang": "python",
+      "lines": 9,
+      "page": 331,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from scapy.all import *",
+      "lang": "python",
+      "lines": 15,
+      "page": 332,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 10,
+      "page": 334,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 11,
+      "page": 336,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import shodan",
+      "lang": "python",
+      "lines": 5,
+      "page": 337,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pynput.keyboard import Listener",
+      "lang": "python",
+      "lines": 6,
+      "page": 340,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pyperclip",
+      "lang": "python",
+      "lines": 11,
+      "page": 341,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from PIL import ImageGrab",
+      "lang": "python",
+      "lines": 6,
+      "page": 342,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import socket",
+      "lang": "python",
+      "lines": 4,
+      "page": 343,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import socket",
+      "lang": "python",
+      "lines": 8,
+      "page": 344,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 9,
+      "page": 344,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import winreg",
+      "lang": "python",
+      "lines": 7,
+      "page": 345,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 12,
+      "page": 346,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from cryptography.fernet import Fernet",
+      "lang": "python",
+      "lines": 15,
+      "page": 347,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from cryptography.fernet import Fernet",
+      "lang": "python",
+      "lines": 13,
+      "page": 348,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import base64",
+      "lang": "python",
+      "lines": 3,
+      "page": 350,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def xor(data, key):",
+      "lang": "python",
+      "lines": 5,
+      "page": 350,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import Flask, request, jsonify",
+      "lang": "python",
+      "lines": 9,
+      "page": 351,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.route(\"/get_cmd/<bot_id>\")",
+      "lang": "python",
+      "lines": 3,
+      "page": 352,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests, subprocess, time",
+      "lang": "python",
+      "lines": 8,
+      "page": 352,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 12,
+      "page": 353,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import re",
+      "lang": "python",
+      "lines": 12,
+      "page": 355,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from collections import defaultdict",
+      "lang": "python",
+      "lines": 5,
+      "page": 357,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import re",
+      "lang": "python",
+      "lines": 16,
+      "page": 358,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import yara",
+      "lang": "python",
+      "lines": 4,
+      "page": 359,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import wmi",
+      "lang": "python",
+      "lines": 6,
+      "page": 360,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import re",
+      "lang": "python",
+      "lines": 6,
+      "page": 361,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 4,
+      "page": 361,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def strings(filename):",
+      "lang": "python",
+      "lines": 5,
+      "page": 362,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from scapy.all import *",
+      "lang": "python",
+      "lines": 4,
+      "page": 362,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import psutil",
+      "lang": "python",
+      "lines": 8,
+      "page": 363,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 9,
+      "page": 366,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import re",
+      "lang": "python",
+      "lines": 13,
+      "page": 367,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from collections import defaultdict",
+      "lang": "python",
+      "lines": 7,
+      "page": 368,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def alert(name, ip):",
+      "lang": "python",
+      "lines": 4,
+      "page": 368,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import Flask, render_template",
+      "lang": "python",
+      "lines": 6,
+      "page": 369,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import psutil",
+      "lang": "python",
+      "lines": 5,
+      "page": 370,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import hashlib, os",
+      "lang": "python",
+      "lines": 12,
+      "page": 370,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import psutil",
+      "lang": "python",
+      "lines": 5,
+      "page": 371,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 3,
+      "page": 371,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from scapy.all import *",
+      "lang": "python",
+      "lines": 5,
+      "page": 372,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from collections import defaultdict",
+      "lang": "python",
+      "lines": 5,
+      "page": 372,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 3,
+      "page": 373,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 3,
+      "page": 374,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def normalize_iocs(lines):",
+      "lang": "python",
+      "lines": 6,
+      "page": 374,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def match_log_against_iocs(logs, iocs):",
+      "lang": "python",
+      "lines": 5,
+      "page": 375,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 4,
+      "page": 375,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def get_strings(path):",
+      "lang": "python",
+      "lines": 4,
+      "page": 376,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def process_dump():",
+      "lang": "python",
+      "lines": 3,
+      "page": 377,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def net_dump():",
+      "lang": "python",
+      "lines": 3,
+      "page": 377,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import platform",
+      "lang": "python",
+      "lines": 3,
+      "page": 378,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import sqlite3",
+      "lang": "python",
+      "lines": 4,
+      "page": 379,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def add_ioc(type, value):",
+      "lang": "python",
+      "lines": 3,
+      "page": 379,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def search(value):",
+      "lang": "python",
+      "lines": 3,
+      "page": 379,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def search_cve(software):",
+      "lang": "python",
+      "lines": 3,
+      "page": 380,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import subprocess",
+      "lang": "python",
+      "lines": 4,
+      "page": 381,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pwn import *",
+      "lang": "python",
+      "lines": 4,
+      "page": 385,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pwn import *",
+      "lang": "python",
+      "lines": 3,
+      "page": 385,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pwn import *",
+      "lang": "python",
+      "lines": 5,
+      "page": 386,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pwn import *",
+      "lang": "python",
+      "lines": 6,
+      "page": 387,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import random, string, subprocess",
+      "lang": "python",
+      "lines": 7,
+      "page": 388,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import socket, random",
+      "lang": "python",
+      "lines": 9,
+      "page": 389,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import socket",
+      "lang": "python",
+      "lines": 4,
+      "page": 391,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def xor_encode(data, key=42):",
+      "lang": "python",
+      "lines": 3,
+      "page": 391,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import base64, ctypes",
+      "lang": "python",
+      "lines": 4,
+      "page": 392,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import socket",
+      "lang": "python",
+      "lines": 11,
+      "page": 394,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import ctypes",
+      "lang": "python",
+      "lines": 6,
+      "page": 395,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import random",
+      "lang": "python",
+      "lines": 9,
+      "page": 395,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import subprocess",
+      "lang": "python",
+      "lines": 3,
+      "page": 402,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import paramiko",
+      "lang": "python",
+      "lines": 4,
+      "page": 402,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import re",
+      "lang": "python",
+      "lines": 4,
+      "page": 404,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from multiprocessing import Pool",
+      "lang": "python",
+      "lines": 6,
+      "page": 407,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from kubernetes import client, config",
+      "lang": "python",
+      "lines": 3,
+      "page": 411,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from kubernetes.client import V1Container, V1PodSpec, V1PodTemplateSpe",
+      "lang": "python",
+      "lines": 24,
+      "page": 411,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import ansible_runner",
+      "lang": "python",
+      "lines": 3,
+      "page": 414,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import boto3",
+      "lang": "python",
+      "lines": 8,
+      "page": 416,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from google.cloud import storage",
+      "lang": "python",
+      "lines": 5,
+      "page": 418,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import hvac",
+      "lang": "python",
+      "lines": 4,
+      "page": 419,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from prometheus_client import Gauge, start_http_server",
+      "lang": "python",
+      "lines": 3,
+      "page": 420,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from netmiko import ConnectHandler",
+      "lang": "python",
+      "lines": 10,
+      "page": 422,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from nornir import InitNornir",
+      "lang": "python",
+      "lines": 6,
+      "page": 425,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 3,
+      "page": 427,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 3,
+      "page": 428,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import subprocess, time",
+      "lang": "python",
+      "lines": 9,
+      "page": 431,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 3,
+      "page": 432,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import jenkins",
+      "lang": "python",
+      "lines": 4,
+      "page": 434,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import gitlab",
+      "lang": "python",
+      "lines": 3,
+      "page": 437,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def add(a, b):",
+      "lang": "python",
+      "lines": 4,
+      "page": 438,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 4,
+      "page": 438,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from locust import HttpUser, task",
+      "lang": "python",
+      "lines": 5,
+      "page": 439,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import zipfile",
+      "lang": "python",
+      "lines": 4,
+      "page": 440,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import re",
+      "lang": "python",
+      "lines": 10,
+      "page": 441,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import subprocess",
+      "lang": "python",
+      "lines": 3,
+      "page": 445,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from prometheus_client import Gauge, start_http_server",
+      "lang": "python",
+      "lines": 7,
+      "page": 447,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@lat.time()",
+      "lang": "python",
+      "lines": 3,
+      "page": 448,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 12,
+      "page": 449,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import glob",
+      "lang": "python",
+      "lines": 6,
+      "page": 450,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def normalize(log):",
+      "lang": "python",
+      "lines": 8,
+      "page": 451,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import json",
+      "lang": "python",
+      "lines": 3,
+      "page": 451,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import requests",
+      "lang": "python",
+      "lines": 3,
+      "page": 451,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from opentelemetry import trace",
+      "lang": "python",
+      "lines": 6,
+      "page": 452,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import psutil",
+      "lang": "python",
+      "lines": 3,
+      "page": 454,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import docker",
+      "lang": "python",
+      "lines": 6,
+      "page": 455,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from kubernetes import client, config",
+      "lang": "python",
+      "lines": 5,
+      "page": 455,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import smtplib",
+      "lang": "python",
+      "lines": 5,
+      "page": 456,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from twilio.rest import Client",
+      "lang": "python",
+      "lines": 3,
+      "page": 457,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import zipfile",
+      "lang": "python",
+      "lines": 3,
+      "page": 462,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from kafka import KafkaConsumer",
+      "lang": "python",
+      "lines": 4,
+      "page": 469,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import numpy as np",
+      "lang": "python",
+      "lines": 4,
+      "page": 470,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import random",
+      "lang": "python",
+      "lines": 3,
+      "page": 471,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import hashlib",
+      "lang": "python",
+      "lines": 3,
+      "page": 476,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Block:",
+      "lang": "python",
+      "lines": 11,
+      "page": 476,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Blockchain:",
+      "lang": "python",
+      "lines": 9,
+      "page": 477,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def proof_of_work(self, block):",
+      "lang": "python",
+      "lines": 5,
+      "page": 478,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def add_block(self, block, proof):",
+      "lang": "python",
+      "lines": 9,
+      "page": 478,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def mine(self):",
+      "lang": "python",
+      "lines": 13,
+      "page": 479,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import Flask, request",
+      "lang": "python",
+      "lines": 3,
+      "page": 480,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.route(\"/transaction\", methods=[\"POST\"])",
+      "lang": "python",
+      "lines": 5,
+      "page": 480,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.route(\"/mine\", methods=[\"GET\"])",
+      "lang": "python",
+      "lines": 4,
+      "page": 481,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.route(\"/chain\", methods=[\"GET\"])",
+      "lang": "python",
+      "lines": 4,
+      "page": 481,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from ecdsa import SigningKey, SECP256k1",
+      "lang": "python",
+      "lines": 5,
+      "page": 483,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from binance.client import Client",
+      "lang": "python",
+      "lines": 4,
+      "page": 487,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from web3 import Web3",
+      "lang": "python",
+      "lines": 3,
+      "page": 494,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from flask import Flask, request",
+      "lang": "python",
+      "lines": 7,
+      "page": 495,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from bip_utils import Bip39MnemonicGenerator",
+      "lang": "python",
+      "lines": 3,
+      "page": 496,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from bip_utils import Bip39SeedGenerator, Bip44, Bip44Coins",
+      "lang": "python",
+      "lines": 6,
+      "page": 496,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import ipfshttpclient",
+      "lang": "python",
+      "lines": 4,
+      "page": 497,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def rsi(data, period=14):",
+      "lang": "python",
+      "lines": 6,
+      "page": 498,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from binance.client import Client",
+      "lang": "python",
+      "lines": 3,
+      "page": 499,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class MiniEVM:",
+      "lang": "python",
+      "lines": 26,
+      "page": 503,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class AMM:",
+      "lang": "python",
+      "lines": 14,
+      "page": 506,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Staking:",
+      "lang": "python",
+      "lines": 12,
+      "page": 508,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class DAO:",
+      "lang": "python",
+      "lines": 12,
+      "page": 509,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Rollup:",
+      "lang": "python",
+      "lines": 8,
+      "page": 512,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import random",
+      "lang": "python",
+      "lines": 3,
+      "page": 513,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import random",
+      "lang": "python",
+      "lines": 14,
+      "page": 514,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import numpy as np",
+      "lang": "python",
+      "lines": 3,
+      "page": 516,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def flash_loan_attack(protocol):",
+      "lang": "python",
+      "lines": 5,
+      "page": 524,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def sandwich(price, user_amount):",
+      "lang": "python",
+      "lines": 5,
+      "page": 525,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import itertools",
+      "lang": "python",
+      "lines": 6,
+      "page": 526,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Block:",
+      "lang": "python",
+      "lines": 11,
+      "page": 535,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def merkle_root(transactions):",
+      "lang": "python",
+      "lines": 10,
+      "page": 536,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Mempool:",
+      "lang": "python",
+      "lines": 9,
+      "page": 536,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Transaction:",
+      "lang": "python",
+      "lines": 6,
+      "page": 537,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class P2P:",
+      "lang": "python",
+      "lines": 8,
+      "page": 538,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def pow(self, block, difficulty):",
+      "lang": "python",
+      "lines": 7,
+      "page": 539,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import random",
+      "lang": "python",
+      "lines": 9,
+      "page": 539,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class HotStuff:",
+      "lang": "python",
+      "lines": 4,
+      "page": 541,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.route(\"/send_tx\", methods=[\"POST\"])",
+      "lang": "python",
+      "lines": 6,
+      "page": 542,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from ecdsa import SigningKey",
+      "lang": "python",
+      "lines": 3,
+      "page": 543,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "@app.get(\"/block/<height>\")",
+      "lang": "python",
+      "lines": 4,
+      "page": 544,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def relay(lock_event):",
+      "lang": "python",
+      "lines": 3,
+      "page": 545,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import matplotlib.pyplot as plt",
+      "lang": "python",
+      "lines": 3,
+      "page": 556,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from sklearn.linear_model import LinearRegression",
+      "lang": "python",
+      "lines": 3,
+      "page": 557,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from sklearn.datasets import load_iris",
+      "lang": "python",
+      "lines": 6,
+      "page": 557,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from sklearn.preprocessing import StandardScaler",
+      "lang": "python",
+      "lines": 3,
+      "page": 559,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import xgboost as xgb",
+      "lang": "python",
+      "lines": 4,
+      "page": 560,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import tensorflow as tf",
+      "lang": "python",
+      "lines": 5,
+      "page": 561,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class EncoderLayer:",
+      "lang": "python",
+      "lines": 9,
+      "page": 567,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "import re",
+      "lang": "python",
+      "lines": 3,
+      "page": 569,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class EmbeddingLayer:",
+      "lang": "python",
+      "lines": 5,
+      "page": 569,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import numpy as np",
+      "lang": "python",
+      "lines": 18,
+      "page": 569,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class FFN:",
+      "lang": "python",
+      "lines": 6,
+      "page": 570,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class DecoderBlock:",
+      "lang": "python",
+      "lines": 9,
+      "page": 571,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class MiniGPT:",
+      "lang": "python",
+      "lines": 11,
+      "page": 571,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from sentence_transformers import SentenceTransformer",
+      "lang": "python",
+      "lines": 3,
+      "page": 574,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import spacy",
+      "lang": "python",
+      "lines": 5,
+      "page": 576,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def chatbot(msg):",
+      "lang": "python",
+      "lines": 4,
+      "page": 578,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from sentence_transformers import SentenceTransformer",
+      "lang": "python",
+      "lines": 6,
+      "page": 579,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import whisper",
+      "lang": "python",
+      "lines": 4,
+      "page": 581,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from gtts import gTTS",
+      "lang": "python",
+      "lines": 3,
+      "page": 581,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from tensorflow.keras import layers, models",
+      "lang": "python",
+      "lines": 8,
+      "page": 581,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from transformers import ViTFeatureExtractor, ViTForImageClassificatio",
+      "lang": "python",
+      "lines": 7,
+      "page": 582,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Agent:",
+      "lang": "python",
+      "lines": 9,
+      "page": 584,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def search_tool(query):",
+      "lang": "python",
+      "lines": 4,
+      "page": 585,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from fastapi import FastAPI",
+      "lang": "python",
+      "lines": 7,
+      "page": 586,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from tokenizers import Tokenizer, models, trainers, pre_tokenizers",
+      "lang": "python",
+      "lines": 6,
+      "page": 589,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import torch",
+      "lang": "python",
+      "lines": 15,
+      "page": 590,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class MiniGPT(nn.Module):",
+      "lang": "python",
+      "lines": 10,
+      "page": 591,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import torch.optim as optim",
+      "lang": "python",
+      "lines": 10,
+      "page": 592,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def generate(model, tokenizer, prompt, max_len=50):",
+      "lang": "python",
+      "lines": 8,
+      "page": 593,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class Agent:",
+      "lang": "python",
+      "lines": 7,
+      "page": 594,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "class DQN(nn.Module):",
+      "lang": "python",
+      "lines": 8,
+      "page": 597,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import polars as pl",
+      "lang": "python",
+      "lines": 3,
+      "page": 607,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pyarrow.parquet as pq",
+      "lang": "python",
+      "lines": 3,
+      "page": 607,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from sqlalchemy import create_engine",
+      "lang": "python",
+      "lines": 3,
+      "page": 609,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pyspark.sql.window import Window",
+      "lang": "python",
+      "lines": 4,
+      "page": 615,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pyspark.sql.functions import udf",
+      "lang": "python",
+      "lines": 6,
+      "page": 615,
+      "status": "PARSE_OK"
+    }
+  ],
+  "currency_flags": {
+    "angular_js": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 296,
+          "snippet": "otected routes ⭐ 91.1 React Project Setup npx create-react-app saas-frontend cd saas-frontend npm install axios react-router-dom"
+        }
+      ],
+      "note": "Deprecated front-end tooling/APIs",
+      "pages": 1
+    },
+    "gcp_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy/superseded GCP tooling",
+      "pages": 0
+    },
+    "java_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Older Java baseline referenced",
+      "pages": 0
+    },
+    "kali_cmds": {
+      "count": 5,
+      "examples": [
+        {
+          "page": 145,
+          "snippet": "licious Processes import psutil suspicious = [\"mimikatz.exe\", \"nc.exe\", \"powershell.exe\"] for p in psutil.process_iter(['n"
+        },
+        {
+          "page": 329,
+          "snippet": "​ ●​ Real pentesters use this​ This is how Nmap -sS works. ⭐ 18. BANNER GRABBER (IDENTIFYING SERVICES) A banner gives"
+        },
+        {
+          "page": 363,
+          "snippet": "tion import psutil bad_processes = [\"netcat\", \"mimikatz\", \"ncat\", \"powershell.exe\"] for p in psutil.process_iter(): try"
+        },
+        {
+          "page": 370,
+          "snippet": "]): if p.info['name'] in [\"powershell.exe\",\"mimikatz.exe\"]: print(\"[EDR ALERT] Suspicious process:\", p.info)"
+        },
+        {
+          "page": 397,
+          "snippet": "t deliverer​ ✔ Report generator Think of this as Metasploit (Python Edition). Framework structure: exploit_framework/ ├── fuzz"
+        }
+      ],
+      "note": "Offensive tooling reference (check ethical/authorised-use framing)",
+      "pages": 5
+    },
+    "langchain_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated LangChain APIs",
+      "pages": 0
+    },
+    "log4j": {
+      "count": 0,
+      "examples": [],
+      "note": "log4j reference (verify version/security posture)",
+      "pages": 0
+    },
+    "md5_sha1": {
+      "count": 3,
+      "examples": [
+        {
+          "page": 120,
+          "snippet": "rvers​ ✔ logging systems ⭐ 14.3 File Hashing (MD5/SHA256) import hashlib def sha256(file): with open(file,\"rb\") a"
+        },
+        {
+          "page": 357,
+          "snippet": "e extract: ✔ IPs​ ✔ Domains​ ✔ Emails​ ✔ Hashes (MD5/SHA256)​ ✔ File paths​ ✔ Registry keys"
+        },
+        {
+          "page": 358,
+          "snippet": "\"ip\": r\"\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b\", \"md5\": r\"\\b[a-fA-F0-9]{32}\\b\", \"sha256\": r\"\\b[a-fA-F0-9]{64}\\b\","
+        }
+      ],
+      "note": "Weak hash referenced (check context: IOC hash vs. integrity use)",
+      "pages": 3
+    },
+    "openai_legacy": {
+      "count": 2,
+      "examples": [
+        {
+          "page": 188,
+          "snippet": "s log and find anomalies:\\n{log}\" res = openai.ChatCompletion.create( model=\"gpt-4o-mini\", messages=[{\"role\":\"user\", \"conten"
+        },
+        {
+          "page": 189,
+          "snippet": "ubject: {subject}\\nBody: {body}\" return openai.ChatCompletion.create( model=\"gpt-4o-mini\", messages=[{\"role\":\"user\",\"content\":"
+        }
+      ],
+      "note": "Legacy OpenAI models/APIs",
+      "pages": 2
+    },
+    "python2": {
+      "count": 0,
+      "examples": [],
+      "note": "Python 2 reference/syntax",
+      "pages": 0
+    },
+    "python_old_version": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 84,
+          "snippet": "TACLASSES — Modern Python’s Best Feature Added in Python 3.7+, dataclasses simplify OOP models. from dataclasses import dataclass"
+        }
+      ],
+      "note": "Python <=3.8 is end-of-life",
+      "pages": 1
+    },
+    "selenium3": {
+      "count": 0,
+      "examples": [],
+      "note": "Selenium 3 era API",
+      "pages": 0
+    },
+    "tf1": {
+      "count": 0,
+      "examples": [],
+      "note": "TensorFlow 1.x API",
+      "pages": 0
+    },
+    "tls_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated TLS/SSL versions referenced",
+      "pages": 0
+    },
+    "windows_old": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 384,
+          "snippet": "✔ Windows 7 / XP (for classic exploits) ✔ Ubuntu 16.04/18.04 (older vuln package"
+        }
+      ],
+      "note": "End-of-life OS referenced",
+      "pages": 1
+    }
+  },
+  "depth_profile": {
+    "median_words": 17,
+    "p25_words": 9,
+    "p75_words": 31,
+    "p90_words": 47,
+    "sections": 1807,
+    "share_over_400_words": 0.001,
+    "share_under_100_words": 0.994,
+    "share_under_40_words": 0.844
+  },
+  "intra_duplication": {
+    "long_lines_in_repeats": 24,
+    "long_lines_total": 783,
+    "share_repeated": 0.031,
+    "top_repeated": [
+      {
+        "count": 2,
+        "pages": [
+          485,
+          494
+        ],
+        "text": "w3 = web3(web3.httpprovider(\"https://mainnet.infura.io/v3/api_key\"))"
+      },
+      {
+        "count": 2,
+        "pages": [
+          242,
+          254
+        ],
+        "text": "username = db.column(db.string(150), unique=true, nullable=false)"
+      },
+      {
+        "count": 2,
+        "pages": [
+          477,
+          536
+        ],
+        "text": "return hashlib.sha256(block_string.encode()).hexdigest()"
+      },
+      {
+        "count": 2,
+        "pages": [
+          242,
+          254
+        ],
+        "text": "password = db.column(db.string(300), nullable=false)"
+      },
+      {
+        "count": 2,
+        "pages": [
+          245,
+          255
+        ],
+        "text": "if user and check_password_hash(user.password, form.password.data):"
+      },
+      {
+        "count": 2,
+        "pages": [
+          574,
+          579
+        ],
+        "text": "from sentence_transformers import sentencetransformer"
+      },
+      {
+        "count": 2,
+        "pages": [
+          420,
+          447
+        ],
+        "text": "from prometheus_client import gauge, start_http_server"
+      },
+      {
+        "count": 2,
+        "pages": [
+          419,
+          461
+        ],
+        "text": "from azure.mgmt.compute import computemanagementclient"
+      }
+    ]
+  },
+  "markdown_leakage": {
+    "atx_headers": 8,
+    "bold_markers": 0,
+    "code_fences": 0,
+    "hr_dividers": 0
+  },
+  "pages": 654,
+  "path": "CyberDudeBivash Python Engineering Handbook.pdf",
+  "pedagogy_signals": {
+    "answer_key": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "capstone": {
+      "in_body": 1,
+      "in_headings": 1
+    },
+    "disclaimer_legal": {
+      "in_body": 7,
+      "in_headings": 3
+    },
+    "interview": {
+      "in_body": 4,
+      "in_headings": 4
+    },
+    "lab_heading": {
+      "in_body": 6,
+      "in_headings": 5
+    },
+    "learning_objective": {
+      "in_body": 10,
+      "in_headings": 0
+    },
+    "prerequisite": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "quiz_or_exam": {
+      "in_body": 9,
+      "in_headings": 4
+    },
+    "reference_or_citation": {
+      "in_body": 24,
+      "in_headings": 4
+    },
+    "rubric": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "troubleshooting": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "verification_step": {
+      "in_body": 27,
+      "in_headings": 4
+    }
+  },
+  "pii_scan": {
+    "email": {
+      "review_masked": [
+        "y***@gmail.com"
+      ],
+      "review_needed": 2,
+      "review_pages": [
+        273
+      ],
+      "synthetic_placeholder": 10,
+      "total": 12
+    },
+    "phone_with_country_code": {
+      "masked": [
+        "+12*****89",
+        "+91*****99"
+      ],
+      "pages": [
+        140
+      ],
+      "total": 2
+    }
+  },
+  "python_security_patterns": {
+    "bare_except": {
+      "count": 10,
+      "examples": [
+        {
+          "page": 123,
+          "snippet": ") print(port, \"open\") except: pass for p in range(1,100): scan(p)"
+        },
+        {
+          "page": 180,
+          "snippet": "return res.country.iso_code except: return \"Unknown\""
+        },
+        {
+          "page": 180,
+          "snippet": "s.get(url).text.split(\" \")[0] except: return \"Unknown\""
+        },
+        {
+          "page": 181,
+          "snippet": "return w.org or w.country except: return \"Unknown\""
+        },
+        {
+          "page": 287,
+          "snippet": "er, endpoint_secret ) except: raise HTTPException(400, \"Invalid signatu"
+        }
+      ]
+    },
+    "debug_true": {
+      "count": 2,
+      "examples": [
+        {
+          "page": 221,
+          "snippet": "__ == \"__main__\": app.run(debug=True)"
+        },
+        {
+          "page": 228,
+          "snippet": "__ == \"__main__\": app.run(debug=True)"
+        }
+      ]
+    },
+    "eval_exec": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 585,
+          "snippet": "f math_tool(expr): return eval(expr)"
+        }
+      ]
+    },
+    "hardcoded_secret": {
+      "count": 6,
+      "examples": [
+        {
+          "page": 124,
+          "snippet": "t(\"1.2.3.4\", username=\"root\", password=\"<redacted>\")"
+        },
+        {
+          "page": 141,
+          "snippet": "alhost\", user=\"root\", password=\"<redacted>\", database=\"test\" ) cursor = db.cursor() curso"
+        },
+        {
+          "page": 269,
+          "snippet": "me import datetime, timedelta SECRET = \"<redacted>\" ALGORITHM = \"HS256\" def create_token(data: dict,"
+        },
+        {
+          "page": 402,
+          "snippet": "2.168.1.10\", username=\"root\", password=\"<redacted>\")"
+        },
+        {
+          "page": 419,
+          "snippet": "(url='http://localhost:8200', token='<redacted>') secret = client.secrets.kv.v2.read_secret_versio"
+        }
+      ]
+    },
+    "input_to_sql": {
+      "count": 0,
+      "examples": []
+    },
+    "md5_sha1_use": {
+      "count": 0,
+      "examples": []
+    },
+    "os_system": {
+      "count": 2,
+      "examples": [
+        {
+          "page": 122,
+          "snippet": "ost = \"google.com\" response = os.system(f\"ping -c 1 {host}\") if response == 0: print(\""
+        },
+        {
+          "page": 373,
+          "snippet": "import os def block(ip): os.system(f\"iptables -A INPUT -s {ip} -j DROP\")"
+        }
+      ]
+    },
+    "pickle_load": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 83,
+          "snippet": "bj, open(\"f.pkl\",\"wb\")) obj = pickle.load(open(\"f.pkl\",\"rb\"))"
+        }
+      ]
+    },
+    "shell_true": {
+      "count": 0,
+      "examples": []
+    },
+    "ssh_autoadd_hostkey": {
+      "count": 3,
+      "examples": [
+        {
+          "page": 124,
+          "snippet": "sing_host_key_policy(paramiko.AutoAddPolicy()) client.connect(\"1.2.3.4\", username=\"root\", pass"
+        },
+        {
+          "page": 163,
+          "snippet": "sing_host_key_policy(paramiko.AutoAddPolicy()) self.client.connect(self.host, username"
+        },
+        {
+          "page": 402,
+          "snippet": "sing_host_key_policy(paramiko.AutoAddPolicy()) ssh.connect(\"192.168.1.10\", username=\"root\", pa"
+        }
+      ]
+    },
+    "tmp_insecure": {
+      "count": 0,
+      "examples": []
+    },
+    "verify_false": {
+      "count": 2,
+      "examples": [
+        {
+          "page": 427,
+          "snippet": "=KEY\" print(requests.get(url, verify=False).text)"
+        },
+        {
+          "page": 428,
+          "snippet": "pool\", auth=(\"<redacted>\",\"<redacted>\"), verify=False) print(resp.json())"
+        }
+      ]
+    },
+    "weak_default_password": {
+      "count": 4,
+      "examples": [
+        {
+          "page": 124,
+          "snippet": "t(\"1.2.3.4\", username=\"root\", password=\"<redacted>\")"
+        },
+        {
+          "page": 141,
+          "snippet": "alhost\", user=\"root\", password=\"<redacted>\", database=\"test\" ) cursor = db.cursor() curso"
+        },
+        {
+          "page": 252,
+          "snippet": "ssword=generate_password_hash(\"<redacted>\")) db.session.add(admin) db.session.commit"
+        },
+        {
+          "page": 402,
+          "snippet": "2.168.1.10\", username=\"root\", password=\"<redacted>\")"
+        }
+      ]
+    },
+    "yaml_unsafe": {
+      "count": 0,
+      "examples": []
+    }
+  },
+  "secret_scan": {
+    "aws_access_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "generic_assignment": {
+      "count": 2,
+      "examples": [
+        {
+          "page": 252,
+          "snippet": "app_context(): admin = Admin(username=\"admin\", password=generate_password_hash(\"<redacted>\")) db.session.add(admin) db.session.commit() ⭐"
+        },
+        {
+          "page": 269,
+          "snippet": "jwt from datetime import datetime, timedelta SECRET = \"<redacted>\" 268"
+        }
+      ],
+      "pages": 2
+    },
+    "github_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "google_api_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "jwt": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "private_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "slack_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    }
+  },
+  "source_id": "SRC-PY-HANDBOOK",
+  "stub_sections_level_le_2": {
+    "count": 1501,
+    "of": 1778
+  },
+  "topic_coverage": {
+    "async": {
+      "first_page": 71,
+      "mentions": 32,
+      "pages_with_mention": 15,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "ci_cd": {
+      "first_page": 84,
+      "mentions": 38,
+      "pages_with_mention": 28,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "database": {
+      "first_page": 141,
+      "mentions": 33,
+      "pages_with_mention": 19,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "dependency_locking": {
+      "first_page": 48,
+      "mentions": 12,
+      "pages_with_mention": 12,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "docs_tooling": {
+      "first_page": 28,
+      "mentions": 2,
+      "pages_with_mention": 2,
+      "status": "MENTIONED_ONLY"
+    },
+    "linting_formatting": {
+      "first_page": 442,
+      "mentions": 2,
+      "pages_with_mention": 1,
+      "status": "MENTIONED_ONLY"
+    },
+    "logging": {
+      "first_page": 30,
+      "mentions": 35,
+      "pages_with_mention": 25,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "packaging_pyproject": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "profiling": {
+      "first_page": 76,
+      "mentions": 19,
+      "pages_with_mention": 8,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "pytest": {
+      "first_page": 88,
+      "mentions": 8,
+      "pages_with_mention": 6,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "python_version_policy": {
+      "first_page": 5,
+      "mentions": 3,
+      "pages_with_mention": 3,
+      "status": "MENTIONED_ONLY"
+    },
+    "secure_coding": {
+      "first_page": 101,
+      "mentions": 25,
+      "pages_with_mention": 15,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "sql_parameterization": {
+      "first_page": 155,
+      "mentions": 3,
+      "pages_with_mention": 2,
+      "status": "MENTIONED_ONLY"
+    },
+    "type_hints": {
+      "first_page": 85,
+      "mentions": 4,
+      "pages_with_mention": 3,
+      "status": "MENTIONED_ONLY"
+    },
+    "unittest_mock": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "virtualenv": {
+      "first_page": 47,
+      "mentions": 7,
+      "pages_with_mention": 5,
+      "status": "PRESENT_BY_KEYWORD"
+    }
+  },
+  "urls": {
+    "distinct_urls": 47,
+    "sample": [
+      "http://127.0.0.1:5000",
+      "http://127.0.0.1:5000​",
+      "http://app/health",
+      "http://backend:8000/",
+      "http://backend:8000/health",
+      "http://consul/v1/agent/service/register",
+      "http://dashboard:5000/",
+      "http://grafana/api/dashboards/db",
+      "http://jenkins/job/deploy/build",
+      "http://jenkins:8080",
+      "http://localhost:8000",
+      "http://localhost:8200",
+      "http://localhost:9200",
+      "http://logserver/api",
+      "http://server/get_cmd/{bot_id}",
+      "http://siem-server/events",
+      "http://{sub.strip(",
+      "http://{target}/{p}",
+      "https://api.example.com/users",
+      "https://api.github.com",
+      "https://api.github.com/repos/user/repo/actions/runs",
+      "https://api.github.com/repos/user/repo/actions/workflows/deploy.yml/dispatches",
+      "https://api.github.com/repos/user/repo/dispatches",
+      "https://api.github.com/users",
+      "https://api.github.com/users/bivash",
+      "https://api.hackertarget.com/aslookup/?q={ip}",
+      "https://argocd/api/v1/applications/app/sync",
+      "https://bing.com",
+      "https://cdn.jsdelivr.net/npm/chart.js",
+      "https://cveapi.com/search/{software}",
+      "https://dummyjson.com/products",
+      "https://example.com",
+      "https://f5/mgmt/tm/ltm/pool",
+      "https://f5/mgmt/tm/ltm/pool/POOL/members",
+      "https://fw/api/?type=op&cmd=",
+      "https://github.com/repo.git",
+      "https://gitlab.com",
+      "https://google.com",
+      "https://hooks.slack.com/services/XXXX",
+      "https://mainnet.infura.io/v3/API_KEY"
+    ],
+    "top_domains": [
+      [
+        "api.github.com",
+        6
+      ],
+      [
+        "google.com",
+        5
+      ],
+      [
+        "hooks.slack.com",
+        3
+      ],
+      [
+        "example.com",
+        2
+      ],
+      [
+        "bing.com",
+        2
+      ],
+      [
+        "yahoo.com",
+        2
+      ],
+      [
+        "backend:8000",
+        2
+      ],
+      [
+        "yourapp.com",
+        2
+      ],
+      [
+        "f5",
+        2
+      ],
+      [
+        "mainnet.infura.io",
+        2
+      ],
+      [
+        "python.org",
+        1
+      ],
+      [
+        "api.hackertarget.com",
+        1
+      ],
+      [
+        "localhost:9200",
+        1
+      ],
+      [
+        "127.0.0.1:5000",
+        1
+      ],
+      [
+        "127.0.0.1:5000​",
+        1
+      ]
+    ]
+  }
+}

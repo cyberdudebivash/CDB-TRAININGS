@@ -1,0 +1,61 @@
+/* CDB Academy document stylesheet. Tokens: shared/design/tokens.json (checked by scripts/validation/check_contrast.py).
+   Principles: mobile-first, system fonts only (no external requests), no colour-only meaning, visible focus,
+   print-safe code (wraps instead of clipping). */
+:root {
+  --bg: #ffffff; --surface: #f4f6f8; --text: #1b1f24; --muted: #4a5560; --primary: #0b5cad; --primary-on: #ffffff;
+  --success: #1a6b30; --warning: #8a4b00; --danger: #a4262c; --border: #8c959f; --code-bg: #eef1f4; --code-text: #1b1f24;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117; --surface: #161b22; --text: #e6edf3; --muted: #a3afbb; --primary: #6cb2ff; --primary-on: #0d1117;
+    --success: #56d364; --warning: #e3a008; --danger: #ff7b72; --border: #6e7781; --code-bg: #1c2128; --code-text: #e6edf3;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 1rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--primary); color: var(--primary-on); padding: .5rem 1rem; z-index: 10; }
+.skip:focus { left: 0; }
+main, header.doc, footer.doc { max-width: 76ch; margin: 0 auto; padding: 1rem 16px; }
+h1, h2, h3, h4 { line-height: 1.25; margin: 1.8em 0 .6em; }
+h1 { font-size: 1.9rem; margin-top: .4em; } h2 { font-size: 1.45rem; border-bottom: 1px solid var(--border); padding-bottom: .25em; }
+h3 { font-size: 1.2rem; } h4 { font-size: 1.05rem; }
+a { color: var(--primary); text-underline-offset: .15em; }
+a, code, th, td { overflow-wrap: anywhere; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+p, li { max-width: 72ch; }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: .92em; }
+code { background: var(--code-bg); color: var(--code-text); padding: .1em .35em; border-radius: 4px; }
+pre { background: var(--code-bg); color: var(--code-text); padding: .9rem 1rem; border: 1px solid var(--border); border-radius: 6px; overflow-x: auto; line-height: 1.45; }
+pre code { background: none; padding: 0; }
+blockquote { margin: 1rem 0; padding: .6rem 1rem; background: var(--surface); border-left: 4px solid var(--primary); }
+.table-wrap { overflow-x: auto; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+th, td { border: 1px solid var(--border); padding: .45rem .6rem; text-align: left; vertical-align: top; }
+th { background: var(--surface); }
+tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface) 55%, transparent); }
+nav.toc { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .6rem 1rem; }
+nav.toc ol { margin: .3rem 0; padding-left: 1.3rem; }
+.notice { border: 2px solid var(--warning); color: var(--text); background: var(--surface); padding: .7rem 1rem; border-radius: 6px; }
+.notice strong { color: var(--warning); }
+.meta { color: var(--muted); font-size: .95rem; }
+.edition-section { margin-top: 2.5rem; }
+img, svg { max-width: 100%; height: auto; }
+@media (min-width: 900px) { body { font-size: 1.05rem; } }
+/* Print / PDF: A4, wrapped code, avoid orphaned headings, readable page numbers. */
+@page { size: A4; margin: 18mm 16mm 20mm 16mm; @bottom-center { content: counter(page) " / " counter(pages); font-size: 9pt; color: #4a5560; } }
+@media print {
+  body { background: #fff; color: #1b1f24; font-size: 10.5pt; }
+  main, header.doc, footer.doc { max-width: none; padding: 0; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 8.5pt; break-inside: avoid-page; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  tr, blockquote, .notice { break-inside: avoid; }
+  .table-wrap { overflow: visible; }
+  a { color: #0b5cad; }
+  a[href^="http"]::after { content: ""; }
+  .skip { display: none; }
+  .edition-section { break-before: page; }
+}

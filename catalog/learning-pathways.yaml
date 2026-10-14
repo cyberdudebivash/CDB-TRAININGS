@@ -1,0 +1,115 @@
+# Competency levels and learner pathways -- single source of truth for sequencing across courses.
+# Rendered into docs/curriculum/COMPETENCY_PATHWAYS.md by scripts/build/render_program_docs.py and
+# validated by scripts/validation/validate_catalog.py (ids exist, prerequisites precede, no empty pathways).
+#
+# Levels describe LEARNING EVIDENCE inside this academy. They are not job titles, salary bands, or
+# equivalence claims to any external certification.
+schema_version: 1
+levels:
+  - id: 0
+    name: "Foundations"
+    descriptor: "Completes guided tasks in a safe, prepared environment by following written steps."
+    evidence: "Automated checks pass on small guided exercises; learner can restate what each step did."
+    supervision: "Every task is scaffolded; learner is expected to ask for help."
+  - id: 1
+    name: "Guided practitioner"
+    descriptor: "Performs routine tasks from a documented procedure and recognises when a result looks wrong."
+    evidence: "Rubric-scored short artefacts (a parsed log, a unit-tested function, a defect report) built from provided starters."
+    supervision: "Output is reviewed before it is relied on."
+  - id: 2
+    name: "Independent practitioner"
+    descriptor: "Completes standard tasks without a starter, justifies trade-offs, and validates their own work against data or tests."
+    evidence: "Independent labs graded by automated checks plus a rubric; learner measures precision/recall, coverage or runtime rather than asserting them."
+    supervision: "Self-checked; periodic review."
+  - id: 3
+    name: "Advanced practitioner"
+    descriptor: "Handles ambiguous, multi-step problems that cross domains; designs, evaluates and documents solutions for others to use."
+    evidence: "Capstone with a reproducible repository or case file, a written decision record, and an evaluation against stated acceptance criteria."
+    supervision: "Reviews others' work; owns outcomes."
+
+pathways:
+  - id: PATH-SOC-ANALYST
+    title: "SOC analyst"
+    audience: "Learners aiming at Tier-1/Tier-2 security-operations work"
+    steps:
+      - {course: COURSE-FND-DIGITAL}
+      - {course: COURSE-PY-ENG, modules: [PY-M01, PY-M02], note: "Python needed for the detection and triage labs"}
+      - {course: COURSE-SOC}
+    capstone_module: SOC-M12
+  - id: PATH-DETECTION-ENGINEER
+    title: "Detection engineer"
+    audience: "SOC analysts moving to detection engineering"
+    steps:
+      - {course: COURSE-FND-DIGITAL}
+      - {course: COURSE-PY-ENG, modules: [PY-M01, PY-M02, PY-M03, PY-M04]}
+      - {course: COURSE-SOC, modules: [SOC-M02, SOC-M03, SOC-M04, SOC-M06, SOC-M07, SOC-M09]}
+      - {course: COURSE-CYBER-MEGA, modules: [CYB-M10, CYB-M11]}
+    capstone_module: CYB-M11
+  - id: PATH-PYTHON-ENGINEER
+    title: "Python engineer"
+    audience: "Developers and analysts who need production-quality Python"
+    steps:
+      - {course: COURSE-FND-DIGITAL}
+      - {course: COURSE-PY-ENG}
+    capstone_module: PY-M10
+  - id: PATH-AUTOMATION-ENGINEER
+    title: "Automation engineer (Python)"
+    audience: "Operations, QA and security staff automating repeatable work"
+    steps:
+      - {course: COURSE-FND-DIGITAL}
+      - {course: COURSE-PY-ENG, modules: [PY-M01, PY-M02, PY-M03, PY-M04, PY-M05]}
+      - {course: COURSE-PY-AUTO}
+    capstone_module: PA-M09
+  - id: PATH-TEST-AUTOMATION-JAVA
+    title: "Test automation engineer (Java)"
+    audience: "Manual testers and Java developers moving into test automation"
+    steps:
+      - {course: COURSE-FND-DIGITAL}
+      - {course: COURSE-JAVA-QA}
+    capstone_module: JQA-M10
+  - id: PATH-AI-ENGINEER
+    title: "Applied AI / LLM engineer"
+    audience: "Engineers building LLM-based applications"
+    steps:
+      - {course: COURSE-FND-DIGITAL}
+      - {course: COURSE-PY-ENG}
+      - {course: COURSE-AI-ENG}
+    capstone_module: AI-M10
+  - id: PATH-AI-SECURITY
+    title: "AI security practitioner"
+    audience: "Security staff assessing AI-enabled systems"
+    steps:
+      - {course: COURSE-FND-DIGITAL}
+      - {course: COURSE-PY-ENG, modules: [PY-M01, PY-M02, PY-M05, PY-M07]}
+      - {course: COURSE-AI-ENG, modules: [AI-M01, AI-M02, AI-M03, AI-M05, AI-M07, AI-M08, AI-M09]}
+      - {course: COURSE-CYBER-MEGA, modules: [CYB-M13]}
+    capstone_module: AI-M07
+  - id: PATH-DATA-ENGINEER-GCP
+    title: "Data engineer (Google Cloud)"
+    audience: "Data and software engineers building pipelines on Google Cloud"
+    steps:
+      - {course: COURSE-FND-DIGITAL}
+      - {course: COURSE-PY-ENG, modules: [PY-M01, PY-M02, PY-M03, PY-M05, PY-M08]}
+      - {course: COURSE-GCP-DE}
+    capstone_module: GCP-M10
+  - id: PATH-FRONTEND-ENGINEER
+    title: "Frontend engineer"
+    audience: "New frontend engineers and backend developers moving to frontend"
+    steps:
+      - {course: COURSE-FND-DIGITAL}
+      - {course: COURSE-FE-ONBOARD}
+    capstone_module: FE-M11
+  - id: PATH-OSINT-ANALYST
+    title: "Lawful OSINT analyst"
+    audience: "Analysts, journalists and security staff who need defensible open-source research"
+    steps:
+      - {course: COURSE-FND-DIGITAL}
+      - {course: COURSE-OSINT}
+    capstone_module: OSINT-M10
+  - id: PATH-SECURITY-GENERALIST
+    title: "Cybersecurity generalist"
+    audience: "Learners choosing a specialism or building a broad security base"
+    steps:
+      - {course: COURSE-FND-DIGITAL}
+      - {course: COURSE-CYBER-MEGA}
+    capstone_module: CYB-M14

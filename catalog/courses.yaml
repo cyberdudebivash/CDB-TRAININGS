@@ -1,0 +1,347 @@
+# CDB Academy course catalog -- single source of truth for course identity, structure and release state.
+# Validated by scripts/validation/validate_catalog.py against catalog/schema/course-catalog.schema.json.
+#
+# Conventions
+#   * estimated_duration_hours / estimated_hours are PLANNING ESTIMATES, not measured learner times.
+#   * release_status uses the six gates from docs/release/RELEASE_GATES.md. No course is PRODUCTION_GO.
+#   * lifecycle says how far the replacement content has progressed; release_status says whether it may ship.
+#   * lab_coverage.verified_executable counts only labs whose automated check passed in the recorded QA run.
+#   * blocking_findings must list EVERY P0/P1 finding against the course's sources until the course is fully rebuilt (lifecycle VALIDATED);
+#     a fix in one pilot module (remediation DONE_IN_PILOT) does not clear a finding for the whole course.
+#   * lab_coverage.planned follows the module unit contract: a guided and an independent lab per module, one lab for a capstone module.
+schema_version: 1
+catalog_version: 0.1.0
+last_verified: 2026-10-14
+
+courses:
+  # ------------------------------------------------------------------ Level 0 foundations (new, no legacy source)
+  - id: COURSE-FND-DIGITAL
+    slug: digital-foundations
+    title: "Digital and Technical Foundations"
+    version: 0.0.1-plan
+    source_ids: []
+    audience: ["Career changers and students with basic computer literacy and no technical background"]
+    competency_levels: [0]
+    prerequisites: []
+    modules:
+      - {id: FND-M01, title: "Operating systems, files and permissions", level: 0, status: PLANNED, estimated_hours: 4, primary_outcome: "Navigate a Linux and a Windows file system and explain how permissions restrict access to a file."}
+      - {id: FND-M02, title: "Command-line fundamentals", level: 0, status: PLANNED, estimated_hours: 5, primary_outcome: "Complete a file-management task using only shell commands and record the commands used."}
+      - {id: FND-M03, title: "Networking and HTTP basics", level: 0, status: PLANNED, estimated_hours: 6, primary_outcome: "Trace an HTTP request from browser to server and identify the DNS, TCP and HTTP steps in a packet capture."}
+      - {id: FND-M04, title: "Git and GitHub workflow", level: 0, status: PLANNED, estimated_hours: 4, primary_outcome: "Create a branch, commit a change and open a pull request in a practice repository."}
+      - {id: FND-M05, title: "Programming fundamentals with Python", level: 0, status: PLANNED, estimated_hours: 10, primary_outcome: "Write a Python script with functions that passes a provided automated test suite."}
+      - {id: FND-M06, title: "Troubleshooting and safe computing", level: 0, status: PLANNED, estimated_hours: 3, primary_outcome: "Diagnose a deliberately broken script from its error output and describe the fix and the safe-lab rules followed."}
+    estimated_duration_hours: 32
+    lab_coverage: {planned: 12, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 6, outcomes_assessed: 0}
+    capstone: "Automate a small file-reporting task in a Git repository, with tests, a README and a pull request reviewed against a checklist."
+    review_status: NOT_REVIEWED
+    qa_status: NOT_RUN
+    release_status: REENGINEERING
+    lifecycle: PLANNED
+    owner: UNASSIGNED
+    reviewers: []
+    last_verified: 2026-10-14
+    notes: "New course required by the competency framework (Level 0). Reused as prerequisite by every pathway."
+
+  # ------------------------------------------------------------------ SOC analyst (pilot course)
+  - id: COURSE-SOC
+    slug: soc-analyst
+    title: "SOC Analyst Professional Pathway"
+    version: 0.1.0-pilot
+    source_ids: [SRC-SOC-PLAYBOOK]
+    audience: ["Aspiring Tier-1/Tier-2 SOC analysts", "IT staff moving into security operations", "Teams standardising triage and detection practice"]
+    competency_levels: [1, 2, 3]
+    prerequisites: [COURSE-FND-DIGITAL]
+    modules:
+      - {id: SOC-M01, title: "SOC fundamentals, roles and the alert lifecycle", level: 1, status: PLANNED, estimated_hours: 4, primary_outcome: "Explain the alert lifecycle and map each stage to the role and artefact responsible for it."}
+      - {id: SOC-M02, title: "Telemetry: Windows, Linux and network logs", level: 1, status: PLANNED, estimated_hours: 8, primary_outcome: "Identify the log source and event ID or field that evidences a given behaviour in Windows, Linux and network data."}
+      - {id: SOC-M03, title: "Log parsing, normalisation and query languages", level: 1, status: PLANNED, estimated_hours: 8, primary_outcome: "Parse a raw log sample into a normalised schema and answer five investigative questions with queries."}
+      - {id: SOC-M04, title: "Authentication-attack detection and triage", level: 2, status: BUILT_PILOT, estimated_hours: 6, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Build and validate detections for brute-force and password-spray activity and triage the resulting alerts with documented evidence.", reuses: [SOC-M02]}
+      - {id: SOC-M05, title: "Alert triage and case management", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Triage a queue of ten synthetic alerts, classify each with evidence and produce a handover record."}
+      - {id: SOC-M06, title: "Detection engineering with Sigma and ATT&CK", level: 2, status: PLANNED, estimated_hours: 10, primary_outcome: "Author a Sigma rule mapped to an ATT&CK technique and demonstrate its precision and recall on labelled data."}
+      - {id: SOC-M07, title: "Threat-intelligence enrichment and false-positive reduction", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Reduce false positives of a noisy rule by at least 50 percent without losing any true-positive scenario."}
+      - {id: SOC-M08, title: "Incident investigation and evidence handling (NIST SP 800-61r3 / CSF 2.0)", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Reconstruct an incident timeline from multi-source evidence and map actions to CSF 2.0 functions."}
+      - {id: SOC-M09, title: "Threat hunting", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Plan and execute a hypothesis-driven hunt against a dataset and report negative and positive findings."}
+      - {id: SOC-M10, title: "Malware-analysis fundamentals in an isolated lab", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Perform static triage of a safe benign sample in an isolated VM and document indicators with confidence levels."}
+      - {id: SOC-M11, title: "Executive and technical incident reporting", level: 3, status: PLANNED, estimated_hours: 4, primary_outcome: "Write an executive summary and a technical appendix for one incident that pass the reporting rubric."}
+      - {id: SOC-M12, title: "Capstone: end-to-end SOC investigation", level: 3, status: PLANNED, estimated_hours: 12, primary_outcome: "Investigate a multi-stage synthetic intrusion, improve one detection and deliver an evidence-based incident report."}
+    estimated_duration_hours: 88
+    lab_coverage: {planned: 23, built: 2, verified_executable: 2}
+    assessment_coverage: {outcomes_total: 17, outcomes_assessed: 6}
+    capstone: "End-to-end synthetic intrusion investigation with a detection improvement validated on labelled telemetry and a graded incident report."
+    review_status: AUTOMATED_ONLY
+    qa_status: PARTIAL
+    release_status: REENGINEERING
+    lifecycle: PILOT_BUILT
+    blocking_findings: [F-SOC-001, F-SOC-004, F-SOC-005, F-SOC-009, F-SOC-010]
+    owner: UNASSIGNED
+    reviewers: []
+    last_verified: 2026-10-14
+    notes: "Pilot course. Only module SOC-M04 is built; it replaces the playbook's rule example (F-SOC-004) with a validated lab. Its two labs pass the automated QA run (docs/release/AUTOMATED_QA_REPORT.md); the independent-lab result depends on the git-ignored instructor pack and is not reproducible from a public clone. SME review and a learner pilot are outstanding, so qa_status stays PARTIAL."
+
+  # ------------------------------------------------------------------ Remaining source-derived courses (blueprint only)
+  - id: COURSE-PY-ENG
+    slug: python-engineering
+    title: "Python Engineering Pathway"
+    version: 0.0.1-plan
+    source_ids: [SRC-PY-HANDBOOK]
+    audience: ["Developers and analysts who need production-quality Python", "Learners continuing from Digital Foundations"]
+    competency_levels: [1, 2, 3]
+    prerequisites: [COURSE-FND-DIGITAL]
+    modules:
+      - {id: PY-M01, title: "Language core and data structures", level: 1, status: PLANNED, estimated_hours: 12, primary_outcome: "Implement five data-processing functions that pass provided unit tests."}
+      - {id: PY-M02, title: "Functions, errors and testing with pytest", level: 1, status: PLANNED, estimated_hours: 8, primary_outcome: "Write parametrised pytest tests that detect three seeded defects in a provided module."}
+      - {id: PY-M03, title: "Types, modules and project layout", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Refactor a script into a typed package that passes a static type checker without errors."}
+      - {id: PY-M04, title: "Environments, dependencies and packaging (pyproject, build)", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Build, install and import a wheel produced with python -m build in a clean virtual environment."}
+      - {id: PY-M05, title: "Files, structured data and HTTP clients", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Consume a paginated API fixture with retries and timeouts and validate every response against a schema."}
+      - {id: PY-M06, title: "Concurrency and asynchronous programming", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark."}
+      - {id: PY-M07, title: "Secure coding for Python", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Find and fix eight seeded vulnerabilities (injection, secrets, TLS, deserialisation) and add a regression test for each."}
+      - {id: PY-M08, title: "Databases and persistence", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Implement a repository layer using parameterised SQL and demonstrate that an injection attempt fails."}
+      - {id: PY-M09, title: "Profiling, performance and maintainable architecture", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent."}
+      - {id: PY-M10, title: "Capstone: typed, tested, documented application with CI", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a packaged application whose tests, type checks and security scan pass in a clean environment."}
+    estimated_duration_hours: 84
+    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
+    capstone: "A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan."
+    review_status: NOT_REVIEWED
+    qa_status: NOT_RUN
+    release_status: REENGINEERING
+    lifecycle: IN_DESIGN
+    blocking_findings: [F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007]
+    owner: UNASSIGNED
+    reviewers: []
+    last_verified: 2026-10-14
+
+  - id: COURSE-PY-AUTO
+    slug: python-automation
+    title: "Python Automation Pathway"
+    version: 0.0.1-plan
+    source_ids: [SRC-PY-AUTOMATION]
+    audience: ["Operations, QA and security staff automating repeatable work", "Learners who completed Python Engineering modules PY-M01..PY-M05"]
+    competency_levels: [2, 3]
+    prerequisites: [COURSE-PY-ENG]
+    modules:
+      - {id: PA-M01, title: "Automation design and shared Python foundations", level: 2, status: PLANNED, estimated_hours: 4, primary_outcome: "Specify an automation with inputs, outputs, failure modes and an idempotency rule before writing code.", reuses: [PY-M01, PY-M02, PY-M03]}
+      - {id: PA-M02, title: "Filesystem and document workflows", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Process a folder of CSV and JSON inputs into a validated report using atomic writes."}
+      - {id: PA-M03, title: "API integrations and data validation", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Integrate two API fixtures and reject malformed records with explicit error reports.", reuses: [PY-M05]}
+      - {id: PA-M04, title: "Browser automation with supported tools", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Automate a login-and-export flow against a local test application with stable locators and traces."}
+      - {id: PA-M05, title: "Scheduling, configuration and secrets", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Run a job on a schedule with layered configuration and no secret stored in the repository."}
+      - {id: PA-M06, title: "Reliability: retries, idempotency and recovery", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Show that re-running a failed job after injected faults produces exactly-once results."}
+      - {id: PA-M07, title: "Observability and auditable output", level: 3, status: PLANNED, estimated_hours: 5, primary_outcome: "Produce structured logs and an audit report that allow a reviewer to reconstruct every action of a run."}
+      - {id: PA-M08, title: "Testing automations: unit, integration, regression", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Reach a defined test pass and fault-injection suite for a provided automation."}
+      - {id: PA-M09, title: "Capstone: safe operational workflow", level: 3, status: PLANNED, estimated_hours: 12, primary_outcome: "Deliver a reproducible workflow that performs a real operational task and emits auditable output."}
+    estimated_duration_hours: 65
+    lab_coverage: {planned: 17, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 9, outcomes_assessed: 0}
+    capstone: "A safe, reproducible automation of a real operational workflow with auditable output and a fault-injection test suite."
+    review_status: NOT_REVIEWED
+    qa_status: NOT_RUN
+    release_status: REENGINEERING
+    lifecycle: IN_DESIGN
+    blocking_findings: [F-PYA-002, F-PYA-003, F-PYA-005]
+    owner: UNASSIGNED
+    reviewers: []
+    last_verified: 2026-10-14
+    notes: "Reuses Python Engineering foundations instead of duplicating them (target: no duplicated foundation lessons)."
+
+  - id: COURSE-JAVA-QA
+    slug: java-test-automation
+    title: "Java Test Automation Engineer Pathway"
+    version: 0.0.1-plan
+    source_ids: [SRC-JAVA-AUTOTEST]
+    audience: ["Manual testers moving to automation", "Java developers adding test-framework skills"]
+    competency_levels: [1, 2, 3]
+    prerequisites: [COURSE-FND-DIGITAL]
+    modules:
+      - {id: JQA-M01, title: "Java 21+ essentials for test engineers", level: 1, status: PLANNED, estimated_hours: 12, primary_outcome: "Implement a utility library whose unit tests pass on Java 21 with Maven."}
+      - {id: JQA-M02, title: "Object-oriented design and collections for frameworks", level: 1, status: PLANNED, estimated_hours: 8, primary_outcome: "Refactor duplicated test helpers into an abstraction with interfaces and demonstrate reuse in two suites."}
+      - {id: JQA-M03, title: "Testing fundamentals: risk, design techniques, defect reports", level: 1, status: PLANNED, estimated_hours: 8, primary_outcome: "Design a test set from a requirement using equivalence classes and boundaries and file two defect reports with evidence."}
+      - {id: JQA-M04, title: "JUnit 6 structure and parameterised tests", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Write parameterised JUnit tests with lifecycle hooks and run them from Maven."}
+      - {id: JQA-M05, title: "Selenium WebDriver and Playwright for Java", level: 2, status: PLANNED, estimated_hours: 12, primary_outcome: "Automate five user journeys against an authorised sample application with stable locators and explicit waits."}
+      - {id: JQA-M06, title: "API testing with Java", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Validate status, schema and error behaviour of a REST API fixture with a test suite."}
+      - {id: JQA-M07, title: "Framework architecture: page objects, data-driven tests, configuration", level: 2, status: PLANNED, estimated_hours: 10, primary_outcome: "Build a layered framework where adding a new test needs no change to infrastructure code."}
+      - {id: JQA-M08, title: "CI, parallel execution and flaky-test diagnosis", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Run the suite in parallel in CI and diagnose three seeded flaky tests to root cause."}
+      - {id: JQA-M09, title: "Reporting, evidence and release readiness", level: 3, status: PLANNED, estimated_hours: 4, primary_outcome: "Generate a test report with failure evidence that a reviewer can use to decide on release."}
+      - {id: JQA-M10, title: "Capstone: UI and API automation framework", level: 3, status: PLANNED, estimated_hours: 16, primary_outcome: "Deliver a reproducible end-to-end framework whose acceptance suite passes against the sample application."}
+    estimated_duration_hours: 92
+    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
+    capstone: "Reproducible UI and API automation framework (Java, Maven, CI) against an authorised sample application."
+    review_status: NOT_REVIEWED
+    qa_status: NOT_RUN
+    release_status: REENGINEERING
+    lifecycle: IN_DESIGN
+    blocking_findings: [F-JAV-001, F-JAV-002, F-JAV-005]
+    owner: UNASSIGNED
+    reviewers: []
+    last_verified: 2026-10-14
+
+  - id: COURSE-AI-ENG
+    slug: ai-engineering
+    title: "Applied AI and LLM Engineering Pathway"
+    version: 0.0.1-plan
+    source_ids: [SRC-AI-BUNDLE]
+    audience: ["Engineers building LLM-based applications", "Security and governance staff evaluating AI systems"]
+    competency_levels: [1, 2, 3]
+    prerequisites: [COURSE-PY-ENG]
+    modules:
+      - {id: AI-M01, title: "AI and ML fundamentals, evaluation and limits", level: 1, status: PLANNED, estimated_hours: 12, primary_outcome: "Train and evaluate a baseline classifier and report precision, recall and one failure analysis."}
+      - {id: AI-M02, title: "Python AI application development", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Build a service that calls a model through a provider-agnostic interface and passes contract tests."}
+      - {id: AI-M03, title: "LLM application architecture and structured outputs", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Implement schema-validated structured outputs with retries and a documented failure policy."}
+      - {id: AI-M04, title: "Retrieval-augmented generation and retrieval evaluation", level: 2, status: PLANNED, estimated_hours: 12, primary_outcome: "Build a RAG pipeline and measure recall@k and answer faithfulness on a labelled question set."}
+      - {id: AI-M05, title: "Agents, tool calling and enforced permissions", level: 3, status: PLANNED, estimated_hours: 10, primary_outcome: "Implement an agent whose tool permissions, step budget and approval gate are enforced and tested adversarially."}
+      - {id: AI-M06, title: "Context engineering", level: 3, status: PLANNED, estimated_hours: 6, primary_outcome: "Design a context assembly policy and show its effect on accuracy and cost on a benchmark."}
+      - {id: AI-M07, title: "LLM security: OWASP LLM Top 10 (2025), prompt injection and red teaming", level: 3, status: PLANNED, estimated_hours: 10, primary_outcome: "Threat-model an LLM application against the OWASP LLM Top 10 and demonstrate two mitigated attacks with tests."}
+      - {id: AI-M08, title: "Evaluation suites, observability, cost and latency", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Operate an evaluation suite and dashboard that detect a seeded quality regression and a cost spike."}
+      - {id: AI-M09, title: "Governance and responsible deployment (NIST AI RMF)", level: 3, status: PLANNED, estimated_hours: 6, primary_outcome: "Produce a risk register and human-oversight design for one AI use case mapped to NIST AI RMF functions."}
+      - {id: AI-M10, title: "Capstone: secure production-oriented AI assistant", level: 3, status: PLANNED, estimated_hours: 16, primary_outcome: "Deliver an assistant with a threat model, evaluation suite, enforced tool permissions, logging and reproducible tests."}
+    estimated_duration_hours: 96
+    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
+    capstone: "Production-oriented AI assistant with documented threat model, evaluation suite, secure tool permissions, logging, failure handling and reproducible tests."
+    review_status: NOT_REVIEWED
+    qa_status: NOT_RUN
+    release_status: REENGINEERING
+    lifecycle: IN_DESIGN
+    blocking_findings: [F-AI-001, F-AI-002, F-AI-003, F-AI-004]
+    owner: UNASSIGNED
+    reviewers: []
+    last_verified: 2026-10-14
+    notes: "Labs must run at zero cost (local or open-weights model option) per the free local-first policy."
+
+  - id: COURSE-OSINT
+    slug: osint-investigations
+    title: "Lawful OSINT Investigation Pathway"
+    version: 0.0.1-plan
+    source_ids: [SRC-OSINT-STARTER]
+    audience: ["Analysts, journalists and security staff who need defensible open-source research"]
+    competency_levels: [1, 2]
+    prerequisites: [COURSE-FND-DIGITAL]
+    modules:
+      - {id: OSINT-M01, title: "Law, ethics, privacy and prohibited activities", level: 1, status: PLANNED, estimated_hours: 5, primary_outcome: "Classify ten proposed collection actions as permitted, restricted or prohibited and justify each decision."}
+      - {id: OSINT-M02, title: "Research planning and collection management", level: 1, status: PLANNED, estimated_hours: 4, primary_outcome: "Write a collection plan with scope, questions, sources and data-minimisation rules."}
+      - {id: OSINT-M03, title: "Search methodology and source discovery", level: 1, status: PLANNED, estimated_hours: 6, primary_outcome: "Locate and document sources for a synthetic case using advanced search operators and archives."}
+      - {id: OSINT-M04, title: "Source validation, provenance and evidence preservation", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Rate source reliability and preserve evidence with hashes, timestamps and a chain-of-custody log."}
+      - {id: OSINT-M05, title: "Metadata and geospatial analysis from lawful sources", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Geolocate a synthetic image set from lawful imagery and metadata and state confidence for each conclusion."}
+      - {id: OSINT-M06, title: "Chronology, confidence and attribution limits", level: 2, status: PLANNED, estimated_hours: 5, primary_outcome: "Build a timeline and confidence-graded assessment that states what cannot be attributed."}
+      - {id: OSINT-M07, title: "Researcher operational security", level: 2, status: PLANNED, estimated_hours: 4, primary_outcome: "Configure an isolated research environment and document the controls that protect the researcher."}
+      - {id: OSINT-M08, title: "Disinformation awareness", level: 2, status: PLANNED, estimated_hours: 4, primary_outcome: "Assess a synthetic influence campaign using provenance and behavioural indicators."}
+      - {id: OSINT-M09, title: "Reporting and intelligence communication", level: 2, status: PLANNED, estimated_hours: 4, primary_outcome: "Write an intelligence report with sourcing, uncertainty language and ethical-collection record."}
+      - {id: OSINT-M10, title: "Capstone: defensible OSINT report", level: 2, status: PLANNED, estimated_hours: 10, primary_outcome: "Deliver a report on a synthetic case with provenance for every claim and an ethical-collection log."}
+    estimated_duration_hours: 56
+    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
+    capstone: "Defensible OSINT intelligence report on a synthetic or consented case with source provenance, uncertainty analysis and ethical collection records."
+    review_status: NOT_REVIEWED
+    qa_status: NOT_RUN
+    release_status: REENGINEERING
+    lifecycle: IN_DESIGN
+    blocking_findings: [F-OSINT-001, F-OSINT-002, F-OSINT-003, F-OSINT-004, F-OSINT-005]
+    owner: UNASSIGNED
+    reviewers: []
+    last_verified: 2026-10-14
+    notes: "The source PDF is a product brochure; the bundle components it describes are BLOCKED_SOURCE_PENDING (see MISSING_MATERIALS.md). Legal review required before any lab uses real-world data."
+
+  - id: COURSE-GCP-DE
+    slug: gcp-data-engineering
+    title: "Google Cloud Data Engineering Pathway"
+    version: 0.0.1-plan
+    source_ids: [SRC-GCP-DATAENG]
+    audience: ["Data and software engineers building pipelines on Google Cloud", "Learners preparing for role-based Google Cloud certification (alignment to be verified)"]
+    competency_levels: [2, 3]
+    prerequisites: [COURSE-PY-ENG]
+    modules:
+      - {id: GCP-M01, title: "Cloud foundations, IAM, cost safety and sandbox setup", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Configure a project with least-privilege IAM, a budget alert and a documented teardown."}
+      - {id: GCP-M02, title: "Cloud Storage and batch ingestion", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Ingest a vendor file drop with validation and idempotent loads, locally and on Google Cloud."}
+      - {id: GCP-M03, title: "BigQuery SQL and analytical modelling", level: 2, status: PLANNED, estimated_hours: 12, primary_outcome: "Model a partitioned and clustered dataset and show the query-cost reduction measured with dry runs."}
+      - {id: GCP-M04, title: "Pub/Sub and streaming ingestion", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Process a stream with dead-letter handling and prove no message is lost under injected failures."}
+      - {id: GCP-M05, title: "Apache Beam and Dataflow", level: 3, status: PLANNED, estimated_hours: 10, primary_outcome: "Implement a Beam pipeline that passes unit tests on the DirectRunner and runs on Dataflow within a cost budget."}
+      - {id: GCP-M06, title: "Orchestration and pipeline reliability", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Orchestrate a DAG with retries, backfills and alerting and demonstrate recovery from a failed task."}
+      - {id: GCP-M07, title: "Data quality, governance and security", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Enforce data-quality assertions and column-level access policies and show a blocked unauthorised query."}
+      - {id: GCP-M08, title: "Infrastructure as code and CI with Workload Identity Federation", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Deploy infrastructure from CI without any long-lived service-account key."}
+      - {id: GCP-M09, title: "Monitoring, SLOs and cost optimisation", level: 3, status: PLANNED, estimated_hours: 6, primary_outcome: "Define SLOs and alerts for a pipeline and cut the cost of a provided workload by a measured amount."}
+      - {id: GCP-M10, title: "Capstone: monitored, secure, cost-aware pipeline", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a documented pipeline with monitoring, security controls, tests and a cost report."}
+    estimated_duration_hours: 88
+    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
+    capstone: "A documented, monitored, secure, cost-aware batch and streaming data pipeline with tests and a teardown script."
+    review_status: NOT_REVIEWED
+    qa_status: NOT_RUN
+    release_status: REENGINEERING
+    lifecycle: IN_DESIGN
+    blocking_findings: [F-GCP-001, F-GCP-002, F-GCP-003]
+    owner: UNASSIGNED
+    reviewers: []
+    last_verified: 2026-10-14
+    notes: "Every billable lab needs cost estimate, explicit opt-in, spending safeguard, cleanup and a free local alternative (DirectRunner, emulators, DuckDB)."
+
+  - id: COURSE-FE-ONBOARD
+    slug: frontend-engineering
+    title: "Frontend Engineering Onboarding Pathway"
+    version: 0.0.1-plan
+    source_ids: [SRC-FRONTEND-ONBOARD]
+    audience: ["New frontend engineers joining ecosystem product teams", "Developers moving from backend to frontend"]
+    competency_levels: [1, 2, 3]
+    prerequisites: [COURSE-FND-DIGITAL]
+    modules:
+      - {id: FE-M01, title: "Web fundamentals and semantic HTML", level: 1, status: PLANNED, estimated_hours: 6, primary_outcome: "Build a semantic, keyboard-navigable page that passes an automated accessibility check."}
+      - {id: FE-M02, title: "CSS and responsive layout", level: 1, status: PLANNED, estimated_hours: 8, primary_outcome: "Implement a layout that works without horizontal scrolling from 320 to 1440 pixels wide."}
+      - {id: FE-M03, title: "JavaScript and TypeScript", level: 1, status: PLANNED, estimated_hours: 12, primary_outcome: "Write typed modules whose unit tests pass and whose compiler reports no errors."}
+      - {id: FE-M04, title: "Components and state management", level: 2, status: PLANNED, estimated_hours: 10, primary_outcome: "Compose a component tree with controlled state and test its behaviour through the DOM."}
+      - {id: FE-M05, title: "API integration, authentication and authorisation concepts", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Integrate an authenticated API fixture with loading, error and expired-session states handled."}
+      - {id: FE-M06, title: "Accessibility to WCAG 2.2 AA", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Audit a page against WCAG 2.2 AA, fix five seeded failures and document the evidence."}
+      - {id: FE-M07, title: "Frontend security: XSS, CSP, CSRF and dependencies", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Exploit and then fix an XSS flaw in a lab app and ship a Content-Security-Policy that blocks it."}
+      - {id: FE-M08, title: "Testing and browser debugging", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Diagnose three seeded defects with browser developer tools and cover each with a test."}
+      - {id: FE-M09, title: "Performance (Core Web Vitals) and error handling", level: 3, status: PLANNED, estimated_hours: 6, primary_outcome: "Improve a page's measured Largest Contentful Paint and Interaction to Next Paint against a stated budget."}
+      - {id: FE-M10, title: "Git workflow, pull requests and code review standards", level: 2, status: PLANNED, estimated_hours: 4, primary_outcome: "Open a pull request that satisfies a written review checklist and respond to review comments."}
+      - {id: FE-M11, title: "Capstone: secure responsive feature", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a secure, tested, responsive feature integrated with a controlled API fixture."}
+    estimated_duration_hours: 92
+    lab_coverage: {planned: 21, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 11, outcomes_assessed: 0}
+    capstone: "A secure, tested, responsive, accessible frontend feature integrated with a controlled API fixture or authorised development environment."
+    review_status: NOT_REVIEWED
+    qa_status: NOT_RUN
+    release_status: REENGINEERING
+    lifecycle: IN_DESIGN
+    blocking_findings: [F-FE-001, F-FE-002, F-FE-003]
+    owner: UNASSIGNED
+    reviewers: []
+    last_verified: 2026-10-14
+    notes: "Framework choices must be aligned with the real ecosystem repositories (not accessible from this repository scope): NEEDS_OWNER_INPUT."
+
+  - id: COURSE-CYBER-MEGA
+    slug: cybersecurity-tracks
+    title: "Cybersecurity Specialist Tracks (from the Mega Course)"
+    version: 0.0.1-plan
+    source_ids: [SRC-MEGA-P1, SRC-MEGA-P2]
+    audience: ["Learners choosing a cybersecurity specialism after Digital Foundations", "Enterprise teams needing role-based upskilling"]
+    competency_levels: [1, 2, 3]
+    prerequisites: [COURSE-FND-DIGITAL]
+    modules:
+      - {id: CYB-M01, title: "Security foundations, threats and frameworks (ATT&CK, CSF 2.0, OWASP)", level: 1, status: PLANNED, estimated_hours: 12, primary_outcome: "Map a set of ten incidents to ATT&CK techniques and CSF 2.0 functions with version references."}
+      - {id: CYB-M02, title: "Networking and operating-system security", level: 1, status: PLANNED, estimated_hours: 16, primary_outcome: "Harden a Linux and a Windows lab host to a written baseline and verify each control with a check script."}
+      - {id: CYB-M03, title: "Cryptography, identity and access management", level: 2, status: PLANNED, estimated_hours: 12, primary_outcome: "Design and test an authentication and authorisation scheme and explain the residual risks."}
+      - {id: CYB-M04, title: "Web and API application security", level: 2, status: PLANNED, estimated_hours: 16, primary_outcome: "Find, exploit in an isolated lab, and fix five OWASP-class vulnerabilities with regression tests."}
+      - {id: CYB-M05, title: "Vulnerability management and authorised assessment", level: 2, status: PLANNED, estimated_hours: 12, primary_outcome: "Plan and execute an authorised scan against a lab network and produce a risk-ranked report."}
+      - {id: CYB-M06, title: "Cloud and container security", level: 2, status: PLANNED, estimated_hours: 16, primary_outcome: "Detect and remediate seeded misconfigurations in a Kubernetes and a cloud IAM lab."}
+      - {id: CYB-M07, title: "DevSecOps and software supply-chain defence", level: 2, status: PLANNED, estimated_hours: 12, primary_outcome: "Add dependency, secret and SBOM checks to a CI pipeline that blocks a seeded vulnerable build."}
+      - {id: CYB-M08, title: "Digital forensics and incident response", level: 3, status: PLANNED, estimated_hours: 16, primary_outcome: "Reconstruct an intrusion timeline from disk, memory and log artefacts in a prepared case."}
+      - {id: CYB-M09, title: "Malware analysis and reverse engineering fundamentals (isolated lab)", level: 3, status: PLANNED, estimated_hours: 16, primary_outcome: "Triage a benign test sample statically and dynamically in an isolated VM and write detection logic."}
+      - {id: CYB-M10, title: "Cyber threat intelligence", level: 3, status: PLANNED, estimated_hours: 10, primary_outcome: "Produce a STIX-formatted intelligence product from provided reporting with confidence levels."}
+      - {id: CYB-M11, title: "Red, blue and purple team operations (authorised, simulated)", level: 3, status: PLANNED, estimated_hours: 12, primary_outcome: "Run a scoped adversary-emulation exercise in a lab and convert its gaps into validated detections."}
+      - {id: CYB-M12, title: "Security architecture, governance and leadership", level: 3, status: PLANNED, estimated_hours: 10, primary_outcome: "Produce a zero-trust architecture proposal with a risk register and board-level summary."}
+      - {id: CYB-M13, title: "AI security and emerging threats", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Assess an AI-enabled workflow against the OWASP LLM Top 10 and recommend controls."}
+      - {id: CYB-M14, title: "Capstone: assessed security programme exercise", level: 3, status: PLANNED, estimated_hours: 20, primary_outcome: "Complete a multi-domain exercise with a graded technical report and an executive briefing."}
+    estimated_duration_hours: 188
+    lab_coverage: {planned: 27, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 14, outcomes_assessed: 0}
+    capstone: "Multi-domain, authorised, simulated security exercise delivering a graded technical report and executive briefing."
+    review_status: NOT_REVIEWED
+    qa_status: NOT_RUN
+    release_status: REENGINEERING
+    lifecycle: IN_DESIGN
+    blocking_findings: [F-MEGA-001, F-MEGA-002, F-MEGA-003, F-MEGA-005, F-MEGA-007]
+    owner: UNASSIGNED
+    reviewers: []
+    last_verified: 2026-10-14
+    notes: "Replaces a ~3,660-page two-PDF source with modular tracks. SOC and AI-security specialisms are delivered by COURSE-SOC and COURSE-AI-ENG (overlap removed rather than duplicated). CYB-M13 is an assessment-level module for security practitioners; it shares the OWASP LLM Top 10 reference sheet with AI-M07 but has a different outcome (assess and recommend, not build and test), so it is not a reuse."
