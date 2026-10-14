@@ -27,7 +27,7 @@ The mission directive named seventeen deliverables. This index maps each to its 
 | Topic | File |
 |---|---|
 | Release states and the eight gates | [`release/RELEASE_GATES.md`](release/RELEASE_GATES.md) |
-| Findings register (65 findings, single source of truth) | [`audits/data/findings.yaml`](audits/data/findings.yaml) |
+| Findings register (66 findings, single source of truth) | [`audits/data/findings.yaml`](audits/data/findings.yaml) |
 | Scores and strengths | [`audits/data/scores.yaml`](audits/data/scores.yaml) |
 | Per-course audits | [`audits/courses/`](audits/courses/) |
 | Forensic method and its limits | [`audits/SOURCE_FORENSICS_METHOD.md`](audits/SOURCE_FORENSICS_METHOD.md) |

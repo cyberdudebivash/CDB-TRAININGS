@@ -1,0 +1,35 @@
+# Knowledge check for PY-M03. Questions only: the answer key is held by instructors (see courses/python-engineering/instructor/README.md).
+module: PY-M03
+items:
+  - id: Q1
+    outcome: LO1
+    stem: "A function is annotated `def double(x: int) -> str` and its body is `return x * 2`. It is called with 3. What happens when the program runs?"
+    options: {A: "It raises TypeError because 6 is not a string", B: "It returns 6: annotations are not enforced when the program runs", C: "It returns the text '6' because Python converts to the annotated type", D: "It raises SyntaxError when the function is defined"}
+  - id: Q2
+    outcome: LO1
+    stem: "A dataclass has the field `age: int` and you create `User('ada', 'thirty-six')`. What happens?"
+    options: {A: "The object is created: dataclasses do not validate types at run time", B: "TypeError is raised by the generated __init__", C: "ValueError is raised because the text is not a number", D: "The text is converted to 0"}
+  - id: Q3
+    outcome: LO2
+    stem: "You run mypy with default settings on a file whose functions have no annotations and it reports 'no issues found'. What does that tell you?"
+    options: {A: "The code is free of type errors", B: "The code is fully typed", C: "Almost nothing: by default mypy does not check the bodies of functions that have no annotations", D: "mypy could not read the file"}
+  - id: Q4
+    outcome: LO2
+    stem: "mypy reports `Item \"None\" of \"User | None\" has no attribute \"name\"  [union-attr]` for `find(users, 'ada').name`. What is the right fix?"
+    options: {A: "Handle the missing case explicitly (test for None and raise or return early) before using the value", B: "Add `# type: ignore` to the line", C: "Wrap the call in `cast(User, ...)`", D: "Change the return annotation to `Any`"}
+  - id: Q5
+    outcome: LO2
+    stem: "Rows from a CSV are typed `dict[str, str]` and the code compares `row['qty'] < row['reorder_level']`. mypy is satisfied, yet `'9' < '10'` is false. What is the lesson?"
+    options: {A: "mypy is broken for comparisons", B: "Strings should never be compared", C: "The comparison needs a `# type: ignore`", D: "The type said 'text', so the bug was invisible; model quantities as int in a typed record and convert once at the boundary"}
+  - id: Q6
+    outcome: LO3
+    stem: "What does `__all__` in a package's `__init__.py` do?"
+    options: {A: "It makes every other name private and inaccessible", B: "It documents the public interface and controls what `from package import *` brings in; it does not make other names private", C: "It speeds up imports", D: "It is required for mypy to run"}
+  - id: Q7
+    outcome: LO3
+    stem: "Module a imports module b at the top, and b imports a at the top. Importing a fails with a message about a partially initialized module. What is the best fix?"
+    options: {A: "Wrap one import in try/except ImportError", B: "Import the module twice", C: "Move the shared code into a third module that both import, so dependencies point one way", D: "Rename the modules"}
+  - id: Q8
+    outcome: LO4
+    stem: "Why do many projects use a `src/` layout?"
+    options: {A: "It stops the working directory from being importable, so tests only pass if the package is importable the way users will import it", B: "It makes Python run faster", C: "It is required by pytest", D: "It lets tests live inside the package"}

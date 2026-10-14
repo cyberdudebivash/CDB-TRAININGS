@@ -152,7 +152,7 @@
    "first_page": 1,
    "last_page": 500,
    "records": 500,
-   "sha256": "de7a447338c0ec0777a7fa434b2551cd9d20cb2d69a30d1c400892cb93903907"
+   "sha256": "7f42ca620eb899d5d2f31193cd3a0b5efa32c437178e164fa03dfbfce23b8180"
   },
   {
    "file": "docs/audits/data/page_records/SRC-PY-HANDBOOK.part02.jsonl",

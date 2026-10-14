@@ -921,10 +921,10 @@
   "SRC-PY-HANDBOOK": {
    "action": {
     "EXPAND": 13,
-    "KEEP": 344,
+    "KEEP": 343,
     "REMOVE": 75,
     "REPLACE": 63,
-    "UPDATE": 159
+    "UPDATE": 160
    },
    "currency": {
     "BASELINE_AVAILABLE": 295,
@@ -957,7 +957,7 @@
     "PY-M11": 9,
     "SOC-M03": 72
    },
-   "human_read_pages": 13,
+   "human_read_pages": 14,
    "issue_pages": {
     "END_OF_LIFE_VERSION": 2,
     "LEGAL_ETHICS_REVIEW": 2,
@@ -989,17 +989,17 @@
     "DR-PY-021": 2
    },
    "severity": {
-    "NONE": 597,
+    "NONE": 596,
     "P0": 2,
     "P1": 12,
-    "P2": 15,
+    "P2": 16,
     "P3": 15,
     "P4": 13
    },
    "status": {
-    "HUMAN_READ_FINDING_CITED": 13,
+    "HUMAN_READ_FINDING_CITED": 14,
     "MACHINE_FLAGGED_REVIEW_REQUIRED": 30,
-    "MACHINE_SCANNED_NO_FLAGS": 610,
+    "MACHINE_SCANNED_NO_FLAGS": 609,
     "VISUAL_REVIEW_REQUIRED": 1
    },
    "top_technologies": [
@@ -1185,26 +1185,26 @@
  },
  "totals": {
   "action:EXPAND": 92,
-  "action:KEEP": 3301,
+  "action:KEEP": 3300,
   "action:MERGE": 941,
   "action:REMOVE": 933,
   "action:REPLACE": 447,
-  "action:UPDATE": 2472,
+  "action:UPDATE": 2473,
   "currency:BASELINE_AVAILABLE": 1394,
   "currency:CURRENCY_FLAGGED": 155,
   "currency:NO_TECHNOLOGY_DETECTED": 3244,
   "currency:UNVERIFIED_CURRENCY": 3393,
   "pages": 8186,
-  "severity:NONE": 7425,
+  "severity:NONE": 7424,
   "severity:P0": 10,
   "severity:P1": 71,
-  "severity:P2": 155,
+  "severity:P2": 156,
   "severity:P3": 347,
   "severity:P4": 178,
-  "status:HUMAN_READ_FINDING_CITED": 97,
+  "status:HUMAN_READ_FINDING_CITED": 98,
   "status:MACHINE_FLAGGED_REVIEW_REQUIRED": 463,
   "status:MACHINE_SCANNED_NEAR_BLANK": 29,
-  "status:MACHINE_SCANNED_NO_FLAGS": 7568,
+  "status:MACHINE_SCANNED_NO_FLAGS": 7567,
   "status:VISUAL_REVIEW_REQUIRED": 29
  }
 }

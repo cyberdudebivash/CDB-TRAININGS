@@ -5,19 +5,19 @@
 
 - Course: `COURSE-PY-ENG` (catalog version 0.1.0-build, slug `python-engineering`)
 - Legacy sources: SRC-PY-HANDBOOK (CyberDudeBivash Python Engineering Handbook)
-- Concept-level change records: **17**; new developments assigned: **5**
+- Concept-level change records: **18**; new developments assigned: **5**
 
 ## Page-level audit rollup (machine candidates)
 
 | Source | Pages | Page-level action | Severity | Human-read (finding-cited) | Visual review needed |
 |---|---|---|---|---|---|
-| SRC-PY-HANDBOOK | 654 | KEEP 344, UPDATE 159, REPLACE 63, EXPAND 13, REMOVE 75 | P0 2, P1 12, P2 15, P3 15, P4 13, NONE 597 | 13 | 1 |
+| SRC-PY-HANDBOOK | 654 | KEEP 343, UPDATE 160, REPLACE 63, EXPAND 13, REMOVE 75 | P0 2, P1 12, P2 16, P3 15, P4 13, NONE 596 | 14 | 1 |
 
 These counts are rule outputs over every page; `KEEP` is a candidate, not a verdict.
 
 ## Differential analysis
 
-Actions: KEEP 1, UPDATE 4, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
+Actions: KEEP 1, UPDATE 5, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 
 ### MC-PYH-01 - Python language foundations (installing, syntax, types, control flow, functions, data structures)
 
@@ -210,7 +210,7 @@ Actions: KEEP 1, UPDATE 4, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 - **2025 source state:** Dataclasses are covered; no mypy, Ruff or pyright workflow appears in the handbook (technology index).
 - **Verified state at 2026-10-14:** Registry snapshot: mypy 2.4.0, ruff 0.17.0, pyright 1.1.414, pylint 4.1.3, black 26.10.1, pytest 9.1.1; Python 3.14 evaluates annotations lazily.
 - **Why:** Required PY-ENG topic missing from the source.
-- **Destination:** PY-M02, PY-M03 (PARTIAL)
+- **Destination:** PY-M02, PY-M03 (BUILT)
 - **Learner impact:** Typed, linted, tested projects.
 - **Verification:** RESEARCH_VERIFIED - registry versions
 - **Evidence:**
@@ -243,6 +243,20 @@ Actions: KEEP 1, UPDATE 4, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
   - `F-PYH-004`: P2 Code is mostly syntactically valid but unexecuted and untested
   - `probe:pytest-removed-apis`: executed probe, status OK, 2026-10-14T09:08:17Z, Python 3.13.16
   - `snapshot:pytest`: registry snapshot pypi: 9.1.1 (2026-06-19), retrieved 2026-10-14T08:47:28Z
+
+### MC-PYH-18 - Dataclasses described as providing type validation; type hints with no checker named
+
+- **Action:** UPDATE  |  **Source:** SRC-PY-HANDBOOK, pages 85
+- **2025 source state:** Dataclasses are said to provide init, repr, eq and 'type validation'; type hints are listed as 'bug detection' without a type checker (p. 85; F-PYH-008).
+- **Verified state at 2026-10-14:** A dataclass accepts a value of the wrong type without error (executed on CPython 3.11-3.15); annotations are ignored at run time; mypy 2.4.0 skips untyped functions by default and flags them under --strict (executed); unquoted forward references work from Python 3.14 (executed; R-046).
+- **Why:** A false capability claim in a section meant to build safe habits.
+- **Destination:** PY-M03 (BUILT)
+- **Learner impact:** Learners type a script under mypy --strict, fix the causes and restructure it into a package with a checked layout.
+- **Verification:** EXECUTED - tests/test_python_engineering_labs.py (PY-M03 labs) and tests/test_module_packs.py execute the lesson blocks that demonstrate each fact on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md)
+- **Evidence:**
+  - `F-PYH-008`: P2 Dataclasses described as providing type validation; type hints promise bug detection without naming a checker
+  - `snapshot:mypy`: registry snapshot pypi: 2.4.0 (2026-10-01), retrieved 2026-10-14T08:47:30Z
+  - `R-046`: What's New In Python 3.14 (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://docs.python.org/3/whatsnew/3.14.html>
 
 ## New developments relevant to this course
 

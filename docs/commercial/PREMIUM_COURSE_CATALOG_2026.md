@@ -75,7 +75,7 @@ Edition disclosure (values today):
 - Course id `COURSE-PY-ENG`, catalog version `0.1.0-build`, audience: Developers and analysts who need production-quality Python; Learners continuing from Digital Foundations.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Python Engineering Pathway — October 2026 Premium Edition`
 - Planned duration 92 hours across 11 modules (planning estimate, not measured learner time); capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
-- State today: 3 of 11 modules built; labs verified 6 of 21; release status `REENGINEERING`; evidence index 19.3 / 100.
+- State today: 4 of 11 modules built; labs verified 8 of 21; release status `REENGINEERING`; evidence index 23.1 / 100.
 - Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Commercial readiness, Academy integration, Human approval.
 
 Edition disclosure (values today):
@@ -92,7 +92,7 @@ Edition disclosure (values today):
 |---|---|---|---|---|
 | PY-M01 | Language core and data structures | 1 | 12 | PLANNED |
 | PY-M02 | Functions, errors and testing with pytest | 1 | 8 | BUILT |
-| PY-M03 | Types, modules and project layout | 2 | 6 | PLANNED |
+| PY-M03 | Types, modules and project layout | 2 | 6 | BUILT |
 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT |
 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | PLANNED |
 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | PLANNED |

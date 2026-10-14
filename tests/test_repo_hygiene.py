@@ -276,6 +276,7 @@ def test_no_project_files_are_hidden_by_gitignore():
     hidden = [f for f in out.stdout.splitlines()
               if f.startswith(("scripts/", "tests/", "courses/", "catalog/", "docs/", "shared/", ".github/"))
               and "__pycache__" not in f and not f.endswith(".pyc")
+              and not any(cache in f for cache in (".mypy_cache/", ".ruff_cache/", ".pytest_cache/"))   # tool caches created by running the labs
               and not re.match(r"courses/[^/]+/instructor/(?!README\.md$)", f)]
     assert hidden == [], f"ignored project files (would be missing from a clean clone): {hidden[:10]}"
 

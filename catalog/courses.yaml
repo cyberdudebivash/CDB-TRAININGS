@@ -93,7 +93,7 @@ courses:
     modules:
       - {id: PY-M01, title: "Language core and data structures", level: 1, status: PLANNED, estimated_hours: 12, primary_outcome: "Implement five data-processing functions that pass provided unit tests."}
       - {id: PY-M02, title: "Functions, errors and testing with pytest", level: 1, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Write parametrised pytest tests that detect three seeded defects in a provided module."}
-      - {id: PY-M03, title: "Types, modules and project layout", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Refactor a script into a typed package that passes a static type checker without errors."}
+      - {id: PY-M03, title: "Types, modules and project layout", level: 2, status: BUILT, estimated_hours: 6, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Refactor a script into a typed package that passes a static type checker without errors."}
       - {id: PY-M04, title: "Environments, dependencies and packaging (pyproject, build)", level: 2, status: BUILT, estimated_hours: 6, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Build, install and import a wheel produced with python -m build in a clean virtual environment."}
       - {id: PY-M05, title: "Files, structured data and HTTP clients", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Consume a paginated API fixture with retries and timeouts and validate every response against a schema."}
       - {id: PY-M06, title: "Concurrency and asynchronous programming", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark."}
@@ -103,8 +103,8 @@ courses:
       - {id: PY-M10, title: "API development: typed, tested and secure HTTP services", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Build a typed HTTP API with request validation and authentication that passes contract tests and an injection test suite."}
       - {id: PY-M11, title: "Capstone: typed, tested, documented application with CI", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a packaged application whose tests, type checks and security scan pass in a clean environment."}
     estimated_duration_hours: 92
-    lab_coverage: {planned: 21, built: 6, verified_executable: 6}
-    assessment_coverage: {outcomes_total: 11, outcomes_assessed: 3}
+    lab_coverage: {planned: 21, built: 8, verified_executable: 8}
+    assessment_coverage: {outcomes_total: 11, outcomes_assessed: 4}
     capstone: "A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan."
     review_status: AUTOMATED_ONLY
     qa_status: PARTIAL
@@ -114,7 +114,7 @@ courses:
     owner: UNASSIGNED
     reviewers: []
     last_verified: 2026-10-14
-    notes: "Three of eleven modules are built (PY-M02, PY-M04, PY-M07) with six labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other eight modules are planned only."
+    notes: "Four of eleven modules are built (PY-M02, PY-M03, PY-M04, PY-M07) with eight labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other seven modules are planned only."
 
   - id: COURSE-PY-AUTO
     slug: python-automation

@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 import subprocess
 import sys
 import xml.etree.ElementTree as ET
@@ -182,3 +183,53 @@ def test_m07_independent_reference_is_secure_and_starter_is_not():
     assert len([k for k in failing(vulnerable)]) >= 15
     report = mutation(ref, "notes_service", suite, ref / "mutants.json")
     assert report["baseline_passes"] and report["required_killed"] == report["required_total"] == 9
+
+
+# ------------------------------------------------------------------------------------------------------------------ PY-M03
+M03 = COURSE / "modules" / "PY-M03"
+
+
+def test_m03_guided_solution_passes_every_check():
+    results = run_pytest(M03 / "lab-guided", env={"LAB_TARGET": "solution"}, timeout=600)
+    assert len(results) == 27 and failing(results) == set(), failing(results)
+
+
+def test_m03_guided_starter_script_has_the_three_hidden_defects():
+    lab = M03 / "lab-guided" / "starter"
+    results = run_pytest(lab)
+    assert results["test_total_value_of_the_sample"] == "passed"
+    assert {k for k, v in results.items() if v == "failed"} == {"test_low_stock_compares_numbers_not_text", "test_unknown_focus_sku_is_a_clear_error",
+                                                              "test_restock_plan_within_budget", "test_restock_plan_over_budget_is_an_error_not_none"}
+    default = subprocess.run([sys.executable, "-m", "mypy", "inventory.py"], cwd=lab, capture_output=True, text=True)
+    strict = subprocess.run([sys.executable, "-m", "mypy", "--strict", "--show-error-codes", "inventory.py"], cwd=lab, capture_output=True, text=True)
+    assert default.returncode == 0, "default mypy skips untyped functions"
+    assert strict.returncode == 1 and strict.stdout.count("[no-untyped-def]") >= 6 and strict.stdout.count("error:") >= 10
+    shutil.rmtree(lab / ".mypy_cache", ignore_errors=True)
+
+
+def test_m03_guided_starter_fails_every_package_check():
+    results = run_pytest(M03 / "lab-guided", timeout=600)
+    assert len(results) == 27 and set(results.values()) <= {"failed", "error"}, {k: v for k, v in results.items() if v == "passed"}
+
+
+def test_m03_independent_starter_is_untyped_cyclic_and_failing():
+    lab = M03 / "lab-independent"
+    results = run_pytest(lab, timeout=600)
+    assert len(results) == 30 and set(results.values()) <= {"failed", "error"}
+    starter = lab / "starter"
+    first = subprocess.run([sys.executable, "-c", "import models"], cwd=starter, capture_output=True, text=True)
+    second = subprocess.run([sys.executable, "-c", "import report"], cwd=starter, capture_output=True, text=True)
+    assert first.returncode != 0 and "cannot import name 'Trip'" in first.stderr, "import order decides whether the cycle bites"
+    assert second.returncode == 0
+    strict = subprocess.run([sys.executable, "-m", "mypy", "--strict", "."], cwd=starter, capture_output=True, text=True)
+    assert strict.returncode == 1 and "Found 27 errors" in strict.stdout, strict.stdout[-300:]
+    shutil.rmtree(starter / ".mypy_cache", ignore_errors=True)
+
+
+@pytest.mark.private_materials
+def test_m03_independent_reference_passes_every_check():
+    ref = PRIVATE / "PY-M03" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    results = run_pytest(M03 / "lab-independent", env={"LAB_PROJECT": str(ref)}, timeout=600)
+    assert len(results) == 30 and failing(results) == set(), failing(results)

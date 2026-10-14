@@ -156,3 +156,16 @@ def test_public_files_contain_no_instructor_material():
         elif rel.endswith((".md", ".yaml", ".py", ".json", ".toml")) and "/modules/" in rel:
             text = (ROOT / rel).read_text(encoding="utf-8", errors="ignore")
             assert "INSTRUCTORS ONLY" not in text, rel
+
+
+def test_course_readme_lists_exactly_the_built_modules():
+    catalog = load(ROOT / "catalog" / "courses.yaml")
+    for course in catalog["courses"]:
+        folder = ROOT / "courses" / course["slug"]
+        if not (folder / "modules").exists():
+            continue
+        built = sorted(m["id"] for m in course["modules"] if m["status"] != "PLANNED" and (folder / "modules" / m["id"]).exists())
+        on_disk = sorted(p.name for p in (folder / "modules").iterdir() if (p / "lesson.md").exists())
+        readme = (folder / "README.md").read_text(encoding="utf-8")
+        listed = sorted(set(re.findall(r"^\| (PY-M\d+|[A-Z]+-M\d+) \|", readme, flags=re.M)))
+        assert built == on_disk == listed, (built, on_disk, listed)

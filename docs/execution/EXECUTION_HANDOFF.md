@@ -7,7 +7,7 @@ For the repository owner and whoever continues this work. Read this first; it te
 | Area | State | Where |
 |---|---|---|
 | Source preservation | All 10 PDFs unchanged; hashes recorded and tested | repository root, `docs/audits/data/source_inventory.json` |
-| Audit | 65 findings, scores, per-course audits, gap matrix, provenance, missing-materials, IP review | `docs/audits/` |
+| Audit | 66 findings, scores, per-course audits, gap matrix, provenance, missing-materials, IP review | `docs/audits/` |
 | Verified facts | 23 primary-source entries with dates and verification method | `docs/research/` |
 | Curriculum | 10 courses, 102 modules, 11 pathways in one validated catalog | `catalog/`, `docs/curriculum/` |
 | Standards | Lab, assessment and design standards | `docs/standards/` |

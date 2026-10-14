@@ -1,0 +1,26 @@
+# Source-to-new-content trace for PY-M03. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower).
+source: SRC-PY-HANDBOOK
+module: PY-M03
+mappings:
+  - source_pages: [84, 85]
+    source_topic: "'63. Dataclasses' (lists init, repr, eq and 'type validation' as automatic) and '64. Type hints' (a four-line example; 'bug detection' with no checker named)"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 2, 3, 4 and 9; guided lab; quiz Q1, Q2 and Q3"
+    note: "Finding F-PYH-008: dataclasses perform no run-time type validation (executed); type hints detect bugs only through a checker. mypy --strict and fix-the-cause practice replace the four-line example."
+  - source_pages: [90, 104]
+    source_topic: "Checklist lines 'Use type hints' and 'Dataclasses'"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md sections 3 and 8"
+    note: "The advice is kept and made checkable (strict mode, one command for types and tests)."
+  - source_pages: [63, 64]
+    source_topic: "Packaging and virtual-environment steps (setup.py era)"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md sections 6-7 (modules, layout); the packaging itself is PY-M04"
+    note: "Finding F-PYH-003 is addressed in PY-M04; this module covers only how code is split and laid out."
+  - source_pages: [645, 646, 647, 648, 649, 650]
+    source_topic: "'Certification exam' question lists without answers or rubrics"
+    disposition: REPLACED
+    new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
+    note: "Finding F-PYH-007: replaced by outcome-mapped items and a rubric-graded independent lab with automated checks."

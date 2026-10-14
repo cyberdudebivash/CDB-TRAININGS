@@ -49,7 +49,7 @@ Catalog slug `python-engineering`; legacy sources: SRC-PY-HANDBOOK.
 |---|---|---|---|---|---|---|
 | PY-M01 | Language core and data structures | 160 | SRC-PY-AUTOMATION: 117 pp (3, 28-42, 279-299, 571-644, ... (+5 more ranges)); SRC-PY-HANDBOOK: 43 pp (1-28, 48-56, 58-61, 63, ... (+1 more ranges)) | KEEP 38, UPDATE 3, REPLACE 2, EXPAND 5, MERGE 112 | MC-PYH-01 | ND-PY-04 |
 | PY-M02 | Functions, errors and testing with pytest | 9 | SRC-PY-HANDBOOK: 9 pp (62, 80-81, 83-84, 87-89, ... (+1 more ranges)) | KEEP 6, UPDATE 2, REPLACE 1 | MC-PYH-15, MC-PYH-17 | - |
-| PY-M03 | Types, modules and project layout | NET_NEW | - | - | MC-PYH-15 | ND-PY-02 |
+| PY-M03 | Types, modules and project layout | NET_NEW | - | - | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | NET_NEW | - | - | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
 | PY-M05 | Files, structured data and HTTP clients | 6 | SRC-PY-HANDBOOK: 6 pp (82, 90, 125-126, 128-129) | KEEP 5, UPDATE 1 | - | - |
 | PY-M06 | Concurrency and asynchronous programming | 1 | SRC-PY-HANDBOOK: 1 pp (177) | UPDATE 1 | MC-PYH-16 | ND-PY-02 |
@@ -73,7 +73,7 @@ Catalog slug `python-automation`; legacy sources: SRC-PY-AUTOMATION.
 | PA-M06 | Reliability: retries, idempotency and recovery | NET_NEW | - | - | MC-PYA-01, MC-PYA-08 | - |
 | PA-M07 | Observability and auditable output | 40 | SRC-PY-HANDBOOK: 40 pp (93-96, 98-105, 115, 158, ... (+3 more ranges)) | KEEP 33, UPDATE 4, REPLACE 2, EXPAND 1 | MC-PYA-01, MC-PYA-08 | - |
 | PA-M08 | Testing automations: unit, integration, regression | 374 | SRC-PY-AUTOMATION: 374 pp (4, 9, 19, 43-60, ... (+39 more ranges)) | KEEP 345, UPDATE 23, EXPAND 6 | MC-PYA-01, MC-PYA-03, MC-PYA-09 | - |
-| PA-M09 | Command-line tools and guarded AI-assisted automation | 82 | SRC-PY-AUTOMATION: 75 pp (7, 107-119, 121, 1069-1115, ... (+2 more ranges)); SRC-PY-HANDBOOK: 7 pp (85, 111, 124, 163, ... (+3 more ranges)) | KEEP 73, UPDATE 3, REPLACE 4, EXPAND 1, MERGE 1 | MC-PYA-01, MC-PYA-10, MC-PYH-05 | - |
+| PA-M09 | Command-line tools and guarded AI-assisted automation | 82 | SRC-PY-AUTOMATION: 75 pp (7, 107-119, 121, 1069-1115, ... (+2 more ranges)); SRC-PY-HANDBOOK: 7 pp (85, 111, 124, 163, ... (+3 more ranges)) | KEEP 72, UPDATE 4, REPLACE 4, EXPAND 1, MERGE 1 | MC-PYA-01, MC-PYA-10, MC-PYH-05 | - |
 | PA-M10 | Capstone: safe operational workflow | 77 | SRC-PY-AUTOMATION: 77 pp (10, 171-178, 180-185, 442-455, ... (+9 more ranges)) | KEEP 66, UPDATE 10, EXPAND 1 | MC-PYA-01, MC-PYA-11 | - |
 
 ## COURSE-JAVA-QA - Java Test Automation Engineer Pathway

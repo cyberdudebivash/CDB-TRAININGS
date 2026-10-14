@@ -16,6 +16,8 @@ ROOT = Path(__file__).resolve().parents[2]
 LABS = [
     ("m02_guided", "PY-M02 guided", "Reference tests kill all 7 mutants; they detect the 3 seeded defects in the starter; the shipped test template is not a solution"),
     ("m02_independent", "PY-M02 independent", "Starter module correct, template empty; instructor reference suite kills all 12 required hidden mutants (private pack)"),
+    ("m03_guided", "PY-M03 guided", "Reference package passes all 27 checks (strict mypy, layout, behaviour); the untyped starter passes default mypy, fails --strict and 4 of 5 of its own tests, and fails every package check"),
+    ("m03_independent", "PY-M03 independent", "Untyped starter has 27 strict errors and an import cycle that depends on import order and fails all 30 checks; instructor reference passes all 30 (private pack)"),
     ("m04_guided", "PY-M04 guided", "Reference project passes all 10 checks; the legacy starter fails exactly the 6 modernisation checks and still builds"),
     ("m04_independent", "PY-M04 independent", "Starter fails the 7 packaging checks and passes 2; instructor reference overlay passes all 9 (private pack)"),
     ("m07_guided", "PY-M07 guided", "Reference passes all checks; starter works but fails exploit/static checks in all 8 areas; reference regression tests kill 8/8 required mutants"),

@@ -11,7 +11,7 @@ the course. Everything in this folder except this README is git-ignored.
 | `PY-M02/answer-key.md` | Answer key and rationale for the 8 quiz items |
 | `PY-M02/grading-notes.md` | How to score reviewer criteria C3-C5 of the independent lab, with level examples |
 | `PY-M02/independent-reference/` | Reference test suite for `splitkit` and the hidden mutant list used by `labs/_tools/mutation_check.py` |
-| `PY-M04/`, `PY-M07/` | The same three kinds of file for the other built modules |
+| `PY-M03/`, `PY-M04/`, `PY-M07/` | The same kinds of file for the other built modules (PY-M03's independent reference is a complete project) |
 
 ## How the automated tests treat it
 

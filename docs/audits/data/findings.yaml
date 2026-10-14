@@ -472,6 +472,17 @@ findings:
     verification: STATIC_SCAN
     recommendation: "Add diagnostic, formative and project assessments with rubrics (docs/architecture/ASSESSMENT_FRAMEWORK.md)."
     remediation: {status: PLANNED_IN_TRACK, where: "Track PY-6 capstone"}
+  - id: F-PYH-008
+    source_id: SRC-PY-HANDBOOK
+    severity: P2
+    dimension: technical_correctness
+    title: "Dataclasses described as providing type validation; type hints promise bug detection without naming a checker"
+    evidence:
+      - {page: 85, note: "'Automatically provides: init, repr, eq, type validation' for @dataclass; the next section lists type hints as 'bug detection' with no type checker named."}
+    verification: EXECUTED
+    detail: "Executed on CPython 3.11-3.15: a dataclass with an int field accepts text without error (the decorator generates __init__, __repr__ and __eq__ and validates nothing). Annotations are ignored at run time; mypy 2.4.0 skips untyped functions by default and reports nothing for them."
+    recommendation: "State that annotations are checked only by a type checker, teach mypy --strict with fix-the-cause practice, and validate at run time with code or a library where needed."
+    remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M03 (courses/python-engineering/modules/PY-M03)"}
 
   # ------------------------------------------------------------------------- Python Automation Training
   - id: F-PYA-001

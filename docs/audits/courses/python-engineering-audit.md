@@ -9,7 +9,7 @@
 | Review confidence | **MEDIUM** |
 | Review coverage | 654/654 pages machine-scanned; ~15 pages read in context (pp. 63-64, 83, 163-164, 220, 427-428, 585-586 and code-failure contexts); 404 code blocks syntax-checked. |
 | Quality score (source as received) | **36 / 100** (internal instrument; see `COURSE_QUALITY_SCORECARD.md`) |
-| Open findings | P0: 1, P1: 3, P2: 3, P3: 0, P4: 0 |
+| Open findings | P0: 1, P1: 3, P2: 4, P3: 0, P4: 0 |
 | Release status | `REENGINEERING` (lifecycle `IN_BUILD`) |
 | Audit date | 2026-10-14 |
 
@@ -39,6 +39,7 @@ Severity scale: **P0** dangerous, materially incorrect, legally problematic or f
 | F-PYH-004 | P2 | Hands-on practical effectiveness | Code is mostly syntactically valid but unexecuted and untested | document-wide scan | STATIC_SCAN | PLANNED_IN_TRACK |
 | F-PYH-005 | P2 | Technical currency and relevance | Recommends Python 3.10+, which reached end-of-life on 2026-10-01; no version policy | p. 220 | PRIMARY_SOURCE | NOT_STARTED |
 | F-PYH-006 | P2 | Instructional clarity and sequencing | Thin sections and uncontrolled scope | p. 63 | STATIC_SCAN | PLANNED_IN_TRACK |
+| F-PYH-008 | P2 | Technical correctness and security | Dataclasses described as providing type validation; type hints promise bug detection without naming a checker | p. 85 | EXECUTED | PLANNED_IN_TRACK |
 
 ### F-PYH-001 (P0) Agent 'math tool' evaluates model-controlled input with eval()
 
@@ -114,6 +115,15 @@ Median bookmarked section is 17 words; 84% under 40 words. The 'Python engineeri
 **Verification:** STATIC_SCAN. **Recommendation:** Split into a foundations path and applied branches; keep engineering practice (typing, testing, packaging, CI) central.
 **Remediation:** PLANNED_IN_TRACK - Blueprint track PY.
 
+### F-PYH-008 (P2) Dataclasses described as providing type validation; type hints promise bug detection without naming a checker
+
+- **p. 85:** 'Automatically provides: init, repr, eq, type validation' for @dataclass; the next section lists type hints as 'bug detection' with no type checker named.
+
+Executed on CPython 3.11-3.15: a dataclass with an int field accepts text without error (the decorator generates __init__, __repr__ and __eq__ and validates nothing). Annotations are ignored at run time; mypy 2.4.0 skips untyped functions by default and reports nothing for them.
+
+**Verification:** EXECUTED. **Recommendation:** State that annotations are checked only by a type checker, teach mypy --strict with fix-the-cause practice, and validate at run time with code or a library where needed.
+**Remediation:** PLANNED_IN_TRACK - Module PY-M03 (courses/python-engineering/modules/PY-M03).
+
 ## 4. Mandated-topic coverage (keyword probes)
 
 Zero matches are a definitive gap; a match only shows a term is mentioned, not taught. See `TECHNICAL_GAP_MATRIX.md` for the legend.
@@ -162,5 +172,5 @@ Security-pattern hits in code (each read in context): bare_except=10, debug_true
 
 - Blocking findings recorded in the catalog: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
 - Release status: `REENGINEERING`. A course cannot reach `PRODUCTION_GO` until all 15 gates in `docs/release/RELEASE_GATES.md` pass; this one fails most of them (see `docs/release/PRODUCTION_GO_GATE_REPORT.md`).
-- Notes: Three of eleven modules are built (PY-M02, PY-M04, PY-M07) with six labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other eight modules are planned only.
+- Notes: Four of eleven modules are built (PY-M02, PY-M03, PY-M04, PY-M07) with eight labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other seven modules are planned only.
 - Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.

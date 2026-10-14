@@ -18,10 +18,10 @@ Concept-level differential analysis: for each major concept the legacy PDFs teac
 | COURSE-JAVA-QA | 10 | KEEP 1, UPDATE 5, REPLACE 2, MERGE 1, REMOVE 1 |
 | COURSE-OSINT | 6 | REPLACE 3, ADD 1, REMOVE 2 |
 | COURSE-PY-AUTO | 11 | KEEP 1, UPDATE 4, REPLACE 2, EXPAND 1, ADD 1, REMOVE 2 |
-| COURSE-PY-ENG | 17 | KEEP 1, UPDATE 4, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1 |
+| COURSE-PY-ENG | 18 | KEEP 1, UPDATE 5, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1 |
 | COURSE-SOC | 8 | UPDATE 1, REPLACE 4, EXPAND 1, ADD 1, REMOVE 1 |
 
-Verification mix across 90 records: RESEARCH_VERIFIED 48, MACHINE_ONLY 20, EXECUTED 14, NEEDS_VERIFICATION 7, SECONDARY_ONLY 1.
+Verification mix across 91 records: RESEARCH_VERIFIED 48, MACHINE_ONLY 20, EXECUTED 15, NEEDS_VERIFICATION 7, SECONDARY_ONLY 1.
 
 Page-level (machine) action counts per source are in [OCT2026_COMPLETE_PDF_AUDIT.md](OCT2026_COMPLETE_PDF_AUDIT.md); per-course logs with resolved evidence are in `docs/audits/modernization/`.
 
@@ -143,9 +143,10 @@ Page-level (machine) action counts per source are in [OCT2026_COMPLETE_PDF_AUDIT
 | MC-PYH-12 | AI/ML foundations, from-scratch GPT, RAG, agents, deployment | MERGE | 549-600 | Module 7 covers NumPy/pandas/scikit-learn, neural networks, a from-scratch GPT, RAG with FAISS, agents and FastAPI deployment inside a Python handbook. | AI topics are owned by COURSE-AI-ENG (single owner per topic); numpy 2.5.4 and pandas 3.0.6 removed legacy names (executed). | AI-M01, AI-M03, AI-M04, AI-M05, AI-M11 (PLANNED) | probe:pandas-removed-apis, R-045 | EXECUTED |
 | MC-PYH-13 | Data engineering with Python (Spark, Kafka, HDFS, Delta Lake, Airflow, Prefect, data modelling) | MERGE | 601-645 | Module 8 surveys a large open-source data stack with short code fragments. | Registry snapshot: Apache Spark 4.2.0, Kafka 4.3.1, Airflow 3.3.2, Prefect 3.8.8, Polars 2.0.0, DuckDB 1.5.6, pandas 3.0.6; Airflow 3 removed SubDAGs and execution_date. | GCP-M02, GCP-M03, GCP-M04, GCP-M06 (PLANNED) | snapshot:spark, snapshot:airflow, R-066 | RESEARCH_VERIFIED |
 | MC-PYH-14 | 'Certification exam' question lists | REPLACE | 645-650 | Fifty questions without answers, rubrics or acceptance criteria (F-PYH-007). | Assessment framework requires outcome-mapped, rubric-graded artefacts and automated checks. | PY-M11 (PLANNED) | F-PYH-007 | RESEARCH_VERIFIED |
-| MC-PYH-15 | Typing, static analysis and tooling | ADD | n/a | Dataclasses are covered; no mypy, Ruff or pyright workflow appears in the handbook (technology index). | Registry snapshot: mypy 2.4.0, ruff 0.17.0, pyright 1.1.414, pylint 4.1.3, black 26.10.1, pytest 9.1.1; Python 3.14 evaluates annotations lazily. | PY-M02, PY-M03 (PARTIAL) | snapshot:mypy, snapshot:ruff, R-046 | RESEARCH_VERIFIED |
+| MC-PYH-15 | Typing, static analysis and tooling | ADD | n/a | Dataclasses are covered; no mypy, Ruff or pyright workflow appears in the handbook (technology index). | Registry snapshot: mypy 2.4.0, ruff 0.17.0, pyright 1.1.414, pylint 4.1.3, black 26.10.1, pytest 9.1.1; Python 3.14 evaluates annotations lazily. | PY-M02, PY-M03 (BUILT) | snapshot:mypy, snapshot:ruff, R-046 | RESEARCH_VERIFIED |
 | MC-PYH-16 | Concurrency: GIL explanation | UPDATE | 646 | Concurrency is introduced through the GIL, threading versus multiprocessing questions. | The free-threaded build is officially supported in Python 3.14 (PEP 779); multiple interpreters are in the standard library (PEP 734). | PY-M06 (PLANNED) | R-046 | RESEARCH_VERIFIED |
 | MC-PYH-17 | Testing taught as a five-line pytest introduction | EXPAND | 88 | The pytest page shows install, create test_app.py, one assert and run (p. 88); no chapter teaches test design, boundary analysis or how to judge a test suite (F-PYH-004). | pytest 9.1.1 is current (PyPI, 2026-06-19); pytest.warns(None) raises TypeError and @pytest.yield_fixture is superseded (executed on 9.1.1). | PY-M02 (BUILT) | F-PYH-004, probe:pytest-removed-apis, snapshot:pytest | EXECUTED |
+| MC-PYH-18 | Dataclasses described as providing type validation; type hints with no checker named | UPDATE | 85 | Dataclasses are said to provide init, repr, eq and 'type validation'; type hints are listed as 'bug detection' without a type checker (p. 85; F-PYH-008). | A dataclass accepts a value of the wrong type without error (executed on CPython 3.11-3.15); annotations are ignored at run time; mypy 2.4.0 skips untyped functions by default and flags them under --strict (executed); unquoted forward references work from Python 3.14 (executed; R-046). | PY-M03 (BUILT) | F-PYH-008, snapshot:mypy, R-046 | EXECUTED |
 
 ## COURSE-SOC
 

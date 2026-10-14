@@ -6,10 +6,11 @@ The catalog (`catalog/courses.yaml`) is the source of truth for the module list;
 | Module | Title | State | Labs |
 |---|---|---|---|
 | PY-M02 | Functions, errors and testing with pytest | Built, automated checks executed; not SME-reviewed, not learner-piloted | guided (mutation-graded), independent |
+| PY-M03 | Types, modules and project layout | Built, automated checks executed; not SME-reviewed, not learner-piloted | guided, independent |
 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | Built, automated checks executed; not SME-reviewed, not learner-piloted | guided, independent |
 | PY-M07 | Secure coding for Python | Built, automated checks executed; not SME-reviewed, not learner-piloted | guided, independent |
 
-The other modules of the course (PY-M01, M03, M05, M06, M08-M11) are `PLANNED`: nothing in them is built. The course is **not** a production release (see `docs/release/OCT2026_PRODUCTION_READINESS.md`).
+The other modules of the course (PY-M01, M05, M06, M08-M11) are `PLANNED`: nothing in them is built. The course is **not** a production release (see `docs/release/OCT2026_PRODUCTION_READINESS.md`).
 
 ## Layout of a module
 
