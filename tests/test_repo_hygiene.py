@@ -273,3 +273,11 @@ def test_no_project_files_are_hidden_by_gitignore():
               and "__pycache__" not in f and not f.endswith(".pyc")
               and not re.match(r"courses/[^/]+/instructor/(?!README\.md$)", f)]
     assert hidden == [], f"ignored project files (would be missing from a clean clone): {hidden[:10]}"
+
+
+def test_lab_readme_states_the_pinned_lab_requirements():
+    readme = (ROOT / "courses" / "soc-analyst" / "labs" / "m04-guided" / "README.md").read_text(encoding="utf-8")
+    for line in (ROOT / "courses" / "soc-analyst" / "labs" / "requirements.txt").read_text(encoding="utf-8").splitlines():
+        line = line.split("#")[0].strip()
+        if line:
+            assert f"`{line}`" in readme, f"guided lab README does not state the pinned requirement {line}"

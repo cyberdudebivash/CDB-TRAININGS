@@ -20,7 +20,7 @@ tune two false positives **without losing any attack**, and re-measure.
 |---|---|
 | Skills | Lesson SOC-M04 read; command line; YAML |
 | Python | 3.11 or newer (tested on 3.13) |
-| Packages | `PyYAML==6.0.1`, `jsonschema==4.26.0` (`requirements.txt`) |
+| Packages | `PyYAML==6.0.3`, `jsonschema==4.26.0` (`requirements.txt`) |
 | OS | Linux, macOS or Windows (commands shown for a POSIX shell) |
 | Disk | under 5 MB |
 
