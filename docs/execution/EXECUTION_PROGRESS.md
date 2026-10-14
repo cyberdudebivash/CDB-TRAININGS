@@ -16,7 +16,7 @@ Snapshot date: 2026-10-14 · Branch: `claude/cyberdudebivash-training-audit-ilfg
 | Courses transformed | 1 module of 102 built (SOC-M04 in `COURSE-SOC`); 10 courses fully designed in the catalog |
 | Courses production-ready | **0** |
 | Labs implemented / verified | 2 / 2 (guided and independent labs of SOC-M04) |
-| Automated tests | 140 pytest tests passing with the private pack present; a simulated public clone (pack removed) gave 137 passed and 3 skipped with the explicit reason `SKIPPED_PRIVATE_MATERIALS`. Authoritative figures: QA report |
+| Automated tests | 142 pytest tests passing with the private pack present; a clean clone without the pack has no failures and reports 3 tests as skipped with the explicit reason `SKIPPED_PRIVATE_MATERIALS`. Authoritative figures: QA report |
 | Student edition | 1 built (tagged PDF + HTML), strict gates passed |
 
 ## Phase log
