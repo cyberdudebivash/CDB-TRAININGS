@@ -351,7 +351,9 @@ def check_html(text: str) -> list[str]:
     if c.imgs_without_alt:
         problems.append(f"{c.imgs_without_alt} image(s) without alt text")
     problems += sorted(set(c.bad_attrs))
-    if "http://" in text.replace("http://www.w3.org", ""):
+    # Code samples may show loopback URLs (a lab server on http://127.0.0.1); everything else, including links, attributes, styles and prose, may not use http://.
+    outside_code = re.sub(r"<(pre|code)\b.*?</\1>", "", text, flags=re.S | re.I)
+    if "http://" in outside_code.replace("http://www.w3.org", ""):
         problems.append("insecure http:// reference present")
     return problems
 

@@ -83,6 +83,13 @@ def test_html_checker_flags_defects(mutation, needle):
     assert any(needle in p for p in problems), problems
 
 
+def test_http_urls_are_allowed_only_inside_code_samples():
+    assert be.check_html(GOOD.replace("</main>", "<pre><code>client.get('http://127.0.0.1:8000/x')</code></pre><p>use <code>http://localhost</code></p></main>")) == []
+    for outside in ("<a href='http://example.org'>x</a>", "<p>see http://example.org</p>", "<img src='http://example.org/a.png' alt='a'>"):
+        problems = be.check_html(GOOD.replace("</main>", outside + "</main>"))
+        assert any("insecure http://" in p for p in problems), (outside, problems)
+
+
 def test_link_rewriting_keeps_only_internal_targets(tmp_path):
     a, b = tmp_path / "a.md", tmp_path / "b.md"
     a.write_text("x"), b.write_text("y")
