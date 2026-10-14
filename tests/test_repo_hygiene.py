@@ -209,10 +209,12 @@ def test_no_large_or_generated_files_tracked_except_sources():
 
 
 def test_requirements_are_pinned():
-    for req in ("requirements.txt", "courses/soc-analyst/labs/requirements.txt"):
+    for req in ("requirements.txt", "courses/soc-analyst/labs/requirements.txt", "courses/python-engineering/labs/requirements.txt"):
         for line in (ROOT / req).read_text(encoding="utf-8").splitlines():
             line = line.split("#")[0].strip()
-            if line:
+            if line.startswith("-r "):
+                assert (ROOT / line[3:].strip()).is_file(), f"{req}: included file {line[3:]} does not exist"
+            elif line:
                 assert "==" in line, f"{req}: '{line}' is not pinned"
 
 
