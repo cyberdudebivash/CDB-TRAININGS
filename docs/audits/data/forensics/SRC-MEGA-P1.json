@@ -1,0 +1,629 @@
+{
+  "claims": {
+    "certification_claim": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "expert_promise": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "guarantee": {
+      "count": 7,
+      "examples": [
+        {
+          "page": 277,
+          "snippet": "ge: ●​ 0.0 → never exploited​ ●​ 1.0 → guaranteed exploitation​ EPSS shows REAL attacker behavior. 14.6 Combining"
+        },
+        {
+          "page": 1199,
+          "snippet": "ineering style Attribution is probabilistic, NOT guaranteed. 📈 73.13 Threat Forecasting & Predictive Intelligence Using:​ ✔ e"
+        },
+        {
+          "page": 1685,
+          "snippet": "Weak passwords = guaranteed compromise. 🏢 2.20.7 — Active Directory Pentesting (HARDCORE SECT"
+        },
+        {
+          "page": 1748,
+          "snippet": "TTacker​ ✔ ChameleonMini Become elite in these → guaranteed job. 🗄🔥 MODULE 2 — PART 27 DATABASE SECURITY & DATABASE PENTESTIN"
+        },
+        {
+          "page": 1753,
+          "snippet": "auditing​ ❌ insecure backup files DB misconfig = guaranteed data breach. 🌐 2.27.7 — NoSQL Database Attacks MongoDB attacks: 🔥"
+        }
+      ],
+      "pages": 7
+    },
+    "internal_framework_branding": {
+      "count": 714,
+      "examples": [
+        {
+          "page": 254,
+          "snippet": "her session. 13.4 Zero Trust Identity (ZTI) — CyberDudeBivash Model Zero Trust Identity requires continuous verification: ●​ User​"
+        },
+        {
+          "page": 353,
+          "snippet": "if crypto breaks. 18.1 Types of Cryptography (CyberDudeBivash Model) 1.​ Symmetric Key Cryptography​ Same key → encrypt & decry"
+        },
+        {
+          "page": 395,
+          "snippet": "ere cybersecurity meets real crisis. 20.1 The CyberDudeBivash 6-Phase Incident Response Lifecycle (CIR-6) Our proprietary IR model: 1.​"
+        },
+        {
+          "page": 418,
+          "snippet": "strong VM program prevents breaches. 21.1 The CyberDudeBivash 5-Phase Vulnerability Management Lifecycle Our proprietary framework: Phase"
+        },
+        {
+          "page": 462,
+          "snippet": "rectly from machine code. 23.1 RE Categories (CyberDudeBivash Model) ✔ Static Analysis Analyze binary without running."
+        }
+      ],
+      "pages": 568
+    },
+    "job_placement": {
+      "count": 2,
+      "examples": [
+        {
+          "page": 2407,
+          "snippet": "proactive active defense. 🕵️ 2.93.6 — IDS/IPS Placement Strategic placement: ✔ Internet edge​ ✔ DMZ​ ✔ Internal east–west​ ✔"
+        },
+        {
+          "page": 2407,
+          "snippet": "ense. 🕵️ 2.93.6 — IDS/IPS Placement Strategic placement: ✔ Internet edge​ ✔ DMZ​ ✔ Internal east–west​ ✔ Cloud VPC/VNet​ ✔ M"
+        }
+      ],
+      "pages": 1
+    },
+    "percent_stat": {
+      "count": 109,
+      "examples": [
+        {
+          "page": 20,
+          "snippet": "​ Data leaks​ D. Insider Threats (Negligence) 80% of breaches start with human error: ●​ Clicking phishing emails​"
+        },
+        {
+          "page": 38,
+          "snippet": "●​ Unrestricted API gateways​ 95% of cloud breaches are misconfigurations, not hacking. 5. Identity Vu"
+        },
+        {
+          "page": 113,
+          "snippet": ". De-provisioning User leaves → access revoked. 90% of breaches occur because old accounts are left active. 7.3 What Is"
+        },
+        {
+          "page": 250,
+          "snippet": "the security boundary. Industry shifts: ●​ 92% of modern breaches involve weak or compromised identity​ ●​ 78% of"
+        },
+        {
+          "page": 250,
+          "snippet": "es involve weak or compromised identity​ ●​ 78% of cloud breaches occur due to misconfigurations or identity misuse​"
+        }
+      ],
+      "pages": 64
+    },
+    "salary": {
+      "count": 11,
+      "examples": [
+        {
+          "page": 787,
+          "snippet": "e the new gold Cloud Security Engineers are paid ₹22 LPA – ₹65+ LPA globally.​ This module makes you elite. 41.1 Cloud Pla"
+        },
+        {
+          "page": 787,
+          "snippet": "Cloud Security Engineers are paid ₹22 LPA – ₹65+ LPA globally.​ This module makes you elite. 41.1 Cloud Platforms Over"
+        },
+        {
+          "page": 805,
+          "snippet": "budgets by 400%.​ DevSecOps = HIGH demand, HIGH salary."
+        },
+        {
+          "page": 822,
+          "snippet": "credential theft​ Linux Security Engineers earn ₹20LPA – ₹60LPA worldwide. 43.1 Linux Architecture Overview (Deep) Key b"
+        },
+        {
+          "page": 822,
+          "snippet": "l theft​ Linux Security Engineers earn ₹20LPA – ₹60LPA worldwide. 43.1 Linux Architecture Overview (Deep) Key building b"
+        }
+      ],
+      "pages": 7
+    },
+    "top_percent": {
+      "count": 17,
+      "examples": [
+        {
+          "page": 1336,
+          "snippet": "yberDudeBivash Malware Lab Setup (2026 Edition) A world-class lab must be: ✔ fully isolated (air-gapped VM network)​ ✔ snapshot-en"
+        },
+        {
+          "page": 1707,
+          "snippet": "ught extraction AI Red Teams are now standard in Big Tech. 🛡 2.22.12 — AI Security Testing Tools Tools include:"
+        },
+        {
+          "page": 1799,
+          "snippet": "improve monitoring · automate detection This is world-class IR. 17"
+        },
+        {
+          "page": 1854,
+          "snippet": "rike beacons​ 🔥 suspicious PowerShell Defender is world-class in 2026. 🧵 2.37.11 — RDP Hardening RDP is exploited daily."
+        },
+        {
+          "page": 1857,
+          "snippet": "e CIS Benchmark · LAPS · GPO monitoring This is world-class enterprise Windows defense."
+        }
+      ],
+      "pages": 17
+    }
+  },
+  "code": {
+    "candidate_blocks": 0,
+    "languages_checked": [
+      "python"
+    ],
+    "lines_in_blocks": 0,
+    "not_checked_reason": "",
+    "parse_fail_candidates": 0,
+    "parse_ok": 0,
+    "top_parse_errors": []
+  },
+  "code_block_index": [],
+  "currency_flags": {
+    "angular_js": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated front-end tooling/APIs",
+      "pages": 0
+    },
+    "gcp_legacy": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 2785,
+          "snippet": "●​ GCS bucket wide open​ ●​ exfiltration via gsutil​ 2784"
+        }
+      ],
+      "note": "Legacy/superseded GCP tooling",
+      "pages": 1
+    },
+    "java_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Older Java baseline referenced",
+      "pages": 0
+    },
+    "kali_cmds": {
+      "count": 78,
+      "examples": [
+        {
+          "page": 81,
+          "snippet": "target LSASS for credential dumping with: ●​ Mimikatz​ ●​ Procdump​"
+        },
+        {
+          "page": 487,
+          "snippet": "●​ msfvenom​ ●​ shellcraft (pwntools)​ LAB 103 — Generate Shellcode (Lin"
+        },
+        {
+          "page": 487,
+          "snippet": "ntools)​ LAB 103 — Generate Shellcode (Linux) msfvenom -p linux/x86/shell_reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f c 24"
+        },
+        {
+          "page": 495,
+          "snippet": "a Overflow (Linux) Generate pattern: /usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 200 Crash program wit"
+        },
+        {
+          "page": 506,
+          "snippet": "ons​ ●​ Database takeover​ Tools: ●​ sqlmap​ ●​ Burp Suite​ ●​ NoSQLMap​"
+        }
+      ],
+      "note": "Offensive tooling reference (check ethical/authorised-use framing)",
+      "pages": 67
+    },
+    "langchain_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated LangChain APIs",
+      "pages": 0
+    },
+    "log4j": {
+      "count": 8,
+      "examples": [
+        {
+          "page": 25,
+          "snippet": "●​ Third-party vendors​ This is why SolarWinds, Log4j, and GitHub token leaks were massive. LAB 3 - Attack Surface Enum"
+        },
+        {
+          "page": 36,
+          "snippet": "●​ Deserialization flaws​ Example:​ Log4Shell (Log4j) — the biggest vulnerability in history. 2. Hardware Vulnerabilit"
+        },
+        {
+          "page": 428,
+          "snippet": "VEit RCE 2023​ ●​ Citrix Bleed 2023​ ●​ Log4j (Log4Shell)​ Zero-days require: ●​ Rapid containment​ ●​ A"
+        },
+        {
+          "page": 432,
+          "snippet": "f Real-World Vulnerabilities & Lessons Log4Shell Log4j RCE​ → Massive risk from dependency chains. Citrix Bleed Session hi"
+        },
+        {
+          "page": 504,
+          "snippet": "ntials​ A06: Vulnerable & Outdated Components (Log4j, Spring4Shell, etc.) 503"
+        }
+      ],
+      "note": "log4j reference (verify version/security posture)",
+      "pages": 8
+    },
+    "md5_sha1": {
+      "count": 38,
+      "examples": [
+        {
+          "page": 66,
+          "snippet": "Attack Wi-Fi key reinstallation flaw. Case 3 — SHA-1 Collision Shock Forced migration to SHA-256. Case 4 — WhatsApp Encr"
+        },
+        {
+          "page": 178,
+          "snippet": "omes inadmissible. Document: ●​ Hash values (MD5/SHA-256)​ ●​ Date/time​ ●​ Tool used​ ●​ Collector ide"
+        },
+        {
+          "page": 188,
+          "snippet": "ng & Integrity Always hash evidence using: ●​ MD5 (legacy)​ 187"
+        },
+        {
+          "page": 189,
+          "snippet": "●​ SHA-1 (legacy)​ ●​ SHA-256 (standard)​ ●​ SHA-512 (high-security)"
+        },
+        {
+          "page": 357,
+          "snippet": "ypt​ ●​ PBKDF2 (legacy)​ Never use: ●​ MD5​ ●​ SHA1​ ●​ Plain SHA-256​"
+        }
+      ],
+      "note": "Weak hash referenced (check context: IOC hash vs. integrity use)",
+      "pages": 23
+    },
+    "openai_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy OpenAI models/APIs",
+      "pages": 0
+    },
+    "python2": {
+      "count": 0,
+      "examples": [],
+      "note": "Python 2 reference/syntax",
+      "pages": 0
+    },
+    "python_old_version": {
+      "count": 0,
+      "examples": [],
+      "note": "Python <=3.8 is end-of-life",
+      "pages": 0
+    },
+    "selenium3": {
+      "count": 0,
+      "examples": [],
+      "note": "Selenium 3 era API",
+      "pages": 0
+    },
+    "tf1": {
+      "count": 0,
+      "examples": [],
+      "note": "TensorFlow 1.x API",
+      "pages": 0
+    },
+    "tls_old": {
+      "count": 3,
+      "examples": [
+        {
+          "page": 63,
+          "snippet": "data between clients & servers. Versions: ●​ TLS 1.0 → insecure​ ●​ TLS 1.1 → deprecated​ ●​ TLS 1.2 → widely us"
+        },
+        {
+          "page": 63,
+          "snippet": "rs. Versions: ●​ TLS 1.0 → insecure​ ●​ TLS 1.1 → deprecated​ ●​ TLS 1.2 → widely used​"
+        },
+        {
+          "page": 360,
+          "snippet": "tory)​ ●​ No RC4​ ●​ No SSL​ ●​ No TLS 1.0 / 1.1​ 18.8 Common TLS Vulnerabilities ●​ TLS version downgrad"
+        }
+      ],
+      "note": "Deprecated TLS/SSL versions referenced",
+      "pages": 2
+    },
+    "windows_old": {
+      "count": 2,
+      "examples": [
+        {
+          "page": 272,
+          "snippet": "tdated Systems (EoL) Vulnerabilities in: ●​ Windows Server 2012​ ●​ CentOS 7​ ●​ Old routers​ ●​ D-Link EoL​"
+        },
+        {
+          "page": 272,
+          "snippet": "ilities in: ●​ Windows Server 2012​ ●​ CentOS 7​ ●​ Old routers​ ●​ D-Link EoL​"
+        }
+      ],
+      "note": "End-of-life OS referenced",
+      "pages": 1
+    }
+  },
+  "depth_profile": {
+    "median_words": 14,
+    "p25_words": 8,
+    "p75_words": 35,
+    "p90_words": 48,
+    "sections": 9159,
+    "share_over_400_words": 0.0,
+    "share_under_100_words": 0.999,
+    "share_under_40_words": 0.807
+  },
+  "intra_duplication": {
+    "long_lines_in_repeats": 7,
+    "long_lines_total": 2893,
+    "share_repeated": 0.002,
+    "top_repeated": [
+      {
+        "count": 3,
+        "pages": [
+          2250,
+          2760,
+          2771
+        ],
+        "text": "hkcu\\software\\microsoft\\windows\\currentversion\\run"
+      },
+      {
+        "count": 2,
+        "pages": [
+          2250,
+          2760
+        ],
+        "text": "hklm\\software\\microsoft\\windows\\currentversion\\run"
+      },
+      {
+        "count": 2,
+        "pages": [
+          495,
+          2508
+        ],
+        "text": "/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 200"
+      }
+    ]
+  },
+  "markdown_leakage": {
+    "atx_headers": 0,
+    "bold_markers": 1,
+    "code_fences": 0,
+    "hr_dividers": 0
+  },
+  "pages": 2837,
+  "path": "OFFICIAL_CYBERDUDEBIVASH_MEGA_COURSE_2026_Part_1.pdf",
+  "pedagogy_signals": {
+    "answer_key": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "capstone": {
+      "in_body": 2,
+      "in_headings": 1
+    },
+    "disclaimer_legal": {
+      "in_body": 204,
+      "in_headings": 35
+    },
+    "interview": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "lab_heading": {
+      "in_body": 162,
+      "in_headings": 140
+    },
+    "learning_objective": {
+      "in_body": 37,
+      "in_headings": 1
+    },
+    "prerequisite": {
+      "in_body": 1,
+      "in_headings": 1
+    },
+    "quiz_or_exam": {
+      "in_body": 25,
+      "in_headings": 11
+    },
+    "reference_or_citation": {
+      "in_body": 145,
+      "in_headings": 36
+    },
+    "rubric": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "troubleshooting": {
+      "in_body": 2,
+      "in_headings": 0
+    },
+    "verification_step": {
+      "in_body": 235,
+      "in_headings": 19
+    }
+  },
+  "pii_scan": {
+    "email": {
+      "review_masked": [
+        "a***@openssh.com",
+        "h***@openssh.com",
+        "a***@evil.com",
+        "a***@your-company.com"
+      ],
+      "review_needed": 4,
+      "review_pages": [
+        1840,
+        2077
+      ],
+      "synthetic_placeholder": 4,
+      "total": 8
+    },
+    "phone_with_country_code": {
+      "masked": [],
+      "pages": [],
+      "total": 0
+    }
+  },
+  "python_security_patterns": {},
+  "secret_scan": {
+    "aws_access_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "generic_assignment": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "github_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "google_api_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "jwt": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "private_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "slack_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    }
+  },
+  "source_id": "SRC-MEGA-P1",
+  "stub_sections_level_le_2": {
+    "count": 7283,
+    "of": 9053
+  },
+  "topic_coverage": {
+    "answer_keys": {
+      "first_page": 1679,
+      "mentions": 3,
+      "pages_with_mention": 3,
+      "status": "MENTIONED_ONLY"
+    },
+    "iso_27001": {
+      "first_page": 2,
+      "mentions": 21,
+      "pages_with_mention": 16,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "lab_environment_spec": {
+      "first_page": 5,
+      "mentions": 179,
+      "pages_with_mention": 122,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "legal_authorisation": {
+      "first_page": 1,
+      "mentions": 117,
+      "pages_with_mention": 112,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "mitre_attack": {
+      "first_page": 4,
+      "mentions": 307,
+      "pages_with_mention": 162,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "nist_csf": {
+      "first_page": 27,
+      "mentions": 13,
+      "pages_with_mention": 10,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "owasp": {
+      "first_page": 5,
+      "mentions": 64,
+      "pages_with_mention": 47,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "siem": {
+      "first_page": 4,
+      "mentions": 424,
+      "pages_with_mention": 297,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "sigma_yara": {
+      "first_page": 168,
+      "mentions": 156,
+      "pages_with_mention": 96,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "zero_trust": {
+      "first_page": 13,
+      "mentions": 421,
+      "pages_with_mention": 253,
+      "status": "PRESENT_BY_KEYWORD"
+    }
+  },
+  "urls": {
+    "distinct_urls": 13,
+    "sample": [
+      "http://169.254.169.254",
+      "http://169.254.169.254/latest/meta-data/",
+      "http://169.254.169.254/latest/meta-data/iam/security-credentials/",
+      "http://internal-lambda-function",
+      "http://localhost/admin",
+      "http://malicious.com/a",
+      "http://malicious.com/m.sh",
+      "http://malicious.com/x.ps1",
+      "http://metadata.google.internal",
+      "http://target.com/?url=http://169.254.169.254/latest/meta-data/",
+      "http://victimbank.com/transfer?amount=5000&to=hacker",
+      "https://attacker.com?c=",
+      "https://bank.com/transfer?amount=5000&to=attacker"
+    ],
+    "top_domains": [
+      [
+        "169.254.169.254",
+        4
+      ],
+      [
+        "malicious.com",
+        3
+      ],
+      [
+        "attacker.com?c=",
+        1
+      ],
+      [
+        "target.com",
+        1
+      ],
+      [
+        "victimbank.com",
+        1
+      ],
+      [
+        "localhost",
+        1
+      ],
+      [
+        "metadata.google.internal",
+        1
+      ],
+      [
+        "internal-lambda-function",
+        1
+      ],
+      [
+        "bank.com",
+        1
+      ]
+    ]
+  }
+}

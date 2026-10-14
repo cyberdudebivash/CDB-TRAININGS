@@ -1,0 +1,376 @@
+{
+  "baseline_commit": "f2ba7d0e3448a83dee1230d6b16a985076dcb059",
+  "documents": [
+    {
+      "empty_pages": 1,
+      "encrypted": false,
+      "extraction": "OK",
+      "lfs_pointer": false,
+      "metadata": {
+        "creation_date": null,
+        "creator": null,
+        "mod_date": null,
+        "producer": "Skia/PDF m145 Google Docs Renderer",
+        "title": "Class notes"
+      },
+      "outline_entries": 3349,
+      "outline_levels": {
+        "1": 471,
+        "2": 1643,
+        "3": 1199,
+        "4": 36
+      },
+      "page_size": "612 x 792 pts (letter)",
+      "pages": 1458,
+      "path": "CYBERDUDEBIVASH-PYTHON-AUTOMATION-TRAINING.pdf",
+      "pdf_version": "1.4",
+      "sha256": "46df2eee2f309221ebe2ef80839f16d071ab1b0dc51db746be153c1dbb20c1e3",
+      "size_bytes": 9837148,
+      "source_id": "SRC-PY-AUTOMATION",
+      "tagged": true,
+      "text_layer": "FULL",
+      "tracked_in_git": true,
+      "words": 97243,
+      "words_per_page": 66.7
+    },
+    {
+      "empty_pages": 1,
+      "encrypted": false,
+      "extraction": "OK",
+      "lfs_pointer": false,
+      "metadata": {
+        "creation_date": null,
+        "creator": null,
+        "mod_date": null,
+        "producer": "Skia/PDF m146 Google Docs Renderer",
+        "title": "Book report"
+      },
+      "outline_entries": 2300,
+      "outline_levels": {
+        "1": 132,
+        "2": 1185,
+        "3": 950,
+        "4": 33
+      },
+      "page_size": "612 x 792 pts (letter)",
+      "pages": 937,
+      "path": "Complete AI Training Bundle 2026.pdf",
+      "pdf_version": "1.4",
+      "sha256": "a2a10ea49e35f07105bf7ab3c02b39c1fc5fe13865f7c7485c03ad4423e40e93",
+      "size_bytes": 6097043,
+      "source_id": "SRC-AI-BUNDLE",
+      "tagged": true,
+      "text_layer": "FULL",
+      "tracked_in_git": true,
+      "words": 55231,
+      "words_per_page": 58.9
+    },
+    {
+      "empty_pages": 1,
+      "encrypted": false,
+      "extraction": "OK",
+      "lfs_pointer": false,
+      "metadata": {
+        "creation_date": null,
+        "creator": null,
+        "mod_date": null,
+        "producer": "Skia/PDF m144 Google Docs Renderer",
+        "title": "Book report"
+      },
+      "outline_entries": 1807,
+      "outline_levels": {
+        "1": 969,
+        "2": 809,
+        "3": 29
+      },
+      "page_size": "612 x 792 pts (letter)",
+      "pages": 654,
+      "path": "CyberDudeBivash Python Engineering Handbook.pdf",
+      "pdf_version": "1.4",
+      "sha256": "29889d1819e6ab5798a7084d3ba1947877a7dd5fe25fc96e60414ecaf437f5ee",
+      "size_bytes": 6155582,
+      "source_id": "SRC-PY-HANDBOOK",
+      "tagged": true,
+      "text_layer": "FULL",
+      "tracked_in_git": true,
+      "words": 41422,
+      "words_per_page": 63.3
+    },
+    {
+      "empty_pages": 1,
+      "encrypted": false,
+      "extraction": "OK",
+      "lfs_pointer": false,
+      "metadata": {
+        "creation_date": null,
+        "creator": null,
+        "mod_date": null,
+        "producer": "Skia/PDF m145 Google Docs Renderer",
+        "title": "Class notes"
+      },
+      "outline_entries": 1531,
+      "outline_levels": {
+        "1": 75,
+        "2": 1101,
+        "3": 352,
+        "4": 3
+      },
+      "page_size": "612 x 792 pts (letter)",
+      "pages": 709,
+      "path": "CyberDudeBivash_Java_Automation_Test_Engineer_Real_Time_Job_Training.pdf",
+      "pdf_version": "1.4",
+      "sha256": "30e921bdac96e7496b606b5a32cb0bec0afde6003e1991223b1c4d2f486b3bf7",
+      "size_bytes": 4751237,
+      "source_id": "SRC-JAVA-AUTOTEST",
+      "tagged": true,
+      "text_layer": "FULL",
+      "tracked_in_git": true,
+      "words": 43255,
+      "words_per_page": 61.0
+    },
+    {
+      "empty_pages": 23,
+      "encrypted": false,
+      "extraction": "NEEDS_OCR_OR_VISUAL_REVIEW",
+      "lfs_pointer": false,
+      "metadata": {
+        "creation_date": "Wed Sep  3 02:44:09 2025 UTC",
+        "creator": "paps version 0.6.7 by Dov Grobgeld",
+        "mod_date": "Wed Sep  3 02:47:21 2025 UTC",
+        "producer": "pdf-lib (https://github.com/Hopding/pdf-lib)",
+        "title": "/var/i2pdf.com/upload/072.014.201.188-text-to-pdf_en_2_192_204232655268b7aa9db62a61.67711248/txt2pdf_68b7ab7790555.txt"
+      },
+      "outline_entries": 0,
+      "outline_levels": {},
+      "page_size": "595.28 x 841.89 pts (A4)",
+      "pages": 23,
+      "path": "CyberDudeBivash_OSINT_Starter_Bundle_FULL.pdf",
+      "pdf_version": "1.7",
+      "sha256": "c3fbb0c0b7d9b87896e7fdfcc693177d396a76259d4825ba1292a8c2ff17250d",
+      "size_bytes": 16000606,
+      "source_id": "SRC-OSINT-STARTER",
+      "tagged": false,
+      "text_layer": "NONE_IMAGE_ONLY",
+      "tracked_in_git": true,
+      "words": 0,
+      "words_per_page": 0.0
+    },
+    {
+      "empty_pages": 1,
+      "encrypted": false,
+      "extraction": "OK",
+      "lfs_pointer": false,
+      "metadata": {
+        "creation_date": null,
+        "creator": null,
+        "mod_date": null,
+        "producer": "Skia/PDF m153 Google Docs Renderer",
+        "title": "Project proposal"
+      },
+      "outline_entries": 968,
+      "outline_levels": {
+        "1": 263,
+        "2": 518,
+        "3": 179,
+        "4": 8
+      },
+      "page_size": "612 x 792 pts (letter)",
+      "pages": 257,
+      "path": "GCP-DATA-ENGINEER-TRAINING.pdf",
+      "pdf_version": "1.4",
+      "sha256": "d500791f0b530f720d0781b5e5047aa1bd50ebc224530a0cddc6bbff4b543426",
+      "size_bytes": 15271260,
+      "source_id": "SRC-GCP-DATAENG",
+      "tagged": true,
+      "text_layer": "FULL",
+      "tracked_in_git": true,
+      "words": 15974,
+      "words_per_page": 62.2
+    },
+    {
+      "empty_pages": 0,
+      "encrypted": false,
+      "extraction": "OK",
+      "lfs_pointer": false,
+      "metadata": {
+        "creation_date": null,
+        "creator": null,
+        "mod_date": null,
+        "producer": "Skia/PDF m146 Google Docs Renderer",
+        "title": "Untitled document"
+      },
+      "outline_entries": 1538,
+      "outline_levels": {
+        "1": 106,
+        "2": 949,
+        "3": 483
+      },
+      "page_size": "612 x 792 pts (letter)",
+      "pages": 441,
+      "path": "INTERNAL FRONTEND DEVELOPER ONBOARDING PLAYBOOK.pdf",
+      "pdf_version": "1.4",
+      "sha256": "242323fee7dcc574260c5dd2b6a2e279533b147c40950ab59de849dc6a9eb83e",
+      "size_bytes": 4161292,
+      "source_id": "SRC-FRONTEND-ONBOARD",
+      "tagged": true,
+      "text_layer": "FULL",
+      "tracked_in_git": true,
+      "words": 44551,
+      "words_per_page": 101.0
+    },
+    {
+      "empty_pages": 0,
+      "encrypted": false,
+      "extraction": "OK",
+      "lfs_pointer": false,
+      "metadata": {
+        "creation_date": null,
+        "creator": null,
+        "mod_date": null,
+        "producer": "Skia/PDF m144 Google Docs Renderer",
+        "title": "Book report"
+      },
+      "outline_entries": 9198,
+      "outline_levels": {
+        "1": 4474,
+        "2": 4618,
+        "3": 106
+      },
+      "page_size": "612 x 792 pts (letter)",
+      "pages": 2837,
+      "path": "OFFICIAL_CYBERDUDEBIVASH_MEGA_COURSE_2026_Part_1.pdf",
+      "pdf_version": "1.4",
+      "sha256": "15685b396e390d3e5b2c51af22b8ab3b188f07af3b0563461a509085449de665",
+      "size_bytes": 19553774,
+      "source_id": "SRC-MEGA-P1",
+      "tagged": true,
+      "text_layer": "FULL",
+      "tracked_in_git": true,
+      "words": 198956,
+      "words_per_page": 70.1
+    },
+    {
+      "empty_pages": 0,
+      "encrypted": false,
+      "extraction": "OK",
+      "lfs_pointer": false,
+      "metadata": {
+        "creation_date": null,
+        "creator": null,
+        "mod_date": null,
+        "producer": "Skia/PDF m144 Google Docs Renderer",
+        "title": "Book report"
+      },
+      "outline_entries": 3028,
+      "outline_levels": {
+        "1": 1272,
+        "2": 1738,
+        "3": 18
+      },
+      "page_size": "612 x 792 pts (letter)",
+      "pages": 827,
+      "path": "OFFICIAL_CYBERDUDEBIVASH_MEGA_COURSE_2026_Part_2.pdf",
+      "pdf_version": "1.4",
+      "sha256": "1b57dcadefb36d38f76674c79565e7afd83188d4531c77c94db940ad28852a4f",
+      "size_bytes": 7146441,
+      "source_id": "SRC-MEGA-P2",
+      "tagged": true,
+      "text_layer": "FULL",
+      "tracked_in_git": true,
+      "words": 65614,
+      "words_per_page": 79.3
+    },
+    {
+      "empty_pages": 1,
+      "encrypted": false,
+      "extraction": "OK",
+      "lfs_pointer": false,
+      "metadata": {
+        "creation_date": null,
+        "creator": null,
+        "mod_date": null,
+        "producer": "Skia/PDF m146 Google Docs Renderer",
+        "title": "Report"
+      },
+      "outline_entries": 40,
+      "outline_levels": {
+        "1": 28,
+        "2": 12
+      },
+      "page_size": "612 x 792 pts (letter)",
+      "pages": 43,
+      "path": "SOC Analyst Survival Playbook (2026 Edition).pdf",
+      "pdf_version": "1.4",
+      "sha256": "832432f6a72f693de4152f62d68d4845d0590d99c35dc78b6873e3fe125b816b",
+      "size_bytes": 2233899,
+      "source_id": "SRC-SOC-PLAYBOOK",
+      "tagged": true,
+      "text_layer": "FULL",
+      "tracked_in_git": true,
+      "words": 6799,
+      "words_per_page": 158.1
+    }
+  ],
+  "exact_duplicates": [],
+  "intended_count": 10,
+  "present_count": 10,
+  "reconciliation": [
+    {
+      "intended": "Complete AI Training Bundle 2026.pdf",
+      "source_id": "SRC-AI-BUNDLE",
+      "status": "PRESENT"
+    },
+    {
+      "intended": "CyberDudeBivash Python Engineering Handbook.pdf",
+      "source_id": "SRC-PY-HANDBOOK",
+      "status": "PRESENT"
+    },
+    {
+      "intended": "CyberDudeBivash_Java_Automation_Test_Engineer_Real_Time_Job_Training.pdf",
+      "source_id": "SRC-JAVA-AUTOTEST",
+      "status": "PRESENT"
+    },
+    {
+      "intended": "CyberDudeBivash_OSINT_Starter_Bundle_FULL.pdf",
+      "source_id": "SRC-OSINT-STARTER",
+      "status": "PRESENT"
+    },
+    {
+      "intended": "CYBERDUDEBIVASH-PYTHON-AUTOMATION-TRAINING.pdf",
+      "source_id": "SRC-PY-AUTOMATION",
+      "status": "PRESENT"
+    },
+    {
+      "intended": "GCP-DATA-ENGINEER-TRAINING.pdf",
+      "source_id": "SRC-GCP-DATAENG",
+      "status": "PRESENT"
+    },
+    {
+      "intended": "INTERNAL FRONTEND DEVELOPER ONBOARDING PLAYBOOK.pdf",
+      "source_id": "SRC-FRONTEND-ONBOARD",
+      "status": "PRESENT"
+    },
+    {
+      "intended": "OFFICIAL_CYBERDUDEBIVASH_MEGA_COURSE_2026_Part_1.pdf",
+      "source_id": "SRC-MEGA-P1",
+      "status": "PRESENT"
+    },
+    {
+      "intended": "OFFICIAL_CYBERDUDEBIVASH_MEGA_COURSE_2026_Part_2.pdf",
+      "source_id": "SRC-MEGA-P2",
+      "status": "PRESENT"
+    },
+    {
+      "intended": "SOC Analyst Survival Playbook (2026 Edition).pdf",
+      "source_id": "SRC-SOC-PLAYBOOK",
+      "status": "PRESENT"
+    }
+  ],
+  "source_root": ".",
+  "totals": {
+    "pages": 8186,
+    "size_bytes": 91208282,
+    "words": 569045
+  },
+  "unexpected_files": []
+}

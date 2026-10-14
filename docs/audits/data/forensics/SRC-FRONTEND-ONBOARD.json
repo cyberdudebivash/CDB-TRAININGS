@@ -1,0 +1,502 @@
+{
+  "claims": {
+    "certification_claim": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "expert_promise": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "guarantee": {
+      "count": 2,
+      "examples": [
+        {
+          "page": 111,
+          "snippet": "idation​ ●​ A replacement for tests​ ●​ A guarantee of bug-free code​ It shifts errors left—from users to developers. 5"
+        },
+        {
+          "page": 128,
+          "snippet": "●​ Contracts with consumers​ ●​ Stability guarantees​ Bad props: <Component data={data} /> Good props: <UserProfile user"
+        }
+      ],
+      "pages": 2
+    },
+    "internal_framework_branding": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "job_placement": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "percent_stat": {
+      "count": 4,
+      "examples": [
+        {
+          "page": 124,
+          "snippet": "ration & tooling This alone puts someone ahead of 70–80% of frontend developers. PART 2 MODERN FRONTEND TECHNOLOGIES – COMP"
+        },
+        {
+          "page": 176,
+          "snippet": "N & LAYOUT ISSUES Translated text: ●​ Can be 30–50% longer​ ●​ Break fixed-width layouts​ ●​ Overflow buttons​"
+        },
+        {
+          "page": 190,
+          "snippet": "RK FRONTEND DEVS ACTUALLY GET In real companies, 90% of frontend work falls into these categories: 1.​ Feature tasks​"
+        },
+        {
+          "page": 278,
+          "snippet": "from many locations​ Understanding this explains 80% of production mysteries. 4.4.2 STATIC FRONTEND HOSTING (MOST COMMON) S"
+        }
+      ],
+      "pages": 4
+    },
+    "salary": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "top_percent": {
+      "count": 15,
+      "examples": [
+        {
+          "page": 71,
+          "snippet": "TION, PROMOTION & GROWTH FRAMEWORK (Enterprise / FAANG-style model) Audience: Frontend Engineers (Mid → Senior → Staff)​"
+        },
+        {
+          "page": 395,
+          "snippet": "ct → Learning That alone signals seniority. ⭐ FAANG / PRODUCT COMPANY SENIOR FRONTEND ENGINEER – STAR CHEAT SHEET (1 PAGE"
+        },
+        {
+          "page": 395,
+          "snippet": "ENGINEER – STAR CHEAT SHEET (1 PAGE) HOW TO USE (FAANG STYLE) ●​ Keep answers 2 minutes​ ●​ Speak slow, structured, c"
+        },
+        {
+          "page": 396,
+          "snippet": "ier for new engineers to reason about​ Learning (FAANG signal) “Frontend systems fail in edge cases, not happy paths. Design"
+        },
+        {
+          "page": 397,
+          "snippet": "s​ ●​ More predictable user flows​ Learning (FAANG signal) “Good frontend UX anticipates user frustration before it happ"
+        }
+      ],
+      "pages": 9
+    }
+  },
+  "code": {
+    "candidate_blocks": 0,
+    "languages_checked": [],
+    "lines_in_blocks": 0,
+    "not_checked_reason": "no zero-cost parser configured",
+    "parse_fail_candidates": 0,
+    "parse_ok": 0,
+    "top_parse_errors": []
+  },
+  "code_block_index": [],
+  "currency_flags": {
+    "angular_js": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated front-end tooling/APIs",
+      "pages": 0
+    },
+    "gcp_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy/superseded GCP tooling",
+      "pages": 0
+    },
+    "java_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Older Java baseline referenced",
+      "pages": 0
+    },
+    "kali_cmds": {
+      "count": 0,
+      "examples": [],
+      "note": "Offensive tooling reference (check ethical/authorised-use framing)",
+      "pages": 0
+    },
+    "langchain_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated LangChain APIs",
+      "pages": 0
+    },
+    "log4j": {
+      "count": 0,
+      "examples": [],
+      "note": "log4j reference (verify version/security posture)",
+      "pages": 0
+    },
+    "md5_sha1": {
+      "count": 0,
+      "examples": [],
+      "note": "Weak hash referenced (check context: IOC hash vs. integrity use)",
+      "pages": 0
+    },
+    "openai_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy OpenAI models/APIs",
+      "pages": 0
+    },
+    "python2": {
+      "count": 0,
+      "examples": [],
+      "note": "Python 2 reference/syntax",
+      "pages": 0
+    },
+    "python_old_version": {
+      "count": 0,
+      "examples": [],
+      "note": "Python <=3.8 is end-of-life",
+      "pages": 0
+    },
+    "selenium3": {
+      "count": 0,
+      "examples": [],
+      "note": "Selenium 3 era API",
+      "pages": 0
+    },
+    "tf1": {
+      "count": 0,
+      "examples": [],
+      "note": "TensorFlow 1.x API",
+      "pages": 0
+    },
+    "tls_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated TLS/SSL versions referenced",
+      "pages": 0
+    },
+    "windows_old": {
+      "count": 0,
+      "examples": [],
+      "note": "End-of-life OS referenced",
+      "pages": 0
+    }
+  },
+  "depth_profile": {
+    "median_words": 30,
+    "p25_words": 11,
+    "p75_words": 41,
+    "p90_words": 51,
+    "sections": 1536,
+    "share_over_400_words": 0.001,
+    "share_under_100_words": 0.984,
+    "share_under_40_words": 0.714
+  },
+  "intra_duplication": {
+    "long_lines_in_repeats": 47,
+    "long_lines_total": 1230,
+    "share_repeated": 0.038,
+    "top_repeated": [
+      {
+        "count": 14,
+        "pages": [
+          124,
+          133,
+          141,
+          152,
+          162,
+          172
+        ],
+        "text": "audience: frontend developers (mid → senior → staff)"
+      },
+      {
+        "count": 3,
+        "pages": [
+          206,
+          216,
+          225
+        ],
+        "text": "audience: frontend developers (junior → senior → staff)"
+      },
+      {
+        "count": 2,
+        "pages": [
+          359,
+          362
+        ],
+        "text": "● used git and jira for version control, task tracking, and sprint execution"
+      },
+      {
+        "count": 2,
+        "pages": [
+          331,
+          357
+        ],
+        "text": "senior frontend engineer with 5+ years of experience building scalable,"
+      },
+      {
+        "count": 2,
+        "pages": [
+          408,
+          428
+        ],
+        "text": "reactdom.createroot(document.getelementbyid(\"root\")!).render("
+      },
+      {
+        "count": 2,
+        "pages": [
+          418,
+          434
+        ],
+        "text": "npm install -d vitest @testing-library/react @testing-library/jest-dom jsdom"
+      },
+      {
+        "count": 2,
+        "pages": [
+          420,
+          420
+        ],
+        "text": "import(\"../features/dashboard/dashboard.api\").then((m) =>"
+      },
+      {
+        "count": 2,
+        "pages": [
+          412,
+          415
+        ],
+        "text": "import { usedashboarddata } from \"../../hooks/usedashboarddata\";"
+      }
+    ]
+  },
+  "markdown_leakage": {
+    "atx_headers": 88,
+    "bold_markers": 20,
+    "code_fences": 2,
+    "hr_dividers": 64
+  },
+  "pages": 441,
+  "path": "INTERNAL FRONTEND DEVELOPER ONBOARDING PLAYBOOK.pdf",
+  "pedagogy_signals": {
+    "answer_key": {
+      "in_body": 1,
+      "in_headings": 0
+    },
+    "capstone": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "disclaimer_legal": {
+      "in_body": 23,
+      "in_headings": 2
+    },
+    "interview": {
+      "in_body": 35,
+      "in_headings": 22
+    },
+    "lab_heading": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "learning_objective": {
+      "in_body": 18,
+      "in_headings": 1
+    },
+    "prerequisite": {
+      "in_body": 1,
+      "in_headings": 0
+    },
+    "quiz_or_exam": {
+      "in_body": 2,
+      "in_headings": 1
+    },
+    "reference_or_citation": {
+      "in_body": 27,
+      "in_headings": 4
+    },
+    "rubric": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "troubleshooting": {
+      "in_body": 7,
+      "in_headings": 3
+    },
+    "verification_step": {
+      "in_body": 81,
+      "in_headings": 10
+    }
+  },
+  "pii_scan": {
+    "email": {
+      "review_masked": [
+        "m***@gmail.com"
+      ],
+      "review_needed": 2,
+      "review_pages": [
+        357,
+        360
+      ],
+      "synthetic_placeholder": 3,
+      "total": 5
+    },
+    "phone_with_country_code": {
+      "masked": [
+        "+91*****49"
+      ],
+      "pages": [
+        357,
+        360
+      ],
+      "total": 2
+    }
+  },
+  "python_security_patterns": {},
+  "secret_scan": {
+    "aws_access_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "generic_assignment": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "github_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "google_api_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "jwt": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "private_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "slack_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    }
+  },
+  "source_id": "SRC-FRONTEND-ONBOARD",
+  "stub_sections_level_le_2": {
+    "count": 698,
+    "of": 1054
+  },
+  "topic_coverage": {
+    "accessibility_wcag": {
+      "first_page": 10,
+      "mentions": 36,
+      "pages_with_mention": 28,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "api_integration": {
+      "first_page": 333,
+      "mentions": 10,
+      "pages_with_mention": 10,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "auth_concepts": {
+      "first_page": 201,
+      "mentions": 1,
+      "pages_with_mention": 1,
+      "status": "MENTIONED_ONLY"
+    },
+    "code_review": {
+      "first_page": 3,
+      "mentions": 22,
+      "pages_with_mention": 17,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "css_layout": {
+      "first_page": 97,
+      "mentions": 8,
+      "pages_with_mention": 4,
+      "status": "MENTIONED_ONLY"
+    },
+    "dependency_security": {
+      "first_page": 200,
+      "mentions": 5,
+      "pages_with_mention": 2,
+      "status": "MENTIONED_ONLY"
+    },
+    "error_handling": {
+      "first_page": 11,
+      "mentions": 40,
+      "pages_with_mention": 37,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "git_workflow": {
+      "first_page": 6,
+      "mentions": 11,
+      "pages_with_mention": 10,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "html_semantics": {
+      "first_page": 86,
+      "mentions": 22,
+      "pages_with_mention": 12,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "nextjs": {
+      "first_page": 52,
+      "mentions": 1,
+      "pages_with_mention": 1,
+      "status": "MENTIONED_ONLY"
+    },
+    "performance_cwv": {
+      "first_page": 163,
+      "mentions": 41,
+      "pages_with_mention": 20,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "react": {
+      "first_page": 2,
+      "mentions": 187,
+      "pages_with_mention": 76,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "security_xss_csp": {
+      "first_page": 84,
+      "mentions": 1,
+      "pages_with_mention": 1,
+      "status": "MENTIONED_ONLY"
+    },
+    "testing": {
+      "first_page": 6,
+      "mentions": 20,
+      "pages_with_mention": 9,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "typescript": {
+      "first_page": 5,
+      "mentions": 87,
+      "pages_with_mention": 47,
+      "status": "PRESENT_BY_KEYWORD"
+    }
+  },
+  "urls": {
+    "distinct_urls": 1,
+    "sample": [
+      "https://example.com"
+    ],
+    "top_domains": [
+      [
+        "example.com",
+        1
+      ]
+    ]
+  }
+}

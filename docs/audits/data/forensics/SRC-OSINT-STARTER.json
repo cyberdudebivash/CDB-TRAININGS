@@ -1,0 +1,270 @@
+{
+  "claims": {
+    "certification_claim": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "expert_promise": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "guarantee": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "internal_framework_branding": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "job_placement": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "percent_stat": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "salary": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "top_percent": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    }
+  },
+  "code": {
+    "candidate_blocks": 0,
+    "languages_checked": [],
+    "lines_in_blocks": 0,
+    "not_checked_reason": "no zero-cost parser configured",
+    "parse_fail_candidates": 0,
+    "parse_ok": 0,
+    "top_parse_errors": []
+  },
+  "code_block_index": [],
+  "currency_flags": {
+    "angular_js": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated front-end tooling/APIs",
+      "pages": 0
+    },
+    "gcp_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy/superseded GCP tooling",
+      "pages": 0
+    },
+    "java_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Older Java baseline referenced",
+      "pages": 0
+    },
+    "kali_cmds": {
+      "count": 0,
+      "examples": [],
+      "note": "Offensive tooling reference (check ethical/authorised-use framing)",
+      "pages": 0
+    },
+    "langchain_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated LangChain APIs",
+      "pages": 0
+    },
+    "log4j": {
+      "count": 0,
+      "examples": [],
+      "note": "log4j reference (verify version/security posture)",
+      "pages": 0
+    },
+    "md5_sha1": {
+      "count": 0,
+      "examples": [],
+      "note": "Weak hash referenced (check context: IOC hash vs. integrity use)",
+      "pages": 0
+    },
+    "openai_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy OpenAI models/APIs",
+      "pages": 0
+    },
+    "python2": {
+      "count": 0,
+      "examples": [],
+      "note": "Python 2 reference/syntax",
+      "pages": 0
+    },
+    "python_old_version": {
+      "count": 0,
+      "examples": [],
+      "note": "Python <=3.8 is end-of-life",
+      "pages": 0
+    },
+    "selenium3": {
+      "count": 0,
+      "examples": [],
+      "note": "Selenium 3 era API",
+      "pages": 0
+    },
+    "tf1": {
+      "count": 0,
+      "examples": [],
+      "note": "TensorFlow 1.x API",
+      "pages": 0
+    },
+    "tls_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated TLS/SSL versions referenced",
+      "pages": 0
+    },
+    "windows_old": {
+      "count": 0,
+      "examples": [],
+      "note": "End-of-life OS referenced",
+      "pages": 0
+    }
+  },
+  "depth_profile": {
+    "sections": 0
+  },
+  "intra_duplication": {
+    "long_lines_in_repeats": 0,
+    "long_lines_total": 0,
+    "share_repeated": 0.0,
+    "top_repeated": []
+  },
+  "markdown_leakage": {
+    "atx_headers": 0,
+    "bold_markers": 0,
+    "code_fences": 0,
+    "hr_dividers": 0
+  },
+  "pages": 23,
+  "path": "CyberDudeBivash_OSINT_Starter_Bundle_FULL.pdf",
+  "pedagogy_signals": {
+    "answer_key": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "capstone": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "disclaimer_legal": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "interview": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "lab_heading": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "learning_objective": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "prerequisite": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "quiz_or_exam": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "reference_or_citation": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "rubric": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "troubleshooting": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "verification_step": {
+      "in_body": 0,
+      "in_headings": 0
+    }
+  },
+  "pii_scan": {
+    "email": {
+      "review_masked": [],
+      "review_needed": 0,
+      "review_pages": [],
+      "synthetic_placeholder": 0,
+      "total": 0
+    },
+    "phone_with_country_code": {
+      "masked": [],
+      "pages": [],
+      "total": 0
+    }
+  },
+  "python_security_patterns": {},
+  "secret_scan": {
+    "aws_access_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "generic_assignment": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "github_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "google_api_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "jwt": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "private_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "slack_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    }
+  },
+  "source_id": "SRC-OSINT-STARTER",
+  "stub_sections_level_le_2": {
+    "count": 0,
+    "of": 0
+  },
+  "topic_coverage": {},
+  "urls": {
+    "distinct_urls": 0,
+    "sample": [],
+    "top_domains": []
+  }
+}

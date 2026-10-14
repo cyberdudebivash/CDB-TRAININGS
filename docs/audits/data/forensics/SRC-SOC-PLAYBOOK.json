@@ -1,0 +1,469 @@
+{
+  "claims": {
+    "certification_claim": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "expert_promise": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "guarantee": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "internal_framework_branding": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "job_placement": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "percent_stat": {
+      "count": 32,
+      "examples": [
+        {
+          "page": 3,
+          "snippet": "ay Workflows (2026 Reality) In 2026, AI handles ~70–90% of Tier 1 routine triage — your job shifts to supervision, context, a"
+        },
+        {
+          "page": 5,
+          "snippet": "niques Alert fatigue kills SOCs — aim to cut FPs 30–50% quarterly. Top Techniques ●​ Tuning Rules — Add filters (time w"
+        },
+        {
+          "page": 8,
+          "snippet": "entic automation have flipped the script: ●​ 70–90% of Tier 1 routine triage is now automated (Gartner 2025 predictions"
+        },
+        {
+          "page": 8,
+          "snippet": "e shrinking or evolving — many SOCs report 50–80% reduction in manual alert volume via AI SOC platforms (e.g., Torq, St"
+        },
+        {
+          "page": 9,
+          "snippet": "ses, feed it better prompts/rules, and handle the 10–30% that requires human brainpower. 1.2 Typical Shift Structures in 2026"
+        }
+      ],
+      "pages": 15
+    },
+    "salary": {
+      "count": 48,
+      "examples": [
+        {
+          "page": 7,
+          "snippet": "r SOC Analysts (2026 Edition) Tier Progression & Salaries (US/India benchmarks — adjust for location) ●​ Tier 1 (Entry/Jun"
+        },
+        {
+          "page": 7,
+          "snippet": "Entry/Junior): Alert triage, basic investigation. Salary: $60K–$90K US / ₹6–12LPA India. Certs: CompTIA Security+, EC-C"
+        },
+        {
+          "page": 7,
+          "snippet": "nior): Alert triage, basic investigation. Salary: $60K–$90K US / ₹6–12LPA India. Certs: CompTIA Security+, EC-Council"
+        },
+        {
+          "page": 7,
+          "snippet": ": Alert triage, basic investigation. Salary: $60K–$90K US / ₹6–12LPA India. Certs: CompTIA Security+, EC-Council CSA,"
+        },
+        {
+          "page": 7,
+          "snippet": "lyst/Responder): Deep investigations, IR, tuning. Salary: $90K–$130K US / ₹12–25LPA. Certs: GCIH, Splunk Certified Powe"
+        }
+      ],
+      "pages": 3
+    },
+    "top_percent": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    }
+  },
+  "code": {
+    "candidate_blocks": 0,
+    "languages_checked": [],
+    "lines_in_blocks": 0,
+    "not_checked_reason": "no zero-cost parser configured",
+    "parse_fail_candidates": 0,
+    "parse_ok": 0,
+    "top_parse_errors": []
+  },
+  "code_block_index": [],
+  "currency_flags": {
+    "angular_js": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated front-end tooling/APIs",
+      "pages": 0
+    },
+    "gcp_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy/superseded GCP tooling",
+      "pages": 0
+    },
+    "java_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Older Java baseline referenced",
+      "pages": 0
+    },
+    "kali_cmds": {
+      "count": 1,
+      "examples": [
+        {
+          "page": 12,
+          "snippet": "ential Dumping signs: Proc with lsass.exe access, mimikatz-like patterns. ●​ Cloud anomaly: Unusual AWS/GCP API calls (e.g"
+        }
+      ],
+      "note": "Offensive tooling reference (check ethical/authorised-use framing)",
+      "pages": 1
+    },
+    "langchain_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated LangChain APIs",
+      "pages": 0
+    },
+    "log4j": {
+      "count": 0,
+      "examples": [],
+      "note": "log4j reference (verify version/security posture)",
+      "pages": 0
+    },
+    "md5_sha1": {
+      "count": 0,
+      "examples": [],
+      "note": "Weak hash referenced (check context: IOC hash vs. integrity use)",
+      "pages": 0
+    },
+    "openai_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy OpenAI models/APIs",
+      "pages": 0
+    },
+    "python2": {
+      "count": 0,
+      "examples": [],
+      "note": "Python 2 reference/syntax",
+      "pages": 0
+    },
+    "python_old_version": {
+      "count": 0,
+      "examples": [],
+      "note": "Python <=3.8 is end-of-life",
+      "pages": 0
+    },
+    "selenium3": {
+      "count": 0,
+      "examples": [],
+      "note": "Selenium 3 era API",
+      "pages": 0
+    },
+    "tf1": {
+      "count": 0,
+      "examples": [],
+      "note": "TensorFlow 1.x API",
+      "pages": 0
+    },
+    "tls_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated TLS/SSL versions referenced",
+      "pages": 0
+    },
+    "windows_old": {
+      "count": 0,
+      "examples": [],
+      "note": "End-of-life OS referenced",
+      "pages": 0
+    }
+  },
+  "depth_profile": {
+    "median_words": 146,
+    "p25_words": 112,
+    "p75_words": 226,
+    "p90_words": 295,
+    "sections": 40,
+    "share_over_400_words": 0.05,
+    "share_under_100_words": 0.2,
+    "share_under_40_words": 0.075
+  },
+  "intra_duplication": {
+    "long_lines_in_repeats": 6,
+    "long_lines_total": 477,
+    "share_repeated": 0.013,
+    "top_repeated": [
+      {
+        "count": 6,
+        "pages": [
+          8,
+          13,
+          19,
+          25,
+          29,
+          36
+        ],
+        "text": "built by cyberdudebivash — cybersecurity researcher & ai engineer"
+      }
+    ]
+  },
+  "markdown_leakage": {
+    "atx_headers": 0,
+    "bold_markers": 0,
+    "code_fences": 0,
+    "hr_dividers": 0
+  },
+  "pages": 43,
+  "path": "SOC Analyst Survival Playbook (2026 Edition).pdf",
+  "pedagogy_signals": {
+    "answer_key": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "capstone": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "disclaimer_legal": {
+      "in_body": 4,
+      "in_headings": 0
+    },
+    "interview": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "lab_heading": {
+      "in_body": 5,
+      "in_headings": 0
+    },
+    "learning_objective": {
+      "in_body": 2,
+      "in_headings": 0
+    },
+    "prerequisite": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "quiz_or_exam": {
+      "in_body": 1,
+      "in_headings": 0
+    },
+    "reference_or_citation": {
+      "in_body": 9,
+      "in_headings": 0
+    },
+    "rubric": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "troubleshooting": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "verification_step": {
+      "in_body": 1,
+      "in_headings": 0
+    }
+  },
+  "pii_scan": {
+    "email": {
+      "review_masked": [
+        "i***@cyberdudebivash.com"
+      ],
+      "review_needed": 1,
+      "review_pages": [
+        42
+      ],
+      "synthetic_placeholder": 0,
+      "total": 1
+    },
+    "phone_with_country_code": {
+      "masked": [],
+      "pages": [],
+      "total": 0
+    }
+  },
+  "python_security_patterns": {},
+  "secret_scan": {
+    "aws_access_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "generic_assignment": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "github_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "google_api_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "jwt": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "private_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "slack_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    }
+  },
+  "source_id": "SRC-SOC-PLAYBOOK",
+  "stub_sections_level_le_2": {
+    "count": 3,
+    "of": 40
+  },
+  "topic_coverage": {
+    "case_management": {
+      "first_page": 7,
+      "mentions": 4,
+      "pages_with_mention": 4,
+      "status": "MENTIONED_ONLY"
+    },
+    "detection_engineering": {
+      "first_page": 16,
+      "mentions": 2,
+      "pages_with_mention": 2,
+      "status": "MENTIONED_ONLY"
+    },
+    "evidence_handling": {
+      "first_page": 7,
+      "mentions": 14,
+      "pages_with_mention": 12,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "ir_nist_800_61": {
+      "first_page": 6,
+      "mentions": 3,
+      "pages_with_mention": 3,
+      "status": "MENTIONED_ONLY"
+    },
+    "log_normalization": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "malware_analysis": {
+      "first_page": 5,
+      "mentions": 3,
+      "pages_with_mention": 2,
+      "status": "MENTIONED_ONLY"
+    },
+    "mitre_attack": {
+      "first_page": 10,
+      "mentions": 4,
+      "pages_with_mention": 2,
+      "status": "MENTIONED_ONLY"
+    },
+    "reporting": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "siem_query_languages": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "sigma": {
+      "first_page": 7,
+      "mentions": 6,
+      "pages_with_mention": 6,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "sysmon": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "test_datasets": {
+      "first_page": 21,
+      "mentions": 2,
+      "pages_with_mention": 2,
+      "status": "MENTIONED_ONLY"
+    },
+    "threat_hunting": {
+      "first_page": 3,
+      "mentions": 44,
+      "pages_with_mention": 19,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "windows_event_ids": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    }
+  },
+  "urls": {
+    "distinct_urls": 13,
+    "sample": [
+      "https://cryptobivash.code.blog",
+      "https://cyberbivash.blogspot.com",
+      "https://cyberdudebivash-news.blogspot.com",
+      "https://cyberdudebivash.github.io/CYBERDUDEBIVASH",
+      "https://cyberdudebivash.github.io/CYBERDUDEBIVASH-ECOSYSTEM",
+      "https://cyberdudebivash.github.io/CYBERDUDEBIVASH-PRODUCTION-APPS-SUITE/",
+      "https://cyberdudebivash.github.io/cyberdudebivash-top-10-tools/",
+      "https://cyberdudebivash.github.io/mcp-server/",
+      "https://github.com/apps/cyberdudebivash-security-platform",
+      "https://github.com/cyberdudebivash",
+      "https://github.com/cyberdudebivash-pvt-ltd",
+      "https://www.cyberdudebivash.com",
+      "https://www.patreon.com/c/CYBERDUDEBIVASH"
+    ],
+    "top_domains": [
+      [
+        "cyberdudebivash.github.io",
+        5
+      ],
+      [
+        "github.com",
+        4
+      ],
+      [
+        "www.cyberdudebivash.com",
+        1
+      ],
+      [
+        "www.patreon.com",
+        1
+      ],
+      [
+        "cyberbivash.blogspot.com",
+        1
+      ],
+      [
+        "cyberdudebivash-news.blogspot.com",
+        1
+      ],
+      [
+        "cryptobivash.code.blog",
+        1
+      ]
+    ]
+  }
+}

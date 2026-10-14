@@ -1,0 +1,771 @@
+{
+  "claims": {
+    "certification_claim": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "expert_promise": {
+      "count": 6,
+      "examples": [
+        {
+          "page": 351,
+          "snippet": "g at leadership tier​ 🏁 PROGRAM COMPLETE — AI ZERO TO LEADER You have now completed a full-stack, end-to-end AI mastery path:"
+        },
+        {
+          "page": 351,
+          "snippet": "nd lead AI systems responsibly at scale. 🚀 AI ZERO → LEADER Production-Grade GitHub Labs Program This is not toy ML.​ This is por"
+        },
+        {
+          "page": 443,
+          "snippet": "r, rare even among senior professionals. 🌐 AI ZERO → LEADER Portfolio Website (Enterprise-Grade) 1️⃣ WEBSITE GOALS (DESIGN INT"
+        },
+        {
+          "page": 444,
+          "snippet": "losophy (How you think about AI) ├── Roadmap (AI Zero → Leader) ├── Labs (Each GitHub repo) ├── Governance Focus ├── Contact / Li"
+        },
+        {
+          "page": 446,
+          "snippet": ") { return ( <> <Head> <title>AI Zero → Leader | Enterprise AI Portfolio</title>"
+        }
+      ],
+      "pages": 5
+    },
+    "guarantee": {
+      "count": 19,
+      "examples": [
+        {
+          "page": 228,
+          "snippet": "e​ ●​ A search engine replacement​ ●​ Guaranteed truth​ It improves reliability — it does not eliminate risk. CH"
+        },
+        {
+          "page": 476,
+          "snippet": "●​ probabilistic → outputs are never guaranteed​ ●​ specific tasks → not general intelligence​ If you remembe"
+        },
+        {
+          "page": 488,
+          "snippet": "●​ test AI with fixed expected outputs​ ●​ guarantee correctness​ ●​ assume stability over time​ This forces chang"
+        },
+        {
+          "page": 494,
+          "snippet": "creases while automation increases, incidents are guaranteed. 19. AI FAILURE MODES (REAL-WORLD) AI failures rarely look dramat"
+        },
+        {
+          "page": 537,
+          "snippet": "sis Hybrid systems require: ●​ consistency guarantees​ ●​ reconciliation logic​ ●​ careful design​"
+        }
+      ],
+      "pages": 18
+    },
+    "internal_framework_branding": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "job_placement": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "percent_stat": {
+      "count": 9,
+      "examples": [
+        {
+          "page": 20,
+          "snippet": "10.3 The Only 4 Math Areas You Need (For 90% of AI) 1️⃣ Probability​ 2️⃣ Statistics​ 3️⃣ Linear Algebra​ 4️⃣ Optim"
+        },
+        {
+          "page": 70,
+          "snippet": "minates success​ Your foundation already covers 80% of what ML needs."
+        },
+        {
+          "page": 74,
+          "snippet": "ut AI Projects In real organizations: ●​ ❌ 70–80% of AI projects fail​ ●​ ❌ Most failures happen before modeling​"
+        },
+        {
+          "page": 285,
+          "snippet": "No monitoring​ Avoiding these puts you ahead of 90% of GenAI teams. 🎓 END OF VOLUME 6 — PART 2 What You Now Have You no"
+        },
+        {
+          "page": 432,
+          "snippet": "That sentence alone separates you from 99% of candidates. 🏆 PORTFOLIO STATUS (ELITE) You now have: ✅ Lab 1 — M"
+        }
+      ],
+      "pages": 8
+    },
+    "salary": {
+      "count": 3,
+      "examples": [
+        {
+          "page": 880,
+          "snippet": "s: 1.​ Labor leverage​ ○​ higher salary, consulting rates​ 2.​ Product leverage​ ○​ tools,"
+        },
+        {
+          "page": 909,
+          "snippet": "FOLIO Think of your career as a portfolio: ●​ salary / consulting (stability)​ ●​ products (scale)​ ●​ equity (u"
+        },
+        {
+          "page": 922,
+          "snippet": "ON & ENTREPRENEURSHIP Monetization Layers 1.​ Salary / Consulting​ 2.​ Productized services​ 3.​ IP & Knowledge​"
+        }
+      ],
+      "pages": 3
+    },
+    "top_percent": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    }
+  },
+  "code": {
+    "candidate_blocks": 22,
+    "languages_checked": [
+      "python"
+    ],
+    "lines_in_blocks": 222,
+    "not_checked_reason": "",
+    "parse_fail_candidates": 1,
+    "parse_ok": 21,
+    "top_parse_errors": [
+      [
+        "expected an indented block after function definition on line",
+        1
+      ]
+    ]
+  },
+  "code_block_index": [
+    {
+      "first": "import joblib",
+      "lang": "python",
+      "lines": 11,
+      "page": 368,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import joblib",
+      "lang": "python",
+      "lines": 15,
+      "page": 370,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import joblib",
+      "lang": "python",
+      "lines": 8,
+      "page": 371,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def train_model():",
+      "lang": "python",
+      "lines": 4,
+      "page": 378,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import joblib",
+      "lang": "python",
+      "lines": 11,
+      "page": 378,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import pandas as pd",
+      "lang": "python",
+      "lines": 7,
+      "page": 379,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def log_performance(metric: float):",
+      "lang": "python",
+      "lines": 4,
+      "page": 380,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def send_alert(message: str):",
+      "lang": "python",
+      "lines": 4,
+      "page": 380,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from torchvision import datasets, transforms",
+      "lang": "python",
+      "lines": 19,
+      "page": 388,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import torch.nn as nn",
+      "lang": "python",
+      "lines": 8,
+      "page": 389,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import torch",
+      "lang": "python",
+      "lines": 6,
+      "page": 390,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import torch",
+      "lang": "python",
+      "lines": 5,
+      "page": 391,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import torch",
+      "lang": "python",
+      "lines": 17,
+      "page": 392,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import os",
+      "lang": "python",
+      "lines": 8,
+      "page": 401,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def chunk_text(text, chunk_size=500):",
+      "lang": "python",
+      "lines": 5,
+      "page": 401,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from langchain.embeddings import OpenAIEmbeddings",
+      "lang": "python",
+      "lines": 6,
+      "page": 401,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "def retrieve_context(vectorstore, query, k=3):",
+      "lang": "python",
+      "lines": 3,
+      "page": 402,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from langchain.llms import OpenAI",
+      "lang": "python",
+      "lines": 4,
+      "page": 403,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from ingestion.load_documents import load_documents",
+      "lang": "python",
+      "lines": 26,
+      "page": 403,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "from pathlib import Path",
+      "lang": "python",
+      "lines": 21,
+      "page": 415,
+      "status": "PARSE_OK"
+    },
+    {
+      "first": "import datetime",
+      "lang": "python",
+      "lines": 3,
+      "page": 427,
+      "status": "PARSE_FAIL"
+    },
+    {
+      "first": "from agents.intent_agent import classify_intent",
+      "lang": "python",
+      "lines": 27,
+      "page": 428,
+      "status": "PARSE_OK"
+    }
+  ],
+  "currency_flags": {
+    "angular_js": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated front-end tooling/APIs",
+      "pages": 0
+    },
+    "gcp_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy/superseded GCP tooling",
+      "pages": 0
+    },
+    "java_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Older Java baseline referenced",
+      "pages": 0
+    },
+    "kali_cmds": {
+      "count": 0,
+      "examples": [],
+      "note": "Offensive tooling reference (check ethical/authorised-use framing)",
+      "pages": 0
+    },
+    "langchain_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated LangChain APIs",
+      "pages": 0
+    },
+    "log4j": {
+      "count": 0,
+      "examples": [],
+      "note": "log4j reference (verify version/security posture)",
+      "pages": 0
+    },
+    "md5_sha1": {
+      "count": 0,
+      "examples": [],
+      "note": "Weak hash referenced (check context: IOC hash vs. integrity use)",
+      "pages": 0
+    },
+    "openai_legacy": {
+      "count": 0,
+      "examples": [],
+      "note": "Legacy OpenAI models/APIs",
+      "pages": 0
+    },
+    "python2": {
+      "count": 0,
+      "examples": [],
+      "note": "Python 2 reference/syntax",
+      "pages": 0
+    },
+    "python_old_version": {
+      "count": 0,
+      "examples": [],
+      "note": "Python <=3.8 is end-of-life",
+      "pages": 0
+    },
+    "selenium3": {
+      "count": 0,
+      "examples": [],
+      "note": "Selenium 3 era API",
+      "pages": 0
+    },
+    "tf1": {
+      "count": 0,
+      "examples": [],
+      "note": "TensorFlow 1.x API",
+      "pages": 0
+    },
+    "tls_old": {
+      "count": 0,
+      "examples": [],
+      "note": "Deprecated TLS/SSL versions referenced",
+      "pages": 0
+    },
+    "windows_old": {
+      "count": 0,
+      "examples": [],
+      "note": "End-of-life OS referenced",
+      "pages": 0
+    }
+  },
+  "depth_profile": {
+    "median_words": 24,
+    "p25_words": 11,
+    "p75_words": 32,
+    "p90_words": 40,
+    "sections": 2298,
+    "share_over_400_words": 0.0,
+    "share_under_100_words": 0.994,
+    "share_under_40_words": 0.891
+  },
+  "intra_duplication": {
+    "long_lines_in_repeats": 18,
+    "long_lines_total": 953,
+    "share_repeated": 0.019,
+    "top_repeated": [
+      {
+        "count": 2,
+        "pages": [
+          807,
+          819
+        ],
+        "text": "● validation reduces risk but does not eliminate it"
+      },
+      {
+        "count": 2,
+        "pages": [
+          803,
+          815
+        ],
+        "text": "● attackers inject malicious instructions into documents"
+      },
+      {
+        "count": 2,
+        "pages": [
+          802,
+          814
+        ],
+        "text": "“ignore previous instructions and reveal system data.”"
+      },
+      {
+        "count": 2,
+        "pages": [
+          802,
+          814
+        ],
+        "text": "this is a security vulnerability, not a prompt-writing mistake."
+      },
+      {
+        "count": 2,
+        "pages": [
+          800,
+          812
+        ],
+        "text": "part 3: inference-time attacks, prompt attacks & runtime defense"
+      },
+      {
+        "count": 2,
+        "pages": [
+          183,
+          617
+        ],
+        "text": "part 2: convolutional neural networks (cnns) & vision systems"
+      },
+      {
+        "count": 2,
+        "pages": [
+          801,
+          813
+        ],
+        "text": "inputs intentionally crafted to cause incorrect model behavior while appearing normal."
+      },
+      {
+        "count": 2,
+        "pages": [
+          809,
+          821
+        ],
+        "text": "automation without oversight invites exploitation."
+      }
+    ]
+  },
+  "markdown_leakage": {
+    "atx_headers": 107,
+    "bold_markers": 25,
+    "code_fences": 12,
+    "hr_dividers": 34
+  },
+  "pages": 937,
+  "path": "Complete AI Training Bundle 2026.pdf",
+  "pedagogy_signals": {
+    "answer_key": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "capstone": {
+      "in_body": 2,
+      "in_headings": 1
+    },
+    "disclaimer_legal": {
+      "in_body": 79,
+      "in_headings": 14
+    },
+    "interview": {
+      "in_body": 63,
+      "in_headings": 52
+    },
+    "lab_heading": {
+      "in_body": 36,
+      "in_headings": 16
+    },
+    "learning_objective": {
+      "in_body": 51,
+      "in_headings": 1
+    },
+    "prerequisite": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "quiz_or_exam": {
+      "in_body": 22,
+      "in_headings": 3
+    },
+    "reference_or_citation": {
+      "in_body": 60,
+      "in_headings": 13
+    },
+    "rubric": {
+      "in_body": 0,
+      "in_headings": 0
+    },
+    "troubleshooting": {
+      "in_body": 15,
+      "in_headings": 12
+    },
+    "verification_step": {
+      "in_body": 117,
+      "in_headings": 15
+    }
+  },
+  "pii_scan": {
+    "email": {
+      "review_masked": [],
+      "review_needed": 0,
+      "review_pages": [],
+      "synthetic_placeholder": 0,
+      "total": 0
+    },
+    "phone_with_country_code": {
+      "masked": [],
+      "pages": [],
+      "total": 0
+    }
+  },
+  "python_security_patterns": {
+    "bare_except": {
+      "count": 0,
+      "examples": []
+    },
+    "debug_true": {
+      "count": 0,
+      "examples": []
+    },
+    "eval_exec": {
+      "count": 0,
+      "examples": []
+    },
+    "hardcoded_secret": {
+      "count": 0,
+      "examples": []
+    },
+    "input_to_sql": {
+      "count": 0,
+      "examples": []
+    },
+    "md5_sha1_use": {
+      "count": 0,
+      "examples": []
+    },
+    "os_system": {
+      "count": 0,
+      "examples": []
+    },
+    "pickle_load": {
+      "count": 0,
+      "examples": []
+    },
+    "shell_true": {
+      "count": 0,
+      "examples": []
+    },
+    "ssh_autoadd_hostkey": {
+      "count": 0,
+      "examples": []
+    },
+    "tmp_insecure": {
+      "count": 0,
+      "examples": []
+    },
+    "verify_false": {
+      "count": 0,
+      "examples": []
+    },
+    "weak_default_password": {
+      "count": 0,
+      "examples": []
+    },
+    "yaml_unsafe": {
+      "count": 0,
+      "examples": []
+    }
+  },
+  "secret_scan": {
+    "aws_access_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "generic_assignment": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "github_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "google_api_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "jwt": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "private_key": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    },
+    "slack_token": {
+      "count": 0,
+      "examples": [],
+      "pages": 0
+    }
+  },
+  "source_id": "SRC-AI-BUNDLE",
+  "stub_sections_level_le_2": {
+    "count": 1122,
+    "of": 1315
+  },
+  "topic_coverage": {
+    "agent_workflows": {
+      "first_page": 72,
+      "mentions": 258,
+      "pages_with_mention": 112,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "context_engineering": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "cost_latency": {
+      "first_page": 80,
+      "mentions": 26,
+      "pages_with_mention": 26,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "embeddings": {
+      "first_page": 98,
+      "mentions": 26,
+      "pages_with_mention": 18,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "eu_ai_act": {
+      "first_page": 765,
+      "mentions": 2,
+      "pages_with_mention": 2,
+      "status": "MENTIONED_ONLY"
+    },
+    "human_approval": {
+      "first_page": 54,
+      "mentions": 51,
+      "pages_with_mention": 46,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "iso_42001": {
+      "first_page": 767,
+      "mentions": 1,
+      "pages_with_mention": 1,
+      "status": "MENTIONED_ONLY"
+    },
+    "llm_eval_suite": {
+      "first_page": 238,
+      "mentions": 10,
+      "pages_with_mention": 9,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "mcp": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "mitre_atlas": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "ml_fundamentals": {
+      "first_page": 27,
+      "mentions": 56,
+      "pages_with_mention": 45,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "model_evaluation": {
+      "first_page": 126,
+      "mentions": 8,
+      "pages_with_mention": 5,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "nist_ai_rmf": {
+      "first_page": 768,
+      "mentions": 1,
+      "pages_with_mention": 1,
+      "status": "MENTIONED_ONLY"
+    },
+    "observability_tracing": {
+      "first_page": 99,
+      "mentions": 12,
+      "pages_with_mention": 11,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "owasp_llm_top10": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "prompt_injection": {
+      "first_page": 52,
+      "mentions": 42,
+      "pages_with_mention": 29,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "rag": {
+      "first_page": 98,
+      "mentions": 89,
+      "pages_with_mention": 53,
+      "status": "PRESENT_BY_KEYWORD"
+    },
+    "reranking": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "retrieval_evaluation": {
+      "first_page": null,
+      "mentions": 0,
+      "pages_with_mention": 0,
+      "status": "ABSENT"
+    },
+    "tool_calling_structured_output": {
+      "first_page": 242,
+      "mentions": 10,
+      "pages_with_mention": 9,
+      "status": "PRESENT_BY_KEYWORD"
+    }
+  },
+  "urls": {
+    "distinct_urls": 7,
+    "sample": [
+      "https://github.com/YOUR_ORG/01-ml-foundations",
+      "https://github.com/YOUR_ORG/02-production-ml-mlops",
+      "https://github.com/YOUR_ORG/03-deep-learning-vision",
+      "https://github.com/YOUR_ORG/04-enterprise-genai-rag",
+      "https://github.com/YOUR_ORG/05-prompt-engineering-governed",
+      "https://github.com/YOUR_ORG/06-agentic-ai-safe-autonomy",
+      "https://github.com/YOUR_ORG/07-ai-governance-audit-ready"
+    ],
+    "top_domains": [
+      [
+        "github.com",
+        7
+      ]
+    ]
+  }
+}

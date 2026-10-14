@@ -1,0 +1,7 @@
+# Validation / audit toolchain for CDB-TRAININGS (all free / open source).
+# Pinned to exact versions that were verified in this repo's QA runs.
+pypdf==6.17.0
+PyYAML==6.0.1
+jsonschema==4.26.0
+pytest==8.4.2
+javalang==0.13.0

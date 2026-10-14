@@ -1,0 +1,93 @@
+{
+  "heading_overlap": [
+    {
+      "a": "SRC-MEGA-P1",
+      "b": "SRC-MEGA-P2",
+      "examples": [
+        "aslr address space layout randomization",
+        "5 format string vulnerabilities",
+        "phase 7 continuous improvement",
+        "iam identity access management"
+      ],
+      "shared_headings": 105
+    },
+    {
+      "a": "SRC-MEGA-P2",
+      "b": "SRC-PY-HANDBOOK",
+      "examples": [
+        "module 8 part 2",
+        "module 4 part 3",
+        "module 7 part 4",
+        "module 6 part 3"
+      ],
+      "shared_headings": 20
+    },
+    {
+      "a": "SRC-MEGA-P1",
+      "b": "SRC-PY-HANDBOOK",
+      "examples": [
+        "step 4 redirect execution",
+        "step 1 crash the program",
+        "5 application layer",
+        "aws secrets manager"
+      ],
+      "shared_headings": 17
+    },
+    {
+      "a": "SRC-FRONTEND-ONBOARD",
+      "b": "SRC-PY-AUTOMATION",
+      "examples": [
+        "cd continuous delivery deployment",
+        "ci continuous integration",
+        "install dependencies",
+        "why this matters"
+      ],
+      "shared_headings": 7
+    },
+    {
+      "a": "SRC-JAVA-AUTOTEST",
+      "b": "SRC-PY-HANDBOOK",
+      "examples": [
+        "assignment 2",
+        "assignment 5",
+        "assignment 1",
+        "assignment 3"
+      ],
+      "shared_headings": 5
+    }
+  ],
+  "line_overlap": [
+    {
+      "a": "SRC-MEGA-P1",
+      "b": "SRC-MEGA-P2",
+      "examples": [
+        "http://169.254.169.254/latest/meta-data/iam/security-credentials/",
+        "event dns_request(c: connection, msg: dns_msg, query: string)",
+        "hkcu\\software\\microsoft\\windows\\currentversion\\run"
+      ],
+      "share_of_a": 0.0014,
+      "share_of_b": 0.0039,
+      "shared_long_lines": 4
+    },
+    {
+      "a": "SRC-AI-BUNDLE",
+      "b": "SRC-PY-HANDBOOK",
+      "examples": [
+        "from sklearn.model_selection import train_test_split"
+      ],
+      "share_of_a": 0.0011,
+      "share_of_b": 0.0013,
+      "shared_long_lines": 1
+    },
+    {
+      "a": "SRC-GCP-DATAENG",
+      "b": "SRC-PY-HANDBOOK",
+      "examples": [
+        "from airflow.operators.python import pythonoperator"
+      ],
+      "share_of_a": 0.0046,
+      "share_of_b": 0.0013,
+      "shared_long_lines": 1
+    }
+  ]
+}

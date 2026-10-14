@@ -1,0 +1,14 @@
+# Local working data (extracted text of third-party-licensed sources must never be committed)
+.work/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
