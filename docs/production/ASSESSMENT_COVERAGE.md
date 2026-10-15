@@ -23,7 +23,7 @@ Outcomes assessed overall: 13 of 116 (11%).
 
 ## 2. Built modules
 
-| Module | Outcomes | Quiz items | Rubric criteria | Private pack present locally | State |
+| Module | Outcomes | Quiz items | Rubric criteria | Instructor pack recorded at the last run | State |
 |---|---|---|---|---|---|
 | SOC-M04 | 6 | 10 | 9 | yes | TECHNICALLY_VERIFIED |
 | PY-M01 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |

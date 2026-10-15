@@ -46,6 +46,9 @@ SOC_PILOT = {
 }
 
 
+SOC_FINGERPRINT_INPUTS = ["courses/soc-analyst/lessons/m04-auth-detection/", "courses/soc-analyst/labs/", "courses/soc-analyst/assessments/m04/"]
+
+
 def load_yaml(rel: str | Path):
     return yaml.safe_load((ROOT / rel).read_text(encoding="utf-8"))
 
@@ -147,7 +150,13 @@ def matrix_evidence(module_id: str, matrix: dict | None, qa: dict | None, inputs
         by_id = {r["id"]: r["status"] for r in (qa or {}).get("results", [])}
         wanted = ["lab-guided-e2e", "lab-independent-e2e", "pytest"]
         ok = all(by_id.get(w) == "PASS" for w in wanted)
-        return {"kind": "qa_run", "valid": ok, "interpreters": ["CPython " + (qa or {}).get("python", "?")], "tests": len(wanted), "skipped": [], "negative_controls": ok, "detail": "recorded QA run: " + ", ".join(f"{w} {by_id.get(w, 'absent')}" for w in wanted)}
+        recorded = ((qa or {}).get("fingerprints") or {}).get(module_id)
+        bound = "content-bound" if recorded else "not content-bound (record predates fingerprints)"
+        if recorded and inputs and EF.fingerprint(inputs) != recorded:
+            ok = False
+            bound = "STALE: the pilot's lesson or labs changed after the recorded QA run"
+        return {"kind": "qa_run", "valid": ok, "interpreters": ["CPython " + (qa or {}).get("python", "?")], "tests": len(wanted), "skipped": [], "negative_controls": ok,
+                "detail": "recorded QA run: " + ", ".join(f"{w} {by_id.get(w, 'absent')}" for w in wanted) + f"; {bound}"}
     if not matrix or not module_id.startswith("PY-M"):
         return {"kind": "none", "valid": False, "interpreters": [], "tests": 0, "skipped": [], "negative_controls": False, "detail": "no recorded execution evidence for this module"}
     nn = int(module_id.split("M")[-1])
@@ -173,7 +182,8 @@ def matrix_evidence(module_id: str, matrix: dict | None, qa: dict | None, inputs
             stale = ["content of the module's lesson, labs or shared lab tools differs from the content that was executed"]
         recorded_private = (matrix.get("private_fingerprints") or {}).get(module_id)
         current_private = EF.private_fingerprint(slug, module_id) if slug else None
-        if recorded_private and current_private and recorded_private != current_private:
+        comparable = matrix.get("fingerprint_formula", 1) == EF.FORMULA          # a record made with an older formula cannot be compared (its private fingerprint included tool caches)
+        if comparable and recorded_private and current_private and recorded_private != current_private:
             stale.append("the private instructor pack differs from the one that was executed")
     elif inputs:                                               # older record without fingerprints: compare with the recorded commit
         changed = input_changes(matrix.get("commit", ""), inputs)
@@ -221,7 +231,7 @@ class Portfolio:
         present = {name: p.exists() for name, p in paths.items()}
         missing = [n for n, ok in present.items() if not ok]
         lesson = lesson_facts(paths["lesson.md"])
-        evidence = matrix_evidence(module["id"], self.matrix, self.qa, EF.execution_inputs(course["slug"], module["id"]), course["slug"])
+        evidence = matrix_evidence(module["id"], self.matrix, self.qa, SOC_FINGERPRINT_INPUTS if module["id"] in SOC_PILOT else EF.execution_inputs(course["slug"], module["id"]), course["slug"])
         reviewed = [r for r in self.adversarial if r["module"] == module["id"] and r["outcome"] in ("CLEAN", "FINDINGS_REMEDIATED")]
         edition_manifest = next((e for e in self.pdfs["editions"] if e.get("module") == module["id"]), None)
         if edition_manifest:
@@ -246,7 +256,14 @@ class Portfolio:
             rubric = len(yaml.safe_load(paths["assessment/rubric.yaml"].read_text(encoding="utf-8")).get("criteria", []))
         return {"id": module["id"], "course": course["id"], "title": module["title"], "catalog_status": module["status"], "estimated_hours": module["estimated_hours"], "state": state, "missing_files": missing,
                 "lesson": lesson, "evidence": evidence, "adversarial_reviews": [r["id"] for r in reviewed], "edition_config": bool(edition and edition.exists()), "edition": edition_manifest,
-                "private_pack_local": all(p.exists() for p in private), "outcomes": outcomes, "quiz_items": quiz, "rubric_criteria": rubric}
+                "private_pack_recorded": self.private_pack_recorded(module["id"]), "outcomes": outcomes, "quiz_items": quiz, "rubric_criteria": rubric}
+
+    def private_pack_recorded(self, module_id: str) -> bool:
+        """Whether the instructor pack of the module existed when the recorded execution ran. Read from the evidence, never from the local file system, so that the generated
+        documents are the same on a machine that holds the pack and on a public clone that does not."""
+        if module_id in SOC_PILOT:
+            return bool((self.qa or {}).get("private_instructor_pack_present"))
+        return bool(((self.matrix or {}).get("private_fingerprints") or {}).get(module_id))
 
     # ------------------------------------------------------------------------------------------ courses
     def course_record(self, course: dict) -> dict:
@@ -372,10 +389,10 @@ class Portfolio:
         put("A11", MET if ip["status"] == "MET" else NOT_MET, f"IP/licensing {ip['status']}" + (f" (blockers {', '.join(ip.get('blockers', []))})" if ip.get("blockers") else ""))
         editions = sum(1 for m in mods if m["edition_config"] and STATES.index(m["state"]) >= 2)
         put("A12", MET if editions == rec["required"] and rec["course_pdf"] else PARTIAL if editions else NOT_MET, f"{editions} of {rec['required']} module student-edition configs; complete course edition {'present' if rec['course_pdf'] else 'absent'}")
-        private_ok = all(m["private_pack_local"] for m in mods if STATES.index(m["state"]) >= 2) and built
+        private_ok = all(m["private_pack_recorded"] for m in mods if STATES.index(m["state"]) >= 2) and built
         d8_open = any(i["decision"] == "D8" and i["status"] != "CLOSED" for i in self.incidents)
         put("A13", MET if private_ok and not d8_open and rec["implemented"] == rec["required"] else PARTIAL if private_ok else NOT_MET if built else NOT_ASSESSED,
-            f"private packs present locally for {sum(1 for m in mods if m['private_pack_local'])} modules; private repository (D8) {'NOT created' if d8_open else 'in place'}")
+            f"instructor packs recorded for {sum(1 for m in mods if m['private_pack_recorded'])} modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) {'NOT created' if d8_open else 'in place'}")
         cp = rec["course_pdf"]
         put("A14", MET if cp and cp.get("passed") and set(cp.get("modules", [])) >= set(rec["modules"]) else NOT_MET, "complete course edition validated" if cp and cp.get("passed") else "no complete course edition has been built; module previews are not course editions")
         ed_ok = sum(1 for m in mods if m["edition"] and m["edition"].get("passed"))

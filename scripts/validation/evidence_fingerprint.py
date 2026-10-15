@@ -11,6 +11,8 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+FORMULA = 2           # 1: the private-pack fingerprint included tool caches (.mypy_cache, ...), which change on every run; 2: caches and build output are excluded
+CACHE_PARTS = {"__pycache__", ".mypy_cache", ".pytest_cache", ".ruff_cache", ".venv", "build", "dist", ".hypothesis", ".tox"}
 
 
 def execution_inputs(slug: str, module_id: str) -> list[str]:
@@ -40,7 +42,8 @@ def private_fingerprint(slug: str, module_id: str, root: Path = ROOT) -> str | N
     folder = root / "courses" / slug / "instructor" / module_id
     if not folder.is_dir():
         return None
-    files = sorted(str(p.relative_to(root)) for p in folder.rglob("*") if p.is_file() and "__pycache__" not in p.parts and p.suffix != ".pyc")
+    files = sorted(str(p.relative_to(root)) for p in folder.rglob("*")
+                   if p.is_file() and not CACHE_PARTS & set(p.parts) and p.suffix not in (".pyc", ".xml") and not any(part.endswith(".egg-info") for part in p.parts))
     h = hashlib.sha256()
     for path in files:
         h.update(f"{path}\0{hashlib.sha256((root / path).read_bytes()).hexdigest()}\n".encode())

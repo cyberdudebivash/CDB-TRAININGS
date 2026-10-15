@@ -117,6 +117,13 @@ def check_gate_a() -> list[dict]:
     ]
 
 
+def soc_fingerprint() -> str:
+    """Content fingerprint of the SOC pilot module (lesson, labs, assessments), so Gate A can tell whether this QA run still describes the current files."""
+    sys.path.insert(0, str(ROOT / "scripts" / "production"))
+    import gate_a
+    return gate_a.EF.fingerprint(gate_a.SOC_FINGERPRINT_INPUTS)
+
+
 def run_pytest() -> tuple[dict, list[dict]]:
     with tempfile.TemporaryDirectory() as td:
         xml_path = Path(td) / "junit.xml"
@@ -271,7 +278,7 @@ def main() -> int:
     private_pack = (INSTRUCTOR / "m04-independent-reference").exists()
     if not a.no_report:  # --no-report leaves tracked files untouched
         DATA_DIR.mkdir(parents=True, exist_ok=True)
-        (DATA_DIR / "qa_run.json").write_text(json.dumps({"private_instructor_pack_present": private_pack, "commit": head, "branch": branch, "working_tree_dirty": dirty, "run_utc": now, "python": sys.version.split()[0], "results": results}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        (DATA_DIR / "qa_run.json").write_text(json.dumps({"private_instructor_pack_present": private_pack, "commit": head, "branch": branch, "working_tree_dirty": dirty, "run_utc": now, "python": sys.version.split()[0], "fingerprints": {"SOC-M04": soc_fingerprint()}, "results": results}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         render_reports(results, head + (" (+uncommitted changes)" if dirty else ""), branch, now, private_pack)
     for r in results:
         print(f"{r['status']:<26} {r['title']}")

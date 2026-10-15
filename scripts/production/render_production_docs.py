@@ -230,13 +230,13 @@ class Renderer:
         rows = []
         for m in self.p.modules.values():
             if m["outcomes"] is not None:
-                rows.append([m["id"], m["outcomes"], m["quiz_items"], m["rubric_criteria"], "yes" if m["private_pack_local"] else "no", m["state"]])
+                rows.append([m["id"], m["outcomes"], m["quiz_items"], m["rubric_criteria"], "yes" if m["private_pack_recorded"] else "no", m["state"]])
         course = [[short(c["id"]), f"{c['outcomes']['outcomes_assessed']}/{c['outcomes']['outcomes_total']}", c["capstone"] or "not defined", c["capstone_state"] or "-"] for c in self.p.courses.values()]
         return "\n".join([
             "# Assessment coverage", "", HEADER,
             "## 1. Course outcomes and capstones", "", md_table(["Course", "Outcomes assessed", "Capstone module", "Capstone state"], course), "",
             f"Outcomes assessed overall: {frac(self.t['outcomes_assessed'], self.t['outcomes_total'])}.", "",
-            "## 2. Built modules", "", md_table(["Module", "Outcomes", "Quiz items", "Rubric criteria", "Private pack present locally", "State"], rows), "",
+            "## 2. Built modules", "", md_table(["Module", "Outcomes", "Quiz items", "Rubric criteria", "Instructor pack recorded at the last run", "State"], rows), "",
             "Answer keys, grading notes, hidden suites and mutants are instructor material kept out of the public repository (INC-005). Quiz items and rubrics have had no subject-matter review and no learner pilot.", "",
         ])
 
@@ -320,7 +320,7 @@ class Renderer:
                 "source_pdfs_pages": src, "source_pages_with_module_disposition": c["source_pages_with_disposition"],
                 "modules": {m: {"state": self.p.modules[m]["state"], "catalog_status": self.p.modules[m]["catalog_status"], "outcomes": self.p.modules[m]["outcomes"], "quiz_items": self.p.modules[m]["quiz_items"],
                                 "rubric_criteria": self.p.modules[m]["rubric_criteria"], "executed_blocks": self.p.modules[m]["lesson"]["executed_blocks"], "edition_config": self.p.modules[m]["edition_config"],
-                                "private_pack_local": self.p.modules[m]["private_pack_local"], "evidence": self.p.modules[m]["evidence"]["detail"]} for m in c["modules"]},
+                                "private_pack_recorded": self.p.modules[m]["private_pack_recorded"], "evidence": self.p.modules[m]["evidence"]["detail"]} for m in c["modules"]},
                 "labs": c["labs"], "outcomes": c["outcomes"], "capstone": {"module": c["capstone"], "state": c["capstone_state"]},
                 "scenarios": {"required": c["scenarios_required"], "verified": c["scenarios_verified"], "time_dependent_verified": c["realtime_verified"]},
                 "course_pdf": bool(c["course_pdf"]), "approvals": c["approvals"], "criteria": {k: v["status"] for k, v in c["criteria"].items()},

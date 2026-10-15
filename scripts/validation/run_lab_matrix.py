@@ -128,7 +128,7 @@ def main() -> int:
             private_fingerprints[module_id] = private_fp
     out = {"schema_version": 1, "cutoff": a.cutoff, "run_utc": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "commit": head, "working_tree_dirty": dirty,
            "host": f"{platform.system()} {platform.release()} {platform.machine()}", "private_instructor_pack_present": private,
-           "fingerprints": fingerprints, "private_fingerprints": private_fingerprints,
+           "fingerprint_formula": EF.FORMULA, "fingerprints": fingerprints, "private_fingerprints": private_fingerprints,
            "requirements_file": "courses/python-engineering/labs/requirements.txt", "suites": SUITES, "interpreters": results}
     path = ROOT / "docs" / "qa" / "data" / f"lab_execution_{a.cutoff}.json"
     path.write_text(json.dumps(out, indent=1, sort_keys=True) + "\n", encoding="utf-8")

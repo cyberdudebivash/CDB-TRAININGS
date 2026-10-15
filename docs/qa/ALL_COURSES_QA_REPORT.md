@@ -65,7 +65,7 @@ Source pages are audited by rules over **all** pages; only finding-cited pages w
 - Blocking findings: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
 - Source audit: 654 pages; severity P0 2, P1 12, P2 51, P3 14, P4 12, NONE 563; currency BASELINE_AVAILABLE 295, UNVERIFIED_CURRENCY 183, NO_TECHNOLOGY_DETECTED 167, CURRENCY_FLAGGED 9.
 - Open verification items: MC-PYH-01, MC-PYH-10, MC-PYH-11.
-- Lab matrix: PASS on CPython 3.11.17, CPython 3.12.3, CPython 3.13.16, CPython 3.15.0; not executed or failing: 3.14.
+- Lab matrix: PASS on CPython 3.11.17, CPython 3.12.3, CPython 3.13.16, CPython 3.14.8, CPython 3.15.0; not executed or failing: none.
 
 | Blocking finding | Severity | Title |
 |---|---|---|

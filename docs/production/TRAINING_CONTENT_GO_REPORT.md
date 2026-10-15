@@ -24,7 +24,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A10 Security and privacy issues affecting the course are resolved | NOT_ASSESSED | no built content to assess |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4) |
 | A12 Student materials are complete | NOT_MET | 0 of 6 module student-edition configs; complete course edition absent |
-| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
+| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | instructor packs recorded for 0 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 6 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
@@ -62,7 +62,7 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **11.2** of 100; e
 | A10 Security and privacy issues affecting the course are resolved | MET | no open privacy or security incident applies |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4, IP-4) |
 | A12 Student materials are complete | PARTIAL | 1 of 14 module student-edition configs; complete course edition absent |
-| A13 Instructor materials are complete and protected in private storage | PARTIAL | private packs present locally for 1 modules; private repository (D8) NOT created |
+| A13 Instructor materials are complete and protected in private storage | PARTIAL | instructor packs recorded for 1 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | PARTIAL | 1 of 14 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
@@ -100,7 +100,7 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **50.6** of 100; e
 | A10 Security and privacy issues affecting the course are resolved | MET | no open privacy or security incident applies |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4) |
 | A12 Student materials are complete | PARTIAL | 7 of 11 module student-edition configs; complete course edition absent |
-| A13 Instructor materials are complete and protected in private storage | PARTIAL | private packs present locally for 7 modules; private repository (D8) NOT created |
+| A13 Instructor materials are complete and protected in private storage | PARTIAL | instructor packs recorded for 7 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | PARTIAL | 7 of 11 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 5 open P0/P1 defects apply: DEF-004, DEF-005, DEF-006, DEF-008, DEF-009 |
@@ -138,7 +138,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A10 Security and privacy issues affecting the course are resolved | NOT_ASSESSED | no built content to assess |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4) |
 | A12 Student materials are complete | NOT_MET | 0 of 10 module student-edition configs; complete course edition absent |
-| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
+| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | instructor packs recorded for 0 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 10 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
@@ -176,7 +176,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A10 Security and privacy issues affecting the course are resolved | NOT_ASSESSED | no built content to assess |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4) |
 | A12 Student materials are complete | NOT_MET | 0 of 10 module student-edition configs; complete course edition absent |
-| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
+| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | instructor packs recorded for 0 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 10 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
@@ -214,7 +214,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A10 Security and privacy issues affecting the course are resolved | NOT_ASSESSED | no built content to assess |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4) |
 | A12 Student materials are complete | NOT_MET | 0 of 12 module student-edition configs; complete course edition absent |
-| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
+| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | instructor packs recorded for 0 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 12 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
@@ -252,7 +252,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A10 Security and privacy issues affecting the course are resolved | NOT_ASSESSED | no built content to assess |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D3, D4, IP-1) |
 | A12 Student materials are complete | NOT_MET | 0 of 12 module student-edition configs; complete course edition absent |
-| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
+| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | instructor packs recorded for 0 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 12 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 5 open P0/P1 defects apply: DEF-003, DEF-004, DEF-005, DEF-008, DEF-009 |
@@ -290,7 +290,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A10 Security and privacy issues affecting the course are resolved | NOT_ASSESSED | no built content to assess |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4) |
 | A12 Student materials are complete | NOT_MET | 0 of 11 module student-edition configs; complete course edition absent |
-| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
+| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | instructor packs recorded for 0 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 11 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
@@ -328,7 +328,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A10 Security and privacy issues affecting the course are resolved | NOT_MET | open privacy incident INC-001 |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D1, D2, D4) |
 | A12 Student materials are complete | NOT_MET | 0 of 11 module student-edition configs; complete course edition absent |
-| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
+| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | instructor packs recorded for 0 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 11 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 6 open P0/P1 defects apply: DEF-001, DEF-002, DEF-004, DEF-005, DEF-008, DEF-009 |
@@ -366,7 +366,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A10 Security and privacy issues affecting the course are resolved | NOT_ASSESSED | no built content to assess |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4, IP-5, IP-6) |
 | A12 Student materials are complete | NOT_MET | 0 of 14 module student-edition configs; complete course edition absent |
-| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
+| A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | instructor packs recorded for 0 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 14 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
