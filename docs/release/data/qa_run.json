@@ -1,6 +1,6 @@
 {
   "branch": "claude/cyberdudebivash-training-audit-ilfgze",
-  "commit": "cbb036409c10",
+  "commit": "4e4700ffaf7d",
   "fingerprints": {
     "SOC-M04": "7882c0840f77f0ec999fbe3150aa0b2a32c4cf510e3c90af0bc47b6e46bbbc79"
   },
@@ -8,7 +8,7 @@
   "python": "3.13.16",
   "results": [
     {
-      "detail": "catalog validation OK: 10 courses, 111 modules, 11 pathways",
+      "detail": "catalog validation OK: 10 courses, 113 modules, 11 pathways",
       "id": "catalog",
       "status": "PASS",
       "title": "Catalog schema and cross-reference validation"
@@ -92,7 +92,7 @@
       "title": "Gate A acceptance documents (docs/production/) reproduce from the evidence"
     },
     {
-      "detail": "318 passed, 0 failed, 0 errors, 0 skipped",
+      "detail": "346 passed, 0 failed, 0 errors, 0 skipped",
       "id": "pytest",
       "skipped": [],
       "status": "PASS",
@@ -157,7 +157,7 @@
           "errors": 0,
           "failed": 0,
           "module": "tests/test_build_student_edition",
-          "passed": 31,
+          "passed": 33,
           "skipped": 0
         },
         {
@@ -185,7 +185,7 @@
           "errors": 0,
           "failed": 0,
           "module": "tests/test_module_packs",
-          "passed": 51,
+          "passed": 65,
           "skipped": 0
         },
         {
@@ -206,7 +206,7 @@
           "errors": 0,
           "failed": 0,
           "module": "tests/test_python_engineering_labs",
-          "passed": 35,
+          "passed": 47,
           "skipped": 0
         },
         {
@@ -218,15 +218,15 @@
         }
       ],
       "tail": [
-        "........................................................................ [ 90%]",
-        "..............................                                           [100%]",
-        "318 passed in 405.42s (0:06:45)"
+        "........................................................................ [ 83%]",
+        "..........................................................               [100%]",
+        "346 passed in 480.76s (0:08:00)"
       ],
       "title": "Full pytest suite",
       "totals": {
         "errors": 0,
         "failed": 0,
-        "passed": 318,
+        "passed": 346,
         "skipped": 0
       }
     },
@@ -249,6 +249,6 @@
       "title": "Student-edition build (HTML + tagged PDF, strict gates)"
     }
   ],
-  "run_utc": "2026-10-15 05:36",
-  "working_tree_dirty": false
+  "run_utc": "2026-10-15 09:19",
+  "working_tree_dirty": true
 }

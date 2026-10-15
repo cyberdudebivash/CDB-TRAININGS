@@ -39,15 +39,15 @@
 
 ### REPOSITORY STATE
 - Courses in the catalog: 10; modules required by the approved catalog: 113; planned labs: 217; planned learning outcomes: 118.
-- Branch content recomputed from files at the latest lab-matrix commit `adf6a33a962b`; the matrix covers 5 interpreters.
+- Branch content recomputed from files at the latest lab-matrix commit `4e4700ffaf7d`; the matrix covers 5 interpreters.
 
 ### CONTENT STATE
-- Modules implemented (all required files present): 10 of 113 (9%); technically verified: 7 of 113 (6%).
-- Module states: NOT_STARTED 102, IN_PROGRESS 1, IMPLEMENTED_UNVERIFIED 3, TECHNICALLY_VERIFIED 7.
-- Substantive executed lessons: 7 of 113 (6%).
+- Modules implemented (all required files present): 10 of 113 (9%); technically verified: 10 of 113 (9%).
+- Module states: NOT_STARTED 102, IN_PROGRESS 1, TECHNICALLY_VERIFIED 10.
+- Substantive executed lessons: 10 of 113 (9%).
 - Labs verified executable: 20 of 217 (9%); outcomes assessed: 15 of 118 (13%).
 - Source pages with a recorded module disposition: 127 of 8186 (2%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
-- Python Engineering: 9 of 13 catalog modules implemented, score 49.3 of 100, state IN_PROGRESS.
+- Python Engineering: 9 of 13 catalog modules implemented, score 53.9 of 100, state IN_PROGRESS.
 
 ### OPERATIONS STATE
 - Operational scenarios technically verified: 7 of 89 (8%); scenario states: IN_PROGRESS 6, NOT_STARTED 76, TECHNICALLY_VERIFIED 7.

@@ -13,8 +13,8 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Item | Value |
 |---|---|
-| Commit at run time | `adf6a33a962b` (clean tracked tree) |
-| Run (UTC) | 2026-10-15T06:25:44Z |
+| Commit at run time | `4e4700ffaf7d` (clean tracked tree) |
+| Run (UTC) | 2026-10-15T09:08:41Z |
 | Host | Linux 6.18.44-fc-v114 x86_64 |
 | Instructor pack present in the environment | yes - private-material tests were executed |
 | Toolchain pins | `courses/python-engineering/labs/requirements.txt` |
@@ -24,11 +24,11 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Requested | Interpreter | Source | pytest | ruff | setuptools | build | Status | Passed / failed / skipped | Seconds |
 |---|---|---|---|---|---|---|---|---|---|
-| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 99 / 0 / 0 | 457.8 |
-| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 99 / 0 / 0 | 462.5 |
-| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 99 / 0 / 0 | 457.0 |
-| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 99 / 0 / 0 | 453.2 |
-| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 99 / 0 / 0 | 459.0 |
+| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 112 / 0 / 0 | 486.5 |
+| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 112 / 0 / 0 | 514.4 |
+| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 112 / 0 / 0 | 474.2 |
+| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 112 / 0 / 0 | 484.5 |
+| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 112 / 0 / 0 | 472.2 |
 
 Interpreters from `uv` are python-build-standalone builds, not python.org installers; behaviour on distribution-packaged or Windows/macOS interpreters is not claimed.
 
@@ -61,11 +61,11 @@ Interpreters from `uv` are python-build-standalone builds, not python.org instal
 
 | Interpreter | Checks | Passed | Lesson code-block runs | Passed |
 |---|---|---|---|---|
-| 3.11 | 58 | 58 | 8 | 8 |
-| 3.12 | 58 | 58 | 8 | 8 |
-| 3.13 | 58 | 58 | 8 | 8 |
-| 3.14 | 58 | 58 | 8 | 8 |
-| 3.15 | 58 | 58 | 8 | 8 |
+| 3.11 | 65 | 65 | 9 | 9 |
+| 3.12 | 65 | 65 | 9 | 9 |
+| 3.13 | 65 | 65 | 9 | 9 |
+| 3.14 | 65 | 65 | 9 | 9 |
+| 3.15 | 65 | 65 | 9 | 9 |
 
 Each lesson's `python run`, `python module` and `python test` blocks are executed by `scripts/validation/lesson_blocks.py`; a lesson with no executable example fails the check.
 
