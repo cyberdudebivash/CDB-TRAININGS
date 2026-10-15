@@ -1415,7 +1415,7 @@
   "criteria": {
    "A01": "MET",
    "A02": "NOT_MET",
-   "A03": "PARTIAL",
+   "A03": "MET",
    "A04": "PARTIAL",
    "A05": "PARTIAL",
    "A06": "PARTIAL",
@@ -1590,11 +1590,11 @@
   "release_status_claimed_in_catalog": "REENGINEERING",
   "scenarios": {
    "required": 10,
-   "time_dependent_verified": 5,
-   "verified": 5
+   "time_dependent_verified": 6,
+   "verified": 6
   },
-  "score": 54.4,
-  "source_pages_with_module_disposition": 224,
+  "score": 59.2,
+  "source_pages_with_module_disposition": 654,
   "source_pdfs_pages": {
    "SRC-PY-HANDBOOK": 654
   },

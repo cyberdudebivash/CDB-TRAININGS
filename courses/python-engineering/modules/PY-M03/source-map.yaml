@@ -24,3 +24,8 @@ mappings:
     disposition: REPLACED
     new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
     note: "Finding F-PYH-007: replaced by outcome-mapped items and a rubric-graded independent lab with automated checks."
+  - source_pages: [46, 47]
+    source_topic: "32. Modules and packages: `mathutils.py`, a package folder `mylib/` with `__init__.py`; 34. Python project structure (start of the folder tree)"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md sections 6 and 7 (script to package; `src` or flat layout)"
+    note: "The idea of a package is kept; the layout is replaced by a `src` layout whose import behaviour is executed (a flat package imports from the source tree without being installed)."

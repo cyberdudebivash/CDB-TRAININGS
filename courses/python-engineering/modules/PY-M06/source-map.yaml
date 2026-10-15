@@ -34,3 +34,23 @@ mappings:
     disposition: REPLACED
     new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
     note: "Finding F-PYH-007: recall questions replaced by outcome-mapped items and a rubric-graded independent lab with a hidden suite."
+  - source_pages: [70]
+    source_topic: "48. Coroutines: a generator that receives values with `send()`; 'the foundation of async Python'"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 3 (coroutines, tasks and the event loop)"
+    note: "The idea of a function that pauses and resumes is kept; the lesson uses `async def` coroutines, and generator-based coroutines are not taught (F-PYH-010)."
+  - source_pages: [71, 72]
+    source_topic: "49. async/await: 'handles 1 million+ network requests'; a 1000-request example with `aiohttp` and `gather`; 'Async = SPEED'; 50. concurrency versus parallelism (start)"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 3 to 6 and 9; lab-guided steps A to D"
+    note: "The claims carry no measurement and the example has no concurrency limit, timeout or error policy; the lesson measures, bounds and supervises (F-PYH-010)."
+  - source_pages: [73, 74, 75, 76]
+    source_topic: "51-54. Multithreading and the GIL, multiprocessing, 'async vs threads vs processes: final summary' (async -> scalability, threads -> simplicity, processes -> raw power)"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 2 and 8"
+    note: "True of standard builds and incomplete: the free-threaded build is officially supported from 3.14 and subinterpreters are in the standard library from 3.14 (executed); the tool is chosen from a profile, not from a slogan (F-PYH-010)."
+  - source_pages: [130]
+    source_topic: "18.2 Async API automation (end of the example): 'This can fetch 1000+ URLs in seconds'"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 4, 9 and 11"
+    note: "Same claim as pages 135 and 136: no measurement; the lesson reports medians and the spread (F-PYH-010)."

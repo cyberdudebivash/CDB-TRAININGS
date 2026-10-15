@@ -46,11 +46,11 @@
 - Module states: NOT_STARTED 97, IMPLEMENTED_UNVERIFIED 15, TECHNICALLY_VERIFIED 1.
 - Substantive executed lessons: 1 of 113 (1%).
 - Labs verified executable: 27 of 217 (12%); outcomes assessed: 21 of 118 (18%).
-- Source pages with a recorded module disposition: 244 of 8186 (3%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
-- Python Engineering: 13 of 13 catalog modules implemented, score 54.4 of 100, state IMPLEMENTED_UNVERIFIED.
+- Source pages with a recorded module disposition: 674 of 8186 (8%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
+- Python Engineering: 13 of 13 catalog modules implemented, score 59.2 of 100, state IMPLEMENTED_UNVERIFIED.
 
 ### OPERATIONS STATE
-- Operational scenarios technically verified: 7 of 89 (8%); scenario states: IN_PROGRESS 6, NOT_STARTED 76, TECHNICALLY_VERIFIED 7.
+- Operational scenarios technically verified: 8 of 89 (9%); scenario states: IMPLEMENTED_UNVERIFIED 2, IN_PROGRESS 5, NOT_STARTED 74, TECHNICALLY_VERIFIED 8.
 - Courses with at least one verified time-dependent scenario (CONTROLLED_LIVE or REPLAY_SIMULATION): 2 of 10 (20%); EXTERNAL_LIVE scenarios: 0.
 
 ### PUBLICATION STATE

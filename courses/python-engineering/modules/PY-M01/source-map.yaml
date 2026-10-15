@@ -74,3 +74,23 @@ mappings:
     disposition: REPLACED
     new_content: "lab-independent (logkit and report.py)"
     note: "The page lists a project idea without a specification or checks. Replaced by a specified log-processing lab with published examples, a hidden suite and a reviewer rubric (F-PYH-007)."
+  - source_pages: [1]
+    source_topic: "Cover page of the PDF (title and byline; the page has no extractable text)"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "A cover is not instruction; the course has its own title and catalog entry."
+  - source_pages: [29]
+    source_topic: "25. Input and output: `input()` and formatted `print` (end of the previous topic; the file handling that follows is recorded in PY-M05)"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md sections 2 to 5 (every listing prints with f-strings)"
+    note: "Interactive `input()` is not taught because every lab reads files, arguments or fixtures; formatted output is used throughout and tested."
+  - source_pages: [87]
+    source_topic: "67. Python REPL power-user tricks: `dir(str)`, `help(list)`, a lambda in the prompt"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 2 (running Python interactively)"
+    note: "The interactive prompt is kept as one of three ways to run Python; the one-line tricks are not repeated."
+  - source_pages: [130]
+    source_topic: "19. Regex automation: `re.findall(r\"\\d{4}\", ...)` and an email pattern `^[\\w\\.-]+@[\\w\\.-]+\\.\\w+$` as a validator"
+    disposition: CORRECTED
+    new_content: "lesson.md section 6 (text and files)"
+    note: "`\\d` matches digits of other writing systems (executed in the lesson) and an anchored pattern is replaced by `fullmatch`; the email pattern itself is not carried because a pattern cannot say whether an address exists."

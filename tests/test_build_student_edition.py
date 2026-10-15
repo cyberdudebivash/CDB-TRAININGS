@@ -6,6 +6,7 @@ import textwrap
 import pytest
 import yaml
 
+import build_course_edition as bce
 import build_student_edition as be
 
 CFG = be.ROOT / "courses" / "soc-analyst" / "student" / "student-edition.yaml"
@@ -154,3 +155,34 @@ def test_auto_metadata_states_dates_baseline_and_open_items():
     assert set(meta) == {"content_revision_date", "research_verification_date", "technical_baseline", "unverified_external_changes", "next_review_date"}
     assert "PENDING_FUTURE_REFRESH" in meta["research_verification_date"] and "2026-10-14" in meta["research_verification_date"]
     assert "pytest" in meta["technical_baseline"]
+
+
+# ------------------------------------------------------------------ the complete-course preview edition (no toolchain needed)
+
+
+def python_engineering_course():
+    catalog = yaml.safe_load((be.ROOT / "catalog" / "courses.yaml").read_text(encoding="utf-8"))
+    return next(c for c in catalog["courses"] if c["id"] == "COURSE-PY-ENG")
+
+
+def test_the_course_edition_contains_every_module_once_in_catalog_order_and_says_it_is_a_preview():
+    course = python_engineering_course()
+    cfg, module_configs = bce.course_config(course, be.ROOT / "courses" / "python-engineering")
+    assert cfg["modules"] == [m["id"] for m in course["modules"]] and len(module_configs) == len(course["modules"])
+    assert len(cfg["include"]) == len(set(cfg["include"]))
+    assert "Preview Edition" in cfg["title"] and "Premium" not in cfg["title"] and "unreviewed" in cfg["title"]
+    lessons = [rel for rel in cfg["include"] if rel.endswith("/lesson.md")]
+    assert [rel.split("/")[3] for rel in lessons] == cfg["modules"]                       # every lesson, in the order of the catalog
+    assert be.check_sources(cfg) and "/instructor/" in cfg["forbidden_path_fragments"] and "INSTRUCTORS ONLY" in cfg["forbidden_markers"]
+    assert "reviewed by a qualified subject-matter expert" in cfg["notice_text"] and cfg["edition_metadata"] == "auto"
+
+
+def test_a_course_edition_is_refused_while_a_module_is_not_built():
+    course = python_engineering_course()
+    planned = {**course, "modules": [*course["modules"][:-1], {**course["modules"][-1], "status": "PLANNED"}]}
+    with pytest.raises(bce.CourseEditionError, match="PLANNED"):
+        bce.course_config(planned, be.ROOT / "courses" / "python-engineering")
+    unconfigured = {**course, "modules": [*course["modules"], {"id": "PY-M99", "title": "x", "status": "BUILT"}]}
+    with pytest.raises(bce.CourseEditionError, match="PY-M99"):
+        bce.course_config(unconfigured, be.ROOT / "courses" / "python-engineering")
+

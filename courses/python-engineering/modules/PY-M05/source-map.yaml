@@ -39,3 +39,18 @@ mappings:
     disposition: REPLACED
     new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
     note: "Finding F-PYH-007: recall questions replaced by outcome-mapped items and a rubric-graded independent lab with a hidden suite."
+  - source_pages: [29, 30, 31, 32]
+    source_topic: "26. File handling: `open()` modes, `read()`, `readline()`, `readlines()`, writing, `close()`, `with`, binary files"
+    disposition: CORRECTED
+    new_content: "lesson.md section 2; lab-guided steps A and B"
+    note: "`file = open(...)` without a close is shown before `with`, `readlines()` loads the whole file and no encoding is named; the lesson executes the leaked handle (ResourceWarning) and teaches `with`, an explicit encoding and an atomic replace (F-PYH-009)."
+  - source_pages: [77]
+    source_topic: "57. Python file system: `os.listdir`, `os.getcwd`, `os.makedirs`, `os.remove`, `os.rename`"
+    disposition: CORRECTED
+    new_content: "lesson.md section 2 (pathlib, plan then act)"
+    note: "The one-line calls are kept as vocabulary; destructive calls without a plan are replaced by a plan-then-act pattern (F-PYH-009)."
+  - source_pages: [128]
+    source_topic: "17.1-17.2 Browser automation: Selenium `find_element` and `submit`, Playwright `launch(headless=False)` and `goto`"
+    disposition: DROPPED
+    new_content: "not covered by PY-M05"
+    note: "Browser automation drives a real site and needs a browser, a network and a policy for terms of use; it belongs to the Python Automation course (COURSE-PY-AUTO, module PA-M04, planned and unbuilt). No replacement is claimed (F-PYH-006)."

@@ -4,7 +4,7 @@
 > Gate A only: this is `TRAINING_CONTENT_GO` (is the training content complete, correct and releasable as content). Commercial readiness (`COMMERCIAL_GO`) and Academy
 > publication (`ACADEMY_LIVE_GO`) are separate gates that are not part of this phase and are not assessed here.
 
-A *course edition* is the PDF built from the whole approved curriculum of a course. A module preview is not a course edition and cannot satisfy criterion A14. A PDF built while any required module is missing fails the build gate.
+A *course edition* is the PDF built from the whole approved curriculum of a course. A module preview is not a course edition and cannot satisfy criterion A14, and neither can a complete-course *preview* (every module in one PDF, built from content that nobody has reviewed or approved). A PDF built while any required module is missing fails the build gate.
 
 ## 1. Module student editions
 
@@ -34,7 +34,7 @@ A *course edition* is the PDF built from the whole approved curriculum of a cour
 | COURSE-FE-ONBOARD | not built | - | no | no |
 | COURSE-CYBER-MEGA | not built | - | no | no |
 
-Complete course editions validated: 0 of 10 (0%).
+Complete course editions validated as final editions: 0 of 10 (0%).
 
 ## 3. Gates every edition must pass
 

@@ -159,3 +159,38 @@ mappings:
     disposition: DROPPED
     new_content: "none in this module"
     note: "Observability is a topic of the automation pathway (PA-M07); this module covers the audit trail and request ids that observability builds on."
+  - source_pages: [86, 87]
+    source_topic: "66. Environment variables: `os.getenv(\"API_TOKEN\")`, `set` and `export` with a sample token; 'used for API keys, DB passwords, cloud credentials'"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 5 and 9; lab-guided step 1 (settings)"
+    note: "Reading a variable that may be absent and carrying on is replaced by settings that validate and refuse to start without a secret (configuration fails closed), and secrets are never printed or logged (F-PYH-015)."
+  - source_pages: [232]
+    source_topic: "18-19. Flask-WTF contact form (end) and sessions and cookies (start)"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Server-side forms and cookie sessions belong to server-rendered applications; the labs authenticate each request with a token or an API key. A `Set-Cookie` text appears only as a header-injection case in section 7."
+  - source_pages: [245, 247]
+    source_topic: "34-36. Contact system: admin login blueprint with `check_password_hash`, flash messages, JSON and CSV export routes"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Not carried as a project; authentication and authorisation per request are sections 5 and 6, and the API returns JSON documents with a fixed schema (section 3). CSV export for spreadsheets raises its own injection question that this module does not treat."
+  - source_pages: [254, 255, 256]
+    source_topic: "41-45. User authentication with Flask-Login: a `User` model, registration and login routes, protected routes, logout; 46. Google OAuth login with flask-dance (placeholder client id and secret) 'fully production ready'"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Session-based login and an OAuth consent flow need a browser, a provider and credentials that the course does not hold (lesson section 14: not verified); the claim 'fully production ready' is not repeated (F-PYH-015)."
+  - source_pages: [257]
+    source_topic: "47. File uploads: profile pictures (upload folder)"
+    disposition: REPLACED
+    new_content: "lesson.md section 7; lab-independent (asset names)"
+    note: "The server chooses the stored name and the client supplies only a kind; see pages 234 and 258 (F-PYH-015)."
+  - source_pages: [262, 263]
+    source_topic: "52-54. AJAX with `fetch`, Flask-Mail with `MAIL_PASSWORD='APP_PASSWORD'`, Flask-Admin dashboard with charts"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Browser JavaScript and dashboards are a front-end topic; sending mail needs a server and credentials that the labs do not have, and the placeholder password pattern is the anti-pattern of section 9."
+  - source_pages: [272]
+    source_topic: "62-62.2. Email verification workflow: an OTP model and `smtplib` helper"
+    disposition: REPLACED
+    new_content: "lesson.md section 5"
+    note: "One-time codes are not taught; the module teaches tokens with one purpose each and an injectable clock. Sending mail is not covered (no network in the labs)."

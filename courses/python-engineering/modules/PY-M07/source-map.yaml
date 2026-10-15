@@ -44,3 +44,8 @@ mappings:
     disposition: REPLACED
     new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
     note: "Finding F-PYH-007."
+  - source_pages: [253]
+    source_topic: "40. Password security: hashing and salting with `generate_password_hash` and `check_password_hash`"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 5; guided lab (password storage)"
+    note: "Never store a password you can read back: the lesson executes a salted, memory-hard hash (`hashlib.scrypt`) and a constant-time comparison instead of a framework helper (F-PYH-002)."

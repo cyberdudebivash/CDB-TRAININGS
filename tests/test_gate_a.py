@@ -136,6 +136,17 @@ def test_the_lab_matrix_runs_the_foundations_tests_too():
     assert on_disk and all(name in module.SUITES for name in on_disk), on_disk      # a foundations module whose tests the matrix does not run has no recorded evidence
 
 
+def test_a_complete_course_preview_is_not_a_final_edition_and_an_unsourced_one_is_not_evidence():
+    preview = {"course": "COURSE-X", "kind": "PREVIEW", "passed": True, "modules": ["A"]}
+    assert not G.is_final_course_pdf(preview) and not G.is_final_course_pdf(None) and not G.is_final_course_pdf({**preview, "passed": False})
+    assert G.is_final_course_pdf({"course": "COURSE-X", "kind": "FINAL", "passed": True, "modules": ["A"]})
+    assert not G.edition_is_fresh({"sources": {}, "passed": True})                  # no recorded sources: not evidence
+    for course in G.Portfolio().courses.values():
+        cp = course["course_pdf"]
+        if cp:
+            assert cp.get("kind") == "PREVIEW" and course["criteria"]["A14"]["status"] != G.MET      # a recorded course edition is a preview and never satisfies A14
+
+
 def test_an_interrupted_matrix_run_resumes_only_with_identical_content(tmp_path):
     import importlib.util
     spec = importlib.util.spec_from_file_location("run_lab_matrix", ROOT / "scripts" / "validation" / "run_lab_matrix.py")

@@ -25,11 +25,11 @@ Gate A never reads a status that someone typed in to decide completeness. A modu
 - Module states: NOT_STARTED 97, IMPLEMENTED_UNVERIFIED 15, TECHNICALLY_VERIFIED 1.
 - Substantive executed lessons: 1 of 113 (1%).
 - Labs verified executable: 27 of 217 (12%); outcomes assessed: 21 of 118 (18%).
-- Source pages with a recorded module disposition: 244 of 8186 (3%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
-- Python Engineering: 13 of 13 catalog modules implemented, score 54.4 of 100, state IMPLEMENTED_UNVERIFIED.
+- Source pages with a recorded module disposition: 674 of 8186 (8%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
+- Python Engineering: 13 of 13 catalog modules implemented, score 59.2 of 100, state IMPLEMENTED_UNVERIFIED.
 
 ### OPERATIONS STATE
-- Operational scenarios technically verified: 7 of 89 (8%); scenario states: IN_PROGRESS 6, NOT_STARTED 76, TECHNICALLY_VERIFIED 7.
+- Operational scenarios technically verified: 8 of 89 (9%); scenario states: IMPLEMENTED_UNVERIFIED 2, IN_PROGRESS 5, NOT_STARTED 74, TECHNICALLY_VERIFIED 8.
 - Courses with at least one verified time-dependent scenario (CONTROLLED_LIVE or REPLAY_SIMULATION): 2 of 10 (20%); EXTERNAL_LIVE scenarios: 0.
 
 ### PUBLICATION STATE
@@ -89,7 +89,7 @@ Each dimension is a fraction in [0, 1] computed from evidence (formulas in `scri
 | Model-inspected, finding cited (pages a model read in full and cited in a finding) | 153 | recorded as `MODEL_READ_FINDING_CITED` in the page records; this is model inspection, not human review |
 | Machine-flagged, review required | 498 | flagged by a rule; awaiting a reviewer |
 | Visually inspected by the model (page image rendered and viewed; not human) | 58 | of 58 pages the text scan cannot judge (no text layer or near blank); recorded in `docs/production/data/visual_review.yaml`, check G08. The 22 near-blank GCP pages are figure and screenshot pages, the 5 near-blank MEGA pages are empty, the 23 OSINT pages without a text layer are marketing prose rendered as images |
-| Externally verified (claims checked against primary sources) | 244 | pages whose content maps to a built module with research-verified change records |
+| Externally verified (claims checked against primary sources) | 674 | pages whose content maps to a built module with research-verified change records |
 | Human-reviewed | 0 | none: no reviewer has signed any page (see HUMAN_REVIEW_REGISTER.md) |
 
 The categories are not additive and a page may appear in several. Model inspection is never described as human review. All 8186 pages were machine-scanned; the remaining pages stay open items (DEF-007, DEF-008).

@@ -144,6 +144,11 @@ def edition_is_fresh(entry: dict) -> bool:
     return True
 
 
+def is_final_course_pdf(entry: dict | None) -> bool:
+    """A complete-course edition counts as a final edition only if it passed its checks, is fresh and is not a PREVIEW (a preview is built from unreviewed, unapproved content)."""
+    return bool(entry and entry.get("passed") and entry.get("kind") != "PREVIEW")
+
+
 def matrix_markers(module_id: str) -> tuple[str, str] | None:
     """How the tests of a module are recognised in the recorded lab-matrix run: (a marker in the id of the module's own lab tests, the suffix of its parametrised pack tests).
     Python Engineering modules have `test_mNN_*` functions in tests/test_python_engineering_labs.py; FND-M01 has its own file tests/test_fnd_m01.py. Any other module has none."""
@@ -299,6 +304,9 @@ class Portfolio:
         labs, outs = course["lab_coverage"], course["assessment_coverage"]
         ip = (self.inputs["course_overrides"].get(course["id"], {}) or {}).get("ip_licensing") or self.inputs["defaults"]["ip_licensing"]
         course_pdf = next((e for e in self.pdfs.get("course_editions", []) if e.get("course") == course["id"]), None)
+        if course_pdf:
+            course_pdf = {**course_pdf, "fresh": edition_is_fresh(course_pdf)}
+            course_pdf["passed"] = bool(course_pdf.get("passed")) and course_pdf["fresh"]      # a build whose sources changed afterwards is not evidence
         approvals = self.approvals(course["id"], [m["id"] for m in course["modules"]])
         rec = {"id": course["id"], "slug": course["slug"], "title": course["title"], "required": required, "implemented": implemented, "verified": verified, "reviewed": reviewed,
                "modules": [m["id"] for m in mods], "lessons_substantive": sum(1 for m in mods if m["lesson"]["words"] >= self.criteria["min_lesson_words"] and STATES.index(m["state"]) >= 3),
@@ -400,15 +408,21 @@ class Portfolio:
         ip = rec["ip"]
         put("A11", MET if ip["status"] == "MET" else NOT_MET, f"IP/licensing {ip['status']}" + (f" (blockers {', '.join(ip.get('blockers', []))})" if ip.get("blockers") else ""))
         editions = sum(1 for m in mods if m["edition_config"] and STATES.index(m["state"]) >= 2)
-        put("A12", MET if editions == rec["required"] and rec["course_pdf"] else PARTIAL if editions else NOT_MET, f"{editions} of {rec['required']} module student-edition configs; complete course edition {'present' if rec['course_pdf'] else 'absent'}")
+        cpdf = rec["course_pdf"]
+        put("A12", MET if editions == rec["required"] and cpdf and cpdf.get("passed") else PARTIAL if editions else NOT_MET,
+            f"{editions} of {rec['required']} module student-edition configs; complete course edition {('present (' + str(cpdf.get('kind', 'FINAL')).lower() + ')') if cpdf and cpdf.get('passed') else 'absent'}")
         private_ok = all(m["private_pack_recorded"] for m in mods if STATES.index(m["state"]) >= 2) and built
         d8_open = any(i["decision"] == "D8" and i["status"] != "CLOSED" for i in self.incidents)
         put("A13", MET if private_ok and not d8_open and rec["implemented"] == rec["required"] else PARTIAL if private_ok else NOT_MET if built else NOT_ASSESSED,
             f"instructor packs recorded for {sum(1 for m in mods if m['private_pack_recorded'])} modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) {'NOT created' if d8_open else 'in place'}")
         cp = rec["course_pdf"]
-        put("A14", MET if cp and cp.get("passed") and set(cp.get("modules", [])) >= set(rec["modules"]) else NOT_MET, "complete course edition validated" if cp and cp.get("passed") else "no complete course edition has been built; module previews are not course editions")
+        final = bool(cp and cp.get("passed") and cp.get("kind") != "PREVIEW" and set(cp.get("modules", [])) >= set(rec["modules"]))
+        put("A14", MET if final else NOT_MET,
+            "complete course edition validated" if final else
+            f"a complete-course PREVIEW edition ({cp['pdf_pages']} pages, {len(cp.get('modules', []))} modules) passed the structure checks, but a final edition needs the approved curriculum (A17 to A19)" if cp and cp.get("passed") and cp.get("kind") == "PREVIEW"
+            else "no complete course edition has been built; module previews are not course editions")
         ed_ok = sum(1 for m in mods if m["edition"] and m["edition"].get("passed"))
-        put("A15", MET if ed_ok == rec["required"] and cp else PARTIAL if ed_ok else NOT_MET, f"{ed_ok} of {rec['required']} module editions pass the accessibility and structure gates")
+        put("A15", MET if ed_ok == rec["required"] and cp and cp.get("passed") else PARTIAL if ed_ok else NOT_MET, f"{ed_ok} of {rec['required']} module editions pass the accessibility and structure gates")
         blockers = [d for d in rec["defects"] if d["severity"] in ("P0", "P1")]
         put("A16", NOT_MET if blockers else MET, f"{len(blockers)} open P0/P1 defects apply: " + ", ".join(d["id"] for d in blockers[:6]) + (" ..." if len(blockers) > 6 else "") if blockers else "none open")
         ap = rec["approvals"]
@@ -437,7 +451,7 @@ class Portfolio:
             "assessment_capstone": 0.7 * (outs["outcomes_assessed"] / outs["outcomes_total"]) + 0.3 * capstone,
             "security_reliability": 0.7 * (negative / n) + 0.3 * no_open_blockers,
             "clarity_accessibility": editions_ok / n,
-            "pdf_integrity": 1.0 if rec["course_pdf"] and rec["course_pdf"].get("passed") else 0.0,
+            "pdf_integrity": 1.0 if is_final_course_pdf(rec["course_pdf"]) else 0.0,
             "traceability_maintainability": pages,
         }
         return {k: {"name": dims[k]["name"], "weight": dims[k]["weight"], "fraction": round(v, 4), "points": round(dims[k]["weight"] * v, 2)} for k, v in raw.items()}
@@ -464,7 +478,7 @@ class Portfolio:
             "realtime_courses_ok": sum(1 for c in courses if c["realtime_verified"] >= self.scenarios["realtime_minimum_per_course"]),
             "source_pages": sum(c["source_pages"] for c in courses), "source_pages_with_disposition": sum(c["source_pages_with_disposition"] for c in courses),
             "lessons_substantive": sum(c["lessons_substantive"] for c in courses),
-            "course_pdfs_required": len(courses), "course_pdfs_validated": sum(1 for c in courses if c["course_pdf"] and c["course_pdf"].get("passed")),
+            "course_pdfs_required": len(courses), "course_pdfs_validated": sum(1 for c in courses if is_final_course_pdf(c["course_pdf"])),
             "module_editions_passing": sum(1 for m in mods if m["edition"] and m["edition"].get("passed")),
             "open_p0": sum(1 for d in self.defects if d["status"] != "CLOSED" and d["severity"] == "P0"), "open_p1": sum(1 for d in self.defects if d["status"] != "CLOSED" and d["severity"] == "P1"),
             "reviews_recorded": len(self.reviews),

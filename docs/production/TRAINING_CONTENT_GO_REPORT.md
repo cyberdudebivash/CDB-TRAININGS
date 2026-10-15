@@ -84,15 +84,15 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **11.2** of 100; e
 
 ## COURSE-PY-ENG: Python Engineering Pathway
 
-State: **IMPLEMENTED_UNVERIFIED** (engineering state IMPLEMENTED_UNVERIFIED); score **54.4** of 100; eligible: no.
+State: **IMPLEMENTED_UNVERIFIED** (engineering state IMPLEMENTED_UNVERIFIED); score **59.2** of 100; eligible: no.
 
 | Criterion | Status | Evidence |
 |---|---|---|
 | A01 All approved required modules are implemented | MET | 13 of 13 required modules implemented |
 | A02 Every required lesson contains substantive, executed instruction | NOT_MET | 0 of 13 lessons substantive and executed (169 numbered sections, 204 executed blocks) |
-| A03 Source coverage is reconciled: every source page has a recorded disposition | PARTIAL | 224 of 654 source pages have a recorded disposition in a built module's source map |
+| A03 Source coverage is reconciled: every source page has a recorded disposition | MET | 654 of 654 source pages have a recorded disposition in a built module's source map |
 | A04 Material technical claims are verified and the October 24 refresh is executed | PARTIAL | 23 of 26 change records EXECUTED or RESEARCH_VERIFIED, 3 open; October 24 refresh PENDING (not executable before 2026-10-24) |
-| A05 Required operational scenarios are implemented and verified | PARTIAL | 5 of 10 operational scenarios technically verified; 5 time-dependent scenario(s) verified (minimum 1) |
+| A05 Required operational scenarios are implemented and verified | PARTIAL | 6 of 10 operational scenarios technically verified; 6 time-dependent scenario(s) verified (minimum 1) |
 | A06 Required practical labs pass their validation criteria on the declared matrix | PARTIAL | 25 of 25 planned labs verified executable |
 | A07 Every learning outcome is measurable and assessed | MET | 13 of 13 outcomes assessed |
 | A08 The capstone has a working deliverable, acceptance criteria and a check | NOT_MET | capstone module PY-M11: IMPLEMENTED_UNVERIFIED |
@@ -112,13 +112,13 @@ State: **IMPLEMENTED_UNVERIFIED** (engineering state IMPLEMENTED_UNVERIFIED); sc
 |---|---|---|---|
 | Technical accuracy and currency | 20 | 0.0 | 0.0 |
 | Curriculum and lesson completeness | 15 | 1.0 | 15.0 |
-| Customer operational relevance | 15 | 0.5 | 7.5 |
+| Customer operational relevance | 15 | 0.6 | 9.0 |
 | Practical labs and reproducibility | 15 | 1.0 | 15.0 |
 | Assessment and capstone rigor | 10 | 0.7 | 7.0 |
 | Security and reliability | 10 | 0.5923 | 5.92 |
 | Instructional clarity and accessibility | 5 | 0.4615 | 2.31 |
 | Premium PDF and document integrity | 5 | 0.0 | 0.0 |
-| Source traceability and maintainability | 5 | 0.3425 | 1.71 |
+| Source traceability and maintainability | 5 | 1.0 | 5.0 |
 
 ## COURSE-PY-AUTO: Python Automation Pathway
 

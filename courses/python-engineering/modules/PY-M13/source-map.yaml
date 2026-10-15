@@ -39,3 +39,8 @@ mappings:
     disposition: CORRECTED
     new_content: "lesson.md sections 6 and 8; lab-independent (memo, Transaction)"
     note: "Context managers are taught with guaranteed cleanup, contextmanager with try/finally and ExitStack. The unbounded lru_cache is shown with its limits (hashable arguments, memory held for the life of the program). The other optimisation tools on page 79 (PyPy, Cython, NumPy) are not covered here and belong with PY-M09 (F-PYH-012)."
+  - source_pages: [62]
+    source_topic: "Scope: 'L - Local, E - Enclosing, G - Global, B - Built-in; LEGB rule determines variable resolution' with one example"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 5 (closures: `nonlocal`, variables captured by closures)"
+    note: "Name resolution is taught through closures and `nonlocal`, where the rule changes behaviour; the LEGB mnemonic itself is not repeated."

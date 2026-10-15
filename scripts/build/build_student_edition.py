@@ -117,9 +117,9 @@ def auto_metadata(cfg: dict, front_matter: dict) -> dict:
     import modern_data as M
 
     d = M.Data()
-    module = cfg["module"]
+    modules = set(cfg.get("modules") or [cfg["module"]])               # a complete-course edition lists every module it contains
     open_status = {"NEEDS_VERIFICATION", "SECONDARY_ONLY", "MACHINE_ONLY"}
-    open_changes = [ch for ch in d.changes if module in ch["implemented"]["modules"] and ch["verification"]["status"] in open_status]
+    open_changes = [ch for ch in d.changes if modules & set(ch["implemented"]["modules"]) and ch["verification"]["status"] in open_status]
     cited = front_matter.get("versions_cited", {})
     return {
         "content_revision_date": str(front_matter.get("last_verified", "n/a")),
@@ -224,7 +224,7 @@ def build_html(cfg: dict, sources: list[Path]) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
-<meta name="description" content="Student edition of {html.escape(cfg['module'])} (pilot build; not reviewed by a qualified subject-matter expert).">
+<meta name="description" content="Student edition of {html.escape(cfg.get('scope_label') or cfg['module'])} (pilot build; not reviewed by a qualified subject-matter expert).">
 <meta name="generator" content="CDB Academy build_student_edition.py">
 <style>
 {css}
@@ -234,7 +234,7 @@ def build_html(cfg: dict, sources: list[Path]) -> str:
 <a class="skip" href="#main">Skip to content</a>
 <header class="doc">
 <h1>{html.escape(title)}</h1>
-<p class="meta">Course {html.escape(cfg['course'])} · Module {html.escape(cfg['module'])} · Edition version {html.escape(str(cfg['version']))} · Content last verified {html.escape(str(verified))}</p>
+<p class="meta">Course {html.escape(cfg['course'])} · {html.escape(cfg.get('scope_label') or 'Module ' + cfg['module'])} · Edition version {html.escape(str(cfg['version']))} · Content last verified {html.escape(str(verified))}</p>
 <p class="notice"><strong>{html.escape(notice_title)}</strong> {html.escape(notice_text)}</p>
 {disclosure}
 {toc_html(sections)}
