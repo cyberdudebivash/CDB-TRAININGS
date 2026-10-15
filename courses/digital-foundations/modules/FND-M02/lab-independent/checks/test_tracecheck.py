@@ -3,7 +3,16 @@ import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'starter'))
-from tracecheck import summarize
+from tracecheck import summarize as _student_summarize
+
+def summarize(lines):
+    try:
+        return _student_summarize(lines)
+    except NotImplementedError:
+        raise AssertionError(
+            "FND-M02 STARTER INCOMPLETE: implement summarize(lines) in starter/tracecheck.py "
+            "according to the lab README, then rerun the contract checks."
+        ) from None
 
 class TranscriptContract(unittest.TestCase):
     def test_all_zero(self):
