@@ -22,7 +22,7 @@ From the repository root:
 javac -d build courses/java-test-automation/labs/order-contract/OrderCalculator.java courses/java-test-automation/labs/order-contract/OrderCalculatorTest.java && java -cp build OrderCalculatorTest
 ```
 
-The Java example writes compiler output to the locally ignored `build` directory (run it from the lab folder or replace it with a temporary output folder). No purchased accounts are required. **Do not infer multi-platform coverage from one successful local run.**
+The Java exercise compiles into a temporary output directory in the strict validator; compile it in a disposable directory if running manually. No purchased accounts are required. **Do not infer multi-platform coverage from one successful local run.**
 
 ## Guided exercise
 

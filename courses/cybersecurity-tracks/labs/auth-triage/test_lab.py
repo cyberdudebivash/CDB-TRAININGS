@@ -17,6 +17,15 @@ class TriageTests(unittest.TestCase):
  def test_timezone_required(self):
   bad=AuthEvent('x','a','s',False,datetime(2026,10,14))
   with self.assertRaises(ValueError):detect([bad])
+ def test_invalid_threshold_types_are_rejected(self):
+  for threshold in (2.5,'3',True,False,1,101):
+   with self.subTest(threshold=threshold),self.assertRaisesRegex(ValueError,'settings'):
+    detect([],threshold=threshold)
+ def test_invalid_event_outcome_is_rejected(self):
+  invalid=AuthEvent('evt','account','source',1,NOW)
+  with self.assertRaisesRegex(ValueError,'event fields'):detect([invalid])
+ def test_invalid_window_type_is_rejected(self):
+  with self.assertRaisesRegex(ValueError,'settings'):detect([],window='five-minutes')
  def test_duplicate_ids_rejected(self):
   with self.assertRaisesRegex(ValueError,'duplicate'):detect([e(1),e(1)])
 if __name__=='__main__':unittest.main()
