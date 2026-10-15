@@ -5,19 +5,19 @@
 
 - Course: `COURSE-PY-ENG` (catalog version 0.1.0-build, slug `python-engineering`)
 - Legacy sources: SRC-PY-HANDBOOK (CyberDudeBivash Python Engineering Handbook)
-- Concept-level change records: **19**; new developments assigned: **5**
+- Concept-level change records: **20**; new developments assigned: **5**
 
 ## Page-level audit rollup (machine candidates)
 
 | Source | Pages | Page-level action | Severity | Human-read (finding-cited) | Visual review needed |
 |---|---|---|---|---|---|
-| SRC-PY-HANDBOOK | 654 | KEEP 326, UPDATE 150, REPLACE 92, EXPAND 12, REMOVE 74 | P0 2, P1 12, P2 47, P3 14, P4 12, NONE 567 | 18 | 1 |
+| SRC-PY-HANDBOOK | 654 | KEEP 325, UPDATE 150, REPLACE 93, EXPAND 12, REMOVE 74 | P0 2, P1 12, P2 51, P3 14, P4 12, NONE 563 | 23 | 1 |
 
 These counts are rule outputs over every page; `KEEP` is a candidate, not a verdict.
 
 ## Differential analysis
 
-Actions: KEEP 1, UPDATE 6, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
+Actions: KEEP 1, UPDATE 7, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 
 ### MC-PYH-01 - Python language foundations (installing, syntax, types, control flow, functions, data structures)
 
@@ -224,7 +224,7 @@ Actions: KEEP 1, UPDATE 6, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 - **2025 source state:** Concurrency is introduced through the GIL, threading versus multiprocessing questions.
 - **Verified state at 2026-10-14:** The free-threaded build is officially supported in Python 3.14 (PEP 779); multiple interpreters are in the standard library (PEP 734).
 - **Why:** Concurrency model options changed.
-- **Destination:** PY-M06 (PLANNED)
+- **Destination:** PY-M06 (BUILT)
 - **Learner impact:** Benchmark-driven choice between asyncio, threads, processes and free-threading.
 - **Verification:** RESEARCH_VERIFIED - docs.python.org 3.14 notes (partial read)
 - **Evidence:**
@@ -278,6 +278,23 @@ Actions: KEEP 1, UPDATE 6, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
   - `probe:http-client-defaults`: executed probe, status OK, 2026-10-14T15:15:46Z, Python 3.13.16
   - `probe:pydantic-lax-and-strict-validation`: executed probe, status OK, 2026-10-14T15:15:55Z, Python 3.13.16
   - `snapshot:httpx`: registry snapshot pypi: 0.28.1 (2024-12-06), retrieved 2026-10-14T08:47:33Z
+
+### MC-PYH-20 - Multithreaded and asynchronous automation (ThreadPoolExecutor, asyncio, httpx.AsyncClient) and its speed claims
+
+- **Action:** UPDATE  |  **Source:** SRC-PY-HANDBOOK, pages 133-137, 177-178
+- **2025 source state:** Threads and asyncio are shown with unmeasured claims ('3x faster', '1000 requests happen in SECONDS', 'under 3 seconds'), a client per request, no concurrency limit or timeout, gather without supervision and 'pip install httpx asyncio' (pp. 135, 136, 177, 178; F-PYH-010).
+- **Verified state at 2026-10-14:** gather leaves sibling tasks running after a failure while TaskGroup (3.11) cancels them; an unbounded fan-out reaches dozens of simultaneous requests while a semaphore keeps it at the chosen limit; a blocking call freezes the event loop; threads give no CPU speed-up on a GIL build; the PyPI project 'asyncio' is a deprecated code-free placeholder; free-threaded builds and subinterpreters are officially available from Python 3.14 (executed on CPython 3.11-3.15).
+- **Why:** Reliability and honesty defects in examples meant to be copied into unattended automation, and a concurrency model that has since gained new options.
+- **Destination:** PY-M06 (BUILT)
+- **Learner impact:** Learners choose the tool from a measured profile, bound and supervise concurrent work, and prove any speed-up with a benchmark that reports medians, ranges and what it did not test.
+- **Verification:** EXECUTED - probe pypi-asyncio-placeholder; tests/test_python_engineering_labs.py (PY-M06 labs) and the lesson blocks executed on CPython 3.11-3.15
+- **Evidence:**
+  - `F-PYH-010`: P2 Concurrency examples promise speed-ups without measurement and show unbounded, unsupervised asyncio patterns
+  - `R-046`: What's New In Python 3.14 (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://docs.python.org/3/whatsnew/3.14.html>
+  - `R-093`: Python documentation - Coroutines and Tasks (gather, TaskGroup, timeout, create_task, cancellation) (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://docs.python.org/3/library/asyncio-task.html>
+  - `R-094`: PyPI package 'asyncio' is a deprecated, code-free placeholder (reproduced) (PyPI; EXECUTED; verified 2026-10-14) <https://pypi.org/project/asyncio/>
+  - `R-095`: asyncio and concurrency features by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0) (Python Software Foundation; EXECUTED; verified 2026-10-14) <https://docs.python.org/3/library/asyncio.html>
+  - `probe:pypi-asyncio-placeholder`: executed probe, status OK, 2026-10-14T16:52:18Z, Python 3.13.16
 
 ## New developments relevant to this course
 

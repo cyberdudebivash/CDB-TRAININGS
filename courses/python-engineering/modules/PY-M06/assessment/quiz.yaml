@@ -1,0 +1,35 @@
+# Knowledge check for PY-M06. Questions only: the answer key is held by instructors (see courses/python-engineering/instructor/README.md).
+module: PY-M06
+items:
+  - id: Q1
+    outcome: LO1
+    stem: "A job downloads 200 files and spends almost all of its time waiting for the network. Which change is most likely to shorten it?"
+    options: {A: "Run one process per CPU core, each doing the downloads one after another", B: "Overlap the waits, with asyncio or threads, and put a limit on how many requests are in flight", C: "Move the program to a computer with a faster processor", D: "Rewrite the parsing loop with list comprehensions"}
+  - id: Q2
+    outcome: LO1
+    stem: "Four threads each run a loop of pure-Python arithmetic that takes one second when run alone. On a standard CPython build (GIL enabled), how long does the whole job take compared with running the four loops one after another?"
+    options: {A: "About a quarter of the time", B: "About half of the time", C: "About twice as long", D: "About the same time; a large speed-up is not expected"}
+  - id: Q3
+    outcome: LO2
+    stem: "A coroutine calls `time.sleep(1)` in the middle of an asyncio program that has many other tasks. What happens?"
+    options: {A: "Every other task in the event loop is stalled for that second", B: "Only that task waits; the other tasks carry on", C: "Python raises RuntimeError", D: "Python converts the call to `asyncio.sleep(1)` automatically"}
+  - id: Q4
+    outcome: LO2
+    stem: "With `asyncio.gather(*coros)` and default settings, one coroutine raises an exception. What happens to the other coroutines?"
+    options: {A: "They are cancelled at once", B: "They are waited for and their results are returned together with the exception", C: "They keep running; gather does not cancel them", D: "They are paused until the exception has been handled"}
+  - id: Q5
+    outcome: LO3
+    stem: "A program starts 5000 requests at once with `asyncio.gather` and no limit. What is the main risk?"
+    options: {A: "Python refuses to create more than 100 tasks", B: "It can overwhelm the server or exhaust connections and memory, and the server may start refusing or throttling requests", C: "The requests run one after another anyway", D: "The results come back in random order"}
+  - id: Q6
+    outcome: LO3
+    stem: "A coroutine does `try: await asyncio.sleep(10)` with `except BaseException: return None` and is run inside `async with asyncio.timeout(1):`. What happens after one second?"
+    options: {A: "TimeoutError is raised in the caller", B: "The sleep continues for the full ten seconds", C: "RuntimeError is raised", D: "The cancellation is swallowed, the block ends without a TimeoutError, and the timeout had no effect"}
+  - id: Q7
+    outcome: LO4
+    stem: "Why does a careful benchmark run the two candidates alternately (baseline, candidate, baseline, candidate, ...) instead of all baseline runs first?"
+    options: {A: "So that drift on the computer, such as other programs or warming caches, affects both candidates alike", B: "To make the total running time shorter", C: "Because Python cannot call the same function twice in a row", D: "So that the median does not need to be computed"}
+  - id: Q8
+    outcome: LO5
+    stem: "A nightly job fetches 300 pages and a few of them fail. It should keep what it got and report the failures. Which design fits?"
+    options: {A: "Fail fast: the first error cancels everything and nothing is saved", B: "Ignore every error silently", C: "Run all jobs and return one outcome per job (a value or an error) in input order, while letting a cancellation pass through", D: "Retry forever until every page succeeds"}

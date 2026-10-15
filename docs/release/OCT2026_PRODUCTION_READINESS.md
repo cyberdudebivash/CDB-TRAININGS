@@ -12,7 +12,7 @@ The ten readiness fields below are kept **separate on purpose**: a high score in
 |---|---|---|---|---|---|
 | COURSE-FND-DIGITAL | 0 / 6 | 0.0 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
 | COURSE-SOC | 1 / 14 | 12.8 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
-| COURSE-PY-ENG | 6 / 11 | 30.5 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
+| COURSE-PY-ENG | 7 / 11 | 34.3 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
 | COURSE-PY-AUTO | 0 / 10 | 4.5 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
 | COURSE-JAVA-QA | 0 / 10 | 5.0 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
 | COURSE-AI-ENG | 0 / 12 | 8.9 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
@@ -59,11 +59,11 @@ The ten readiness fields below are kept **separate on purpose**: a high score in
 
 | Field | Status | Evidence |
 |---|---|---|
-| Research currency | PARTIAL | 16 of 19 change records EXECUTED or RESEARCH_VERIFIED; 3 open; Stage B pending |
-| Technical correctness | PARTIAL | 6 of 11 modules built with executed labs; no SME review |
-| Curriculum completeness | PARTIAL | 6 of 11 modules built |
-| Lab readiness | PARTIAL | 12 of 21 labs verified executable (12 built) |
-| Assessment readiness | PARTIAL | 6 of 11 outcomes assessed; no SME review, no learner pilot |
+| Research currency | PARTIAL | 17 of 20 change records EXECUTED or RESEARCH_VERIFIED; 3 open; Stage B pending |
+| Technical correctness | PARTIAL | 7 of 11 modules built with executed labs; no SME review |
+| Curriculum completeness | PARTIAL | 7 of 11 modules built |
+| Lab readiness | PARTIAL | 14 of 21 labs verified executable (14 built) |
+| Assessment readiness | PARTIAL | 7 of 11 outcomes assessed; no SME review, no learner pilot |
 | Editorial review | NOT_MET | No editorial or SME review has taken place; automated checks only. |
 | IP / licensing | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
 | Commercial readiness | NOT_MET | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |

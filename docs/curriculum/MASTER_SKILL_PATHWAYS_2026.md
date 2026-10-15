@@ -20,10 +20,10 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 |---|---|---|---|---|---|---|---|
 | PATH-SOC-ANALYST | SOC analyst | Learners aiming at Tier-1/Tier-2 security-operations work | 22 | 156 | 3 | SOC-M14 | 4 |
 | PATH-DETECTION-ENGINEER | Detection engineer | SOC analysts moving to detection engineering | 18 | 132 | 5 | CYB-M11 | 5 |
-| PATH-PYTHON-ENGINEER | Python engineer | Developers and analysts who need production-quality Python | 17 | 124 | 6 | PY-M11 | 4 |
+| PATH-PYTHON-ENGINEER | Python engineer | Developers and analysts who need production-quality Python | 17 | 124 | 7 | PY-M11 | 4 |
 | PATH-AUTOMATION-ENGINEER | Automation engineer (Python) | Operations, QA and security staff automating repeatable work | 21 | 145 | 5 | PA-M10 | 5 |
 | PATH-TEST-AUTOMATION-JAVA | Test automation engineer (Java) | Manual testers and Java developers moving into test automation | 16 | 124 | 0 | JQA-M10 | 5 |
-| PATH-AI-ENGINEER | Applied AI / LLM engineer | Engineers building LLM-based applications | 29 | 238 | 6 | AI-M12 | 11 |
+| PATH-AI-ENGINEER | Applied AI / LLM engineer | Engineers building LLM-based applications | 29 | 238 | 7 | AI-M12 | 11 |
 | PATH-AI-SECURITY | AI security practitioner | Security staff assessing AI-enabled systems | 19 | 148 | 4 | AI-M07 | 8 |
 | PATH-DATA-ENGINEER-GCP | Data engineer (Google Cloud) | Data and software engineers building pipelines on Google Cloud | 22 | 166 | 4 | GCP-M11 | 8 |
 | PATH-FRONTEND-ENGINEER | Frontend engineer | New frontend engineers and backend developers moving to frontend | 17 | 124 | 0 | FE-M11 | 8 |
@@ -113,7 +113,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 9 | PY-M03 | Types, modules and project layout | 2 | 6 | BUILT | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
 | 10 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
 | 11 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT | MC-PYH-19 | - |
-| 12 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | PLANNED | MC-PYH-16 | ND-PY-02 |
+| 12 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | BUILT | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
 | 13 | PY-M07 | Secure coding for Python | 2 | 8 | BUILT | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
 | 14 | PY-M08 | Databases and persistence | 2 | 6 | PLANNED | MC-PYH-08 | - |
 | 15 | PY-M09 | Profiling, performance and maintainable architecture | 3 | 8 | PLANNED | - | ND-PY-01 |
@@ -197,7 +197,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 9 | PY-M03 | Types, modules and project layout | 2 | 6 | BUILT | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
 | 10 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
 | 11 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT | MC-PYH-19 | - |
-| 12 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | PLANNED | MC-PYH-16 | ND-PY-02 |
+| 12 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | BUILT | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
 | 13 | PY-M07 | Secure coding for Python | 2 | 8 | BUILT | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
 | 14 | PY-M08 | Databases and persistence | 2 | 6 | PLANNED | MC-PYH-08 | - |
 | 15 | PY-M09 | Profiling, performance and maintainable architecture | 3 | 8 | PLANNED | - | ND-PY-01 |

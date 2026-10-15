@@ -16,9 +16,9 @@ This is the ledger behind every currency claim in the modernization: what was ch
 | Method | Entries | What it proves | Usable for customer-facing claims |
 |---|---|---|---|
 | PRIMARY_DOCUMENT_READ | 10 | A primary document/page was downloaded and the cited passage read directly. | Yes |
-| EXECUTED | 4 | The claim was reproduced by running code in a clean environment (see section 4). | Yes, for the stated version only |
+| EXECUTED | 6 | The claim was reproduced by running code in a clean environment (see section 4). | Yes, for the stated version only |
 | REGISTRY_API | 1 | Machine-readable package-registry or lifecycle data retrieved by `scripts/research/fetch_registry_versions.py`. | Yes, for version/date statements |
-| OFFICIAL_PAGE_SUMMARY | 72 | An official page was fetched through a summarising tool; the summary was NOT cross-checked against raw text. | No: re-verify against the primary text first |
+| OFFICIAL_PAGE_SUMMARY | 73 | An official page was fetched through a summarising tool; the summary was NOT cross-checked against raw text. | No: re-verify against the primary text first |
 | SECONDARY_SOURCE | 5 | Trade press or other non-primary coverage; carries a caveat. | No |
 
 Source preference order used throughout: (1) official specification, standard or vendor documentation; (2) the project's own release notes; (3) package-registry metadata; (4) executed behaviour; (5) secondary coverage, always flagged. Marketing pages, social posts and uncited blog claims were not used as evidence.
@@ -53,6 +53,7 @@ Each probe installs pinned, snapshot-current versions into a throw-away virtual 
 | pydantic-lax-and-strict-validation | validating decoded JSON with a model: coercion, missing fields, extra fields | OK | Python 3.13.16 | pydantic==2.14.1 | {"bool_to_int_in_lax_mode": "1", "extra_field_ignored_by_default": true, "forbid_extra_error_type": "extra_forbidden", "lax_float_with_fraction_to_int": "rejected", "lax_string_to_int": "5", "missing_field_error": {"loc": ["price_cents"], "type": "missing"}... | 2026-10-14T15:15:55Z |
 | pydantic-v1-style-api | @validator, class Config, .dict(), .json(), parse_obj | OK | Python 3.13.16 | pydantic==2.14.1 | {"validator_import": "present (deprecated)", "version": "2.14.1", "warnings": ["PydanticDeprecatedSince20", "UserWarning"]} | 2026-10-14T09:08:26Z |
 | pyjwt-decode-algorithms | jwt.decode(token, key) without algorithms; HS256 shared secret in source | OK | Python 3.13.16 | pyjwt==2.15.1 | {"decode_without_algorithms": "DecodeError: It is required that you pass in a value for the \"algorithms\" argument when calling decode().", "encode_returns": "str", "version": "2.15.1"} | 2026-10-14T09:09:06Z |
+| pypi-asyncio-placeholder | pip install httpx asyncio | OK | Python 3.13.16 | asyncio | {"import_resolves_to_stdlib": true, "installed_files": ["asyncio-4.0.0.dist-info/INSTALLER", "asyncio-4.0.0.dist-info/METADATA", "asyncio-4.0.0.dist-info/RECORD", "asyncio-4.0.0.dist-info/REQUESTED", "asyncio-4.0.0.dist-info/WHEEL", "asyncio-4.0.0.dist-info... | 2026-10-14T16:52:18Z |
 | pytest-removed-apis | @pytest.yield_fixture, pytest.warns(None), nose-style setup | OK | Python 3.13.16 | pytest==9.1.1 | {"has_fixture": true, "has_importorskip": true, "has_yield_fixture": true, "version": "9.1.1", "warns_none": "TypeError: exceptions must be derived from Warning, not <class 'NoneType'>"} | 2026-10-14T09:08:17Z |
 | pyyaml-unsafe-load | yaml.load(f) without Loader | OK | Python 3.13.16 | pyyaml | {"version": "6.0.3", "yaml.load_no_loader": "TypeError: load() missing 1 required positional argument: 'Loader'"} | 2026-10-14T09:09:03Z |
 | react-dom-legacy-render | ReactDOM.render(<App/>, root); componentWillMount | OK | node | react@19.3.0, react-dom | {"PropTypes_in_react": "undefined", "React.createClass": "undefined", "ReactDOM.hydrate": "undefined", "ReactDOM.render": "undefined", "ReactDOM.unmountComponentAtNode": "undefined", "react": "19.3.0", "react-dom/client createRoot": "function"} | 2026-10-14T09:10:30Z |
@@ -65,7 +66,7 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 
 ## 5. Research register ledger
 
-92 entries in `docs/research/research_register.yaml`. `Used by` lists the findings, change records and rules that cite the entry.
+95 entries in `docs/research/research_register.yaml`. `Used by` lists the findings, change records and rules that cite the entry.
 
 | Id | Subject | Publisher | Version / state | Method | Verified on | URL | Caveat | Used by |
 |---|---|---|---|---|---|---|---|---|
@@ -114,7 +115,7 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 | R-043 | NIST AI Risk Management Framework page | NIST | AI RMF 1.0 (2023-01-26); NIST-AI-600-1 Generative AI Profile (2024-07-26); concept note... | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://www.nist.gov/itl/ai-risk-management-framework |  | MC-AIB-03, ND-AI-06 |
 | R-044 | Sunsetting Create React App | React team (Meta Open Source) | 2025-02-14 post | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://react.dev/blog/2025/02/14/sunsetting-create-react-app |  | DR-FE-002, MC-PYH-09, ND-FE-01, ND-FE-06 |
 | R-045 | Reproducible registry snapshot of current stable versions as of 2026-10-14 | PyPI, npm registry, Maven Central, endoflife.date (queried by scripts/research/fetch_registry_versions.py) | cutoff 2026-10-14; 147+ lookups; record-level retrieval timestamps | REGISTRY_API | 2026-10-14 | docs/research/data/registry_snapshot_2026-10-14.json | yes | MC-PYH-12, ND-FE-04, ND-JV-01, ND-PY-01, ND-PY-04 |
-| R-046 | What's New In Python 3.14 | Python Software Foundation | Python 3.14 (released 2025-10-07; page notes GC reverted to generational in 3.14.5) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://docs.python.org/3/whatsnew/3.14.html |  | DR-PY-021, MC-PYH-02, MC-PYH-15, MC-PYH-16, MC-PYH-18, ND-PY-02 |
+| R-046 | What's New In Python 3.14 | Python Software Foundation | Python 3.14 (released 2025-10-07; page notes GC reverted to generational in 3.14.5) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://docs.python.org/3/whatsnew/3.14.html |  | DR-PY-021, MC-PYH-02, MC-PYH-15, MC-PYH-16, MC-PYH-18, MC-PYH-20, ND-PY-02 |
 | R-047 | PyPA packaging specifications index | Python Packaging Authority | page read 2026-10-14 (no version/date shown) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://packaging.python.org/en/latest/specifications/ |  | DR-PY-020, MC-PYH-03, ND-PY-03 |
 | R-048 | JUnit release notes (JUnit 6.0.0 and 6.1.3) | JUnit team | JUnit 6.0.0 released 2025-09-30; latest 6.1.3 dated 2026-08-07 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://docs.junit.org/current/release-notes/ |  | DR-JV-001, DR-JV-002, DR-JV-007, MC-JAV-02, MC-JAV-03, ND-JV-02 |
 | R-049 | Apache Maven release history | Apache Maven project | Maven 3.10.0 GA 2026-09-27; 3.9.16 2026-05-13; 4.0.0-rc-7 2026-09-24 (not GA) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://maven.apache.org/docs/history.html |  | DR-JV-008, MC-JAV-05, ND-JV-05 |
@@ -161,10 +162,13 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 | R-090 | Pydantic - Strict Mode (lax coercion by default) | Pydantic | page read 2026-10-14 (PyPI snapshot version 2.14.1; the older docs.pydantic.dev URL red... | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://pydantic.dev/docs/validation/latest/concepts/strict_mode/ | yes | MC-PYH-19 |
 | R-091 | HTTP client defaults (reproduced) - requests 2.34.2 and httpx 0.28.1 | PyPI / Requests / HTTPX | requests 2.34.2, httpx 0.28.1 (snapshot versions), CPython 3.13.16 | EXECUTED | 2026-10-14 | https://pypi.org/project/requests/ |  | DR-PY-023, MC-PYH-19 |
 | R-092 | Pydantic lax and strict validation (reproduced) - pydantic 2.14.1 | PyPI / Pydantic | pydantic 2.14.1 (snapshot version), CPython 3.13.16 | EXECUTED | 2026-10-14 | https://pypi.org/project/pydantic/ |  | MC-PYH-19 |
+| R-093 | Python documentation - Coroutines and Tasks (gather, TaskGroup, timeout, create_task, cancellation) | Python Software Foundation | page read 2026-10-14 (documentation for the current stable release) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://docs.python.org/3/library/asyncio-task.html | yes | DR-PY-025, MC-PYH-20 |
+| R-094 | PyPI package 'asyncio' is a deprecated, code-free placeholder (reproduced) | PyPI | asyncio 4.0.0 (uploaded 2025-08-05), CPython 3.13.16 | EXECUTED | 2026-10-14 | https://pypi.org/project/asyncio/ |  | DR-PY-024, MC-PYH-20 |
+| R-095 | asyncio and concurrency features by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0) | Python Software Foundation | CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds, GIL enabled) | EXECUTED | 2026-10-14 | https://docs.python.org/3/library/asyncio.html |  | DR-PY-025, MC-PYH-20 |
 
 ## 6. Limitations and items that must not be used in customer-facing material yet
 
-77 register entries rest on a summarised official page or a secondary source. Re-verify each against the primary text before publication:
+78 register entries rest on a summarised official page or a secondary source. Re-verify each against the primary text before publication:
 
 | Id | Subject | Method | Caveat / what to re-check |
 |---|---|---|---|
@@ -245,6 +249,7 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 | R-088 | HTTPX - Timeouts and Requests-compatibility pages | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool (two pages). The newest stable release is almost two years old on the cutoff date, with a 1.0 pre-release published 2026-08-31 (registry snapshot); the lesson pins 0.28.1 and does no... |
 | R-089 | RFC 9110 - HTTP Semantics (idempotent methods; Retry-After) | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool; only the slices named above were read. Retry-After on 429 responses comes from RFC 6585, which was not read here, so the lab treats it as an observed convention, not a cited rule. |
 | R-090 | Pydantic - Strict Mode (lax coercion by default) | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool. |
+| R-093 | Python documentation - Coroutines and Tasks (gather, TaskGroup, timeout, create_task, cancellation) | OFFICIAL_PAGE_SUMMARY | Fetched through a summarising tool; quoted sentences were returned by the tool, not cross-checked against the raw page. |
 
 New developments whose adoption evidence is incomplete (see [NEW_DEVELOPMENTS_2026.md](NEW_DEVELOPMENTS_2026.md)): ND-PY-01, ND-PY-03, ND-AI-01, ND-AI-04, ND-AI-05, ND-JV-03, ND-GC-04, ND-SC-01, ND-OS-01, ND-OS-03.
 

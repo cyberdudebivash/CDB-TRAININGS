@@ -17,7 +17,7 @@
 |---|---|---:|---|---:|---:|---:|---:|---|
 | CYBERDUDEBIVASH Python Automation Training (`COURSE-PY-AUTO`) | `SRC-PY-AUTOMATION` | **46** | MEDIUM | 0 | 3 | 3 | 0 | `REENGINEERING` |
 | SOC Analyst Survival Playbook (2026 Edition) (`COURSE-SOC`) | `SRC-SOC-PLAYBOOK` | **37** | HIGH | 0 | 5 | 4 | 3 | `REENGINEERING` |
-| CyberDudeBivash Python Engineering Handbook (`COURSE-PY-ENG`) | `SRC-PY-HANDBOOK` | **36** | MEDIUM | 1 | 3 | 5 | 0 | `REENGINEERING` |
+| CyberDudeBivash Python Engineering Handbook (`COURSE-PY-ENG`) | `SRC-PY-HANDBOOK` | **36** | MEDIUM | 1 | 3 | 6 | 0 | `REENGINEERING` |
 | Complete AI Training Bundle 2026 (`COURSE-AI-ENG`) | `SRC-AI-BUNDLE` | **33** | MEDIUM | 0 | 4 | 3 | 1 | `REENGINEERING` |
 | Internal Frontend Developer Onboarding Playbook (`COURSE-FE-ONBOARD`) | `SRC-FRONTEND-ONBOARD` | **30** | MEDIUM | 1 | 2 | 1 | 1 | `REENGINEERING` |
 | Java Automation Test Engineer - Real Time Job Training (`COURSE-JAVA-QA`) | `SRC-JAVA-AUTOTEST` | **29** | MEDIUM | 0 | 3 | 2 | 0 | `REENGINEERING` |
@@ -41,7 +41,7 @@
 
 ## Portfolio observations (evidence-backed)
 
-- **67 findings** are registered: 4 P0, 31 P1, 25 P2, 7 P3/P4.
+- **68 findings** are registered: 4 P0, 31 P1, 26 P2, 7 P3/P4.
 - **Assessment validity is the weakest dimension** across the portfolio: no source contains a grading rubric or a graded lab (rubric terms: 0 matches in every source); answer-key-like terms appear on at most a few pages per source and none was found to be an actual key.
 - **Practical effectiveness is the second weakest**: only the Python courses contain substantial runnable-looking code, and none of the documents carries evidence that the code was executed (this audit only syntax-checked it).
 - **The P0 findings are not editorial**: a licensing conflict (OSINT), missing legal/ethical framework (OSINT), `eval()` in an agent tool (Python Handbook) and third-party personal data in a public repository (Frontend).

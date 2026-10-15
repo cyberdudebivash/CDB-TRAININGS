@@ -1,0 +1,47 @@
+# Public rubric for the PY-M06 independent lab (wordjob and benchmark.py). Students see exactly how they are graded.
+# Mechanical criteria (kind: automated) are run by instructors; judgement criteria (kind: reviewer) are scored 0-3 using the level descriptors below.
+rubric_id: RUB-PY-M06
+module: PY-M06
+version: 0.1.0
+pass_rule: >
+  Every must-pass criterion is met, no reviewer criterion is scored 0, and the reviewer criteria total at least 60% of their maximum.
+  Finishing the lesson or the guided lab alone is not a completion claim.
+criteria:
+  - id: C1
+    name: "Published checks pass"
+    outcomes: [LO2, LO3, LO5]
+    kind: automated
+    must_pass: true
+    measure: "python -m pytest in lab-independent/ passes with the learner's starter/wordjob.py (all published checks, none skipped or xfail)"
+  - id: C2
+    name: "Hidden suite"
+    outcomes: [LO2, LO3, LO5]
+    kind: automated
+    must_pass: true
+    measure: "the instructors' hidden suite (45 cases: correctness against the baseline, the concurrency limit, speed, event-loop health, time limits, deadline, cancellation, safe paths) is run against the learner's wordjob.py: at least 39 of the 45 cases (85%) pass"
+  - id: C3
+    name: "Benchmark report"
+    outcomes: [LO4]
+    kind: automated
+    must_pass: true
+    measure: "python starter/benchmark.py is run with small parameters: it exits 0, prints one JSON object with every required key, the speed-up equals the ratio of the medians, the ranges contain the medians, the results were identical and not_tested is a sentence (both benchmark cases of the hidden suite pass)"
+  - id: C4
+    name: "Concurrency discipline and clarity"
+    outcomes: [LO2, LO3]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Blocking calls inside coroutines, tasks started and forgotten, or cancellation swallowed."
+      1: "Works, but relies on gather without supervision, or mixes the time limit, the concurrency limit and the error policy in one tangled function."
+      2: "TaskGroup (or equivalent supervision), a semaphore that is held only around the request, per-request timeouts with asyncio.timeout, specific exceptions, and small functions with clear names."
+      3: "As 2, plus the learner can explain what happens to every task on a deadline, on a failure and on cancellation, and why the timeout is not counted from the start of the job."
+  - id: C5
+    name: "Measurement honesty and tool choice in notes.md"
+    outcomes: [LO1, LO4]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "No notes, or a speed-up claimed without the numbers, the machine or the number of runs."
+      1: "Gives the speed-up but not the input, the limit or the spread; no statement of what was not measured."
+      2: "Gives the numbers, the computer, the limit chosen and a smaller and a larger limit, states what the benchmark does not show, and says why asyncio (not threads or processes) suits this job."
+      3: "As 2, plus explains the ceiling on the speed-up (waiting time that cannot overlap, the server's own capacity) and when the choice would change (CPU-bound work, a blocking library, a free-threaded build)."

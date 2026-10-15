@@ -193,6 +193,7 @@ technologies:
   name: asyncio
   domain: python
   detect: \basyncio\b
+  register: [R-093, R-094, R-095]
 - id: pandas
   name: pandas
   domain: python

@@ -1,0 +1,39 @@
+# Outcome traceability for PY-M06: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M06
+outcomes:
+  - id: LO1
+    verb: choose
+    statement: "Choose between sequential code, threads, asyncio, processes and (since Python 3.14) free-threaded builds and subinterpreters from the profile of a task, and say what each choice cannot do."
+    instruction: ["lesson.md#2-choosing-a-tool-from-the-profile-lo1", "lesson.md#8-threads-and-processes-in-practice-lo1"]
+    practice: ["lab-guided/README.md#step-f---speedup-compare-two-ways-of-doing-the-same-job-lo1-lo4", "lab-independent/README.md"]
+    assessment: ["quiz:Q1", "quiz:Q2", "rubric:C5"]
+    rubric: [C5]
+  - id: LO2
+    verb: write
+    statement: "Write correct asyncio code: coroutines, tasks, asyncio.run, TaskGroup, except*, never blocking the event loop, and protecting state that is shared across await points."
+    instruction: ["lesson.md#3-coroutines-tasks-and-the-event-loop-lo2", "lesson.md#4-structured-concurrency-taskgroup-gather-and-what-happens-when-one-task-fails-lo2-lo5", "lesson.md#7-shared-state-across-await-points-lo2"]
+    practice: ["lab-guided/README.md#step-a---run_bounded-many-jobs-a-fixed-number-at-a-time-lo2-lo3-lo5", "lab-independent/README.md"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:published-wordjob-checks", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C2", "rubric:C4"]
+    rubric: [C1, C2, C4]
+  - id: LO3
+    verb: bound
+    statement: "Bound concurrency (semaphores, bounded queues) and apply timeouts and cancellation correctly, with cleanup that runs and CancelledError that is never swallowed."
+    instruction: ["lesson.md#5-bounding-concurrency-lo3", "lesson.md#6-time-limits-and-cancellation-lo3"]
+    practice: ["lab-guided/README.md#step-a---run_bounded-many-jobs-a-fixed-number-at-a-time-lo2-lo3-lo5", "lab-guided/README.md#step-c---call_with_timeout-a-limit-that-means-something-lo3", "lab-guided/README.md#step-d---process_queue-backpressure-lo3", "lab-independent/README.md"]
+    assessment: ["quiz:Q5", "quiz:Q6", "lab-check:published-wordjob-checks", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C2", "rubric:C4"]
+    rubric: [C1, C2, C4]
+  - id: LO4
+    verb: measure
+    statement: "Write a benchmark that proves (or disproves) a speed-up: same input, repeats, medians, interleaved runs, and a report that claims no more than was measured."
+    instruction: ["lesson.md#9-measuring-honestly-lo4"]
+    practice: ["lab-guided/README.md#step-e---median_time-lo4", "lab-guided/README.md#step-f---speedup-compare-two-ways-of-doing-the-same-job-lo1-lo4", "lab-independent/README.md"]
+    assessment: ["quiz:Q7", "lab-check:benchmark-report-contract", "rubric:C3", "rubric:C5"]
+    rubric: [C3, C5]
+  - id: LO5
+    verb: run
+    statement: "Run many jobs where some fail: choose fail-fast or collect-the-outcomes, return partial results with the errors attached, and leave no task running behind you."
+    instruction: ["lesson.md#4-structured-concurrency-taskgroup-gather-and-what-happens-when-one-task-fails-lo2-lo5", "lesson.md#10-failure-partial-results-and-shutdown-lo5"]
+    practice: ["lab-guided/README.md#step-a---run_bounded-many-jobs-a-fixed-number-at-a-time-lo2-lo3-lo5", "lab-guided/README.md#step-b---run_collect-partial-results-lo5", "lab-independent/README.md"]
+    assessment: ["quiz:Q8", "lab-check:published-wordjob-checks", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C2"]
+    rubric: [C1, C2]

@@ -101,6 +101,9 @@ environment; `OFFICIAL_PAGE_SUMMARY` official page fetched through a summarising
 | R-090 | [Pydantic - Strict Mode (lax coercion by default)](https://pydantic.dev/docs/validation/latest/concepts/strict_mode/) | Pydantic | page read 2026-10-14 (PyPI snapshot version 2.14.1; the older docs.pydantic.dev URL redirects here) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG |
 | R-091 | [HTTP client defaults (reproduced) - requests 2.34.2 and httpx 0.28.1](https://pypi.org/project/requests/) | PyPI / Requests / HTTPX | requests 2.34.2, httpx 0.28.1 (snapshot versions), CPython 3.13.16 | 2026-10-14 | EXECUTED | COURSE-PY-ENG, COURSE-PY-AUTO |
 | R-092 | [Pydantic lax and strict validation (reproduced) - pydantic 2.14.1](https://pypi.org/project/pydantic/) | PyPI / Pydantic | pydantic 2.14.1 (snapshot version), CPython 3.13.16 | 2026-10-14 | EXECUTED | COURSE-PY-ENG |
+| R-093 | [Python documentation - Coroutines and Tasks (gather, TaskGroup, timeout, create_task, cancellation)](https://docs.python.org/3/library/asyncio-task.html) | Python Software Foundation | page read 2026-10-14 (documentation for the current stable release) | 2026-10-14 | OFFICIAL_PAGE_SUMMARY | COURSE-PY-ENG, COURSE-PY-AUTO |
+| R-094 | [PyPI package 'asyncio' is a deprecated, code-free placeholder (reproduced)](https://pypi.org/project/asyncio/) | PyPI | asyncio 4.0.0 (uploaded 2025-08-05), CPython 3.13.16 | 2026-10-14 | EXECUTED | COURSE-PY-ENG, COURSE-PY-AUTO |
+| R-095 | [asyncio and concurrency features by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0)](https://docs.python.org/3/library/asyncio.html) | Python Software Foundation | CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds, GIL enabled) | 2026-10-14 | EXECUTED | COURSE-PY-ENG |
 
 ## Findings and resulting changes
 
@@ -563,3 +566,18 @@ environment; `OFFICIAL_PAGE_SUMMARY` official page fetched through a summarising
 
 - **Finding:** A model with int fields accepted the string "5" and the boolean True in lax mode (values 5 and 1), rejected 5.5, ignored an unknown field by default, raised a "missing" error naming the field, raised int_type for the string under strict=True and extra_forbidden under ConfigDict(extra="forbid"). Probe: pydantic-lax-and-strict-validation.
 - **Resulting change:** PY-M05 shows what a schema does and does not catch (coercion, extra fields) before asking learners to choose.
+
+### R-093 - Python documentation - Coroutines and Tasks (gather, TaskGroup, timeout, create_task, cancellation)
+
+- **Finding:** gather with the default return_exceptions=False propagates the first exception and the other awaitables "won't be cancelled and will continue to run". TaskGroup (added in 3.11) cancels the remaining tasks when one fails with an exception other than CancelledError and raises the collected exceptions as an ExceptionGroup; it "provides stronger safety guarantees than gather". asyncio.timeout (added in 3.11) cancels the current task and turns the CancelledError into a TimeoutError that can only be caught outside the context manager. create_task: "The event loop only keeps weak references to tasks. A task that isn't referenced elsewhere may get garbage collected at any time, even before it's done"; a TaskGroup keeps a strong reference. A caught CancelledError "should generally be propagated when clean-up is complete".
+- **Resulting change:** PY-M06 teaches TaskGroup and asyncio.timeout as the default, shows gather's behaviour by execution, and treats swallowed cancellation as a defect.
+
+### R-094 - PyPI package 'asyncio' is a deprecated, code-free placeholder (reproduced)
+
+- **Finding:** pip install asyncio installs version 4.0.0, whose summary reads "Deprecated backport of asyncio; use the stdlib package instead". The distribution contains only metadata (no Python file) and import asyncio still resolves to the standard library. Probe: pypi-asyncio-placeholder. The registry JSON for the project gives the same version, date and summary.
+- **Resulting change:** Finding F-PYH-010 (pip install httpx asyncio); PY-M06 states that asyncio is part of the standard library.
+
+### R-095 - asyncio and concurrency features by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0)
+
+- **Finding:** asyncio.TaskGroup, asyncio.timeout and asyncio.Runner exist on all five versions; asyncio.eager_task_factory from 3.12; asyncio.Queue.shutdown and QueueShutDown from 3.13; sys._is_gil_enabled() from 3.13; concurrent.futures.InterpreterPoolExecutor and the concurrent.interpreters module from 3.14. asyncio.get_event_loop() with no running loop returns a loop on 3.11 to 3.13 (with a DeprecationWarning from 3.12) and raises RuntimeError from 3.14; asyncio.iscoroutinefunction and asyncio.get_event_loop_policy emit DeprecationWarning on 3.14 and 3.15. All standard builds in the matrix had the GIL enabled. The PY-M06 lesson asserts this table and is executed on every interpreter.
+- **Resulting change:** PY-M06 uses asyncio.run, TaskGroup and asyncio.timeout (3.11+) and records which newer features it avoids so that labs run on all supported versions.

@@ -11,7 +11,7 @@ Per-course quality-assurance status from the evidence files. Automated check res
 |---|---|---|---|---|---|---|---|---|---|
 | COURSE-FND-DIGITAL | 0 / 6 | 0 / 12 | 0 / 6 | - | 0 / 0 | 0 | 0 / 0 | NOT_RUN | NOT_REVIEWED |
 | COURSE-SOC | 1 / 14 | 2 / 27 | 6 / 19 | 43 | 0 / 11 | 1 | 6 / 8 | PARTIAL | AUTOMATED_ONLY |
-| COURSE-PY-ENG | 6 / 11 | 12 / 21 | 6 / 11 | 654 | 2 / 12 | 1 | 16 / 19 | PARTIAL | AUTOMATED_ONLY |
+| COURSE-PY-ENG | 7 / 11 | 14 / 21 | 7 / 11 | 654 | 2 / 12 | 1 | 17 / 20 | PARTIAL | AUTOMATED_ONLY |
 | COURSE-PY-AUTO | 0 / 10 | 0 / 19 | 0 / 10 | 1,458 | 0 / 5 | 1 | 5 / 11 | NOT_RUN | NOT_REVIEWED |
 | COURSE-JAVA-QA | 0 / 10 | 0 / 19 | 0 / 10 | 709 | 0 / 1 | 1 | 5 / 10 | NOT_RUN | NOT_REVIEWED |
 | COURSE-AI-ENG | 0 / 12 | 0 / 23 | 0 / 12 | 937 | 0 / 10 | 1 | 8 / 9 | NOT_RUN | NOT_REVIEWED |
@@ -60,10 +60,10 @@ Source pages are audited by rules over **all** pages; only finding-cited pages w
 
 ### COURSE-PY-ENG - Python Engineering Pathway
 
-- Built modules: PY-M01, PY-M02, PY-M03, PY-M04, PY-M05, PY-M07.
-- Labs: 21 planned, 12 built, 12 verified executable.
+- Built modules: PY-M01, PY-M02, PY-M03, PY-M04, PY-M05, PY-M06, PY-M07.
+- Labs: 21 planned, 14 built, 14 verified executable.
 - Blocking findings: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
-- Source audit: 654 pages; severity P0 2, P1 12, P2 47, P3 14, P4 12, NONE 567; currency BASELINE_AVAILABLE 295, UNVERIFIED_CURRENCY 184, NO_TECHNOLOGY_DETECTED 167, CURRENCY_FLAGGED 8.
+- Source audit: 654 pages; severity P0 2, P1 12, P2 51, P3 14, P4 12, NONE 563; currency BASELINE_AVAILABLE 295, UNVERIFIED_CURRENCY 183, NO_TECHNOLOGY_DETECTED 167, CURRENCY_FLAGGED 9.
 - Open verification items: MC-PYH-01, MC-PYH-10, MC-PYH-11.
 - Lab matrix: PASS on CPython 3.11.17, CPython 3.12.3, CPython 3.13.16, CPython 3.14.8, CPython 3.15.0; not executed or failing: none.
 

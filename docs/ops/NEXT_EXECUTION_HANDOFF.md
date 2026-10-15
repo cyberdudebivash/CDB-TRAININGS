@@ -21,6 +21,9 @@ python scripts/audit/build_page_records.py --check  # about 70 s; page records r
 
 Nothing below is a substitute for D1-D8 in [EXECUTION_HANDOFF.md](../execution/EXECUTION_HANDOFF.md). In practice: D4 (licence and copyright holder) before any distribution; D8 (private repository for the instructor pack, which currently exists only in the working environment of the modernization session) before the independent labs can be re-verified by anyone else; D5 (named reviewers) before any course can reach technical correctness or editorial MET; D1-D3 before the Frontend and OSINT products.
 
+
+**Secret-scanner finding on the pull request (owner action).** GitGuardian reported one "Basic Auth String" in `courses/python-engineering/modules/PY-M05/lesson.md` at commit d3ad36d. It is a false positive: the lesson shows a web address of the form `<host>:<port>@<other host>/...` (the part before the `@` is user-info, so the request really goes to the host after it) as a trap for programs that compare addresses as text, and no credential exists. The example was rewritten in a later commit to a password-free form, but the scanner keeps the occurrence in the earlier commit; marking incident 38216690 as a false positive in the GitGuardian dashboard needs the repository owner's login. Do not rewrite the pushed history for it.
+
 ## 4. How to build the next module
 
 The Python Engineering modules are the template (`courses/python-engineering/modules/PY-M02` is the smallest). For a module `X`:
@@ -32,7 +35,7 @@ The Python Engineering modules are the template (`courses/python-engineering/mod
 5. Set the module `status: BUILT` and `lab_state: VERIFIED_EXECUTABLE` in `catalog/courses.yaml` **only after** the labs have been executed; update `lab_coverage` and `assessment_coverage`. `validate_modernization_data.py` then tells you which change records need their `implemented.status` updated (it is checked against the catalog).
 6. Execute the labs on the interpreter or toolchain matrix (`scripts/validation/run_lab_matrix.py`, then `render_lab_evidence.py`), regenerate the derived documents (section 6), and commit. A lab that was not executed is `UNVERIFIED`; never mark it otherwise.
 
-Suggested order, with reasons: finish Python Engineering (PY-M05, M06, M08, M09, M10, M11 and the missing classes/object-oriented coverage: every other Python course depends on it and the toolchain is already proven); then Python Automation; then the Java course (JDK 21, Maven 3.9.11 and Gradle 8.14.3 are present; JUnit 6 needs Java 17+, so no JDK 25 is required); then the SOC modules (the pilot gives the pattern); AI, GCP, Frontend, OSINT and the security tracks need design decisions about local-first labs before building (no paid service is authorised, D7).
+Suggested order, with reasons: finish Python Engineering (PY-M08, M09, M10, M11 and the missing classes/object-oriented coverage: every other Python course depends on it and the toolchain is already proven); then Python Automation; then the Java course (JDK 21, Maven 3.9.11 and Gradle 8.14.3 are present; JUnit 6 needs Java 17+, so no JDK 25 is required); then the SOC modules (the pilot gives the pattern); AI, GCP, Frontend, OSINT and the security tracks need design decisions about local-first labs before building (no paid service is authorised, D7).
 
 ## 5. Known limits and traps
 
