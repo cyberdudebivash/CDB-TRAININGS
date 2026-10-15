@@ -129,6 +129,18 @@ def test_rubric_is_well_formed(module):
 @pytest.mark.parametrize("module", MODULES, ids=ids())
 def test_source_map_points_at_real_pages_and_findings(module):
     smap = load(module / "source-map.yaml")
+    # A newly authored prerequisite pathway has no source PDF; fail closed on
+    # invented page references while keeping strict provenance checks for courses
+    # which actually have legacy source documents.
+    catalog = load(ROOT / "catalog" / "courses.yaml")
+    course = next(c for c in catalog["courses"] if c["id"] == front_matter(module / "lesson.md")["course"])
+    if not course["source_ids"]:
+        assert smap["source"] is None
+        assert smap["mappings"] == []
+        assert smap["origin"] == "NEW_ORIGINAL_FOUNDATIONS_CURRICULUM"
+        assert course["id"] == "COURSE-FND-DIGITAL"
+        return
+    assert smap["source"] in course["source_ids"], "module provenance must match its source course"
     parts = json.loads((ROOT / "docs/audits/data/page_records/INDEX.json").read_text(encoding="utf-8"))["parts"]
     pages = max(p["last_page"] for p in parts if p["source_id"] == smap["source"])
     findings = {f["id"] for f in load(ROOT / "docs/audits/data/findings.yaml")["findings"]}
