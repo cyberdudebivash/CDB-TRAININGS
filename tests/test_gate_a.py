@@ -108,6 +108,31 @@ def test_a_recorded_run_with_a_skipped_or_failed_test_is_not_evidence():
     assert G.matrix_evidence("PY-M09", None, None)["kind"] == "none"
 
 
+def test_foundations_module_evidence_comes_from_its_own_test_file():
+    def run(outcome: str, interpreters: int = 3, names: tuple[str, ...] = ("test_lesson_has_substantive_content_and_executable_examples", "test_guided_regressions", "test_independent_starter_fails_as_intended")) -> dict:
+        tests = [{"id": f"tests/test_fnd_m01::{n}", "outcome": outcome} for n in names]
+        return {"commit": "HEAD", "interpreters": [{"python": f"3.{11 + i}.0", "status": "PASS", "tests": copy.deepcopy(tests)} for i in range(interpreters)]}
+    assert G.matrix_markers("FND-M01") == ("tests/test_fnd_m01::", "[FND-M01]") and G.matrix_markers("PY-M09") == ("::test_m09_", "[PY-M09]")
+    assert G.matrix_markers("SOC-M04") is None and G.matrix_markers("PY-MXX") is None and G.matrix_markers("CYB-M01") is None
+    good = G.matrix_evidence("FND-M01", run("passed"), None)
+    assert good["valid"] and good["negative_controls"] and good["lab_tests"] == 3
+    assert not G.matrix_evidence("FND-M01", run("skipped"), None)["valid"]
+    assert not G.matrix_evidence("FND-M01", run("failed"), None)["valid"]
+    assert not G.matrix_evidence("FND-M01", run("passed", interpreters=2), None)["valid"]
+    assert not G.matrix_evidence("FND-M01", run("passed", names=("test_guided_regressions", "test_independent_starter_fails_as_intended")), None)["valid"]      # fewer than three lab tests
+    other = {"commit": "HEAD", "interpreters": [{"python": f"3.{11 + i}.0", "status": "PASS", "tests": [{"id": f"tests/test_python_engineering_labs.py::test_m09_{n}", "outcome": "passed"} for n in ("a", "b", "c_mutant")]} for i in range(3)]}
+    assert G.matrix_evidence("FND-M01", other, None)["kind"] == "lab_matrix" and not G.matrix_evidence("FND-M01", other, None)["valid"]      # another module's tests are not this module's evidence
+    assert G.matrix_evidence("CYB-M01", run("passed"), None)["kind"] == "none"
+
+
+def test_the_lab_matrix_runs_the_foundations_tests_too():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("run_lab_matrix", ROOT / "scripts" / "validation" / "run_lab_matrix.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    assert "tests/test_fnd_m01.py" in module.SUITES and "tests/test_module_packs.py" in module.SUITES
+
+
 def test_evidence_becomes_stale_when_the_module_changes_after_the_recorded_run():
     matrix = {"commit": "HEAD", "interpreters": [{"python": f"3.{11 + i}.0", "status": "PASS",
               "tests": [{"id": f"tests/x.py::test_m09_{n}", "outcome": "passed"} for n in ("a", "b", "c_mutant")]} for i in range(3)]}

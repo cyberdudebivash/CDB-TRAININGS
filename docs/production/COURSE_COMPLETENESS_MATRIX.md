@@ -27,7 +27,7 @@ Portfolio: 13 of 113 (12%) modules implemented, 12 of 113 (11%) technically veri
 
 | Module | Title | Catalog status | Computed state | Lesson words | Executed blocks | Execution evidence |
 |---|---|---|---|---|---|---|
-| FND-M01 | Operating systems, files and permissions | BUILT | IMPLEMENTED_UNVERIFIED | 2498 | 5 | no recorded execution evidence for this module |
+| FND-M01 | Operating systems, files and permissions | BUILT | IMPLEMENTED_UNVERIFIED | 2498 | 5 | 7 tests on 5 interpreters; failed 0, skipped 0 |
 | FND-M02 | Command-line fundamentals | PLANNED | NOT_STARTED | - | - | - |
 | FND-M03 | Networking and HTTP basics | PLANNED | NOT_STARTED | - | - | - |
 | FND-M04 | Git and GitHub workflow | PLANNED | NOT_STARTED | - | - | - |

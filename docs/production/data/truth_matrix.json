@@ -620,7 +620,7 @@
    "FND-M01": {
     "catalog_status": "BUILT",
     "edition_config": true,
-    "evidence": "no recorded execution evidence for this module",
+    "evidence": "7 tests on 5 interpreters; failed 0, skipped 0",
     "executed_blocks": 5,
     "outcomes": 4,
     "private_pack_recorded": false,
@@ -631,7 +631,7 @@
    "FND-M02": {
     "catalog_status": "PLANNED",
     "edition_config": false,
-    "evidence": "no recorded execution evidence for this module",
+    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0",
     "executed_blocks": 0,
     "outcomes": null,
     "private_pack_recorded": false,
@@ -642,7 +642,7 @@
    "FND-M03": {
     "catalog_status": "PLANNED",
     "edition_config": false,
-    "evidence": "no recorded execution evidence for this module",
+    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0",
     "executed_blocks": 0,
     "outcomes": null,
     "private_pack_recorded": false,
@@ -653,7 +653,7 @@
    "FND-M04": {
     "catalog_status": "PLANNED",
     "edition_config": false,
-    "evidence": "no recorded execution evidence for this module",
+    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0",
     "executed_blocks": 0,
     "outcomes": null,
     "private_pack_recorded": false,
@@ -664,7 +664,7 @@
    "FND-M05": {
     "catalog_status": "PLANNED",
     "edition_config": false,
-    "evidence": "no recorded execution evidence for this module",
+    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0",
     "executed_blocks": 0,
     "outcomes": null,
     "private_pack_recorded": false,
@@ -675,7 +675,7 @@
    "FND-M06": {
     "catalog_status": "PLANNED",
     "edition_config": false,
-    "evidence": "no recorded execution evidence for this module",
+    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0",
     "executed_blocks": 0,
     "outcomes": null,
     "private_pack_recorded": false,

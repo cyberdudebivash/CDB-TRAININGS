@@ -32,7 +32,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import evidence_fingerprint as EF  # noqa: E402
 
 REQS = ROOT / "courses" / "python-engineering" / "labs" / "requirements.txt"
-SUITES = ["tests/test_python_engineering_labs.py", "tests/test_module_packs.py"]
+SUITES = ["tests/test_python_engineering_labs.py", "tests/test_module_packs.py", "tests/test_fnd_m01.py"]
 
 
 def sh(cmd: list[str], **kw) -> subprocess.CompletedProcess:

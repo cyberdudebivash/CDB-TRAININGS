@@ -144,6 +144,18 @@ def edition_is_fresh(entry: dict) -> bool:
     return True
 
 
+def matrix_markers(module_id: str) -> tuple[str, str] | None:
+    """How the tests of a module are recognised in the recorded lab-matrix run: (a marker in the id of the module's own lab tests, the suffix of its parametrised pack tests).
+    Python Engineering modules have `test_mNN_*` functions in tests/test_python_engineering_labs.py; FND-M01 has its own file tests/test_fnd_m01.py. Any other module has none."""
+    py = re.fullmatch(r"PY-M(\d\d)", module_id)
+    if py:
+        return f"::test_m{py.group(1)}_", f"[{module_id}]"
+    fnd = re.fullmatch(r"FND-M(\d\d)", module_id)
+    if fnd:
+        return f"tests/test_fnd_m{fnd.group(1)}::", f"[{module_id}]"
+    return None
+
+
 def matrix_evidence(module_id: str, matrix: dict | None, qa: dict | None, inputs: list[str] | None = None, slug: str | None = None) -> dict:
     """Execution evidence for a module from the recorded lab-matrix run (Python Engineering) or the recorded QA run (SOC pilot)."""
     if module_id in SOC_PILOT:
@@ -157,10 +169,10 @@ def matrix_evidence(module_id: str, matrix: dict | None, qa: dict | None, inputs
             bound = "STALE: the pilot's lesson or labs changed after the recorded QA run"
         return {"kind": "qa_run", "valid": ok, "interpreters": ["CPython " + (qa or {}).get("python", "?")], "tests": len(wanted), "skipped": [], "negative_controls": ok,
                 "detail": "recorded QA run: " + ", ".join(f"{w} {by_id.get(w, 'absent')}" for w in wanted) + f"; {bound}"}
-    if not matrix or not module_id.startswith("PY-M"):
+    markers = matrix_markers(module_id)
+    if not matrix or markers is None:
         return {"kind": "none", "valid": False, "interpreters": [], "tests": 0, "skipped": [], "negative_controls": False, "detail": "no recorded execution evidence for this module"}
-    nn = int(module_id.split("M")[-1])
-    lab_marker, pack_marker = f"::test_m{nn:02d}_", f"[{module_id}]"
+    lab_marker, pack_marker = markers
     interpreters, tests, skipped, failed = [], set(), [], []
     ran = [i for i in matrix["interpreters"] if i["status"] != "NOT_EXECUTED"]
     for interp in ran:
