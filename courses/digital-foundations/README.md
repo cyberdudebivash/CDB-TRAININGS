@@ -7,7 +7,8 @@
 | FND-M01 — Operating systems | Built, unverified | [Lesson](modules/FND-M01/lesson.md), guided file-integrity lab, access-policy learner starter, assessment |
 | FND-M02 — Command lines | Built, unverified | [Lesson](modules/FND-M02/lesson.md), guided synthetic event CLI, independent transcript parser, assessment |
 | FND-M03 — Networking/HTTP | Built, unverified | [Lesson](modules/FND-M03/lesson.md), **live controlled loopback TCP/HTTP** lab, synthetic protocol-failure classifier, assessment |
-| FND-M04–M06 | Planned | Git collaboration, Python programming, troubleshooting and safe computing |
+| FND-M04 — Git and GitHub | Candidate, incomplete | [Git lesson](modules/FND-M04/lesson.md), genuine local Git branches/conflict-resolution lab, unverified external PR objective |
+| FND-M05–M06 | Planned | Python programming, troubleshooting and safe computing |
 
 ## Learner path and operational exercises
 
