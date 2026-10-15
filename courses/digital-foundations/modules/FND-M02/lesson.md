@@ -38,14 +38,14 @@ An absolute path is anchored at a root or volume. A relative path is evaluated f
 
 Python pathlib can express relative path composition without launching a shell:
 
-\`\`\`python run
+```python run
 from pathlib import Path
 root = Path("practice")
 relative = Path("logs") / "events.csv"
 assert not relative.is_absolute()
 assert (root / relative).parts[-2:] == ("logs", "events.csv")
 assert (root / relative).name == "events.csv"
-\`\`\`
+```
 
 This demonstrates path syntax, not filesystem authorization. A path can be well formed while its target is absent, untrusted, or inaccessible. The real system's access checks, parent folder traversal rules, symlinks, and mount behavior are additional concerns. Our bounded CLI rejects suspicious forms of path input, but it is not a general filesystem isolation library and is not safe against adversarial race conditions.
 
@@ -59,13 +59,13 @@ Shell redirection connects or changes the destination of streams. In many POSIX 
 
 Use a small pure function to reason about documented status codes without running external commands:
 
-\`\`\`python run
+```python run
 def interpret_status(code: int) -> str:
     return {0: "completed", 2: "invalid-input", 3: "matched-alert-policy"}.get(code, "not-documented")
 assert interpret_status(0) == "completed"
 assert interpret_status(3) == "matched-alert-policy"
 assert interpret_status(7) == "not-documented"
-\`\`\`
+```
 
 The reference CLI emits a JSON object containing count and events when input is valid. The program's return status must be inspected separately; JSON output and status 3 are compatible when an alert threshold is intentionally enabled. If input is invalid, the CLI writes a sanitized error category to standard error and returns status 2. Learners must not label that failure as a successful scan merely because the command printed text.
 
@@ -77,13 +77,13 @@ Shells treat certain characters as syntax: quotes can group arguments, a semicol
 
 The following demonstration constructs only an in-memory argument array. It starts no process and reads no files:
 
-\`\`\`python run
+```python run
 untrusted_filename = "synthetic; not-a-command.csv"
 argv = ["python", "runbook.py", "--input", untrusted_filename]
 assert len(argv) == 4
 assert argv[-1] == untrusted_filename
 assert ";" in argv[-1]
-\`\`\`
+```
 
 A command-processing pipeline needs a clear trust boundary at every stage. Validate input schemas instead of assuming a quote character will protect an application. Reject unexpected fields, apply bounded resource limits, and distinguish data from program instructions. Where an external program is necessary, review the executable, working directory, exact flags, environment and permissions. Avoid displaying passwords, tokens, home-directory paths, or confidential filenames in public learner submissions.
 
@@ -101,13 +101,13 @@ The program rejects duplicate events, unsupported severity values, malformed hea
 
 JSON is a serialization format rather than security evidence. Parsing and decoding may preserve the structured form of the result, but assertions about provenance and authorization need separate controls:
 
-\`\`\`python run
+```python run
 import json
 sample = {"count": 1, "events": [{"service": "auth", "severity": "ERROR"}]}
 decoded = json.loads(json.dumps(sample, sort_keys=True))
 assert decoded["count"] == len(decoded["events"])
 assert decoded["events"][0]["severity"] == "ERROR"
-\`\`\`
+```
 
 The lab's fourteen contract tests cover valid filtering, expected statuses, invalid encodings, suspicious paths, symlinks, input limits and malformed event records. Record the actual number of executed tests and any skips. A clean run on one operating system does not establish portability, nor does a successful unit test prove the completeness of a training course.
 
