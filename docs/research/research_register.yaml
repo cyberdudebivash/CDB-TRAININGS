@@ -1447,3 +1447,25 @@ register:
     - COURSE-PY-ENG
     resulting_change: PY-M13 teaches the behaviours as executed, avoids itertools.batched in its labs (3.11 is the baseline) and writes its own chunks and windows.
     verified_on: '2026-10-15'
+  - id: R-098
+    title: sqlite3 behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0; bundled SQLite 3.45.1 on 3.11 to 3.13 and 3.53.1 on 3.14 and 3.15)
+    url: https://docs.python.org/3/library/sqlite3.html
+    publisher: Python Software Foundation
+    version: CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds)
+    method: EXECUTED
+    finding: 'Identical on all five: execute() refuses two statements (ProgrammingError) and executescript() runs them; a table name cannot be a parameter (OperationalError) and ORDER BY ? sorts by a constant; LIKE treats % and _ in a parameter as wildcards unless ESCAPE is used; foreign keys are off by default and PRAGMA foreign_keys is ignored inside a transaction; with conn commits or rolls back and does not close, and a rollback also undoes earlier uncommitted statements; executescript commits pending changes first; DDL is transactional under an explicit BEGIN; user_version is part of the transaction; IntegrityError carries sqlite_errorname; the trace callback receives statements with their values filled in; an exclusive write lock makes a second writer fail with "database is locked" after the timeout; a new file gets the mode the umask allows (0644 under 022) unless created first with os.open (0600); Connection.backup copies a database; a connection used from another thread raises ProgrammingError. Differences: the autocommit parameter and attribute exist from 3.12; the default date and datetime adapters raise DeprecationWarning from 3.12; an unclosed connection emits ResourceWarning from 3.13.'
+    applies_to:
+    - COURSE-PY-ENG
+    resulting_change: PY-M08 teaches the behaviours as executed, bases its labs on the legacy transaction mode and plain SQLite 3.35 features so that 3.11 remains the baseline, shows autocommit only behind a version check, and stores times as ISO-8601 text instead of relying on the adapters.
+    verified_on: '2026-10-15'
+  - id: R-099
+    title: Profiling, memory and object-identity behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0)
+    url: https://docs.python.org/3/library/profile.html
+    publisher: Python Software Foundation
+    version: CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds); ruff 0.17.0
+    method: EXECUTED
+    finding: 'Identical on all five: cProfile call counts are exact and repeatable (fib(15) records 1973 calls of fib); timeit.Timer.autorange grows the repeat count until a run takes at least 0.2 s; fib(20) makes 21891 calls and 21 with lru_cache; a list membership test compares up to every element and a set compares once; tracemalloc counts exactly, a generator needs under 10 percent of the peak of the equivalent list and __slots__ instances under 80 percent of the memory of dictionary-backed ones; a reference cycle survives until gc.collect() and a weakref reports it; sys.getrefcount of a fresh object is 2; strings built at run time are not the compile-time constant, sys.intern shares them, and `x is "a"` compiles with a SyntaxWarning. Differences: sys.monitoring from 3.12; None and other immortal objects keep a constant reference count from 3.12 (a list of 1000 Nones raises the count by 1000 on 3.11 and by 0 on 3.12 to 3.15); sys._is_gil_enabled from 3.13; the profiling package with profiling.sampling (a statistical profiler run as `python -m profiling.sampling run script.py`) and profiling.tracing only on 3.15; int("257") is 257 is true on 3.15 and false before. ruff 0.17.0 reports F401, E711 and B006 for an unused import, a comparison with None and a mutable default argument.'
+    applies_to:
+    - COURSE-PY-ENG
+    resulting_change: PY-M09 teaches the behaviours as executed, compares work by counts and size ratios instead of seconds, shows the 3.15 sampling profiler behind a version check, and never relies on object identity or reference counts.
+    verified_on: '2026-10-15'

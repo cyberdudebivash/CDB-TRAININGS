@@ -45,9 +45,9 @@ Rules that keep this a single curriculum rather than ten documents:
 | Measure | Value |
 |---|---:|
 | Courses | 10 |
-| Modules planned / with built content | 113 / 10 |
-| Labs planned / built / verified executable in QA | 217 / 20 / 20 |
-| Module outcomes total / assessed | 118 / 15 |
+| Modules planned / with built content | 113 / 12 |
+| Labs planned / built / verified executable in QA | 217 / 24 / 24 |
+| Module outcomes total / assessed | 118 / 17 |
 | Courses with SME review recorded | 0 |
 | Courses with a named owner | 0 |
 | Courses by release status | REENGINEERING: 10 |
@@ -58,7 +58,7 @@ Rules that keep this a single curriculum rather than ten documents:
 |---|---|---|---:|---:|---|---:|---|---|
 | Digital and Technical Foundations | `COURSE-FND-DIGITAL` | L0-L0 | 6 | 32 | 12 / 0 / 0 | 0/6 | PLANNED | `REENGINEERING` |
 | SOC Analyst Professional Pathway | `COURSE-SOC` | L1-L3 | 14 | 104 | 27 / 2 / 2 | 6/19 | PILOT_BUILT | `REENGINEERING` |
-| Python Engineering Pathway | `COURSE-PY-ENG` | L1-L3 | 13 | 108 | 25 / 18 / 18 | 9/13 | IN_BUILD | `REENGINEERING` |
+| Python Engineering Pathway | `COURSE-PY-ENG` | L1-L3 | 13 | 110 | 25 / 22 / 22 | 11/13 | IN_BUILD | `REENGINEERING` |
 | Python Automation Pathway | `COURSE-PY-AUTO` | L2-L3 | 10 | 73 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
 | Java Test Automation Engineer Pathway | `COURSE-JAVA-QA` | L1-L3 | 10 | 92 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
 | Applied AI and LLM Engineering Pathway | `COURSE-AI-ENG` | L1-L3 | 12 | 114 | 23 / 0 / 0 | 0/12 | IN_DESIGN | `REENGINEERING` |
@@ -66,7 +66,7 @@ Rules that keep this a single curriculum rather than ten documents:
 | Google Cloud Data Engineering Pathway | `COURSE-GCP-DE` | L2-L3 | 11 | 94 | 21 / 0 / 0 | 0/11 | IN_DESIGN | `REENGINEERING` |
 | Frontend Engineering Onboarding Pathway | `COURSE-FE-ONBOARD` | L1-L3 | 11 | 92 | 21 / 0 / 0 | 0/11 | IN_DESIGN | `REENGINEERING` |
 | Cybersecurity Specialist Tracks (from the Mega Course) | `COURSE-CYBER-MEGA` | L1-L3 | 14 | 188 | 27 / 0 / 0 | 0/14 | IN_DESIGN | `REENGINEERING` |
-| **Total** | | | **113** | **963** | **217** planned | | | |
+| **Total** | | | **113** | **965** | **217** planned | | | |
 
 Hours are **planning estimates** (module authoring budgets), not measured learner times. The portfolio total counts modules that appear in several pathways once.
 <!-- END GENERATED: portfolio -->
@@ -176,7 +176,7 @@ Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 104 · Capstone: End-to-
 
 ### Python Engineering Pathway (`COURSE-PY-ENG`)
 
-Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 108 · Capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
+Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 110 · Capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
 
 | Module | Title | Level | Hours | State | Primary outcome (observable) |
 |---|---|---:|---:|---|---|
@@ -189,8 +189,8 @@ Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 108 · Capstone: A typed
 | `PY-M05` | Files, structured data and HTTP clients | L2 | 8 | BUILT / lab VERIFIED_EXECUTABLE | Consume a paginated API fixture with retries and timeouts and validate every response against a schema. |
 | `PY-M06` | Concurrency and asynchronous programming | L2 | 8 | BUILT / lab VERIFIED_EXECUTABLE | Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark. |
 | `PY-M07` | Secure coding for Python | L2 | 8 | BUILT / lab VERIFIED_EXECUTABLE | Find and fix eight seeded vulnerabilities (injection, secrets, TLS, deserialisation) and add a regression test for each. |
-| `PY-M08` | Databases and persistence | L2 | 6 | PLANNED | Implement a repository layer using parameterised SQL and demonstrate that an injection attempt fails. |
-| `PY-M09` | Profiling, performance and maintainable architecture | L3 | 8 | PLANNED | Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent. |
+| `PY-M08` | Databases and persistence: safe SQL, transactions, repositories, migrations and query cost | L2 | 8 | BUILT / lab VERIFIED_EXECUTABLE | Implement a repository layer using parameterised SQL, a versioned schema and atomic writes, and demonstrate that an injection attempt, a retry and a concurrent edit do not corrupt the data. |
+| `PY-M09` | Profiling, performance and maintainable architecture | L3 | 8 | BUILT / lab VERIFIED_EXECUTABLE | Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent without changing an answer, and prove it with tests that do not depend on the speed of the machine. |
 | `PY-M10` | API development: typed, tested and secure HTTP services | L2 | 8 | PLANNED | Build a typed HTTP API with request validation and authentication that passes contract tests and an injection test suite. |
 | `PY-M11` | Capstone: typed, tested, documented application with CI | L3 | 14 | PLANNED | Deliver a packaged application whose tests, type checks and security scan pass in a clean environment. |
 

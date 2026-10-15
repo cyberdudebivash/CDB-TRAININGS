@@ -74,8 +74,8 @@ Edition disclosure (values today):
 
 - Course id `COURSE-PY-ENG`, catalog version `0.1.0-build`, audience: Developers and analysts who need production-quality Python; Learners continuing from Digital Foundations.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Python Engineering Pathway — October 2026 Premium Edition`
-- Planned duration 108 hours across 13 modules (planning estimate, not measured learner time); capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
-- State today: 9 of 13 modules built; labs verified 18 of 25; release status `REENGINEERING`; evidence index 45.8 / 100.
+- Planned duration 110 hours across 13 modules (planning estimate, not measured learner time); capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
+- State today: 11 of 13 modules built; labs verified 22 of 25; release status `REENGINEERING`; evidence index 53.7 / 100.
 - Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
@@ -99,8 +99,8 @@ Edition disclosure (values today):
 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT |
 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | BUILT |
 | PY-M07 | Secure coding for Python | 2 | 8 | BUILT |
-| PY-M08 | Databases and persistence | 2 | 6 | PLANNED |
-| PY-M09 | Profiling, performance and maintainable architecture | 3 | 8 | PLANNED |
+| PY-M08 | Databases and persistence: safe SQL, transactions, repositories, migrations and query cost | 2 | 8 | BUILT |
+| PY-M09 | Profiling, performance and maintainable architecture | 3 | 8 | BUILT |
 | PY-M10 | API development: typed, tested and secure HTTP services | 2 | 8 | PLANNED |
 | PY-M11 | Capstone: typed, tested, documented application with CI | 3 | 14 | PLANNED |
 

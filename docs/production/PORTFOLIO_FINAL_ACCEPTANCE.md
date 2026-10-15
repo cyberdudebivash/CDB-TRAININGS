@@ -11,12 +11,12 @@
 - Branch content recomputed from files at the latest lab-matrix commit `4e4700ffaf7d`; the matrix covers 5 interpreters.
 
 ### CONTENT STATE
-- Modules implemented (all required files present): 10 of 113 (9%); technically verified: 10 of 113 (9%).
-- Module states: NOT_STARTED 102, IN_PROGRESS 1, TECHNICALLY_VERIFIED 10.
-- Substantive executed lessons: 10 of 113 (9%).
-- Labs verified executable: 20 of 217 (9%); outcomes assessed: 15 of 118 (13%).
-- Source pages with a recorded module disposition: 127 of 8186 (2%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
-- Python Engineering: 9 of 13 catalog modules implemented, score 53.9 of 100, state IN_PROGRESS.
+- Modules implemented (all required files present): 12 of 113 (11%); technically verified: 1 of 113 (1%).
+- Module states: NOT_STARTED 101, IMPLEMENTED_UNVERIFIED 11, TECHNICALLY_VERIFIED 1.
+- Substantive executed lessons: 1 of 113 (1%).
+- Labs verified executable: 24 of 217 (11%); outcomes assessed: 17 of 118 (14%).
+- Source pages with a recorded module disposition: 152 of 8186 (2%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
+- Python Engineering: 11 of 13 catalog modules implemented, score 47.9 of 100, state IN_PROGRESS.
 
 ### OPERATIONS STATE
 - Operational scenarios technically verified: 7 of 89 (8%); scenario states: IN_PROGRESS 6, NOT_STARTED 76, TECHNICALLY_VERIFIED 7.
@@ -27,7 +27,7 @@
 - Nothing has been published, deployed, sold or priced. Instructor material is not in the public repository.
 
 ### RELEASE STATE
-- Gate A `TRAINING_CONTENT_GO`: **0 of 10 courses**. Courses at REVIEW_REQUIRED: 0. Open P0 defects: 1; open P1 defects: 8.
+- Gate A `TRAINING_CONTENT_GO`: **0 of 10 courses**. Courses at REVIEW_REQUIRED: 0. Open P0 defects: 1; open P1 defects: 10.
 - Human reviews recorded (subject-matter, editorial, learner pilot, owner acceptance): 0.
 - `COMMERCIAL_GO` and `ACADEMY_LIVE_GO`: not assessed, not authorised in this phase.
 

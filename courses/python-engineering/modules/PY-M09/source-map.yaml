@@ -1,0 +1,31 @@
+# Source-to-new-content trace for PY-M09. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower). Mapping of pages to this module is a reading by the module author, not a measurement.
+source: SRC-PY-HANDBOOK
+module: PY-M09
+mappings:
+  - source_pages: [56]
+    source_topic: "36. Python memory management: reference counting with `sys.getrefcount(x)`, heap allocation, memory pools"
+    disposition: CORRECTED
+    new_content: "lesson.md section 7 (reference counting, cycles and the collector, immortal objects)"
+    note: "The call itself holds a reference, so the printed number is one more than expected, and since Python 3.12 some objects are no longer counted at all (executed). `weakref` and `tracemalloc` replace the counter as tools (F-PYH-014)."
+  - source_pages: [57]
+    source_topic: "36.2 Garbage collection and 36.3 interning ('Speed Optimization': `a is b` is True)"
+    disposition: CORRECTED
+    new_content: "lesson.md section 7 (interning); lab-guided step E"
+    note: "Identity of strings is an implementation detail: runtime strings are not shared, Python warns about `is` with a literal when compiling, and which small integers are shared differs by version (executed). `sys.intern` is kept as a memory tool for repeated values (F-PYH-014)."
+  - source_pages: [79]
+    source_topic: "59. Python execution optimization: PyPy, Cython, NumPy, caching, `lru_cache(maxsize=None)` with `fib`"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 2, 3, 5 and 6; lab-guided steps A to D"
+    note: "A list of tools with no measurement says nothing about when any applies. The module teaches measuring first (timeit, cProfile), counting work, Amdahl's law and algorithmic fixes; the unbounded cache is shown with its cost. PyPy, Cython and NumPy are not part of the course dependencies and are not claimed (F-PYH-014)."
+  - source_pages: [80]
+    source_topic: "60. Memory optimization techniques: generators, `__slots__`, arrays, local variables"
+    disposition: CORRECTED
+    new_content: "lesson.md section 7 (`__slots__` measured with tracemalloc, generators measured against lists); lab-guided step E"
+    note: "The techniques are kept and measured; the price of `__slots__` (no instance dictionary) is shown. 'Use local variables' is not carried: no measurement supports it as general advice (F-PYH-014)."
+  - source_pages: [464]
+    source_topic: "60. Python for FinOps (cloud cost optimisation)"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Mapped here by the word 'optimization'; it is a cloud-cost topic for the cloud courses. The habit of measuring before changing applies, and is taught here (F-PYH-014)."

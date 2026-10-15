@@ -1,70 +1,99 @@
-# PY-M08 Guided Lab — Transactional Event Persistence (Implementation Increment)
+# PY-M08 guided lab - A persistent event store that is safe, idempotent and versioned
 
-**Status: implementation increment, NOT complete course module or TRAINING_CONTENT_GO.**
-**Execution baseline:** Python 3.13.5, offline local unittest, 14/14 tests passing on 2026-10-15.
-**Scope:** Controlled-local SQLite demonstration; not a multi-user or externally exposed service.
+**Time:** about 3 hours  |  **Outcomes:** LO1-LO5  |  **Needs:** Python 3.11+ and `pytest` from `../../../labs/requirements.txt`. No network, no account and no paid service: everything runs on your computer, and SQLite is part of Python.
 
-## Customer operations case
+You build `EventStore`, the storage layer of a small support or security tool: events arrive (sometimes twice), are stored once, read back page by page, searched, retained for a while and kept in a schema that can grow. `starter/eventstore.py` holds the names, the docstrings, the exceptions, the migrations and the `Event` value; **every body that raises `NotImplementedError` is yours**. Each docstring is the specification and `checks/` holds the tests.
 
-A support platform receives event messages that can be delivered more than once. Build a local persistence layer that stores one canonical copy of each event, distinguishes exact retries from conflicting submissions, validates timestamps, and supports consistent customer-scoped event timelines.
+**History of this lab.** Part 1 (steps 1 to 5: open, close, idempotent append, seek pagination, count; the 14 contract tests in `checks/test_eventstore.py`) is the first increment of this lab, merged in `cyberdudebivash/CDB-TRAININGS#4`. Part 2 (steps 6 to 10: migrations, atomic batches, injection-safe search, retention, query shape; the other checks) was added to turn it into a complete module. The Part 1 contract is unchanged.
 
-## Acceptance contract
+## Setup
 
-- Event records contain event_id, entity_id, event_type, timezone-aware timestamp, and JSON object payload.
-- Exact retry returns False and does not duplicate records.
-- Reusing an event_id with changed contents raises IdempotencyConflict and does not alter stored data.
-- JSON payload limits and invalid values are rejected before transactions.
-- Database writes use parameter binding, atomic transactions, and safe rollback.
-- Customer/entity lookups use seek pagination with deterministic ordering.
-- Restarting an on-disk SQLite store preserves accepted events.
-- No network, cloud resources, customer data, or paid services are used.
+```bash
+cd courses/python-engineering/modules/PY-M08/lab-guided
+python -m venv .venv && . .venv/bin/activate         # Windows: .venv\Scripts\activate
+python -m pip install -r ../../../labs/requirements.txt
+python -m pytest                                      # runs checks/ against starter/ - everything fails at first
+```
 
-## Execute
+Edit only `starter/eventstore.py`. Run one step with `python -m pytest checks/test_step6_migrations.py` (also `test_step3_validation.py`, `test_step7_batch.py`, `test_step8_search.py`, `test_step9_retention.py`, `test_step10_query_shape.py`); the 14 contract tests of Part 1 are `checks/test_eventstore.py`, which also runs with the standard library alone (`python -m unittest discover -s checks -p "test_eventstore.py"`).
 
-From repository root on Windows, macOS, or Linux:
+`PY_M08_TARGET=solution python -m pytest` (or `LAB_TARGET=solution`) checks the public reference instead of your work; read `solution/eventstore.py` only after your own version passes, and compare the *shape* of the two. The checks open a store **inside** each test, so a step you have not written yet is reported as a failed check with the step's name, never as a set-up error.
 
-    python -m unittest discover -s courses/python-engineering/modules/PY-M08/lab-guided/checks -p "test_*.py" -v
+A note on the order: the steps build on each other (search needs the validation of step 3, the migration of step 6 runs when you open the store), so work in order and keep earlier checks green.
 
-Only Python standard-library packages are required.
+## The case
 
-## Learner tasks
+A support platform receives event messages that can be delivered more than once. Store one canonical copy of each event; tell an exact retry from a conflicting submission; validate timestamps; give customer-scoped timelines page by page; evolve the schema without losing data; and keep the file private. Everything here is a controlled local demonstration: no network, no cloud resource, no customer data. Never present synthetic local SQLite operations as a live customer integration.
 
-1. Explain why INSERT OR REPLACE can silently corrupt an event history.
-2. Prove that the same event can be received twice without duplicate storage.
-3. Extend the provided negative tests for empty and control-character identifiers.
-4. Demonstrate a SQL injection probe being stored as data instead of executed as SQL.
-5. Use a temporary on-disk database to verify persistence after reopening.
-6. Document when SQLite's single-process adapter is unsuitable for a distributed production environment.
+## Part 1 - The first release (steps 1 to 5)
 
-## Evidence and limitations
+### Step 1 - open the store (LO2, LO3)
 
-The reference solution and public contract suite are supplied to establish an executable pilot. The learner starter, independent exercise, hidden instructor suite, full lesson, outcome mapping, source PDF traceability, and PDF edition still need to be engineered.
+`EventStore(filename=":memory:", *, clock=None)` opens a connection with `timeout=5` and `isolation_level=None` (autocommit: the transactions are the ones you write), keeps it in `self._db`, turns on `PRAGMA foreign_keys` and `PRAGMA busy_timeout=5000`, and calls `migrate` (step 6). Read the docstring for the three extra rules (empty path, private file, close on failure); most of them are checked in step 6's file because they need the migration. Lesson sections 4, 5 and 10.
 
-Never represent synthetic local SQLite operations as a live customer integration.
+### Step 2 - close it (LO2)
 
-## Required follow-on release work
+`close()` closes the connection; closing twice is harmless; `with EventStore(path) as store:` closes on exit (given).
 
-Complete the full PY-M08 lesson package, source mapping, eight-item assessment, rubric, independent lab, negative controls, cross-version matrix, user pilot, protected instructor pack, and course-wide build gates. The existing catalog stays PLANNED until the full package is complete.
+### Step 3 - append: validate, normalise, decide inside one transaction (LO1, LO2, LO5)
 
-## Complete the guided starter
+Write `_identifier`, `_utc` and `_prepare` (everything is validated **before** the transaction: a bad event touches nothing), then `append`:
 
-The starter contains deliberate, clearly labeled omissions. The default test mode
-exercises the provided reference, while starter mode exercises your own implementation.
-A clean starter must initially fail its contract tests with actionable messages.
+- `BEGIN IMMEDIATE`; look the `event_id` up; **exact retry** (same entity, type, time and payload) returns `False` and changes nothing; **same id with other content** raises `IdempotencyConflict` and changes nothing; otherwise insert and return `True`; `COMMIT`; on any failure, **including `KeyboardInterrupt`**, `ROLLBACK` and re-raise.
+- Values are bound parameters. The payload is stored as compact JSON with sorted keys, so two payloads with the same content give the same text, and the size limit counts UTF-8 bytes of that text.
+- The time of receipt (`self._now()`, given) is stored in the `received_at` column that migration 3 adds; a retry never changes it.
 
-Linux/macOS:
+Run `python -m pytest checks/test_eventstore.py checks/test_step3_validation.py`. Lesson sections 3, 4 and 8.
 
-    PY_M08_TARGET=starter python -m unittest discover -s courses/python-engineering/modules/PY-M08/lab-guided/checks -p "test_*.py" -v
+### Step 4 - `list_for_entity`: seek pagination (LO1, LO5)
 
-Windows PowerShell:
+The events of one entity ordered by `(occurred_at, event_id)`, at most `limit`, strictly after a cursor `(timestamp text, event_id)` compared as a **pair**. Write `_limit` (a strict `int` from 1 to 100) and the query. Order the query by `occurred_at, event_id` **in the SQL**: the check `test_the_order_of_a_page_is_in_the_query_not_in_the_index` drops the index to see whether you rely on it. Lesson section 9.
 
-    $env:PY_M08_TARGET = "starter"
-    py -m unittest discover -s courses/python-engineering/modules/PY-M08/lab-guided/checks -p "test_*.py" -v
-    Remove-Item Env:PY_M08_TARGET
+### Step 5 - `count` (LO3)
 
-Move through steps 1 to 5 in starter/eventstore.py and re-run until all 14
-contracts pass. The reference is intentionally visible in the guided lab.
-A later independent exercise will use a separate problem and protected grading materials.
+The number of stored events.
 
-The initial starter failing all 14 contract tests is expected and does not indicate
-a failure of the reference implementation. A passing starter must be earned by the learner.
+## Part 2 - Making it maintainable (steps 6 to 10)
+
+### Step 6 - `migrate()`: a versioned schema (LO4)
+
+`MIGRATIONS` is given. Write `schema_version` and `migrate`: each migration in its **own** `BEGIN IMMEDIATE` transaction together with `PRAGMA user_version = n`; read the version **after** the lock is taken; refuse a database from the future (`SchemaTooNew`, untouched); do nothing when current and leave no transaction open; `StoreError` inside a transaction; roll back on `BaseException`. Then finish step 1's `__init__`: a database created by the first release has **version 0 and tables already in it**, and must be adopted with its rows (read why migration 1 says `IF NOT EXISTS`). Run `python -m pytest checks/test_step6_migrations.py`. Lesson section 7.
+
+In `notes.md`: why does `executescript()` make a poor migration runner (lesson sections 4 and 7), and what would two processes starting together do if you read `user_version` before taking the lock?
+
+### Step 7 - `append_many()`: a batch is one transaction (LO2, LO5)
+
+Validate the whole batch first, then one `BEGIN IMMEDIATE ... COMMIT`; a conflict anywhere rejects **all** of it; duplicates (stored before, or repeated inside the batch) are counted. Reuse what you wrote in step 3: a private helper that works inside an open transaction is the natural way. Run `python -m pytest checks/test_step7_batch.py`.
+
+In `notes.md`: what does the statement-count check in `test_a_batch_is_one_transaction` tell you about the cost of appending 1,000 events one at a time?
+
+### Step 8 - `search()` and `count_by_type()`: user input is data (LO1)
+
+Build the `WHERE` clause from **fixed fragments joined with `AND`**, bind every value, escape `LIKE` wildcards (`_like_pattern`) and pick the `ORDER BY` column from `ORDER_COLUMNS`. The injection battery in `checks/test_step8_search.py` sends ten hostile strings to three parameters. Run `python -m pytest checks/test_step8_search.py`. Lesson section 3.
+
+In `notes.md`: write the sentence that explains why `ORDER BY ?` would pass your tests for the ordering you chose first and fail for the other columns.
+
+### Step 9 - retention: purge by time of receipt (LO3, LO5)
+
+`received_at(event_id)` and `purge_received_before(cutoff)`. Retention counts from the moment the store **received** an event, not from when it happened: an old event that arrives late must survive the next purge. Run `python -m pytest checks/test_step9_retention.py`.
+
+### Step 10 - the shape of a query (LO5)
+
+`explain(sql, params)` returns the plan steps as strings. The checks then look at your own queries: one `SELECT` for a page, an index for the entity and for the type, one short transaction per append, no transaction for a read. Run `python -m pytest checks/test_step10_query_shape.py`. Lesson section 9.
+
+In `notes.md`: `search(text=...)` cannot use an index. Say why (lesson section 9), and what a real system would do for a large table (name the feature; do not build it).
+
+## Questions that belong in `notes.md` (from the first release of this lab)
+
+1. Explain why `INSERT OR REPLACE` can silently corrupt an event history (lesson section 8, and the cascade in the executed example).
+2. Show, with your own test in `checks/test_mine.py`, that a SQL injection probe in an **event payload** is stored as data and found again.
+3. Extend the provided negative tests with two cases of your own for identifiers (a tab, a very long id).
+4. Document when SQLite's single-process model is unsuitable for a distributed production environment (lesson section 10).
+
+## When you are done
+
+All checks pass and `notes.md` has your answers. Then read `solution/eventstore.py` and compare where each of you keeps state, which exceptions each raises, and where each transaction begins and ends. The independent lab asks you to build a different store (cases and comments, with optimistic locking and an old database to upgrade) from a specification, with no starter code.
+
+## What the checks do not tell you
+
+They test behaviour, not design taste, and they cannot tell you that a name is confusing or that a helper does two jobs. They cannot see concurrent processes either: the lock-order checks look at the statements you run, which is evidence of the design, not a stress test. An automated check run is not a review by an experienced engineer, and the module has not been used with learners.

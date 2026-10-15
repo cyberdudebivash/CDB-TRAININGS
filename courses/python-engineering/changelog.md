@@ -1,5 +1,13 @@
 # Changelog - Python Engineering
 
+## 2026-10-15 (independent audit, fourth module)
+
+- Added PY-M09 (profiling, performance and maintainable architecture, 8 hours): the handbook's memory and optimisation pages (56-57, 79-80) were mapped to no built module. Lesson (22 executed blocks on CPython 3.11-3.15, R-099, including the 3.15 sampling profiler behind a version check), guided lab `perfkit` (196 provided checks; 59 of 59 seeded defects killed), independent lab `triage` (10 published checks; 378-case hidden suite that kills 52 of 52 seeded defects and runs the learner's own budget tests against the solution and the original), assessment and the instructor pack. Evidence chain: finding F-PYH-014, research entry R-099, change record MC-PYH-24, defect DEF-017.
+
+## 2026-10-15 (independent audit, third module)
+
+- Completed PY-M08 (databases and persistence, 8 hours) on top of the guided-lab increment merged in `cyberdudebivash/CDB-TRAININGS#4` (14 contract tests for an idempotent event store, kept unchanged). Added the lesson (31 executed blocks on CPython 3.11-3.15, R-098), Part 2 of the guided lab (migrations, atomic batches, injection-safe search, retention, query shape; 200 checks in all, 95 of 95 seeded defects killed), the independent lab `casestore` (10 published checks; 145-case hidden suite that kills 83 of 83 seeded defects), assessment and the instructor pack. The default target of the guided checks is now the learner's starter (as in every other module); `PY_M08_TARGET` still works. Evidence chain: finding F-PYH-013, research entry R-098, change record MC-PYH-23, defect DEF-016.
+
 ## 2026-10-15 (independent audit, second module)
 
 - Added PY-M13 (iterators, generators, closures, decorators and context managers, 8 hours): the audit found that the handbook's core-Python pages 33-39, 67-69 and 78-79 were mapped to a file-handling module of another course and taught by no module here. Lesson (26 executed blocks on CPython 3.11-3.15, R-097), guided lab `streamkit` (128 provided checks; 49 of 49 seeded defects killed), independent lab `flowkit` (10 published checks; 63-case hidden suite that kills 35 of 35 seeded defects). Evidence chain: finding F-PYH-012, research entry R-097, change record MC-PYH-22, defect DEF-015.

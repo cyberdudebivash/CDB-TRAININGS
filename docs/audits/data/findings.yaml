@@ -551,6 +551,38 @@ findings:
     recommendation: "Teach the iterator protocol with single-pass behaviour, generators with laziness and cleanup (with inside the generator, close(), argument checks at the call), the three-line decorator pattern with functools.wraps, decorators with arguments and stacking order, context managers with guaranteed cleanup (class form, contextmanager with try/finally, ExitStack), and test them by counting consumption and recording cleanup."
     remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M13 (courses/python-engineering/modules/PY-M13)"}
 
+  - id: F-PYH-013
+    source_id: SRC-PY-HANDBOOK
+    severity: P2
+    dimension: technical_correctness
+    title: "The database examples open a connection and rebuild the schema per event, never close connections on failure, put a root password in the source and present create_all() as schema management"
+    evidence:
+      - {page: 141, note: "`mysql.connector.connect(host=\"localhost\", user=\"root\", password=\"pass\", database=\"test\")`: a privileged user and a password in the source; the cursor and connection are never closed."}
+      - {page: 142, note: "`psycopg2.connect(...)` and `MongoClient(...)` snippets with no close, no parameters and no error handling."}
+      - {page: 154, note: "`save_event` opens a connection, runs `CREATE TABLE IF NOT EXISTS` and commits for every event and closes the connection only on the success path; the parameterised INSERT itself is correct."}
+      - {page: 156, note: "The report query opens a connection that is never closed and writes to a relative `reports/` path without checking it exists."}
+      - {page: 236, note: "`db.create_all()` is the only schema management shown: it creates missing tables and never changes existing ones."}
+      - {page: 240, note: "`SECRET_KEY = \"cyberdude_secret_key_987\"` in `config.py`."}
+    verification: EXECUTED
+    detail: "Executed on CPython 3.11-3.15 (PY-M08 lesson, R-098): an f-string query is injectable by `' OR '1'='1` and by a UNION, `execute()` refuses a second statement but `executescript()` runs it; `ORDER BY ?` sorts by a constant and does nothing; user `%` and `_` are wildcards inside LIKE; `PRAGMA foreign_keys` is off by default and ignored inside a transaction; `with conn` ends a transaction and does not close the connection, and a rollback also undoes earlier uncommitted statements; `executescript()` commits as it goes, so a migration that fails half way leaves a database that matches no version; `INSERT OR REPLACE` overwrites and its delete cascades, `INSERT OR IGNORE` hides a conflict; OFFSET paging repeats rows when rows arrive between requests; a function around an indexed column causes a SCAN; an unclosed connection emits a ResourceWarning from 3.13."
+    recommendation: "Teach parameters with an exploit and the three things that cannot be parameters (names, ORDER BY, LIKE wildcards), transactions with their defaults (what `with conn` does, foreign keys, executescript), constraints as the second line of defence, a repository and unit of work, versioned atomic migrations, idempotent writes and optimistic concurrency, and the shape of a query (statements, plans, work, keyset paging); keep secrets out of the source and files private."
+    remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M08 (courses/python-engineering/modules/PY-M08)"}
+
+  - id: F-PYH-014
+    source_id: SRC-PY-HANDBOOK
+    severity: P2
+    dimension: technical_correctness
+    title: "The memory and optimisation sections demonstrate reference counting without its caveats, present string identity as an optimisation and list speed-up tools without any measurement"
+    evidence:
+      - {page: 56, note: "`sys.getrefcount(x)` is shown as the way to see an object's count; the call itself adds a reference, and on Python 3.12 and later None, True, small integers and interned names are immortal and are not counted."}
+      - {page: 57, note: "Interning is called a 'Speed Optimization' and demonstrated with `a is b -> True`; identity of strings is an implementation detail, and `is` with a literal is a SyntaxWarning."}
+      - {page: 79, note: "'Python execution optimization': PyPy, Cython, NumPy, caching, and `@lru_cache(maxsize=None)` on a recursive fib with no measurement and no mention that the cache never forgets."}
+      - {page: 80, note: "'Memory optimization techniques' (generators, `__slots__`, arrays, local variables) with no measurement and no mention of what `__slots__` removes."}
+    verification: EXECUTED
+    detail: "Executed on CPython 3.11-3.15 (PY-M09 lesson, R-099): sys.getrefcount(object()) is one higher than the number of names; the count of None does not change on 3.12 and later and does on 3.11; runtime-built strings are not the compiled constant, sys.intern shares them, and compile('x is \"a\"') warns; which small integers are shared differs by version; fib(20) makes 21891 calls and 21 with a cache; cProfile call counts are exact and repeatable; __slots__ objects use less than 80 percent of the memory of dictionary-backed ones and refuse new attributes; a generator needs less than 10 percent of the peak memory of the equivalent list; a list membership test makes 200 comparisons where a set makes 1."
+    recommendation: "Teach measurement first (perf_counter, timeit with the minimum of repeats, cProfile and pstats, the 3.15 sampling profiler), Amdahl's law, algorithmic fixes proved equivalent, tracemalloc, the real meaning of reference counts, cycles, interning and slots, performance tests built from counts and size ratios, and a core/edge structure with a dependency rule enforced by a test."
+    remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M09 (courses/python-engineering/modules/PY-M09)"}
+
   # ------------------------------------------------------------------------- Python Automation Training
   - id: F-PYA-001
     source_id: SRC-PY-AUTOMATION

@@ -1,0 +1,66 @@
+# Source-to-new-content trace for PY-M08. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower). Mapping of pages to this module is a reading by the module author, not a measurement.
+source: SRC-PY-HANDBOOK
+module: PY-M08
+mappings:
+  - source_pages: [141, 142]
+    source_topic: "29.1 to 29.3 MySQL, PostgreSQL and MongoDB connection snippets (`user=\"root\", password=\"pass\"`, cursors that are never closed)"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 3, 4 and 10 (parameters, connection lifecycle, secrets, when a server database is the right tool)"
+    note: "The snippets put a database user and password in the source and never close the connection. The server drivers are not executed here (the course uses only what ships with Python); the principles transfer (F-PYH-013)."
+  - source_pages: [148, 149, 150]
+    source_topic: "35. System architecture, 36. project layout with `storage/mongo.py` and `storage/sqlite.py`"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md sections 6 and 7; lab-guided (EventStore as the storage layer)"
+    note: "A separate storage layer is kept and made concrete: a repository that owns all SQL, a unit of work that owns the transaction, and a schema that can grow."
+  - source_pages: [154, 155]
+    source_topic: "43. Database storage: `save_event` (parameterised INSERT; connect, CREATE TABLE IF NOT EXISTS, insert, commit, close for every event)"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 3, 4 and 8; lab-guided steps 1 to 4 (idempotent, transactional append)"
+    note: "The parameterised INSERT is correct and is kept. The connection and the table-creation statement per event, the connection closed only on success and the absence of any retry or conflict handling are replaced by a store that opens once, decides inside one write-locked transaction and closes on every path (F-PYH-013)."
+  - source_pages: [155, 156]
+    source_topic: "45. Report generator: `SELECT type, COUNT(*) ... GROUP BY type` written to a text file"
+    disposition: CORRECTED
+    new_content: "lesson.md section 9; lab-guided step 8 (`count_by_type`)"
+    note: "The query is kept. The connection that is never closed and the unchecked relative output path are not; statement counts and plans replace 'it works' (F-PYH-013)."
+  - source_pages: [172, 173, 174, 181, 182]
+    source_topic: "document-store (MongoDB) storage and alerting examples"
+    disposition: DROPPED
+    new_content: "none"
+    note: "Document stores are outside this module, which teaches the relational ideas with the database that ships with Python. The principles of parameters, idempotence and least privilege apply to any store. Decision recorded under F-PYH-013."
+  - source_pages: [235, 236, 240, 241]
+    source_topic: "23 to 30. Flask-SQLAlchemy: `db.create_all()`, models, `config.py` with a literal `SECRET_KEY`"
+    disposition: CORRECTED
+    new_content: "lesson.md section 7 (why create_all is not a migration path)"
+    note: "`create_all()` creates missing tables and never alters existing ones, so the first schema change has no path; the literal secret key belongs to the secrets guidance of PY-M07 and the web layer to PY-M10 (F-PYH-013)."
+  - source_pages: [302, 311]
+    source_topic: "96. Multi-tenant migrations with Alembic; interview question 35 on migration handling"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 7"
+    note: "The idea of versioned, ordered migrations is kept and taught as a mechanism (user_version, one transaction per migration, table rebuild); Alembic itself is not part of the course dependencies and is not executed."
+  - source_pages: [108]
+    source_topic: "2. Why Python is the best automation language (a list of libraries by task)"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Mapped to this module by a keyword match on a library list. It is introductory material of the automation course and teaches no persistence; nothing is carried here (F-PYH-013)."
+  - source_pages: [176]
+    source_topic: "67. IOC format (a JSON structure for indicators) in the threat-intelligence aggregator project"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Mapped here because the project stores its output; the indicator schema belongs to the threat-intelligence modules. The storage principles of this module (parameters, constraints, idempotent writes) apply to it (F-PYH-013)."
+  - source_pages: [231, 243]
+    source_topic: "18 and 32. Flask-WTF forms (ContactForm, LoginForm)"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Web forms and request validation belong to the API and web module (PY-M10); mapped here only because the neighbouring pages use SQLAlchemy (F-PYH-013)."
+  - source_pages: [373]
+    source_topic: "53.3 IPS blocking with `os.system(f\"iptables -A INPUT -s {ip} -j DROP\")` and 54. Project 4 threat-intelligence platform"
+    disposition: DROPPED
+    new_content: "none in this module; lesson.md section 3 names the same mistake outside SQL"
+    note: "The f-string shell command is the command-injection twin of the SQL injection taught here and is corrected in the secure-coding module (F-PYH-002); the project description teaches no persistence."
+  - source_pages: [395]
+    source_topic: "77 and 78. A shellcode loader and a file-format fuzzer"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Offensive-security content mapped here by a keyword match. It is outside this module and may only appear in a course that teaches it inside an isolated, synthetic lab (F-PYH-013)."

@@ -100,13 +100,13 @@ courses:
       - {id: PY-M05, title: "Files, structured data and HTTP clients", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Consume a paginated API fixture with retries and timeouts and validate every response against a schema."}
       - {id: PY-M06, title: "Concurrency and asynchronous programming", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark."}
       - {id: PY-M07, title: "Secure coding for Python", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Find and fix eight seeded vulnerabilities (injection, secrets, TLS, deserialisation) and add a regression test for each."}
-      - {id: PY-M08, title: "Databases and persistence", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Implement a repository layer using parameterised SQL and demonstrate that an injection attempt fails."}
-      - {id: PY-M09, title: "Profiling, performance and maintainable architecture", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent."}
+      - {id: PY-M08, title: "Databases and persistence: safe SQL, transactions, repositories, migrations and query cost", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Implement a repository layer using parameterised SQL, a versioned schema and atomic writes, and demonstrate that an injection attempt, a retry and a concurrent edit do not corrupt the data."}
+      - {id: PY-M09, title: "Profiling, performance and maintainable architecture", level: 3, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent without changing an answer, and prove it with tests that do not depend on the speed of the machine."}
       - {id: PY-M10, title: "API development: typed, tested and secure HTTP services", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Build a typed HTTP API with request validation and authentication that passes contract tests and an injection test suite."}
       - {id: PY-M11, title: "Capstone: typed, tested, documented application with CI", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a packaged application whose tests, type checks and security scan pass in a clean environment."}
-    estimated_duration_hours: 108
-    lab_coverage: {planned: 25, built: 18, verified_executable: 18}
-    assessment_coverage: {outcomes_total: 13, outcomes_assessed: 9}
+    estimated_duration_hours: 110
+    lab_coverage: {planned: 25, built: 22, verified_executable: 22}
+    assessment_coverage: {outcomes_total: 13, outcomes_assessed: 11}
     capstone: "A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan."
     review_status: AUTOMATED_ONLY
     qa_status: PARTIAL
@@ -116,7 +116,7 @@ courses:
     owner: UNASSIGNED
     reviewers: []
     last_verified: 2026-10-14
-    notes: "Nine of thirteen modules are built (PY-M01 to PY-M07, PY-M12 and PY-M13) with eighteen labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are covered by PY-M12."
+    notes: "Eleven of thirteen modules are built (PY-M01 to PY-M09, PY-M12 and PY-M13) with twenty-two labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are covered by PY-M12; databases (pp. 141-142, 154-156) by PY-M08, which extends the guided-lab increment merged in PR #4; profiling, memory and architecture (pp. 56-57, 79-80) by PY-M09."
 
   - id: COURSE-PY-AUTO
     slug: python-automation

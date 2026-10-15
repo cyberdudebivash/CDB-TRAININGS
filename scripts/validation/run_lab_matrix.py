@@ -76,7 +76,7 @@ def run_one(version: str, work: Path, cutoff: str) -> dict:
         return record
     freeze = sh([py, "-m", "pip", "list", "--format=json", "--disable-pip-version-check"])
     packages = {p["name"].lower(): p["version"] for p in json.loads(freeze.stdout)}
-    record["packages"] = {k: packages.get(k, "") for k in ("pytest", "pyyaml", "pyjwt", "ruff", "build", "setuptools", "wheel", "pip", "requests", "httpx", "pydantic")}
+    record["packages"] = {k: packages.get(k, "") for k in ("pytest", "pyyaml", "pyjwt", "ruff", "mypy", "build", "setuptools", "wheel", "pip", "requests", "httpx", "httpx2", "pydantic", "fastapi", "starlette")}
     xml = work / f"junit-py{version.replace('.', '')}.xml"
     env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1")
     env.pop("VIRTUAL_ENV", None)

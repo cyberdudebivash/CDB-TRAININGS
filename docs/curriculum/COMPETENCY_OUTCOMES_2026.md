@@ -43,7 +43,7 @@ Outcomes total: **19**; assessed: **6**; labs planned/built/verified: 27/2/2; re
 
 ## COURSE-PY-ENG - Python Engineering Pathway
 
-Outcomes total: **13**; assessed: **9**; labs planned/built/verified: 25/18/18; release status `REENGINEERING`.
+Outcomes total: **13**; assessed: **11**; labs planned/built/verified: 25/22/22; release status `REENGINEERING`.
 
 | Module | Level | Outcome (observable) | Bloom | Planned evidence | Lab / build state | Change records | Developments |
 |---|---|---|---|---|---|---|---|
@@ -56,8 +56,8 @@ Outcomes total: **13**; assessed: **9**; labs planned/built/verified: 25/18/18; 
 | PY-M05 | 2 | Consume a paginated API fixture with retries and timeouts and validate every response against a schema. | Apply | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-19 | - |
 | PY-M06 | 2 | Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark. | Evaluate | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
 | PY-M07 | 2 | Find and fix eight seeded vulnerabilities (injection, secrets, TLS, deserialisation) and add a regression test for each. | Analyse | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
-| PY-M08 | 2 | Implement a repository layer using parameterised SQL and demonstrate that an injection attempt fails. | Apply | Independent lab graded by automated criteria and a reviewer rubric | PLANNED | MC-PYH-08 | - |
-| PY-M09 | 3 | Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent. | Understand | Capstone or multi-source case with a written decision record, graded against a published rubric | PLANNED | - | ND-PY-01 |
+| PY-M08 | 2 | Implement a repository layer using parameterised SQL, a versioned schema and atomic writes, and demonstrate that an injection attempt, a retry and a concurrent edit do not corrupt the data. | Apply | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-08, MC-PYH-23 | - |
+| PY-M09 | 3 | Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent without changing an answer, and prove it with tests that do not depend on the speed of the machine. | Understand | Capstone or multi-source case with a written decision record, graded against a published rubric | VERIFIED_EXECUTABLE | MC-PYH-24 | ND-PY-01 |
 | PY-M10 | 2 | Build a typed HTTP API with request validation and authentication that passes contract tests and an injection test suite. | Create | Independent lab graded by automated criteria and a reviewer rubric | PLANNED | MC-PYH-06, MC-PYH-08 | - |
 | PY-M11 | 3 | Deliver a packaged application whose tests, type checks and security scan pass in a clean environment. | Create | Capstone or multi-source case with a written decision record, graded against a published rubric | PLANNED | MC-PYH-14 | - |
 

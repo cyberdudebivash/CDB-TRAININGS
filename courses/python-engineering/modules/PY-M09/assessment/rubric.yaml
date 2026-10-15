@@ -1,0 +1,51 @@
+# Public rubric for the PY-M09 independent lab (triage). Students see exactly how they are graded.
+# Mechanical criteria (kind: automated) are run by instructors; judgement criteria (kind: reviewer) are scored 0-3 using the level descriptors below.
+rubric_id: RUB-PY-M09
+module: PY-M09
+version: 0.1.0
+pass_rule: >
+  Every must-pass criterion is met, no reviewer criterion is scored 0, and the reviewer criteria total at least 60% of their maximum.
+  Finishing the lesson or the guided lab alone is not a completion claim.
+criteria:
+  - id: C1
+    name: "Published checks pass"
+    outcomes: [LO2]
+    kind: automated
+    must_pass: true
+    measure: "python -m pytest in lab-independent/ passes with the learner's starter/triage.py and starter/test_budget.py (all ten published checks, none skipped or xfail)"
+  - id: C2
+    name: "Hidden suite"
+    outcomes: [LO1, LO2, LO4, LO5]
+    kind: automated
+    must_pass: true
+    measure: "the instructors' hidden suite (378 checks: normalize, collapse, rank, summarize, triage and render against the original on random and awkward inputs; how the work grows; the compile count; the code of the core; the behaviour of read_alerts; and your own budget tests run against your solution and against the original) is run against the learner's folder: at least 319 of the 378 pass, and every check that compares answers with the original, every check of the core's code and both checks on the learner's budget tests pass"
+  - id: C3
+    name: "Profile, prediction and priorities"
+    outcomes: [LO1, LO2]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "No profile, or changes made without one"
+      1: "A profile is shown but the prediction is missing, or the measured gain is not compared with it"
+      2: "A profile before and after, a prediction from the share of the largest function, the measured gain, and one change deliberately not made because its share was small"
+      3: "As level 2, and the notes explain a difference between prediction and measurement with evidence (a second profile, a counter)"
+  - id: C4
+    name: "Budget tests"
+    outcomes: [LO4]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Tests use an absolute time threshold, or pass and fail for the same reason on both versions"
+      1: "Tests discriminate between the versions but depend on the machine's speed, or run too long on the slow version"
+      2: "Counts, ratios or budgets far from both answers; the best of several runs; an early exit; one equivalence test with a fixed seed"
+      3: "As level 2, and the notes say for each test why it cannot flake and what it would take to make it fail on a good solution"
+  - id: C5
+    name: "Memory and structure"
+    outcomes: [LO3, LO5]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "No memory measurement, and I/O or edge names inside the core"
+      1: "A peak is quoted without saying what dominates it, or the core/edge split is correct but unexplained"
+      2: "A tracemalloc peak with the dominating allocation named from a snapshot, and a statement of what would change for a hundred times more input; core and edge separated"
+      3: "As level 2, and the learner shows that the core can be run and tested on a list without a file, and explains one dependency they chose not to create"

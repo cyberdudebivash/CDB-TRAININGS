@@ -922,10 +922,10 @@
   "SRC-PY-HANDBOOK": {
    "action": {
     "EXPAND": 12,
-    "KEEP": 309,
+    "KEEP": 302,
     "REMOVE": 74,
     "REPLACE": 93,
-    "UPDATE": 166
+    "UPDATE": 173
    },
    "currency": {
     "BASELINE_AVAILABLE": 295,
@@ -977,7 +977,7 @@
     "source_default": 1
    },
    "mapping_no_destination": 74,
-   "model_read_pages": 39,
+   "model_read_pages": 48,
    "pages": 654,
    "rule_hits": {
     "DR-AI-003": 2,
@@ -992,17 +992,17 @@
     "DR-PY-024": 1
    },
    "severity": {
-    "NONE": 547,
+    "NONE": 539,
     "P0": 2,
     "P1": 12,
-    "P2": 67,
+    "P2": 75,
     "P3": 14,
     "P4": 12
    },
    "status": {
-    "MACHINE_FLAGGED_REVIEW_REQUIRED": 55,
-    "MACHINE_SCANNED_NO_FLAGS": 559,
-    "MODEL_READ_FINDING_CITED": 39,
+    "MACHINE_FLAGGED_REVIEW_REQUIRED": 54,
+    "MACHINE_SCANNED_NO_FLAGS": 551,
+    "MODEL_READ_FINDING_CITED": 48,
     "VISUAL_REVIEW_REQUIRED": 1
    },
    "top_technologies": [
@@ -1188,26 +1188,26 @@
  },
  "totals": {
   "action:EXPAND": 91,
-  "action:KEEP": 3258,
+  "action:KEEP": 3251,
   "action:MERGE": 936,
   "action:REMOVE": 932,
   "action:REPLACE": 491,
-  "action:UPDATE": 2478,
+  "action:UPDATE": 2485,
   "currency:BASELINE_AVAILABLE": 1394,
   "currency:CURRENCY_FLAGGED": 156,
   "currency:NO_TECHNOLOGY_DETECTED": 3244,
   "currency:UNVERIFIED_CURRENCY": 3392,
   "pages": 8186,
-  "severity:NONE": 7362,
+  "severity:NONE": 7354,
   "severity:P0": 10,
   "severity:P1": 71,
-  "severity:P2": 221,
+  "severity:P2": 229,
   "severity:P3": 345,
   "severity:P4": 177,
-  "status:MACHINE_FLAGGED_REVIEW_REQUIRED": 501,
+  "status:MACHINE_FLAGGED_REVIEW_REQUIRED": 500,
   "status:MACHINE_SCANNED_NEAR_BLANK": 29,
-  "status:MACHINE_SCANNED_NO_FLAGS": 7504,
-  "status:MODEL_READ_FINDING_CITED": 123,
+  "status:MACHINE_SCANNED_NO_FLAGS": 7496,
+  "status:MODEL_READ_FINDING_CITED": 132,
   "status:VISUAL_REVIEW_REQUIRED": 29
  }
 }

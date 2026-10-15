@@ -5,19 +5,19 @@
 
 - Course: `COURSE-PY-ENG` (catalog version 0.1.0-build, slug `python-engineering`)
 - Legacy sources: SRC-PY-HANDBOOK (CyberDudeBivash Python Engineering Handbook)
-- Concept-level change records: **22**; new developments assigned: **5**
+- Concept-level change records: **24**; new developments assigned: **5**
 
 ## Page-level audit rollup (machine candidates)
 
 | Source | Pages | Page-level action | Severity | Human-read (finding-cited) | Visual review needed |
 |---|---|---|---|---|---|
-| SRC-PY-HANDBOOK | 654 | KEEP 309, UPDATE 166, REPLACE 93, EXPAND 12, REMOVE 74 | P0 2, P1 12, P2 67, P3 14, P4 12, NONE 547 | 39 | 1 |
+| SRC-PY-HANDBOOK | 654 | KEEP 302, UPDATE 173, REPLACE 93, EXPAND 12, REMOVE 74 | P0 2, P1 12, P2 75, P3 14, P4 12, NONE 539 | 48 | 1 |
 
 These counts are rule outputs over every page; `KEEP` is a candidate, not a verdict.
 
 ## Differential analysis
 
-Actions: KEEP 1, UPDATE 9, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
+Actions: KEEP 1, UPDATE 11, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 
 ### MC-PYH-01 - Python language foundations (installing, syntax, types, control flow, functions, data structures)
 
@@ -120,7 +120,7 @@ Actions: KEEP 1, UPDATE 9, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 - **2025 source state:** Module 3 builds Flask APIs with SQLAlchemy and JWT (FastAPI appears in the later AI deployment chapters).
 - **Verified state at 2026-10-14:** Flask 3.1.3 removed before_first_request, flask.json.JSONEncoder, flask.escape and flask.Markup (executed); FastAPI 0.143.0 accepts @app.on_event with a DeprecationWarning (executed); SQLAlchemy 2.1.4 has no engine.execute (executed).
 - **Why:** Frameworks and ORM APIs moved; the catalog lacked an API-development module.
-- **Destination:** PY-M10, PY-M08 (PLANNED)
+- **Destination:** PY-M10, PY-M08 (PARTIAL)
 - **Learner impact:** Typed, tested, secure API with contract and injection tests.
 - **Verification:** EXECUTED - three probes
 - **Evidence:**
@@ -322,6 +322,34 @@ Actions: KEEP 1, UPDATE 9, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 - **Evidence:**
   - `F-PYH-012`: P2 The iterator, generator, decorator and context-manager sections contain examples that leak resources, drop arguments and results, or use Python 2 spellings, and make unqualified speed claims
   - `R-097`: Iterator, generator, decorator and context-manager behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0) (Python Software Foundation; EXECUTED; verified 2026-10-15) <https://docs.python.org/3/reference/expressions.html#yield-expressions>
+  - `R-005`: Python Developer's Guide - Status of Python versions (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://devguide.python.org/versions/>
+
+### MC-PYH-23 - Database storage, SQL parameters, transactions, schema management and migrations
+
+- **Action:** UPDATE  |  **Source:** SRC-PY-HANDBOOK, pages 141-142, 154-156, 235-241, 302
+- **2025 source state:** SQL snippets for MySQL, PostgreSQL and MongoDB with a literal root password, a `save_event` that connects, creates its table and commits per event, a report that never closes its connection, `db.create_all()` and a one-line mention of Alembic (pp. 141-142, 154-156, 236, 240, 302; F-PYH-013).
+- **Verified state at 2026-10-14:** Parameters, explicit transactions, enforced foreign keys, a repository with a unit of work, versioned atomic migrations, idempotent writes with optimistic concurrency and query shape checks are the baseline for code that stores data; the behaviour is the same on 3.11 to 3.15 except the autocommit parameter (3.12), the date adapter deprecation (3.12) and the ResourceWarning for unclosed connections (3.13) (R-098).
+- **Why:** Examples meant to be copied would leak connections, keep credentials in the source and leave no way to change a schema; the section also left the storage topic of the course without an assessable outcome (DEF-016).
+- **Destination:** PY-M08 (BUILT)
+- **Learner impact:** Learners write storage code that cannot be injected, never half-applies a change, survives retries and concurrent edits, upgrades an older database and is checked by tests that count statements.
+- **Verification:** EXECUTED - PY-M08 lesson blocks and labs executed on CPython 3.11-3.15 (tests/test_python_engineering_labs.py and the lab matrix)
+- **Evidence:**
+  - `F-PYH-013`: P2 The database examples open a connection and rebuild the schema per event, never close connections on failure, put a root password in the source and present create_all() as schema management
+  - `R-098`: sqlite3 behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0; bundled SQLite 3.45.1 on 3.11 to 3.13 and 3.53.1 on 3.14 and 3.15) (Python Software Foundation; EXECUTED; verified 2026-10-15) <https://docs.python.org/3/library/sqlite3.html>
+  - `R-005`: Python Developer's Guide - Status of Python versions (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://devguide.python.org/versions/>
+
+### MC-PYH-24 - Memory management, interning and execution/memory optimisation
+
+- **Action:** UPDATE  |  **Source:** SRC-PY-HANDBOOK, pages 56-57, 79-80
+- **2025 source state:** A getrefcount demonstration, interning presented as a speed optimisation with `a is b`, and two lists of optimisation tools (PyPy, Cython, NumPy, lru_cache with maxsize=None, generators, `__slots__`, arrays) with no measurement (pp. 56-57, 79-80; F-PYH-014).
+- **Verified state at 2026-10-14:** Optimisation starts with a profile (cProfile everywhere, the sampling profiler on 3.15), is bounded by Amdahl's law, is proved equivalent to the old behaviour, is tested with counts and size ratios, and memory is measured with tracemalloc; identity of strings and reference counts are implementation details (R-099).
+- **Why:** Tool lists without measurement lead to effort spent on the wrong function, and the memory pages teach habits (identity comparison, trusting a reference count) that break between interpreter versions; the section also left the performance topic of the course without an assessable outcome (DEF-017).
+- **Destination:** PY-M09 (BUILT)
+- **Learner impact:** Learners profile before changing anything, fix the function that matters, prove the answers did not change, write performance tests that cannot flake and structure code so that the next change is cheap.
+- **Verification:** EXECUTED - PY-M09 lesson blocks and labs executed on CPython 3.11-3.15 (tests/test_python_engineering_labs.py and the lab matrix)
+- **Evidence:**
+  - `F-PYH-014`: P2 The memory and optimisation sections demonstrate reference counting without its caveats, present string identity as an optimisation and list speed-up tools without any measurement
+  - `R-099`: Profiling, memory and object-identity behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0) (Python Software Foundation; EXECUTED; verified 2026-10-15) <https://docs.python.org/3/library/profile.html>
   - `R-005`: Python Developer's Guide - Status of Python versions (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://devguide.python.org/versions/>
 
 ## New developments relevant to this course
