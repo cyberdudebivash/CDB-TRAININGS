@@ -8,6 +8,8 @@ The figures that change as work proceeds live in [MODERNIZATION_PROGRESS.md](MOD
 All ten source PDFs are preserved unchanged. Every one of their pages has a machine-readable audit record; the concept-level 2025-to-2026 differential analysis, the research register (with executed probes and a reproducible registry snapshot dated 2026-10-14) and the new-developments register exist and are cross-validated.
 A few modules are built with executed labs (the built modules are listed in [MODERNIZATION_PROGRESS.md](MODERNIZATION_PROGRESS.md)); the rest are planned only. No course is eligible for TRAINING_CONTENT_GO (Gate A, computed in docs/production/) and none may be called a "Premium Edition". The 2026-10-24 refresh is a future event (`PENDING_FUTURE_REFRESH`).
 
+**Release readiness is three independent gates** ([docs/release/RELEASE_GATES.md](../release/RELEASE_GATES.md)): Gate A `TRAINING_CONTENT_GO` (computed from evidence by `scripts/production/gate_a.py`, rendered to [docs/production/](../production/PORTFOLIO_FINAL_ACCEPTANCE.md), enforced by `scripts/validation/validate_gate_a.py`), Gate B `COMMERCIAL_GO` and Gate C `ACADEMY_LIVE_GO` (not implemented, not assessed). Start a new session from [docs/production/EXECUTION_CONTINUITY.md](../production/EXECUTION_CONTINUITY.md) and [REMAINING_DEFECTS.md](../production/REMAINING_DEFECTS.md); the structured sources of truth are in `docs/production/data/`.
+
 ## 2. Verify it yourself
 
 ```bash
@@ -15,6 +17,9 @@ python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
 pytest                                              # full suite; private-pack tests report SKIPPED_PRIVATE_MATERIALS without the instructor pack
 python scripts/validation/run_qa.py --skip-build    # catalog, evidence, generated documents, tests; rewrites the QA and gate reports
 python scripts/audit/build_page_records.py --check  # about 70 s; page records reproduce from the PDFs and the rules
+python scripts/validation/validate_gate_a.py        # no status, review or scenario claims more than the evidence supports
+python scripts/validation/check_privacy.py          # no e-mail address or telephone number outside the reviewed allow-list
+python scripts/validation/learner_dry_run.py        # committed files only, clean environment (not a learner pilot); needs the lab dependencies and network
 ```
 
 ## 3. Owner decisions first
@@ -39,7 +44,7 @@ Suggested order, with reasons: finish Python Engineering (PY-M08, M09, M10, M11 
 
 ## 5. Known limits and traps
 
-- Page-to-module mapping and page-level actions are **heuristic**; only finding-cited pages were read by a person. 29 pages have no text layer and need visual review or OCR.
+- Page-to-module mapping and page-level actions are **heuristic**; only the pages cited by a finding were read in context, **by the AI model, not by a person**, and no page has had a human review. The 58 pages the text scan cannot judge (29 without a text layer, 29 near blank) were rendered and viewed by the model ([visual_review.yaml](../production/data/visual_review.yaml)); that is model inspection only.
 - `KEEP` at page level is a candidate, not a verdict.
 - Register entries with method `OFFICIAL_PAGE_SUMMARY` or `SECONDARY_SOURCE` were read through a summarising tool or from trade press; re-verify against primary text before customer-facing use (listed in `docs/research/RESEARCH_VERIFICATION_2026.md`).
 - GitHub release data was not collected (the session scope was restricted to this repository); 31 registry entries therefore have no verified version.
@@ -58,6 +63,8 @@ python scripts/build/render_readiness_2026.py       # readiness, premium catalog
 python scripts/build/render_program_docs.py         # catalog-derived tables in the program documents
 python scripts/inventory/render_audits.py           # first-audit documents and the research register view
 python scripts/validation/render_lab_evidence.py    # lab evidence from docs/qa/data/lab_execution_<cutoff>.json
+python scripts/production/render_production_docs.py # Gate A acceptance documents and machine-readable state (docs/production/)
+python scripts/production/build_pdf_manifest.py     # builds every module student edition and records hashes (needs pandoc and Chromium)
 ```
 
 Every generator has a `--check` mode that `run_qa.py` and the tests use; a hand-edit of a generated file fails them.

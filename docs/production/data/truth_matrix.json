@@ -1653,7 +1653,7 @@
    "SOC-M04": {
     "catalog_status": "BUILT_PILOT",
     "edition_config": true,
-    "evidence": "recorded QA run: lab-guided-e2e PASS, lab-independent-e2e PASS, pytest PASS; not content-bound (record predates fingerprints)",
+    "evidence": "recorded QA run: lab-guided-e2e PASS, lab-independent-e2e PASS, pytest PASS; content-bound",
     "executed_blocks": 0,
     "outcomes": 6,
     "private_pack_recorded": true,

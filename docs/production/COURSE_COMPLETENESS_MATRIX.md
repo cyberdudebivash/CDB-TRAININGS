@@ -36,7 +36,7 @@ Portfolio: 8 of 111 (7%) modules implemented, 8 of 111 (7%) technically verified
 | SOC-M01 | SOC fundamentals, roles and the alert lifecycle | PLANNED | NOT_STARTED | - | - | - |
 | SOC-M02 | Telemetry: Windows, Linux and network logs | PLANNED | NOT_STARTED | - | - | - |
 | SOC-M03 | Log parsing, normalisation and query languages | PLANNED | NOT_STARTED | - | - | - |
-| SOC-M04 | Authentication-attack detection and triage | BUILT_PILOT | TECHNICALLY_VERIFIED | 2668 | - | recorded QA run: lab-guided-e2e PASS, lab-independent-e2e PASS, pytest PASS; not content-bound (record predates fingerprints) |
+| SOC-M04 | Authentication-attack detection and triage | BUILT_PILOT | TECHNICALLY_VERIFIED | 2668 | - | recorded QA run: lab-guided-e2e PASS, lab-independent-e2e PASS, pytest PASS; content-bound |
 | SOC-M05 | Alert triage and case management | PLANNED | NOT_STARTED | - | - | - |
 | SOC-M06 | Detection engineering with Sigma and ATT&CK | PLANNED | NOT_STARTED | - | - | - |
 | SOC-M07 | Threat-intelligence enrichment and false-positive reduction | PLANNED | NOT_STARTED | - | - | - |
