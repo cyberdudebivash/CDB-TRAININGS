@@ -191,3 +191,17 @@ def test_gate_b_and_gate_c_are_not_part_of_the_computed_state(baseline):
     state = (ROOT / "docs" / "production" / "data" / "computed_state.json").read_text(encoding="utf-8")
     assert "COMMERCIAL_GO" not in state and "ACADEMY_LIVE_GO" not in state
     assert all(not hasattr(baseline, name) for name in ("commercial", "academy"))
+
+
+def test_every_flagged_source_page_has_a_recorded_visual_inspection_that_is_not_called_human(baseline):
+    assert V.check_visual_review(baseline) == []
+    assert len(baseline.visual["pages"]) == len(G.flagged_pages()) == baseline.totals()["visual_pages_inspected"]
+    missing = copy.deepcopy(baseline.visual)
+    missing["pages"] = missing["pages"][1:]
+    assert any("needs visual inspection" in f for f in V.check_visual_review(G.Portfolio({"visual": missing})))
+    claimed = copy.deepcopy(baseline.visual)
+    claimed["human_reviewed"] = True
+    assert any("claims human review" in f for f in V.check_visual_review(G.Portfolio({"visual": claimed})))
+    extra = copy.deepcopy(baseline.visual)
+    extra["pages"].append({"source": "SRC-PY-HANDBOOK", "page": 2, "content_type": "cover", "summary": "x", "disposition": "y"})
+    assert any("not a flagged page" in f for f in V.check_visual_review(G.Portfolio({"visual": extra})))

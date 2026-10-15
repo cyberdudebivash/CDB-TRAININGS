@@ -14,7 +14,7 @@
 | DEF-004 | P1 | OPEN_OWNER_ACTION | all courses | Copyright holder and licence undecided; no LICENSE file (INC-004 / D4) | LICENSE file present and docs/release/data/readiness_inputs_2026.yaml ip_licensing MET |
 | DEF-005 | P1 | OPEN_OWNER_ACTION | all courses | Instructor packs live only in the assistant's session, not in private storage (INC-005 / D8) | private repository exists and the packs are stored there |
 | DEF-006 | P1 | OPEN | PY-ENG | Object-oriented programming (classes, properties, inheritance, composition, dataclasses) is taught by no module | a built module covers handbook pp. 48-55 with an executed lab and hidden suite |
-| DEF-007 | P1 | OPEN | all courses | 29 image-only source pages were never visually reviewed | each page rendered and inspected, recorded in docs/production/data/visual_review.yaml |
+| DEF-007 | P1 | CLOSED | all courses | 29 image-only source pages were never visually reviewed | each page rendered and inspected, recorded in docs/production/data/visual_review.yaml |
 | DEF-008 | P1 | OPEN | all courses | Source-page review is incomplete: most pages are rule-scanned only (see docs/audits/OCT2026_COMPLETE_PDF_AUDIT.md) | every page carries a semantic-inspection record or a module disposition |
 | DEF-009 | P1 | OPEN_OWNER_ACTION | all courses | No subject-matter, editorial or learner-pilot review has taken place | entries in docs/production/data/human_reviews.yaml |
 | DEF-010 | P2 | OPEN | all courses | October 24 technical refresh not yet executable (date has not arrived) | docs/release/OCT24_FINAL_REFRESH_CHECKLIST.md executed on or after 2026-10-24 |
@@ -22,7 +22,7 @@
 | DEF-012 | P2 | OPEN | all courses | 31 technology-registry entries have no verified version (GitHub release data not collected) | fetch_registry_versions.py with release access |
 | DEF-013 | P2 | OPEN_OWNER_ACTION | PY-ENG | GitGuardian false positive on PY-M05 lesson still reported on an earlier commit (INC-006) | dashboard incident 38216690 marked as false positive |
 
-Open P0: 1; open P1: 8. A course cannot reach TRAINING_CONTENT_GO with an open P0 or P1 defect that applies to it.
+Open P0: 1; open P1: 7. A course cannot reach TRAINING_CONTENT_GO with an open P0 or P1 defect that applies to it.
 
 ## 2. Incidents and owner decisions (public-safe)
 

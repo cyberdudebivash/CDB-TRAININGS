@@ -38,18 +38,18 @@
 
 ### REPOSITORY STATE
 - Courses in the catalog: 10; modules required by the approved catalog: 111; planned labs: 213; planned learning outcomes: 116.
-- Branch content recomputed from files at the latest lab-matrix commit `e516be96d8f6`; the matrix covers 5 interpreters.
+- Branch content recomputed from files at the latest lab-matrix commit `bad7a2941c44`; the matrix covers 5 interpreters.
 
 ### CONTENT STATE
-- Modules implemented (all required files present): 8 of 111 (7%); technically verified: 1 of 111 (1%).
-- Module states: NOT_STARTED 103, IMPLEMENTED_UNVERIFIED 7, TECHNICALLY_VERIFIED 1.
-- Substantive executed lessons: 1 of 111 (1%).
+- Modules implemented (all required files present): 8 of 111 (7%); technically verified: 8 of 111 (7%).
+- Module states: NOT_STARTED 103, TECHNICALLY_VERIFIED 8.
+- Substantive executed lessons: 8 of 111 (7%).
 - Labs verified executable: 16 of 213 (8%); outcomes assessed: 13 of 116 (11%).
 - Source pages with a recorded module disposition: 107 of 8186 (1%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
-- Python Engineering: 7 of 11 catalog modules implemented, score 36.2 of 100, state IN_PROGRESS.
+- Python Engineering: 7 of 11 catalog modules implemented, score 50.6 of 100, state IN_PROGRESS.
 
 ### OPERATIONS STATE
-- Operational scenarios technically verified: 5 of 89 (6%); scenario states: IMPLEMENTED_UNVERIFIED 2, IN_PROGRESS 6, NOT_STARTED 76, TECHNICALLY_VERIFIED 5.
+- Operational scenarios technically verified: 7 of 89 (8%); scenario states: IN_PROGRESS 6, NOT_STARTED 76, TECHNICALLY_VERIFIED 7.
 - Courses with at least one verified time-dependent scenario (CONTROLLED_LIVE or REPLAY_SIMULATION): 2 of 10 (20%); EXTERNAL_LIVE scenarios: 0.
 
 ### PUBLICATION STATE
@@ -57,6 +57,6 @@
 - Nothing has been published, deployed, sold or priced. Instructor material is not in the public repository.
 
 ### RELEASE STATE
-- Gate A `TRAINING_CONTENT_GO`: **0 of 10 courses**. Courses at REVIEW_REQUIRED: 0. Open P0 defects: 1; open P1 defects: 8.
+- Gate A `TRAINING_CONTENT_GO`: **0 of 10 courses**. Courses at REVIEW_REQUIRED: 0. Open P0 defects: 1; open P1 defects: 7.
 - Human reviews recorded (subject-matter, editorial, learner pilot, owner acceptance): 0.
 - `COMMERCIAL_GO` and `ACADEMY_LIVE_GO`: not assessed, not authorised in this phase.

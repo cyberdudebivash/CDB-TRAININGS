@@ -4,7 +4,7 @@
 > Gate A only: this is `TRAINING_CONTENT_GO` (is the training content complete, correct and releasable as content). Commercial readiness (`COMMERCIAL_GO`) and Academy
 > publication (`ACADEMY_LIVE_GO`) are separate gates that are not part of this phase and are not assessed here.
 
-Execution date of this generation: **2026-10-15**. Registry snapshot, executed API probes and the lab-matrix baseline carry the cutoff **2026-10-14** (lab matrix recorded commit `e516be96d8f6`, cutoff `2026-10-14`).
+Execution date of this generation: **2026-10-15**. Registry snapshot, executed API probes and the lab-matrix baseline carry the cutoff **2026-10-14** (lab matrix recorded commit `bad7a2941c44`, cutoff `2026-10-14`).
 
 A re-check against the actual execution date is a separate action from the Stage B refresh. Until a research run is recorded with the later date, no document may say that a fact was verified on the later date.
 

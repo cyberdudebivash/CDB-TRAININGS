@@ -21,8 +21,8 @@ Scenario inventory by class: CONTROLLED_LIVE 5, NONE_YET 79, REPLAY_SIMULATION 5
 | PYE-02 | PY-ENG | Fault-tolerant API client (timeouts, bounded retries, Retry-After, pagination, same-origin links) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED | loopback server started by the lab; deadline and measured timing in hidden suite |
 | PYE-03 | PY-ENG | Data validation at the boundary (schemas, quarantine of bad records, reject threshold) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
 | PYE-06 | PY-ENG | Automated tests that catch seeded defects (mutation-graded) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
-| PYE-08 | PY-ENG | Concurrency: bounded fan-out, supervision, cancellation, partial failure, deadline | CONTROLLED_LIVE | IMPLEMENTED_UNVERIFIED |  |
-| PYE-10 | PY-ENG | Failure-handling patterns (retry, fallback, atomic output, no half-written files) | CONTROLLED_LIVE | IMPLEMENTED_UNVERIFIED |  |
+| PYE-08 | PY-ENG | Concurrency: bounded fan-out, supervision, cancellation, partial failure, deadline | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
+| PYE-10 | PY-ENG | Failure-handling patterns (retry, fallback, atomic output, no half-written files) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
 | SOC-01 | SOC | Suspicious authentication investigation | REPLAY_SIMULATION | IN_PROGRESS | detection and triage pilot; no evidence-backed investigation report is required of the learner yet |
 | SOC-04 | SOC | Detection engineering (rules, exceptions, precision and recall) | REPLAY_SIMULATION | TECHNICALLY_VERIFIED |  |
 | SOC-07 | SOC | False-positive analysis | REPLAY_SIMULATION | IN_PROGRESS | exceptions are tuned in the pilot; a written false-positive analysis is not yet assessed |

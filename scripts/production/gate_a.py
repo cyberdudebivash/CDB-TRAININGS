@@ -50,6 +50,20 @@ def load_yaml(rel: str | Path):
     return yaml.safe_load((ROOT / rel).read_text(encoding="utf-8"))
 
 
+FLAGGED_STATUSES = {"MACHINE_SCANNED_NEAR_BLANK", "VISUAL_REVIEW_REQUIRED"}
+
+
+def flagged_pages() -> set[tuple[str, int]]:
+    """Source pages whose text layer cannot be judged by the scan (no text layer or near blank): they need a look at the page image."""
+    out = set()
+    for path in sorted((ROOT / "docs" / "audits" / "data" / "page_records").glob("*.jsonl")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            rec = json.loads(line)
+            if rec["verification_status"] in FLAGGED_STATUSES:
+                out.add((rec["source_id"], rec["source_page"]))
+    return out
+
+
 def load_json(rel: str | Path):
     return json.loads((ROOT / rel).read_text(encoding="utf-8"))
 
@@ -187,6 +201,7 @@ class Portfolio:
         self.incidents = load_yaml(DATA / "incidents.yaml")["incidents"]
         self.defects = load_yaml(DATA / "defects.yaml")["defects"]
         self.scenarios = load_yaml(DATA / "operational_scenarios.yaml")
+        self.visual = load_yaml(DATA / "visual_review.yaml")
         manifest = DATA / "pdf_manifest.json"
         self.pdfs = json.loads(manifest.read_text(encoding="utf-8")) if manifest.exists() else {"editions": [], "course_editions": []}
         self.inputs = load_yaml("docs/release/data/readiness_inputs_2026.yaml")
@@ -424,6 +439,7 @@ class Portfolio:
             "module_editions_passing": sum(1 for m in mods if m["edition"] and m["edition"].get("passed")),
             "open_p0": sum(1 for d in self.defects if d["status"] != "CLOSED" and d["severity"] == "P0"), "open_p1": sum(1 for d in self.defects if d["status"] != "CLOSED" and d["severity"] == "P1"),
             "reviews_recorded": len(self.reviews),
+            "visual_pages_flagged": len(flagged_pages()), "visual_pages_inspected": len({(v["source"], v["page"]) for v in self.visual["pages"]} & flagged_pages()),
         }
 
 

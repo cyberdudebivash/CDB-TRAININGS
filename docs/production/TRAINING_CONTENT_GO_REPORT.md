@@ -27,7 +27,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 6 module editions pass the accessibility and structure gates |
-| A16 No unresolved P0 or P1 defect | NOT_MET | 5 open P0/P1 defects apply: DEF-004, DEF-005, DEF-007, DEF-008, DEF-009 |
+| A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
 | A19 The owner's acceptance is recorded | NOT_MET | owner acceptance not recorded |
@@ -65,7 +65,7 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **11.2** of 100; e
 | A13 Instructor materials are complete and protected in private storage | PARTIAL | private packs present locally for 1 modules; private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | PARTIAL | 1 of 14 module editions pass the accessibility and structure gates |
-| A16 No unresolved P0 or P1 defect | NOT_MET | 5 open P0/P1 defects apply: DEF-004, DEF-005, DEF-007, DEF-008, DEF-009 |
+| A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
 | A19 The owner's acceptance is recorded | NOT_MET | owner acceptance not recorded |
@@ -84,38 +84,38 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **11.2** of 100; e
 
 ## COURSE-PY-ENG: Python Engineering Pathway
 
-State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **36.2** of 100; eligible: no.
+State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **50.6** of 100; eligible: no.
 
 | Criterion | Status | Evidence |
 |---|---|---|
 | A01 All approved required modules are implemented | PARTIAL | 7 of 11 required modules implemented |
-| A02 Every required lesson contains substantive, executed instruction | NOT_MET | 0 of 11 lessons substantive and executed (84 numbered sections, 55 executed blocks) |
+| A02 Every required lesson contains substantive, executed instruction | PARTIAL | 7 of 11 lessons substantive and executed (84 numbered sections, 55 executed blocks) |
 | A03 Source coverage is reconciled: every source page has a recorded disposition | PARTIAL | 87 of 654 source pages have a recorded disposition in a built module's source map |
 | A04 Material technical claims are verified and the October 24 refresh is executed | PARTIAL | 17 of 20 change records EXECUTED or RESEARCH_VERIFIED, 3 open; October 24 refresh PENDING (not executable before 2026-10-24) |
-| A05 Required operational scenarios are implemented and verified | PARTIAL | 3 of 10 operational scenarios technically verified; 3 time-dependent scenario(s) verified (minimum 1) |
+| A05 Required operational scenarios are implemented and verified | PARTIAL | 5 of 10 operational scenarios technically verified; 5 time-dependent scenario(s) verified (minimum 1) |
 | A06 Required practical labs pass their validation criteria on the declared matrix | PARTIAL | 14 of 21 planned labs verified executable |
 | A07 Every learning outcome is measurable and assessed | PARTIAL | 7 of 11 outcomes assessed |
 | A08 The capstone has a working deliverable, acceptance criteria and a check | NOT_MET | capstone module PY-M11: NOT_STARTED |
-| A09 Automated QA passes and relevant negative controls pass | NOT_MET | recorded automated QA run all PASS, negative controls present for built modules |
+| A09 Automated QA passes and relevant negative controls pass | PARTIAL | recorded automated QA run all PASS, negative controls present for built modules |
 | A10 Security and privacy issues affecting the course are resolved | MET | no open privacy or security incident applies |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4) |
 | A12 Student materials are complete | PARTIAL | 7 of 11 module student-edition configs; complete course edition absent |
 | A13 Instructor materials are complete and protected in private storage | PARTIAL | private packs present locally for 7 modules; private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | PARTIAL | 7 of 11 module editions pass the accessibility and structure gates |
-| A16 No unresolved P0 or P1 defect | NOT_MET | 6 open P0/P1 defects apply: DEF-004, DEF-005, DEF-006, DEF-007, DEF-008, DEF-009 |
+| A16 No unresolved P0 or P1 defect | NOT_MET | 5 open P0/P1 defects apply: DEF-004, DEF-005, DEF-006, DEF-008, DEF-009 |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
 | A19 The owner's acceptance is recorded | NOT_MET | owner acceptance not recorded |
 
 | Dimension | Weight | Fraction | Points |
 |---|---|---|---|
-| Technical accuracy and currency | 20 | 0.0 | 0.0 |
+| Technical accuracy and currency | 20 | 0.5409 | 10.82 |
 | Curriculum and lesson completeness | 15 | 0.6364 | 9.55 |
-| Customer operational relevance | 15 | 0.3 | 4.5 |
+| Customer operational relevance | 15 | 0.5 | 7.5 |
 | Practical labs and reproducibility | 15 | 0.6667 | 10.0 |
 | Assessment and capstone rigor | 10 | 0.4455 | 4.45 |
-| Security and reliability | 10 | 0.3818 | 3.82 |
+| Security and reliability | 10 | 0.4455 | 4.45 |
 | Instructional clarity and accessibility | 5 | 0.6364 | 3.18 |
 | Premium PDF and document integrity | 5 | 0.0 | 0.0 |
 | Source traceability and maintainability | 5 | 0.133 | 0.67 |
@@ -141,7 +141,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 10 module editions pass the accessibility and structure gates |
-| A16 No unresolved P0 or P1 defect | NOT_MET | 5 open P0/P1 defects apply: DEF-004, DEF-005, DEF-007, DEF-008, DEF-009 |
+| A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
 | A19 The owner's acceptance is recorded | NOT_MET | owner acceptance not recorded |
@@ -179,7 +179,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 10 module editions pass the accessibility and structure gates |
-| A16 No unresolved P0 or P1 defect | NOT_MET | 5 open P0/P1 defects apply: DEF-004, DEF-005, DEF-007, DEF-008, DEF-009 |
+| A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
 | A19 The owner's acceptance is recorded | NOT_MET | owner acceptance not recorded |
@@ -217,7 +217,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 12 module editions pass the accessibility and structure gates |
-| A16 No unresolved P0 or P1 defect | NOT_MET | 5 open P0/P1 defects apply: DEF-004, DEF-005, DEF-007, DEF-008, DEF-009 |
+| A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
 | A19 The owner's acceptance is recorded | NOT_MET | owner acceptance not recorded |
@@ -255,7 +255,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 12 module editions pass the accessibility and structure gates |
-| A16 No unresolved P0 or P1 defect | NOT_MET | 6 open P0/P1 defects apply: DEF-003, DEF-004, DEF-005, DEF-007, DEF-008, DEF-009 |
+| A16 No unresolved P0 or P1 defect | NOT_MET | 5 open P0/P1 defects apply: DEF-003, DEF-004, DEF-005, DEF-008, DEF-009 |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
 | A19 The owner's acceptance is recorded | NOT_MET | owner acceptance not recorded |
@@ -293,7 +293,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 11 module editions pass the accessibility and structure gates |
-| A16 No unresolved P0 or P1 defect | NOT_MET | 5 open P0/P1 defects apply: DEF-004, DEF-005, DEF-007, DEF-008, DEF-009 |
+| A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
 | A19 The owner's acceptance is recorded | NOT_MET | owner acceptance not recorded |
@@ -331,7 +331,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 11 module editions pass the accessibility and structure gates |
-| A16 No unresolved P0 or P1 defect | NOT_MET | 7 open P0/P1 defects apply: DEF-001, DEF-002, DEF-004, DEF-005, DEF-007, DEF-008 ... |
+| A16 No unresolved P0 or P1 defect | NOT_MET | 6 open P0/P1 defects apply: DEF-001, DEF-002, DEF-004, DEF-005, DEF-008, DEF-009 |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
 | A19 The owner's acceptance is recorded | NOT_MET | owner acceptance not recorded |
@@ -369,7 +369,7 @@ State: **NOT_STARTED** (engineering state NOT_STARTED); score **0.0** of 100; el
 | A13 Instructor materials are complete and protected in private storage | NOT_ASSESSED | private packs present locally for 0 modules; private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 14 module editions pass the accessibility and structure gates |
-| A16 No unresolved P0 or P1 defect | NOT_MET | 5 open P0/P1 defects apply: DEF-004, DEF-005, DEF-007, DEF-008, DEF-009 |
+| A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
 | A19 The owner's acceptance is recorded | NOT_MET | owner acceptance not recorded |

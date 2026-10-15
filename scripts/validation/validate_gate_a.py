@@ -12,6 +12,7 @@ Checks
   G05  no placeholder or unfinished-content marker in the student-facing files of implemented modules
   G06  the scenario register is consistent (a scenario cannot be TECHNICALLY_VERIFIED without a classification, a failure injection and evidence names that exist)
   G07  the defect and incident registers are consistent (no P0/P1 closed without a recorded closing statement)
+  G08  every source page the text scan cannot judge (no text layer, near blank) has a recorded visual inspection, and a visual inspection is never labelled as human review
 Exit code 0 = all pass, 1 = at least one failure. Each failure is one line, so the output is usable in logs.
 """
 from __future__ import annotations
@@ -177,9 +178,29 @@ def check_registers(p: G.Portfolio) -> list[str]:
     return out
 
 
+def check_visual_review(p: G.Portfolio) -> list[str]:
+    out = []
+    flagged = G.flagged_pages()
+    recorded = [(v["source"], v["page"]) for v in p.visual["pages"]]
+    for key in sorted(flagged - set(recorded)):
+        out.append(f"G08 {key[0]} page {key[1]} needs visual inspection and has none recorded")
+    for key in sorted(set(recorded) - flagged):
+        out.append(f"G08 {key[0]} page {key[1]} has a visual inspection but is not a flagged page")
+    if len(recorded) != len(set(recorded)):
+        out.append("G08 duplicate visual inspection entries")
+    if p.visual.get("method") != "MODEL_VISUAL_INSPECTION":
+        out.append("G08 visual_review.yaml must state method MODEL_VISUAL_INSPECTION unless a human review is recorded in human_reviews.yaml")
+    if p.visual.get("human_reviewed") is not False and not any(r.get("kind") == "SME" for r in p.reviews):
+        out.append("G08 visual_review.yaml claims human review but no human review is recorded")
+    for v in p.visual["pages"]:
+        if v["content_type"] not in ("cover", "figure_page", "text_as_image", "blank_page") or not v.get("summary") or not v.get("disposition"):
+            out.append(f"G08 {v['source']} page {v['page']}: incomplete record")
+    return out
+
+
 def run(p: G.Portfolio | None = None) -> list[str]:
     p = p or G.Portfolio()
-    return check_claims(p) + check_vocabulary(p) + check_human_reviews(p) + check_adversarial(p) + check_placeholders(p) + check_scenarios(p) + check_registers(p)
+    return check_claims(p) + check_vocabulary(p) + check_human_reviews(p) + check_adversarial(p) + check_placeholders(p) + check_scenarios(p) + check_registers(p) + check_visual_review(p)
 
 
 def main() -> int:

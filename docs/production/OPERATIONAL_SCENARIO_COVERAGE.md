@@ -12,7 +12,7 @@ Every course has to teach the customer-operations scenarios of its domain across
 |---|---|---|---|
 | FND-DIGITAL | 3 | 0 | 0 |
 | SOC | 12 | 2 | 2 |
-| PY-ENG | 10 | 3 | 3 |
+| PY-ENG | 10 | 5 | 5 |
 | PY-AUTO | 10 | 0 | 0 |
 | JAVA-QA | 10 | 0 | 0 |
 | AI-ENG | 11 | 0 | 0 |
@@ -21,7 +21,7 @@ Every course has to teach the customer-operations scenarios of its domain across
 | FE-ONBOARD | 10 | 0 | 0 |
 | CYBER-MEGA | 4 | 0 | 0 |
 
-Total: 5 of 89 (6%) technically verified. Scenario states: IMPLEMENTED_UNVERIFIED 2, IN_PROGRESS 6, NOT_STARTED 76, TECHNICALLY_VERIFIED 5.
+Total: 7 of 89 (8%) technically verified. Scenario states: IN_PROGRESS 6, NOT_STARTED 76, TECHNICALLY_VERIFIED 7.
 
 ## 2. All scenarios
 
@@ -34,9 +34,9 @@ Total: 5 of 89 (6%) technically verified. Scenario states: IMPLEMENTED_UNVERIFIE
 | PYE-05 | PY-ENG | Package maintenance (migrate a legacy project to pyproject, build, install, verify) | IN_PROGRESS | NONE_YET | 3/9 | 0 | - |
 | PYE-06 | PY-ENG | Automated tests that catch seeded defects (mutation-graded) | TECHNICALLY_VERIFIED | CONTROLLED_LIVE | 4/9 | 1 | `test_m02_guided_reference_tests_kill_every_mutant` |
 | PYE-07 | PY-ENG | Secure application configuration (secrets, defaults, token validation) | IN_PROGRESS | NONE_YET | 3/9 | 0 | - |
-| PYE-08 | PY-ENG | Concurrency: bounded fan-out, supervision, cancellation, partial failure, deadline | IMPLEMENTED_UNVERIFIED | CONTROLLED_LIVE | 7/9 | 5 | `test_m06_guided_solution_passes_every_check`, `test_m06_independent_reference_passes_published_and_hidden_checks` |
+| PYE-08 | PY-ENG | Concurrency: bounded fan-out, supervision, cancellation, partial failure, deadline | TECHNICALLY_VERIFIED | CONTROLLED_LIVE | 7/9 | 5 | `test_m06_guided_solution_passes_every_check`, `test_m06_independent_reference_passes_published_and_hidden_checks` |
 | PYE-09 | PY-ENG | Performance debugging with a profiler | NOT_STARTED | NONE_YET | 0/9 | 0 | - |
-| PYE-10 | PY-ENG | Failure-handling patterns (retry, fallback, atomic output, no half-written files) | IMPLEMENTED_UNVERIFIED | CONTROLLED_LIVE | 4/9 | 2 | `test_m05_guided_solution_passes_every_check`, `test_m06_guided_solution_passes_every_check` |
+| PYE-10 | PY-ENG | Failure-handling patterns (retry, fallback, atomic output, no half-written files) | TECHNICALLY_VERIFIED | CONTROLLED_LIVE | 4/9 | 2 | `test_m05_guided_solution_passes_every_check`, `test_m06_guided_solution_passes_every_check` |
 | SOC-01 | SOC | Suspicious authentication investigation | IN_PROGRESS | REPLAY_SIMULATION | 3/9 | 0 | - |
 | SOC-02 | SOC | Endpoint alert triage | NOT_STARTED | NONE_YET | 0/9 | 0 | - |
 | SOC-03 | SOC | Multi-source event correlation | NOT_STARTED | NONE_YET | 0/9 | 0 | - |

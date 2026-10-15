@@ -97,7 +97,7 @@ class Renderer:
             ["Machine-scanned (text layer, rules, technology and currency detectors)", ps["pages"], "automated; no judgement of correctness"],
             ["Model-inspected, finding cited (pages a model read in full and cited in a finding)", stat.get("HUMAN_READ_FINDING_CITED", 0), "recorded as `HUMAN_READ_FINDING_CITED` in the page records; this is model inspection, not human review"],
             ["Machine-flagged, review required", stat.get("MACHINE_FLAGGED_REVIEW_REQUIRED", 0), "flagged by a rule; awaiting a reviewer"],
-            ["Visually inspected", 0, "none: the 29 near-blank image-only pages have not been rendered and viewed (DEF-007)"],
+            ["Visually inspected by the model (page image rendered and viewed; not human)", self.t["visual_pages_inspected"], f"of {self.t['visual_pages_flagged']} pages the text scan cannot judge (no text layer or near blank); recorded in `docs/production/data/visual_review.yaml`, check G08. The 22 near-blank GCP pages are figure and screenshot pages, the 5 near-blank MEGA pages are empty, the 23 OSINT pages without a text layer are marketing prose rendered as images"],
             ["Externally verified (claims checked against primary sources)", self.t["source_pages_with_disposition"], "pages whose content maps to a built module with research-verified change records"],
             ["Human-reviewed", 0, "none: no reviewer has signed any page (see HUMAN_REVIEW_REGISTER.md)"],
         ]
