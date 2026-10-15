@@ -1,16 +1,27 @@
-# Digital and Technical Foundations (COURSE-FND-DIGITAL)
+# Digital and Technical Foundations — COURSE-FND-DIGITAL
 
-**Release:** REENGINEERING — NOT TRAINING_CONTENT_GO and NOT approved for sale or Academy deployment.
+**Status: REENGINEERING — 0 completed course editions.** Authored student material exists for two of six planned modules. No individual learner mastery, qualified SME signoff, customer delivery, or Academy deployment is claimed.
 
-This introductory pathway has six planned modules. **FND-M01 is authored but not technically certified or SME-reviewed.** FND-M02 through FND-M06 remain unimplemented. The standalone file-integrity starter lab has been retained and reused.
-
-| Module | Status | Scope |
+| Module | Release classification | Available instructional material |
 |---|---|---|
-| FND-M01 | Built; unverified; no human reviews | [Operating systems, files and permissions](modules/FND-M01/lesson.md), guided/independent exercises and quiz |
-| FND-M02–M06 | Planned only | Five further prerequisite modules |
+| FND-M01 | BUILT, unverified | [Files, paths and permissions](modules/FND-M01/lesson.md), guided SHA-256 exercise, access-policy starter, quiz, rubric |
+| FND-M02 | BUILT, unverified | [Command-line fundamentals](modules/FND-M02/lesson.md), 14-check guided diagnostic CLI, independent transcript parser starter, quiz, rubric |
+| FND-M03–FND-M06 | PLANNED only | Networking/HTTP, Git, Python fundamentals, troubleshooting and safe computing |
 
-Begin with [FND-M01 lesson](modules/FND-M01/lesson.md), then the [guided integrity lab](modules/FND-M01/lab-guided/README.md) and [independent access simulation](modules/FND-M01/lab-independent/README.md).
+## Begin training
 
-The student [preview edition configuration](student/FND-M01-student-edition.yaml) is not a generated PDF and must not be advertised as one. Complete technical currency verification, cross-platform lab checks, protected instructor grading pack, real learner pilot and signed review are still needed.
+Start with [FND-M01](modules/FND-M01/lesson.md), then [FND-M02](modules/FND-M02/lesson.md). Each module has a guided lab and an independent exercise; the student starter is *intentionally unfinished*. The guided CLI uses synthetic CSV event records with deterministic JSON and deliberately fails malformed or unauthorized inputs.
 
-This newly authored curriculum has no legacy PDF. Its source-map explicitly identifies that status rather than inventing provenance. No production system or customer data is involved.
+**FND-M02 guided test command:**
+
+```text
+python -m unittest discover -s courses/digital-foundations/modules/FND-M02/lab-guided/checks -p test_runbook.py -v
+```
+
+The student preview configurations in [student/](student/) are build inputs, not evidence that downloadable PDFs were generated or quality-approved. The 2026-10-15 standalone review-preview PDF for FND-M01 is separate from the repository strict production publishing pipeline.
+
+## Non-negotiable limitations
+
+These lessons teach controlled local tasks, not live external customer operations. No GCP, paid service, network access, customer data or production privileges are required. Source provenance for Foundations is deliberately marked original with no fabricated references to legacy PDFs.
+
+Before any Gate A `TRAINING_CONTENT_GO` claim: complete FND-M03–M06, fully execute curriculum-specific tests and version matrix, validate all final rendered course PDFs, secure instructor packs, close privacy/IP blockers, and obtain real technical/editorial/learner/owner acceptance. **Commercial release and Academy integration are separate future gates.**
