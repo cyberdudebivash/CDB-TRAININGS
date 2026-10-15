@@ -16,6 +16,25 @@ This repository holds the **source training PDFs** received from CyberDudeBivash
 | Hand the work to the next person | [`docs/execution/EXECUTION_HANDOFF.md`](docs/execution/EXECUTION_HANDOFF.md) |
 | Find every deliverable | [`docs/README.md`](docs/README.md) |
 
+## New operational starter tracks (Wave 01; not complete courses)
+
+The following eight previously missing catalog pathways now have **runnable local starter labs**, each with positive/negative tests and explicit operational limits. Their course modules are still marked PLANNED in the catalog until the complete lesson, assessment, independent lab and evidence requirements are satisfied.
+
+| Pathway | Start with |
+|---|---|
+| [Digital Foundations](courses/digital-foundations/README.md) | File-integrity/tamper-check lab |
+| [Python Automation](courses/python-automation/README.md) | Invoice and payment reconciliation |
+| [Java Test Automation](courses/java-test-automation/README.md) | Java boundary-value contract |
+| [AI & LLM Engineering](courses/ai-engineering/README.md) | Tool permission and human approval |
+| [OSINT Investigations](courses/osint-investigations/README.md) | Synthetic source provenance and corroboration |
+| [GCP Data Engineering](courses/gcp-data-engineering/README.md) | Offline ingestion data quality |
+| [Frontend Engineering](courses/frontend-engineering/README.md) | Safe customer enrollment form contract |
+| [Cybersecurity Specialist Tracks](courses/cybersecurity-tracks/README.md) | Synthetic authentication triage |
+
+Run `python scripts/validation/run_starter_labs.py --strict` to check all eight starter exercises; Python, Node.js and JDK are required for this strict run. These are **not complete upgraded PDF products**, do not satisfy `TRAINING_CONTENT_GO`, and must not be published to Academy or sold.
+
+For details and honest verification limits, see [Wave 01 engineering report](docs/production/TRACK_IMPLEMENTATION_WAVE_01.md).
+
 ## Repository layout
 
 ```
