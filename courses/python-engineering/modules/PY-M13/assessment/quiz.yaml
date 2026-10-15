@@ -1,0 +1,35 @@
+# Knowledge check for PY-M13. Questions only: the answer key is held by instructors (see courses/python-engineering/instructor/README.md).
+module: PY-M13
+items:
+  - id: Q1
+    outcome: LO1
+    stem: "`gen = (x for x in range(3))`, then `first = list(gen)` and `second = list(gen)`. What are `first` and `second`?"
+    options: {A: "`[0, 1, 2]` and `[0, 1, 2]`: a generator expression restarts for each list()", B: "`[0, 1, 2]` and `[0, 1, 2]` only if `gen` is converted to a list first", C: "`[0, 1, 2]` and `[]`: a generator is an iterator, and an exhausted iterator stays exhausted", D: "`[0, 1, 2]` and a `StopIteration` exception"}
+  - id: Q2
+    outcome: LO1
+    stem: "A function contains `print(\"start\")` followed by `yield 1`. What does the statement `g = f()` print?"
+    options: {A: "Nothing: calling a generator function only creates the generator; the body runs when the first item is requested", B: "`start`, because the body runs up to the first `yield` at the call", C: "`start`, and then the generator is exhausted", D: "Nothing, and `g` is `None`"}
+  - id: Q3
+    outcome: LO2
+    stem: "`def chunks(items, size):` begins with `if size < 1: raise ValueError` and later contains `yield`. When is the ValueError raised for `chunks([1, 2], 0)`?"
+    options: {A: "At the call `chunks([1, 2], 0)`", B: "Never: generators do not raise exceptions", C: "When the interpreter compiles the function", D: "At the first `next()` (or the first loop iteration), not at the call"}
+  - id: Q4
+    outcome: LO2
+    stem: "A generator opens a file with `with open(path) as f:` and yields its lines. The consumer reads one line and calls `gen.close()`. What happens to the file?"
+    options: {A: "It stays open until the program ends", B: "It is closed: `close()` raises GeneratorExit at the `yield`, which leaves the `with` block", C: "It is closed only if the consumer also calls `f.close()`", D: "It is closed only when the generator is exhausted"}
+  - id: Q5
+    outcome: LO3
+    stem: "`fs = [lambda: i for i in range(3)]`. What is `[f() for f in fs]`?"
+    options: {A: "`[2, 2, 2]`: each lambda reads the variable `i`, which holds 2 when they are called", B: "`[0, 1, 2]`: each lambda remembers the value `i` had when it was created", C: "`[0, 0, 0]`", D: "A `NameError`, because `i` no longer exists after the comprehension"}
+  - id: Q6
+    outcome: LO4
+    stem: "A decorator's wrapper is `def wrapper(): return func()`. Which of these is NOT a consequence?"
+    options: {A: "Decorated functions that take parameters cannot be called", B: "The decorated function's name and docstring become those of `wrapper`", C: "The decorator is applied from the bottom up when stacked", D: "It works for no-argument functions only, and the arguments of the original call are lost"}
+  - id: Q7
+    outcome: LO4
+    stem: "`@functools.lru_cache(maxsize=None)` decorates `def total(items): return sum(items)`. What happens for `total([1, 2, 3])`?"
+    options: {A: "It returns 6 and caches the result under the list", B: "`TypeError`: a list is unhashable and cannot be part of the cache key", C: "It returns 6 but never caches it", D: "`ValueError`, because maxsize=None is not allowed"}
+  - id: Q8
+    outcome: LO5
+    stem: "A `@contextlib.contextmanager` function has `yield` and, after it, a cleanup statement, without `try/finally`. The `with` block raises an exception. What happens to the cleanup statement?"
+    options: {A: "It runs first, then the exception propagates", B: "It runs after the exception has been handled by the caller", C: "It does not run: the exception is raised at the `yield` and leaves the generator", D: "It runs, and the exception is suppressed"}

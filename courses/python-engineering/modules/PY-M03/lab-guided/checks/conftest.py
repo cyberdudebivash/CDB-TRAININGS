@@ -23,9 +23,7 @@ def project() -> Path:
 
 @pytest.fixture(scope="session")
 def package(project: Path) -> Path:
-    path = project / "src" / "invkit"
-    assert path.is_dir(), "create the package folder src/invkit/ (see the lab README, step D)"
-    return path
+    return project / "src" / "invkit"       # may not exist yet; tests that need it say so (an assertion in a fixture would be a set-up ERROR, not a failed check)
 
 
 def run(args: list[str], cwd: Path, **env: str) -> subprocess.CompletedProcess[str]:

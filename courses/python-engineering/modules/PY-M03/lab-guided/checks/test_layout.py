@@ -29,6 +29,7 @@ def imported_siblings(path: Path) -> set[str]:
 
 
 def test_each_idea_has_its_own_module(package):
+    assert package.is_dir(), "create the package folder src/invkit/ (see the lab README, step D)"
     missing = [m for m in MODULES + ["__init__"] if not (package / f"{m}.py").exists()]
     assert missing == [], f"missing modules: {missing}"
 
@@ -40,16 +41,19 @@ def test_the_flat_script_is_gone(project):
 
 @pytest.mark.parametrize("module", MODULES)
 def test_dependencies_point_one_way(package, module):
+    assert package.is_dir(), "create the package folder src/invkit/ (see the lab README, step D)"
     assert imported_siblings(package / f"{module}.py") <= ALLOWED[module], f"{module} may import only {sorted(ALLOWED[module])}"
 
 
 @pytest.mark.parametrize("module", MODULES)
 def test_every_module_imports_on_its_own(project, package, runner, module):
+    assert package.is_dir(), "create the package folder src/invkit/ (see the lab README, step D)"
     proc = runner(["-c", f"import invkit.{module}"], project, PYTHONPATH=str(project / "src"))
     assert proc.returncode == 0, proc.stderr[-1500:]
 
 
 def test_public_interface_is_declared(project, package, runner):
+    assert package.is_dir(), "create the package folder src/invkit/ (see the lab README, step D)"
     code = "import invkit; print(sorted(invkit.__all__)); print(all(hasattr(invkit, n) for n in invkit.__all__))"
     proc = runner(["-c", code], project, PYTHONPATH=str(project / "src"))
     assert proc.returncode == 0, proc.stderr[-1500:]
@@ -60,6 +64,7 @@ def test_public_interface_is_declared(project, package, runner):
 
 
 def test_tests_live_outside_the_package_and_pass(project, package, runner):
+    assert package.is_dir(), "create the package folder src/invkit/ (see the lab README, step D)"
     assert not list(package.rglob("test_*.py")), "tests belong in tests/, not inside the package"
     tests = sorted((project / "tests").glob("test_*.py"))
     assert tests, "tests/ needs at least one test module"

@@ -30,6 +30,8 @@ LABS = [
     ("m07_independent", "PY-M07 independent", "Instructor reference is secure and the starter is not (17 exploit tests fail on it); 9/9 required mutants killed (private pack)"),
     ("m12_guided", "PY-M12 guided", "Public solution passes all 167 provided checks (value types, per-instance state, observers, fee policies, registry, composition); the starter fails all 167; the checks kill all 47 seeded defects of the solution (private pack)"),
     ("m12_independent", "PY-M12 independent", "Starter fails all 10 published checks; instructor reference passes them and the 54-case hidden suite (value semantics, operators, isolation, error recording, subscriber rules, refusal), which kills all 41 seeded defects (private pack)"),
+    ("m13_guided", "PY-M13 guided", "Public solution passes all 128 provided checks (a generator that owns a file, lazy parsing, chunks and windows with eager argument checks, decorators, context managers); the starter fails all 128; the checks kill all 49 seeded defects of the solution (private pack)"),
+    ("m13_independent", "PY-M13 independent", "Starter fails all 10 published checks; instructor reference passes them and the 63-case hidden suite (lazy merge with counted consumption and cleanup of sources, grouping, bounded memo cache, nested rollback), which kills all 35 seeded defects (private pack)"),
 ]
 SYMBOL = {"passed": "pass", "failed": "FAIL", "error": "ERROR", "skipped": "skipped"}
 

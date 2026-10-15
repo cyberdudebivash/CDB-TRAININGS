@@ -18,17 +18,20 @@ def test_pyproject_turns_strict_mode_on(project):
 
 
 def test_mypy_strict_is_clean_for_the_package(project, package, runner):
+    assert package.is_dir(), "create the package folder src/invkit/ (see the lab README, step D)"
     proc = runner(["-m", "mypy", "--strict", "--no-color-output", "--show-error-codes", "src"], project, MYPYPATH="src")
     assert proc.returncode == 0, proc.stdout[-2000:]
 
 
 def test_mypy_strict_is_clean_for_the_tests_too(project, package, runner):
+    assert package.is_dir(), "create the package folder src/invkit/ (see the lab README, step D)"
     assert (project / "tests").is_dir(), "move the script's tests into tests/ (step E)"
     proc = runner(["-m", "mypy", "--strict", "--no-color-output", "--show-error-codes", "src", "tests"], project, MYPYPATH="src")
     assert proc.returncode == 0, proc.stdout[-2000:]
 
 
 def test_errors_are_fixed_not_silenced(project, package):
+    assert package.is_dir(), "create the package folder src/invkit/ (see the lab README, step D)"
     for path in python_files(project / "src") + python_files(project / "tests"):
         text = path.read_text(encoding="utf-8")
         assert not re.search(r"#\s*type:\s*ignore", text), f"{path.name}: fix the cause instead of `# type: ignore`"
@@ -37,4 +40,5 @@ def test_errors_are_fixed_not_silenced(project, package):
 
 
 def test_package_is_marked_as_typed(package):
+    assert package.is_dir(), "create the package folder src/invkit/ (see the lab README, step D)"
     assert (package / "py.typed").exists(), "add an empty src/invkit/py.typed file"

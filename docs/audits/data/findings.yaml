@@ -534,6 +534,23 @@ findings:
     recommendation: "Teach instance versus class state with the shared-list bug, validate at the boundary with constructors and properties, model values as frozen dataclasses, state what name mangling and runtime protocol checks do not do, prefer injected composition, and build working Strategy, Observer and registry examples that are tested for equality, immutability, isolation and refusal."
     remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M12 (courses/python-engineering/modules/PY-M12)"}
 
+  - id: F-PYH-012
+    source_id: SRC-PY-HANDBOOK
+    severity: P2
+    dimension: technical_correctness
+    title: "The iterator, generator, decorator and context-manager sections contain examples that leak resources, drop arguments and results, or use Python 2 spellings, and make unqualified speed claims"
+    evidence:
+      - {page: 33, note: "The `finally` example opens a file in a `try` with a bare `except:` and prints 'Always executed' in `finally`; the file is never closed and the bare except also hides KeyboardInterrupt."}
+      - {page: 35, note: "The custom iterator class defines a method `next` (the Python 2 name) next to `__next__`, and is called Counter, hiding collections.Counter."}
+      - {page: 36, note: "Generators are said to be 'faster for large datasets' with no measurement; what they save is memory."}
+      - {page: 38, note: "The basic decorator's `wrapper()` takes no arguments, discards the return value and renames the function; 'DECORATORS - The Most Important Python Concept' is not supported."}
+      - {page: 68, note: "The context-manager example `FileManager` prints 'Open file' and 'Close file' without opening a file and takes `__exit__(self, *args)` without saying what the arguments or the return value mean; the same shape recurs on pages 66 and 79."}
+      - {page: 79, note: "`@lru_cache(maxsize=None)` is listed as an execution optimisation without the hashable-argument rule, the unbounded memory growth or the effect on methods."}
+    verification: EXECUTED
+    detail: "Executed on CPython 3.11-3.15 (PY-M13 lesson, R-097): next() on a class that only has `next` raises TypeError; a decorator written like page 38 cannot wrap a function with a parameter, returns None and renames the function to wrapper; the file of the page-33 pattern is still open after the block; the peak memory of a generator is a small fraction of the list's (the speed claim was not measured and is not made); `@contextmanager` code after the yield is skipped when the block raises unless it is in a finally; a list argument to an lru_cache function raises TypeError."
+    recommendation: "Teach the iterator protocol with single-pass behaviour, generators with laziness and cleanup (with inside the generator, close(), argument checks at the call), the three-line decorator pattern with functools.wraps, decorators with arguments and stacking order, context managers with guaranteed cleanup (class form, contextmanager with try/finally, ExitStack), and test them by counting consumption and recording cleanup."
+    remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M13 (courses/python-engineering/modules/PY-M13)"}
+
   # ------------------------------------------------------------------------- Python Automation Training
   - id: F-PYA-001
     source_id: SRC-PY-AUTOMATION

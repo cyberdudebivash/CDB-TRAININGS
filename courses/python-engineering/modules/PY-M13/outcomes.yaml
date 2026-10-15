@@ -1,0 +1,39 @@
+# Outcome traceability for PY-M13: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M13
+outcomes:
+  - id: LO1
+    verb: explain
+    statement: "Explain the iterator protocol and write correct iterators and generators: single-pass behaviour, laziness, yield from, the return value of a generator, and what close() does."
+    instruction: ["lesson.md#2-the-iterator-protocol-lo1", "lesson.md#3-generators-functions-that-pause-lo1"]
+    practice: ["lab-guided/README.md#step-a---read_lines-a-generator-that-owns-a-resource-lo1-lo2", "lab-guided/README.md#step-b---parse_line-and-parse_events-a-lazy-transformation-lo1-lo2", "lab-independent/README.md#merge_sortedsources-keynone"]
+    assessment: ["quiz:Q1", "quiz:Q2", "lab-check:guided-generator-checks", "lab-check:hidden-suite-threshold", "rubric:C2"]
+    rubric: [C2]
+  - id: LO2
+    verb: build
+    statement: "Build lazy pipelines that stop early and clean up after themselves, check arguments when a generator-returning function is called rather than when it is first iterated, and say when a generator is the wrong tool."
+    instruction: ["lesson.md#4-pipelines-cleanup-and-arguments-lo2", "lesson.md#9-testing-generators-decorators-and-context-managers-lo2-lo4-lo5"]
+    practice: ["lab-guided/README.md#step-a---read_lines-a-generator-that-owns-a-resource-lo1-lo2", "lab-guided/README.md#step-c---chunks-windows-take-dedupe-arguments-now-items-later-lo2", "lab-independent/README.md#merge_sortedsources-keynone", "lab-independent/README.md#group_runsiterable-keynone"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:published-flowkit-checks", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C2", "rubric:C4"]
+    rubric: [C1, C2, C4]
+  - id: LO3
+    verb: write
+    statement: "Write closures with nonlocal state, recognise the late-binding trap and fix it."
+    instruction: ["lesson.md#5-closures-lo3", "lesson.md#7-functions-are-values-lo3-lo4"]
+    practice: ["lab-guided/README.md#step-d---decorators-that-keep-what-they-wrap-lo3-lo4", "lab-independent/README.md#memomaxsize128"]
+    assessment: ["quiz:Q5", "lab-check:guided-decorator-checks", "lab-check:hidden-suite-threshold", "rubric:C3"]
+    rubric: [C3]
+  - id: LO4
+    verb: write
+    statement: "Write decorators that preserve arguments, the return value and the metadata of the function (functools.wraps), decorators that take arguments, and know the limits of functools.cache."
+    instruction: ["lesson.md#6-decorators-lo4", "lesson.md#7-functions-are-values-lo3-lo4"]
+    practice: ["lab-guided/README.md#step-d---decorators-that-keep-what-they-wrap-lo3-lo4", "lab-independent/README.md#memomaxsize128"]
+    assessment: ["quiz:Q6", "quiz:Q7", "lab-check:guided-decorator-checks", "lab-check:hidden-suite-threshold", "rubric:C3"]
+    rubric: [C3]
+  - id: LO5
+    verb: release
+    statement: "Write context managers, as a class and with contextlib.contextmanager, that release a resource on every path including exceptions; use ExitStack when the number of resources is not fixed."
+    instruction: ["lesson.md#8-context-managers-lo5"]
+    practice: ["lab-guided/README.md#step-e---context-managers-that-clean-up-on-every-path-lo5", "lab-independent/README.md#transactiontarget"]
+    assessment: ["quiz:Q8", "lab-check:guided-context-manager-checks", "lab-check:hidden-suite-threshold", "rubric:C2", "rubric:C5"]
+    rubric: [C2, C5]

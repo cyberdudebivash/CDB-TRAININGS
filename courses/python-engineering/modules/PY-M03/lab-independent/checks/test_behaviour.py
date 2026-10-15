@@ -11,14 +11,30 @@ DATA = Path(__file__).resolve().parents[1] / "starter" / "data" / "trips.csv"
 D = Decimal
 
 
+class NotYet:
+    """Stands in for something a fixture could not build because the work is not done yet: the first use re-raises the reason, so the test that needs it FAILS (a set-up error would be reported as a broken lab)."""
+
+    def __init__(self, error: BaseException) -> None:
+        self.error = error
+
+    def _raise(self, *args: object, **kwargs: object) -> None:
+        raise self.error
+
+    __getattr__ = __iter__ = __getitem__ = __len__ = _raise  # type: ignore[assignment]
+
+
 @pytest.fixture(scope="module")
 def fleetlog(project):
     sys.path.insert(0, str(project / "src"))
     for name in [n for n in sys.modules if n == "fleetlog" or n.startswith("fleetlog.")]:
         del sys.modules[name]
     try:
-        import fleetlog as module
-
+        try:
+            import fleetlog as module
+        except ModuleNotFoundError as exc:
+            module = NotYet(AssertionError(f"cannot import fleetlog from {project / 'src'}: {exc}. Create the package src/fleetlog/"))
+        except Exception as exc:  # noqa: BLE001 - the learner's own import-time error is the failure the test should show
+            module = NotYet(exc)
         yield module
     finally:
         sys.path.remove(str(project / "src"))

@@ -38,7 +38,8 @@ def built(project) -> dict:
 
 @pytest.fixture(scope="session")
 def clean_venv(built, tmp_path_factory) -> dict:
-    assert built["wheels"], "no wheel was built"
+    if not built["wheels"]:      # no assertion here: a failing fixture is a set-up ERROR; the test that needs the environment reports it as a failed check
+        return {"error": "no wheel was built: fix the build first"}
     env_dir = tmp_path_factory.mktemp("venv") / "env"
     venv.EnvBuilder(with_pip=True, clear=True).create(env_dir)
     bindir = env_dir / ("Scripts" if os.name == "nt" else "bin")

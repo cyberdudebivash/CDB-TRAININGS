@@ -26,6 +26,7 @@ sources:
       - {id: C-PYH-8, rx: '^module 8\b', module: GCP-M02, action: UPDATE}
     rules:
       - {id: M-PYH-00, rx: '(?:^|> )(?:31\. object-oriented|31\.\d+ |35\.\d+ |45\.[1-5] |instance variables|python follows mro|factory pattern|observer pattern|strategy pattern|singleton pattern)', module: PY-M12, action: UPDATE, note: "Classes, dataclasses and object-oriented design: the chapter was mapped to PY-M01 by the container default, which hid that no module taught it (DEF-006)."}
+      - {id: M-PYH-00b, rx: '(?:^|> )(?:27\. error handling|27\.\d+ |28\. iterators|28\.\d+ |29\. generators|29\.\d+ |30\. decorators|30\.\d+ |46\. closures|47\. functions as first|58\. context managers)', module: PY-M13, action: UPDATE, note: "Iterators, generators, decorators, closures and context managers: mapped by container default to the file-handling module, which hid that no module taught them (DEF-015)."}
       - {id: M-PYH-01, rx: 'blockchain|web3|smart contract|solidity|cryptocurrency|nft', module: ~, action: REMOVE, note: "Out of portfolio scope; preserved in the source PDF."}
       - {id: M-PYH-02, rx: 'certification exam|final certification|mock exam|q\d+\.', module: PY-M11, action: REPLACE, note: "Question lists are replaced by rubric-graded capstone and automated checks."}
       - {id: M-PYH-03, rx: 'agent|multi-agent|tool-using', module: AI-M05, action: REPLACE, note: "Agent examples are rebuilt with enforced tool permissions (F-PYH-001)."}

@@ -13,7 +13,7 @@
 
 | Dimension | P0 | P1 | P2 | P3-P4 | Total |
 |---|---:|---:|---:|---:|---:|
-| Technical correctness and security | 2 | 6 | 8 | 0 | 16 |
+| Technical correctness and security | 2 | 6 | 9 | 0 | 17 |
 | Hands-on practical effectiveness | 0 | 10 | 2 | 0 | 12 |
 | Demonstrable professional outcomes | 0 | 3 | 5 | 1 | 9 |
 | Assessment validity and rigor | 0 | 4 | 0 | 0 | 4 |

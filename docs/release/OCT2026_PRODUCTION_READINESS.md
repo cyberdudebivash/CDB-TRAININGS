@@ -12,7 +12,7 @@ There are three independent gates ([RELEASE_GATES.md](RELEASE_GATES.md)): Gate A
 |---|---|---|---|---|---|
 | COURSE-FND-DIGITAL | 0 / 6 | 0.0 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
 | COURSE-SOC | 1 / 14 | 16.0 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
-| COURSE-PY-ENG | 8 / 12 | 44.4 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
+| COURSE-PY-ENG | 9 / 13 | 45.8 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
 | COURSE-PY-AUTO | 0 / 10 | 5.7 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
 | COURSE-JAVA-QA | 0 / 10 | 6.2 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
 | COURSE-AI-ENG | 0 / 12 | 11.1 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
@@ -59,11 +59,11 @@ There are three independent gates ([RELEASE_GATES.md](RELEASE_GATES.md)): Gate A
 
 | Field | Gate | Status | Evidence |
 |---|---|---|---|
-| Research currency | A | PARTIAL | 18 of 21 change records EXECUTED or RESEARCH_VERIFIED; 3 open; Stage B pending |
-| Technical correctness | A | PARTIAL | 8 of 12 modules built with executed labs; no SME review |
-| Curriculum completeness | A | PARTIAL | 8 of 12 modules built |
-| Lab readiness | A | PARTIAL | 16 of 23 labs verified executable (16 built) |
-| Assessment readiness | A | PARTIAL | 8 of 12 outcomes assessed; no SME review, no learner pilot |
+| Research currency | A | PARTIAL | 19 of 22 change records EXECUTED or RESEARCH_VERIFIED; 3 open; Stage B pending |
+| Technical correctness | A | PARTIAL | 9 of 13 modules built with executed labs; no SME review |
+| Curriculum completeness | A | PARTIAL | 9 of 13 modules built |
+| Lab readiness | A | PARTIAL | 18 of 25 labs verified executable (18 built) |
+| Assessment readiness | A | PARTIAL | 9 of 13 outcomes assessed; no SME review, no learner pilot |
 | Editorial review | A | NOT_MET | No editorial or SME review has taken place; automated checks only. |
 | IP / licensing | A | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
 | Commercial readiness | B | DEFERRED | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |

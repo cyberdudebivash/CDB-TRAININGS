@@ -52,7 +52,7 @@
   "COURSE-PY-ENG": {
    "eligible": false,
    "engineering_state": "IN_PROGRESS",
-   "score": 52.4,
+   "score": 49.3,
    "state": "IN_PROGRESS"
   },
   "COURSE-SOC": {
@@ -73,21 +73,22 @@
   "courses": 10,
   "courses_with_release_blockers": 10,
   "go": 0,
-  "labs_planned": 215,
-  "labs_verified": 18,
-  "lessons_substantive": 9,
+  "labs_planned": 217,
+  "labs_verified": 20,
+  "lessons_substantive": 7,
   "module_editions_passing": 8,
   "module_states": {
+   "IMPLEMENTED_UNVERIFIED": 3,
    "NOT_STARTED": 103,
-   "TECHNICALLY_VERIFIED": 9
+   "TECHNICALLY_VERIFIED": 7
   },
-  "modules_implemented": 9,
-  "modules_required": 112,
-  "modules_verified": 9,
+  "modules_implemented": 10,
+  "modules_required": 113,
+  "modules_verified": 7,
   "open_p0": 1,
-  "open_p1": 7,
-  "outcomes_assessed": 14,
-  "outcomes_total": 117,
+  "open_p1": 8,
+  "outcomes_assessed": 15,
+  "outcomes_total": 118,
   "realtime_courses_ok": 2,
   "review_required": 0,
   "reviews_recorded": 0,
@@ -99,7 +100,7 @@
   "scenarios_required": 89,
   "scenarios_verified": 7,
   "source_pages": 8186,
-  "source_pages_with_disposition": 116,
+  "source_pages_with_disposition": 127,
   "visual_pages_flagged": 58,
   "visual_pages_inspected": 58
  }

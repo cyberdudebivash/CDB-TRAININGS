@@ -20,10 +20,10 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 |---|---|---|---|---|---|---|---|
 | PATH-SOC-ANALYST | SOC analyst | Learners aiming at Tier-1/Tier-2 security-operations work | 22 | 156 | 3 | SOC-M14 | 4 |
 | PATH-DETECTION-ENGINEER | Detection engineer | SOC analysts moving to detection engineering | 18 | 132 | 5 | CYB-M11 | 5 |
-| PATH-PYTHON-ENGINEER | Python engineer | Developers and analysts who need production-quality Python | 18 | 132 | 8 | PY-M11 | 4 |
-| PATH-AUTOMATION-ENGINEER | Automation engineer (Python) | Operations, QA and security staff automating repeatable work | 22 | 153 | 6 | PA-M10 | 5 |
+| PATH-PYTHON-ENGINEER | Python engineer | Developers and analysts who need production-quality Python | 19 | 140 | 9 | PY-M11 | 4 |
+| PATH-AUTOMATION-ENGINEER | Automation engineer (Python) | Operations, QA and security staff automating repeatable work | 23 | 161 | 7 | PA-M10 | 5 |
 | PATH-TEST-AUTOMATION-JAVA | Test automation engineer (Java) | Manual testers and Java developers moving into test automation | 16 | 124 | 0 | JQA-M10 | 5 |
-| PATH-AI-ENGINEER | Applied AI / LLM engineer | Engineers building LLM-based applications | 30 | 246 | 8 | AI-M12 | 11 |
+| PATH-AI-ENGINEER | Applied AI / LLM engineer | Engineers building LLM-based applications | 31 | 254 | 9 | AI-M12 | 11 |
 | PATH-AI-SECURITY | AI security practitioner | Security staff assessing AI-enabled systems | 19 | 148 | 4 | AI-M07 | 8 |
 | PATH-DATA-ENGINEER-GCP | Data engineer (Google Cloud) | Data and software engineers building pipelines on Google Cloud | 22 | 166 | 4 | GCP-M11 | 8 |
 | PATH-FRONTEND-ENGINEER | Frontend engineer | New frontend engineers and backend developers moving to frontend | 17 | 124 | 0 | FE-M11 | 8 |
@@ -110,21 +110,22 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | PY-M01 | Language core and data structures | 1 | 12 | BUILT | MC-PYH-01 | ND-PY-04 |
 | 8 | PY-M02 | Functions, errors and testing with pytest | 1 | 8 | BUILT | MC-PYH-15, MC-PYH-17 | - |
-| 9 | PY-M03 | Types, modules and project layout | 2 | 6 | BUILT | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
-| 10 | PY-M12 | Classes, dataclasses and object-oriented design | 2 | 8 | BUILT | MC-PYH-21 | - |
-| 11 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
-| 12 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT | MC-PYH-19 | - |
-| 13 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | BUILT | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
-| 14 | PY-M07 | Secure coding for Python | 2 | 8 | BUILT | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
-| 15 | PY-M08 | Databases and persistence | 2 | 6 | PLANNED | MC-PYH-08 | - |
-| 16 | PY-M09 | Profiling, performance and maintainable architecture | 3 | 8 | PLANNED | - | ND-PY-01 |
-| 17 | PY-M10 | API development: typed, tested and secure HTTP services | 2 | 8 | PLANNED | MC-PYH-06, MC-PYH-08 | - |
-| 18 | PY-M11 | Capstone: typed, tested, documented application with CI | 3 | 14 | PLANNED | MC-PYH-14 | - |
+| 9 | PY-M13 | Iterators, generators, closures, decorators and context managers | 2 | 8 | BUILT | MC-PYH-22 | - |
+| 10 | PY-M03 | Types, modules and project layout | 2 | 6 | BUILT | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
+| 11 | PY-M12 | Classes, dataclasses and object-oriented design | 2 | 8 | BUILT | MC-PYH-21 | - |
+| 12 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
+| 13 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT | MC-PYH-19 | - |
+| 14 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | BUILT | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
+| 15 | PY-M07 | Secure coding for Python | 2 | 8 | BUILT | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
+| 16 | PY-M08 | Databases and persistence | 2 | 6 | PLANNED | MC-PYH-08 | - |
+| 17 | PY-M09 | Profiling, performance and maintainable architecture | 3 | 8 | PLANNED | - | ND-PY-01 |
+| 18 | PY-M10 | API development: typed, tested and secure HTTP services | 2 | 8 | PLANNED | MC-PYH-06, MC-PYH-08 | - |
+| 19 | PY-M11 | Capstone: typed, tested, documented application with CI | 3 | 14 | PLANNED | MC-PYH-14 | - |
 
 ## PATH-AUTOMATION-ENGINEER - Automation engineer (Python)
 
 **Audience:** Operations, QA and security staff automating repeatable work  
-**Sequence:** FND-DIGITAL -> PY-ENG (6 modules) -> PY-AUTO  
+**Sequence:** FND-DIGITAL -> PY-ENG (7 modules) -> PY-AUTO  
 **Capstone:** `PA-M10` - Capstone: safe operational workflow
 
 
@@ -138,20 +139,21 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | PY-M01 | Language core and data structures | 1 | 12 | BUILT | MC-PYH-01 | ND-PY-04 |
 | 8 | PY-M02 | Functions, errors and testing with pytest | 1 | 8 | BUILT | MC-PYH-15, MC-PYH-17 | - |
-| 9 | PY-M03 | Types, modules and project layout | 2 | 6 | BUILT | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
-| 10 | PY-M12 | Classes, dataclasses and object-oriented design | 2 | 8 | BUILT | MC-PYH-21 | - |
-| 11 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
-| 12 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT | MC-PYH-19 | - |
-| 13 | PA-M01 | Automation design and shared Python foundations | 2 | 4 | PLANNED | MC-PYA-01, MC-PYA-02 | - |
-| 14 | PA-M02 | Filesystem and document workflows | 2 | 6 | PLANNED | MC-PYA-01, MC-PYA-08 | - |
-| 15 | PA-M03 | API integrations and data validation | 2 | 8 | PLANNED | MC-PYA-01 | - |
-| 16 | PA-M04 | Browser automation with supported tools | 2 | 8 | PLANNED | MC-PYA-01, MC-PYA-04 | ND-JV-04 |
-| 17 | PA-M05 | Scheduling, configuration and secrets | 2 | 6 | PLANNED | MC-PYA-01, MC-PYA-05 | - |
-| 18 | PA-M06 | Reliability: retries, idempotency and recovery | 3 | 8 | PLANNED | MC-PYA-01, MC-PYA-08 | - |
-| 19 | PA-M07 | Observability and auditable output | 3 | 5 | PLANNED | MC-PYA-01, MC-PYA-08 | - |
-| 20 | PA-M08 | Testing automations: unit, integration, regression | 3 | 8 | PLANNED | MC-PYA-01, MC-PYA-03, MC-PYA-09 | - |
-| 21 | PA-M09 | Command-line tools and guarded AI-assisted automation | 3 | 8 | PLANNED | MC-PYA-01, MC-PYA-10, MC-PYH-05 | - |
-| 22 | PA-M10 | Capstone: safe operational workflow | 3 | 12 | PLANNED | MC-PYA-01, MC-PYA-11 | - |
+| 9 | PY-M13 | Iterators, generators, closures, decorators and context managers | 2 | 8 | BUILT | MC-PYH-22 | - |
+| 10 | PY-M03 | Types, modules and project layout | 2 | 6 | BUILT | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
+| 11 | PY-M12 | Classes, dataclasses and object-oriented design | 2 | 8 | BUILT | MC-PYH-21 | - |
+| 12 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
+| 13 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT | MC-PYH-19 | - |
+| 14 | PA-M01 | Automation design and shared Python foundations | 2 | 4 | PLANNED | MC-PYA-01, MC-PYA-02 | - |
+| 15 | PA-M02 | Filesystem and document workflows | 2 | 6 | PLANNED | MC-PYA-01, MC-PYA-08 | - |
+| 16 | PA-M03 | API integrations and data validation | 2 | 8 | PLANNED | MC-PYA-01 | - |
+| 17 | PA-M04 | Browser automation with supported tools | 2 | 8 | PLANNED | MC-PYA-01, MC-PYA-04 | ND-JV-04 |
+| 18 | PA-M05 | Scheduling, configuration and secrets | 2 | 6 | PLANNED | MC-PYA-01, MC-PYA-05 | - |
+| 19 | PA-M06 | Reliability: retries, idempotency and recovery | 3 | 8 | PLANNED | MC-PYA-01, MC-PYA-08 | - |
+| 20 | PA-M07 | Observability and auditable output | 3 | 5 | PLANNED | MC-PYA-01, MC-PYA-08 | - |
+| 21 | PA-M08 | Testing automations: unit, integration, regression | 3 | 8 | PLANNED | MC-PYA-01, MC-PYA-03, MC-PYA-09 | - |
+| 22 | PA-M09 | Command-line tools and guarded AI-assisted automation | 3 | 8 | PLANNED | MC-PYA-01, MC-PYA-10, MC-PYH-05 | - |
+| 23 | PA-M10 | Capstone: safe operational workflow | 3 | 12 | PLANNED | MC-PYA-01, MC-PYA-11 | - |
 
 ## PATH-TEST-AUTOMATION-JAVA - Test automation engineer (Java)
 
@@ -196,28 +198,29 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | PY-M01 | Language core and data structures | 1 | 12 | BUILT | MC-PYH-01 | ND-PY-04 |
 | 8 | PY-M02 | Functions, errors and testing with pytest | 1 | 8 | BUILT | MC-PYH-15, MC-PYH-17 | - |
-| 9 | PY-M03 | Types, modules and project layout | 2 | 6 | BUILT | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
-| 10 | PY-M12 | Classes, dataclasses and object-oriented design | 2 | 8 | BUILT | MC-PYH-21 | - |
-| 11 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
-| 12 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT | MC-PYH-19 | - |
-| 13 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | BUILT | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
-| 14 | PY-M07 | Secure coding for Python | 2 | 8 | BUILT | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
-| 15 | PY-M08 | Databases and persistence | 2 | 6 | PLANNED | MC-PYH-08 | - |
-| 16 | PY-M09 | Profiling, performance and maintainable architecture | 3 | 8 | PLANNED | - | ND-PY-01 |
-| 17 | PY-M10 | API development: typed, tested and secure HTTP services | 2 | 8 | PLANNED | MC-PYH-06, MC-PYH-08 | - |
-| 18 | PY-M11 | Capstone: typed, tested, documented application with CI | 3 | 14 | PLANNED | MC-PYH-14 | - |
-| 19 | AI-M01 | AI and ML fundamentals, evaluation and limits | 1 | 12 | PLANNED | MC-AIB-05, MC-PYH-12 | - |
-| 20 | AI-M02 | Python AI application development | 2 | 8 | PLANNED | MC-PYH-07 | ND-AI-03 |
-| 21 | AI-M03 | LLM application architecture and structured outputs | 2 | 8 | PLANNED | MC-PYH-12 | - |
-| 22 | AI-M04 | Retrieval-augmented generation and retrieval evaluation | 2 | 12 | PLANNED | MC-AIB-01, MC-PYH-12 | ND-AI-02 |
-| 23 | AI-M05 | Agents, tool calling and enforced permissions | 3 | 10 | PLANNED | MC-AIB-02, MC-PYH-04, MC-PYH-12 | ND-AI-02 |
-| 24 | AI-M06 | Context engineering | 3 | 6 | PLANNED | - | - |
-| 25 | AI-M07 | LLM security: OWASP LLM Top 10 (2025), prompt injection and red teaming | 3 | 10 | PLANNED | MC-AIB-02, MC-AIB-03 | ND-AI-04 |
-| 26 | AI-M08 | Evaluation suites, observability, cost and latency | 3 | 8 | PLANNED | MC-AIB-04 | - |
-| 27 | AI-M09 | Governance and responsible deployment (NIST AI RMF) | 3 | 6 | PLANNED | MC-AIB-03 | ND-AI-05, ND-AI-06 |
-| 28 | AI-M10 | Model Context Protocol, tool interoperability and multi-agent systems | 3 | 10 | PLANNED | MC-AIB-02, MC-AIB-08 | ND-AI-01 |
-| 29 | AI-M11 | Model selection, multimodal inputs and deployment economics | 2 | 8 | PLANNED | MC-AIB-09, MC-PYH-07, MC-PYH-12 | ND-AI-03, ND-AI-07 |
-| 30 | AI-M12 | Capstone: secure production-oriented AI assistant | 3 | 16 | PLANNED | - | - |
+| 9 | PY-M13 | Iterators, generators, closures, decorators and context managers | 2 | 8 | BUILT | MC-PYH-22 | - |
+| 10 | PY-M03 | Types, modules and project layout | 2 | 6 | BUILT | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
+| 11 | PY-M12 | Classes, dataclasses and object-oriented design | 2 | 8 | BUILT | MC-PYH-21 | - |
+| 12 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
+| 13 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT | MC-PYH-19 | - |
+| 14 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | BUILT | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
+| 15 | PY-M07 | Secure coding for Python | 2 | 8 | BUILT | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
+| 16 | PY-M08 | Databases and persistence | 2 | 6 | PLANNED | MC-PYH-08 | - |
+| 17 | PY-M09 | Profiling, performance and maintainable architecture | 3 | 8 | PLANNED | - | ND-PY-01 |
+| 18 | PY-M10 | API development: typed, tested and secure HTTP services | 2 | 8 | PLANNED | MC-PYH-06, MC-PYH-08 | - |
+| 19 | PY-M11 | Capstone: typed, tested, documented application with CI | 3 | 14 | PLANNED | MC-PYH-14 | - |
+| 20 | AI-M01 | AI and ML fundamentals, evaluation and limits | 1 | 12 | PLANNED | MC-AIB-05, MC-PYH-12 | - |
+| 21 | AI-M02 | Python AI application development | 2 | 8 | PLANNED | MC-PYH-07 | ND-AI-03 |
+| 22 | AI-M03 | LLM application architecture and structured outputs | 2 | 8 | PLANNED | MC-PYH-12 | - |
+| 23 | AI-M04 | Retrieval-augmented generation and retrieval evaluation | 2 | 12 | PLANNED | MC-AIB-01, MC-PYH-12 | ND-AI-02 |
+| 24 | AI-M05 | Agents, tool calling and enforced permissions | 3 | 10 | PLANNED | MC-AIB-02, MC-PYH-04, MC-PYH-12 | ND-AI-02 |
+| 25 | AI-M06 | Context engineering | 3 | 6 | PLANNED | - | - |
+| 26 | AI-M07 | LLM security: OWASP LLM Top 10 (2025), prompt injection and red teaming | 3 | 10 | PLANNED | MC-AIB-02, MC-AIB-03 | ND-AI-04 |
+| 27 | AI-M08 | Evaluation suites, observability, cost and latency | 3 | 8 | PLANNED | MC-AIB-04 | - |
+| 28 | AI-M09 | Governance and responsible deployment (NIST AI RMF) | 3 | 6 | PLANNED | MC-AIB-03 | ND-AI-05, ND-AI-06 |
+| 29 | AI-M10 | Model Context Protocol, tool interoperability and multi-agent systems | 3 | 10 | PLANNED | MC-AIB-02, MC-AIB-08 | ND-AI-01 |
+| 30 | AI-M11 | Model selection, multimodal inputs and deployment economics | 2 | 8 | PLANNED | MC-AIB-09, MC-PYH-07, MC-PYH-12 | ND-AI-03, ND-AI-07 |
+| 31 | AI-M12 | Capstone: secure production-oriented AI assistant | 3 | 16 | PLANNED | - | - |
 
 ## PATH-AI-SECURITY - AI security practitioner
 
@@ -375,7 +378,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | Foundations | COURSE-FND-DIGITAL (6 modules) |
 | Frontend engineering | COURSE-FE-ONBOARD (11 modules) |
 | Open-source investigation | COURSE-OSINT (12 modules) |
-| Programming | COURSE-PY-ENG (12 modules) |
+| Programming | COURSE-PY-ENG (13 modules) |
 | Quality engineering | COURSE-JAVA-QA (10 modules) |
 | Security engineering | COURSE-CYBER-MEGA (14 modules) |
 | Security operations | COURSE-SOC (14 modules) |

@@ -1429,3 +1429,21 @@ register:
     - COURSE-PY-ENG
     resulting_change: PY-M12 teaches the corrected behaviour, gates the version-dependent features behind explicit version checks and avoids all four newer features in its labs so that they run on 3.11 to 3.15.
     verified_on: '2026-10-15'
+  - id: R-097
+    title: Iterator, generator, decorator and context-manager behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0)
+    url: https://docs.python.org/3/reference/expressions.html#yield-expressions
+    publisher: Python Software Foundation
+    version: CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds)
+    method: EXECUTED
+    finding: 'An exhausted iterator stays exhausted (generator expressions, map, zip, filter); `in` consumes an iterator up to the match. next() needs __next__ (a method
+      named next is ignored). A generator function runs no code at the call; inspect.getgeneratorstate reports GEN_CREATED, GEN_SUSPENDED and GEN_CLOSED; the finally
+      block of an abandoned generator runs at once on CPython; raising StopIteration inside a generator gives RuntimeError; yield from returns the sub-generator''s return
+      value. itertools.groupby groups consecutive items and its groups are invalidated when the outer iterator advances. Closures capture variables: lambdas made in a loop
+      all see the final value; default arguments and functools.partial bind the value. functools.wraps copies name and docstring and sets __wrapped__; stacked decorators
+      are applied bottom-up. functools.cache and lru_cache require hashable arguments. A contextmanager generator without try/finally skips its cleanup when the block raises;
+      ExitStack closes in reverse order and the exception of the last failing close propagates (identical on all five versions). itertools.batched exists from 3.12;
+      itertools.pairwise and contextlib.chdir exist on all five. The PY-M13 lesson asserts every one of these and is executed on every interpreter of the matrix.'
+    applies_to:
+    - COURSE-PY-ENG
+    resulting_change: PY-M13 teaches the behaviours as executed, avoids itertools.batched in its labs (3.11 is the baseline) and writes its own chunks and windows.
+    verified_on: '2026-10-15'

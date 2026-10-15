@@ -22,8 +22,9 @@
 | DEF-012 | P2 | OPEN | all courses | 31 technology-registry entries have no verified version (GitHub release data not collected) | fetch_registry_versions.py with release access |
 | DEF-013 | P2 | OPEN_OWNER_ACTION | PY-ENG | GitGuardian false positive on PY-M05 lesson still reported on an earlier commit (INC-006) | dashboard incident 38216690 marked as false positive |
 | DEF-014 | P2 | OPEN | all courses | The executed API probes and the generated technology baselines carry the 2026-10-14 date; the registry re-check of 2026-10-15 found 19 changed records that those documents do not reflect | api_probes.py and the baseline renderers re-run with the later cutoff, or the Stage B refresh executed on or after 2026-10-24 |
+| DEF-015 | P1 | REMEDIATED_PENDING_VERIFICATION | PY-ENG | Iterators, generators, closures, decorators and context managers (handbook pp. 33-39, 67-69, 78-79) are taught by no module | a built module covers them with an executable lesson, labs and assessment |
 
-Open P0: 1; open P1: 7. A course cannot reach TRAINING_CONTENT_GO with an open P0 or P1 defect that applies to it.
+Open P0: 1; open P1: 8. A course cannot reach TRAINING_CONTENT_GO with an open P0 or P1 defect that applies to it.
 
 ## 2. Incidents and owner decisions (public-safe)
 

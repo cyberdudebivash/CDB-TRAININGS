@@ -1421,11 +1421,11 @@
    "A06": "PARTIAL",
    "A07": "PARTIAL",
    "A08": "NOT_MET",
-   "A09": "PARTIAL",
+   "A09": "NOT_MET",
    "A10": "MET",
    "A11": "NOT_MET",
    "A12": "PARTIAL",
-   "A13": "PARTIAL",
+   "A13": "NOT_MET",
    "A14": "NOT_MET",
    "A15": "PARTIAL",
    "A16": "NOT_MET",
@@ -1434,9 +1434,9 @@
    "A19": "NOT_MET"
   },
   "labs": {
-   "built": 16,
-   "planned": 23,
-   "verified_executable": 16
+   "built": 18,
+   "planned": 25,
+   "verified_executable": 18
   },
   "modules": {
    "PY-M01": {
@@ -1464,24 +1464,24 @@
    "PY-M03": {
     "catalog_status": "BUILT",
     "edition_config": true,
-    "evidence": "12 tests on 5 interpreters; failed 0, skipped 0",
+    "evidence": "12 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed",
     "executed_blocks": 7,
     "outcomes": 5,
     "private_pack_recorded": true,
     "quiz_items": 8,
     "rubric_criteria": 6,
-    "state": "TECHNICALLY_VERIFIED"
+    "state": "IMPLEMENTED_UNVERIFIED"
    },
    "PY-M04": {
     "catalog_status": "BUILT",
     "edition_config": true,
-    "evidence": "11 tests on 5 interpreters; failed 0, skipped 0",
+    "evidence": "11 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed",
     "executed_blocks": 5,
     "outcomes": 5,
     "private_pack_recorded": true,
     "quiz_items": 8,
     "rubric_criteria": 6,
-    "state": "TECHNICALLY_VERIFIED"
+    "state": "IMPLEMENTED_UNVERIFIED"
    },
    "PY-M05": {
     "catalog_status": "BUILT",
@@ -1570,11 +1570,22 @@
     "quiz_items": 8,
     "rubric_criteria": 5,
     "state": "TECHNICALLY_VERIFIED"
+   },
+   "PY-M13": {
+    "catalog_status": "BUILT",
+    "edition_config": true,
+    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0; STALE: 16 input file(s) changed after the recorded run at adf6a33a962b",
+    "executed_blocks": 26,
+    "outcomes": 5,
+    "private_pack_recorded": false,
+    "quiz_items": 8,
+    "rubric_criteria": 5,
+    "state": "IMPLEMENTED_UNVERIFIED"
    }
   },
   "outcomes": {
-   "outcomes_assessed": 8,
-   "outcomes_total": 12
+   "outcomes_assessed": 9,
+   "outcomes_total": 13
   },
   "release_status_claimed_in_catalog": "REENGINEERING",
   "scenarios": {
@@ -1582,8 +1593,8 @@
    "time_dependent_verified": 5,
    "verified": 5
   },
-  "score": 52.4,
-  "source_pages_with_module_disposition": 96,
+  "score": 49.3,
+  "source_pages_with_module_disposition": 107,
   "source_pdfs_pages": {
    "SRC-PY-HANDBOOK": 654
   },

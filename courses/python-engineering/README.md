@@ -12,6 +12,7 @@ The catalog (`catalog/courses.yaml`) is the source of truth for the module list;
 | PY-M05 | Files, structured data and HTTP clients | Built, automated checks executed; not SME-reviewed, not learner-piloted | guided (provided checks against a scripted API), independent (hidden suite) |
 | PY-M06 | Concurrency and asynchronous programming | Built, automated checks executed; not SME-reviewed, not learner-piloted | guided (provided checks, mutation-tested), independent (hidden suite) |
 | PY-M07 | Secure coding for Python | Built, automated checks executed; not SME-reviewed, not learner-piloted | guided, independent |
+| PY-M13 | Iterators, generators, closures, decorators and context managers | Built (added after the independent audit found no module taught them); automated checks executed once the lab matrix has run it; not SME-reviewed, not learner-piloted | guided (128 provided checks, mutation-tested), independent (hidden suite) |
 | PY-M12 | Classes, dataclasses and object-oriented design | Built (added after the independent audit found no module taught classes); automated checks executed once the lab matrix has run it; not SME-reviewed, not learner-piloted | guided (167 provided checks, mutation-tested), independent (hidden suite) |
 
 The other modules of the course (PY-M08-M11) are `PLANNED`: nothing in them is built.

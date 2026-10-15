@@ -1,0 +1,203 @@
+{
+ "commit": "f7234ff78eff",
+ "is_learner_pilot": false,
+ "modules": {
+  "PY-M01": {
+   "fingerprint": "b2aca39dfa833a16f0b03db030c0077bed73cc55e716fe0d642ea8eac1324bba",
+   "guided_solution": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 21,
+    "returncode": 0,
+    "skipped": 0
+   },
+   "guided_starter": {
+    "errors": 0,
+    "failed": 21,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "independent_starter": {
+    "errors": 0,
+    "failed": 1,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "ok": true
+  },
+  "PY-M02": {
+   "fingerprint": "d0153a8ca08dc461a44bec7104370aaff2dbcdeac8d987e2cdd5d287cd6d3458",
+   "guided_solution": null,
+   "guided_starter": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 3,
+    "returncode": 0,
+    "skipped": 0
+   },
+   "independent_starter": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 0,
+    "returncode": 5,
+    "skipped": 0
+   },
+   "ok": true
+  },
+  "PY-M03": {
+   "fingerprint": "f6a566f2ac169149479dc2a6f8588797fa9ead8c39745664290f6b46f2a2ad1f",
+   "guided_solution": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 27,
+    "returncode": 0,
+    "skipped": 0
+   },
+   "guided_starter": {
+    "errors": 25,
+    "failed": 2,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "independent_starter": {
+    "errors": 28,
+    "failed": 2,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "ok": false
+  },
+  "PY-M04": {
+   "fingerprint": "18bef626e5cdc48f21d2c34c158a9107cd9875a5494a76742b9c9b43779ad654",
+   "guided_solution": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 10,
+    "returncode": 0,
+    "skipped": 0
+   },
+   "guided_starter": {
+    "errors": 0,
+    "failed": 6,
+    "passed": 4,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "independent_starter": {
+    "errors": 1,
+    "failed": 6,
+    "passed": 2,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "ok": false
+  },
+  "PY-M05": {
+   "fingerprint": "ed1be0119711c5fd942d92c1d6858014090728066679a3567c25f5b1a94beb3b",
+   "guided_solution": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 65,
+    "returncode": 0,
+    "skipped": 0
+   },
+   "guided_starter": {
+    "errors": 0,
+    "failed": 65,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "independent_starter": {
+    "errors": 0,
+    "failed": 8,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "ok": true
+  },
+  "PY-M06": {
+   "fingerprint": "fd23e9dcac36964ad062673974696ae709d7aad8904ef31bd7ffad4ba97fecb9",
+   "guided_solution": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 36,
+    "returncode": 0,
+    "skipped": 0
+   },
+   "guided_starter": {
+    "errors": 0,
+    "failed": 36,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "independent_starter": {
+    "errors": 0,
+    "failed": 10,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "ok": true
+  },
+  "PY-M07": {
+   "fingerprint": "a55e891d0981a09c76390e6a759a806ed645732b549140c696bb191f766e2934",
+   "guided_solution": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 50,
+    "returncode": 0,
+    "skipped": 0
+   },
+   "guided_starter": {
+    "errors": 0,
+    "failed": 32,
+    "passed": 18,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "independent_starter": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 0,
+    "returncode": 5,
+    "skipped": 0
+   },
+   "ok": true
+  },
+  "PY-M12": {
+   "fingerprint": "09e2d0383e532b889cdee7a8071081989768374b1fe8799daabd92df8ff9267b",
+   "guided_solution": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 167,
+    "returncode": 0,
+    "skipped": 0
+   },
+   "guided_starter": {
+    "errors": 0,
+    "failed": 167,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "independent_starter": {
+    "errors": 0,
+    "failed": 10,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "ok": true
+  }
+ },
+ "python": "3.13.16",
+ "schema_version": 1,
+ "tracked_files_only": true
+}
