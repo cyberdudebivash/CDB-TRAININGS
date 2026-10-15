@@ -22,7 +22,7 @@ From the repository root:
 python -m unittest discover -s courses/python-automation/labs/reconciliation -p test_lab.py -v
 ```
 
-The Java example writes compiler output to the locally ignored `build` directory (run it from the lab folder or replace it with a temporary output folder). No purchased accounts are required. **Do not infer multi-platform coverage from one successful local run.**
+This exercise runs locally without paid services. Follow the shown command from the repository root; record the actual interpreter and any skipped tests. **Do not infer multi-platform coverage from one successful local run.**
 
 ## Guided exercise
 

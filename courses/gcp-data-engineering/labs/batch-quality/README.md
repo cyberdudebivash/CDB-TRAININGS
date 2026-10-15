@@ -10,7 +10,7 @@ A data engineer inspects synthetic order CSV rows before an approved future Clou
 
 ## Engineering acceptance contract
 
-Validate strict columns, unique order keys, ISO date-like values, finite nonnegative monetary values, and supported regions; produce rejected-row reasons.
+Validate strict columns, unique order keys, **canonical YYYY-MM-DD calendar dates**, finite nonnegative monetary values, and supported regions; produce rejected-row reasons. A header-only/empty input must be rejected as unsafe to ingest.
 
 All inputs are fictional or synthetic. The implementation makes no network calls, does not use customer identities or secrets and must never be pointed at an unauthorized system. The exercise is designed to develop safe problem-solving before introducing real service integrations.
 
@@ -22,7 +22,7 @@ From the repository root:
 python -m unittest discover -s courses/gcp-data-engineering/labs/batch-quality -p test_lab.py -v
 ```
 
-The Java example writes compiler output to the locally ignored `build` directory (run it from the lab folder or replace it with a temporary output folder). No purchased accounts are required. **Do not infer multi-platform coverage from one successful local run.**
+This exercise runs locally without paid services. Follow the shown command from the repository root; record the actual interpreter and any skipped tests. **Do not infer multi-platform coverage from one successful local run.**
 
 ## Guided exercise
 
@@ -47,3 +47,7 @@ This is a **formative practice rubric**, not an Academy certification or a cours
 This is a local pre-ingestion validation. It does not execute Cloud Storage, BigQuery, Dataflow, Pub/Sub, IAM, or billed GCP workloads.
 
 Use the top-level [course status](../../README.md) and [Gate A matrix](../../../../docs/production/COURSE_COMPLETENESS_MATRIX.md) before claiming release readiness.
+
+## Regression lesson — why empty datasets and noncanonical dates fail
+
+An empty batch must not be treated as a successful customer delivery. Run the `test_header_only_batch_not_safe` test and explain why zero accepted records can be operationally significant even when no row-level parse error exists. Test `2026-W42-4` and `20261014`: these may be parsed by a permissive date API but violate our documented YYYY-MM-DD input schema. Distinguish a valid calendar date from a date-format contract. The validator is a teaching gate, not proof of end-to-end BigQuery ingestion or exactly-once processing.

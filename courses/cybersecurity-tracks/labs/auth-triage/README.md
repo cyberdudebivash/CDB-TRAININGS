@@ -10,7 +10,7 @@ A defensive SOC analyst correlates synthetic authentication failures and must av
 
 ## Engineering acceptance contract
 
-Normalize timezone-aware event timestamps; reject duplicated event IDs; group failures per account/source; emit evidence IDs for threshold crossing.
+Normalize timezone-aware event timestamps; reject duplicated event IDs, nonboolean success fields and invalid detection settings; group failures per account/source; emit evidence IDs for threshold crossing. Threshold is a genuine integer between 2 and 100, not a float, boolean or numeric string.
 
 All inputs are fictional or synthetic. The implementation makes no network calls, does not use customer identities or secrets and must never be pointed at an unauthorized system. The exercise is designed to develop safe problem-solving before introducing real service integrations.
 
@@ -22,7 +22,7 @@ From the repository root:
 python -m unittest discover -s courses/cybersecurity-tracks/labs/auth-triage -p test_lab.py -v
 ```
 
-The Java example writes compiler output to the locally ignored `build` directory (run it from the lab folder or replace it with a temporary output folder). No purchased accounts are required. **Do not infer multi-platform coverage from one successful local run.**
+This exercise runs locally without paid services. Follow the shown command from the repository root; record the actual interpreter and any skipped tests. **Do not infer multi-platform coverage from one successful local run.**
 
 ## Guided exercise
 
@@ -47,3 +47,7 @@ This is a **formative practice rubric**, not an Academy certification or a cours
 Illustrative detection; one alert per account/source, no enrichment, no deployed SIEM, no real telemetry, no claim of production detection accuracy.
 
 Use the top-level [course status](../../README.md) and [Gate A matrix](../../../../docs/production/COURSE_COMPLETENESS_MATRIX.md) before claiming release readiness.
+
+## Regression lesson — typed detection settings and event integrity
+
+Run `test_invalid_threshold_types_are_rejected` and `test_invalid_event_outcome_is_rejected` to observe fail-closed responses to ambiguous data. Explain why a threshold of 2.5 or an outcome of integer 1 should never be silently interpreted as a production SOC policy. The synthetic fixture is not actual SIEM telemetry, and no operational detection accuracy or customer coverage is claimed.
