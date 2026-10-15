@@ -1,0 +1,7 @@
+INFO service started
+DEBUG cache warm
+WARNING disk at 85%
+ERROR payment failed
+not a log line
+ERROR timeout calling billing
+CRITICAL out of memory

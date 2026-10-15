@@ -1,0 +1,35 @@
+# Knowledge check for PY-M04. Questions only: the answer key is held by instructors (see courses/python-engineering/instructor/README.md).
+module: PY-M04
+items:
+  - id: Q1
+    outcome: LO1
+    stem: "You run `env/bin/python -m pip install requests` without activating the virtual environment `env`. Where does the package go?"
+    options: {A: "Into the system Python's site-packages", B: "Into the current directory", C: "Into the site-packages of the environment whose interpreter you called", D: "Nowhere: pip refuses to install without activation"}
+  - id: Q2
+    outcome: LO1
+    stem: "Inside a virtual environment, which statement about `sys.prefix` and `sys.base_prefix` is true?"
+    options: {A: "They are always equal", B: "sys.base_prefix points to the environment", C: "Neither exists in Python 3.11 or later", D: "sys.prefix points to the environment and differs from sys.base_prefix"}
+  - id: Q3
+    outcome: LO2
+    stem: "Which `[build-system]` table is the correct way to build a setuptools project with pyproject.toml, using the packaging guide's example?"
+    options: {A: "requires = [\"setuptools >= 77.0.3\"]; build-backend = \"setuptools.build_meta\"", B: "requires = [\"setup.py\"]; build-backend = \"distutils.core\"", C: "requires = []; build-backend = \"pip\"", D: "requires = [\"wheel\"]; build-backend = \"build\""}
+  - id: Q4
+    outcome: LO2
+    stem: "A pyproject.toml declares `dynamic = [\"version\"]` and `[tool.setuptools.dynamic] version = { attr = \"tinycsv.__version__\" }`. What does this achieve?"
+    options: {A: "The version is typed twice and must match by hand", B: "pip chooses a version at install time", C: "The build backend reads the version from one place in the source code", D: "The wheel gets no version at all"}
+  - id: Q5
+    outcome: LO3
+    stem: "After `python -m build`, you list the wheel and find `tests/__init__.py` inside it. What is the most likely cause?"
+    options: {A: "Wheels always contain a tests directory", B: "pytest copies itself into the wheel", C: "The sdist and the wheel were swapped", D: "Automatic package discovery included every directory with an __init__.py; the packages to include were not declared"}
+  - id: Q6
+    outcome: LO4
+    stem: "Why do you run the installed command from a directory that is not your project directory?"
+    options: {A: "To make the command run faster", B: "So that an import that works only because of the source tree on the path is not mistaken for a working install", C: "Because pip refuses to run in the project directory", D: "To avoid creating a dist directory"}
+  - id: Q7
+    outcome: LO5
+    stem: "Where should pytest and ruff, which only developers use, be declared in a modern pyproject.toml?"
+    options: {A: "In [dependency-groups]", B: "In [project] dependencies", C: "In [project.optional-dependencies] under an extra that every user must install", D: "In [build-system] requires"}
+  - id: Q8
+    outcome: LO5
+    stem: "According to the packaging guide, what is the status of running `python setup.py sdist` or `python setup.py bdist_wheel` in a new project?"
+    options: {A: "They are the recommended build commands", B: "They are required to publish to PyPI", C: "They were removed from setuptools and always fail", D: "Using setup.py as a command-line tool is deprecated; build with python -m build"}

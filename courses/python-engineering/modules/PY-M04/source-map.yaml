@@ -1,0 +1,21 @@
+# Source-to-new-content trace for PY-M04. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower).
+source: SRC-PY-HANDBOOK
+module: PY-M04
+mappings:
+  - source_pages: [63, 64]
+    source_topic: "'43. Packaging Python apps' (four steps ending with 'Add setup.py'; `python setup.py sdist`) and '44. Virtual environment workflow'"
+    disposition: REPLACED
+    new_content: "lesson.md sections 2-5 and 8; lab-guided (legacy setup.py project to pyproject.toml); lab-independent"
+    note: "Finding F-PYH-003. The venv idea is kept; the packaging steps are replaced by pyproject.toml and python -m build, with the deprecation status and the executed behaviour of the old commands stated (R-006, probe setuptools-setup-py-commands)."
+  - source_pages: [220]
+    source_topic: "'Install Python 3.10+ recommended'"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 3 and 8"
+    note: "Python 3.10 reached end of life on 2026-10-01; supported versions are 3.11 to 3.15 (R-005). requires-python is explained as a testing promise."
+  - source_pages: [645, 646, 647, 648, 649, 650]
+    source_topic: "'Certification exam' question lists without answers or rubrics"
+    disposition: REPLACED
+    new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
+    note: "Finding F-PYH-007: replaced by outcome-mapped items and a rubric-graded independent lab with automated checks."

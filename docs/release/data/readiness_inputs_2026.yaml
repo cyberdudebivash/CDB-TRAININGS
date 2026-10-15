@@ -1,0 +1,36 @@
+# Inputs to docs/release/OCT2026_PRODUCTION_READINESS.md that cannot be computed from the catalog or the evidence files.
+# Every status here is a statement about the REAL STATE OF THE WORLD (who has reviewed what, which decisions the owner has made).
+# Only a person can change it, and a change needs evidence outside this repository's automation. Nothing here is aspirational.
+#
+# status values: NOT_MET (default), PARTIAL, MET. `blockers` name owner decisions (docs/audits/IP_AND_LICENSE_REVIEW.md section 4) or findings.
+schema_version: 1
+as_of: 2026-10-14
+defaults:
+  editorial: {status: NOT_MET, note: "No editorial or SME review has taken place; automated checks only."}
+  ip_licensing: {status: NOT_MET, blockers: [D4], note: "Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5)."}
+  commercial: {status: NOT_MET, note: "Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set."}
+  academy_integration: {status: NOT_MET, note: "No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build."}
+  human_approval: {status: NOT_MET, note: "No named owner, reviewer or approval is recorded."}
+course_overrides:
+  COURSE-OSINT:
+    ip_licensing: {status: NOT_MET, blockers: [D3, D4, IP-1], note: "The source plans to redistribute GPL-licensed tools under a proprietary licence (F-OSINT-002); counsel review (A3) is required before any OSINT product."}
+  COURSE-FE-ONBOARD:
+    ip_licensing: {status: NOT_MET, blockers: [D1, D2, D4], note: "The source contains a named individual's personal data on public pages (F-FE-001) and may describe another organisation's internal practice (F-FE-002)."}
+  COURSE-SOC:
+    ip_licensing: {status: NOT_MET, blockers: [D4, IP-4], note: "Source text was adapted from vendor material without references (F-SOC-006); the pilot module is rewritten from primary standards. MITRE attribution notices travel with ATT&CK content."}
+  COURSE-CYBER-MEGA:
+    ip_licensing: {status: NOT_MET, blockers: [D4, IP-5, IP-6], note: "Leaked-password corpus reference and endorsement statements in the source (F-MEGA-002, F-MEGA-009)."}
+# Checks the Stage B refresh (2026-10-24) must perform. `due` is the date the underlying fact changes or is first checkable.
+# Evidence ids must exist in docs/research/research_register.yaml.
+stage_b_checks:
+  - {id: SB-01, subject: "OpenAI gpt-3.5 and gpt-4 family shutdown", due: 2026-10-23, evidence: [R-037], action: "Re-read the deprecations page; confirm the shutdown happened and update model-lifecycle lessons (AI-M02, AI-M11)."}
+  - {id: SB-02, subject: "MITRE ATT&CK v20 point releases", due: 2026-10-24, evidence: [R-036], action: "Check for v20.x; update the cited ATT&CK version and date wherever it is stated."}
+  - {id: SB-03, subject: "Selenium 4.51 release notes (ExpectedCondition change)", due: 2026-10-24, evidence: [R-050], action: "Read the post body (it was not read in Stage A) before any Selenium lesson relies on the change."}
+  - {id: SB-04, subject: "Kubernetes 1.34 maintenance end", due: 2026-10-27, evidence: [R-029], action: "Re-run the lifecycle fetch after the date; update version-currency rules for Kubernetes."}
+  - {id: SB-05, subject: "Node.js 26 enters LTS", due: 2026-10-28, evidence: [R-040], action: "After 2026-10-28 re-check the release schedule and the LTS statement in frontend and AI lab baselines."}
+  - {id: SB-06, subject: "MCP specification revision", due: 2026-10-24, evidence: [R-026, R-027], action: "Confirm 2026-07-28 is still the current revision and that no later revision changes the stateless model."}
+  - {id: SB-07, subject: "Python 3.15 and 3.14 patch releases", due: 2026-10-24, evidence: [R-024, R-046], action: "Re-run the lab matrix with --cutoff 2026-10-24 on the then-current patch releases."}
+  - {id: SB-08, subject: "Registry snapshot and executed probes", due: 2026-10-24, evidence: [R-045], action: "Run fetch_registry_versions.py and api_probes.py with --cutoff 2026-10-24; diff with scripts/research/diff_snapshots.py; record each change."}
+  - {id: SB-09, subject: "EU AI Act Digital Omnibus and India DPDP Rules (secondary sources only)", due: 2026-10-24, evidence: [R-064, R-065], action: "Replace secondary coverage with the Official Journal text and the Gazette notification before any customer-facing statement."}
+  - {id: SB-10, subject: "PCI DSS and ISO/IEC 27001 edition currency (unverified)", due: 2026-10-24, evidence: [R-076], action: "Verify edition and transition facts against the standards bodies."}
+  - {id: SB-11, subject: "Competitor pricing pages", due: 2026-10-24, evidence: [R-080, R-081, R-082, R-083, R-084, R-085, R-086], action: "Re-fetch the seven vendor pages; record changes as new register entries; fetch the pages that were unreadable."}

@@ -75,7 +75,7 @@
         "id": {"type": "string", "pattern": "^[A-Z]+-M\\d{2}$"},
         "title": {"type": "string", "minLength": 5},
         "level": {"enum": [0, 1, 2, 3]},
-        "status": {"enum": ["PLANNED", "BUILT_PILOT", "VALIDATED"]},
+        "status": {"enum": ["PLANNED", "BUILT", "BUILT_PILOT", "VALIDATED"]},
         "estimated_hours": {"type": "number", "minimum": 0.5},
         "primary_outcome": {"type": "string", "minLength": 20, "description": "One measurable outcome that starts with an action verb."},
         "lab_state": {"$ref": "#/$defs/lab_state"},

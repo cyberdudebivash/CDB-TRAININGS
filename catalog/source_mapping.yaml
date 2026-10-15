@@ -1,0 +1,198 @@
+# Source-page -> destination-module mapping rules (single source of truth for docs/qa/COURSE_SOURCE_TRACEABILITY.md).
+#
+# How a page is mapped: scripts/audit/build_page_records.py builds a heading path "chapter > lesson > topic" for every page
+# from the PDF bookmarks, lower-cases it, and applies the FIRST matching rule below. A page that matches no rule uses the
+# source's `default`. The mapping is HEURISTIC: every record keeps mapping_basis (rule id or default) so a reviewer can see
+# why a page landed where it did, and the traceability report states how many pages used only the default.
+#
+# module:  a module id from catalog/courses.yaml, or `~` (null) for content that has NO destination (out of portfolio scope,
+#          marketing, or career coaching). Such pages are not deleted from the source PDF; they are simply not carried into
+#          the new curriculum (action REMOVE).
+# action:  the default modernization action when no currency/security issue overrides it
+#          (UPDATE, MERGE, REPLACE, EXPAND, REMOVE, KEEP).
+schema_version: 1
+sources:
+  SRC-PY-HANDBOOK:
+    course: COURSE-PY-ENG
+    default: {module: PY-M01, action: UPDATE}
+    container_defaults:   # used only when no keyword rule matched; keyed on the VOLUME/MODULE/PHASE heading
+      - {id: C-PYH-1, rx: '^module 1\b', module: PY-M01, action: UPDATE}
+      - {id: C-PYH-2, rx: '^module 2\b', module: PA-M02, action: UPDATE}
+      - {id: C-PYH-3, rx: '^module 3\b', module: PY-M10, action: UPDATE}
+      - {id: C-PYH-4, rx: '^module 4\b', module: SOC-M03, action: UPDATE}
+      - {id: C-PYH-5, rx: '^module 5\b', module: PA-M05, action: UPDATE}
+      - {id: C-PYH-6, rx: '^module 6\b', module: ~, action: REMOVE}
+      - {id: C-PYH-7, rx: '^module 7\b', module: AI-M01, action: UPDATE}
+      - {id: C-PYH-8, rx: '^module 8\b', module: GCP-M02, action: UPDATE}
+    rules:
+      - {id: M-PYH-01, rx: 'blockchain|web3|smart contract|solidity|cryptocurrency|nft', module: ~, action: REMOVE, note: "Out of portfolio scope; preserved in the source PDF."}
+      - {id: M-PYH-02, rx: 'certification exam|final certification|mock exam|q\d+\.', module: PY-M11, action: REPLACE, note: "Question lists are replaced by rubric-graded capstone and automated checks."}
+      - {id: M-PYH-03, rx: 'agent|multi-agent|tool-using', module: AI-M05, action: REPLACE, note: "Agent examples are rebuilt with enforced tool permissions (F-PYH-001)."}
+      - {id: M-PYH-04, rx: 'rag\b|retrieval-augmented|faiss|vector (?:index|database|store)|embedding', module: AI-M04, action: UPDATE, note: "RAG rebuilt with retrieval evaluation."}
+      - {id: M-PYH-05, rx: 'ai safety|ai security|prompt injection|adversarial', module: AI-M07, action: UPDATE}
+      - {id: M-PYH-06, rx: 'fastapi|deploy ai models|api gateway|docker|gpu|saas|scaling|billing|llm optimization|inference optimization', module: AI-M11, action: UPDATE, note: "Deployment economics and model serving."}
+      - {id: M-PYH-07, rx: 'transformer|self-attention|attention|\bgpt\b|tokenizer|bpe|fine-tun|llm|neural network|activation|cnn|rnn|lstm|diffusion|reinforcement|q-learning|dqn|computer vision|voice ai|whisper|nlp|spacy|chatbot', module: AI-M01, action: UPDATE, note: "Model-internals and ML fundamentals; implementation-from-scratch material becomes optional."}
+      - {id: M-PYH-08, rx: 'machine learning|scikit|classification|regression|xgboost|numpy|pandas|matplotlib|train.?test|feature scaling|evaluation metrics|overfitting', module: AI-M01, action: UPDATE}
+      - {id: M-PYH-09, rx: 'airflow|prefect|orchestrat|dag\b', module: GCP-M06, action: UPDATE}
+      - {id: M-PYH-10, rx: 'kafka|streaming|spark streaming|structured streaming', module: GCP-M04, action: UPDATE}
+      - {id: M-PYH-11, rx: 'data model|dimensional|star schema|slowly changing|\bscd\b|normaliz|medallion|lambda architecture|kappa', module: GCP-M03, action: UPDATE}
+      - {id: M-PYH-12, rx: 'data quality|lineage|governance|catalog', module: GCP-M07, action: UPDATE}
+      - {id: M-PYH-13, rx: 'spark|pyspark|hadoop|hdfs|hive|presto|trino|delta lake|lakehouse|data lake|warehouse|snowflake|bigquery|redshift|etl|elt|pipeline|data engineering|parquet|polars|pyarrow|duckdb|cdc', module: GCP-M02, action: UPDATE, note: "Batch ingestion and processing; heavy distributed-stack material is condensed."}
+      - {id: M-PYH-14, rx: 'sqlalchemy|database|sql\b|orm|postgres|mysql|sqlite|mongodb|redis', module: PY-M08, action: UPDATE}
+      - {id: M-PYH-15, rx: 'jwt|authentication|password|hash|bcrypt|secret|encrypt|cryptograph|oauth|session|csrf|xss|sql injection', module: PY-M07, action: UPDATE}
+      - {id: M-PYH-16, rx: 'flask|django|fastapi|rest api|web development|jinja|template|route|blueprint|swagger|openapi|contact api', module: PY-M10, action: UPDATE}
+      - {id: M-PYH-17, rx: 'siem|log analysis|edr|ids|ips|packet|sniff|port scan|threat intelligence|malware|sandbox|network defense|cybersecurity', module: SOC-M03, action: UPDATE, note: "Security-tool mini projects are reframed as detection/log-parsing labs; offensive pieces need an authorised lab."}
+      - {id: M-PYH-18, rx: 'ci/cd|devsecops|github actions|jenkins|terraform|ansible|kubernetes|helm', module: CYB-M07, action: UPDATE}
+      - {id: M-PYH-19, rx: 'observab|monitor|sre|incident|prometheus|grafana|logging', module: PA-M07, action: UPDATE}
+      - {id: M-PYH-20, rx: 'ssh|paramiko|network automation|netmiko|subprocess|shell|argparse|cli', module: PA-M09, action: UPDATE}
+      - {id: M-PYH-21, rx: 'schedul|cron|celery|task queue', module: PA-M05, action: UPDATE}
+      - {id: M-PYH-22, rx: 'requests|http|api|json|rest|web scraping|beautifulsoup|selenium|playwright', module: PY-M05, action: UPDATE}
+      - {id: M-PYH-23, rx: 'file|csv|excel|pdf|os module|pathlib|shutil|regex|email|automation', module: PA-M02, action: UPDATE}
+      - {id: M-PYH-24, rx: 'asyncio|async|thread|multiprocess|concurren|gil|parallel', module: PY-M06, action: UPDATE}
+      - {id: M-PYH-25, rx: 'unit ?test|pytest|unittest|debug|exception|error handling|try/except|logging module', module: PY-M02, action: UPDATE}
+      - {id: M-PYH-26, rx: 'type hint|typing|mypy|dataclass|pydantic', module: PY-M03, action: UPDATE}
+      - {id: M-PYH-27, rx: 'installing python|install python|virtual environment|venv|pip\b|package|setup\.py|pyproject|wheel|dependency', module: PY-M04, action: UPDATE}
+      - {id: M-PYH-28, rx: 'performance|profil|optimi[sz]|memory|cache|benchmark', module: PY-M09, action: UPDATE}
+  SRC-PY-AUTOMATION:
+    course: COURSE-PY-AUTO
+    default: {module: PA-M01, action: UPDATE}
+    rules:
+      - {id: M-PYA-01, rx: 'interview|career|resume|portfolio strategy|salary|job[- ]ready|mock interview', module: ~, action: REMOVE, note: "Career coaching and unsupported outcome claims (F-PYA-004)."}
+      - {id: M-PYA-02, rx: 'gui automation|pyqt|desktop application', module: ~, action: REMOVE, note: "Desktop GUI automation is outside the core pathway; may return as an elective."}
+      - {id: M-PYA-03, rx: 'volume 11|phase 11|realtime (?:automation )?project|industry simulation|simulation \d|capstone', module: PA-M10, action: UPDATE}
+      - {id: M-PYA-04, rx: 'volume 2|phase 2|python for automation|python for automation engineers', module: PY-M01, action: MERGE, note: "Shared Python foundations live in COURSE-PY-ENG (target: no duplicated foundation lessons)."}
+      - {id: M-PYA-05, rx: 'volume 10|phase 10|ci/cd|testops|flaky|retr(?:y|ies)|quarantine|release signal|execution strateg', module: PA-M08, action: UPDATE}
+      - {id: M-PYA-06, rx: 'volume 9|phase 9|framework design|architecture pattern|framework (?:fundamentals|components)|governance|extensib|configuration, data', module: PA-M08, action: UPDATE}
+      - {id: M-PYA-07, rx: 'volume 7|phase 7|cli automation|backend validation|os automation|system & os|database validation', module: PA-M09, action: UPDATE}
+      - {id: M-PYA-08, rx: 'volume 6|phase 6|playwright|volume 5|phase 5|selenium', module: PA-M04, action: UPDATE, note: "Legacy Selenium locator APIs are REPLACE-d where probes confirm removal."}
+      - {id: M-PYA-09, rx: 'volume 4|phase 4|api automation|requests|pydantic|contract', module: PA-M03, action: UPDATE}
+      - {id: M-PYA-10, rx: 'volume 3|phase 3|pytest|fixture|conftest|parametri', module: PA-M08, action: UPDATE}
+      - {id: M-PYA-11, rx: 'secret|credential|environment variable|config|schedul|cron', module: PA-M05, action: UPDATE}
+      - {id: M-PYA-12, rx: 'observab|logging|audit|report', module: PA-M07, action: UPDATE}
+      - {id: M-PYA-13, rx: 'volume 1|phase 1|foundation|automation mindset|what automation|first automation|roles of', module: PA-M01, action: UPDATE}
+  SRC-JAVA-AUTOTEST:
+    course: COURSE-JAVA-QA
+    default: {module: JQA-M01, action: UPDATE}
+    container_defaults:
+      - {id: C-JAV-1, rx: '^volume 1\b', module: JQA-M01, action: UPDATE}
+      - {id: C-JAV-2, rx: '^volume 2\b', module: JQA-M03, action: UPDATE}
+      - {id: C-JAV-3, rx: '^volume 3\b', module: JQA-M05, action: UPDATE}
+      - {id: C-JAV-4, rx: '^volume 4\b', module: JQA-M04, action: REPLACE}
+      - {id: C-JAV-5, rx: '^volume 5\b', module: JQA-M07, action: UPDATE}
+      - {id: C-JAV-6, rx: '^volume 6\b', module: JQA-M07, action: UPDATE}
+      - {id: C-JAV-7, rx: '^volume 7\b', module: JQA-M06, action: UPDATE}
+    rules:
+      - {id: M-JAV-01, rx: 'interview|resume|mock|portfolio|salary|job readiness|job survival|github portfolio|common interview|monetiz|freelanc|transition path|manual testers|budget cuts|career|first job|promotion|income', module: ~, action: REMOVE, note: "Career coaching and unsupported outcome claims (F-JAV-004)."}
+      - {id: M-JAV-02, rx: 'real ?time project|final assignment|capstone|mega lab|full framework from scratch|ci integrated project', module: JQA-M10, action: UPDATE}
+      - {id: M-JAV-03, rx: 'flaky|parallel execution|jenkins|pipeline|ci execution|\bci\b|git|github|branching|pull request|devops', module: JQA-M08, action: UPDATE}
+      - {id: M-JAV-04, rx: 'reporting|report publishing|allure|extent|reporting hooks', module: JQA-M09, action: UPDATE}
+      - {id: M-JAV-05, rx: 'rest assured|api fundamentals|rest architecture|http methods|json parsing|api chaining|api automation|negative testing|authentication mechanisms', module: JQA-M06, action: UPDATE}
+      - {id: M-JAV-06, rx: 'selenium|webdriver|locator|xpath|shadow dom|dynamic elements|wait strategy|alerts, frames|file upload|actions class|javascript executor|cross-browser|grid|browser drivers', module: JQA-M05, action: UPDATE, note: "Selenium content is rebuilt on Selenium 4.51 with a Playwright option."}
+      - {id: M-JAV-07, rx: 'testng|junit|annotations|data providers|parameteriz|test grouping|assertions|test lifecycle|dependency management|suites|reruns', module: JQA-M04, action: REPLACE, note: "JUnit 4/TestNG-first teaching replaced by JUnit 6 first (R-048)."}
+      - {id: M-JAV-08, rx: 'page object|page factory|data-driven|keyword-driven|hybrid framework|utility layers|config management|logging strategy|log4j|framework design|framework review|maintainability|scalability for teams|error handling design|bdd|cucumber|gherkin', module: JQA-M07, action: UPDATE}
+      - {id: M-JAV-09, rx: 'maven|gradle|pom|surefire|build tool|project structure|plugins|profiles', module: JQA-M07, action: UPDATE, note: "Build tooling: Maven 3.9/3.10 GA; Maven 4 is release-candidate (R-049)."}
+      - {id: M-JAV-10, rx: 'sdlc|stlc|manual testing|test case design|functional vs|regression strategy|smoke|sanity|feasibility|what not to automate|roi|test strategy|test plan|traceability|defect lifecycle|agile|scrum|sprint|jira|qa roles', module: JQA-M03, action: UPDATE}
+      - {id: M-JAV-11, rx: 'collections|inheritance|composition|abstraction|interfaces|polymorphism|constructor|dependency control|exception handling', module: JQA-M02, action: UPDATE}
+      - {id: M-JAV-12, rx: 'java|oop|methods|classes|environment setup|strings|file handling|utilities|clean code|debugging', module: JQA-M01, action: UPDATE}
+  SRC-AI-BUNDLE:
+    course: COURSE-AI-ENG
+    default: {module: AI-M01, action: UPDATE}
+    rules:
+      - {id: M-AIB-01, rx: 'monetization|consulting|freelanc|entrepreneur|product leadership|executive decision|strategy|pricing|revenue|job readiness|interview|career', module: ~, action: REMOVE, note: "Business-coaching and unsupported outcome/income claims (F-AI-007)."}
+      - {id: M-AIB-02, rx: 'agentic|autonomous|agent\b|multi-agent|tool use|planner', module: AI-M05, action: REPLACE, note: "Agent labs rebuilt with enforced permissions (F-AI-003)."}
+      - {id: M-AIB-03, rx: 'ai security|adversarial|resilience|prompt injection|red team|poisoning|jailbreak', module: AI-M07, action: UPDATE, note: "Rebuilt on OWASP LLM Top 10 2025 (R-028)."}
+      - {id: M-AIB-04, rx: 'governance|safety|trust|ethic|bias|fairness|accountability|regulation|responsible|compliance|risk management|human-in-the-loop', module: AI-M09, action: UPDATE, note: "Mapped to NIST AI RMF 1.0 and the dated EU AI Act obligations (R-042, R-043)."}
+      - {id: M-AIB-05, rx: 'operations|reliability|monitor|observab|deployment|mlops|sre|incident|scaling|cost|latency', module: AI-M08, action: UPDATE}
+      - {id: M-AIB-06, rx: 'rag\b|retrieval|vector|embedding|knowledge base|chunking', module: AI-M04, action: REPLACE, note: "Flagship RAG lab rebuilt on langchain 1.x or framework-free code (F-AI-001/002)."}
+      - {id: M-AIB-07, rx: 'prompt|context window|context engineering|few-shot|chain-of-thought|system prompt', module: AI-M06, action: UPDATE}
+      - {id: M-AIB-08, rx: 'llm|large language|generative|genai|transformer|gpt|chatgpt|api|structured output|function calling|tool calling|evaluation', module: AI-M03, action: UPDATE}
+      - {id: M-AIB-09, rx: 'data engineering|pipeline|etl|feature store|data quality|data lake', module: GCP-M02, action: MERGE, note: "Shared data-engineering foundations live in COURSE-GCP-DE."}
+      - {id: M-AIB-10, rx: 'python for ai|libraries|numpy|pandas|scikit|tensorflow|pytorch|keras|notebook', module: AI-M02, action: UPDATE}
+      - {id: M-AIB-11, rx: 'machine learning|deep learning|neural|cnn|rnn|supervised|unsupervised|clustering|regression|classification|math|probability|statistics|linear algebra|foundations|what ai|history of ai|ai roles', module: AI-M01, action: UPDATE}
+  SRC-GCP-DATAENG:
+    course: COURSE-GCP-DE
+    default: {module: GCP-M01, action: UPDATE}
+    container_defaults:
+      - {id: C-GCP-0, rx: '^phase 0\b', module: GCP-M01, action: UPDATE}
+      - {id: C-GCP-1, rx: '^phase 1\b', module: GCP-M01, action: UPDATE}
+      - {id: C-GCP-2, rx: '^phase 2\b', module: GCP-M02, action: UPDATE}
+      - {id: C-GCP-3, rx: '^phase 3\b', module: GCP-M03, action: UPDATE}
+      - {id: C-GCP-4, rx: '^phase 4\b', module: GCP-M05, action: UPDATE}
+      - {id: C-GCP-5, rx: '^phase 5\b', module: GCP-M06, action: UPDATE}
+      - {id: C-GCP-6, rx: '^phase 6\b', module: GCP-M08, action: UPDATE}
+      - {id: C-GCP-7, rx: '^phase 7\b', module: GCP-M09, action: UPDATE}
+      - {id: C-GCP-8, rx: '^phase 8\b', module: GCP-M07, action: UPDATE}
+      - {id: C-GCP-9, rx: '^phase 9\b', module: GCP-M09, action: UPDATE}
+      - {id: C-GCP-10, rx: '^phase 10\b', module: ~, action: REMOVE}
+    rules:
+      - {id: M-GCP-01, rx: 'career|interview|resume|salary|job|real-world excellence', module: ~, action: REMOVE, note: "Career coaching and unsupported outcome claims (F-GCP-005)."}
+      - {id: M-GCP-02, rx: 'project|capstone|real-world project|practical exercise', module: GCP-M11, action: UPDATE, note: "Four-bullet projects are replaced by specified, testable capstone work (F-GCP-003)."}
+      - {id: M-GCP-03, rx: 'disaster|recovery|backup|failover|resilien', module: GCP-M10, action: EXPAND}
+      - {id: M-GCP-04, rx: 'terraform|ci/cd|git|version control|devops|infrastructure as code|workload identity', module: GCP-M08, action: UPDATE, note: "CI authentication moves from service-account keys to federation (F-GCP-001)."}
+      - {id: M-GCP-05, rx: 'monitor|logging|incident|on-call|slo|alert|performance|cost|scale', module: GCP-M09, action: UPDATE}
+      - {id: M-GCP-06, rx: 'quality|governance|compliance|dlp|policy tag|lineage|catalog|security|encrypt|audit', module: GCP-M07, action: UPDATE}
+      - {id: M-GCP-07, rx: 'composer|airflow|orchestrat|workflow|scheduling|backfill|dependenc', module: GCP-M06, action: UPDATE, note: "Rebuilt for Airflow 3 (R-066, R-032)."}
+      - {id: M-GCP-08, rx: 'dataflow|beam|dataproc|spark|processing|transform', module: GCP-M05, action: UPDATE}
+      - {id: M-GCP-09, rx: 'pub/sub|pubsub|streaming|real-time|realtime|cdc|incremental', module: GCP-M04, action: UPDATE}
+      - {id: M-GCP-10, rx: 'bigquery|modeling|partition|cluster|mart|bi\b|reporting|optimi', module: GCP-M03, action: UPDATE}
+      - {id: M-GCP-11, rx: 'ingestion|gcs|cloud storage|batch|file drop|etl|elt', module: GCP-M02, action: UPDATE}
+      - {id: M-GCP-12, rx: 'iam|role clarity|foundation|account|organization|project setup|networking|vpc|billing|budget', module: GCP-M01, action: UPDATE}
+  SRC-FRONTEND-ONBOARD:
+    course: COURSE-FE-ONBOARD
+    default: {module: FE-M03, action: UPDATE}
+    rules:
+      - {id: M-FEO-01, rx: 'resume|interview|salary|career|big tech|faang|promotion|senior frontend dev|90 days|first 90|expectations from', module: ~, action: REMOVE, note: "Career coaching and personal data (F-FE-001, F-FE-004)."}
+      - {id: M-FEO-02, rx: 'project \d+|capstone|portfolio|admin dashboard|e-commerce|micro-frontend', module: FE-M11, action: UPDATE}
+      - {id: M-FEO-03, rx: 'accessib|aria|wcag|a11y|screen reader|keyboard', module: FE-M06, action: UPDATE}
+      - {id: M-FEO-04, rx: 'security|xss|csrf|csp|sanitiz|cors|supply chain|dependency', module: FE-M07, action: EXPAND, note: "Security coverage was a single page (F-FE-003)."}
+      - {id: M-FEO-05, rx: 'performance|web vitals|lighthouse|lcp|inp|fid|lazy|bundle|optimi|caching', module: FE-M09, action: UPDATE}
+      - {id: M-FEO-06, rx: 'test|jest|vitest|cypress|playwright|debug|devtools|bug', module: FE-M08, action: UPDATE}
+      - {id: M-FEO-07, rx: 'git|pull request|code review|branch|workflow|team|agile|jira|ci/cd|docker|cloud|deploy', module: FE-M10, action: UPDATE}
+      - {id: M-FEO-08, rx: 'api|fetch|axios|graphql|rest|auth|jwt|oauth|session|login|token', module: FE-M05, action: UPDATE}
+      - {id: M-FEO-09, rx: 'react|component|state|hooks|redux|context|zustand|next\.js|vue|angular|svelte|framework', module: FE-M04, action: UPDATE}
+      - {id: M-FEO-10, rx: 'css|layout|responsive|flexbox|grid|tailwind|sass|design system|ui library|styling|mobile-first', module: FE-M02, action: UPDATE}
+      - {id: M-FEO-11, rx: 'html|semantic|dom|forms|seo|web fundamentals|browser', module: FE-M01, action: UPDATE}
+      - {id: M-FEO-12, rx: 'javascript|typescript|es6|async|promise|module|tooling|vite|webpack|npm|build', module: FE-M03, action: UPDATE}
+  SRC-OSINT-STARTER:
+    course: COURSE-OSINT
+    default: {module: OSINT-M01, action: REPLACE}
+    rules:
+      - {id: M-OSI-01, rx: '.*', module: OSINT-M01, action: REPLACE, note: "Brochure for a bundle; the course content is newly engineered and starts with law and ethics (F-OSINT-001, F-OSINT-003)."}
+  SRC-SOC-PLAYBOOK:
+    course: COURSE-SOC
+    default: {module: SOC-M01, action: UPDATE}
+    rules:
+      - {id: M-SOC-01, rx: 'career|roadmap|salary|certification|interview|resume', module: ~, action: REMOVE, note: "Uncited salary and workforce statistics (F-SOC-005)."}
+      - {id: M-SOC-02, rx: 'incident response|lifecycle|containment|eradication|recovery|lessons learned|nist', module: SOC-M08, action: UPDATE, note: "Rebuilt on SP 800-61r3 / CSF 2.0 (F-SOC-001, F-SOC-002)."}
+      - {id: M-SOC-03, rx: 'false positive|siem tuning|tuning|noise|threshold|whitelist|allowlist|exception', module: SOC-M07, action: UPDATE, note: "Tuning is measured against recall (F-SOC-007; built in SOC-M04 independent lab)."}
+      - {id: M-SOC-04, rx: 'correlation|brute|spray|detection rule|rule|authentication', module: SOC-M04, action: REPLACE, note: "Spray-blind example replaced by the measured SOC-M04 lab (F-SOC-004)."}
+      - {id: M-SOC-05, rx: 'triage|escalation|decision tree|alert|playbook|runbook', module: SOC-M05, action: UPDATE}
+      - {id: M-SOC-06, rx: 'workflow|shift|handover|day-to-day|tier|ai as|tier 0', module: SOC-M01, action: UPDATE}
+  SRC-MEGA-P1:
+    course: COURSE-CYBER-MEGA
+    default: {module: CYB-M01, action: UPDATE}
+    rules: &mega_rules
+      - {id: M-MEG-01, rx: 'interview|resume|salary|career|guarantee|job placement|job-ready|certification exam prep|cdb truth|branding|marketing|about the author|founder|ecosystem|subscribe|follow us|cta', module: ~, action: REMOVE, note: "Marketing, career and unsupported outcome claims (F-MEGA-003)."}
+      - {id: M-MEG-02, rx: 'capstone|certification exam|final project|mega project|final exam', module: CYB-M14, action: UPDATE}
+      - {id: M-MEG-03, rx: 'ai security|llm|prompt injection|ai red|adversarial|deepfake|ai agent|generative ai|model poisoning', module: CYB-M13, action: UPDATE}
+      - {id: M-MEG-04, rx: 'threat hunt', module: SOC-M09, action: MERGE, note: "Delivered by COURSE-SOC (overlap removed)."}
+      - {id: M-MEG-05, rx: 'soc analysis|soc analyst|triage|alert fatigue|case management', module: SOC-M05, action: MERGE, note: "Delivered by COURSE-SOC."}
+      - {id: M-MEG-06, rx: 'detection engineering|sigma|siem|logging|splunk|elastic|sentinel|kql|spl\b|log analysis|security operations|detection', module: SOC-M06, action: MERGE, note: "Delivered by COURSE-SOC."}
+      - {id: M-MEG-07, rx: 'cloud identity|conditional access|entra|azure ad|okta|cloud security monitoring|cloudtrail|guardduty|identity threat', module: SOC-M12, action: MERGE, note: "Delivered by COURSE-SOC."}
+      - {id: M-MEG-08, rx: 'soar|automation playbook|orchestration|playbook automation', module: SOC-M13, action: MERGE, note: "Delivered by COURSE-SOC."}
+      - {id: M-MEG-09, rx: 'threat intelligence|cti|stix|taxii|misp|ioc|threat actor profiling|osint', module: CYB-M10, action: UPDATE}
+      - {id: M-MEG-10, rx: 'malware|reverse engineering|disassembl|ghidra|ida|yara|packer|ransomware analysis|sandbox|dynamic analysis|static analysis', module: CYB-M09, action: UPDATE, note: "Isolated, benign-sample labs only."}
+      - {id: M-MEG-11, rx: 'forensic|incident response|\bdfir\b|memory|disk|evidence|timeline|chain of custody|volatility|autopsy|velociraptor', module: CYB-M08, action: UPDATE}
+      - {id: M-MEG-12, rx: 'red team|purple team|adversary emulation|c2|command and control|lateral movement|persistence|evasion|cobalt strike|mimikatz|bloodhound|privilege escalation|attack chain', module: CYB-M11, action: UPDATE, note: "Authorised, simulated, isolated exercises only (F-MEGA-005)."}
+      - {id: M-MEG-13, rx: 'devsecops|supply chain|sbom|slsa|sigstore|ci/cd|pipeline security|sast|dast|secret scanning|infrastructure as code', module: CYB-M07, action: UPDATE}
+      - {id: M-MEG-14, rx: 'kubernetes|container|docker|cloud security|aws|azure|gcp|serverless|cspm|iam policy|cloud misconfig|falco|trivy', module: CYB-M06, action: UPDATE}
+      - {id: M-MEG-15, rx: 'web app|owasp|api security|sql injection|xss|csrf|ssrf|secure coding|application security|burp|appsec|deserialization', module: CYB-M04, action: UPDATE}
+      - {id: M-MEG-16, rx: 'vulnerabilit|cvss|patch|scanning|nessus|openvas|penetration test|ethical hack|exploit|metasploit|nmap|assessment|bug bounty', module: CYB-M05, action: UPDATE, note: "Authorised lab networks only."}
+      - {id: M-MEG-17, rx: 'governance|grc|compliance|risk management|zero trust architecture|enterprise security architecture|leadership|ciso|policy|iso ?27001|nist|pci|gdpr|dpdp|hipaa|board|security architecture|defense-in-depth', module: CYB-M12, action: UPDATE}
+      - {id: M-MEG-18, rx: 'cryptograph|encryption|pki|certificate|tls|ssl|jwt|hashing|key management|authentication|iam|identity|oauth|sso|mfa|passkey|fido|password', module: CYB-M03, action: UPDATE}
+      - {id: M-MEG-19, rx: 'network|osi|tcp|udp|dns|firewall|vpn|wireless|operating system|windows security|linux security|hardening|kernel|memory safety|endpoint|active directory', module: CYB-M02, action: UPDATE}
+      - {id: M-MEG-20, rx: 'foundation|cia triad|threat actor|attack surface|framework|mitre|risk|security principles|cybersecurity universe|domains|controls', module: CYB-M01, action: UPDATE}
+  SRC-MEGA-P2:
+    course: COURSE-CYBER-MEGA
+    default: {module: CYB-M01, action: UPDATE}
+    rules: *mega_rules

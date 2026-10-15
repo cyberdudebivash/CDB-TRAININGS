@@ -1,0 +1,48 @@
+# Public rubric for the PY-M07 independent lab (notes_service). Students see exactly how they are graded.
+# Mechanical criteria (kind: automated) are measured by the instructor's exploit tests and hidden mutants (labs/_tools/mutation_check.py);
+# judgement criteria (kind: reviewer) are scored 0-3 by a human reviewer using the level descriptors below.
+rubric_id: RUB-PY-M07
+module: PY-M07
+version: 0.1.0
+pass_rule: >
+  Every must-pass criterion is met, no reviewer criterion is scored 0, and the reviewer criteria total at least 60% of their maximum.
+  Finishing the lesson or the guided lab alone is not a completion claim.
+criteria:
+  - id: C1
+    name: "Behaviour kept"
+    outcomes: [LO2]
+    kind: automated
+    must_pass: true
+    measure: "instructor exploit suite: every test whose name starts test_works_ passes on the learner's fixed module"
+  - id: C2
+    name: "Vulnerabilities fixed"
+    outcomes: [LO2, LO3, LO4]
+    kind: automated
+    must_pass: true
+    measure: "instructor exploit suite: every test whose name starts test_exploit_ passes on the learner's fixed module"
+  - id: C3
+    name: "Regression tests catch reintroduction"
+    outcomes: [LO5]
+    kind: automated
+    must_pass: true
+    measure: "mutation_check.py with the hidden vulnerability-reintroduction mutants: at least 8 of the 9 required mutants are killed by the learner's tests, and the tests pass on the instructor's reference module"
+  - id: C4
+    name: "Tests check effects, not only errors"
+    outcomes: [LO5]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Tests only call the function and check the happy path."
+      1: "Tests check that an exception is raised but not that the harmful effect did not happen."
+      2: "Tests check the effect (no side effect, no secret in the log, restricted file mode) for most vulnerabilities."
+      3: "As 2, plus the learner explains why validating after an unsafe operation is too late and tests for it."
+  - id: C5
+    name: "Threat reasoning"
+    outcomes: [LO1, LO3, LO4]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "No explanation of why each issue is a vulnerability."
+      1: "Names the issue categories without describing an attack."
+      2: "For each fix, describes the attack that worked before and why the fix stops it."
+      3: "As 2, plus names what the fixes and tests do not cover (for example other deployment settings or issues a linter would not find)."

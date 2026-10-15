@@ -1,0 +1,174 @@
+{
+ "as_of": "2026-10-14",
+ "part_size": 500,
+ "parts": [
+  {
+   "file": "docs/audits/data/page_records/SRC-AI-BUNDLE.part01.jsonl",
+   "source_id": "SRC-AI-BUNDLE",
+   "first_page": 1,
+   "last_page": 500,
+   "records": 500,
+   "sha256": "9acab2fcb1807362598440124de2f4e60ca6db90d812417e2253b2e6fcdf709c"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-AI-BUNDLE.part02.jsonl",
+   "source_id": "SRC-AI-BUNDLE",
+   "first_page": 501,
+   "last_page": 937,
+   "records": 437,
+   "sha256": "c617585d354d4fb18dbb04d8e97d6250f62c49c02ba39ae0b5ff330cbb1ab92c"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-FRONTEND-ONBOARD.part01.jsonl",
+   "source_id": "SRC-FRONTEND-ONBOARD",
+   "first_page": 1,
+   "last_page": 441,
+   "records": 441,
+   "sha256": "d9ebe82cc7ccaf24bf8ff838f08c12f8988dc8cb99e877358ba09badc053df45"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-GCP-DATAENG.part01.jsonl",
+   "source_id": "SRC-GCP-DATAENG",
+   "first_page": 1,
+   "last_page": 257,
+   "records": 257,
+   "sha256": "97634b898ed2f3a2a164465480927582f01582e9580da46a521d4aaf2436983d"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-JAVA-AUTOTEST.part01.jsonl",
+   "source_id": "SRC-JAVA-AUTOTEST",
+   "first_page": 1,
+   "last_page": 500,
+   "records": 500,
+   "sha256": "c467fc3b69e217cd591c707b4e7b9d1673622822697e4ee97d635991e4061290"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-JAVA-AUTOTEST.part02.jsonl",
+   "source_id": "SRC-JAVA-AUTOTEST",
+   "first_page": 501,
+   "last_page": 709,
+   "records": 209,
+   "sha256": "a3adf6eba1a8396f3803d830702deb2a9eee749f5854810dac2b8e5142fdd9be"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-MEGA-P1.part01.jsonl",
+   "source_id": "SRC-MEGA-P1",
+   "first_page": 1,
+   "last_page": 500,
+   "records": 500,
+   "sha256": "08a611a8554f7ee90403f2789a1f304b807baa906e09420455e4420bf89b9700"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-MEGA-P1.part02.jsonl",
+   "source_id": "SRC-MEGA-P1",
+   "first_page": 501,
+   "last_page": 1000,
+   "records": 500,
+   "sha256": "76e626e2f3f3fd29ad86550a8e239204db68f93b7724389e28bf42ed468c0ca7"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-MEGA-P1.part03.jsonl",
+   "source_id": "SRC-MEGA-P1",
+   "first_page": 1001,
+   "last_page": 1500,
+   "records": 500,
+   "sha256": "107d74a1542d167a1ae0d39dfe5ca82cec75f54aa1bb910322539d5a42611a97"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-MEGA-P1.part04.jsonl",
+   "source_id": "SRC-MEGA-P1",
+   "first_page": 1501,
+   "last_page": 2000,
+   "records": 500,
+   "sha256": "ab4a0f9f36435362509bdd94701182686b8ae3a595edb434800605134443357c"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-MEGA-P1.part05.jsonl",
+   "source_id": "SRC-MEGA-P1",
+   "first_page": 2001,
+   "last_page": 2500,
+   "records": 500,
+   "sha256": "37beb04fc9e2565b99d909c8cefed15587df26d4aa68a2ec3a6cf91a5e1e5a97"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-MEGA-P1.part06.jsonl",
+   "source_id": "SRC-MEGA-P1",
+   "first_page": 2501,
+   "last_page": 2837,
+   "records": 337,
+   "sha256": "f030845908561e99ec486db5d190f6b42649b378611d2db457db1bd5edb78c64"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-MEGA-P2.part01.jsonl",
+   "source_id": "SRC-MEGA-P2",
+   "first_page": 1,
+   "last_page": 500,
+   "records": 500,
+   "sha256": "fa545bddb854c3e438ef2d4b6129b160d151d14e4c2c96edd43fc7281586b979"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-MEGA-P2.part02.jsonl",
+   "source_id": "SRC-MEGA-P2",
+   "first_page": 501,
+   "last_page": 827,
+   "records": 327,
+   "sha256": "7fb80e50b55891266fb83e9e8d82bd4676a60645f7dac069f7bb80fb99f4e6da"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-OSINT-STARTER.part01.jsonl",
+   "source_id": "SRC-OSINT-STARTER",
+   "first_page": 1,
+   "last_page": 23,
+   "records": 23,
+   "sha256": "521a97b7d9e0e401030ea78c347657a5fefdd73815b28401b635f174a03bcdc1"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-PY-AUTOMATION.part01.jsonl",
+   "source_id": "SRC-PY-AUTOMATION",
+   "first_page": 1,
+   "last_page": 500,
+   "records": 500,
+   "sha256": "40648bdce021ec3cbc6c6c083b23bbd4e5cc5535e17b983641b89b4959c7f3b2"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-PY-AUTOMATION.part02.jsonl",
+   "source_id": "SRC-PY-AUTOMATION",
+   "first_page": 501,
+   "last_page": 1000,
+   "records": 500,
+   "sha256": "1e157d080420363cb3060b5868bf8b2f399b0b7ae010899533293e98bd0efd2e"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-PY-AUTOMATION.part03.jsonl",
+   "source_id": "SRC-PY-AUTOMATION",
+   "first_page": 1001,
+   "last_page": 1458,
+   "records": 458,
+   "sha256": "12c1b51c4ca6f7b4002c5380348da06ce15f93d92570b8ae2007dbda248f4479"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-PY-HANDBOOK.part01.jsonl",
+   "source_id": "SRC-PY-HANDBOOK",
+   "first_page": 1,
+   "last_page": 500,
+   "records": 500,
+   "sha256": "7e5305eb42e6bac7687118344078baf290e60e1824fae84ff122ba46f263bdfd"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-PY-HANDBOOK.part02.jsonl",
+   "source_id": "SRC-PY-HANDBOOK",
+   "first_page": 501,
+   "last_page": 654,
+   "records": 154,
+   "sha256": "b084543007eb07794b034fcfb5a5319db70e84e3c0e8eb974b723996ceb04759"
+  },
+  {
+   "file": "docs/audits/data/page_records/SRC-SOC-PLAYBOOK.part01.jsonl",
+   "source_id": "SRC-SOC-PLAYBOOK",
+   "first_page": 1,
+   "last_page": 43,
+   "records": 43,
+   "sha256": "97d05330e033d53d66d08ba421cbd1fa87e30966cc216a45ff0b87de678a2171"
+  }
+ ]
+}

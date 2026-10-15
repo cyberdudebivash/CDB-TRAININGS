@@ -1,0 +1,8 @@
+2026-10-14 08:59:58 INFO service started
+2026-10-14 09:00:03 WARNING queue length 120 from 10.1.2.3
+2026-10-14 09:05:11 ERROR paiement échoué for order 7
+
+this line is not a log line
+2026-10-14 09:12:40 INFO service started
+2026-10-14 09:59:59 ERROR paiement échoué for order 9 (client 192.168.7.44)
+2026-10-14 10:00:02 DEBUG cache warm

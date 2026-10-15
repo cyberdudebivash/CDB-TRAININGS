@@ -1,0 +1,41 @@
+# Public rubric for the PY-M05 independent lab (feedsync). Students see exactly how they are graded.
+# Mechanical criteria (kind: automated) are run by instructors; judgement criteria (kind: reviewer) are scored 0-3 using the level descriptors below.
+rubric_id: RUB-PY-M05
+module: PY-M05
+version: 0.1.0
+pass_rule: >
+  Every must-pass criterion is met, no reviewer criterion is scored 0, and the reviewer criteria total at least 60% of their maximum.
+  Finishing the lesson or the guided lab alone is not a completion claim.
+criteria:
+  - id: C1
+    name: "Published checks pass"
+    outcomes: [LO1, LO2, LO3, LO4, LO5]
+    kind: automated
+    must_pass: true
+    measure: "python -m pytest in lab-independent/ passes with the learner's starter/feedsync.py (all published checks, none skipped or xfail)"
+  - id: C2
+    name: "Hidden suite"
+    outcomes: [LO1, LO2, LO3, LO4, LO5]
+    kind: automated
+    must_pass: true
+    measure: "the instructors' hidden suite (138 cases covering every rule of the specification, run against slow, broken, hostile and endless servers) is run against the learner's feedsync.py: at least 118 of the 138 cases (85%) pass"
+  - id: C3
+    name: "Code clarity and error handling"
+    outcomes: [LO3, LO4]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Bare except clauses or swallowed errors; retry logic copied in several places; limits written as unexplained numbers."
+      1: "Works, but errors are caught too broadly or the retry policy is tangled with parsing; some limits are named, some are not."
+      2: "Specific exceptions, one place for the retry policy, named constants for limits, small functions with clear names, and no secret or full URL in an error message beyond what the specification shows."
+      3: "As 2, plus the learner can explain why each failure is retried or not and what each limit protects against."
+  - id: C4
+    name: "Risk reasoning and honesty in notes.md"
+    outcomes: [LO5]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "No notes, or claims the job is safe without evidence."
+      1: "Describes what the code does but not what could go wrong."
+      2: "Names the most dangerous failure for a production job and what the code does about it, and lists which rules the learner tested beyond the published checks."
+      3: "As 2, plus names specific behaviours that neither the published checks nor the learner's tests cover (for example very large pages, clock changes, partial writes on a full disk) and what could happen."

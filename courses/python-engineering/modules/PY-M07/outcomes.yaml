@@ -1,0 +1,39 @@
+# Outcome traceability for PY-M07: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M07
+outcomes:
+  - id: LO1
+    verb: explain
+    statement: "Explain why untrusted text must be treated as data and never as code, SQL or a shell command, for five injection patterns."
+    instruction: ["lesson.md#2-the-one-idea-data-is-not-code-lo1"]
+    practice: ["lab-guided/README.md#step-a---see-the-failures-lo1"]
+    assessment: ["quiz:Q1", "quiz:Q2", "rubric:C5"]
+    rubric: [C5]
+  - id: LO2
+    verb: replace
+    statement: "Replace eval, string-built SQL and shell=True with a safe alternative that keeps the behaviour."
+    instruction: ["lesson.md#3-replacing-eval-lo2", "lesson.md#4-shells-paths-and-parsers-lo3"]
+    practice: ["lab-guided/README.md#step-b---fix-the-injections-lo2", "lab-independent/README.md"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:works-tests-pass", "lab-check:exploit-tests-pass", "rubric:C1", "rubric:C2"]
+    rubric: [C1, C2]
+  - id: LO3
+    verb: make
+    statement: "Make file access, deserialisation and TLS safe: stay inside a folder, parse data without executing it, verify certificates."
+    instruction: ["lesson.md#4-shells-paths-and-parsers-lo3"]
+    practice: ["lab-guided/README.md#step-c---files-parsers-and-tls-lo3", "lab-independent/README.md"]
+    assessment: ["quiz:Q5", "quiz:Q6", "lab-check:exploit-tests-pass", "rubric:C2", "rubric:C5"]
+    rubric: [C2, C5]
+  - id: LO4
+    verb: store
+    statement: "Store passwords and compare secrets safely, and keep secrets out of source code and logs."
+    instruction: ["lesson.md#5-secrets-passwords-and-tokens-lo4"]
+    practice: ["lab-guided/README.md#step-d---passwords-and-secrets-lo4", "lab-independent/README.md"]
+    assessment: ["quiz:Q7", "lab-check:exploit-tests-pass", "rubric:C2", "rubric:C5"]
+    rubric: [C2, C5]
+  - id: LO5
+    verb: write
+    statement: "Write a regression test for each fixed vulnerability that fails if the vulnerability is reintroduced, and say what static analysis can and cannot find."
+    instruction: ["lesson.md#6-regression-tests-and-what-static-analysis-finds-lo5"]
+    practice: ["lab-guided/README.md#step-e---static-analysis", "lab-guided/README.md#step-f---regression-tests-lo5", "lab-independent/README.md"]
+    assessment: ["quiz:Q8", "lab-check:required-mutants-killed", "lab-check:static-analysis-clean", "rubric:C3", "rubric:C4"]
+    rubric: [C3, C4]

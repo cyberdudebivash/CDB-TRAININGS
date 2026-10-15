@@ -16,7 +16,9 @@ Prerequisite: COURSE-FND-DIGITAL (Level 0 foundations) or demonstrated equivalen
 | SOC-M09 | Threat hunting | 3 | 8 | Plan and run a hypothesis-driven hunt | Planned |
 | SOC-M10 | Malware-analysis fundamentals (isolated lab) | 3 | 8 | Statically triage a benign sample and document indicators | Planned |
 | SOC-M11 | Executive and technical incident reporting | 3 | 4 | Write an executive summary and technical appendix that pass the rubric | Planned |
-| SOC-M12 | Capstone: end-to-end SOC investigation | 3 | 12 | Investigate a multi-stage synthetic intrusion and improve one detection | Planned |
+| SOC-M12 | Cloud and identity threat detection | 3 | 8 | Detect and triage a synthetic identity-compromise and cloud-misuse scenario | Planned |
+| SOC-M13 | SOAR playbooks and AI-assisted investigation automation | 3 | 8 | Implement a playbook with a human approval gate and measure its effect on triage time | Planned |
+| SOC-M14 | Capstone: end-to-end SOC investigation | 3 | 12 | Investigate a multi-stage synthetic intrusion and improve one detection | Planned |
 
 **Competency vs completion.** Module completion = all lab checks and the rubric pass rule met. Verified skill mastery needs the capstone. Professional experience cannot be
 certified by this course.

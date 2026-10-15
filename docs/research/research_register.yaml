@@ -4,6 +4,8 @@
 # method values:
 #   PRIMARY_DOCUMENT_READ   the primary document/PDF was downloaded and the cited passage was read directly
 #   EXECUTED                the claim was reproduced by running code in a clean environment
+#   REGISTRY_API            machine-readable package-registry / lifecycle data retrieved by scripts/research/fetch_registry_versions.py
+#   SECONDARY_SOURCE        trade press or other non-primary coverage; must carry a caveat and is never sufficient for customer-facing claims
 #   OFFICIAL_PAGE_SUMMARY   an official web page was fetched through a summarising tool; the summary was
 #                           NOT cross-checked against the raw page text. Re-verify against the primary text
 #                           before the statement is used in any customer-facing material.
@@ -298,3 +300,1065 @@ register:
       patterns and `them`. pySigma 2.0.1 parses both rule kinds (executed).
     applies_to: [COURSE-SOC]
     resulting_change: "Pilot rules and the teaching evaluator (shared sigma_lite) follow this subset; unsupported features fail closed."
+  - id: R-024
+    title: What's New In Python 3.15
+    url: https://docs.python.org/3/whatsnew/3.15.html
+    publisher: Python Software Foundation
+    version: Python 3.15.0, released 9 October 2026 (page states 'released on 9 October 2026')
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Headline changes: PEP 810 explicit lazy imports (lazy keyword), PEP 814 frozendict, PEP 661 sentinel, PEP 798
+      unpacking in comprehensions, PEP 686 UTF-8 as default encoding (I/O without explicit encoding now UTF-8), new profiling
+      package (PEP 799; profile module deprecated, removal in 3.17), PEP 829 .start files and silent deprecation of import
+      lines in .pth files, PEP 803 abi3t stable ABI for free-threaded builds, upgraded experimental JIT, re.prefixmatch()
+      with re.match soft-deprecated. Summary covered the first ~100k of 213k characters; the removals list was not fully read.'
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-PY-AUTO
+    - COURSE-AI-ENG
+    resulting_change: 'Python baseline policy: teach and test on 3.13/3.14 for broad compatibility, note 3.15 features as
+      ''new, verify library support''; always pass encoding= explicitly; do not rely on import lines in .pth files.'
+    verified_on: '2026-10-14'
+  - id: R-025
+    title: OpenJDK JDK project schedule
+    url: https://openjdk.org/projects/jdk/
+    publisher: OpenJDK
+    version: 'Page last updated 2026/09/15: JDK 25 GA 2025/09/16, JDK 26 GA 2026/03/17, JDK 27 GA 2026/09/15, JDK 28 in development'
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: JDK 27 reached general availability on 2026-09-15. The page does not label LTS releases; LTS designation must
+      come from vendor lifecycle data (see registry snapshot, endoflife.date eclipse-temurin / oracle-jdk).
+    applies_to:
+    - COURSE-JAVA-QA
+    resulting_change: 'Java baseline: compile and run labs on a current LTS JDK (to be confirmed against vendor lifecycle
+      data in the snapshot); keep source level configurable via Maven release flag.'
+    verified_on: '2026-10-14'
+  - id: R-026
+    title: Model Context Protocol - Specification versioning
+    url: https://modelcontextprotocol.io/specification/versioning
+    publisher: Model Context Protocol project (Linux Foundation / Agentic AI Foundation governance to be verified)
+    version: Current protocol revision 2026-07-28; previous final revision 2025-11-25
+    method: PRIMARY_DOCUMENT_READ
+    finding: MCP versions are date strings marking the last backwards-incompatible change. The current revision is 2026-07-28.
+      Features may be Deprecated under a feature-lifecycle policy with a minimum 12-month window. Every request declares its
+      protocol version in _meta; server/discover is a mandatory RPC.
+    applies_to:
+    - COURSE-AI-ENG
+    resulting_change: AI course MCP module targets revision 2026-07-28 and explains migration from the handshake-based 2025-11-25
+      model.
+    verified_on: '2026-10-14'
+  - id: R-027
+    title: MCP specification 2026-07-28 - Key Changes
+    url: https://modelcontextprotocol.io/specification/2026-07-28/changelog
+    publisher: Model Context Protocol project
+    version: '2026-07-28'
+    method: PRIMARY_DOCUMENT_READ
+    finding: 'Protocol-level sessions and the Mcp-Session-Id header removed; the initialize handshake removed (stateless:
+      version and client capabilities in _meta on every request); server/discover added; subscriptions/listen replaces GET
+      endpoint and resources/subscribe; ping, logging/setLevel and roots list_changed removed; tasks moved to an official
+      extension; Multi Round-Trip Requests (input_required results) replace server-initiated requests; required resultType
+      on all results; SSE resumability removed; cacheable list results (ttlMs, cacheScope); OTel trace context conventions
+      in _meta; Roots, Sampling and Logging deprecated; HTTP+SSE transport deprecated; OAuth Dynamic Client Registration deprecated
+      in favour of Client ID Metadata Documents; RFC 9207 iss validation.'
+    applies_to:
+    - COURSE-AI-ENG
+    - COURSE-CYBER-MEGA
+    resulting_change: MCP lesson rewritten around stateless requests, MRTR, and the security implications of tool schemas
+      and OAuth; legacy handshake content marked as 2025-11-25 and earlier.
+    verified_on: '2026-10-14'
+  - id: R-028
+    title: OWASP Top 10 for LLM Applications 2025
+    url: https://genai.owasp.org/llm-top-10/
+    publisher: OWASP GenAI Security Project
+    version: 2025 edition (LLM01:2025 ... LLM10:2025)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Current list: LLM01 Prompt Injection; LLM02 Sensitive Information Disclosure; LLM03 Supply Chain; LLM04 Data
+      and Model Poisoning; LLM05 Improper Output Handling; LLM06 Excessive Agency; LLM07 System Prompt Leakage; LLM08 Vector
+      and Embedding Weaknesses; LLM09 Misinformation; LLM10 Unbounded Consumption. No agentic top-10 list was visible on the
+      page (Agentic Security Initiative linked only).'
+    applies_to:
+    - COURSE-AI-ENG
+    - COURSE-CYBER-MEGA
+    resulting_change: AI security module is organised around the 2025 identifiers.
+    verified_on: '2026-10-14'
+  - id: R-029
+    title: Kubernetes release and support lifecycle (via endoflife.date)
+    url: https://endoflife.date/kubernetes
+    publisher: endoflife.date (aggregates kubernetes.io release data)
+    version: 'Supported minors per page on 2026-09-24: 1.37 (released 2026-08-26), 1.36, 1.35, 1.34 (maintenance until 2026-10-27)'
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Four minor versions supported. 1.34 is in maintenance support only until 2026-10-27.
+    applies_to:
+    - COURSE-CYBER-MEGA
+    resulting_change: Container-security labs pin a kind/minikube node version from the supported list and record it in the
+      lab header.
+    caveat: Third-party aggregator; confirm against kubernetes.io before customer-facing use.
+    verified_on: '2026-10-14'
+  - id: R-030
+    title: BigQuery release notes (October 2026 entries)
+    url: https://docs.cloud.google.com/bigquery/docs/release-notes
+    publisher: Google Cloud
+    version: entries through 2026-10-13
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Recent releases emphasise AI functions (AI.AGG GA 2026-10-13, AI.KEY_DRIVERS GA 2026-09-29, embedding functions),
+      a Data Engineering Agent, Lakehouse (Iceberg/Delta) CDC ingestion in Preview, a Rust SDK GA, and security center GA.
+      Legacy SQL: release notes of 2026-02-25 state BigQuery will limit legacy SQL use starting 2026-06-01. Graph processing
+      will require Enterprise editions from 2027-04-26. Only the first ~100k of 356k characters were read.'
+    applies_to:
+    - COURSE-GCP-DE
+    resulting_change: GCP course teaches GoogleSQL only; legacy SQL is covered as a migration note; AI/agent features are
+      an optional, cost-gated extension, not core.
+    verified_on: '2026-10-14'
+  - id: R-031
+    title: Dataflow release notes
+    url: https://docs.cloud.google.com/dataflow/docs/release-notes
+    publisher: Google Cloud
+    version: entries through 2026-10-09
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Recent items: streaming update features (stop-and-replace, parallel updates, template upsert, 2026-06-15), pause_on_failure
+      for batch jobs (2026-07-31), Lakehouse CDC from Delta/Iceberg in Preview (2026-10-09). Dataflow SQL was removed (console
+      2024-07-31, CLI 2025-01-31); Beam SQL is the suggested replacement. The page does not list supported SDK versions.'
+    applies_to:
+    - COURSE-GCP-DE
+    resulting_change: No Dataflow SQL content; Beam SDK support matrix is taken from the Apache Beam SDK page in the next
+      refresh.
+    verified_on: '2026-10-14'
+  - id: R-032
+    title: Cloud Composer release notes (page now titled Managed Service for Apache Airflow)
+    url: https://docs.cloud.google.com/composer/docs/release-notes
+    publisher: Google Cloud
+    version: 'entries through 2026-09-25: Composer 3 default composer-3-airflow-2.11.1-build.20; Airflow 3.3.1 and 3.2.2 builds
+      available; Airflow 3 GA in Composer 3 since 2026-04-15'
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Product branding has changed to 'Managed Service for Apache Airflow'. Airflow 3 is GA on Composer 3; Airflow
+      2.11.1 is the current default; Airflow 2.10.5 and 2.9.3 images no longer released/removed; Gen 2 receives only Airflow
+      2.11 images from September 2026.
+    applies_to:
+    - COURSE-GCP-DE
+    - COURSE-PY-AUTO
+    resulting_change: Orchestration module teaches Airflow 3 concepts with Airflow 2.11 compatibility notes; labs run Airflow
+      locally (free) and never create a managed environment without explicit approval.
+    verified_on: '2026-10-14'
+  - id: R-033
+    title: Best practices for managing service account keys
+    url: https://docs.cloud.google.com/iam/docs/best-practices-for-managing-service-account-keys
+    publisher: Google Cloud IAM documentation
+    version: current page (read 2026-10-14)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Google advises avoiding user-managed service account keys; alternatives are attached service accounts and Workload
+      Identity Federation. The 'Disable service account key creation' and 'Disable service account key upload' constraints
+      are enforced by default for organizations created on or after 2024-05-03. Keys should not be stored in Secret Manager
+      as a workaround.
+    applies_to:
+    - COURSE-GCP-DE
+    - COURSE-CYBER-MEGA
+    resulting_change: All CI/automation labs use short-lived federated credentials or local emulators; no lab creates a key.
+    verified_on: '2026-10-14'
+  - id: R-034
+    title: Data Catalog release notes and deprecation notice
+    url: https://docs.cloud.google.com/data-catalog/docs/release-notes
+    publisher: Google Cloud
+    version: 'banner: Data Catalog discontinued on 2026-06-01 (earlier notice 2025-02-03 said 2026-01-30)'
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Data Catalog is deprecated/discontinued; the recommended replacement is the catalog formerly called Dataplex
+      Universal Catalog (page text calls it 'Knowledge Catalog'; an April 2025 entry says Dataplex Catalog was renamed BigQuery
+      universal catalog). Product names for this capability have changed several times.
+    applies_to:
+    - COURSE-GCP-DE
+    resulting_change: Governance module teaches the metadata-catalog capability and names the current product with its verification
+      date; labs do not depend on the brand name.
+    verified_on: '2026-10-14'
+  - id: R-035
+    title: OWASP Top 10:2025 (web application security risks)
+    url: https://top10.owasp.org/2025/
+    publisher: OWASP Foundation
+    version: OWASP Top 10:2025
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Categories: A01 Broken Access Control; A02 Security Misconfiguration; A03 Software Supply Chain Failures; A04
+      Cryptographic Failures; A05 Injection; A06 Insecure Design; A07 Authentication Failures; A08 Software or Data Integrity
+      Failures; A09 Security Logging and Alerting Failures; A10 Mishandling of Exceptional Conditions. The page does not itself
+      list changes from 2021.'
+    applies_to:
+    - COURSE-FE-ONBOARD
+    - COURSE-CYBER-MEGA
+    - COURSE-PY-ENG
+    resulting_change: Web-security modules use the 2025 identifiers and state the edition; any 2021-numbered content (A03:2021
+      Injection, etc.) is relabelled.
+    verified_on: '2026-10-14'
+  - id: R-036
+    title: MITRE ATT&CK release notes - v20
+    url: https://attack.mitre.org/resources/updates/
+    publisher: MITRE
+    version: ATT&CK v20, released 2026-10-13 (changelog v19.2 -> v20.0)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: v20 adds AI-focused Enterprise techniques, 9 new Enterprise techniques and 17 new Enterprise detection strategies,
+      9 new ICS techniques, restores a Mobile technique; no tactic changes mentioned. v19.2 date not given on the page.
+    applies_to:
+    - COURSE-SOC
+    - COURSE-CYBER-MEGA
+    resulting_change: All technique mappings cite 'ATT&CK Enterprise v20 (2026-10-13)'; Oct 24 refresh re-checks for v20.x
+      updates.
+    verified_on: '2026-10-14'
+  - id: R-037
+    title: OpenAI API deprecations
+    url: https://developers.openai.com/api/docs/deprecations
+    publisher: OpenAI
+    version: page read 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Assistants API shutdown 2026-08-26 (replacement Responses and Conversations APIs). gpt-3.5-turbo family, gpt-4
+      and gpt-4-turbo families and their fine-tunes shut down 2026-10-23; gpt-3.5-turbo-1106, gpt-3.5-turbo-instruct, davinci-002
+      and babbage-002 shut down 2026-09-28; gpt-4o-2024-08-06/2024-11-20, gpt-4o-mini-2024-07-18 and gpt-4.1 snapshots shut
+      down 2027-01-14. text-davinci models were shut down 2024-01-04. Chat Completions has no deprecation listed. The page
+      recommends reading shutdown_date from GET /v1/models.
+    applies_to:
+    - COURSE-AI-ENG
+    - COURSE-PY-ENG
+    resulting_change: No lab hard-codes a vendor model name; model IDs come from configuration, labs default to a local open-weights
+      runtime, and the lesson teaches reading lifecycle metadata. Any source example using the retired families is marked
+      REPLACE.
+    verified_on: '2026-10-14'
+  - id: R-038
+    title: Anthropic - Model deprecations
+    url: https://platform.claude.com/docs/en/about-claude/model-deprecations
+    publisher: Anthropic
+    version: page read 2026-10-14; includes status table and deprecation history
+    method: PRIMARY_DOCUMENT_READ
+    finding: 'Lifecycle terms: Active, Legacy, Deprecated, Retired; at least 60 days'' notice before retirement of publicly
+      released models. claude-3-5-sonnet and claude-3-opus, claude-2.x and claude-3-haiku are retired; claude-sonnet-4-5-20250929
+      is deprecated with retirement 2026-11-30. Sampling parameters temperature/top_p/top_k are deprecated for Claude 4.7
+      and later models (HTTP 400 on non-default values) and removed from the Python SDK v1+. Partner platforms (Bedrock, Google
+      Cloud) follow their own schedules.'
+    applies_to:
+    - COURSE-AI-ENG
+    resulting_change: Provider-neutral client interface with per-provider capability flags (e.g. sampling parameters) and
+      lifecycle checks in the lab test suite.
+    verified_on: '2026-10-14'
+  - id: R-039
+    title: Gemini API deprecations
+    url: https://ai.google.dev/gemini-api/docs/deprecations
+    publisher: Google
+    version: page read 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Gemini 2.0 Flash and Flash-Lite models shut down 2026-06-01; recommended stable models named on the page are
+      gemini-3.8-flash and gemini-3.5-flash-lite; embedding migration to gemini-embedding-2; text-embedding-004 shut down
+      2026-01-14; shutdown dates listed are earliest possible dates.
+    applies_to:
+    - COURSE-AI-ENG
+    resulting_change: 'Same as OpenAI entry: model IDs are configuration, not curriculum.'
+    verified_on: '2026-10-14'
+  - id: R-040
+    title: Node.js release schedule
+    url: https://nodejs.org/en/about/previous-releases
+    publisher: OpenJS Foundation / Node.js
+    version: 'page read 2026-10-14: v26 Current (26.11.1), v24 LTS ''Krypton'' (24.21.0), v22 LTS ''Jod'''
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: v26 is Current; v24 and v22 are LTS lines; v25, v23, v21 and v20 are end of life (v20 ended 2026-03-24 per the
+      page).
+    applies_to:
+    - COURSE-FE-ONBOARD
+    - COURSE-AI-ENG
+    resulting_change: Frontend labs target Node 24 LTS (and run on 26); lab headers record the exact version.
+    caveat: endoflife.date data in the registry snapshot says v26 enters LTS on 2026-10-28 (after the Oct 24 refresh date).
+    verified_on: '2026-10-14'
+  - id: R-041
+    title: OWASP Top 10 for Agentic Applications for 2026
+    url: https://genai.owasp.org/initiatives/agentic-security-initiative/
+    publisher: OWASP GenAI Security Project
+    version: 2026 edition (publication date not stated on the page read)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: OWASP publishes a Top 10 for Agentic Applications (2026) as a peer-reviewed framework for agentic AI risks.
+    applies_to:
+    - COURSE-AI-ENG
+    resulting_change: Agent-security module cites the list by title and marks its item-level content NEEDS_VERIFICATION until
+      read.
+    caveat: Only the existence and title were confirmed; the ten risk identifiers were NOT read. Do not quote them until the
+      list is read from the primary document.
+    verified_on: '2026-10-14'
+  - id: R-042
+    title: EU AI Act implementation timeline
+    url: https://artificialintelligenceact.eu/implementation-timeline/
+    publisher: Future of Life Institute (artificialintelligenceact.eu), not an official EU publication
+    version: page read 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Listed dates: prohibitions and AI literacy from 2025-02-02; GPAI obligations from 2025-08-02; remainder of the
+      Act from 2026-08-02 unless specified; high-risk Annex III requirements 2027-12-02 and Annex I 2028-08-02; prohibitions
+      on non-consensual intimate imagery/CSAM generation 2026-12-02.'
+    applies_to:
+    - COURSE-AI-ENG
+    - COURSE-OSINT
+    - COURSE-CYBER-MEGA
+    resulting_change: Governance module teaches the Act's risk-tier structure and cites the dated obligations with a 'verify
+      with EUR-Lex' flag.
+    caveat: Secondary source; any postponement via the EU 'digital omnibus' was NOT confirmed by this page. Verify against
+      EUR-Lex / the European Commission before customer-facing use.
+    verified_on: '2026-10-14'
+  - id: R-043
+    title: NIST AI Risk Management Framework page
+    url: https://www.nist.gov/itl/ai-risk-management-framework
+    publisher: NIST
+    version: AI RMF 1.0 (2023-01-26); NIST-AI-600-1 Generative AI Profile (2024-07-26); concept note for a critical-infrastructure
+      profile (2026-04-07)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: AI RMF 1.0 remains the current published version; the page says it is being revised as part of the White House
+      AI Action Plan (no date given).
+    applies_to:
+    - COURSE-AI-ENG
+    - COURSE-CYBER-MEGA
+    resulting_change: Governance module maps to AI RMF 1.0 functions (Govern, Map, Measure, Manage) and the GenAI profile,
+      with a revision-watch note.
+    verified_on: '2026-10-14'
+  - id: R-044
+    title: Sunsetting Create React App
+    url: https://react.dev/blog/2025/02/14/sunsetting-create-react-app
+    publisher: React team (Meta Open Source)
+    version: 2025-02-14 post
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Create React App is deprecated for new apps and in maintenance mode; recommended routes are a framework (Next.js,
+      React Router framework mode, Expo) or a build tool (Vite, Parcel, Rsbuild). The registry snapshot shows create-react-app
+      5.1.0 (2025-02-15) as its last release.
+    applies_to:
+    - COURSE-FE-ONBOARD
+    resulting_change: Any CRA-based setup in the legacy playbook is REPLACE; new labs use Vite or a framework.
+    verified_on: '2026-10-14'
+  - id: R-045
+    title: Reproducible registry snapshot of current stable versions as of 2026-10-14
+    url: https://pypi.org/
+    primary_url: docs/research/data/registry_snapshot_2026-10-14.json
+    publisher: PyPI, npm registry, Maven Central, endoflife.date (queried by scripts/research/fetch_registry_versions.py)
+    version: cutoff 2026-10-14; 147+ lookups; record-level retrieval timestamps
+    method: REGISTRY_API
+    finding: Machine-readable package registries give exact latest stable versions and publication dates on or before the
+      cutoff, e.g. Python 3.15.0 (2026-10-09), Node.js 26.11.1 (Current) with 24.21.0 LTS, JUnit Jupiter 6.1.3, Selenium 4.51.0,
+      Playwright 1.64.0, React 19.3.0, TypeScript 7.0.2, Angular 22.2.2, ESLint 10.12.0, pytest 9.1.1, pydantic 2.14.1, FastAPI
+      0.143.0, Spring Boot 4.1.1.
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-PY-AUTO
+    - COURSE-JAVA-QA
+    - COURSE-AI-ENG
+    - COURSE-GCP-DE
+    - COURSE-FE-ONBOARD
+    - COURSE-CYBER-MEGA
+    - COURSE-SOC
+    resulting_change: TECHNOLOGY_BASELINES_2026.md is generated from this snapshot; the Oct 24 refresh re-runs the script
+      with --cutoff 2026-10-24 and diffs the result.
+    caveat: endoflife.date is a third-party aggregator of vendor lifecycle data; Maven dates are POM upload dates; GitHub-hosted
+      projects were NOT queried because the session is scoped to a single repository.
+    verified_on: '2026-10-14'
+  - id: R-046
+    title: What's New In Python 3.14
+    url: https://docs.python.org/3/whatsnew/3.14.html
+    publisher: Python Software Foundation
+    version: Python 3.14 (released 2025-10-07; page notes GC reverted to generational in 3.14.5)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Free-threaded build officially supported (PEP 779); template string literals t'...' (PEP 750); deferred evaluation
+      of annotations (PEP 649/749) so forward references need no quotes; compression.zstd (PEP 784); multiple interpreters
+      (concurrent.interpreters, InterpreterPoolExecutor); safe external debugger interface (PEP 768); bracketless except (PEP
+      758); SyntaxWarning for return/break/continue leaving finally (PEP 765); experimental JIT in macOS/Windows binaries.
+      Removals/deprecations sections were not read (only first ~100k of 268k characters).
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-PY-AUTO
+    resulting_change: Python Engineering covers annotations semantics, template strings for safe query/HTML construction,
+      and the free-threading support statement; labs run on 3.13 and 3.14 in the lab matrix.
+    verified_on: '2026-10-14'
+  - id: R-047
+    title: PyPA packaging specifications index
+    url: https://packaging.python.org/en/latest/specifications/
+    publisher: Python Packaging Authority
+    version: page read 2026-10-14 (no version/date shown)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Active interoperability specifications include pyproject.toml, Dependency Groups, License Expression, pylock.toml
+      (lock file), Inline script metadata, Externally Managed Environments and Virtual environments. The page has no substantive
+      setup.py guidance; it links to 'How to modernize a setup.py based project?'.
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-PY-AUTO
+    resulting_change: Packaging module teaches pyproject.toml, dependency groups, lock files and inline script metadata; setup.py
+      is a legacy-migration note.
+    verified_on: '2026-10-14'
+  - id: R-048
+    title: JUnit release notes (JUnit 6.0.0 and 6.1.3)
+    url: https://docs.junit.org/current/release-notes/
+    publisher: JUnit team
+    version: JUnit 6.0.0 released 2025-09-30; latest 6.1.3 dated 2026-08-07
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: JUnit 6 requires Java 17 and Kotlin 2.1; Platform, Jupiter and Vintage share one version; JSpecify nullability
+      annotations; Kotlin suspend test methods; junit-platform-runner and junit-platform-jfr removed; --fail-fast for ConsoleLauncher;
+      CancellationToken; deterministic @Nested order. Migration details from JUnit 5 were not on the page read.
+    applies_to:
+    - COURSE-JAVA-QA
+    resulting_change: Java QA course is built on JUnit 6 with Java 17+ (labs on Java 21 or 25) and a JUnit 4/5 migration appendix.
+    verified_on: '2026-10-14'
+  - id: R-049
+    title: Apache Maven release history
+    url: https://maven.apache.org/docs/history.html
+    publisher: Apache Maven project
+    version: Maven 3.10.0 GA 2026-09-27; 3.9.16 2026-05-13; 4.0.0-rc-7 2026-09-24 (not GA)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Maven maintains the latest GA of the last two series (3.10.0 and 3.9.16). Maven 4.0.0 is still a release candidate
+      (4.0.0-rc-7, requires Java 17). 3.10.0 runs on Java 8.
+    applies_to:
+    - COURSE-JAVA-QA
+    resulting_change: Labs use Maven 3.9.x/3.10.0 with the Maven Wrapper; Maven 4 is described as release-candidate and not
+      used in graded labs.
+    verified_on: '2026-10-14'
+  - id: R-050
+    title: Selenium blog (2026 release posts)
+    url: https://www.selenium.dev/blog/
+    publisher: Selenium project (SeleniumHQ)
+    version: Selenium 4.51 released 2026-10-09 (also confirmed by PyPI and Maven Central in the registry snapshot)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: A post dated 2026-09-21 announces that starting with Selenium 4.51 ExpectedCondition will stop implementing Guava's
+      Function interface, with a migration section. A post dated 2026-09-29 says coding agents often write incorrect Selenium
+      code and a documentation page explains the fixes.
+    applies_to:
+    - COURSE-JAVA-QA
+    - COURSE-PY-AUTO
+    resulting_change: Java wait-helper lab is compiled against Selenium 4.51 to confirm the effect; custom wait conditions
+      use java.util.function.Function.
+    caveat: The post body about the breaking change was not read; only its headline. The release notes for 4.51 must be read
+      before the Java course publishes migration code.
+    verified_on: '2026-10-14'
+  - id: R-051
+    title: Playwright for Java release notes
+    url: https://playwright.dev/java/docs/release-notes
+    publisher: Microsoft Playwright
+    version: '1.63 (Maven Central: com.microsoft.playwright:playwright 1.63.0, 2026-09-14); npm/PyPI playwright 1.64.0'
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Recent releases add aria snapshots, passkey virtual authenticator (1.61), HAR/WebSocket tracing, screencast API
+      (1.59), JSpecify nullability (1.63); Ubuntu 20.04 and Debian 11 are no longer supported; a long-deprecated exposeBinding
+      option was removed in 1.60. Release dates and Java minimum were not on the page text read.
+    applies_to:
+    - COURSE-JAVA-QA
+    - COURSE-PY-AUTO
+    - COURSE-FE-ONBOARD
+    resulting_change: Browser-automation labs use Playwright with the auto-waiting locator API and trace viewer; Selenium
+      is retained for legacy/Grid scenarios.
+    verified_on: '2026-10-14'
+  - id: R-052
+    title: TypeScript 7.0 (native compiler) - coverage
+    url: https://infoq.com/news/2026/08/typescript-7-released/
+    publisher: InfoQ and other trade press (secondary)
+    version: TypeScript 7.0 stable; npm registry shows typescript 7.0.2 published 2026-07-08
+    method: SECONDARY_SOURCE
+    finding: Coverage reports TypeScript 7.0 as the first stable release of the Go-based native compiler (typically 8x-12x
+      faster full builds), intended to match TypeScript 6.0 type-checking and CLI behaviour; ecosystems depending on embedded
+      language tooling (Vue, Svelte, Astro, MDX, Angular template checking) stay on TypeScript 6 until a stable programmatic
+      API exists.
+    applies_to:
+    - COURSE-FE-ONBOARD
+    resulting_change: Frontend course pins TypeScript 7.x for greenfield labs and states the tooling caveat; lab headers record
+      the exact version.
+    caveat: Secondary trade-press coverage; release dates differ between outlets (July vs August 2026). The registry snapshot
+      is the authoritative evidence for the npm version; the official TypeScript announcement was not read.
+    verified_on: '2026-10-14'
+  - id: R-053
+    title: W3C Web Content Accessibility Guidelines (WCAG) overview
+    url: https://www.w3.org/WAI/standards-guidelines/wcag/
+    publisher: W3C Web Accessibility Initiative
+    version: WCAG 2.2 (2023-10-05; updated 2024-12-12); WCAG 3.0 still an early draft
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: WCAG 2.2 is the current W3C recommendation and an ISO standard (ISO/IEC 40500:2025 for the 2023 version); the
+      page says the 2026 version of EN 301 549 uses WCAG 2.2 and that European Accessibility Act conformance typically relies
+      on WCAG and EN 301 549.
+    applies_to:
+    - COURSE-FE-ONBOARD
+    resulting_change: Accessibility module targets WCAG 2.2 AA; WCAG 3.0 is mentioned as a draft only.
+    verified_on: '2026-10-14'
+  - id: R-054
+    title: Web Vitals (Core Web Vitals definitions and thresholds)
+    url: https://web.dev/articles/vitals
+    publisher: Google (web.dev)
+    version: page last updated 2024-10-31 per the page; INP stable since 2024
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Core Web Vitals: LCP <= 2.5 s, INP <= 200 ms, CLS <= 0.1 at the 75th percentile; INP replaced FID as a stable
+      Core Web Vital in 2024.'
+    applies_to:
+    - COURSE-FE-ONBOARD
+    resulting_change: Performance module teaches INP; any FID-based guidance in the source is REPLACE.
+    caveat: The page is older than the cutoff; changes after 2024-10-31 would be documented in the Chromium metrics changelog,
+      which was not read.
+    verified_on: '2026-10-14'
+  - id: R-055
+    title: SLSA specification
+    url: https://slsa.dev/spec/
+    publisher: OpenSSF SLSA
+    version: v1.2 (Approved); v1.1 earlier; working draft exists
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: SLSA v1.2 is the latest approved version with Build and Source tracks; the page gives no release dates.
+    applies_to:
+    - COURSE-CYBER-MEGA
+    resulting_change: Supply-chain module cites SLSA v1.2 Build and Source tracks.
+    verified_on: '2026-10-14'
+  - id: R-056
+    title: NIST Post-Quantum Cryptography project
+    url: https://csrc.nist.gov/projects/post-quantum-cryptography
+    publisher: NIST CSRC
+    version: FIPS 203 (ML-KEM), 204 (ML-DSA), 205 (SLH-DSA) final Aug 2024
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: ML-KEM, ML-DSA and SLH-DSA are final standards (August 2024); HQC was selected for further standardisation (2025);
+      NIST will deprecate and ultimately remove quantum-vulnerable algorithms from its standards by 2035, with high-risk systems
+      moving earlier.
+    applies_to:
+    - COURSE-CYBER-MEGA
+    resulting_change: Cryptography module includes a post-quantum migration section using only the facts above.
+    caveat: FIPS 206 (FN-DSA) status and exact NIST IR 8547 dates were not on the page text read.
+    verified_on: '2026-10-14'
+  - id: R-057
+    title: Microsoft Sentinel in the Microsoft Defender portal
+    url: https://learn.microsoft.com/en-us/azure/sentinel/microsoft-sentinel-defender-portal
+    publisher: Microsoft Learn
+    version: page ms.date 2026-06-18, updated_at 2026-09-23
+    method: PRIMARY_DOCUMENT_READ
+    finding: Microsoft Sentinel is generally available in the Microsoft Defender portal (including for customers without Defender
+      XDR). After 2027-03-31 Sentinel will no longer be supported in the Azure portal and will be available only in the Defender
+      portal. The Defender portal adds a unified incident queue, advanced hunting over SIEM and data lake, Security Copilot
+      features, case management and native multi-tenant operations.
+    applies_to:
+    - COURSE-SOC
+    - COURSE-CYBER-MEGA
+    resulting_change: SIEM content is vendor-neutral (Sigma, KQL/SPL concepts); Microsoft-specific lessons teach the Defender
+      portal workflow and flag the 2027-03-31 Azure-portal cut-off.
+    verified_on: '2026-10-14'
+  - id: R-058
+    title: 'Kubernetes: Ingress NGINX retirement (SIG Network / Security Response Committee statements)'
+    url: https://www.kubernetes.io/blog/2026/01/29/ingress-nginx-statement/
+    primary_url: https://www.kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/
+    publisher: Kubernetes project
+    version: posts dated 2025-11-11 and 2026-01-29
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Best-effort maintenance of Ingress NGINX continues until March 2026; afterwards no further releases, bug fixes
+      or security updates are planned. Existing deployments keep working. The steering and security committees recommend moving
+      to Gateway API or a third-party Ingress controller; none is a drop-in replacement.
+    applies_to:
+    - COURSE-CYBER-MEGA
+    - COURSE-FE-ONBOARD
+    resulting_change: Container-security labs use Gateway API / a maintained controller; legacy ingress-nginx examples are
+      marked DEPRECATE.
+    caveat: Findings come from a web-search summary of the two official posts; the posts themselves were not fully read.
+    verified_on: '2026-10-14'
+  - id: R-059
+    title: FIRST - Common Vulnerability Scoring System (CVSS)
+    url: https://www.first.org/cvss/
+    publisher: FIRST.Org
+    version: CVSS v4.0 (first published November 2023)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: CVSS v4.0 is the current published version; the page names no v4.1/v5 and no 2026 point release. The page did
+      not cover the CVSS-B/BT/BE/BTE nomenclature.
+    applies_to:
+    - COURSE-SOC
+    - COURSE-CYBER-MEGA
+    resulting_change: Vulnerability-management content teaches CVSS v4.0 and treats v3.1 scores as legacy; severity is combined
+      with exploit evidence (KEV) rather than used alone.
+    verified_on: '2026-10-14'
+  - id: R-060
+    title: CISA Known Exploited Vulnerabilities Catalog
+    url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+    publisher: CISA
+    version: 'page read 2026-10-14: 1,741 entries; newest entries added 2026-10-13'
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: The catalog is described as the authoritative source of vulnerabilities exploited in the wild and an input to
+      prioritisation. Entries on the page cite BOD 26-04 'Prioritizing Security Updates Based on Risk' rather than BOD 22-01;
+      the relationship between the two directives was not verified.
+    applies_to:
+    - COURSE-SOC
+    - COURSE-CYBER-MEGA
+    resulting_change: Prioritisation lab combines CVSS v4.0, KEV membership and EPSS; the directive reference is flagged NEEDS_VERIFICATION.
+    verified_on: '2026-10-14'
+  - id: R-061
+    title: Google Cloud Professional Data Engineer certification
+    url: https://cloud.google.com/learn/certification/data-engineer
+    publisher: Google Cloud
+    version: page read 2026-10-14; no exam-guide version shown
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Five assessed areas: design data processing systems; ingest and process the data; store the data; prepare and
+      use data for analysis; maintain and automate data workloads. 2 hours, 40-50 questions, 2-year validity, no prerequisites,
+      3+ years recommended experience. The page says the exam will soon be updated to reflect recent branding changes.'
+    applies_to:
+    - COURSE-GCP-DE
+    resulting_change: GCP course aligns modules to the five areas as a self-assessment aid only; no certification-pass or
+      equivalence claim is made.
+    verified_on: '2026-10-14'
+  - id: R-062
+    title: Apache Beam downloads
+    url: https://beam.apache.org/get-started/downloads/
+    publisher: Apache Beam
+    version: Beam SDK 2.77.0, dated 2026-10-07 (also on PyPI apache-beam)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 2.77.0 is the latest release. The page does not state supported Python/Java versions; the release-notes link
+      for 2.77.0 appeared to point at the 2.76.0 tag, so the notes themselves were not relied on.
+    applies_to:
+    - COURSE-GCP-DE
+    resulting_change: Pipelines pin apache-beam 2.77.0 in lab requirements and record the Python version tested; Dataflow
+      runner compatibility is checked at run time and gated behind cost approval.
+    verified_on: '2026-10-14'
+  - id: R-063
+    title: LangChain v1 migration guide
+    url: https://docs.langchain.com/oss/python/migrate/langchain-v1
+    publisher: LangChain
+    version: 'LangChain 1.x (registry snapshot: langchain 1.4.5 on 2026-10-12)'
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: The langchain namespace is reduced to agents, messages, tools, chat models and embeddings; chains, retrievers,
+      the indexing API, hub and community re-exports moved to langchain-classic (imports langchain_classic.*); create_react_agent
+      is replaced by langchain.agents.create_agent (prompt -> system_prompt; hooks become middleware; custom state must be
+      a TypedDict); Python 3.10+ required. This matches the executed import failure recorded in R-004.
+    applies_to:
+    - COURSE-AI-ENG
+    resulting_change: RAG and agent labs are written against langchain 1.x APIs or, where possible, vendor-neutral minimal
+      code; legacy chain imports are REPLACE.
+    verified_on: '2026-10-14'
+  - id: R-064
+    title: EU Digital Omnibus on AI - postponement of AI Act high-risk obligations (trade coverage)
+    url: https://datamatters.sidley.com/2026/06/22/eu-lawmakers-reach-provisional-agreement-to-delay-key-eu-ai-act-obligations/
+    publisher: Law-firm and compliance blogs (secondary)
+    version: coverage dated 2026-06 to 2026-07
+    method: SECONDARY_SOURCE
+    finding: Reports say the Commission proposed deferral on 2025-11-19, a provisional deal was reached 2026-05-07, Parliament
+      endorsed it around 2026-06-16 and the Council approved around 2026-06-29/30; Annex III high-risk obligations move to
+      2027-12-02 and Annex I to 2028-08-02; prohibitions (since 2025-02-02) and GPAI obligations (since 2025-08-02) are unchanged;
+      Article 50 transparency obligations still apply from 2026-08-02.
+    applies_to:
+    - COURSE-AI-ENG
+    - COURSE-CYBER-MEGA
+    - COURSE-OSINT
+    resulting_change: Governance lesson states the dates above as 'reported, to be verified with EUR-Lex' and avoids legal
+      advice.
+    caveat: Secondary sources only; the regulation number reported (Regulation (EU) 2026/1744) and exact dates were NOT confirmed
+      against the Official Journal / EUR-Lex. Do not quote in customer-facing material until verified.
+    verified_on: '2026-10-14'
+  - id: R-065
+    title: India Digital Personal Data Protection Rules, 2025 (trade coverage)
+    url: https://www.azbpartners.com/bank/update-indias-digital-personal-data-protection-framework-comes-into-effect/
+    publisher: Law-firm and explainer sites (secondary)
+    version: coverage dated 2025-11
+    method: SECONDARY_SOURCE
+    finding: 'Reports say MeitY notified the DPDP Rules, 2025 in November 2025 with phased commencement: Data Protection Board
+      provisions immediately, consent-manager provisions about 2026-11-14, and the main obligations about 18 months after
+      notification (about 2027-05-14).'
+    applies_to:
+    - COURSE-OSINT
+    - COURSE-CYBER-MEGA
+    - COURSE-SOC
+    resulting_change: OSINT ethics module and SOC reporting module reference DPDP with a verify-before-use flag; no compliance
+      claims are made.
+    caveat: Secondary sources only; notification date (13 or 14 November 2025) and phase dates were NOT confirmed against
+      the Gazette/MeitY. Not legal advice.
+    verified_on: '2026-10-14'
+  - id: R-066
+    title: Upgrading to Airflow 3
+    url: https://airflow.apache.org/docs/apache-airflow/stable/installation/upgrading_to_airflow3.html
+    publisher: Apache Airflow
+    version: 'stable docs (registry: apache-airflow 3.3.2, 2026-09-17)'
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Breaking changes: SubDAGs removed (use TaskGroups/Assets); execution_date and related context keys removed (use
+      logical_date / data interval); REST API v1 replaced by FastAPI-based /api/v2; DAG authoring imports move to airflow.sdk;
+      tasks can no longer access the metadata DB directly (Task SDK). Minimum Python was not on the page.'
+    applies_to:
+    - COURSE-GCP-DE
+    - COURSE-PY-AUTO
+    resulting_change: Orchestration labs are written for Airflow 3 (airflow.sdk imports, logical_date) with a migration table
+      from Airflow 2.x.
+    verified_on: '2026-10-14'
+  - id: R-067
+    title: Gemini Enterprise Agent Platform (successor to Vertex AI) - rename announced April 2026
+    url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes
+    publisher: Google Cloud (release notes) with trade coverage
+    version: announced 2026-04-22 at Google Cloud Next 2026 (per coverage)
+    method: SECONDARY_SOURCE
+    finding: Coverage reports that Vertex AI was rebranded/expanded into the Gemini Enterprise Agent Platform; Vertex AI Studio
+      became Agent Studio and Agent Engine became Agent Runtime. Legacy sources that say 'Vertex AI' or 'AI Platform' use
+      superseded product names.
+    applies_to:
+    - COURSE-GCP-DE
+    - COURSE-AI-ENG
+    resulting_change: Cloud AI content describes capabilities (managed model serving, agents, evaluation) and records the
+      current product name with its verification date; no lab depends on the brand.
+    caveat: Found through web search summaries; the Google release notes page was not read directly.
+    verified_on: '2026-10-14'
+  - id: R-068
+    title: JDK 25 (OpenJDK project page)
+    url: https://openjdk.org/projects/jdk/25/
+    publisher: OpenJDK
+    version: 'JDK 25 GA 2025-09-16; page says it will be an LTS release from most vendors (registry: Eclipse Temurin 25 LTS,
+      EOL 2031-09-30; Oracle JDK 25 LTS)'
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Features without a preview label: Scoped Values (JEP 506), Module Import Declarations (511), Compact Source
+      Files and Instance Main Methods (512), Flexible Constructor Bodies (513), Compact Object Headers (519), AOT command-line
+      ergonomics and method profiling (514/515), JFR improvements, Generational Shenandoah (521). Structured Concurrency (505),
+      Primitive Types in Patterns (507) and Stable Values (502) remain preview; Vector API still incubating. The page does
+      not label them ''final''; classification is by absence of a preview tag.'
+    applies_to:
+    - COURSE-JAVA-QA
+    resulting_change: 'Java baseline: JDK 21 and 25 LTS supported; labs avoid preview features; instance-main and records
+      are used for small examples only where the lab''s JDK supports them.'
+    verified_on: '2026-10-14'
+  - id: R-069
+    title: React blog (2025-2026 posts)
+    url: https://react.dev/blog
+    publisher: React team
+    version: React 19.3 posted 2026-09-09; React Compiler v1.0 2025-10-07; React Foundation launch 2026-02-24
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: React 19.2 (2025-10-01) added Activity and useEffectEvent; React 19.3 (2026-09-09) adds View Transitions, Fragment
+      Refs, browser() and Trusted Types; React Compiler reached 1.0 on 2025-10-07; the React Foundation launched under the
+      Linux Foundation on 2026-02-24; two critical/serious React Server Components security posts (2025-12-03 and 2025-12-11)
+      exist.
+    applies_to:
+    - COURSE-FE-ONBOARD
+    resulting_change: Frontend course teaches React 19.x with the compiler and states which labs use Server Components and
+      therefore must pin patched versions.
+    verified_on: '2026-10-14'
+  - id: R-070
+    title: React Server Components critical vulnerability CVE-2025-55182
+    url: https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components
+    publisher: React team
+    version: advisory dated 2025-12-03; fixed in 19.0.1, 19.1.2, 19.2.1
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'CVE-2025-55182, CVSS 10.0, unauthenticated remote code execution in react-server-dom-webpack/parcel/turbopack
+      19.0, 19.1.0, 19.1.1 and 19.2.0; affected frameworks and plugins include Next.js, React Router, Waku, Parcel RSC, Vite
+      RSC plugin and RedwoodSDK; apps without a server or RSC support are not affected. Follow-up issues: CVE-2025-55184,
+      CVE-2025-67779, CVE-2025-55183 and CVE-2026-23864.'
+    applies_to:
+    - COURSE-FE-ONBOARD
+    - COURSE-CYBER-MEGA
+    resulting_change: Frontend security lab uses patched versions, includes a dependency-audit exercise and teaches the RSC
+      trust boundary; the incident is a case study in supply-chain and framework risk.
+    verified_on: '2026-10-14'
+  - id: R-071
+    title: C2PA Content Credentials specification
+    url: https://spec.c2pa.org/specifications/specifications/2.2/index.html
+    publisher: Coalition for Content Provenance and Authenticity
+    version: hub lists 2.2 and newer 2.3 and 2.4
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: C2PA develops technical standards for certifying the source and history of media content; the specification hub
+      exposes versions 2.2, 2.3 and 2.4.
+    applies_to:
+    - COURSE-OSINT
+    - COURSE-AI-ENG
+    resulting_change: OSINT verification module treats Content Credentials as one provenance signal (absence proves nothing)
+      and records the spec version as a baseline to re-verify.
+    caveat: Only the hub page was read; manifest/claim definitions and publication dates were not.
+    verified_on: '2026-10-14'
+  - id: R-072
+    title: Bellingcat resources index
+    url: https://www.bellingcat.com/resources/
+    publisher: Bellingcat
+    version: page read 2026-10-14 (articles dated through 2026-06-30)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Bellingcat publishes investigation guides and open-source tools (for example an Auto Archiver for preserving
+      online evidence and AI-assisted analysis guides). The page itself does not state the verification or ethics approach;
+      footer links to Standards & Practices, Principles for Data Collection and Data Privacy were not read.
+    applies_to:
+    - COURSE-OSINT
+    resulting_change: OSINT course references public-interest investigative practice as further reading; ethics content is
+      authored from first principles and the cited law, not copied.
+    verified_on: '2026-10-14'
+  - id: R-073
+    title: OWASP Web Security Testing Guide
+    url: https://owasp.org/www-project-web-security-testing-guide/
+    publisher: OWASP Foundation
+    version: stable v4.2 (release date not on page); v5.0 in development
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: WSTG v4.2 is the latest stable version; v5.0 is a draft.
+    applies_to:
+    - COURSE-CYBER-MEGA
+    - COURSE-FE-ONBOARD
+    resulting_change: Web testing labs cite WSTG v4.2 test IDs and state v5.0 is not final.
+    verified_on: '2026-10-14'
+  - id: R-074
+    title: New name for Azure Active Directory - Microsoft Entra ID
+    url: https://learn.microsoft.com/en-us/entra/fundamentals/new-name
+    publisher: Microsoft Learn
+    version: page ms.date 2025-05-07, updated_at 2026-06-15; rename announced 2023-07-11, SKU display names changed 2023-10-01
+    method: PRIMARY_DOCUMENT_READ
+    finding: Azure Active Directory (Azure AD) was renamed Microsoft Entra ID; Azure AD Premium P1/P2 became Microsoft Entra
+      ID P1/P2; Windows Server Active Directory and AD FS keep their names; ADAL is deprecated in favour of MSAL; Azure AD
+      Graph is deprecated in favour of Microsoft Graph; Azure AD PowerShell is superseded by Microsoft Graph PowerShell; DirSync
+      and Azure AD Sync no longer work (use Microsoft Entra Connect); Azure AD B2C was not purchasable by new customers from
+      2025-05-01.
+    applies_to:
+    - COURSE-SOC
+    - COURSE-CYBER-MEGA
+    resulting_change: Identity content uses Microsoft Entra ID and notes the legacy name once; Azure AD Graph / ADAL / Azure
+      AD PowerShell examples are marked REPLACE.
+    verified_on: '2026-10-14'
+  - id: R-075
+    title: Migrate from Container Registry to Artifact Registry
+    url: https://docs.cloud.google.com/artifact-registry/docs/transition/transition-from-gcr
+    publisher: Google Cloud
+    version: page read 2026-10-14; Container Registry shut down 2025-03-18
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Container Registry no longer accepts writes since 2025-03-18; Artifact Registry is the replacement, and gcr.io
+      URLs can continue to work when backed by Artifact Registry gcr.io repositories; new work should use pkg.dev repositories
+      that already exist before push or pull.
+    applies_to:
+    - COURSE-GCP-DE
+    - COURSE-CYBER-MEGA
+    resulting_change: Container examples use Artifact Registry pkg.dev; gcr.io write instructions are REPLACE.
+    verified_on: '2026-10-14'
+  - id: R-076
+    title: PCI DSS and ISO/IEC 27001 edition currency (NOT VERIFIED)
+    url: https://www.pcisecuritystandards.org/standards/pci-dss/
+    publisher: PCI Security Standards Council; ISO
+    version: not established
+    method: SECONDARY_SOURCE
+    finding: Edition and transition facts for PCI DSS and ISO/IEC 27001 could not be verified in this session.
+    applies_to:
+    - COURSE-CYBER-MEGA
+    resulting_change: Compliance pages that name PCI DSS or ISO 27001 editions are marked STANDARD_VERSION_UNVERIFIED until
+      a primary document is read.
+    caveat: The PCI SSC landing page did not state the current version or retirement dates, and iso.org returned HTTP 403.
+      No claim about PCI DSS v4.0.1 or the ISO/IEC 27001:2022 transition is made from this entry.
+    verified_on: '2026-10-14'
+  - id: R-077
+    title: PyPA specification - Inline script metadata (PEP 723)
+    url: https://packaging.python.org/en/latest/specifications/inline-script-metadata/
+    publisher: Python Packaging Authority
+    version: 'specification page; history: approved October 2023 (PEP 723), block type renamed to ''script'' January 2024'
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: A script block starts with the line '# /// script' and ends with '# ///'; the type name uses ASCII letters, digits
+      and hyphens; the block may contain the top-level fields dependencies and requires-python and an optional [tool] table.
+      The page gives the reference regular expression (?m)^# /// (?P<type>[a-zA-Z0-9-]+)$\s(?P<content>(^#(| .*)$\s)+)^# ///$
+      and a reader example for Python 3.11+.
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-PY-AUTO
+    resulting_change: PY-M04 independent lab parses a script block with the specification's regular expression.
+    caveat: Fetched through a summarising tool with literal quotations requested; the regular expression should be compared
+      with the raw page before it is printed in customer-facing material.
+    verified_on: '2026-10-14'
+  - id: R-078
+    title: PyPA specification - Dependency Groups (PEP 735)
+    url: https://packaging.python.org/en/latest/specifications/dependency-groups/
+    publisher: Python Packaging Authority
+    version: 'specification page; history: approved October 2024 (PEP 735)'
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Dependency groups are a [dependency-groups] table in pyproject.toml; keys must be valid non-normalised names
+      and tools normalise them before comparison; a group can include another with {include-group = "name"}. Example from
+      the page: test = ["pytest>7", {include-group = "coverage"}].'
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-PY-AUTO
+    resulting_change: PY-M04 lessons and independent lab use [dependency-groups] for development tools instead of requirements
+      files.
+    verified_on: '2026-10-14'
+  - id: R-079
+    title: Python Packaging User Guide - Writing your pyproject.toml
+    url: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+    publisher: Python Packaging Authority
+    version: guide page read 2026-10-14 (no version shown)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'setuptools example: [build-system] requires = ["setuptools >= 77.0.3"], build-backend = "setuptools.build_meta".
+      Licences are declared per PEP 639 with license (an SPDX expression such as "GPL-3.0-or-later") and license-files; the
+      older table form of license (file/text keys) is deprecated. Console commands go in [project.scripts]; a dynamic version
+      is declared with dynamic = ["version"] and filled by the build backend; extras use [project.optional-dependencies];
+      requires-python is a specifier string.'
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-PY-AUTO
+    resulting_change: PY-M04 guided lab asks for a pyproject.toml with these tables and no setup.py.
+    verified_on: '2026-10-14'
+  - id: R-080
+    title: Coursera Plus - plan page (pricing, inclusions, refund policy)
+    url: https://coursera.org/courseraplus
+    publisher: Coursera
+    version: page read 2026-10-14 (no date shown on page)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Monthly plan $59/month with a 7-day free trial; annual plan $399/year with a 14-day money-back guarantee (certificates
+      earned in that window are revoked on refund). Includes access to more than 10,000 courses, Projects, Specializations
+      and Professional Certificate programs (some excluded; degrees and MasterTrack excluded) and unlimited certificates.
+      A 'Save 40%' label appears without a stated comparison or end date.
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-AI-ENG
+    - COURSE-GCP-DE
+    resulting_change: PRICING_AND_POSITIONING_RESEARCH.md uses it as a subscription-bundle comparable (hypothesis input only).
+    caveat: Fetched through a summarising tool; prices are USD for the viewer's location at fetch time and promotions change.
+    verified_on: '2026-10-14'
+  - id: R-081
+    title: TryHackMe - pricing page
+    url: https://tryhackme.com/pricing
+    publisher: TryHackMe
+    version: page read 2026-10-14 (EUR display; promotion banner 'Cyber Awareness Month')
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Plans Free (EUR 0), Premium (shown as EUR 16.99 and EUR 7.35/month, 'billed annually', 'Save 56%') and MAX (shown
+      as EUR 29.11 and EUR 17.99/month, 'billed annually', 'Save 38%'). The relationship between the two figures per plan
+      is not labelled in the page text. Premium includes full beginner learning paths, a certificate per path and unlimited
+      AttackBox time; MAX adds advanced paths and persistent AttackBox. A discount coupon and a 30% promotion are displayed.
+    applies_to:
+    - COURSE-SOC
+    - COURSE-CYBER-MEGA
+    - COURSE-OSINT
+    resulting_change: Used as a hands-on security-lab subscription comparable in the pricing research.
+    caveat: Prices shown in euro with promotions applied; the page text does not make the billing arithmetic unambiguous.
+      Do not quote figures without re-reading the live page.
+    verified_on: '2026-10-14'
+  - id: R-082
+    title: SANS SEC504 Hacker Tools, Techniques and Incident Handling - course page (prices by format)
+    url: https://www.sans.org/cyber-security-courses/hacker-techniques-incident-handling/
+    publisher: SANS Institute
+    version: page read 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: OnDemand price $8,780 USD with 4 months of access; live events priced between $8,780 and $8,900 USD and in other
+      currencies (for example GBP 7,160, EUR 8,230). The course lists 44 hands-on labs, printed and digital books, MP3 audio
+      and lab walkthroughs. A GIAC exam attempt is an optional add-on and is not part of the course price.
+    applies_to:
+    - COURSE-SOC
+    - COURSE-CYBER-MEGA
+    resulting_change: Upper bound of the instructor-led security training market in the pricing research.
+    caveat: Fetched through a summarising tool; only 10 of 47 events were visible.
+    verified_on: '2026-10-14'
+  - id: R-083
+    title: Python Institute - PCAP certification page (exam price, format)
+    url: https://pythoninstitute.org/pcap
+    publisher: Python Institute
+    version: page read 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Exam from $295 (currency code not named), exam with retake from $345, with retake and practice test from $359;
+      40 questions, 65 minutes plus 10 minutes for the NDA and tutorial, 70% passing score, 15-day wait before a retake.
+    applies_to:
+    - COURSE-PY-ENG
+    resulting_change: External certification price comparable; this academy issues no third-party certification and makes
+      no equivalence claim.
+    caveat: Fetched through a summarising tool.
+    verified_on: '2026-10-14'
+  - id: R-084
+    title: Gumroad - pricing and fees
+    url: https://gumroad.com/pricing
+    publisher: Gumroad
+    version: page read 2026-10-14 (page shows no update date; tax handling statement refers to 2025-01-01)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Direct sales through a seller''s profile or links: 10% plus a fixed $0.50 per transaction. Sales to new customers
+      through Gumroad Discover: 30% per transaction. No monthly fee. Gumroad handles sales-tax obligations since 2025-01-01.
+      Payment-processing and payout fees are not mentioned on the page.'
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-AI-ENG
+    - COURSE-SOC
+    resulting_change: Channel-cost input to the pricing hypotheses (marketplace fees reduce net revenue per sale).
+    caveat: Fetched through a summarising tool; fee schedules change and processing fees may apply beyond what the page shows.
+    verified_on: '2026-10-14'
+  - id: R-085
+    title: Google Skills (formerly Google Cloud Skills Boost) - subscriptions
+    url: https://www.skills.google/subscriptions
+    publisher: Google
+    version: page read 2026-10-14 (the old cloudskillsboost.google/subscriptions URL redirects permanently here)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: Starter plan at no cost with 35 free credits per month and limited labs and skill badges; Pro plan at $29 per
+      month (currency code not named) with unlimited hands-on labs and access to thousands of courses and labs.
+    applies_to:
+    - COURSE-GCP-DE
+    resulting_change: Vendor-provided cloud-lab comparable for the GCP data engineering course; also records the Cloud Skills
+      Boost to Google Skills rename.
+    caveat: Fetched through a summarising tool.
+    verified_on: '2026-10-14'
+  - id: R-086
+    title: Pluralsight - pricing page (individual plans listed without prices)
+    url: https://www.pluralsight.com/pricing
+    publisher: Pluralsight
+    version: page read 2026-10-14
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: The page text lists six individual plans (Core Tech, AI+, Cloud+, Security+, Data+, Complete) and team pricing
+      links but shows no prices in the retrievable text. No price from this vendor is used in the pricing research.
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-AI-ENG
+    resulting_change: 'Recorded as a gap: subscription pricing for this comparable could not be verified from the vendor page.'
+    caveat: Search-result pages from third parties quote USD 449 and 499 per year for an individual plan; the figures conflict
+      and were not used.
+    verified_on: '2026-10-14'
+  - id: R-087
+    title: Requests - Quickstart (timeouts, redirects, raise_for_status, JSON decoding)
+    url: https://requests.readthedocs.io/en/latest/user/quickstart/
+    publisher: Requests project
+    version: page read 2026-10-14 (documentation 'latest'; PyPI snapshot version 2.34.2)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'The Timeouts section says "Nearly all production code should use this parameter in nearly all requests. Failure
+      to do so can cause your program to hang indefinitely" and "If no timeout is specified explicitly, requests do not time
+      out." The timeout is not a limit on the whole download but on the time without received bytes. Redirects are followed
+      for all verbs except HEAD by default. r.json() success does not indicate a successful response; use raise_for_status()
+      or check the status code. Network problems raise ConnectionError, timeouts raise Timeout, bad statuses raise HTTPError
+      only through raise_for_status().'
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-PY-AUTO
+    resulting_change: PY-M05 teaches an explicit timeout on every call, status checking and the redirect default, with an executed
+      demonstration (probe http-client-defaults).
+    caveat: Fetched through a summarising tool; quoted sentences were returned by the tool, not cross-checked against the raw page.
+    verified_on: '2026-10-14'
+  - id: R-088
+    title: HTTPX - Timeouts and Requests-compatibility pages
+    url: https://www.python-httpx.org/advanced/timeouts/
+    publisher: HTTPX project
+    version: pages read 2026-10-14 (PyPI snapshot version 0.28.1, released 2024-12-06; a 1.0.dev6 pre-release exists)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Default behaviour is to raise a TimeoutException after 5 seconds of network inactivity; there are four timeout
+      kinds (connect, read, write, pool) raising ConnectTimeout, ReadTimeout, WriteTimeout and PoolTimeout; timeout=None disables
+      them. The compatibility page states "HTTPX defaults to including reasonable timeouts for all network operations, while
+      Requests has no timeouts by default" and that HTTPX "does not follow redirects by default" (follow_redirects=True enables
+      it).'
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-PY-AUTO
+    resulting_change: PY-M05 contrasts the two clients' defaults and teaches an explicit Timeout object; the handbook's per-call
+      AsyncClient pattern is replaced by one shared client.
+    caveat: Fetched through a summarising tool (two pages). The newest stable release is almost two years old on the cutoff
+      date, with a 1.0 pre-release published 2026-08-31 (registry snapshot); the lesson pins 0.28.1 and does not claim 1.0 behaviour.
+    verified_on: '2026-10-14'
+  - id: R-089
+    title: RFC 9110 - HTTP Semantics (idempotent methods; Retry-After)
+    url: https://www.rfc-editor.org/rfc/rfc9110.html
+    publisher: IETF (STD 97, June 2022)
+    version: text read 2026-10-14 in two slices (offsets 0-100000 and 200000-300000)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'Section 9.2.2: PUT, DELETE and the safe methods are idempotent; "A client SHOULD NOT automatically retry a request
+      with a non-idempotent method" unless it can know the request is effectively idempotent or was not applied. Section 10.2.3:
+      Retry-After is either an HTTP-date or a number of seconds, used with 503 responses and 3xx redirections.'
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-PY-AUTO
+    resulting_change: PY-M05 retries only idempotent requests and honours Retry-After in both formats; POST retries need an idempotency
+      mechanism the lesson names but does not assume.
+    caveat: Fetched through a summarising tool; only the slices named above were read. Retry-After on 429 responses comes from
+      RFC 6585, which was not read here, so the lab treats it as an observed convention, not a cited rule.
+    verified_on: '2026-10-14'
+  - id: R-090
+    title: Pydantic - Strict Mode (lax coercion by default)
+    url: https://pydantic.dev/docs/validation/latest/concepts/strict_mode/
+    publisher: Pydantic
+    version: page read 2026-10-14 (PyPI snapshot version 2.14.1; the older docs.pydantic.dev URL redirects here)
+    method: OFFICIAL_PAGE_SUMMARY
+    finding: 'By default Pydantic attempts to coerce values to the desired type (the string "123" becomes the int 123); strict
+      mode errors instead. Strict mode can be enabled per validation call (strict=True), per field (Field(strict=True), Strict
+      metadata, StrictInt) or per model (ConfigDict(strict=True)).'
+    applies_to:
+    - COURSE-PY-ENG
+    resulting_change: PY-M05 validates every API response with a model, chooses strict or lax deliberately and tests both.
+    caveat: Fetched through a summarising tool.
+    verified_on: '2026-10-14'
+  - id: R-091
+    title: HTTP client defaults (reproduced) - requests 2.34.2 and httpx 0.28.1
+    url: https://pypi.org/project/requests/
+    publisher: PyPI / Requests / HTTPX
+    version: requests 2.34.2, httpx 0.28.1 (snapshot versions), CPython 3.13.16
+    method: EXECUTED
+    finding: 'Against a local socket that accepts connections and never answers, requests.get(url) was still blocked after 3 s
+      while requests.get(url, timeout=0.5) and httpx.get(url, timeout=0.5) both raised ReadTimeout. httpx.Client() has connect,
+      read, write and pool timeouts of 5.0 s and follow_redirects False; against a local 302 redirect httpx.get returned 302
+      and requests.get returned 200 (requests.Session().max_redirects is 30). Probe: http-client-defaults.'
+    applies_to:
+    - COURSE-PY-ENG
+    - COURSE-PY-AUTO
+    resulting_change: Finding F-PYH-009; PY-M05 reproduces the demonstration in its lesson.
+    verified_on: '2026-10-14'
+  - id: R-092
+    title: Pydantic lax and strict validation (reproduced) - pydantic 2.14.1
+    url: https://pypi.org/project/pydantic/
+    publisher: PyPI / Pydantic
+    version: pydantic 2.14.1 (snapshot version), CPython 3.13.16
+    method: EXECUTED
+    finding: 'A model with int fields accepted the string "5" and the boolean True in lax mode (values 5 and 1), rejected 5.5,
+      ignored an unknown field by default, raised a "missing" error naming the field, raised int_type for the string under strict=True
+      and extra_forbidden under ConfigDict(extra="forbid"). Probe: pydantic-lax-and-strict-validation.'
+    applies_to:
+    - COURSE-PY-ENG
+    resulting_change: PY-M05 shows what a schema does and does not catch (coercion, extra fields) before asking learners to choose.
+    verified_on: '2026-10-14'

@@ -64,10 +64,12 @@ courses:
       - {id: SOC-M09, title: "Threat hunting", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Plan and execute a hypothesis-driven hunt against a dataset and report negative and positive findings."}
       - {id: SOC-M10, title: "Malware-analysis fundamentals in an isolated lab", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Perform static triage of a safe benign sample in an isolated VM and document indicators with confidence levels."}
       - {id: SOC-M11, title: "Executive and technical incident reporting", level: 3, status: PLANNED, estimated_hours: 4, primary_outcome: "Write an executive summary and a technical appendix for one incident that pass the reporting rubric."}
-      - {id: SOC-M12, title: "Capstone: end-to-end SOC investigation", level: 3, status: PLANNED, estimated_hours: 12, primary_outcome: "Investigate a multi-stage synthetic intrusion, improve one detection and deliver an evidence-based incident report."}
-    estimated_duration_hours: 88
-    lab_coverage: {planned: 23, built: 2, verified_executable: 2}
-    assessment_coverage: {outcomes_total: 17, outcomes_assessed: 6}
+      - {id: SOC-M12, title: "Cloud and identity threat detection", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Detect and triage a synthetic identity-compromise and cloud-misuse scenario using normalised cloud audit logs."}
+      - {id: SOC-M13, title: "SOAR playbooks and AI-assisted investigation automation", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Implement a playbook that enriches and routes alerts with a human approval gate and measure its effect on triage time on labelled alerts."}
+      - {id: SOC-M14, title: "Capstone: end-to-end SOC investigation", level: 3, status: PLANNED, estimated_hours: 12, primary_outcome: "Investigate a multi-stage synthetic intrusion, improve one detection and deliver an evidence-based incident report."}
+    estimated_duration_hours: 104
+    lab_coverage: {planned: 27, built: 2, verified_executable: 2}
+    assessment_coverage: {outcomes_total: 19, outcomes_assessed: 6}
     capstone: "End-to-end synthetic intrusion investigation with a detection improvement validated on labelled telemetry and a graded incident report."
     review_status: AUTOMATED_ONLY
     qa_status: PARTIAL
@@ -83,34 +85,36 @@ courses:
   - id: COURSE-PY-ENG
     slug: python-engineering
     title: "Python Engineering Pathway"
-    version: 0.0.1-plan
+    version: 0.1.0-build
     source_ids: [SRC-PY-HANDBOOK]
     audience: ["Developers and analysts who need production-quality Python", "Learners continuing from Digital Foundations"]
     competency_levels: [1, 2, 3]
     prerequisites: [COURSE-FND-DIGITAL]
     modules:
-      - {id: PY-M01, title: "Language core and data structures", level: 1, status: PLANNED, estimated_hours: 12, primary_outcome: "Implement five data-processing functions that pass provided unit tests."}
-      - {id: PY-M02, title: "Functions, errors and testing with pytest", level: 1, status: PLANNED, estimated_hours: 8, primary_outcome: "Write parametrised pytest tests that detect three seeded defects in a provided module."}
-      - {id: PY-M03, title: "Types, modules and project layout", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Refactor a script into a typed package that passes a static type checker without errors."}
-      - {id: PY-M04, title: "Environments, dependencies and packaging (pyproject, build)", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Build, install and import a wheel produced with python -m build in a clean virtual environment."}
-      - {id: PY-M05, title: "Files, structured data and HTTP clients", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Consume a paginated API fixture with retries and timeouts and validate every response against a schema."}
+      - {id: PY-M01, title: "Language core and data structures", level: 1, status: BUILT, estimated_hours: 12, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Implement five data-processing functions that pass provided unit tests."}
+      - {id: PY-M02, title: "Functions, errors and testing with pytest", level: 1, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Write parametrised pytest tests that detect three seeded defects in a provided module."}
+      - {id: PY-M03, title: "Types, modules and project layout", level: 2, status: BUILT, estimated_hours: 6, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Refactor a script into a typed package that passes a static type checker without errors."}
+      - {id: PY-M04, title: "Environments, dependencies and packaging (pyproject, build)", level: 2, status: BUILT, estimated_hours: 6, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Build, install and import a wheel produced with python -m build in a clean virtual environment."}
+      - {id: PY-M05, title: "Files, structured data and HTTP clients", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Consume a paginated API fixture with retries and timeouts and validate every response against a schema."}
       - {id: PY-M06, title: "Concurrency and asynchronous programming", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark."}
-      - {id: PY-M07, title: "Secure coding for Python", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Find and fix eight seeded vulnerabilities (injection, secrets, TLS, deserialisation) and add a regression test for each."}
+      - {id: PY-M07, title: "Secure coding for Python", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Find and fix eight seeded vulnerabilities (injection, secrets, TLS, deserialisation) and add a regression test for each."}
       - {id: PY-M08, title: "Databases and persistence", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Implement a repository layer using parameterised SQL and demonstrate that an injection attempt fails."}
       - {id: PY-M09, title: "Profiling, performance and maintainable architecture", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent."}
-      - {id: PY-M10, title: "Capstone: typed, tested, documented application with CI", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a packaged application whose tests, type checks and security scan pass in a clean environment."}
-    estimated_duration_hours: 84
-    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
-    assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
+      - {id: PY-M10, title: "API development: typed, tested and secure HTTP services", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Build a typed HTTP API with request validation and authentication that passes contract tests and an injection test suite."}
+      - {id: PY-M11, title: "Capstone: typed, tested, documented application with CI", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a packaged application whose tests, type checks and security scan pass in a clean environment."}
+    estimated_duration_hours: 92
+    lab_coverage: {planned: 21, built: 12, verified_executable: 12}
+    assessment_coverage: {outcomes_total: 11, outcomes_assessed: 6}
     capstone: "A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan."
-    review_status: NOT_REVIEWED
-    qa_status: NOT_RUN
+    review_status: AUTOMATED_ONLY
+    qa_status: PARTIAL
     release_status: REENGINEERING
-    lifecycle: IN_DESIGN
+    lifecycle: IN_BUILD
     blocking_findings: [F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007]
     owner: UNASSIGNED
     reviewers: []
     last_verified: 2026-10-14
+    notes: "Six of eleven modules are built (PY-M01, PY-M02, PY-M03, PY-M04, PY-M05, PY-M07) with twelve labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other five modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are not yet covered by any module."
 
   - id: COURSE-PY-AUTO
     slug: python-automation
@@ -129,10 +133,11 @@ courses:
       - {id: PA-M06, title: "Reliability: retries, idempotency and recovery", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Show that re-running a failed job after injected faults produces exactly-once results."}
       - {id: PA-M07, title: "Observability and auditable output", level: 3, status: PLANNED, estimated_hours: 5, primary_outcome: "Produce structured logs and an audit report that allow a reviewer to reconstruct every action of a run."}
       - {id: PA-M08, title: "Testing automations: unit, integration, regression", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Reach a defined test pass and fault-injection suite for a provided automation."}
-      - {id: PA-M09, title: "Capstone: safe operational workflow", level: 3, status: PLANNED, estimated_hours: 12, primary_outcome: "Deliver a reproducible workflow that performs a real operational task and emits auditable output."}
-    estimated_duration_hours: 65
-    lab_coverage: {planned: 17, built: 0, verified_executable: 0}
-    assessment_coverage: {outcomes_total: 9, outcomes_assessed: 0}
+      - {id: PA-M09, title: "Command-line tools and guarded AI-assisted automation", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Build a tested command-line tool and add an AI-assisted step whose output is validated, logged and cannot trigger an unreviewed action."}
+      - {id: PA-M10, title: "Capstone: safe operational workflow", level: 3, status: PLANNED, estimated_hours: 12, primary_outcome: "Deliver a reproducible workflow that performs a real operational task and emits auditable output."}
+    estimated_duration_hours: 73
+    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
     capstone: "A safe, reproducible automation of a real operational workflow with auditable output and a fault-injection test suite."
     review_status: NOT_REVIEWED
     qa_status: NOT_RUN
@@ -194,10 +199,12 @@ courses:
       - {id: AI-M07, title: "LLM security: OWASP LLM Top 10 (2025), prompt injection and red teaming", level: 3, status: PLANNED, estimated_hours: 10, primary_outcome: "Threat-model an LLM application against the OWASP LLM Top 10 and demonstrate two mitigated attacks with tests."}
       - {id: AI-M08, title: "Evaluation suites, observability, cost and latency", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Operate an evaluation suite and dashboard that detect a seeded quality regression and a cost spike."}
       - {id: AI-M09, title: "Governance and responsible deployment (NIST AI RMF)", level: 3, status: PLANNED, estimated_hours: 6, primary_outcome: "Produce a risk register and human-oversight design for one AI use case mapped to NIST AI RMF functions."}
-      - {id: AI-M10, title: "Capstone: secure production-oriented AI assistant", level: 3, status: PLANNED, estimated_hours: 16, primary_outcome: "Deliver an assistant with a threat model, evaluation suite, enforced tool permissions, logging and reproducible tests."}
-    estimated_duration_hours: 96
-    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
-    assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
+      - {id: AI-M10, title: "Model Context Protocol, tool interoperability and multi-agent systems", level: 3, status: PLANNED, estimated_hours: 10, primary_outcome: "Implement an MCP server and client against specification revision 2026-07-28 and demonstrate permission-scoped tool access across two cooperating agents."}
+      - {id: AI-M11, title: "Model selection, multimodal inputs and deployment economics", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Select a model for a task from measured quality, latency and cost on a labelled set and document the decision."}
+      - {id: AI-M12, title: "Capstone: secure production-oriented AI assistant", level: 3, status: PLANNED, estimated_hours: 16, primary_outcome: "Deliver an assistant with a threat model, evaluation suite, enforced tool permissions, logging and reproducible tests."}
+    estimated_duration_hours: 114
+    lab_coverage: {planned: 23, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 12, outcomes_assessed: 0}
     capstone: "Production-oriented AI assistant with documented threat model, evaluation suite, secure tool permissions, logging, failure handling and reproducible tests."
     review_status: NOT_REVIEWED
     qa_status: NOT_RUN
@@ -227,10 +234,12 @@ courses:
       - {id: OSINT-M07, title: "Researcher operational security", level: 2, status: PLANNED, estimated_hours: 4, primary_outcome: "Configure an isolated research environment and document the controls that protect the researcher."}
       - {id: OSINT-M08, title: "Disinformation awareness", level: 2, status: PLANNED, estimated_hours: 4, primary_outcome: "Assess a synthetic influence campaign using provenance and behavioural indicators."}
       - {id: OSINT-M09, title: "Reporting and intelligence communication", level: 2, status: PLANNED, estimated_hours: 4, primary_outcome: "Write an intelligence report with sourcing, uncertainty language and ethical-collection record."}
-      - {id: OSINT-M10, title: "Capstone: defensible OSINT report", level: 2, status: PLANNED, estimated_hours: 10, primary_outcome: "Deliver a report on a synthetic case with provenance for every claim and an ethical-collection log."}
-    estimated_duration_hours: 56
-    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
-    assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
+      - {id: OSINT-M10, title: "Passive domain and infrastructure intelligence", level: 2, status: PLANNED, estimated_hours: 5, primary_outcome: "Map the public infrastructure of a synthetic domain using passive sources and record the provenance and legal basis of every observation."}
+      - {id: OSINT-M11, title: "AI-assisted investigation and synthetic-media verification", level: 2, status: PLANNED, estimated_hours: 5, primary_outcome: "Verify a set of synthetic images and a claim using provenance signals and document where AI assistance was used and checked."}
+      - {id: OSINT-M12, title: "Capstone: defensible OSINT report", level: 2, status: PLANNED, estimated_hours: 10, primary_outcome: "Deliver a report on a synthetic case with provenance for every claim and an ethical-collection log."}
+    estimated_duration_hours: 66
+    lab_coverage: {planned: 23, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 12, outcomes_assessed: 0}
     capstone: "Defensible OSINT intelligence report on a synthetic or consented case with source provenance, uncertainty analysis and ethical collection records."
     review_status: NOT_REVIEWED
     qa_status: NOT_RUN
@@ -260,10 +269,11 @@ courses:
       - {id: GCP-M07, title: "Data quality, governance and security", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Enforce data-quality assertions and column-level access policies and show a blocked unauthorised query."}
       - {id: GCP-M08, title: "Infrastructure as code and CI with Workload Identity Federation", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Deploy infrastructure from CI without any long-lived service-account key."}
       - {id: GCP-M09, title: "Monitoring, SLOs and cost optimisation", level: 3, status: PLANNED, estimated_hours: 6, primary_outcome: "Define SLOs and alerts for a pipeline and cut the cost of a provided workload by a measured amount."}
-      - {id: GCP-M10, title: "Capstone: monitored, secure, cost-aware pipeline", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a documented pipeline with monitoring, security controls, tests and a cost report."}
-    estimated_duration_hours: 88
-    lab_coverage: {planned: 19, built: 0, verified_executable: 0}
-    assessment_coverage: {outcomes_total: 10, outcomes_assessed: 0}
+      - {id: GCP-M10, title: "Reliability, disaster recovery and operational procedures", level: 3, status: PLANNED, estimated_hours: 6, primary_outcome: "Execute a documented recovery drill for a pipeline and measure recovery time and data loss against stated objectives."}
+      - {id: GCP-M11, title: "Capstone: monitored, secure, cost-aware pipeline", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a documented pipeline with monitoring, security controls, tests and a cost report."}
+    estimated_duration_hours: 94
+    lab_coverage: {planned: 21, built: 0, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 11, outcomes_assessed: 0}
     capstone: "A documented, monitored, secure, cost-aware batch and streaming data pipeline with tests and a teardown script."
     review_status: NOT_REVIEWED
     qa_status: NOT_RUN

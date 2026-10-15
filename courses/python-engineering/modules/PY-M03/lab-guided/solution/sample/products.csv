@@ -1,0 +1,5 @@
+sku,name,qty,price,reorder_level
+A-100,Widget,12,2.50,10
+B-200,Gadget,3,10.00,5
+C-300,Sprocket,40,0.75,25
+D-400,Gizmo,9,4.00,10

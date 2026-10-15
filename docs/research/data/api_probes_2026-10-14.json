@@ -1,0 +1,566 @@
+{
+ "cutoff_date": "2026-10-14",
+ "host": {
+  "platform": "Linux-6.18.44-fc-v114-x86_64-with-glibc2.39",
+  "python": "3.13.16"
+ },
+ "script": "scripts/research/api_probes.py",
+ "note": "Observations are facts about the installed releases on the execution date, not about historical behaviour.",
+ "probes": [
+  {
+   "status": "OK",
+   "pins": [
+    "beautifulsoup4==4.15.0"
+   ],
+   "installed": {
+    "beautifulsoup4": "4.15.0"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "version": "4.15.0",
+    "findAll_exists": true,
+    "warnings": [
+     "DeprecationWarning"
+    ]
+   },
+   "id": "bs4-camelcase-methods",
+   "taught_pattern": "soup.findAll(...) / find_all",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:09:43Z"
+  },
+  {
+   "status": "OK",
+   "pins": [],
+   "installed": {},
+   "python": "Python 3.13.16",
+   "observed": {
+    "python": "3.13.16",
+    "distutils": "ModuleNotFoundError",
+    "imp": "ModuleNotFoundError",
+    "asyncore": "ModuleNotFoundError",
+    "asynchat": "ModuleNotFoundError",
+    "smtpd": "ModuleNotFoundError",
+    "cgi": "ModuleNotFoundError",
+    "cgitb": "ModuleNotFoundError",
+    "telnetlib": "ModuleNotFoundError",
+    "pipes": "ModuleNotFoundError",
+    "crypt": "ModuleNotFoundError",
+    "nntplib": "ModuleNotFoundError",
+    "lib2to3": "ModuleNotFoundError",
+    "pkg_resources": "ModuleNotFoundError",
+    "utcnow_warning": [
+     "DeprecationWarning"
+    ],
+    "get_event_loop": "returned a loop",
+    "get_event_loop_warning": [
+     "DeprecationWarning"
+    ],
+    "unittest_makeSuite": false
+   },
+   "id": "cpython-removed-stdlib",
+   "taught_pattern": "import distutils/imp/asyncore/cgi/telnetlib; datetime.utcnow(); asyncio.get_event_loop()",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:08:23Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "django==6.1.2"
+   ],
+   "installed": {
+    "django": "6.1.2"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "version": "6.1.2",
+    "django.conf.urls:url": "AttributeError",
+    "django.utils.encoding:force_text": "AttributeError",
+    "django.utils.translation:ugettext": "AttributeError",
+    "django.urls:path": "ok"
+   },
+   "id": "django-removed-apis",
+   "taught_pattern": "from django.conf.urls import url; force_text",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:09:18Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "eslint@10.12.0"
+   ],
+   "with_only_eslintrc": {
+    "exit": 2,
+    "output": "Oops! Something went wrong! :(\n\nESLint: 10.12.0\n\nESLint couldn't find an eslint.config.* file.\n\nFrom ESLint v9.0.0, the default configuration file is now eslint.config.*.\nIf you are using a .eslintrc.* file, please follow the migration guide\nto update your configuration file to the new format:\n\nhttp"
+   },
+   "with_flat_config": {
+    "exit": 1,
+    "output": "/tmp/claude-0/-home-user-CDB-TRAININGS/0b553ef2-b8ef-5c5a-b2b6-d82a208f23df/scratchpad/probe-work/node-eslint/a.js\n  1:7  error  'x' is assigned a value but never used  no-unused-vars\n\n✖ 1 problem (1 error, 0 warnings)"
+   },
+   "id": "eslint-eslintrc-removed",
+   "taught_pattern": ".eslintrc.json / .eslintrc.js configuration",
+   "runtime": "eslint",
+   "executed_utc": "2026-10-14T09:10:35Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "fastapi==0.143.0"
+   ],
+   "installed": {
+    "fastapi": "0.143.0"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "on_event": "accepted",
+    "warnings": [
+     "DeprecationWarning"
+    ],
+    "has_lifespan_param": true
+   },
+   "id": "fastapi-on-event",
+   "taught_pattern": "@app.on_event('startup') / @app.on_event('shutdown')",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:08:31Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "flask==3.1.3"
+   ],
+   "installed": {
+    "flask": "3.1.3"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "version": "3.1.3",
+    "before_first_request": false,
+    "flask.json.JSONEncoder": false,
+    "flask.escape": false,
+    "flask.Markup": false
+   },
+   "id": "flask-removed-apis",
+   "taught_pattern": "@app.before_first_request, flask.json.JSONEncoder, from flask import escape",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:09:10Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "requests==2.34.2",
+    "httpx==0.28.1"
+   ],
+   "installed": {
+    "httpx": "0.28.1",
+    "requests": "2.34.2"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "requests_version": "2.34.2",
+    "httpx_version": "0.28.1",
+    "requests_get_without_timeout_blocked_after_3s": true,
+    "requests_get_timeout_0_5": "ReadTimeout",
+    "httpx_get_timeout_0_5": "ReadTimeout",
+    "httpx_default_timeout": {
+     "connect": 5.0,
+     "read": 5.0,
+     "write": 5.0,
+     "pool": 5.0
+    },
+    "httpx_client_follow_redirects_default": false,
+    "httpx_get_redirect_status": 302,
+    "requests_get_redirect_status": 200,
+    "requests_session_max_redirects": 30
+   },
+   "id": "http-client-defaults",
+   "taught_pattern": "requests.get(url) and httpx.get(url) without timeout, redirect or status handling",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T15:15:46Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "langchain==1.4.5"
+   ],
+   "installed": {
+    "langchain": "1.4.5"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "langchain.chains:LLMChain": "ModuleNotFoundError: No module named 'langchain.chains'",
+    "langchain.chains:ConversationalRetrievalChain": "ModuleNotFoundError: No module named 'langchain.chains'",
+    "langchain.chains:RetrievalQA": "ModuleNotFoundError: No module named 'langchain.chains'",
+    "langchain.llms:OpenAI": "ModuleNotFoundError: No module named 'langchain.llms'",
+    "langchain.chat_models:ChatOpenAI": "AttributeError: module 'langchain.chat_models' has no attribute 'ChatOpenAI'",
+    "langchain.embeddings:OpenAIEmbeddings": "AttributeError: module 'langchain.embeddings' has no attribute 'OpenAIEmbeddings'",
+    "langchain.vectorstores:FAISS": "ModuleNotFoundError: No module named 'langchain.vectorstores'",
+    "langchain.text_splitter:RecursiveCharacterTextSplitter": "ModuleNotFoundError: No module named 'langchain.text_splitter'",
+    "langchain.agents:AgentExecutor": "AttributeError: module 'langchain.agents' has no attribute 'AgentExecutor'",
+    "langchain.agents:initialize_agent": "AttributeError: module 'langchain.agents' has no attribute 'initialize_agent'",
+    "langchain.memory:ConversationBufferMemory": "ModuleNotFoundError: No module named 'langchain.memory'",
+    "langchain.prompts:PromptTemplate": "ModuleNotFoundError: No module named 'langchain.prompts'",
+    "langchain.agents:create_agent": "ok"
+   },
+   "id": "langchain-legacy-imports",
+   "taught_pattern": "from langchain.llms / chains / chat_models / vectorstores / embeddings imports",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:08:04Z"
+  },
+  {
+   "status": "OK",
+   "observed": {
+    "create-react-app": {
+     "latest_version": "5.1.0",
+     "deprecated": null
+    },
+    "react-scripts": {
+     "latest_version": "5.0.1",
+     "deprecated": null
+    },
+    "node-sass": {
+     "latest_version": "9.0.0",
+     "deprecated": "Node Sass is no longer supported. Please use `sass` or `sass-embedded` instead."
+    },
+    "enzyme": {
+     "latest_version": "3.11.0",
+     "deprecated": null
+    },
+    "request": {
+     "latest_version": "2.88.2",
+     "deprecated": "request has been deprecated, see https://github.com/request/request/issues/3142"
+    },
+    "moment": {
+     "latest_version": "2.31.0",
+     "deprecated": null
+    },
+    "tslint": {
+     "latest_version": "6.1.3",
+     "deprecated": "TSLint has been deprecated in favor of ESLint. Please see https://github.com/palantir/tslint/issues/4534 for more information."
+    },
+    "protractor": {
+     "latest_version": "7.0.0",
+     "deprecated": "We have news to share - Protractor is deprecated and will reach end-of-life by Summer 2023. To learn more and find out about other options please refer to this post on the Angular blog. Thank you for using and contributing to Protractor. ht"
+    }
+   },
+   "node": "v22.22.0",
+   "id": "npm-deprecation-flags",
+   "taught_pattern": "tooling the legacy playbook may recommend",
+   "runtime": "npm-view",
+   "executed_utc": "2026-10-14T09:10:53Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "openai==3.31.0"
+   ],
+   "installed": {
+    "openai": "3.31.0"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "version": "3.31.0",
+    "ChatCompletion.create": "APIRemovedInV1: \n\nYou tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README",
+    "Completion.create": "APIRemovedInV1: \n\nYou tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at ",
+    "Embedding.create": "APIRemovedInV1: \n\nYou tried to access openai.Embedding, but this is no longer supported in openai>=1.0.0 - see the README at h",
+    "has_client_class": true
+   },
+   "id": "openai-legacy-module-api",
+   "taught_pattern": "openai.ChatCompletion.create(...) / openai.api_key = ...",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:10:20Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "pandas==3.0.6",
+    "numpy==2.5.4"
+   ],
+   "installed": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "DataFrame.append": false,
+    "Series.iteritems": false,
+    "DataFrame.applymap": false,
+    "warnings_on_chained_assignment": [
+     "ChainedAssignmentError"
+    ],
+    "chained_assignment_changed_frame": false,
+    "np.float_": false,
+    "np.bool8": false,
+    "np.product": false,
+    "np.cumproduct": false,
+    "np.in1d": false,
+    "np.row_stack": false,
+    "np.unicode_": false,
+    "np.string_": false,
+    "np.Inf": false,
+    "np.NaN": false
+   },
+   "id": "pandas-removed-apis",
+   "taught_pattern": "df.append, Series.iteritems, chained assignment, np.float_/np.bool8/np.product",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:08:47Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "paramiko==5.0.0"
+   ],
+   "installed": {
+    "paramiko": "5.0.0"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "version": "5.0.0",
+    "AutoAddPolicy": true,
+    "RejectPolicy": true,
+    "DSSKey": false
+   },
+   "id": "paramiko-host-key-policy",
+   "taught_pattern": "set_missing_host_key_policy(AutoAddPolicy()); DSSKey",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:09:32Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "pydantic==2.14.1"
+   ],
+   "installed": {
+    "pydantic": "2.14.1"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "version": "2.14.1",
+    "lax_string_to_int": "5",
+    "lax_float_with_fraction_to_int": "rejected",
+    "extra_field_ignored_by_default": true,
+    "strict_string_to_int": "int_type",
+    "missing_field_error": {
+     "type": "missing",
+     "loc": [
+      "price_cents"
+     ]
+    },
+    "bool_to_int_in_lax_mode": "1",
+    "forbid_extra_error_type": "extra_forbidden"
+   },
+   "id": "pydantic-lax-and-strict-validation",
+   "taught_pattern": "validating decoded JSON with a model: coercion, missing fields, extra fields",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T15:15:55Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "pydantic==2.14.1"
+   ],
+   "installed": {
+    "pydantic": "2.14.1"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "version": "2.14.1",
+    "warnings": [
+     "PydanticDeprecatedSince20",
+     "UserWarning"
+    ],
+    "validator_import": "present (deprecated)"
+   },
+   "id": "pydantic-v1-style-api",
+   "taught_pattern": "@validator, class Config, .dict(), .json(), parse_obj",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:08:26Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "pyjwt==2.15.1"
+   ],
+   "installed": {
+    "pyjwt": "2.15.1"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "version": "2.15.1",
+    "encode_returns": "str",
+    "decode_without_algorithms": "DecodeError: It is required that you pass in a value for the \"algorithms\" argument when calling decode()."
+   },
+   "id": "pyjwt-decode-algorithms",
+   "taught_pattern": "jwt.decode(token, key) without algorithms; HS256 shared secret in source",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:09:06Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "pytest==9.1.1"
+   ],
+   "installed": {
+    "pytest": "9.1.1"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "version": "9.1.1",
+    "has_yield_fixture": true,
+    "has_fixture": true,
+    "has_importorskip": true,
+    "warns_none": "TypeError: exceptions must be derived from Warning, not <class 'NoneType'>"
+   },
+   "id": "pytest-removed-apis",
+   "taught_pattern": "@pytest.yield_fixture, pytest.warns(None), nose-style setup",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:08:17Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "pyyaml"
+   ],
+   "installed": {
+    "pyyaml": "6.0.3"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "version": "6.0.3",
+    "yaml.load_no_loader": "TypeError: load() missing 1 required positional argument: 'Loader'"
+   },
+   "id": "pyyaml-unsafe-load",
+   "taught_pattern": "yaml.load(f) without Loader",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:09:03Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "react@19.3.0",
+    "react-dom"
+   ],
+   "node": "v22.22.0",
+   "observed": {
+    "react": "19.3.0",
+    "ReactDOM.render": "undefined",
+    "ReactDOM.hydrate": "undefined",
+    "ReactDOM.unmountComponentAtNode": "undefined",
+    "react-dom/client createRoot": "function",
+    "React.createClass": "undefined",
+    "PropTypes_in_react": "undefined"
+   },
+   "id": "react-dom-legacy-render",
+   "taught_pattern": "ReactDOM.render(<App/>, root); componentWillMount",
+   "runtime": "node",
+   "executed_utc": "2026-10-14T09:10:30Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "selenium==4.51.0"
+   ],
+   "installed": {
+    "selenium": "4.51.0"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "has_find_element_by_id": false,
+    "has_find_elements_by_xpath": false,
+    "chrome_init_params": [
+     "self",
+     "options",
+     "service",
+     "keep_alive"
+    ]
+   },
+   "id": "selenium-python-legacy-locators",
+   "taught_pattern": "driver.find_element_by_id(...) / webdriver.Chrome(executable_path=...)",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:07:30Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "setuptools==84.0.0"
+   ],
+   "observed": {
+    "sdist": {
+     "exit": 0,
+     "last_lines": [
+      "Creating tar archive",
+      "removing 'demo-0.1' (and everything under it)",
+      "warning: sdist: standard file not found: should have one of README, README.rst, README.txt, README.md"
+     ]
+    },
+    "bdist_wheel": {
+     "exit": 0,
+     "last_lines": [
+      "",
+      "!!",
+      "  self.initialize_options()"
+     ]
+    },
+    "install": {
+     "exit": 0,
+     "last_lines": [
+      "",
+      "!!",
+      "  self.initialize_options()"
+     ]
+    },
+    "test": {
+     "exit": 1,
+     "last_lines": [
+      "   or: setup.py cmd --help",
+      "",
+      "error: invalid command 'test'"
+     ]
+    },
+    "setuptools_version": "84.0.0"
+   },
+   "python": "3.13.16",
+   "id": "setuptools-setup-py-commands",
+   "taught_pattern": "python setup.py install / sdist / bdist_wheel / test",
+   "runtime": "setuptools",
+   "executed_utc": "2026-10-14T09:11:06Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "sqlalchemy==2.1.4"
+   ],
+   "installed": {
+    "sqlalchemy": "2.1.4"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "version": "2.1.4",
+    "engine_execute": false,
+    "ext_declarative_base": "works",
+    "warnings": [
+     "MovedIn20Warning"
+    ],
+    "text_query": 1,
+    "raw_string_execute": "ObjectNotExecutableError"
+   },
+   "id": "sqlalchemy-legacy-execute",
+   "taught_pattern": "engine.execute(...); from sqlalchemy.ext.declarative import declarative_base",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T09:08:40Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
+    "typescript@7.0.2"
+   ],
+   "tsc_version": "Version 7.0.2",
+   "type_error_detected": true,
+   "message": "a.ts(1,7): error TS2322: Type 'string' is not assignable to type 'number'.",
+   "id": "typescript-native-compiler",
+   "taught_pattern": "tsc version and flags",
+   "runtime": "tsc",
+   "executed_utc": "2026-10-14T09:10:40Z"
+  }
+ ]
+}

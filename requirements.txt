@@ -1,8 +1,9 @@
 # Validation / audit toolchain for CDB-TRAININGS (all free / open source).
 # Pinned to exact versions that were verified in this repo's QA runs.
+# The Python Engineering lab toolchain (pytest, PyYAML, PyJWT, ruff, build, setuptools, wheel) is pinned in the included file.
+-r courses/python-engineering/labs/requirements.txt
 pypdf==6.17.0
-PyYAML==6.0.3
 jsonschema==4.26.0
-pytest==8.4.2
 javalang==0.13.0
 pysigma==2.0.1
+# Optional, not required by the tests: `uv` supplies CPython 3.14 and 3.15 for scripts/validation/run_lab_matrix.py (uv python install 3.14 3.15).

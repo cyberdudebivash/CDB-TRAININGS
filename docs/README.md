@@ -27,10 +27,35 @@ The mission directive named seventeen deliverables. This index maps each to its 
 | Topic | File |
 |---|---|
 | Release states and the eight gates | [`release/RELEASE_GATES.md`](release/RELEASE_GATES.md) |
-| Findings register (65 findings, single source of truth) | [`audits/data/findings.yaml`](audits/data/findings.yaml) |
+| Findings register (66 findings, single source of truth) | [`audits/data/findings.yaml`](audits/data/findings.yaml) |
 | Scores and strengths | [`audits/data/scores.yaml`](audits/data/scores.yaml) |
 | Per-course audits | [`audits/courses/`](audits/courses/) |
 | Forensic method and its limits | [`audits/SOURCE_FORENSICS_METHOD.md`](audits/SOURCE_FORENSICS_METHOD.md) |
 | Primary-source research register | [`research/RESEARCH_REGISTER.md`](research/RESEARCH_REGISTER.md) |
 | Course catalog / pathways data | [`../catalog/courses.yaml`](../catalog/courses.yaml), [`../catalog/learning-pathways.yaml`](../catalog/learning-pathways.yaml) |
 | Licence position | [`../LICENSE-STATUS.md`](../LICENSE-STATUS.md) |
+
+## October 2026 modernization artifacts
+
+The October 2026 directive named sixteen artifacts plus supporting evidence. Generated files are never edited by hand; every generator has a `--check` mode used by `scripts/validation/run_qa.py`.
+
+| # | Artifact | File | Kind | Regenerate with |
+|---:|---|---|---|---|
+| 1 | Complete PDF audit | [`audits/OCT2026_COMPLETE_PDF_AUDIT.md`](audits/OCT2026_COMPLETE_PDF_AUDIT.md) | generated | `scripts/audit/render_audit_docs.py` |
+| 2 | 2025 to 2026 modernization matrix | [`audits/2025_TO_2026_MODERNIZATION_MATRIX.md`](audits/2025_TO_2026_MODERNIZATION_MATRIX.md) (per-course logs in [`audits/modernization/`](audits/modernization/)) | generated | `render_audit_docs.py` |
+| 3 | Technology baselines | [`research/TECHNOLOGY_BASELINES_2026.md`](research/TECHNOLOGY_BASELINES_2026.md) | generated | `scripts/research/render_research_docs.py` |
+| 4 | Research verification | [`research/RESEARCH_VERIFICATION_2026.md`](research/RESEARCH_VERIFICATION_2026.md) | generated | `render_research_docs.py` |
+| 5 | New developments | [`research/NEW_DEVELOPMENTS_2026.md`](research/NEW_DEVELOPMENTS_2026.md) | generated | `render_research_docs.py` |
+| 6 | Master skill pathways | [`curriculum/MASTER_SKILL_PATHWAYS_2026.md`](curriculum/MASTER_SKILL_PATHWAYS_2026.md) | generated | `scripts/build/render_curriculum_2026.py` |
+| 7 | Competency outcomes | [`curriculum/COMPETENCY_OUTCOMES_2026.md`](curriculum/COMPETENCY_OUTCOMES_2026.md) | generated | `render_curriculum_2026.py` |
+| 8 | All-courses QA report | [`qa/ALL_COURSES_QA_REPORT.md`](qa/ALL_COURSES_QA_REPORT.md) | generated | `scripts/build/render_readiness_2026.py` |
+| 9 | Lab execution evidence | [`qa/LAB_EXECUTION_EVIDENCE.md`](qa/LAB_EXECUTION_EVIDENCE.md) | generated from a recorded run | `scripts/validation/run_lab_matrix.py`, `render_lab_evidence.py` |
+| 10 | Course source traceability | [`audits/COURSE_SOURCE_TRACEABILITY.md`](audits/COURSE_SOURCE_TRACEABILITY.md) | generated | `render_audit_docs.py` |
+| 11 | Premium course catalog (status of planned editions) | [`commercial/PREMIUM_COURSE_CATALOG_2026.md`](commercial/PREMIUM_COURSE_CATALOG_2026.md) | generated | `render_readiness_2026.py` |
+| 12 | Pricing and positioning research | [`commercial/PRICING_AND_POSITIONING_RESEARCH.md`](commercial/PRICING_AND_POSITIONING_RESEARCH.md) | hand-written, sourced | - |
+| 13 | October 2026 production readiness | [`release/OCT2026_PRODUCTION_READINESS.md`](release/OCT2026_PRODUCTION_READINESS.md) | generated | `render_readiness_2026.py` |
+| 14 | October 24 final refresh checklist | [`release/OCT24_FINAL_REFRESH_CHECKLIST.md`](release/OCT24_FINAL_REFRESH_CHECKLIST.md) | generated | `render_readiness_2026.py` |
+| 15 | Modernization progress | [`ops/MODERNIZATION_PROGRESS.md`](ops/MODERNIZATION_PROGRESS.md) | generated | `render_readiness_2026.py` |
+| 16 | Next execution handoff | [`ops/NEXT_EXECUTION_HANDOFF.md`](ops/NEXT_EXECUTION_HANDOFF.md) | hand-written | - |
+
+Supporting: [`ops/CONTINUOUS_MAINTENANCE_DESIGN.md`](ops/CONTINUOUS_MAINTENANCE_DESIGN.md) (design only, nothing enabled), [`research/technology_registry.yaml`](research/technology_registry.yaml), [`research/research_register.yaml`](research/research_register.yaml), [`research/deprecation_rules.yaml`](research/deprecation_rules.yaml), [`research/new_developments.yaml`](research/new_developments.yaml), [`audits/data/modernization_changes.yaml`](audits/data/modernization_changes.yaml), the page records in [`audits/data/page_records/`](audits/data/page_records/) and the built module packs in [`../courses/python-engineering/`](../courses/python-engineering/).

@@ -1,0 +1,35 @@
+# Knowledge check for PY-M02. Questions only: the answer key is held by instructors (see courses/python-engineering/instructor/README.md).
+module: PY-M02
+items:
+  - id: Q1
+    outcome: LO1
+    stem: "A file test_totals.py contains `def check_total(): assert total([1, 2]) == 3`. pytest reports that no tests ran. Why?"
+    options: {A: "assert statements are not allowed inside pytest functions", B: "the function must be decorated with @pytest.mark.test", C: "pytest only collects functions whose names start with test", D: "pytest needs the function to be inside a class"}
+  - id: Q2
+    outcome: LO1
+    stem: "For `assert parcel_fee(3) == 600` pytest reports `assert 700 == 600`. What does this tell you?"
+    options: {A: "parcel_fee(3) returned 700 while the test expected 600; the contract decides which of the two is wrong", B: "The test is wrong, because pytest always shows the expected value first", C: "parcel_fee(3) raised an exception that pytest converted to 700", D: "The assertion passed with a warning"}
+  - id: Q3
+    outcome: LO2
+    stem: "A function accepts integers from 1 to 5 inclusive and rejects everything else. Which set of inputs best tests its boundaries?"
+    options: {A: "1, 2, 3, 4, 5", B: "0, 1, 5, 6", C: "3", D: "0 and 6 only"}
+  - id: Q4
+    outcome: LO2
+    stem: "A parametrised test has ten rows and three of them fail (pytest is run without -x). How does pytest report this?"
+    options: {A: "One failure for the whole test function", B: "It stops at the first failing row and reports only that one", C: "It skips the remaining rows silently", D: "Seven passed and three failed, each row reported separately"}
+  - id: Q5
+    outcome: LO3
+    stem: "Why should you write `pytest.raises(ValueError, match=\"positive whole number\")` instead of `pytest.raises(ValueError)` alone?"
+    options: {A: "Because pytest 9 refuses a raises block without match", B: "To make the traceback shorter", C: "So that the test fails when a ValueError comes from an unrelated defect with a different message", D: "To make the test run faster"}
+  - id: Q6
+    outcome: LO4
+    stem: "`def log(msg, lines=[]): lines.append(msg); return lines`. The first call `log('a')` returns ['a']. What does a later call `log('b')` return?"
+    options: {A: "['b']", B: "['a', 'b']", C: "['a']", D: "It raises TypeError"}
+  - id: Q7
+    outcome: LO4
+    stem: "Which test reliably detects the shared-state defect in `def add_tag(tag, tags=[])`?"
+    options: {A: "Call add_tag once and check the result", B: "Call add_tag with an explicit list and check it", C: "Check that the function has a docstring", D: "Call add_tag twice without passing tags and check that the second result contains only the second tag"}
+  - id: Q8
+    outcome: LO5
+    stem: "Your suite passes on the correct module, and it also passes after a mutation changes `>=` to `>` in one branch. What does this show?"
+    options: {A: "The mutated module is also correct", B: "Your tests do not check the behaviour at that boundary", C: "pytest is not collecting your tests", D: "Mutation checks only work on modules without branches"}

@@ -1,0 +1,26 @@
+# Source-to-new-content trace for PY-M02. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower).
+source: SRC-PY-HANDBOOK
+module: PY-M02
+mappings:
+  - source_pages: [80, 81]
+    source_topic: "Built-in exceptions; try / except / else / finally"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 3; lab-guided mutant M3"
+    note: "The mechanism is kept; the new lesson adds the failure mode the pages do not teach (a broad except that returns a default hides defects) and tests it."
+  - source_pages: [88]
+    source_topic: "pytest: a five-line introduction (install, create a file, one assert, run)"
+    disposition: REPLACED
+    new_content: "lesson.md sections 4-8; lab-guided; lab-independent"
+    note: "Finding F-PYH-004: no chapter teaches test design. Replaced by a tested lesson, a mutation-graded guided lab and an independent lab."
+  - source_pages: [212, 308]
+    source_topic: "'What does this print?' snippets that show a mutable default argument (def f(x=[])) with no explanation"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 7; lab-guided mutant M1; quiz Q6 and Q7"
+    note: "The trap is explained, executed in a lesson block and turned into a test that detects it."
+  - source_pages: [645, 646, 647, 648, 649, 650]
+    source_topic: "'Certification exam' question lists without answers or rubrics"
+    disposition: REPLACED
+    new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
+    note: "Finding F-PYH-007: recall questions replaced by outcome-mapped items and a rubric-graded independent lab with automated mutant detection."

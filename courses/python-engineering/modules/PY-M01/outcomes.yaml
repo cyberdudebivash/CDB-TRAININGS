@@ -1,0 +1,39 @@
+# Outcome traceability for PY-M01: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M01
+outcomes:
+  - id: LO1
+    verb: run
+    statement: "Run Python from the interpreter and from a file, read a traceback, and say which Python version and interpreter you are using."
+    instruction: ["lesson.md#2-running-python-and-reading-what-it-tells-you-lo1", "lesson.md#7-python-in-2026-which-version-and-what-you-will-see-in-code-lo1"]
+    practice: ["lab-guided/README.md#step-a---read-a-failure-and-name-your-python-lo1", "lab-independent/README.md"]
+    assessment: ["quiz:Q1", "quiz:Q2", "rubric:C5"]
+    rubric: [C5]
+  - id: LO2
+    verb: choose
+    statement: "Choose between str, list, tuple, dict and set for a task and use their core operations (indexing, slicing, unpacking, membership, comprehensions, sorting)."
+    instruction: ["lesson.md#3-values-types-and-the-traps-in-numbers-lo2", "lesson.md#4-collections-choose-the-right-one-lo2", "lesson.md#text-tools-you-will-use-in-the-labs"]
+    practice: ["lab-guided/README.md#step-b---word_frequencies-lo2-lo3", "lab-guided/README.md#step-c---chunk-and-group_by_length-lo2-lo3", "lab-guided/README.md#step-e---summarise_scores-lo2-lo3"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:hidden-suite-threshold", "rubric:C2"]
+    rubric: [C2]
+  - id: LO3
+    verb: write
+    statement: "Use conditions, loops, match and early returns to write small functions that always return the same output for the same input."
+    instruction: ["lesson.md#5-control-flow-and-small-functions-lo3"]
+    practice: ["lab-guided/README.md#step-b---word_frequencies-lo2-lo3", "lab-guided/README.md#step-d---parse_kv_lines-lo3-lo4", "lab-independent/README.md"]
+    assessment: ["quiz:Q5", "quiz:Q6", "lab-check:published-examples-pass", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C2", "rubric:C3"]
+    rubric: [C1, C2, C3]
+  - id: LO4
+    verb: read
+    statement: "Read and write text files safely with an explicit encoding, pathlib and the json and csv modules."
+    instruction: ["lesson.md#6-text-and-files-lo4", "lesson.md#files-and-encodings"]
+    practice: ["lab-guided/README.md#step-d---parse_kv_lines-lo3-lo4", "lab-guided/README.md#step-f---summarise_file-lo4", "lab-independent/README.md"]
+    assessment: ["quiz:Q7", "lab-check:guided-file-checks", "rubric:C4"]
+    rubric: [C4]
+  - id: LO5
+    verb: implement
+    statement: "Implement a function from a written specification so that provided unit tests pass, working one failing test at a time."
+    instruction: ["lesson.md#8-from-specification-to-passing-tests-lo5"]
+    practice: ["lab-guided/README.md#finish", "lab-independent/README.md"]
+    assessment: ["quiz:Q8", "lab-check:published-examples-pass", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C2", "rubric:C5"]
+    rubric: [C1, C2, C5]

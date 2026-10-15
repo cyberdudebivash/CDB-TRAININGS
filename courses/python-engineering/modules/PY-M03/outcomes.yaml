@@ -1,0 +1,39 @@
+# Outcome traceability for PY-M03: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M03
+outcomes:
+  - id: LO1
+    verb: annotate
+    statement: "Annotate functions and data with current type syntax and explain what annotations do and do not do at run time."
+    instruction: ["lesson.md#2-annotations-are-metadata-not-enforcement-lo1", "lesson.md#3-types-that-say-something-lo1"]
+    practice: ["lab-guided/README.md#step-a---run-the-script-and-its-tests-lo1", "lab-independent/README.md"]
+    assessment: ["quiz:Q1", "quiz:Q2", "lab-check:strict-mypy-clean", "rubric:C1", "rubric:C6"]
+    rubric: [C1, C6]
+  - id: LO2
+    verb: run
+    statement: "Run a static type checker in strict mode, read its errors and fix the cause instead of silencing it."
+    instruction: ["lesson.md#4-reading-what-the-checker-says-lo2", "lesson.md#5-model-the-data-accurately-lo2"]
+    practice: ["lab-guided/README.md#step-b---what-default-mypy-tells-you-lo2", "lab-guided/README.md#step-c---annotate-under-strict-mode-lo2", "lab-independent/README.md"]
+    assessment: ["quiz:Q3", "quiz:Q4", "quiz:Q5", "lab-check:errors-fixed-not-silenced", "rubric:C1", "rubric:C3", "rubric:C5"]
+    rubric: [C1, C3, C5]
+  - id: LO3
+    verb: split
+    statement: "Split a script into modules with a small public interface and no circular imports."
+    instruction: ["lesson.md#6-from-script-to-package-lo3"]
+    practice: ["lab-guided/README.md#step-d---model-the-data-and-build-the-package-lo3", "lab-independent/README.md"]
+    assessment: ["quiz:Q6", "quiz:Q7", "lab-check:no-circular-imports", "lab-check:behaviour-matches-specification", "rubric:C2", "rubric:C3", "rubric:C5"]
+    rubric: [C2, C3, C5]
+  - id: LO4
+    verb: choose
+    statement: "Choose between a src layout and a flat layout and explain how each changes what your tests import."
+    instruction: ["lesson.md#7-layout-src-or-flat-lo4"]
+    practice: ["lab-guided/README.md#step-e---layout-tests-and-one-command-lo4-lo5", "lab-independent/README.md"]
+    assessment: ["quiz:Q8", "lab-check:package-layout", "rubric:C2", "rubric:C4"]
+    rubric: [C2, C4]
+  - id: LO5
+    verb: run
+    statement: "Run the type check and the tests together as one command and keep both green."
+    instruction: ["lesson.md#8-one-command-for-both-checks-lo5"]
+    practice: ["lab-guided/README.md#step-e---layout-tests-and-one-command-lo4-lo5", "lab-independent/README.md"]
+    assessment: ["lab-check:strict-mypy-clean", "lab-check:tests-pass-outside-the-package", "rubric:C4", "rubric:C6"]
+    rubric: [C4, C6]

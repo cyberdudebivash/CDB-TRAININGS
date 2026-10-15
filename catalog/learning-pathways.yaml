@@ -35,7 +35,7 @@ pathways:
       - {course: COURSE-FND-DIGITAL}
       - {course: COURSE-PY-ENG, modules: [PY-M01, PY-M02], note: "Python needed for the detection and triage labs"}
       - {course: COURSE-SOC}
-    capstone_module: SOC-M12
+    capstone_module: SOC-M14
   - id: PATH-DETECTION-ENGINEER
     title: "Detection engineer"
     audience: "SOC analysts moving to detection engineering"
@@ -51,7 +51,7 @@ pathways:
     steps:
       - {course: COURSE-FND-DIGITAL}
       - {course: COURSE-PY-ENG}
-    capstone_module: PY-M10
+    capstone_module: PY-M11
   - id: PATH-AUTOMATION-ENGINEER
     title: "Automation engineer (Python)"
     audience: "Operations, QA and security staff automating repeatable work"
@@ -59,7 +59,7 @@ pathways:
       - {course: COURSE-FND-DIGITAL}
       - {course: COURSE-PY-ENG, modules: [PY-M01, PY-M02, PY-M03, PY-M04, PY-M05]}
       - {course: COURSE-PY-AUTO}
-    capstone_module: PA-M09
+    capstone_module: PA-M10
   - id: PATH-TEST-AUTOMATION-JAVA
     title: "Test automation engineer (Java)"
     audience: "Manual testers and Java developers moving into test automation"
@@ -74,14 +74,14 @@ pathways:
       - {course: COURSE-FND-DIGITAL}
       - {course: COURSE-PY-ENG}
       - {course: COURSE-AI-ENG}
-    capstone_module: AI-M10
+    capstone_module: AI-M12
   - id: PATH-AI-SECURITY
     title: "AI security practitioner"
     audience: "Security staff assessing AI-enabled systems"
     steps:
       - {course: COURSE-FND-DIGITAL}
       - {course: COURSE-PY-ENG, modules: [PY-M01, PY-M02, PY-M05, PY-M07]}
-      - {course: COURSE-AI-ENG, modules: [AI-M01, AI-M02, AI-M03, AI-M05, AI-M07, AI-M08, AI-M09]}
+      - {course: COURSE-AI-ENG, modules: [AI-M01, AI-M02, AI-M03, AI-M05, AI-M07, AI-M08, AI-M09, AI-M10]}
       - {course: COURSE-CYBER-MEGA, modules: [CYB-M13]}
     capstone_module: AI-M07
   - id: PATH-DATA-ENGINEER-GCP
@@ -91,7 +91,7 @@ pathways:
       - {course: COURSE-FND-DIGITAL}
       - {course: COURSE-PY-ENG, modules: [PY-M01, PY-M02, PY-M03, PY-M05, PY-M08]}
       - {course: COURSE-GCP-DE}
-    capstone_module: GCP-M10
+    capstone_module: GCP-M11
   - id: PATH-FRONTEND-ENGINEER
     title: "Frontend engineer"
     audience: "New frontend engineers and backend developers moving to frontend"
@@ -105,7 +105,7 @@ pathways:
     steps:
       - {course: COURSE-FND-DIGITAL}
       - {course: COURSE-OSINT}
-    capstone_module: OSINT-M10
+    capstone_module: OSINT-M12
   - id: PATH-SECURITY-GENERALIST
     title: "Cybersecurity generalist"
     audience: "Learners choosing a specialism or building a broad security base"

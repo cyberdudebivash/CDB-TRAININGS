@@ -90,6 +90,36 @@ def check_audit_render_is_current() -> dict:
     return {"id": "audit-render", "title": "Audit documents reproducible from findings/scores data", "status": status, "detail": detail}
 
 
+def _script_check(check_id: str, title: str, cmd: list[str], ok_detail: str) -> dict:
+    code, out = run([PY, *cmd])
+    last = out.strip().splitlines()[-1] if out.strip() else ""
+    return {"id": check_id, "title": title, "status": "PASS" if code == 0 else "FAIL", "detail": ok_detail if code == 0 else (last or "failed")}
+
+
+def check_modernization_evidence(include_page_rebuild: bool = True) -> list[dict]:
+    """October 2026 evidence chain: references resolve, generated documents and page records reproduce from their inputs."""
+    out = [
+        _script_check("modernization-data", "Modernization, new-development and rule data: every F-/R-/probe/snapshot/module reference resolves",
+                      ["scripts/audit/validate_modernization_data.py"], "all evidence references resolve"),
+        _script_check("audit-docs-render", "Generated audit documents (complete audit, traceability, matrix, per-course logs) reproduce from data",
+                      ["scripts/audit/render_audit_docs.py", "--check"], "documents match the data"),
+        _script_check("curriculum-docs-render", "Generated curriculum documents (skill pathways, competency outcomes) reproduce from the catalog",
+                      ["scripts/build/render_curriculum_2026.py", "--check"], "documents match the catalog"),
+        _script_check("readiness-docs-render", "Generated readiness, premium-catalog, Stage B checklist and QA documents reproduce from data",
+                      ["scripts/build/render_readiness_2026.py", "--check"], "documents match the data"),
+        _script_check("lab-evidence-render", "Lab execution evidence report reproduces from its recorded JSON",
+                      ["scripts/validation/render_lab_evidence.py", "--check"], "report matches the recorded run"),
+        _script_check("module-assets-render", "Generated quiz files (questions only) reproduce from quiz.yaml",
+                      ["scripts/build/render_module_assets.py", "--check"], "quiz files match"),
+        _script_check("research-docs-render", "Generated research documents (baselines, verification, new developments) reproduce from data",
+                      ["scripts/research/render_research_docs.py", "--check"], "documents match the data"),
+    ]
+    if include_page_rebuild:
+        out.append(_script_check("page-records-rebuild", "Page records (8,186 pages) reproduce from the source PDFs, rules and mapping",
+                                 ["scripts/audit/build_page_records.py", "--check"], "committed page records equal a fresh rebuild"))
+    return out
+
+
 def run_pytest() -> tuple[dict, list[dict]]:
     with tempfile.TemporaryDirectory() as td:
         xml_path = Path(td) / "junit.xml"
@@ -304,10 +334,12 @@ def render_reports(results: list[dict], head: str, branch: str, now: str, privat
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--skip-build", action="store_true", help="skip the (slow) student-edition build")
+    ap.add_argument("--skip-page-rebuild", action="store_true", help="skip the (about 70 s) page-record rebuild comparison")
     ap.add_argument("--no-report", action="store_true", help="run checks but do not write reports")
     a = ap.parse_args()
 
     results: list[dict] = [check_catalog(), check_contrast(), check_audit_render_is_current()]
+    results += check_modernization_evidence(include_page_rebuild=not a.skip_page_rebuild)
     py_res, _ = run_pytest()
     results.append(py_res)
     results += check_lab_end_to_end()

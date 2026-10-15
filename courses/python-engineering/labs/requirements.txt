@@ -1,0 +1,13 @@
+# Lab toolchain for the Python Engineering modules (all free / open source).
+# Exact versions that were executed in docs/qa/LAB_EXECUTION_EVIDENCE.md; newer versions are expected to work but are not claimed.
+pytest==9.1.1
+mypy==2.4.0
+PyYAML==6.0.3
+PyJWT==2.15.1
+ruff==0.17.0
+build==1.6.1
+setuptools==84.0.0
+wheel==0.48.0
+requests==2.34.2
+httpx==0.28.1
+pydantic==2.14.1
