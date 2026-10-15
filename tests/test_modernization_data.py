@@ -122,7 +122,7 @@ def test_no_course_is_recommended_for_production_go(data):
         assert m["fields"]["human_approval"]["status"] != "MET", "human approval can only be recorded by a person, outside the automation"
         assert m["unmet"], cid
     text = (ROOT / "docs/release/OCT2026_PRODUCTION_READINESS.md").read_text(encoding="utf-8")
-    assert "PRODUCTION_GO is not recommended for any course" in text
+    assert "TRAINING_CONTENT_GO is not recommended for any course" in text
     premium = (ROOT / "docs/commercial/PREMIUM_COURSE_CATALOG_2026.md").read_text(encoding="utf-8")
     assert "No edition may be titled" in premium
 

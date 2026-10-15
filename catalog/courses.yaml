@@ -3,7 +3,7 @@
 #
 # Conventions
 #   * estimated_duration_hours / estimated_hours are PLANNING ESTIMATES, not measured learner times.
-#   * release_status uses the six gates from docs/release/RELEASE_GATES.md. No course is PRODUCTION_GO.
+#   * release_status uses the Gate A states from docs/release/RELEASE_GATES.md. TRAINING_CONTENT_GO is computed by scripts/production/gate_a.py and no course has it; commercial and Academy readiness are separate, unassessed gates.
 #   * lifecycle says how far the replacement content has progressed; release_status says whether it may ship.
 #   * lab_coverage.verified_executable counts only labs whose automated check passed in the recorded QA run.
 #   * blocking_findings must list EVERY P0/P1 finding against the course's sources until the course is fully rebuilt (lifecycle VALIDATED);

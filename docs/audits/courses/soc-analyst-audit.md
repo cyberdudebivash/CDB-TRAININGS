@@ -211,6 +211,6 @@ Zero matches are a definitive gap; a match only shows a term is mentioned, not t
 ## 7. Release blockers and disposition
 
 - Blocking findings recorded in the catalog: F-SOC-001, F-SOC-004, F-SOC-005, F-SOC-009, F-SOC-010.
-- Release status: `REENGINEERING`. A course cannot reach `PRODUCTION_GO` until all 15 gates in `docs/release/RELEASE_GATES.md` pass; this one fails most of them (see `docs/release/PRODUCTION_GO_GATE_REPORT.md`).
+- Release status: `REENGINEERING`. A course cannot reach `TRAINING_CONTENT_GO` until Gate A in `docs/release/RELEASE_GATES.md` is computed as met; this one fails most of its criteria (see `docs/production/TRAINING_CONTENT_GO_REPORT.md`).
 - Notes: Pilot course. Only module SOC-M04 is built; it replaces the playbook's rule example (F-SOC-004) with a validated lab. Its two labs pass the automated QA run (docs/release/AUTOMATED_QA_REPORT.md); the independent-lab result depends on the git-ignored instructor pack and is not reproducible from a public clone. SME review and a learner pilot are outstanding, so qa_status stays PARTIAL.
 - Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.

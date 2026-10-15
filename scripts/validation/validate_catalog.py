@@ -203,14 +203,14 @@ def validate() -> list[str]:
         for m in mods:
             for r in m.get("reuses", []):
                 check(errors, any(r == mm["id"] for cc in courses for mm in cc["modules"]), f"{m['id']}: reuses unknown module {r}")
-        # Hard gate: PRODUCTION_GO cannot be asserted by editing one field.
-        if c["release_status"] == "PRODUCTION_GO":
-            check(errors, c["review_status"] == "SME_REVIEWED", f"{cid}: PRODUCTION_GO requires SME_REVIEWED")
-            check(errors, c["qa_status"] == "PASSING", f"{cid}: PRODUCTION_GO requires qa_status PASSING")
-            check(errors, c["lab_coverage"]["verified_executable"] == c["lab_coverage"]["planned"], f"{cid}: PRODUCTION_GO requires all labs verified")
-            check(errors, ac["outcomes_assessed"] == ac["outcomes_total"], f"{cid}: PRODUCTION_GO requires every outcome assessed")
-            check(errors, not c.get("blocking_findings"), f"{cid}: PRODUCTION_GO requires no blocking findings")
-            check(errors, c["owner"] != "UNASSIGNED" and c["reviewers"], f"{cid}: PRODUCTION_GO requires a named owner and reviewers")
+        # Hard gate: TRAINING_CONTENT_GO cannot be asserted by editing one field (scripts/validation/validate_gate_a.py recomputes it from evidence).
+        if c["release_status"] == "TRAINING_CONTENT_GO":
+            check(errors, c["review_status"] == "SME_REVIEWED", f"{cid}: TRAINING_CONTENT_GO requires SME_REVIEWED")
+            check(errors, c["qa_status"] == "PASSING", f"{cid}: TRAINING_CONTENT_GO requires qa_status PASSING")
+            check(errors, c["lab_coverage"]["verified_executable"] == c["lab_coverage"]["planned"], f"{cid}: TRAINING_CONTENT_GO requires all labs verified")
+            check(errors, ac["outcomes_assessed"] == ac["outcomes_total"], f"{cid}: TRAINING_CONTENT_GO requires every outcome assessed")
+            check(errors, not c.get("blocking_findings"), f"{cid}: TRAINING_CONTENT_GO requires no blocking findings")
+            check(errors, c["owner"] != "UNASSIGNED" and c["reviewers"], f"{cid}: TRAINING_CONTENT_GO requires a named owner and reviewers")
         # Every P0/P1 finding against the course's sources blocks the course until the course is fully rebuilt:
         # a fix inside one pilot module does not clear a finding for the whole course.
         if c["lifecycle"] != "VALIDATED":

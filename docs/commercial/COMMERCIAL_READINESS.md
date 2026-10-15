@@ -2,7 +2,7 @@
 
 Scope: what stands between the current repository state and a defensible commercial release, and which commercial assumptions are still untested. This is an engineering readiness assessment, **not** market research and not a forecast. No pricing, revenue, conversion or demand numbers appear because none were measured.
 
-Evidence base: `docs/audits/COURSE_QUALITY_SCORECARD.md`, `docs/release/PRODUCTION_GO_GATE_REPORT.md`, `docs/audits/IP_AND_LICENSE_REVIEW.md`.
+Evidence base: `docs/audits/COURSE_QUALITY_SCORECARD.md`, `docs/production/TRAINING_CONTENT_GO_REPORT.md`, `docs/audits/IP_AND_LICENSE_REVIEW.md`.
 
 ## 1. Verdict
 
@@ -81,4 +81,4 @@ Collect only what is necessary; document retention and consent before collecting
 
 ## 7. Ecosystem integration (design intent, not implemented)
 
-The catalog is the single source of truth. A future generator could produce marketplace listings, website course pages and structured data from `catalog/courses.yaml`, so listings never drift from reality. That generator must read `release_status` and refuse to emit a listing for any course that is not `PRODUCTION_GO`. It is not built, and no external service has been contacted or modified.
+The catalog is the single source of truth. A future generator could produce marketplace listings, website course pages and structured data from `catalog/courses.yaml`, so listings never drift from reality. That generator must read `release_status` and refuse to emit a listing for any course that has not passed both `TRAINING_CONTENT_GO` (Gate A) and `COMMERCIAL_GO` (Gate B, not assessed in this phase). It is not built, and no external service has been contacted or modified.

@@ -1,0 +1,25 @@
+# Execution continuity: the work queue and the cycle log of the Gate A (TRAINING_CONTENT_GO) programme.
+# Hand-maintained by whoever executes a cycle (assistant or person). The rendered EXECUTION_CONTINUITY.md adds computed counts; nothing here is a completion claim.
+# status: DONE (verified by the named evidence) | IN_PROGRESS | NOT_STARTED | OWNER_ACTION (cannot proceed without a person)
+schema_version: 1
+as_of: 2026-10-15
+resume_with: |
+  1. git fetch origin; check out the working branch; read this file, docs/production/REMAINING_DEFECTS.md and docs/production/COURSE_COMPLETENESS_MATRIX.md.
+  2. Recompute the state: .venv/bin/python scripts/production/render_production_docs.py --check  (a failing check means data and documents have diverged; re-render and read the diff).
+  3. Take the first IN_PROGRESS or NOT_STARTED backlog item below and continue it. Never mark an item DONE without naming the command whose output proves it.
+  4. After any content change: re-run the lab matrix (scripts/validation/run_lab_matrix.py), then render_lab_evidence.py, then the full QA (scripts/validation/run_qa.py).
+backlog:
+  - {id: P0-A, title: "Confirm the baseline from HEAD, restart the branch from the merged default branch, push and open a new draft pull request", status: IN_PROGRESS, evidence: "baseline recomputed from files in COURSE_COMPLETENESS_MATRIX.md; the branch carries unpushed commits until the matrix evidence is committed"}
+  - {id: P0-B, title: "Privacy escalation D1: verify, contain in authored artifacts, guard against recurrence", status: OWNER_ACTION, evidence: "scripts/validation/check_privacy.py; tests/test_privacy_guard.py; INC-001 in incidents.yaml. The source file in the public tree and the Git history need the owner's decision"}
+  - {id: P0-C, title: "Independent Gate A readiness system (separate from commercial and Academy gates)", status: IN_PROGRESS, evidence: "scripts/production/gate_a.py; render_production_docs.py; validate_gate_a.py"}
+  - {id: P0-D, title: "Finish PY-M06 and record matrix evidence", status: IN_PROGRESS, evidence: "docs/qa/data/lab_execution_*.json"}
+  - {id: P0-E, title: "Close the object-oriented programming gap in Python Engineering (DEF-006)", status: NOT_STARTED, evidence: ""}
+  - {id: P0-F, title: "Remaining Python Engineering modules, capstone and complete course edition", status: NOT_STARTED, evidence: ""}
+  - {id: P0-G, title: "Digital Foundations pathway", status: NOT_STARTED, evidence: ""}
+  - {id: P0-H, title: "SOC Analyst pathway (remaining modules)", status: NOT_STARTED, evidence: ""}
+  - {id: P0-I, title: "Remaining seven course tracks", status: NOT_STARTED, evidence: ""}
+  - {id: P0-J, title: "Complete-course PDF factory and release integrity checks", status: NOT_STARTED, evidence: ""}
+  - {id: P0-K, title: "Full regression, currency re-check and zero-placeholder scan", status: NOT_STARTED, evidence: ""}
+  - {id: P0-L, title: "Human reviews (SME, editorial, learner pilot) and owner acceptance", status: OWNER_ACTION, evidence: "entries in human_reviews.yaml can only be made by the reviewers"}
+cycles:
+  - {id: C-01, date: 2026-10-15, summary: "Independent audit started: baseline recomputed, privacy exposure verified and scoped, personal-data guard added, Gate A computation engine written, PY-M06 built.", next: "Render the acceptance documents, wire the validator into QA, re-run the lab matrix with PY-M06, push on a new branch from the merged default branch and open a draft pull request."}

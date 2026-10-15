@@ -198,6 +198,6 @@ Security-pattern hits in code (each read in context): bare_except=10, debug_true
 ## 7. Release blockers and disposition
 
 - Blocking findings recorded in the catalog: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
-- Release status: `REENGINEERING`. A course cannot reach `PRODUCTION_GO` until all 15 gates in `docs/release/RELEASE_GATES.md` pass; this one fails most of them (see `docs/release/PRODUCTION_GO_GATE_REPORT.md`).
+- Release status: `REENGINEERING`. A course cannot reach `TRAINING_CONTENT_GO` until Gate A in `docs/release/RELEASE_GATES.md` is computed as met; this one fails most of its criteria (see `docs/production/TRAINING_CONTENT_GO_REPORT.md`).
 - Notes: Seven of eleven modules are built (PY-M01 to PY-M07) with fourteen labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are not yet covered by any module.
 - Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.

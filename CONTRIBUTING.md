@@ -9,7 +9,7 @@ This repository is the engineering source for CyberDudeBivash Academy courses. T
 3. **Everything is testable.** A lab needs an automated check; documentation examples that show output are asserted by a test.
 4. **No secrets, no personal data, no instructor material.** Hygiene tests fail the build. Answer keys and reference solutions go in the private instructor pack (`courses/*/instructor/`, git-ignored).
 5. **No unsupported claims.** No job, salary, ranking or certification-pass promises. State what is assessed.
-6. **Do not mark anything releasable by hand.** `release_status`, `qa_status` and lab states are updated from evidence (`scripts/validation/run_qa.py`). `PRODUCTION_GO` is rejected by the validator unless every gate has evidence.
+6. **Do not mark anything releasable by hand.** `release_status`, `qa_status` and lab states are updated from evidence (`scripts/validation/run_qa.py`). `TRAINING_CONTENT_GO` is computed by `scripts/production/gate_a.py` and the validator (`scripts/validation/validate_gate_a.py`) rejects any claim, status or review that exceeds the evidence. Human reviews are entered only by the people who give them.
 7. **Safe by default.** Offensive techniques only in isolated, authorised, synthetic labs. Cloud labs need cost estimate, opt-in, teardown and a free local alternative.
 8. **Do not force-push or rewrite shared history.**
 

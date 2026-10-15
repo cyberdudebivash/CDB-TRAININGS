@@ -29,15 +29,15 @@ Milestone report in the fields the directive asks for. Every number is computed 
 | Course | Built / modules | Labs verified / planned | Evidence index | Change records verified / all |
 |---|---|---|---|---|
 | COURSE-FND-DIGITAL | 0 / 6 | 0 / 12 | 0.0 | 0 / 0 |
-| COURSE-SOC | 1 / 14 | 2 / 27 | 12.8 | 6 / 8 |
-| COURSE-PY-ENG | 7 / 11 | 14 / 21 | 34.3 | 17 / 20 |
-| COURSE-PY-AUTO | 0 / 10 | 0 / 19 | 4.5 | 5 / 11 |
-| COURSE-JAVA-QA | 0 / 10 | 0 / 19 | 5.0 | 5 / 10 |
-| COURSE-AI-ENG | 0 / 12 | 0 / 23 | 8.9 | 8 / 9 |
-| COURSE-OSINT | 0 / 12 | 0 / 23 | 6.7 | 4 / 6 |
-| COURSE-GCP-DE | 0 / 11 | 0 / 21 | 10.0 | 9 / 9 |
-| COURSE-FE-ONBOARD | 0 / 11 | 0 / 21 | 7.1 | 5 / 7 |
-| COURSE-CYBER-MEGA | 0 / 14 | 0 / 27 | 4.6 | 6 / 13 |
+| COURSE-SOC | 1 / 14 | 2 / 27 | 16.0 | 6 / 8 |
+| COURSE-PY-ENG | 7 / 11 | 14 / 21 | 42.8 | 17 / 20 |
+| COURSE-PY-AUTO | 0 / 10 | 0 / 19 | 5.7 | 5 / 11 |
+| COURSE-JAVA-QA | 0 / 10 | 0 / 19 | 6.2 | 5 / 10 |
+| COURSE-AI-ENG | 0 / 12 | 0 / 23 | 11.1 | 8 / 9 |
+| COURSE-OSINT | 0 / 12 | 0 / 23 | 8.3 | 4 / 6 |
+| COURSE-GCP-DE | 0 / 11 | 0 / 21 | 12.5 | 9 / 9 |
+| COURSE-FE-ONBOARD | 0 / 11 | 0 / 21 | 8.9 | 5 / 7 |
+| COURSE-CYBER-MEGA | 0 / 14 | 0 / 27 | 5.8 | 6 / 13 |
 
 ## Blockers
 

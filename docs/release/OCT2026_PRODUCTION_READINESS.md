@@ -5,175 +5,175 @@
 
 ## 1. Decision
 
-**PRODUCTION_GO is not recommended for any course.** No course has all ten readiness fields MET.
-The ten readiness fields below are kept **separate on purpose**: a high score in one never offsets a failed field. The evidence-completeness index is the average of the ten fields (MET counts 1, PARTIAL counts its evidenced fraction, everything else 0) and is **a measure of how much evidence exists, not of quality**. The directive's 95/100 target is an index target; reaching it would not override a field that is not MET, and a course is only eligible when all ten are MET. No gate in this repository can release or publish anything: the owner's approval is recorded outside the automation (see [RELEASE_GATES.md](RELEASE_GATES.md)).
+**TRAINING_CONTENT_GO is not recommended for any course.** No course has all eight Gate A readiness fields MET.
+There are three independent gates ([RELEASE_GATES.md](RELEASE_GATES.md)): Gate A `TRAINING_CONTENT_GO` (the content is complete, correct, executable and releasable as content), Gate B `COMMERCIAL_GO` and Gate C `ACADEMY_LIVE_GO`. Only Gate A is in scope of this phase. The eight Gate A fields below are kept **separate on purpose**: a high score in one never offsets a failed field. The evidence-completeness index is the average of the eight fields (MET counts 1, PARTIAL counts its evidenced fraction, everything else 0) and is **a measure of how much evidence exists, not of quality**. Reaching 95 would not override a field that is not MET, and a course is only eligible when all eight are MET. The authoritative per-course Gate A computation (19 mandatory criteria and the weighted quality score) is in [docs/production/TRAINING_CONTENT_GO_REPORT.md](../production/TRAINING_CONTENT_GO_REPORT.md). No gate in this repository can release or publish anything: approvals are recorded by people, outside the automation.
 
-| Course | Built modules | Evidence index (target 95) | Fields MET | Unmet fields | PRODUCTION_GO |
+| Course | Built modules | Evidence index (target 95) | Gate A fields MET | Unmet Gate A fields | TRAINING_CONTENT_GO |
 |---|---|---|---|---|---|
-| COURSE-FND-DIGITAL | 0 / 6 | 0.0 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
-| COURSE-SOC | 1 / 14 | 12.8 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
-| COURSE-PY-ENG | 7 / 11 | 34.3 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
-| COURSE-PY-AUTO | 0 / 10 | 4.5 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
-| COURSE-JAVA-QA | 0 / 10 | 5.0 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
-| COURSE-AI-ENG | 0 / 12 | 8.9 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
-| COURSE-OSINT | 0 / 12 | 6.7 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
-| COURSE-GCP-DE | 0 / 11 | 10.0 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
-| COURSE-FE-ONBOARD | 0 / 11 | 7.1 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
-| COURSE-CYBER-MEGA | 0 / 14 | 4.6 | 0 / 10 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, commercial, academy_integration, human_approval | NO |
+| COURSE-FND-DIGITAL | 0 / 6 | 0.0 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
+| COURSE-SOC | 1 / 14 | 16.0 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
+| COURSE-PY-ENG | 7 / 11 | 42.8 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
+| COURSE-PY-AUTO | 0 / 10 | 5.7 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
+| COURSE-JAVA-QA | 0 / 10 | 6.2 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
+| COURSE-AI-ENG | 0 / 12 | 11.1 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
+| COURSE-OSINT | 0 / 12 | 8.3 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
+| COURSE-GCP-DE | 0 / 11 | 12.5 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
+| COURSE-FE-ONBOARD | 0 / 11 | 8.9 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
+| COURSE-CYBER-MEGA | 0 / 14 | 5.8 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
 
 ## 2. Readiness fields per course
 
-`MET` / `PARTIAL` / `NOT_MET` / `NOT_ASSESSED` (nothing exists to assess). The detail column says what the status rests on.
+`MET` / `PARTIAL` / `NOT_MET` / `NOT_ASSESSED` (nothing exists to assess) / `DEFERRED` (belongs to Gate B or Gate C, not assessed in this phase). The detail column says what the status rests on.
 
 ### COURSE-FND-DIGITAL - Digital and Technical Foundations
 
-| Field | Status | Evidence |
-|---|---|---|
-| Research currency | NOT_ASSESSED | no legacy source, so no change records |
-| Technical correctness | NOT_ASSESSED | nothing built to assess |
-| Curriculum completeness | NOT_MET | 0 of 6 modules built |
-| Lab readiness | NOT_MET | 0 of 12 labs verified executable (0 built) |
-| Assessment readiness | NOT_MET | 0 of 6 outcomes assessed; no SME review, no learner pilot |
-| Editorial review | NOT_MET | No editorial or SME review has taken place; automated checks only. |
-| IP / licensing | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
-| Commercial readiness | NOT_MET | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
-| Academy integration | NOT_MET | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
-| Human approval | NOT_MET | No named owner, reviewer or approval is recorded. |
+| Field | Gate | Status | Evidence |
+|---|---|---|---|
+| Research currency | A | NOT_ASSESSED | no legacy source, so no change records |
+| Technical correctness | A | NOT_ASSESSED | nothing built to assess |
+| Curriculum completeness | A | NOT_MET | 0 of 6 modules built |
+| Lab readiness | A | NOT_MET | 0 of 12 labs verified executable (0 built) |
+| Assessment readiness | A | NOT_MET | 0 of 6 outcomes assessed; no SME review, no learner pilot |
+| Editorial review | A | NOT_MET | No editorial or SME review has taken place; automated checks only. |
+| IP / licensing | A | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
+| Commercial readiness | B | DEFERRED | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
+| Academy integration | C | DEFERRED | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
+| Human approval | A | NOT_MET | No named owner, reviewer or approval is recorded. |
 
 ### COURSE-SOC - SOC Analyst Professional Pathway
 
-| Field | Status | Evidence |
-|---|---|---|
-| Research currency | PARTIAL | 6 of 8 change records EXECUTED or RESEARCH_VERIFIED; 2 open; Stage B pending |
-| Technical correctness | PARTIAL | 1 of 14 modules built with executed labs; no SME review |
-| Curriculum completeness | PARTIAL | 1 of 14 modules built |
-| Lab readiness | PARTIAL | 2 of 27 labs verified executable (2 built) |
-| Assessment readiness | PARTIAL | 6 of 19 outcomes assessed; no SME review, no learner pilot |
-| Editorial review | NOT_MET | No editorial or SME review has taken place; automated checks only. |
-| IP / licensing | NOT_MET | Source text was adapted from vendor material without references (F-SOC-006); the pilot module is rewritten from primary standards. MITRE attribution notices travel with ATT&CK content. Blockers: D4, IP-4. |
-| Commercial readiness | NOT_MET | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
-| Academy integration | NOT_MET | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
-| Human approval | NOT_MET | No named owner, reviewer or approval is recorded. |
+| Field | Gate | Status | Evidence |
+|---|---|---|---|
+| Research currency | A | PARTIAL | 6 of 8 change records EXECUTED or RESEARCH_VERIFIED; 2 open; Stage B pending |
+| Technical correctness | A | PARTIAL | 1 of 14 modules built with executed labs; no SME review |
+| Curriculum completeness | A | PARTIAL | 1 of 14 modules built |
+| Lab readiness | A | PARTIAL | 2 of 27 labs verified executable (2 built) |
+| Assessment readiness | A | PARTIAL | 6 of 19 outcomes assessed; no SME review, no learner pilot |
+| Editorial review | A | NOT_MET | No editorial or SME review has taken place; automated checks only. |
+| IP / licensing | A | NOT_MET | Source text was adapted from vendor material without references (F-SOC-006); the pilot module is rewritten from primary standards. MITRE attribution notices travel with ATT&CK content. Blockers: D4, IP-4. |
+| Commercial readiness | B | DEFERRED | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
+| Academy integration | C | DEFERRED | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
+| Human approval | A | NOT_MET | No named owner, reviewer or approval is recorded. |
 
 ### COURSE-PY-ENG - Python Engineering Pathway
 
-| Field | Status | Evidence |
-|---|---|---|
-| Research currency | PARTIAL | 17 of 20 change records EXECUTED or RESEARCH_VERIFIED; 3 open; Stage B pending |
-| Technical correctness | PARTIAL | 7 of 11 modules built with executed labs; no SME review |
-| Curriculum completeness | PARTIAL | 7 of 11 modules built |
-| Lab readiness | PARTIAL | 14 of 21 labs verified executable (14 built) |
-| Assessment readiness | PARTIAL | 7 of 11 outcomes assessed; no SME review, no learner pilot |
-| Editorial review | NOT_MET | No editorial or SME review has taken place; automated checks only. |
-| IP / licensing | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
-| Commercial readiness | NOT_MET | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
-| Academy integration | NOT_MET | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
-| Human approval | NOT_MET | No named owner, reviewer or approval is recorded. |
+| Field | Gate | Status | Evidence |
+|---|---|---|---|
+| Research currency | A | PARTIAL | 17 of 20 change records EXECUTED or RESEARCH_VERIFIED; 3 open; Stage B pending |
+| Technical correctness | A | PARTIAL | 7 of 11 modules built with executed labs; no SME review |
+| Curriculum completeness | A | PARTIAL | 7 of 11 modules built |
+| Lab readiness | A | PARTIAL | 14 of 21 labs verified executable (14 built) |
+| Assessment readiness | A | PARTIAL | 7 of 11 outcomes assessed; no SME review, no learner pilot |
+| Editorial review | A | NOT_MET | No editorial or SME review has taken place; automated checks only. |
+| IP / licensing | A | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
+| Commercial readiness | B | DEFERRED | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
+| Academy integration | C | DEFERRED | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
+| Human approval | A | NOT_MET | No named owner, reviewer or approval is recorded. |
 
 ### COURSE-PY-AUTO - Python Automation Pathway
 
-| Field | Status | Evidence |
-|---|---|---|
-| Research currency | PARTIAL | 5 of 11 change records EXECUTED or RESEARCH_VERIFIED; 6 open; Stage B pending |
-| Technical correctness | NOT_ASSESSED | nothing built to assess |
-| Curriculum completeness | NOT_MET | 0 of 10 modules built |
-| Lab readiness | NOT_MET | 0 of 19 labs verified executable (0 built) |
-| Assessment readiness | NOT_MET | 0 of 10 outcomes assessed; no SME review, no learner pilot |
-| Editorial review | NOT_MET | No editorial or SME review has taken place; automated checks only. |
-| IP / licensing | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
-| Commercial readiness | NOT_MET | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
-| Academy integration | NOT_MET | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
-| Human approval | NOT_MET | No named owner, reviewer or approval is recorded. |
+| Field | Gate | Status | Evidence |
+|---|---|---|---|
+| Research currency | A | PARTIAL | 5 of 11 change records EXECUTED or RESEARCH_VERIFIED; 6 open; Stage B pending |
+| Technical correctness | A | NOT_ASSESSED | nothing built to assess |
+| Curriculum completeness | A | NOT_MET | 0 of 10 modules built |
+| Lab readiness | A | NOT_MET | 0 of 19 labs verified executable (0 built) |
+| Assessment readiness | A | NOT_MET | 0 of 10 outcomes assessed; no SME review, no learner pilot |
+| Editorial review | A | NOT_MET | No editorial or SME review has taken place; automated checks only. |
+| IP / licensing | A | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
+| Commercial readiness | B | DEFERRED | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
+| Academy integration | C | DEFERRED | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
+| Human approval | A | NOT_MET | No named owner, reviewer or approval is recorded. |
 
 ### COURSE-JAVA-QA - Java Test Automation Engineer Pathway
 
-| Field | Status | Evidence |
-|---|---|---|
-| Research currency | PARTIAL | 5 of 10 change records EXECUTED or RESEARCH_VERIFIED; 5 open; Stage B pending |
-| Technical correctness | NOT_ASSESSED | nothing built to assess |
-| Curriculum completeness | NOT_MET | 0 of 10 modules built |
-| Lab readiness | NOT_MET | 0 of 19 labs verified executable (0 built) |
-| Assessment readiness | NOT_MET | 0 of 10 outcomes assessed; no SME review, no learner pilot |
-| Editorial review | NOT_MET | No editorial or SME review has taken place; automated checks only. |
-| IP / licensing | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
-| Commercial readiness | NOT_MET | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
-| Academy integration | NOT_MET | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
-| Human approval | NOT_MET | No named owner, reviewer or approval is recorded. |
+| Field | Gate | Status | Evidence |
+|---|---|---|---|
+| Research currency | A | PARTIAL | 5 of 10 change records EXECUTED or RESEARCH_VERIFIED; 5 open; Stage B pending |
+| Technical correctness | A | NOT_ASSESSED | nothing built to assess |
+| Curriculum completeness | A | NOT_MET | 0 of 10 modules built |
+| Lab readiness | A | NOT_MET | 0 of 19 labs verified executable (0 built) |
+| Assessment readiness | A | NOT_MET | 0 of 10 outcomes assessed; no SME review, no learner pilot |
+| Editorial review | A | NOT_MET | No editorial or SME review has taken place; automated checks only. |
+| IP / licensing | A | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
+| Commercial readiness | B | DEFERRED | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
+| Academy integration | C | DEFERRED | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
+| Human approval | A | NOT_MET | No named owner, reviewer or approval is recorded. |
 
 ### COURSE-AI-ENG - Applied AI and LLM Engineering Pathway
 
-| Field | Status | Evidence |
-|---|---|---|
-| Research currency | PARTIAL | 8 of 9 change records EXECUTED or RESEARCH_VERIFIED; 1 open; Stage B pending |
-| Technical correctness | NOT_ASSESSED | nothing built to assess |
-| Curriculum completeness | NOT_MET | 0 of 12 modules built |
-| Lab readiness | NOT_MET | 0 of 23 labs verified executable (0 built) |
-| Assessment readiness | NOT_MET | 0 of 12 outcomes assessed; no SME review, no learner pilot |
-| Editorial review | NOT_MET | No editorial or SME review has taken place; automated checks only. |
-| IP / licensing | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
-| Commercial readiness | NOT_MET | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
-| Academy integration | NOT_MET | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
-| Human approval | NOT_MET | No named owner, reviewer or approval is recorded. |
+| Field | Gate | Status | Evidence |
+|---|---|---|---|
+| Research currency | A | PARTIAL | 8 of 9 change records EXECUTED or RESEARCH_VERIFIED; 1 open; Stage B pending |
+| Technical correctness | A | NOT_ASSESSED | nothing built to assess |
+| Curriculum completeness | A | NOT_MET | 0 of 12 modules built |
+| Lab readiness | A | NOT_MET | 0 of 23 labs verified executable (0 built) |
+| Assessment readiness | A | NOT_MET | 0 of 12 outcomes assessed; no SME review, no learner pilot |
+| Editorial review | A | NOT_MET | No editorial or SME review has taken place; automated checks only. |
+| IP / licensing | A | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
+| Commercial readiness | B | DEFERRED | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
+| Academy integration | C | DEFERRED | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
+| Human approval | A | NOT_MET | No named owner, reviewer or approval is recorded. |
 
 ### COURSE-OSINT - Lawful OSINT Investigation Pathway
 
-| Field | Status | Evidence |
-|---|---|---|
-| Research currency | PARTIAL | 4 of 6 change records EXECUTED or RESEARCH_VERIFIED; 2 open; Stage B pending |
-| Technical correctness | NOT_ASSESSED | nothing built to assess |
-| Curriculum completeness | NOT_MET | 0 of 12 modules built |
-| Lab readiness | NOT_MET | 0 of 23 labs verified executable (0 built) |
-| Assessment readiness | NOT_MET | 0 of 12 outcomes assessed; no SME review, no learner pilot |
-| Editorial review | NOT_MET | No editorial or SME review has taken place; automated checks only. |
-| IP / licensing | NOT_MET | The source plans to redistribute GPL-licensed tools under a proprietary licence (F-OSINT-002); counsel review (A3) is required before any OSINT product. Blockers: D3, D4, IP-1. |
-| Commercial readiness | NOT_MET | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
-| Academy integration | NOT_MET | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
-| Human approval | NOT_MET | No named owner, reviewer or approval is recorded. |
+| Field | Gate | Status | Evidence |
+|---|---|---|---|
+| Research currency | A | PARTIAL | 4 of 6 change records EXECUTED or RESEARCH_VERIFIED; 2 open; Stage B pending |
+| Technical correctness | A | NOT_ASSESSED | nothing built to assess |
+| Curriculum completeness | A | NOT_MET | 0 of 12 modules built |
+| Lab readiness | A | NOT_MET | 0 of 23 labs verified executable (0 built) |
+| Assessment readiness | A | NOT_MET | 0 of 12 outcomes assessed; no SME review, no learner pilot |
+| Editorial review | A | NOT_MET | No editorial or SME review has taken place; automated checks only. |
+| IP / licensing | A | NOT_MET | The source plans to redistribute GPL-licensed tools under a proprietary licence (F-OSINT-002); counsel review (A3) is required before any OSINT product. Blockers: D3, D4, IP-1. |
+| Commercial readiness | B | DEFERRED | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
+| Academy integration | C | DEFERRED | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
+| Human approval | A | NOT_MET | No named owner, reviewer or approval is recorded. |
 
 ### COURSE-GCP-DE - Google Cloud Data Engineering Pathway
 
-| Field | Status | Evidence |
-|---|---|---|
-| Research currency | PARTIAL | 9 of 9 change records EXECUTED or RESEARCH_VERIFIED; 0 open; Stage B pending |
-| Technical correctness | NOT_ASSESSED | nothing built to assess |
-| Curriculum completeness | NOT_MET | 0 of 11 modules built |
-| Lab readiness | NOT_MET | 0 of 21 labs verified executable (0 built) |
-| Assessment readiness | NOT_MET | 0 of 11 outcomes assessed; no SME review, no learner pilot |
-| Editorial review | NOT_MET | No editorial or SME review has taken place; automated checks only. |
-| IP / licensing | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
-| Commercial readiness | NOT_MET | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
-| Academy integration | NOT_MET | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
-| Human approval | NOT_MET | No named owner, reviewer or approval is recorded. |
+| Field | Gate | Status | Evidence |
+|---|---|---|---|
+| Research currency | A | PARTIAL | 9 of 9 change records EXECUTED or RESEARCH_VERIFIED; 0 open; Stage B pending |
+| Technical correctness | A | NOT_ASSESSED | nothing built to assess |
+| Curriculum completeness | A | NOT_MET | 0 of 11 modules built |
+| Lab readiness | A | NOT_MET | 0 of 21 labs verified executable (0 built) |
+| Assessment readiness | A | NOT_MET | 0 of 11 outcomes assessed; no SME review, no learner pilot |
+| Editorial review | A | NOT_MET | No editorial or SME review has taken place; automated checks only. |
+| IP / licensing | A | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
+| Commercial readiness | B | DEFERRED | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
+| Academy integration | C | DEFERRED | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
+| Human approval | A | NOT_MET | No named owner, reviewer or approval is recorded. |
 
 ### COURSE-FE-ONBOARD - Frontend Engineering Onboarding Pathway
 
-| Field | Status | Evidence |
-|---|---|---|
-| Research currency | PARTIAL | 5 of 7 change records EXECUTED or RESEARCH_VERIFIED; 2 open; Stage B pending |
-| Technical correctness | NOT_ASSESSED | nothing built to assess |
-| Curriculum completeness | NOT_MET | 0 of 11 modules built |
-| Lab readiness | NOT_MET | 0 of 21 labs verified executable (0 built) |
-| Assessment readiness | NOT_MET | 0 of 11 outcomes assessed; no SME review, no learner pilot |
-| Editorial review | NOT_MET | No editorial or SME review has taken place; automated checks only. |
-| IP / licensing | NOT_MET | The source contains a named individual's personal data on public pages (F-FE-001) and may describe another organisation's internal practice (F-FE-002). Blockers: D1, D2, D4. |
-| Commercial readiness | NOT_MET | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
-| Academy integration | NOT_MET | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
-| Human approval | NOT_MET | No named owner, reviewer or approval is recorded. |
+| Field | Gate | Status | Evidence |
+|---|---|---|---|
+| Research currency | A | PARTIAL | 5 of 7 change records EXECUTED or RESEARCH_VERIFIED; 2 open; Stage B pending |
+| Technical correctness | A | NOT_ASSESSED | nothing built to assess |
+| Curriculum completeness | A | NOT_MET | 0 of 11 modules built |
+| Lab readiness | A | NOT_MET | 0 of 21 labs verified executable (0 built) |
+| Assessment readiness | A | NOT_MET | 0 of 11 outcomes assessed; no SME review, no learner pilot |
+| Editorial review | A | NOT_MET | No editorial or SME review has taken place; automated checks only. |
+| IP / licensing | A | NOT_MET | The source contains a named individual's personal data on public pages (F-FE-001) and may describe another organisation's internal practice (F-FE-002). Blockers: D1, D2, D4. |
+| Commercial readiness | B | DEFERRED | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
+| Academy integration | C | DEFERRED | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
+| Human approval | A | NOT_MET | No named owner, reviewer or approval is recorded. |
 
 ### COURSE-CYBER-MEGA - Cybersecurity Specialist Tracks (from the Mega Course)
 
-| Field | Status | Evidence |
-|---|---|---|
-| Research currency | PARTIAL | 6 of 13 change records EXECUTED or RESEARCH_VERIFIED; 7 open; Stage B pending |
-| Technical correctness | NOT_ASSESSED | nothing built to assess |
-| Curriculum completeness | NOT_MET | 0 of 14 modules built |
-| Lab readiness | NOT_MET | 0 of 27 labs verified executable (0 built) |
-| Assessment readiness | NOT_MET | 0 of 14 outcomes assessed; no SME review, no learner pilot |
-| Editorial review | NOT_MET | No editorial or SME review has taken place; automated checks only. |
-| IP / licensing | NOT_MET | Leaked-password corpus reference and endorsement statements in the source (F-MEGA-002, F-MEGA-009). Blockers: D4, IP-5, IP-6. |
-| Commercial readiness | NOT_MET | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
-| Academy integration | NOT_MET | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
-| Human approval | NOT_MET | No named owner, reviewer or approval is recorded. |
+| Field | Gate | Status | Evidence |
+|---|---|---|---|
+| Research currency | A | PARTIAL | 6 of 13 change records EXECUTED or RESEARCH_VERIFIED; 7 open; Stage B pending |
+| Technical correctness | A | NOT_ASSESSED | nothing built to assess |
+| Curriculum completeness | A | NOT_MET | 0 of 14 modules built |
+| Lab readiness | A | NOT_MET | 0 of 27 labs verified executable (0 built) |
+| Assessment readiness | A | NOT_MET | 0 of 14 outcomes assessed; no SME review, no learner pilot |
+| Editorial review | A | NOT_MET | No editorial or SME review has taken place; automated checks only. |
+| IP / licensing | A | NOT_MET | Leaked-password corpus reference and endorsement statements in the source (F-MEGA-002, F-MEGA-009). Blockers: D4, IP-5, IP-6. |
+| Commercial readiness | B | DEFERRED | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |
+| Academy integration | C | DEFERRED | No Academy platform integration exists or is planned in this repository; content is delivered as Markdown and a student-edition PDF build. |
+| Human approval | A | NOT_MET | No named owner, reviewer or approval is recorded. |
 
 ## 3. What each field means and what would make it MET
 
@@ -190,9 +190,9 @@ The ten readiness fields below are kept **separate on purpose**: a high score in
 | Academy integration | The delivery platform, enrolment, payment and fulfilment stack exist and are tested (owner decision D6). | Recorded in docs/release/data/readiness_inputs_2026.yaml. |
 | Human approval | The named owner records approval after reviewing this report. | Recorded in docs/release/data/readiness_inputs_2026.yaml. |
 
-## 4. Relationship to the eight release gates
+## 4. Relationship to the three gates
 
-[RELEASE_GATES.md](RELEASE_GATES.md) defines gates G1-G8 and `scripts/validation/run_qa.py` writes [PRODUCTION_GO_GATE_REPORT.md](PRODUCTION_GO_GATE_REPORT.md). The ten fields here are a finer view of the same evidence: research currency and technical correctness feed G2; curriculum completeness, lab readiness and assessment readiness feed G3-G5; editorial feeds G6-G7; IP/licensing is G1; commercial, Academy integration and human approval feed G8 and the owner sign-off. `validate_catalog.py` rejects a PRODUCTION_GO claim without the evidence the gates require.
+[RELEASE_GATES.md](RELEASE_GATES.md) defines Gate A (`TRAINING_CONTENT_GO`), Gate B (`COMMERCIAL_GO`) and Gate C (`ACADEMY_LIVE_GO`). The eight Gate A fields here are a coarse view of the evidence that `scripts/production/gate_a.py` evaluates in detail (19 mandatory criteria); commercial readiness and Academy integration are Gate B and Gate C inputs and are DEFERRED. `scripts/validation/validate_gate_a.py` rejects a `TRAINING_CONTENT_GO` claim that the evidence does not support.
 
 ## 5. Two-stage currency policy
 
@@ -203,10 +203,11 @@ The ten readiness fields below are kept **separate on purpose**: a high score in
 
 Defined in [EXECUTION_HANDOFF.md](../execution/EXECUTION_HANDOFF.md): D1 (public personal data in the Frontend PDF), D2 (origin of the "INTERNAL" playbook), D3 (GPL redistribution in the OSINT bundle), D4 (copyright holder and licence), D5 (named SME reviewers), D6 (Academy platform and payment stack), D7 (any paid-resource budget), D8 (private repository for instructor packs).
 
-## 7. What would have to be true for a course to reach PRODUCTION_GO
+## 7. What would have to be true for a course to reach TRAINING_CONTENT_GO
 
 1. Every planned module is built and every lab executes on the declared toolchain matrix with a recorded result (fields 3-4).
 2. Every outcome has a reviewed, piloted assessment (field 5) and a named SME has signed off the technical content (field 2).
 3. The Stage B refresh is done and no change record is left open (field 1).
 4. Licence, rights holder and third-party terms are settled (field 7); editorial review is complete (field 6).
-5. Pricing and delivery are decided on evidence (fields 8-9) and the owner records approval (field 10).
+5. Named people record the subject-matter, editorial, learner-pilot and owner approvals (human approval field).
+Pricing, packaging, listing and Academy delivery are separate decisions under Gate B and Gate C and are not part of this list.

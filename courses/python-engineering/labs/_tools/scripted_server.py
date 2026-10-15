@@ -108,6 +108,7 @@ class ScriptedServer:
         class Server(http.server.ThreadingHTTPServer):
             daemon_threads = True
             block_on_close = False
+            request_queue_size = 128           # the default backlog of 5 makes a burst of simultaneous connections wait for a 1 s SYN retransmit, which skews concurrency measurements
 
             def handle_error(self, request, client_address) -> None:
                 if not isinstance(sys.exc_info()[1], ConnectionError):      # clients that give up on purpose are not worth a traceback

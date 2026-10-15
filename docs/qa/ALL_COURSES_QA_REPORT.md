@@ -26,7 +26,7 @@ Source pages are audited by rules over **all** pages; only finding-cited pages w
 
 | Check | Where | What it proves |
 |---|---|---|
-| Catalog schema and cross references | `scripts/validation/validate_catalog.py` | Courses, modules, pathways and the PRODUCTION_GO hard gate are consistent |
+| Catalog schema and cross references | `scripts/validation/validate_catalog.py` | Courses, modules, pathways and the TRAINING_CONTENT_GO hard gate are consistent |
 | Page-level audit records | `tests/test_page_records.py`, `build_page_records.py --check` | All 8,186 pages have a record, hashes match, no personal data or credential literals, status labels do not overclaim |
 | Evidence references | `scripts/audit/validate_modernization_data.py` | Every finding, research, probe, snapshot and module reference resolves; delivery status matches the catalog |
 | Generated documents | `--check` modes of the renderers, `tests/test_modernization_data.py` | Documents reproduce from data; none is hand-edited |
@@ -65,7 +65,7 @@ Source pages are audited by rules over **all** pages; only finding-cited pages w
 - Blocking findings: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
 - Source audit: 654 pages; severity P0 2, P1 12, P2 51, P3 14, P4 12, NONE 563; currency BASELINE_AVAILABLE 295, UNVERIFIED_CURRENCY 183, NO_TECHNOLOGY_DETECTED 167, CURRENCY_FLAGGED 9.
 - Open verification items: MC-PYH-01, MC-PYH-10, MC-PYH-11.
-- Lab matrix: PASS on CPython 3.11.17, CPython 3.12.3, CPython 3.13.16, CPython 3.14.8, CPython 3.15.0; not executed or failing: none.
+- Lab matrix: PASS on CPython 3.11.17, CPython 3.12.3, CPython 3.13.16, CPython 3.15.0; not executed or failing: 3.14.
 
 | Blocking finding | Severity | Title |
 |---|---|---|

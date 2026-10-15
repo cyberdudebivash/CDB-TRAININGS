@@ -39,7 +39,7 @@ def test_catalog_validates():
 
 def test_no_course_is_production_go():
     catalog = load(ROOT / "catalog" / "courses.yaml")
-    assert [c["id"] for c in catalog["courses"] if c["release_status"] == "PRODUCTION_GO"] == []
+    assert [c["id"] for c in catalog["courses"] if c["release_status"] == "TRAINING_CONTENT_GO"] == []
 
 
 def test_findings_register_is_consistent():
@@ -233,7 +233,7 @@ REQUIRED_DELIVERABLES = [
     "docs/audits/IP_AND_LICENSE_REVIEW.md", "docs/curriculum/MASTER_CURRICULUM_BLUEPRINT.md", "docs/audits/COURSE_QUALITY_SCORECARD.md",
     "docs/audits/TECHNICAL_GAP_MATRIX.md", "docs/curriculum/COMPETENCY_PATHWAYS.md", "docs/standards/PRACTICAL_LAB_STANDARDS.md",
     "docs/standards/ASSESSMENT_FRAMEWORK.md", "docs/standards/DESIGN_SYSTEM.md", "docs/commercial/COURSE_PRODUCT_CATALOG.md",
-    "docs/commercial/COMMERCIAL_READINESS.md", "docs/release/AUTOMATED_QA_REPORT.md", "docs/release/PRODUCTION_GO_GATE_REPORT.md",
+    "docs/commercial/COMMERCIAL_READINESS.md", "docs/release/AUTOMATED_QA_REPORT.md",
     "docs/execution/EXECUTION_PROGRESS.md", "docs/execution/EXECUTION_HANDOFF.md",
 ]
 

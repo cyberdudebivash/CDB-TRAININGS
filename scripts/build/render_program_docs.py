@@ -122,7 +122,7 @@ def block_level_matrix(catalog: dict, **_) -> str:
 
 
 def block_products(catalog: dict, **_) -> str:
-    rows = ["| Candidate product | Based on | Format hypothesis | Content ready | Blocking gates (from gate report) | Price |",
+    rows = ["| Candidate product | Based on | Format hypothesis | Content ready | Blocking Gate A criteria | Price |",
             "|---|---|---|---|---|---|"]
     for c in catalog["courses"]:
         built = c["lab_coverage"]["built"]
@@ -132,15 +132,15 @@ def block_products(catalog: dict, **_) -> str:
         fmt = "self-paced course with automated lab checks" if c["id"] != "COURSE-FND-DIGITAL" else "self-paced entry course (free or low-friction entry is a hypothesis to test)"
         blockers = []
         if c["source_ids"]:
-            blockers.append("licence/provenance (G1)")
+            blockers.append("rights and licence (A11)")
         if c["review_status"] != "SME_REVIEWED":
-            blockers.append("SME review (G7)")
+            blockers.append("SME and editorial review (A17)")
         if c["lab_coverage"]["verified_executable"] != c["lab_coverage"]["planned"]:
-            blockers.append("labs (G4)")
+            blockers.append("labs (A06)")
         if c["assessment_coverage"]["outcomes_assessed"] != c["assessment_coverage"]["outcomes_total"]:
-            blockers.append("assessments (G3)")
+            blockers.append("assessments (A07)")
         if c.get("blocking_findings"):
-            blockers.append("open P0/P1 (G8)")
+            blockers.append("open P0/P1 defects (A16)")
         rows.append(f"| {esc(c['title'])} | {', '.join('`'+s+'`' for s in c['source_ids']) or 'new'} | {fmt} | {ready} | {', '.join(blockers)} | NOT SET (owner decision) |")
     return "\n".join(rows)
 

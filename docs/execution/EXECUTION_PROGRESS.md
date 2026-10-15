@@ -1,6 +1,6 @@
 # Execution Progress
 
-> Hand-written **snapshot**. Numbers that change with every run (tests, labs, gates) are authoritative in the generated reports: [`AUTOMATED_QA_REPORT.md`](../release/AUTOMATED_QA_REPORT.md) and [`PRODUCTION_GO_GATE_REPORT.md`](../release/PRODUCTION_GO_GATE_REPORT.md). If this file and those reports disagree, the reports win.
+> Hand-written **snapshot**. Numbers that change with every run (tests, labs, gates) are authoritative in the generated reports: [`AUTOMATED_QA_REPORT.md`](../release/AUTOMATED_QA_REPORT.md) and [`TRAINING_CONTENT_GO_REPORT.md`](../production/TRAINING_CONTENT_GO_REPORT.md). If this file and those reports disagree, the reports win.
 
 Snapshot date: 2026-10-14 · Branch: `claude/cyberdudebivash-training-audit-ilfgze` · Pull request: draft [cyberdudebivash/CDB-TRAININGS#1](https://github.com/cyberdudebivash/CDB-TRAININGS/pull/1) (opened by this work; not merged, not auto-merged).
 
@@ -8,7 +8,7 @@ Snapshot date: 2026-10-14 · Branch: `claude/cyberdudebivash-training-audit-ilfg
 
 | Item | Result |
 |---|---|
-| Execution status | Phases 0-6 executed to the extent listed below; **no course is PRODUCTION_GO** |
+| Execution status | Phases 0-6 executed to the extent listed below; **no course is TRAINING_CONTENT_GO** |
 | Source documents inventoried | 10 of 10 PDFs hashed, page-counted and text-extracted (OSINT is image-only; read visually) |
 | Courses audited | 9 courses covering all 10 sources (Mega Course Parts 1 and 2 are one course) |
 | Findings registered | 65 (4 P0, 31 P1, 23 P2, 7 P3/P4) — see scorecard |

@@ -301,7 +301,7 @@ def render_course_audit(cid, course, sc, dims, docs_by_id, forensics, by_source,
           "## 7. Release blockers and disposition", ""]
     blk = course.get("blocking_findings", [])
     L.append(f"- Blocking findings recorded in the catalog: {', '.join(blk) if blk else 'none recorded'}.")
-    L.append(f"- Release status: `{course['release_status']}`. A course cannot reach `PRODUCTION_GO` until all 15 gates in `docs/release/RELEASE_GATES.md` pass; this one fails most of them (see `docs/release/PRODUCTION_GO_GATE_REPORT.md`).")
+    L.append(f"- Release status: `{course['release_status']}`. A course cannot reach `TRAINING_CONTENT_GO` until Gate A in `docs/release/RELEASE_GATES.md` is computed as met; this one fails most of its criteria (see `docs/production/TRAINING_CONTENT_GO_REPORT.md`).")
     if course.get("notes"):
         L.append(f"- Notes: {course['notes']}")
     L.append(f"- Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.")

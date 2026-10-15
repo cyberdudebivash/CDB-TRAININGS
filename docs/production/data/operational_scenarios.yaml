@@ -1,0 +1,112 @@
+# Inventory of the customer-operations scenarios each course must teach (directive section 9) and what exists for them.
+#
+# classification (how "real-time" the scenario is - never overstated):
+#   REPLAY_SIMULATION  previously prepared events replayed to mimic operational conditions
+#   CONTROLLED_LIVE    events produced while the lab runs, by a service the lab itself starts (loopback server, event generator) in an authorised environment
+#   EXTERNAL_LIVE      a real authorised external service or customer-approved system (none exists; none may be used without approval)
+#   NONE_YET           nothing built
+# status: NOT_STARTED | IN_PROGRESS | IMPLEMENTED_UNVERIFIED | TECHNICALLY_VERIFIED
+#   TECHNICALLY_VERIFIED needs: a classification other than NONE_YET, at least one failure injection, and `evidence` that names tests which the lab matrix executes.
+# lifecycle steps recorded when covered (directive section 7): requirement, design, implementation, execution, observation, troubleshooting, security_validation, reporting, handoff
+schema_version: 1
+as_of: 2026-10-15
+realtime_minimum_per_course: 1     # each course needs at least one time-dependent scenario classified CONTROLLED_LIVE or REPLAY_SIMULATION that passes the status rule above
+scenarios:
+  # ---------------------------------------------------------------- Python Engineering (directive 9.3)
+  - {id: PYE-01, course: COURSE-PY-ENG, title: "Production-style application components (typed package with a checked layout)", status: IN_PROGRESS, classification: NONE_YET, modules: [PY-M03], lifecycle: [implementation, execution, security_validation], failure_injections: [], evidence: [], note: "PY-M03 builds the package; no runtime failure scenario yet"}
+  - {id: PYE-02, course: COURSE-PY-ENG, title: "Fault-tolerant API client (timeouts, bounded retries, Retry-After, pagination, same-origin links)", status: TECHNICALLY_VERIFIED, classification: CONTROLLED_LIVE, modules: [PY-M05], lifecycle: [requirement, implementation, execution, observation, troubleshooting, security_validation, reporting, handoff], failure_injections: ["503 and 429 with Retry-After", "slow responses", "dropped connections", "endless and cross-origin next links", "oversized bodies"], evidence: [test_m05_guided_solution_passes_every_check, test_m05_independent_reference_passes_published_and_hidden_checks], note: "loopback server started by the lab; deadline and measured timing in hidden suite"}
+  - {id: PYE-03, course: COURSE-PY-ENG, title: "Data validation at the boundary (schemas, quarantine of bad records, reject threshold)", status: TECHNICALLY_VERIFIED, classification: CONTROLLED_LIVE, modules: [PY-M05], lifecycle: [requirement, implementation, execution, observation, troubleshooting, reporting], failure_injections: ["invalid items", "duplicate items", "schema drift"], evidence: [test_m05_independent_reference_passes_published_and_hidden_checks]}
+  - {id: PYE-04, course: COURSE-PY-ENG, title: "Structured logging for diagnosis", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: PYE-05, course: COURSE-PY-ENG, title: "Package maintenance (migrate a legacy project to pyproject, build, install, verify)", status: IN_PROGRESS, classification: NONE_YET, modules: [PY-M04], lifecycle: [implementation, execution, reporting], failure_injections: [], evidence: [], note: "no runtime failure injection yet"}
+  - {id: PYE-06, course: COURSE-PY-ENG, title: "Automated tests that catch seeded defects (mutation-graded)", status: TECHNICALLY_VERIFIED, classification: CONTROLLED_LIVE, modules: [PY-M02], lifecycle: [implementation, execution, troubleshooting, reporting], failure_injections: ["seeded defects (mutants)"], evidence: [test_m02_guided_reference_tests_kill_every_mutant]}
+  - {id: PYE-07, course: COURSE-PY-ENG, title: "Secure application configuration (secrets, defaults, token validation)", status: IN_PROGRESS, classification: NONE_YET, modules: [PY-M07], lifecycle: [implementation, execution, security_validation], failure_injections: [], evidence: [], note: "exploit tests exist for the injected vulnerabilities; a configuration-incident scenario does not"}
+  - {id: PYE-08, course: COURSE-PY-ENG, title: "Concurrency: bounded fan-out, supervision, cancellation, partial failure, deadline", status: TECHNICALLY_VERIFIED, classification: CONTROLLED_LIVE, modules: [PY-M06], lifecycle: [requirement, implementation, execution, observation, troubleshooting, reporting, handoff], failure_injections: ["failing jobs", "slow jobs and timeouts", "cancellation", "dropped connections", "blocking calls"], evidence: [test_m06_guided_solution_passes_every_check, test_m06_independent_reference_passes_published_and_hidden_checks]}
+  - {id: PYE-09, course: COURSE-PY-ENG, title: "Performance debugging with a profiler", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: PYE-10, course: COURSE-PY-ENG, title: "Failure-handling patterns (retry, fallback, atomic output, no half-written files)", status: TECHNICALLY_VERIFIED, classification: CONTROLLED_LIVE, modules: [PY-M05, PY-M06], lifecycle: [implementation, execution, troubleshooting, reporting], failure_injections: ["replace failure mid-write", "failed page leaves previous output untouched"], evidence: [test_m05_guided_solution_passes_every_check, test_m06_guided_solution_passes_every_check]}
+  # ---------------------------------------------------------------- SOC Analyst (9.1)
+  - {id: SOC-01, course: COURSE-SOC, title: "Suspicious authentication investigation", status: IN_PROGRESS, classification: REPLAY_SIMULATION, modules: [SOC-M04], lifecycle: [implementation, execution, observation], failure_injections: [], evidence: [], note: "detection and triage pilot; no evidence-backed investigation report is required of the learner yet"}
+  - {id: SOC-02, course: COURSE-SOC, title: "Endpoint alert triage", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: SOC-03, course: COURSE-SOC, title: "Multi-source event correlation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: SOC-04, course: COURSE-SOC, title: "Detection engineering (rules, exceptions, precision and recall)", status: TECHNICALLY_VERIFIED, classification: REPLAY_SIMULATION, modules: [SOC-M04], lifecycle: [implementation, execution, observation, troubleshooting, reporting], failure_injections: ["synthetic brute force and spray attacks", "benign look-alike activity"], evidence: [lab-guided-e2e, lab-independent-e2e]}
+  - {id: SOC-05, course: COURSE-SOC, title: "Threat-intelligence enrichment", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: SOC-06, course: COURSE-SOC, title: "Incident timeline reconstruction", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: SOC-07, course: COURSE-SOC, title: "False-positive analysis", status: IN_PROGRESS, classification: REPLAY_SIMULATION, modules: [SOC-M04], lifecycle: [implementation, execution], failure_injections: [], evidence: [], note: "exceptions are tuned in the pilot; a written false-positive analysis is not yet assessed"}
+  - {id: SOC-08, course: COURSE-SOC, title: "Evidence preservation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: SOC-09, course: COURSE-SOC, title: "Case escalation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: SOC-10, course: COURSE-SOC, title: "Incident reporting", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: SOC-11, course: COURSE-SOC, title: "Controlled alert generation", status: IN_PROGRESS, classification: REPLAY_SIMULATION, modules: [SOC-M04], lifecycle: [implementation, execution], failure_injections: [], evidence: [], note: "the seeded generator exists; events are replayed from a seed, not produced by a running service"}
+  - {id: SOC-12, course: COURSE-SOC, title: "Detection regression testing", status: TECHNICALLY_VERIFIED, classification: REPLAY_SIMULATION, modules: [SOC-M04], lifecycle: [implementation, execution, troubleshooting, reporting], failure_injections: ["rule regressions detected by evaluation"], evidence: [lab-guided-e2e, lab-independent-e2e]}
+  # ---------------------------------------------------------------- AI Engineering (9.2)
+  - {id: AIE-01, course: COURSE-AI-ENG, title: "Enterprise document retrieval", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: AIE-02, course: COURSE-AI-ENG, title: "Agent tool authorization", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: AIE-03, course: COURSE-AI-ENG, title: "Prompt-injection resilience", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: AIE-04, course: COURSE-AI-ENG, title: "RAG evaluation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: AIE-05, course: COURSE-AI-ENG, title: "Model output validation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: AIE-06, course: COURSE-AI-ENG, title: "AI workflow failure recovery", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: AIE-07, course: COURSE-AI-ENG, title: "Secure API integration", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: AIE-08, course: COURSE-AI-ENG, title: "AI application monitoring", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: AIE-09, course: COURSE-AI-ENG, title: "Model cost and latency investigation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: AIE-10, course: COURSE-AI-ENG, title: "AI risk assessment", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: AIE-11, course: COURSE-AI-ENG, title: "Human approval workflows", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  # ---------------------------------------------------------------- Python Automation (9.4)
+  - {id: PAU-01, course: COURSE-PY-AUTO, title: "Business process automation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: PAU-02, course: COURSE-PY-AUTO, title: "File ingestion", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: PAU-03, course: COURSE-PY-AUTO, title: "API workflow automation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: PAU-04, course: COURSE-PY-AUTO, title: "Automated data quality checks", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: PAU-05, course: COURSE-PY-AUTO, title: "Scheduled jobs", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: PAU-06, course: COURSE-PY-AUTO, title: "Retry handling", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: PAU-07, course: COURSE-PY-AUTO, title: "Idempotency", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: PAU-08, course: COURSE-PY-AUTO, title: "Operational reporting", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: PAU-09, course: COURSE-PY-AUTO, title: "Failure recovery", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: PAU-10, course: COURSE-PY-AUTO, title: "Secure secrets handling", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  # ---------------------------------------------------------------- Java Test Automation (9.5)
+  - {id: JQA-01, course: COURSE-JAVA-QA, title: "Enterprise test framework design", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: JQA-02, course: COURSE-JAVA-QA, title: "UI and API integration testing", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: JQA-03, course: COURSE-JAVA-QA, title: "Realistic test data", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: JQA-04, course: COURSE-JAVA-QA, title: "Browser synchronization", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: JQA-05, course: COURSE-JAVA-QA, title: "Flaky test analysis", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: JQA-06, course: COURSE-JAVA-QA, title: "Parallel execution", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: JQA-07, course: COURSE-JAVA-QA, title: "CI-compatible test execution", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: JQA-08, course: COURSE-JAVA-QA, title: "Regression testing", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: JQA-09, course: COURSE-JAVA-QA, title: "Release evidence", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: JQA-10, course: COURSE-JAVA-QA, title: "Defect triage", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  # ---------------------------------------------------------------- GCP Data Engineering (9.6)
+  - {id: GDE-01, course: COURSE-GCP-DE, title: "Ingestion pipelines", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: GDE-02, course: COURSE-GCP-DE, title: "Batch processing", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: GDE-03, course: COURSE-GCP-DE, title: "Streaming pipelines", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: GDE-04, course: COURSE-GCP-DE, title: "Data validation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: GDE-05, course: COURSE-GCP-DE, title: "SQL transformations", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: GDE-06, course: COURSE-GCP-DE, title: "IAM design", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: GDE-07, course: COURSE-GCP-DE, title: "Workflow orchestration", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: GDE-08, course: COURSE-GCP-DE, title: "Pipeline observability", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: GDE-09, course: COURSE-GCP-DE, title: "Cost-conscious architecture", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: GDE-10, course: COURSE-GCP-DE, title: "Data incident troubleshooting", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  # ---------------------------------------------------------------- Frontend Engineering (9.7)
+  - {id: FEE-01, course: COURSE-FE-ONBOARD, title: "Accessible customer interfaces", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: FEE-02, course: COURSE-FE-ONBOARD, title: "Real API integration", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: FEE-03, course: COURSE-FE-ONBOARD, title: "Authentication flow implementation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: FEE-04, course: COURSE-FE-ONBOARD, title: "Form validation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: FEE-05, course: COURSE-FE-ONBOARD, title: "Session handling", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: FEE-06, course: COURSE-FE-ONBOARD, title: "Responsive workflows", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: FEE-07, course: COURSE-FE-ONBOARD, title: "Frontend error recovery", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: FEE-08, course: COURSE-FE-ONBOARD, title: "Performance investigation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: FEE-09, course: COURSE-FE-ONBOARD, title: "Cross-browser testing", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: FEE-10, course: COURSE-FE-ONBOARD, title: "Production build validation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  # ---------------------------------------------------------------- OSINT (9.8)
+  - {id: OSI-01, course: COURSE-OSINT, title: "Lawful research planning", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: OSI-02, course: COURSE-OSINT, title: "Public-source collection", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: OSI-03, course: COURSE-OSINT, title: "Verification of conflicting information", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: OSI-04, course: COURSE-OSINT, title: "Evidence provenance", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: OSI-05, course: COURSE-OSINT, title: "Source credibility analysis", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: OSI-06, course: COURSE-OSINT, title: "Report preparation", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: OSI-07, course: COURSE-OSINT, title: "Intelligence-confidence assessment", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: OSI-08, course: COURSE-OSINT, title: "Controlled domain and infrastructure research", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: OSI-09, course: COURSE-OSINT, title: "Misattribution prevention", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  # ---------------------------------------------------------------- Mega-course and Foundation (9.9)
+  - {id: MEG-01, course: COURSE-CYBER-MEGA, title: "Integrated multi-domain operational pathway with correct prerequisite sequencing", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: MEG-02, course: COURSE-CYBER-MEGA, title: "Authorised simulated security exercise (capstone)", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: MEG-03, course: COURSE-CYBER-MEGA, title: "Cross-track detection and response exercise", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: MEG-04, course: COURSE-CYBER-MEGA, title: "Cloud and identity misconfiguration exercise (local equivalents)", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: FND-01, course: COURSE-FND-DIGITAL, title: "Command line and file-system literacy in a safe sandbox", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: FND-02, course: COURSE-FND-DIGITAL, title: "Version control workflow with a recoverable mistake", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}
+  - {id: FND-03, course: COURSE-FND-DIGITAL, title: "Foundation capstone: an automated file report in a Git repository", status: NOT_STARTED, classification: NONE_YET, modules: [], lifecycle: [], failure_injections: [], evidence: []}

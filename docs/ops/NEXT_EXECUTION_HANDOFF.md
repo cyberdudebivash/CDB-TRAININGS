@@ -6,7 +6,7 @@ The figures that change as work proceeds live in [MODERNIZATION_PROGRESS.md](MOD
 ## 1. State in one paragraph
 
 All ten source PDFs are preserved unchanged. Every one of their pages has a machine-readable audit record; the concept-level 2025-to-2026 differential analysis, the research register (with executed probes and a reproducible registry snapshot dated 2026-10-14) and the new-developments register exist and are cross-validated.
-A few modules are built with executed labs (the built modules are listed in [MODERNIZATION_PROGRESS.md](MODERNIZATION_PROGRESS.md)); the rest are planned only. No course is eligible for PRODUCTION_GO and none may be called a "Premium Edition". The 2026-10-24 refresh is a future event (`PENDING_FUTURE_REFRESH`).
+A few modules are built with executed labs (the built modules are listed in [MODERNIZATION_PROGRESS.md](MODERNIZATION_PROGRESS.md)); the rest are planned only. No course is eligible for TRAINING_CONTENT_GO (Gate A, computed in docs/production/) and none may be called a "Premium Edition". The 2026-10-24 refresh is a future event (`PENDING_FUTURE_REFRESH`).
 
 ## 2. Verify it yourself
 

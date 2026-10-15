@@ -2,7 +2,7 @@
 
 This repository holds the **source training PDFs** received from CyberDudeBivash and the **engineering work that replaces them with assessable, tested courses**. It is a work in progress, and it is deliberately honest about what is finished.
 
-> **Status (see [`docs/release/PRODUCTION_GO_GATE_REPORT.md`](docs/release/PRODUCTION_GO_GATE_REPORT.md)):** no course is cleared for production release. One module (SOC-M04, authentication-attack detection and triage) is built as a gold-standard pilot. Everything else is an audited plan. No human subject-matter review has taken place and no learner has used the content.
+> **Status (computed from the evidence; see [`docs/production/PORTFOLIO_FINAL_ACCEPTANCE.md`](docs/production/PORTFOLIO_FINAL_ACCEPTANCE.md)):** no course has reached `TRAINING_CONTENT_GO` (Gate A: the content is complete, correct, executable and approved by named people). The modules that exist are listed in [`docs/production/COURSE_COMPLETENESS_MATRIX.md`](docs/production/COURSE_COMPLETENESS_MATRIX.md); everything else is an audited plan. No human subject-matter review has taken place and no learner has used the content. Commercial readiness and Academy publication are separate gates (`COMMERCIAL_GO`, `ACADEMY_LIVE_GO`) that are not assessed in this phase.
 
 ## Where to start
 

@@ -4,10 +4,10 @@
 Outputs (all regenerated; never hand-edited):
   docs/release/data/qa_run.json            raw results of this run
   docs/release/AUTOMATED_QA_REPORT.md      human-readable summary of exactly what ran and what it proved
-  docs/release/PRODUCTION_GO_GATE_REPORT.md per-course gate evaluation derived from catalog/courses.yaml + qa_run.json
 
-The run never changes catalog/courses.yaml.  A course can only be PRODUCTION_GO if catalog + gates say so;
-this script reports, it does not promote.
+Release gating is computed elsewhere (scripts/production/gate_a.py, rendered to docs/production/); this script runs the checks that feed it and
+adds three of them: the personal-data guard, the Gate A validator and the freshness of the generated Gate A documents.
+The run never changes catalog/courses.yaml; it reports, it does not promote.
 
 Run:  .venv/bin/python scripts/validation/run_qa.py [--skip-build]
 """
@@ -25,28 +25,13 @@ import tempfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-import yaml
-
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from validate_catalog import load_yaml  # noqa: E402
 
 DATA_DIR = ROOT / "docs" / "release" / "data"
 LABS = ROOT / "courses" / "soc-analyst" / "labs"
 INSTRUCTOR = ROOT / "courses" / "soc-analyst" / "instructor"
 PY = sys.executable
-
-GATES = [
-    ("G1", "Source provenance and licence cleared"),
-    ("G2", "Technical claims verified against primary sources"),
-    ("G3", "Every outcome assessed with a rubric"),
-    ("G4", "Every lab executable and automatically checked"),
-    ("G5", "Automated QA passing"),
-    ("G6", "Accessibility and design-system conformance"),
-    ("G7", "Subject-matter expert review recorded"),
-    ("G8", "Owner and reviewers named; no open P0/P1 findings"),
-]
-
 
 def run(cmd: list[str], cwd: Path = ROOT, env: dict | None = None, timeout: int = 900) -> tuple[int, str]:
     e = dict(os.environ)
@@ -118,6 +103,18 @@ def check_modernization_evidence(include_page_rebuild: bool = True) -> list[dict
         out.append(_script_check("page-records-rebuild", "Page records (8,186 pages) reproduce from the source PDFs, rules and mapping",
                                  ["scripts/audit/build_page_records.py", "--check"], "committed page records equal a fresh rebuild"))
     return out
+
+
+def check_gate_a() -> list[dict]:
+    """Personal-data guard, Gate A validator (claims must not exceed evidence) and freshness of the generated Gate A documents."""
+    return [
+        _script_check("privacy-guard", "No e-mail address or telephone number outside the reviewed allow-list in any authored or generated text file",
+                      ["scripts/validation/check_privacy.py"], "no personal-data-shaped string found"),
+        _script_check("gate-a-validator", "Gate A validator: no status, review or scenario claims more than the evidence supports; no placeholder in finished content",
+                      ["scripts/validation/validate_gate_a.py"], "all Gate A claims are within the evidence"),
+        _script_check("gate-a-docs-render", "Gate A acceptance documents (docs/production/) reproduce from the evidence",
+                      ["scripts/production/render_production_docs.py", "--check"], "documents match the data"),
+    ]
 
 
 def run_pytest() -> tuple[dict, list[dict]]:
@@ -212,50 +209,7 @@ def check_student_build(skip: bool) -> dict:
 
 
 # ------------------------------------------------------------------------------------------------ reporting
-def count_p01(findings: list[dict], source_ids: list[str]) -> list[str]:
-    """P0/P1 findings that still block the course (a pilot-module fix does not clear a course-level finding)."""
-    return sorted(f["id"] for f in findings if f["source_id"] in source_ids and f["severity"] in ("P0", "P1"))
-
-
-def evaluate_gates(course: dict, findings: list[dict], qa_pass: bool) -> dict[str, tuple[str, str]]:
-    """Return gate -> (status, reason). Status is PASS only where the repository holds evidence."""
-    ov = course["lab_coverage"]
-    ac = course["assessment_coverage"]
-    open_p01 = count_p01(findings, course["source_ids"])
-    g: dict[str, tuple[str, str]] = {}
-    # G1: provenance / licence
-    g["G1"] = ("OPEN", "licence terms for the legacy sources are unresolved (no LICENSE; see IP_AND_LICENSE_REVIEW.md)") if course["source_ids"] else ("N/A", "new course with no legacy source")
-    # G2
-    g["G2"] = ("OPEN", "no module has completed primary-source verification with a named reviewer") if course["lifecycle"] != "PILOT_BUILT" else ("PARTIAL", "pilot module claims verified against primary sources in research_register; remaining modules unbuilt")
-    # G3
-    g["G3"] = ("PASS", "every outcome assessed") if ac["outcomes_assessed"] == ac["outcomes_total"] else ("OPEN", f"{ac['outcomes_assessed']}/{ac['outcomes_total']} outcomes assessed")
-    # G4
-    g["G4"] = ("PASS", "all labs verified executable") if ov["verified_executable"] == ov["planned"] and ov["planned"] else ("OPEN", f"{ov['verified_executable']}/{ov['planned']} labs verified executable ({ov['built']} built)")
-    # G5
-    g["G5"] = ("PARTIAL", "repository QA suite passes but covers only built content") if qa_pass and ov["built"] else (("OPEN", "no built content to test") if qa_pass else ("FAIL", "repository QA run failing"))
-    # G6
-    g["G6"] = ("PARTIAL", "design tokens and student-edition build verified for the pilot unit only") if course["lifecycle"] == "PILOT_BUILT" else ("OPEN", "no built content")
-    # G7
-    g["G7"] = ("PASS", "SME review recorded") if course["review_status"] == "SME_REVIEWED" else ("OPEN", f"review_status={course['review_status']}")
-    # G8
-    if course["owner"] == "UNASSIGNED" or not course["reviewers"]:
-        g["G8"] = ("OPEN", "owner/reviewers unassigned" + (f"; open P0/P1: {', '.join(open_p01)}" if open_p01 else ""))
-    elif open_p01:
-        g["G8"] = ("OPEN", "open P0/P1: " + ", ".join(open_p01))
-    else:
-        g["G8"] = ("PASS", "owner and reviewers named; no open P0/P1")
-    return g
-
-
-def decision(course: dict, gates: dict[str, tuple[str, str]]) -> str:
-    if all(v[0] in ("PASS", "N/A") for v in gates.values()):
-        return "PRODUCTION_GO (eligible; requires explicit owner sign-off)"
-    return course["release_status"]
-
-
 def render_reports(results: list[dict], head: str, branch: str, now: str, private_pack: bool) -> None:
-    catalog = load_yaml(ROOT / "catalog" / "courses.yaml")
-    findings = load_yaml(ROOT / "docs" / "audits" / "data" / "findings.yaml")["findings"]
     qa_pass = all(r["status"] in ("PASS", "SKIPPED_PRIVATE_MATERIALS", "SKIPPED_TOOL_MISSING", "SKIPPED_BY_FLAG") for r in results)
     py = next(r for r in results if r["id"] == "pytest")
 
@@ -273,7 +227,7 @@ def render_reports(results: list[dict], head: str, branch: str, now: str, privat
           "## What this report does and does not prove", "",
           "- It proves that the **automation in this repository** runs and passes: catalog integrity, audit-document reproducibility, design-token contrast, the SOC-M04 pilot lab code, its docs-as-tests checks, and the student-edition build.",
           "- It does **not** prove pedagogical quality, subject-matter correctness beyond the facts registered in `docs/research/research_register.yaml`, or that any learner has succeeded. No learner pilot and no human expert review have taken place.",
-          "- Only one module (SOC-M04) contains built content. A passing run therefore says nothing about the other 9 courses beyond catalog consistency.",
+          "- Built content is limited to the modules that `docs/production/COURSE_COMPLETENESS_MATRIX.md` lists as implemented. A passing run says nothing about modules that are not built and does not make any course `TRAINING_CONTENT_GO`: that state is computed by Gate A (`docs/production/TRAINING_CONTENT_GO_REPORT.md`) and needs human approvals.",
           "- Tests that need the git-ignored instructor pack are reported as `SKIPPED_PRIVATE_MATERIALS` when the pack is absent. If this run was executed on a machine that holds the pack, the corresponding result is recorded as PASS and the detail says so; that evidence is not reproducible from a public clone.", "",
           "## Checks", "", "| Check | Status | Detail |", "|---|---|---|"]
     for r in results:
@@ -294,42 +248,6 @@ def render_reports(results: list[dict], head: str, branch: str, now: str, privat
           "- There is no browser-based accessibility audit with assistive technology; accessibility evidence is limited to token contrast, tagged-PDF structure checks and a 360 px overflow probe.", ""]
     (ROOT / "docs" / "release" / "AUTOMATED_QA_REPORT.md").write_text("\n".join(L), encoding="utf-8")
 
-    # ---------------- PRODUCTION_GO_GATE_REPORT.md
-    G: list[str] = ["# Production GO Gate Report", "",
-                    "> Generated by `scripts/validation/run_qa.py` from `catalog/courses.yaml`, `docs/audits/data/findings.yaml` and the QA run above. Gate definitions: `docs/release/RELEASE_GATES.md`.", "",
-                    f"- Evaluated: {now} (UTC) against commit `{head}`",
-                    f"- Repository QA run: **{'PASS' if qa_pass else 'FAIL'}**", "",
-                    "## Decision", ""]
-    go = [c for c in catalog["courses"] if all(v[0] in ("PASS", "N/A") for v in evaluate_gates(c, findings, qa_pass).values())]
-    if go:
-        G.append("Courses technically eligible for PRODUCTION_GO (still requires explicit owner sign-off): " + ", ".join(c["id"] for c in go))
-    else:
-        G.append("**No course is PRODUCTION_GO.** No course satisfies all eight gates. This is the honest result of the work completed so far, not a temporary status.")
-    G += ["", "## Status per course", "", "| Course | Release status | Lifecycle | Labs verified / planned | Outcomes assessed / total | Review | Open P0/P1 |", "|---|---|---|---:|---:|---|---:|"]
-    for c in catalog["courses"]:
-        G.append(f"| `{c['id']}` | `{c['release_status']}` | {c['lifecycle']} | {c['lab_coverage']['verified_executable']}/{c['lab_coverage']['planned']} | {c['assessment_coverage']['outcomes_assessed']}/{c['assessment_coverage']['outcomes_total']} | {c['review_status']} | {len(count_p01(findings, c['source_ids']))} |")
-    G += ["", "## Gate matrix", "", "Legend: PASS = evidence in repository; PARTIAL = evidence for built content only; OPEN = not yet done; FAIL = checked and failing; N/A = not applicable.", "",
-          "| Course | " + " | ".join(g for g, _ in GATES) + " |", "|---|" + "---|" * len(GATES)]
-    for c in catalog["courses"]:
-        gv = evaluate_gates(c, findings, qa_pass)
-        G.append(f"| `{c['id']}` | " + " | ".join(gv[g][0] for g, _ in GATES) + " |")
-    G += ["", "Gate names: " + "; ".join(f"**{g}** {n}" for g, n in GATES) + ".", "", "## Blocking reasons per course", ""]
-    for c in catalog["courses"]:
-        gv = evaluate_gates(c, findings, qa_pass)
-        G += [f"### {c['id']} — {c['title']}", ""]
-        for g, name in GATES:
-            st, why = gv[g]
-            if st not in ("PASS", "N/A"):
-                G.append(f"- **{g} {name}** — {st}: {why}")
-        G.append("")
-    G += ["## What would have to be true before any course can be PRODUCTION_GO", "",
-          "1. A named owner and at least one qualified subject-matter reviewer, recorded in the catalog (`owner`, `reviewers`, `review_status: SME_REVIEWED`).",
-          "2. The licensing position of every reused source and every third-party tool is settled in writing (GPL tools, vendor-derived text, the personal data found in the Frontend source).",
-          "3. All planned labs built, checked automatically, and verified in the QA run; every outcome assessed with a rubric.",
-          "4. A learner pilot with recorded results, so that the time estimates and rubric difficulty are measured rather than estimated.",
-          "5. The owner explicitly authorises release. This repository never sets that flag on its own: `validate_catalog.py` rejects a PRODUCTION_GO course that lacks the evidence above.", ""]
-    (ROOT / "docs" / "release" / "PRODUCTION_GO_GATE_REPORT.md").write_text("\n".join(G), encoding="utf-8")
-
 
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -340,6 +258,7 @@ def main() -> int:
 
     results: list[dict] = [check_catalog(), check_contrast(), check_audit_render_is_current()]
     results += check_modernization_evidence(include_page_rebuild=not a.skip_page_rebuild)
+    results += check_gate_a()
     py_res, _ = run_pytest()
     results.append(py_res)
     results += check_lab_end_to_end()

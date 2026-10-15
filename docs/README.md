@@ -18,7 +18,7 @@ The mission directive named seventeen deliverables. This index maps each to its 
 | 12 | COURSE_PRODUCT_CATALOG | [`commercial/COURSE_PRODUCT_CATALOG.md`](commercial/COURSE_PRODUCT_CATALOG.md) | hand-written + generated tables | `render_program_docs.py` |
 | 13 | COMMERCIAL_READINESS | [`commercial/COMMERCIAL_READINESS.md`](commercial/COMMERCIAL_READINESS.md) | hand-written + generated table | `render_program_docs.py` |
 | 14 | AUTOMATED_QA_REPORT | [`release/AUTOMATED_QA_REPORT.md`](release/AUTOMATED_QA_REPORT.md) | generated from a real run | `scripts/validation/run_qa.py` |
-| 15 | PRODUCTION_GO_GATE_REPORT | [`release/PRODUCTION_GO_GATE_REPORT.md`](release/PRODUCTION_GO_GATE_REPORT.md) | generated | `run_qa.py` |
+| 15 | TRAINING_CONTENT_GO_REPORT | [`production/TRAINING_CONTENT_GO_REPORT.md`](production/TRAINING_CONTENT_GO_REPORT.md) | generated | `scripts/production/render_production_docs.py` |
 | 16 | EXECUTION_PROGRESS | [`execution/EXECUTION_PROGRESS.md`](execution/EXECUTION_PROGRESS.md) | hand-written snapshot | — |
 | 17 | EXECUTION_HANDOFF | [`execution/EXECUTION_HANDOFF.md`](execution/EXECUTION_HANDOFF.md) | hand-written | — |
 
@@ -26,7 +26,7 @@ The mission directive named seventeen deliverables. This index maps each to its 
 
 | Topic | File |
 |---|---|
-| Release states and the eight gates | [`release/RELEASE_GATES.md`](release/RELEASE_GATES.md) |
+| The three release gates (A content, B commercial, C Academy) | [`release/RELEASE_GATES.md`](release/RELEASE_GATES.md) |
 | Findings register (66 findings, single source of truth) | [`audits/data/findings.yaml`](audits/data/findings.yaml) |
 | Scores and strengths | [`audits/data/scores.yaml`](audits/data/scores.yaml) |
 | Per-course audits | [`audits/courses/`](audits/courses/) |

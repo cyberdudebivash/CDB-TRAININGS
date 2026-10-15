@@ -1,0 +1,16 @@
+# Register of HUMAN approvals. Only a person can add an entry, and an entry must describe a real review that happened outside this repository's automation.
+# Automation, including the assistant that maintains this repository, must never create, edit or infer an entry here.
+#
+# Entry format (all fields required):
+#   - id: HR-001
+#     course: COURSE-PY-ENG           # or a module id in `scope`
+#     scope: [PY-M01, PY-M02]         # modules reviewed; use ["*"] for the whole course
+#     kind: SME | EDITORIAL | LEARNER_PILOT | OWNER_ACCEPTANCE
+#     reviewer: "Full name and role"
+#     date: 2026-11-02
+#     outcome: APPROVED | APPROVED_WITH_CHANGES | REJECTED
+#     reference: "where the signed record or notes are kept (a private location, an e-mail thread id, a ticket)"
+#     revisions: ["ids of the changes made because of this review"]
+schema_version: 1
+as_of: 2026-10-15
+reviews: []
