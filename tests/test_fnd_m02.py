@@ -19,7 +19,7 @@ def _yaml(path: Path):
 def test_course_module_identity_and_source_provenance():
     content = (M / "lesson.md").read_text(encoding="utf-8")
     meta = _yaml(M / "source-map.yaml")
-    assert content.startswith("---\\n")
+    assert content.startswith("---\n")
     assert meta["source"] is None
     assert meta["origin"] == "NEW_ORIGINAL_FOUNDATIONS_CURRICULUM"
     assert meta["mappings"] == []
@@ -28,7 +28,7 @@ def test_course_module_identity_and_source_provenance():
 def test_lesson_is_substantive_and_examples_execute():
     content = (M / "lesson.md").read_text(encoding="utf-8")
     assert len(content.split()) >= 1800
-    blocks = re.findall(r"`{3}python run\\n(.*?)`{3}", content, re.S)
+    blocks = re.findall(r"`{3}python run\n(.*?)`{3}", content, re.S)
     assert len(blocks) >= 4
     for block in blocks:
         exec(compile(block, "<fnd-m02-example>", "exec"), {"__name__": "__main__"})
@@ -63,8 +63,8 @@ def test_outcome_links_and_all_quiz_items():
         for ref in outcome["instruction"] + outcome["practice"]:
             path, sep, anchor = ref.partition("#")
             assert sep
-            headings = re.findall(r"^#{1,6}\\s+(.+)$", (M / path).read_text(encoding="utf-8"), re.M)
-            normalized = [re.sub(r"[^\\w\\- ]", "", h.strip().lower()).replace(" ", "-") for h in headings]
+            headings = re.findall(r"^#{1,6}\s+(.+)$", (M / path).read_text(encoding="utf-8"), re.M)
+            normalized = [re.sub(r"[^\w\- ]", "", h.strip().lower()).replace(" ", "-") for h in headings]
             assert anchor in normalized, ref
 
 
