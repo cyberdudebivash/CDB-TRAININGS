@@ -1,0 +1,9 @@
+module: FND-M04
+source: null
+origin: NEW_ORIGINAL_FOUNDATIONS_CURRICULUM
+mappings: []
+rationale: >-
+  Digital and Technical Foundations is a newly authored prerequisite pathway.
+  No original PDF source exists for this module; do not fabricate PDF page
+  provenance. Git technology references are listed in the authored lesson,
+  but real-world expert, learner, accessibility and release review are pending.
