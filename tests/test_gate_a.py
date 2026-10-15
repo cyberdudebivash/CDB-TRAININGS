@@ -147,6 +147,24 @@ def test_a_complete_course_preview_is_not_a_final_edition_and_an_unsourced_one_i
             assert cp.get("kind") == "PREVIEW" and course["criteria"]["A14"]["status"] != G.MET      # a recorded course edition is a preview and never satisfies A14
 
 
+def test_the_matrix_pieces_cover_every_test_exactly_once():
+    import importlib.util
+    import subprocess
+
+    spec = importlib.util.spec_from_file_location("run_lab_matrix", ROOT / "scripts" / "validation" / "run_lab_matrix.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    def collected(files: list[str], expr: str | None) -> list[str]:
+        cmd = [sys.executable, "-m", "pytest", *files, *(["-k", expr] if expr else []), "--collect-only", "-q", "-p", "no:cacheprovider", "-o", "addopts="]
+        out = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, check=False).stdout
+        return [line for line in out.splitlines() if "::" in line]
+
+    everything = collected(module.SUITES, None)
+    pieces = [test for _, files, expr in module.chunks() for test in collected(files, expr)]
+    assert len(everything) > 200 and sorted(pieces) == sorted(everything), (len(everything), len(pieces))      # a test in no piece would never be recorded; one in two pieces would be recorded twice
+
+
 def test_an_interrupted_matrix_run_resumes_only_with_identical_content(tmp_path):
     import importlib.util
     spec = importlib.util.spec_from_file_location("run_lab_matrix", ROOT / "scripts" / "validation" / "run_lab_matrix.py")
@@ -159,6 +177,11 @@ def test_an_interrupted_matrix_run_resumes_only_with_identical_content(tmp_path)
     assert list(module.resumable(partial, same)) == ["3.11"]                 # only a pass is reused: a failure or a missing interpreter is run again
     assert module.resumable(partial, "0" * 64) == {}                           # other content: nothing is reused
     assert module.resumable(tmp_path / "missing.json", same) == {}
+    module.write_partial(partial, same, [], {"3.13": {"labs-m10": {"name": "labs-m10", "exit": 0, "tests": [{"id": "a::b", "outcome": "passed"}]}}})
+    assert list(module.saved_pieces(partial, same)["3.13"]) == ["labs-m10"] and module.saved_pieces(partial, "0" * 64) == {}      # a piece is reused only for identical content
+    assert module.chunk_passed(module.saved_pieces(partial, same)["3.13"]["labs-m10"])
+    assert not module.chunk_passed({"exit": 0, "tests": []}) and not module.chunk_passed({"exit": 1, "tests": [{"id": "x", "outcome": "passed"}]})
+    assert not module.chunk_passed({"exit": 0, "tests": [{"id": "x", "outcome": "skipped"}]})            # a skipped test is not a passed piece
     partial.write_text("not json", encoding="utf-8")
     assert module.resumable(partial, same) == {}
 
