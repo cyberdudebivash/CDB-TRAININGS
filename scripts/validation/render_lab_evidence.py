@@ -50,7 +50,7 @@ def table(headers, rows) -> str:
 
 
 def lab_key(test_id: str) -> str | None:
-    m = re.search(r"test_(m0\d)_(guided|independent)", test_id)
+    m = re.search(r"test_(m\d\d)_(guided|independent)", test_id)
     return f"{m.group(1)}_{m.group(2)}" if "test_python_engineering_labs" in test_id and m else None
 
 

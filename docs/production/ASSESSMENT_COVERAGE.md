@@ -27,16 +27,16 @@ Outcomes assessed overall: 18 of 118 (15%).
 |---|---|---|---|---|---|
 | FND-M01 | 4 | 8 | 4 | no | IMPLEMENTED_UNVERIFIED |
 | SOC-M04 | 6 | 10 | 9 | yes | TECHNICALLY_VERIFIED |
-| PY-M01 | 5 | 8 | 5 | yes | IMPLEMENTED_UNVERIFIED |
-| PY-M02 | 5 | 8 | 5 | yes | IMPLEMENTED_UNVERIFIED |
-| PY-M13 | 5 | 8 | 5 | yes | IMPLEMENTED_UNVERIFIED |
-| PY-M03 | 5 | 8 | 6 | yes | IMPLEMENTED_UNVERIFIED |
-| PY-M12 | 5 | 8 | 5 | yes | IMPLEMENTED_UNVERIFIED |
-| PY-M04 | 5 | 8 | 6 | yes | IMPLEMENTED_UNVERIFIED |
-| PY-M05 | 5 | 8 | 4 | yes | IMPLEMENTED_UNVERIFIED |
-| PY-M06 | 5 | 8 | 5 | yes | IMPLEMENTED_UNVERIFIED |
-| PY-M07 | 5 | 8 | 5 | yes | IMPLEMENTED_UNVERIFIED |
-| PY-M08 | 5 | 8 | 5 | no | IMPLEMENTED_UNVERIFIED |
-| PY-M09 | 5 | 8 | 5 | no | IMPLEMENTED_UNVERIFIED |
+| PY-M01 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
+| PY-M02 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
+| PY-M13 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
+| PY-M03 | 5 | 8 | 6 | yes | TECHNICALLY_VERIFIED |
+| PY-M12 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
+| PY-M04 | 5 | 8 | 6 | yes | TECHNICALLY_VERIFIED |
+| PY-M05 | 5 | 8 | 4 | yes | TECHNICALLY_VERIFIED |
+| PY-M06 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
+| PY-M07 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
+| PY-M08 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
+| PY-M09 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
 
 Answer keys, grading notes, hidden suites and mutants are instructor material kept out of the public repository (INC-005). Quiz items and rubrics have had no subject-matter review and no learner pilot.

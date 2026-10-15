@@ -13,8 +13,8 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Item | Value |
 |---|---|
-| Commit at run time | `4e4700ffaf7d` (clean tracked tree) |
-| Run (UTC) | 2026-10-15T09:08:41Z |
+| Commit at run time | `9e03a201529a` (clean tracked tree) |
+| Run (UTC) | 2026-10-15T14:08:43Z |
 | Host | Linux 6.18.44-fc-v114 x86_64 |
 | Instructor pack present in the environment | yes - private-material tests were executed |
 | Toolchain pins | `courses/python-engineering/labs/requirements.txt` |
@@ -24,11 +24,11 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Requested | Interpreter | Source | pytest | ruff | setuptools | build | Status | Passed / failed / skipped | Seconds |
 |---|---|---|---|---|---|---|---|---|---|
-| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 112 / 0 / 0 | 486.5 |
-| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 112 / 0 / 0 | 514.4 |
-| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 112 / 0 / 0 | 474.2 |
-| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 112 / 0 / 0 | 484.5 |
-| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 112 / 0 / 0 | 472.2 |
+| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 146 / 0 / 0 | 657.4 |
+| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 146 / 0 / 0 | 674.2 |
+| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 146 / 0 / 0 | 630.4 |
+| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 146 / 0 / 0 | 627.9 |
+| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 146 / 0 / 0 | 653.8 |
 
 Interpreters from `uv` are python-build-standalone builds, not python.org installers; behaviour on distribution-packaged or Windows/macOS interpreters is not claimed.
 
@@ -52,24 +52,24 @@ Interpreters from `uv` are python-build-standalone builds, not python.org instal
 | PY-M06 independent | Starter fails all 10 published checks; instructor reference passes them and the 45-case hidden suite (concurrency limit, speed, event-loop health, deadline, cancellation, safe paths, benchmark report), which kills all 21 seeded defects (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
 | PY-M07 guided | Reference passes all checks; starter works but fails exploit/static checks in all 8 areas; reference regression tests kill 8/8 required mutants | pass (4) | pass (4) | pass (4) | pass (4) | pass (4) |
 | PY-M07 independent | Instructor reference is secure and the starter is not (17 exploit tests fail on it); 9/9 required mutants killed (private pack) | pass (1) | pass (1) | pass (1) | pass (1) | pass (1) |
-| PY-M09 guided | Public solution passes all 196 provided checks (profiling helpers, hotspot, four algorithms checked against the slow program and for how their work grows, parsing, memory with tracemalloc, core/edge); the starter keeps the 146 correctness checks green and fails the 49 about profiling, speed, memory and structure; the checks kill all 59 seeded defects of the solution (private pack) | not run | not run | not run | not run | not run |
-| PY-M09 independent | Starter fails the scaling check and the check for learner-written budget tests (2 of 10 published); instructor reference passes all 10 and the 378-case hidden suite (equivalence with the original on random and awkward input, growth of the work, the core's code, the edge, and the learner's own budget tests run against the solution and the original), which kills all 52 seeded defects (private pack) | not run | not run | not run | not run | not run |
-| PY-M12 guided | Public solution passes all 167 provided checks (value types, per-instance state, observers, fee policies, registry, composition); the starter fails all 167; the checks kill all 47 seeded defects of the solution (private pack) | not run | not run | not run | not run | not run |
-| PY-M12 independent | Starter fails all 10 published checks; instructor reference passes them and the 54-case hidden suite (value semantics, operators, isolation, error recording, subscriber rules, refusal), which kills all 41 seeded defects (private pack) | not run | not run | not run | not run | not run |
-| PY-M13 guided | Public solution passes all 128 provided checks (a generator that owns a file, lazy parsing, chunks and windows with eager argument checks, decorators, context managers); the starter fails all 128; the checks kill all 49 seeded defects of the solution (private pack) | not run | not run | not run | not run | not run |
-| PY-M13 independent | Starter fails all 10 published checks; instructor reference passes them and the 63-case hidden suite (lazy merge with counted consumption and cleanup of sources, grouping, bounded memo cache, nested rollback), which kills all 35 seeded defects (private pack) | not run | not run | not run | not run | not run |
-| PY-M08 guided | Public solution passes all 200 provided checks (the first increment's 14 contract tests plus validation edges, migrations, atomic batches, injection-safe search, retention and query shape); the starter fails all 200; the checks kill all 95 seeded defects of the solution (private pack) | not run | not run | not run | not run | not run |
-| PY-M08 independent | Starter fails all 10 published checks; instructor reference passes them and the 145-case hidden suite (optimistic concurrency, rollback on every path including interrupts, import, hostile input, the upgrade of the first release's database, statement counts and SQLite work), which kills all 83 seeded defects (private pack) | not run | not run | not run | not run | not run |
+| PY-M09 guided | Public solution passes all 196 provided checks (profiling helpers, hotspot, four algorithms checked against the slow program and for how their work grows, parsing, memory with tracemalloc, core/edge); the starter keeps the 146 correctness checks green and fails the 49 about profiling, speed, memory and structure; the checks kill all 59 seeded defects of the solution (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
+| PY-M09 independent | Starter fails the scaling check and the check for learner-written budget tests (2 of 10 published); instructor reference passes all 10 and the 378-case hidden suite (equivalence with the original on random and awkward input, growth of the work, the core's code, the edge, and the learner's own budget tests run against the solution and the original), which kills all 52 seeded defects (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
+| PY-M12 guided | Public solution passes all 167 provided checks (value types, per-instance state, observers, fee policies, registry, composition); the starter fails all 167; the checks kill all 47 seeded defects of the solution (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
+| PY-M12 independent | Starter fails all 10 published checks; instructor reference passes them and the 54-case hidden suite (value semantics, operators, isolation, error recording, subscriber rules, refusal), which kills all 41 seeded defects (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
+| PY-M13 guided | Public solution passes all 128 provided checks (a generator that owns a file, lazy parsing, chunks and windows with eager argument checks, decorators, context managers); the starter fails all 128; the checks kill all 49 seeded defects of the solution (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
+| PY-M13 independent | Starter fails all 10 published checks; instructor reference passes them and the 63-case hidden suite (lazy merge with counted consumption and cleanup of sources, grouping, bounded memo cache, nested rollback), which kills all 35 seeded defects (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
+| PY-M08 guided | Public solution passes all 200 provided checks (the first increment's 14 contract tests plus validation edges, migrations, atomic batches, injection-safe search, retention and query shape); the starter fails all 200; the checks kill all 95 seeded defects of the solution (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
+| PY-M08 independent | Starter fails all 10 published checks; instructor reference passes them and the 145-case hidden suite (optimistic concurrency, rollback on every path including interrupts, import, hostile input, the upgrade of the first release's database, statement counts and SQLite work), which kills all 83 seeded defects (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
 
 ## 5. Module-pack checks (lessons, outcomes, quizzes, rubrics, source maps)
 
 | Interpreter | Checks | Passed | Lesson code-block runs | Passed |
 |---|---|---|---|---|
-| 3.11 | 65 | 65 | 9 | 9 |
-| 3.12 | 65 | 65 | 9 | 9 |
-| 3.13 | 65 | 65 | 9 | 9 |
-| 3.14 | 65 | 65 | 9 | 9 |
-| 3.15 | 65 | 65 | 9 | 9 |
+| 3.11 | 86 | 86 | 12 | 12 |
+| 3.12 | 86 | 86 | 12 | 12 |
+| 3.13 | 86 | 86 | 12 | 12 |
+| 3.14 | 86 | 86 | 12 | 12 |
+| 3.15 | 86 | 86 | 12 | 12 |
 
 Each lesson's `python run`, `python module` and `python test` blocks are executed by `scripts/validation/lesson_blocks.py`; a lesson with no executable example fails the check.
 

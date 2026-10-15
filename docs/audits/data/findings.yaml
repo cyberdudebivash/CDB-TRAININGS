@@ -557,7 +557,7 @@ findings:
     dimension: technical_correctness
     title: "The database examples open a connection and rebuild the schema per event, never close connections on failure, put a root password in the source and present create_all() as schema management"
     evidence:
-      - {page: 141, note: "`mysql.connector.connect(host=\"localhost\", user=\"root\", password=\"pass\", database=\"test\")`: a privileged user and a password in the source; the cursor and connection are never closed."}
+      - {page: 141, note: "`mysql.connector.connect(host=\"localhost\", user=\"root\", password=<a literal>, database=\"test\")`: a privileged user and a password in the source; the cursor and connection are never closed."}
       - {page: 142, note: "`psycopg2.connect(...)` and `MongoClient(...)` snippets with no close, no parameters and no error handling."}
       - {page: 154, note: "`save_event` opens a connection, runs `CREATE TABLE IF NOT EXISTS` and commits for every event and closes the connection only on the success path; the parameterised INSERT itself is correct."}
       - {page: 156, note: "The report query opens a connection that is never closed and writes to a relative `reports/` path without checking it exists."}

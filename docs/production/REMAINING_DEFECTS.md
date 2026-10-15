@@ -25,6 +25,7 @@
 | DEF-015 | P1 | REMEDIATED_PENDING_VERIFICATION | PY-ENG | Iterators, generators, closures, decorators and context managers (handbook pp. 33-39, 67-69, 78-79) are taught by no module | a built module covers them with an executable lesson, labs and assessment |
 | DEF-016 | P1 | REMEDIATED_PENDING_VERIFICATION | PY-ENG | Databases and persistence (handbook pp. 141-142, 154-156, 234-241) had no lesson, no assessment and only a guided-lab increment without an independent lab | a built module covers them with an executed lesson, guided and independent labs and assessment |
 | DEF-017 | P1 | REMEDIATED_PENDING_VERIFICATION | PY-ENG | Profiling, performance and memory (handbook pp. 56-57, 79-80) are taught by no module: a tool list without measurement, identity and reference counts presented as optimisations | a built module covers them with an executed lesson, labs and assessment |
+| DEF-019 | P3 | CLOSED | all courses | The lab evidence report matched only the module numbers PY-M01 to PY-M09, so the rows of PY-M12 and PY-M13 read not run although the recorded matrix had executed them | tests/test_python_engineering_labs.py::test_the_lab_evidence_renderer_recognises_every_lab_row |
 
 Open P0: 1; open P1: 10. A course cannot reach TRAINING_CONTENT_GO with an open P0 or P1 defect that applies to it.
 

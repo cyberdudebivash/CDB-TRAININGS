@@ -636,3 +636,16 @@ def test_m09_independent_hidden_suite_is_discriminating_and_the_starter_fails_it
     for name in ("test_collapse_scales_with_the_number_of_incidents", "test_rank_of_all_incidents_scales", "test_summarize_with_many_rules_scales",
                  "test_the_pattern_is_not_compiled_for_every_message", "test_the_learner_wrote_enough_tests", "test_the_whole_pipeline_is_at_least_30_percent_faster_than_the_original"):
         assert results[name] in ("failed", "error"), name
+
+
+# ------------------------------------------------------------------------------------------------------------------ the evidence report
+def test_the_lab_evidence_renderer_recognises_every_lab_row():
+    """Regression for DEF-019: the report once matched only module numbers PY-M01 to PY-M09, so rows of later modules read 'not run' although the matrix had executed them."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("render_lab_evidence_under_test", ROOT / "scripts" / "validation" / "render_lab_evidence.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    for key, _label, _property in module.LABS:
+        assert module.lab_key(f"tests/test_python_engineering_labs.py::test_{key}_probe") == key, key
+    assert module.lab_key("tests/test_module_packs.py::test_m10_guided_probe") is None
