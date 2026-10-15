@@ -1,0 +1,39 @@
+# Outcome traceability for PY-M09: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M09
+outcomes:
+  - id: LO1
+    verb: measure
+    statement: "Measure a Python program correctly: wall-clock time with perf_counter and timeit (and why the smallest of several runs), and a deterministic profile with cProfile and pstats (call counts, own time and cumulative time); name what the sampling profiler of Python 3.15 adds."
+    instruction: ["lesson.md#2-measure-first-lo1", "lesson.md#3-profiling-where-does-the-time-go-lo1-lo2", "lesson.md#4-sampling-profilers-and-what-python-315-added-lo1"]
+    practice: ["lab-guided/README.md#step-a---measure-profiletop-and-profile-lo1", "lab-guided/README.md#step-b---read-the-profile-hotspot-lo1-lo2", "lab-independent/README.md#1-find-out-where-the-time-goes-lo1---and-write-it-down"]
+    assessment: ["quiz:Q1", "quiz:Q2", "lab-check:guided-profile-checks", "lab-check:hidden-suite-threshold", "rubric:C3"]
+    rubric: [C3]
+  - id: LO2
+    verb: fix
+    statement: "Find the function that dominates a run, predict how much fixing it can gain (and how little fixing anything else can), replace a quadratic algorithm by a linear one, and prove that no answer changed."
+    instruction: ["lesson.md#3-profiling-where-does-the-time-go-lo1-lo2", "lesson.md#5-better-algorithms-not-tricks-lo2"]
+    practice: ["lab-guided/README.md#step-c---the-same-answers-a-better-algorithm-lo2-lo4", "lab-guided/README.md#step-d---parse-once-convert-once-lo2", "lab-independent/README.md#2-make-it-scale-without-changing-an-answer-lo2"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:guided-algorithm-checks", "lab-check:hidden-suite-threshold", "rubric:C2", "rubric:C3"]
+    rubric: [C2, C3]
+  - id: LO3
+    verb: reduce
+    statement: "Measure and reduce memory with tracemalloc; explain reference counting, cycles, interning and __slots__ without relying on implementation details that differ between versions."
+    instruction: ["lesson.md#7-memory-lo3"]
+    practice: ["lab-guided/README.md#step-e---memory-lo3", "lab-independent/README.md#1-find-out-where-the-time-goes-lo1---and-write-it-down"]
+    assessment: ["quiz:Q5", "lab-check:guided-memory-checks", "rubric:C5"]
+    rubric: [C5]
+  - id: LO4
+    verb: test
+    statement: "Write performance tests that do not flake: counts instead of clocks, ratios between input sizes instead of absolute seconds, and budgets an order of magnitude away from both a good and a bad solution."
+    instruction: ["lesson.md#6-performance-tests-that-do-not-flake-lo4"]
+    practice: ["lab-guided/README.md#step-c---the-same-answers-a-better-algorithm-lo2-lo4", "lab-independent/README.md#4-prove-it-with-tests-of-your-own-lo4"]
+    assessment: ["quiz:Q6", "quiz:Q7", "lab-check:guided-algorithm-checks", "lab-check:hidden-budget-tests-discriminate", "rubric:C4"]
+    rubric: [C4]
+  - id: LO5
+    verb: structure
+    statement: "Structure a program so that it stays changeable: a core that only computes and an edge that reads and writes, one-way dependencies enforced by a test, interfaces (ports) with swappable adapters, and a linter configuration the whole team shares."
+    instruction: ["lesson.md#8-architecture-that-stays-changeable-lo5"]
+    practice: ["lab-guided/README.md#step-f---the-core-computes-the-edge-reads-and-writes-lo5", "lab-independent/README.md#3-keep-the-core-free-of-input-and-output-lo5"]
+    assessment: ["quiz:Q8", "lab-check:guided-architecture-checks", "lab-check:hidden-core-purity", "rubric:C5"]
+    rubric: [C5]

@@ -9,7 +9,7 @@
 | Review confidence | **MEDIUM** |
 | Review coverage | 654/654 pages machine-scanned; ~15 pages read in context (pp. 63-64, 83, 163-164, 220, 427-428, 585-586 and code-failure contexts); 404 code blocks syntax-checked. |
 | Quality score (source as received) | **36 / 100** (internal instrument; see `COURSE_QUALITY_SCORECARD.md`) |
-| Open findings | P0: 1, P1: 3, P2: 8, P3: 0, P4: 0 |
+| Open findings | P0: 1, P1: 3, P2: 10, P3: 0, P4: 0 |
 | Release status | `REENGINEERING` (lifecycle `IN_BUILD`) |
 | Audit date | 2026-10-14 |
 
@@ -44,6 +44,8 @@ Severity scale: **P0** dangerous, materially incorrect, legally problematic or f
 | F-PYH-010 | P2 | Technical correctness and security | Concurrency examples promise speed-ups without measurement and show unbounded, unsupervised asyncio patterns | p. 134, p. 135, p. 136, p. 177, p. 178 | EXECUTED | PLANNED_IN_TRACK |
 | F-PYH-011 | P2 | Technical correctness and security | The advanced object-oriented chapter contains errors a learner would copy, shows skeletons instead of working patterns and omits the idioms modern Python uses | p. 40, p. 44, p. 48, p. 50, p. 51, p. 52, p. 53, p. 54, p. 55, p. 65 | EXECUTED | PLANNED_IN_TRACK |
 | F-PYH-012 | P2 | Technical correctness and security | The iterator, generator, decorator and context-manager sections contain examples that leak resources, drop arguments and results, or use Python 2 spellings, and make unqualified speed claims | p. 33, p. 35, p. 36, p. 38, p. 68, p. 79 | EXECUTED | PLANNED_IN_TRACK |
+| F-PYH-013 | P2 | Technical correctness and security | The database examples open a connection and rebuild the schema per event, never close connections on failure, put a root password in the source and present create_all() as schema management | p. 141, p. 142, p. 154, p. 156, p. 236, p. 240 | EXECUTED | PLANNED_IN_TRACK |
+| F-PYH-014 | P2 | Technical correctness and security | The memory and optimisation sections demonstrate reference counting without its caveats, present string identity as an optimisation and list speed-up tools without any measurement | p. 56, p. 57, p. 79, p. 80 | EXECUTED | PLANNED_IN_TRACK |
 
 ### F-PYH-001 (P0) Agent 'math tool' evaluates model-controlled input with eval()
 
@@ -185,6 +187,32 @@ Executed on CPython 3.11-3.15 (PY-M13 lesson, R-097): next() on a class that onl
 **Verification:** EXECUTED. **Recommendation:** Teach the iterator protocol with single-pass behaviour, generators with laziness and cleanup (with inside the generator, close(), argument checks at the call), the three-line decorator pattern with functools.wraps, decorators with arguments and stacking order, context managers with guaranteed cleanup (class form, contextmanager with try/finally, ExitStack), and test them by counting consumption and recording cleanup.
 **Remediation:** PLANNED_IN_TRACK - Module PY-M13 (courses/python-engineering/modules/PY-M13).
 
+### F-PYH-013 (P2) The database examples open a connection and rebuild the schema per event, never close connections on failure, put a root password in the source and present create_all() as schema management
+
+- **p. 141:** `mysql.connector.connect(host="localhost", user="root", password=<a literal>, database="test")`: a privileged user and a password in the source; the cursor and connection are never closed.
+- **p. 142:** `psycopg2.connect(...)` and `MongoClient(...)` snippets with no close, no parameters and no error handling.
+- **p. 154:** `save_event` opens a connection, runs `CREATE TABLE IF NOT EXISTS` and commits for every event and closes the connection only on the success path; the parameterised INSERT itself is correct.
+- **p. 156:** The report query opens a connection that is never closed and writes to a relative `reports/` path without checking it exists.
+- **p. 236:** `db.create_all()` is the only schema management shown: it creates missing tables and never changes existing ones.
+- **p. 240:** `SECRET_KEY = "cyberdude_secret_key_987"` in `config.py`.
+
+Executed on CPython 3.11-3.15 (PY-M08 lesson, R-098): an f-string query is injectable by `' OR '1'='1` and by a UNION, `execute()` refuses a second statement but `executescript()` runs it; `ORDER BY ?` sorts by a constant and does nothing; user `%` and `_` are wildcards inside LIKE; `PRAGMA foreign_keys` is off by default and ignored inside a transaction; `with conn` ends a transaction and does not close the connection, and a rollback also undoes earlier uncommitted statements; `executescript()` commits as it goes, so a migration that fails half way leaves a database that matches no version; `INSERT OR REPLACE` overwrites and its delete cascades, `INSERT OR IGNORE` hides a conflict; OFFSET paging repeats rows when rows arrive between requests; a function around an indexed column causes a SCAN; an unclosed connection emits a ResourceWarning from 3.13.
+
+**Verification:** EXECUTED. **Recommendation:** Teach parameters with an exploit and the three things that cannot be parameters (names, ORDER BY, LIKE wildcards), transactions with their defaults (what `with conn` does, foreign keys, executescript), constraints as the second line of defence, a repository and unit of work, versioned atomic migrations, idempotent writes and optimistic concurrency, and the shape of a query (statements, plans, work, keyset paging); keep secrets out of the source and files private.
+**Remediation:** PLANNED_IN_TRACK - Module PY-M08 (courses/python-engineering/modules/PY-M08).
+
+### F-PYH-014 (P2) The memory and optimisation sections demonstrate reference counting without its caveats, present string identity as an optimisation and list speed-up tools without any measurement
+
+- **p. 56:** `sys.getrefcount(x)` is shown as the way to see an object's count; the call itself adds a reference, and on Python 3.12 and later None, True, small integers and interned names are immortal and are not counted.
+- **p. 57:** Interning is called a 'Speed Optimization' and demonstrated with `a is b -> True`; identity of strings is an implementation detail, and `is` with a literal is a SyntaxWarning.
+- **p. 79:** 'Python execution optimization': PyPy, Cython, NumPy, caching, and `@lru_cache(maxsize=None)` on a recursive fib with no measurement and no mention that the cache never forgets.
+- **p. 80:** 'Memory optimization techniques' (generators, `__slots__`, arrays, local variables) with no measurement and no mention of what `__slots__` removes.
+
+Executed on CPython 3.11-3.15 (PY-M09 lesson, R-099): sys.getrefcount(object()) is one higher than the number of names; the count of None does not change on 3.12 and later and does on 3.11; runtime-built strings are not the compiled constant, sys.intern shares them, and compile('x is "a"') warns; which small integers are shared differs by version; fib(20) makes 21891 calls and 21 with a cache; cProfile call counts are exact and repeatable; __slots__ objects use less than 80 percent of the memory of dictionary-backed ones and refuse new attributes; a generator needs less than 10 percent of the peak memory of the equivalent list; a list membership test makes 200 comparisons where a set makes 1.
+
+**Verification:** EXECUTED. **Recommendation:** Teach measurement first (perf_counter, timeit with the minimum of repeats, cProfile and pstats, the 3.15 sampling profiler), Amdahl's law, algorithmic fixes proved equivalent, tracemalloc, the real meaning of reference counts, cycles, interning and slots, performance tests built from counts and size ratios, and a core/edge structure with a dependency rule enforced by a test.
+**Remediation:** PLANNED_IN_TRACK - Module PY-M09 (courses/python-engineering/modules/PY-M09).
+
 ## 4. Mandated-topic coverage (keyword probes)
 
 Zero matches are a definitive gap; a match only shows a term is mentioned, not taught. See `TECHNICAL_GAP_MATRIX.md` for the legend.
@@ -233,5 +261,5 @@ Security-pattern hits in code (each read in context): bare_except=10, debug_true
 
 - Blocking findings recorded in the catalog: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
 - Release status: `REENGINEERING`. A course cannot reach `TRAINING_CONTENT_GO` until Gate A in `docs/release/RELEASE_GATES.md` is computed as met; this one fails most of its criteria (see `docs/production/TRAINING_CONTENT_GO_REPORT.md`).
-- Notes: Nine of thirteen modules are built (PY-M01 to PY-M07, PY-M12 and PY-M13) with eighteen labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are covered by PY-M12.
+- Notes: Eleven of thirteen modules are built (PY-M01 to PY-M09, PY-M12 and PY-M13) with twenty-two labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are covered by PY-M12; databases (pp. 141-142, 154-156) by PY-M08, which extends the guided-lab increment merged in PR #4; profiling, memory and architecture (pp. 56-57, 79-80) by PY-M09.
 - Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.

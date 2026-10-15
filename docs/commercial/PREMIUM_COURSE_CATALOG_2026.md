@@ -10,10 +10,10 @@ Every edition, when it exists, must disclose these items on its front matter: co
 
 ## Digital and Technical Foundations
 
-- Course id `COURSE-FND-DIGITAL`, catalog version `0.0.1-plan`, audience: Career changers and students with basic computer literacy and no technical background.
+- Course id `COURSE-FND-DIGITAL`, catalog version `0.1.0-build`, audience: Career changers and students with basic computer literacy and no technical background.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Digital and Technical Foundations — October 2026 Premium Edition`
 - Planned duration 32 hours across 6 modules (planning estimate, not measured learner time); capstone: Automate a small file-reporting task in a Git repository, with tests, a README and a pull request reviewed against a checklist.
-- State today: 0 of 6 modules built; labs verified 0 of 12; release status `REENGINEERING`; evidence index 0.0 / 100.
+- State today: 1 of 6 modules built; labs verified 0 of 12; release status `REENGINEERING`; evidence index 4.2 / 100.
 - Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
@@ -28,7 +28,7 @@ Edition disclosure (values today):
 
 | Module | Title | Level | Hours | State |
 |---|---|---|---|---|
-| FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED |
+| FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT |
 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED |
 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED |
 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED |
@@ -74,8 +74,8 @@ Edition disclosure (values today):
 
 - Course id `COURSE-PY-ENG`, catalog version `0.1.0-build`, audience: Developers and analysts who need production-quality Python; Learners continuing from Digital Foundations.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Python Engineering Pathway — October 2026 Premium Edition`
-- Planned duration 108 hours across 13 modules (planning estimate, not measured learner time); capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
-- State today: 9 of 13 modules built; labs verified 18 of 25; release status `REENGINEERING`; evidence index 45.8 / 100.
+- Planned duration 110 hours across 13 modules (planning estimate, not measured learner time); capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
+- State today: 11 of 13 modules built; labs verified 22 of 25; release status `REENGINEERING`; evidence index 53.7 / 100.
 - Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
@@ -99,8 +99,8 @@ Edition disclosure (values today):
 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT |
 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | BUILT |
 | PY-M07 | Secure coding for Python | 2 | 8 | BUILT |
-| PY-M08 | Databases and persistence | 2 | 6 | PLANNED |
-| PY-M09 | Profiling, performance and maintainable architecture | 3 | 8 | PLANNED |
+| PY-M08 | Databases and persistence: safe SQL, transactions, repositories, migrations and query cost | 2 | 8 | BUILT |
+| PY-M09 | Profiling, performance and maintainable architecture | 3 | 8 | BUILT |
 | PY-M10 | API development: typed, tested and secure HTTP services | 2 | 8 | PLANNED |
 | PY-M11 | Capstone: typed, tested, documented application with CI | 3 | 14 | PLANNED |
 

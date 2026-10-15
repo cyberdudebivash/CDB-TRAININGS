@@ -4,7 +4,7 @@
 > Gate A only: this is `TRAINING_CONTENT_GO` (is the training content complete, correct and releasable as content). Commercial readiness (`COMMERCIAL_GO`) and Academy
 > publication (`ACADEMY_LIVE_GO`) are separate gates that are not part of this phase and are not assessed here.
 
-Execution date of this generation: **2026-10-15**. The registry snapshot, the executed API probes and the first lab-matrix baseline carry the cutoff **2026-10-14** (lab matrix recorded commit `4e4700ffaf7d`, cutoff `2026-10-14`).
+Execution date of this generation: **2026-10-15**. The registry snapshot, the executed API probes and the first lab-matrix baseline carry the cutoff **2026-10-14** (lab matrix recorded commit `9e03a201529a`, cutoff `2026-10-14`).
 
 A re-check against the execution date is a separate action from the Stage B refresh. Facts verified on the execution date carry their own date (`verified_on` in the research register); nothing claims that a fact verified earlier was verified again.
 
@@ -14,7 +14,7 @@ A re-check against the execution date is a separate action from the Stage B refr
 |---|---|---|---|---|---|
 | COURSE-FND-DIGITAL | 0 | 0 | 0 | 2026-10-14 | PENDING (not before 2026-10-24) |
 | COURSE-SOC | 8 | 6 | 2 | 2026-10-14 | PENDING (not before 2026-10-24) |
-| COURSE-PY-ENG | 22 | 19 | 3 | 2026-10-14 | PENDING (not before 2026-10-24) |
+| COURSE-PY-ENG | 24 | 21 | 3 | 2026-10-14 | PENDING (not before 2026-10-24) |
 | COURSE-PY-AUTO | 11 | 5 | 6 | 2026-10-14 | PENDING (not before 2026-10-24) |
 | COURSE-JAVA-QA | 10 | 5 | 5 | 2026-10-14 | PENDING (not before 2026-10-24) |
 | COURSE-AI-ENG | 9 | 8 | 1 | 2026-10-14 | PENDING (not before 2026-10-24) |
@@ -27,7 +27,7 @@ A change record is a modernization decision tied to a finding, a research entry 
 
 ## 2. Re-check of the version registry against the execution date
 
-The registry was fetched again (`registry_snapshot_2026-10-15.json`) and compared with the baseline (`registry_snapshot_2026-10-14.json`) by `scripts/research/diff_snapshots.py`: **19 technology records differ** (new patch or minor releases published on or after the day the baseline was taken). The Python Engineering lab pins (build, httpx, mypy, pydantic, pyjwt, pytest, pyyaml, requests, ruff, setuptools, wheel) are affected by **0** of them. The generated technology baselines and the executed API probes still carry the baseline date; they were **not** re-run, so a technology in the table below is described in the course documents by its baseline version. The built modules cite only technologies whose version did not change.
+The registry was fetched again (`registry_snapshot_2026-10-15.json`) and compared with the baseline (`registry_snapshot_2026-10-14.json`) by `scripts/research/diff_snapshots.py`: **19 technology records differ** (new patch or minor releases published on or after the day the baseline was taken). The Python Engineering lab pins (build, fastapi, httpx, httpx2, mypy, pydantic, pyjwt, pytest, pyyaml, requests, ruff, setuptools, starlette, wheel) are affected by **1** of them (fastapi). The generated technology baselines and the executed API probes still carry the baseline date; they were **not** re-run, so a technology in the table below is described in the course documents by its baseline version. The built modules cite only technologies whose version did not change.
 
 | Technology | Source | Baseline | Execution-date snapshot |
 |---|---|---|---|

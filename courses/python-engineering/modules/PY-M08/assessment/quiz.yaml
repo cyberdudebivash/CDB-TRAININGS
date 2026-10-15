@@ -1,0 +1,35 @@
+# Knowledge check for PY-M08. Questions only: the answer key is held by instructors (see courses/python-engineering/instructor/README.md).
+module: PY-M08
+items:
+  - id: Q1
+    outcome: LO1
+    stem: "A function runs `conn.execute(f\"SELECT * FROM users WHERE name = '{name}'\")` and `name` is `x' OR '1'='1`. What happens?"
+    options: {A: "The query returns every row, because the quote ends the string and `OR '1'='1'` is read as SQL", B: "`sqlite3` escapes the quote automatically, so no row matches", C: "A `ProgrammingError` is raised because the statement contains a quote", D: "Nothing is returned, because `execute()` accepts only one statement"}
+  - id: Q2
+    outcome: LO1
+    stem: "A teammate writes `conn.execute(\"SELECT * FROM events ORDER BY ?\", (column,))` with `column = \"severity\"`. What is the result?"
+    options: {A: "The rows are sorted by the severity column", B: "A `ProgrammingError`, because a parameter cannot be a column", C: "No error, but the rows are not sorted by severity: the parameter is a constant string, not a column name", D: "The rows are sorted by severity, descending"}
+  - id: Q3
+    outcome: LO2
+    stem: "With default settings, code inside `with conn:` raises an exception after two `INSERT` statements. What is true afterwards?"
+    options: {A: "The two inserts are rolled back (with anything else not yet committed) and the connection is still open", B: "The two inserts are rolled back and the connection is closed", C: "The two inserts are kept, because only `commit()` can undo them", D: "The first insert is kept and the second is rolled back"}
+  - id: Q4
+    outcome: LO2
+    stem: "A program declares `REFERENCES parent(id)` on a table, connects, inserts a row, and then executes `PRAGMA foreign_keys = ON`. Are foreign keys enforced from then on?"
+    options: {A: "Yes: the pragma takes effect immediately for the rest of the connection", B: "Yes, but only for tables created afterwards", C: "Only after the next `commit()`; the pragma has no effect until the connection is reopened", D: "No: the pragma is ignored while a transaction is open, and the insert opened one; it must be the first statement on the connection"}
+  - id: Q5
+    outcome: LO3
+    stem: "In a repository layer, which design is correct for `add(note)`?"
+    options: {A: "It runs the `INSERT`, commits and closes the connection, so that callers cannot forget to", B: "It runs the `INSERT` and leaves committing to the caller (a unit of work), so that several repository calls can be one transaction", C: "It builds the `INSERT` with an f-string, because the repository is internal code", D: "It catches every `sqlite3.Error` and returns `None`"}
+  - id: Q6
+    outcome: LO4
+    stem: "A migration runner calls `conn.executescript(script)` for migration 2 and then sets `PRAGMA user_version = 2`. The third statement of the script fails. What is the state of the database?"
+    options: {A: "The first two statements were applied and committed, the stored version is still 1: the database matches no version", B: "Nothing was applied: `executescript` is a single transaction", C: "Nothing was applied and the stored version is 2", D: "All three statements were applied and the stored version is 2"}
+  - id: Q7
+    outcome: LO5
+    stem: "Two analysts read a case at version 3. The first saves with `UPDATE cases SET ..., version = version + 1 WHERE id = ? AND version = 3`. The second then runs the same statement. What does the second statement's `cursor.rowcount` tell the program?"
+    options: {A: "It is 1: both updates succeed, the last one wins", B: "It is 0: no row matched version 3 any more, so the case was changed by someone else since it was read", C: "It is -1, which means a conflict", D: "It cannot be known without a second `SELECT`"}
+  - id: Q8
+    outcome: LO5
+    stem: "An index exists on `event(kind)`. `EXPLAIN QUERY PLAN SELECT * FROM event WHERE lower(kind) = ?` reports a SCAN. Why?"
+    options: {A: "SQLite never uses an index for a `WHERE` clause on text", B: "The index must be created after the data is loaded", C: "The statement has a parameter, and parameters disable indexes", D: "The condition compares a function of the column, not the column itself, so the index on `kind` cannot be used"}

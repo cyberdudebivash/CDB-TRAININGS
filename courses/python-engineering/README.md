@@ -12,10 +12,12 @@ The catalog (`catalog/courses.yaml`) is the source of truth for the module list;
 | PY-M05 | Files, structured data and HTTP clients | Built, automated checks executed; not SME-reviewed, not learner-piloted | guided (provided checks against a scripted API), independent (hidden suite) |
 | PY-M06 | Concurrency and asynchronous programming | Built, automated checks executed; not SME-reviewed, not learner-piloted | guided (provided checks, mutation-tested), independent (hidden suite) |
 | PY-M07 | Secure coding for Python | Built, automated checks executed; not SME-reviewed, not learner-piloted | guided, independent |
+| PY-M08 | Databases and persistence: safe SQL, transactions, repositories, migrations and query cost | Built on top of the guided-lab increment merged in PR #4; automated checks executed once the lab matrix has run it; not SME-reviewed, not learner-piloted | guided (200 provided checks, mutation-tested), independent (hidden suite) |
+| PY-M09 | Profiling, performance and maintainable architecture | Built; automated checks executed once the lab matrix has run it; not SME-reviewed, not learner-piloted | guided (196 provided checks, mutation-tested), independent (hidden suite and learner-written budget tests) |
 | PY-M13 | Iterators, generators, closures, decorators and context managers | Built (added after the independent audit found no module taught them); automated checks executed once the lab matrix has run it; not SME-reviewed, not learner-piloted | guided (128 provided checks, mutation-tested), independent (hidden suite) |
 | PY-M12 | Classes, dataclasses and object-oriented design | Built (added after the independent audit found no module taught classes); automated checks executed once the lab matrix has run it; not SME-reviewed, not learner-piloted | guided (167 provided checks, mutation-tested), independent (hidden suite) |
 
-The other modules of the course (PY-M08-M11) are `PLANNED`: nothing in them is built.
+The other modules of the course (PY-M10 and PY-M11) are `PLANNED`: nothing in them is built.
 Classes and object-oriented design (handbook pp. 40-45, 48-55 and 64-67) were taught by no module until PY-M12 was added; see `modules/PY-M01/source-map.yaml` and defect DEF-006. Other handbook pages (for example iterators, generators, decorators, file handling and context managers on pp. 29-47 and 67-79) have no module yet: `docs/production/COURSE_COMPLETENESS_MATRIX.md` counts them. The course is **not** a production release (see `docs/release/OCT2026_PRODUCTION_READINESS.md`).
 
 ## Layout of a module

@@ -16,7 +16,7 @@ A *course edition* is the PDF built from the whole approved curriculum of a cour
 | PY-M03 | PY-M03-student-preview-0.1.0-preview | 21 | dabdb6f20253b4c5 | yes | yes |
 | PY-M04 | PY-M04-student-preview-0.1.0-preview | 18 | 3ebba094b4772834 | yes | yes |
 | PY-M05 | PY-M05-student-preview-0.1.0-preview | 33 | 2616998c0221bef5 | yes | yes |
-| PY-M06 | PY-M06-student-preview-0.1.0-preview | 31 | 918da0cb40feaed6 | yes | yes |
+| PY-M06 | PY-M06-student-preview-0.1.0-preview | 31 | 918da0cb40feaed6 | NO | NO (sources changed) |
 | PY-M07 | PY-M07-student-preview-0.1.0-preview | 18 | 86da9448457f26a0 | yes | yes |
 
 ## 2. Complete course editions

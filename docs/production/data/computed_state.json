@@ -21,9 +21,9 @@
   },
   "COURSE-FND-DIGITAL": {
    "eligible": false,
-   "engineering_state": "NOT_STARTED",
-   "score": 0.0,
-   "state": "NOT_STARTED"
+   "engineering_state": "IN_PROGRESS",
+   "score": 4.5,
+   "state": "IN_PROGRESS"
   },
   "COURSE-GCP-DE": {
    "eligible": false,
@@ -52,7 +52,7 @@
   "COURSE-PY-ENG": {
    "eligible": false,
    "engineering_state": "IN_PROGRESS",
-   "score": 53.9,
+   "score": 63.4,
    "state": "IN_PROGRESS"
   },
   "COURSE-SOC": {
@@ -62,32 +62,32 @@
    "state": "IN_PROGRESS"
   }
  },
- "lab_matrix_commit": "4e4700ffaf7d",
+ "lab_matrix_commit": "9e03a201529a",
  "totals": {
   "course_pdfs_required": 10,
   "course_pdfs_validated": 0,
   "course_states": {
-   "IN_PROGRESS": 2,
-   "NOT_STARTED": 8
+   "IN_PROGRESS": 3,
+   "NOT_STARTED": 7
   },
   "courses": 10,
   "courses_with_release_blockers": 10,
   "go": 0,
   "labs_planned": 217,
-  "labs_verified": 20,
-  "lessons_substantive": 10,
-  "module_editions_passing": 8,
+  "labs_verified": 24,
+  "lessons_substantive": 12,
+  "module_editions_passing": 7,
   "module_states": {
-   "IN_PROGRESS": 1,
-   "NOT_STARTED": 102,
-   "TECHNICALLY_VERIFIED": 10
+   "IMPLEMENTED_UNVERIFIED": 1,
+   "NOT_STARTED": 100,
+   "TECHNICALLY_VERIFIED": 12
   },
-  "modules_implemented": 10,
+  "modules_implemented": 13,
   "modules_required": 113,
-  "modules_verified": 10,
+  "modules_verified": 12,
   "open_p0": 1,
-  "open_p1": 8,
-  "outcomes_assessed": 15,
+  "open_p1": 10,
+  "outcomes_assessed": 18,
   "outcomes_total": 118,
   "realtime_courses_ok": 2,
   "review_required": 0,
@@ -100,7 +100,7 @@
   "scenarios_required": 89,
   "scenarios_verified": 7,
   "source_pages": 8186,
-  "source_pages_with_disposition": 127,
+  "source_pages_with_disposition": 152,
   "visual_pages_flagged": 58,
   "visual_pages_inspected": 58
  }

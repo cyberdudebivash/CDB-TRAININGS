@@ -28,10 +28,14 @@ LABS = [
     ("m06_independent", "PY-M06 independent", "Starter fails all 10 published checks; instructor reference passes them and the 45-case hidden suite (concurrency limit, speed, event-loop health, deadline, cancellation, safe paths, benchmark report), which kills all 21 seeded defects (private pack)"),
     ("m07_guided", "PY-M07 guided", "Reference passes all checks; starter works but fails exploit/static checks in all 8 areas; reference regression tests kill 8/8 required mutants"),
     ("m07_independent", "PY-M07 independent", "Instructor reference is secure and the starter is not (17 exploit tests fail on it); 9/9 required mutants killed (private pack)"),
+    ("m09_guided", "PY-M09 guided", "Public solution passes all 196 provided checks (profiling helpers, hotspot, four algorithms checked against the slow program and for how their work grows, parsing, memory with tracemalloc, core/edge); the starter keeps the 146 correctness checks green and fails the 49 about profiling, speed, memory and structure; the checks kill all 59 seeded defects of the solution (private pack)"),
+    ("m09_independent", "PY-M09 independent", "Starter fails the scaling check and the check for learner-written budget tests (2 of 10 published); instructor reference passes all 10 and the 378-case hidden suite (equivalence with the original on random and awkward input, growth of the work, the core's code, the edge, and the learner's own budget tests run against the solution and the original), which kills all 52 seeded defects (private pack)"),
     ("m12_guided", "PY-M12 guided", "Public solution passes all 167 provided checks (value types, per-instance state, observers, fee policies, registry, composition); the starter fails all 167; the checks kill all 47 seeded defects of the solution (private pack)"),
     ("m12_independent", "PY-M12 independent", "Starter fails all 10 published checks; instructor reference passes them and the 54-case hidden suite (value semantics, operators, isolation, error recording, subscriber rules, refusal), which kills all 41 seeded defects (private pack)"),
     ("m13_guided", "PY-M13 guided", "Public solution passes all 128 provided checks (a generator that owns a file, lazy parsing, chunks and windows with eager argument checks, decorators, context managers); the starter fails all 128; the checks kill all 49 seeded defects of the solution (private pack)"),
     ("m13_independent", "PY-M13 independent", "Starter fails all 10 published checks; instructor reference passes them and the 63-case hidden suite (lazy merge with counted consumption and cleanup of sources, grouping, bounded memo cache, nested rollback), which kills all 35 seeded defects (private pack)"),
+    ("m08_guided", "PY-M08 guided", "Public solution passes all 200 provided checks (the first increment's 14 contract tests plus validation edges, migrations, atomic batches, injection-safe search, retention and query shape); the starter fails all 200; the checks kill all 95 seeded defects of the solution (private pack)"),
+    ("m08_independent", "PY-M08 independent", "Starter fails all 10 published checks; instructor reference passes them and the 145-case hidden suite (optimistic concurrency, rollback on every path including interrupts, import, hostile input, the upgrade of the first release's database, statement counts and SQLite work), which kills all 83 seeded defects (private pack)"),
 ]
 SYMBOL = {"passed": "pass", "failed": "FAIL", "error": "ERROR", "skipped": "skipped"}
 
@@ -46,7 +50,7 @@ def table(headers, rows) -> str:
 
 
 def lab_key(test_id: str) -> str | None:
-    m = re.search(r"test_(m0\d)_(guided|independent)", test_id)
+    m = re.search(r"test_(m\d\d)_(guided|independent)", test_id)
     return f"{m.group(1)}_{m.group(2)}" if "test_python_engineering_labs" in test_id and m else None
 
 

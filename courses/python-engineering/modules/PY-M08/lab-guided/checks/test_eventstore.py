@@ -8,10 +8,13 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 lab_dir = Path(__file__).resolve().parents[1]
-target = os.environ.get("PY_M08_TARGET", "solution")
-if target not in {"solution", "starter"}:
-    raise ValueError("PY_M08_TARGET must be solution or starter")
-sys.path.insert(0, str(lab_dir / target) if (lab_dir / target).is_dir() else str(Path(__file__).resolve().parent))
+# PY_M08_TARGET (the name used by the first release of this lab) or LAB_TARGET (the name used by every other module) selects what is tested: starter (default), solution, or
+# import (the instructors' mutation check puts the module under test on the import path itself).
+target = os.environ.get("PY_M08_TARGET") or os.environ.get("LAB_TARGET") or "starter"
+if target not in {"solution", "starter", "import"}:
+    raise ValueError("PY_M08_TARGET must be solution, starter or import")
+if target != "import":
+    sys.path.insert(0, str(lab_dir / target))
 from eventstore import Event, EventStore, IdempotencyConflict
 
 NOW = datetime(2026, 10, 14, 12, tzinfo=timezone.utc)

@@ -1,0 +1,51 @@
+# Public rubric for the PY-M08 independent lab (casestore). Students see exactly how they are graded.
+# Mechanical criteria (kind: automated) are run by instructors; judgement criteria (kind: reviewer) are scored 0-3 using the level descriptors below.
+rubric_id: RUB-PY-M08
+module: PY-M08
+version: 0.1.0
+pass_rule: >
+  Every must-pass criterion is met, no reviewer criterion is scored 0, and the reviewer criteria total at least 60% of their maximum.
+  Finishing the lesson or the guided lab alone is not a completion claim.
+criteria:
+  - id: C1
+    name: "Published checks pass"
+    outcomes: [LO3]
+    kind: automated
+    must_pass: true
+    measure: "python -m pytest in lab-independent/ passes with the learner's starter/casestore.py (all ten published checks, none skipped or xfail)"
+  - id: C2
+    name: "Hidden suite"
+    outcomes: [LO1, LO2, LO3, LO4, LO5]
+    kind: automated
+    must_pass: true
+    measure: "the instructors' hidden suite (145 checks: validation, optimistic concurrency and error order, comments and paging, find and its filters, import, hostile input in every parameter, the upgrade of the first release's database including orphans and a failing upgrade, interrupts in the middle of a change, statement counts and the work SQLite does) is run against the learner's casestore.py: at least 124 of the 145 pass, and every check about injection, rollback, stale versions, the failing upgrade and the future-version file passes"
+  - id: C3
+    name: "Transactions and concurrency"
+    outcomes: [LO2, LO3, LO5]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "A change is split over several transactions or none, or the version check and the write are separate statements"
+      1: "Transactions exist but are too long or too short (a read outside the lock that decides the write), or the failure paths are incomplete"
+      2: "One write-locked transaction per change, the version guard and the write are one statement, every failure path rolls back and propagates the original error"
+      3: "As level 2, and the notes explain, for each method, why its transaction begins and ends where it does, and what would break with a deferred BEGIN"
+  - id: C4
+    name: "SQL safety and query shape"
+    outcomes: [LO1, LO5]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "A value reaches a statement by string formatting, or a name is taken from the caller without an allow-list"
+      1: "Values are bound, but LIKE wildcards are live, or find runs more than one statement, or an index is missing for a lookup"
+      2: "Every value bound, wildcards escaped, one statement per find, indexes for the lookups the code performs"
+      3: "As level 2, and the learner can show with their own trace and plan which statement each index serves"
+  - id: C5
+    name: "Migration and notes"
+    outcomes: [LO4]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "No notes, or the upgrade loses rows or leaves a half-built table when it fails"
+      1: "The upgrade works on the happy path; the notes restate the specification"
+      2: "The upgrade is atomic, orphans are counted rather than silently lost, and the notes name one migration risk and what was done about it"
+      3: "As level 2, plus a design decision that was reconsidered, with the evidence (a failing test written by the learner) that changed their mind"

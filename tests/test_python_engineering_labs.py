@@ -496,3 +496,156 @@ def test_m13_independent_hidden_suite_is_discriminating_and_starter_fails_it():
     assert report["required_killed"] == report["required_total"] == 35 and report["all_killed"] == report["total"] == 35, [m for m in report["mutants"] if not m["killed"]]
     results = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(M13 / "lab-independent" / "starter")})
     assert len(results) == 63 and set(results.values()) <= {"failed", "error"}
+
+
+# ------------------------------------------------------------------------------------------------------------------ PY-M08
+M08 = COURSE / "modules" / "PY-M08"
+
+
+def test_m08_guided_solution_passes_every_check():
+    results = run_pytest(M08 / "lab-guided", env={"LAB_TARGET": "solution"})
+    assert len(results) == 200 and failing(results) == set(), failing(results)
+
+
+def test_m08_guided_starter_fails_every_check():
+    results = run_pytest(M08 / "lab-guided")
+    assert len(results) == 200 and set(results.values()) <= {"failed", "error"}, {k: v for k, v in results.items() if v == "passed"}
+
+
+def test_m08_part1_contract_still_runs_with_the_standard_library_alone():
+    """The 14 contract tests of the first increment of this lab keep working with the command that increment documented (unittest, PY_M08_TARGET)."""
+    proc = subprocess.run([sys.executable, "-m", "unittest", "discover", "-s", "checks", "-p", "test_eventstore.py"], cwd=M08 / "lab-guided",
+                          env=dict(os.environ, PY_M08_TARGET="solution"), capture_output=True, text=True, timeout=300)
+    assert proc.returncode == 0 and "Ran 14 tests" in proc.stderr, proc.stderr[-400:]
+
+
+@pytest.mark.private_materials
+def test_m08_guided_checks_are_discriminating():
+    mutants = PRIVATE / "PY-M08" / "guided-mutants.json"
+    if not mutants.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    solution = M08 / "lab-guided" / "solution"
+    proc = subprocess.run([sys.executable, str(TOOL), "--module-dir", str(solution), "--module", "eventstore", "--tests", str(M08 / "lab-guided" / "checks"), "--mutants", str(mutants), "--json", "--jobs", "3"],
+                          capture_output=True, text=True, timeout=1200, env=dict(os.environ, LAB_TARGET="import"))
+    report = json.loads(proc.stdout)
+    assert report["baseline_passes"] and report["passed"]
+    assert report["required_killed"] == report["required_total"] == 95 and report["total"] == 95, [m for m in report["mutants"] if not m["killed"]]
+
+
+def test_m08_independent_starter_fails_every_published_check():
+    results = run_pytest(M08 / "lab-independent")
+    assert len(results) == 10 and set(results.values()) <= {"failed", "error"}, results
+
+
+@pytest.mark.private_materials
+def test_m08_independent_reference_passes_published_and_hidden_checks():
+    ref = PRIVATE / "PY-M08" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    published = run_pytest(M08 / "lab-independent", env={"LAB_PROJECT": str(ref)})
+    assert len(published) == 10 and failing(published) == set(), failing(published)
+    hidden = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(ref)})
+    assert len(hidden) == 145 and failing(hidden) == set(), failing(hidden)
+
+
+@pytest.mark.private_materials
+def test_m08_independent_hidden_suite_is_discriminating_and_starter_fails_it():
+    ref = PRIVATE / "PY-M08" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    proc = subprocess.run([sys.executable, str(TOOL), "--module-dir", str(ref), "--module", "casestore", "--tests", str(ref / "test_hidden.py"), "--mutants", str(ref / "mutants.json"), "--json", "--jobs", "3"],
+                          capture_output=True, text=True, timeout=1200, env=dict(os.environ, LAB_TARGET="import"))
+    report = json.loads(proc.stdout)
+    assert report["baseline_passes"] and report["passed"]
+    assert report["required_killed"] == report["required_total"] == 83 and report["all_killed"] == report["total"] == 83, [m for m in report["mutants"] if not m["killed"]]
+    results = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(M08 / "lab-independent" / "starter")})
+    assert len(results) == 145 and set(results.values()) <= {"failed", "error"}, {k: v for k, v in results.items() if v == "passed"}
+
+
+# ------------------------------------------------------------------------------------------------------------------ PY-M09
+M09 = COURSE / "modules" / "PY-M09"
+M09_STARTER_KEEPS_PASSING = 145      # the correctness checks: the starter is correct, only slow; they are the safety net of the refactoring
+M09_SAFETY_NET = {
+    "test_every_function_gives_the_slow_programs_answer_on_edge_cases", "test_n_must_be_a_non_negative_int", "test_random_inputs_give_the_slow_programs_answers",
+    "test_the_fast_analysis_gives_the_slow_programs_report", "test_the_functions_accept_any_iterable_of_attempts", "test_threshold_and_window_must_be_positive_ints",
+    "test_every_line_parses_as_the_slow_program_parses_it", "test_valid_lines_really_parse", "test_the_lines_are_read_once_and_not_kept",
+    "test_a_list_source_gives_the_lines_it_was_given", "test_the_core_does_no_input_or_output_and_does_not_know_the_edge", "test_the_report_text_has_the_documented_shape",
+}
+
+
+def test_m09_guided_solution_passes_every_check():
+    results = run_pytest(M09 / "lab-guided", env={"LAB_TARGET": "solution"})
+    assert len(results) == 196 and failing(results) == set(), failing(results)
+
+
+def test_m09_guided_starter_fails_every_speed_memory_profile_and_edge_check_and_keeps_the_safety_net_green():
+    results = run_pytest(M09 / "lab-guided")
+    assert len(results) == 196
+    passed = {k for k, v in results.items() if v == "passed"}
+    assert len(passed) == M09_STARTER_KEEPS_PASSING, len(passed)
+    for name in ("test_the_whole_analysis_is_at_least_30_percent_faster_than_the_slow_program", "test_unique_ips_scales_linearly", "test_bursts_scales_with_the_number_of_failures_of_one_address",
+                 "test_top_users_scales_with_the_number_of_users", "test_the_analysis_of_a_stream_needs_far_less_memory_than_the_slow_program",
+                 "test_the_pattern_is_not_compiled_once_per_line", "test_main_writes_the_report_to_the_given_stream", "test_on_the_slow_program_the_hotspot_is_top_users"):
+        assert results[name] in ("failed", "error"), name
+    assert not any(k.startswith("test_profile_") or k.startswith("test_top_") for k in passed)
+    assert {k.split("[")[0] for k in passed} == M09_SAFETY_NET, sorted({k.split("[")[0] for k in passed} ^ M09_SAFETY_NET)
+
+
+@pytest.mark.private_materials
+def test_m09_guided_checks_are_discriminating():
+    mutants = PRIVATE / "PY-M09" / "guided-mutants.json"
+    if not mutants.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    solution = M09 / "lab-guided" / "solution"
+    proc = subprocess.run([sys.executable, str(TOOL), "--module-dir", str(solution), "--module", "perfkit", "--tests", str(M09 / "lab-guided" / "checks"), "--mutants", str(mutants), "--json", "--jobs", "3"],
+                          capture_output=True, text=True, timeout=1800, env=dict(os.environ, LAB_TARGET="import"))
+    report = json.loads(proc.stdout)
+    assert report["baseline_passes"] and report["passed"]
+    assert report["required_killed"] == report["required_total"] == 59 and report["total"] == 59, [m for m in report["mutants"] if not m["killed"]]
+
+
+def test_m09_independent_starter_fails_the_scaling_check_and_the_check_for_budget_tests():
+    results = run_pytest(M09 / "lab-independent")
+    assert len(results) == 10
+    assert {k for k, v in results.items() if v != "passed"} == {"test_collapse_work_grows_roughly_linearly_with_the_number_of_incidents", "test_you_have_written_budget_tests_of_your_own"}, results
+
+
+@pytest.mark.private_materials
+def test_m09_independent_reference_passes_published_and_hidden_checks():
+    ref = PRIVATE / "PY-M09" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    published = run_pytest(M09 / "lab-independent", env={"LAB_PROJECT": str(ref)})
+    assert len(published) == 10 and failing(published) == set(), failing(published)
+    hidden = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(ref)})
+    assert len(hidden) == 378 and failing(hidden) == set(), failing(hidden)
+
+
+@pytest.mark.private_materials
+def test_m09_independent_hidden_suite_is_discriminating_and_the_starter_fails_its_scaling_and_budget_checks():
+    ref = PRIVATE / "PY-M09" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    proc = subprocess.run([sys.executable, str(TOOL), "--module-dir", str(ref), "--module", "triage", "--tests", str(ref / "test_hidden.py"), "--mutants", str(ref / "mutants.json"), "--json", "--jobs", "3"],
+                          capture_output=True, text=True, timeout=1800, env=dict(os.environ, LAB_TARGET="import"))
+    report = json.loads(proc.stdout)
+    assert report["baseline_passes"] and report["passed"]
+    assert report["required_killed"] == report["required_total"] == 52 and report["all_killed"] == report["total"] == 52, [m for m in report["mutants"] if not m["killed"]]
+    results = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(M09 / "lab-independent" / "starter")})
+    assert len(results) == 378
+    for name in ("test_collapse_scales_with_the_number_of_incidents", "test_rank_of_all_incidents_scales", "test_summarize_with_many_rules_scales",
+                 "test_the_pattern_is_not_compiled_for_every_message", "test_the_learner_wrote_enough_tests", "test_the_whole_pipeline_is_at_least_30_percent_faster_than_the_original"):
+        assert results[name] in ("failed", "error"), name
+
+
+# ------------------------------------------------------------------------------------------------------------------ the evidence report
+def test_the_lab_evidence_renderer_recognises_every_lab_row():
+    """Regression for DEF-019: the report once matched only module numbers PY-M01 to PY-M09, so rows of later modules read 'not run' although the matrix had executed them."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("render_lab_evidence_under_test", ROOT / "scripts" / "validation" / "render_lab_evidence.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    for key, _label, _property in module.LABS:
+        assert module.lab_key(f"tests/test_python_engineering_labs.py::test_{key}_probe") == key, key
+    assert module.lab_key("tests/test_module_packs.py::test_m10_guided_probe") is None

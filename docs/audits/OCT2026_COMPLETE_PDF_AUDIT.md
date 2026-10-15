@@ -9,9 +9,9 @@ The ten source PDFs contain **8,186 pages**. Every page has a machine-readable r
 
 | Verification status | Pages | Share | Meaning |
 |---|---|---|---|
-| MODEL_READ_FINDING_CITED | 123 | 1.5 % | A finding in docs/audits/data/findings.yaml cites this page, and the page text was read in context while writing that finding. The read was done by the AI model that wrote the finding: it is model reading, not human review, and it does not imply the whole page was reviewed for every issue. |
-| MACHINE_FLAGGED_REVIEW_REQUIRED | 501 | 6.1 % | A deterministic rule matched this page (obsolete API, superseded product, unsupported claim, markdown leakage, stub). A person must confirm before the flag is treated as a defect. |
-| MACHINE_SCANNED_NO_FLAGS | 7,504 | 91.7 % | Text extracted and scanned by every rule; nothing matched. This is NOT evidence that the page is correct or current, only that none of the implemented rules fired. |
+| MODEL_READ_FINDING_CITED | 132 | 1.6 % | A finding in docs/audits/data/findings.yaml cites this page, and the page text was read in context while writing that finding. The read was done by the AI model that wrote the finding: it is model reading, not human review, and it does not imply the whole page was reviewed for every issue. |
+| MACHINE_FLAGGED_REVIEW_REQUIRED | 500 | 6.1 % | A deterministic rule matched this page (obsolete API, superseded product, unsupported claim, markdown leakage, stub). A person must confirm before the flag is treated as a defect. |
+| MACHINE_SCANNED_NO_FLAGS | 7,496 | 91.6 % | Text extracted and scanned by every rule; nothing matched. This is NOT evidence that the page is correct or current, only that none of the implemented rules fired. |
 | MACHINE_SCANNED_NEAR_BLANK | 29 | 0.4 % | Text layer present but almost empty; a person should confirm nothing is lost. |
 | VISUAL_REVIEW_REQUIRED | 29 | 0.4 % | No usable text layer (image-only page). The content has not been read by anyone or anything; it needs a visual read or OCR. |
 
@@ -28,10 +28,10 @@ Consequences that every reader of this audit must keep in mind:
 | Measure | Result |
 |---|---|
 | Pages with a record | 8,186 |
-| Severity | P0 10, P1 71, P2 221, P3 345, P4 177, NONE 7,362 |
-| Machine-derived action (page level) | KEEP 3,258, UPDATE 2,478, REPLACE 491, EXPAND 91, MERGE 936, REMOVE 932 |
+| Severity | P0 10, P1 71, P2 229, P3 345, P4 177, NONE 7,354 |
+| Machine-derived action (page level) | KEEP 3,251, UPDATE 2,485, REPLACE 491, EXPAND 91, MERGE 936, REMOVE 932 |
 | Currency status | BASELINE_AVAILABLE 1,394, CURRENCY_FLAGGED 156, NO_TECHNOLOGY_DETECTED 3,244, UNVERIFIED_CURRENCY 3,392 |
-| Verification status | MODEL_READ_FINDING_CITED 123, MACHINE_FLAGGED_REVIEW_REQUIRED 501, MACHINE_SCANNED_NO_FLAGS 7,504, MACHINE_SCANNED_NEAR_BLANK 29, VISUAL_REVIEW_REQUIRED 29 |
+| Verification status | MODEL_READ_FINDING_CITED 132, MACHINE_FLAGGED_REVIEW_REQUIRED 500, MACHINE_SCANNED_NO_FLAGS 7,496, MACHINE_SCANNED_NEAR_BLANK 29, VISUAL_REVIEW_REQUIRED 29 |
 
 Page-level actions are **rule outputs** (precedence REPLACE > REMOVE > EXPAND > MERGE > UPDATE > KEEP-candidate). `REMOVE` pages are those mapped to career/marketing/out-of-scope headings with no destination module (the source is preserved; only the product omits them). `MERGE` pages belong to a topic owned by a different course (single owner per topic). The curated, concept-level differential analysis is in [2025_TO_2026_MODERNIZATION_MATRIX.md](2025_TO_2026_MODERNIZATION_MATRIX.md).
 
@@ -47,7 +47,7 @@ Page-level actions are **rule outputs** (precedence REPLACE > REMOVE > EXPAND > 
 | SRC-MEGA-P2 | Official Mega Course 2026, Part 2 | 827 | P2 9, P3 81, P4 1, NONE 736 | KEEP 121, UPDATE 429, REPLACE 49, EXPAND 1, MERGE 224, REMOVE 3 | 1 | 89 | 0 |
 | SRC-OSINT-STARTER | OSINT Starter Bundle (FULL) | 23 | P0 6, P1 11, P2 6 | REPLACE 23 | 0 | 0 | 23 |
 | SRC-PY-AUTOMATION | Python Automation Training | 1,458 | P1 5, P2 40, P3 28, P4 57, NONE 1,328 | KEEP 848, UPDATE 111, REPLACE 19, EXPAND 31, MERGE 110, REMOVE 339 | 12 | 60 | 1 |
-| SRC-PY-HANDBOOK | CyberDudeBivash Python Engineering Handbook | 654 | P0 2, P1 12, P2 67, P3 14, P4 12, NONE 547 | KEEP 309, UPDATE 166, REPLACE 93, EXPAND 12, REMOVE 74 | 39 | 55 | 1 |
+| SRC-PY-HANDBOOK | CyberDudeBivash Python Engineering Handbook | 654 | P0 2, P1 12, P2 75, P3 14, P4 12, NONE 539 | KEEP 302, UPDATE 173, REPLACE 93, EXPAND 12, REMOVE 74 | 48 | 54 | 1 |
 | SRC-SOC-PLAYBOOK | SOC Analyst Survival Playbook (2026 Edition) | 43 | P1 11, P2 8, P3 8, P4 3, NONE 13 | KEEP 2, UPDATE 33, REPLACE 4, EXPAND 2, REMOVE 2 | 21 | 6 | 1 |
 
 ## 4. Pages that need attention first
@@ -1299,13 +1299,13 @@ Pages by issue type:
 ### SRC-PY-HANDBOOK - CyberDudeBivash Python Engineering Handbook
 
 - PDF: `CyberDudeBivash Python Engineering Handbook.pdf`; pages: **654**; records: `docs/audits/data/page_records/SRC-PY-HANDBOOK.part*.jsonl`
-- Severity: P0 2, P1 12, P2 67, P3 14, P4 12, NONE 547
-- Page-level action (machine): KEEP 309, UPDATE 166, REPLACE 93, EXPAND 12, REMOVE 74
-- Verification status: MODEL_READ_FINDING_CITED 39, MACHINE_FLAGGED_REVIEW_REQUIRED 55, MACHINE_SCANNED_NO_FLAGS 559, VISUAL_REVIEW_REQUIRED 1
+- Severity: P0 2, P1 12, P2 75, P3 14, P4 12, NONE 539
+- Page-level action (machine): KEEP 302, UPDATE 173, REPLACE 93, EXPAND 12, REMOVE 74
+- Verification status: MODEL_READ_FINDING_CITED 48, MACHINE_FLAGGED_REVIEW_REQUIRED 54, MACHINE_SCANNED_NO_FLAGS 551, VISUAL_REVIEW_REQUIRED 1
 - Currency: BASELINE_AVAILABLE 295, CURRENCY_FLAGGED 9, NO_TECHNOLOGY_DETECTED 167, UNVERIFIED_CURRENCY 183
 - Issue types (pages): END_OF_LIFE_VERSION 2, LEGAL_ETHICS_REVIEW 2, MARKDOWN_LEAK 1, NO_TEXT_LAYER 1, OBSOLETE_API 5, PERSONAL_DATA_RISK 2, RETIRED_MODEL 2, SECURITY_ANTIPATTERN 49, STUB_PAGE 13, SUPERSEDED_PRODUCT 2, UNSUPPORTED_CLAIM 9
 - Mapping basis: C-PYH-1 42, C-PYH-2 27, C-PYH-3 13, C-PYH-4 45, C-PYH-5 8, M-PYH-01 74, M-PYH-02 9, M-PYH-03 29, M-PYH-06 82, M-PYH-07 16, M-PYH-08 10, M-PYH-09 12, M-PYH-10 24, M-PYH-11 19, M-PYH-13 43, M-PYH-14 10, M-PYH-15 18, M-PYH-15+HEADING_OVERRIDE 1, M-PYH-16 14, M-PYH-17 27, M-PYH-18 10, M-PYH-19 40, M-PYH-20 7, M-PYH-21 1, M-PYH-22 6, M-PYH-23 53, M-PYH-24 1, M-PYH-25 9, M-PYH-28 2, default 1, default+HEADING_OVERRIDE 1
-- Findings cited by pages: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-005, F-PYH-006, F-PYH-008, F-PYH-009, F-PYH-010, F-PYH-011, F-PYH-012
+- Findings cited by pages: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-005, F-PYH-006, F-PYH-008, F-PYH-009, F-PYH-010, F-PYH-011, F-PYH-012, F-PYH-013, F-PYH-014
 
 Technologies detected (pages where the registry pattern matched; top 15):
 
@@ -1351,21 +1351,21 @@ Pages by issue type:
 | 2-15 | 14 | MODULE 1 PYTHON FOUNDATIONS | KEEP 13, UPDATE 1 | PY-M01 | NONE |
 | 16-28 | 13 | MODULE 1 PYTHON FOUNDATIONS (PART 2) | KEEP 12, EXPAND 1 | PY-M01 | P4 |
 | 29-47 | 19 | MODULE 1 PYTHON FOUNDATIONS (PART 3) | KEEP 13, UPDATE 6 | PA-M02 | P2 |
-| 48-63 | 16 | MODULE 1 PYTHON FOUNDATIONS (PART 4) | KEEP 7, UPDATE 9 | PY-M01, PY-M09, PY-M02 | P1 |
+| 48-63 | 16 | MODULE 1 PYTHON FOUNDATIONS (PART 4) | KEEP 5, UPDATE 11 | PY-M01, PY-M09, PY-M02 | P1 |
 | 64-79 | 16 | MODULE 1 PYTHON FOUNDATIONS (PART 5) | KEEP 10, UPDATE 5, REPLACE 1 | GCP-M03 | P1 |
-| 80-91 | 12 | MODULE 1 PYTHON FOUNDATIONS (PART 6) | KEEP 7, UPDATE 3, REPLACE 2 | PY-M02, PY-M05, PA-M09 | P2 |
+| 80-91 | 12 | MODULE 1 PYTHON FOUNDATIONS (PART 6) | KEEP 6, UPDATE 4, REPLACE 2 | PY-M02, PY-M05, PA-M09 | P2 |
 | 92-105 | 14 | MODULE 1 PYTHON FOUNDATIONS (PART 7) | KEEP 14 | PA-M07, PY-M01, GCP-M02 | NONE |
 | 106-118 | 13 | MODULE 2 PYTHON SCRIPTING & AUTOMATION (PART 1) | KEEP 7, UPDATE 4, EXPAND 2 | PA-M02, PY-M08, PA-M09 | P4 |
 | 119-132 | 14 | MODULE 2 PYTHON SCRIPTING & AUTOMATION (PART 2) | KEEP 6, UPDATE 3, REPLACE 4, EXPAND 1 | PA-M02, PY-M05, PY-M07 | P2 |
 | 133-146 | 14 | MODULE 2 PYTHON SCRIPTING & AUTOMATION (PART 3) | KEEP 3, UPDATE 8, REPLACE 3 | GCP-M02 | P2 |
-| 147-158 | 12 | MODULE 2 PART 4 | KEEP 6, UPDATE 4, REPLACE 1, EXPAND 1 | PA-M02, GCP-M02, PY-M08 | P2 |
+| 147-158 | 12 | MODULE 2 PART 4 | KEEP 4, UPDATE 6, REPLACE 1, EXPAND 1 | PA-M02, GCP-M02, PY-M08 | P2 |
 | 159-171 | 13 | MODULE 2 PART 5 | KEEP 8, UPDATE 2, REPLACE 3 | PA-M02, GCP-M02, PA-M09 | P1 |
 | 172-184 | 13 | MODULE 2 PART 6 | KEEP 5, UPDATE 5, REPLACE 3 | PA-M02, PY-M08, GCP-M02 | P2 |
 | 185-197 | 13 | MODULE 2 PART 7 | UPDATE 11, REPLACE 2 | GCP-M02, AI-M01, PA-M02 | P1 |
 | 198-214 | 17 | MODULE 2 PART 8 | KEEP 11, UPDATE 6 | AI-M11, PA-M02 | NONE |
 | 215-225 | 11 | MODULE 3 PYTHON WEB DEVELOPMENT (PART 1) | KEEP 6, UPDATE 3, REPLACE 1, EXPAND 1 | AI-M11 | P1 |
-| 226-237 | 12 | MODULE 3 PART 2 | KEEP 11, REPLACE 1 | PY-M10, PY-M08, PY-M07 | P3 |
-| 238-252 | 15 | MODULE 3 PART 3 | KEEP 13, UPDATE 1, REPLACE 1 | PY-M10, PY-M08, PY-M07 | P1 |
+| 226-237 | 12 | MODULE 3 PART 2 | KEEP 10, UPDATE 1, REPLACE 1 | PY-M10, PY-M08, PY-M07 | P2 |
+| 238-252 | 15 | MODULE 3 PART 3 | KEEP 12, UPDATE 2, REPLACE 1 | PY-M10, PY-M08, PY-M07 | P1 |
 | 253-263 | 11 | MODULE 3 PART 4 | KEEP 9, UPDATE 2 | PY-M07 | NONE |
 | 264-280 | 17 | MODULE 3 PART 5 | KEEP 10, UPDATE 3, REPLACE 3, EXPAND 1 | AI-M11 | P1 |
 | 281-295 | 15 | MODULE 3 PART 6 | KEEP 11, UPDATE 2, REPLACE 2 | AI-M11 | P2 |

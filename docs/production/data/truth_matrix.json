@@ -591,19 +591,19 @@
   },
   "course_pdf": false,
   "criteria": {
-   "A01": "NOT_MET",
+   "A01": "PARTIAL",
    "A02": "NOT_MET",
    "A03": "NOT_APPLICABLE",
    "A04": "NOT_MET",
    "A05": "NOT_MET",
    "A06": "NOT_MET",
-   "A07": "NOT_MET",
+   "A07": "PARTIAL",
    "A08": "NOT_MET",
-   "A09": "NOT_ASSESSED",
-   "A10": "NOT_ASSESSED",
+   "A09": "NOT_MET",
+   "A10": "MET",
    "A11": "NOT_MET",
-   "A12": "NOT_MET",
-   "A13": "NOT_ASSESSED",
+   "A12": "PARTIAL",
+   "A13": "NOT_MET",
    "A14": "NOT_MET",
    "A15": "NOT_MET",
    "A16": "NOT_MET",
@@ -612,21 +612,21 @@
    "A19": "NOT_MET"
   },
   "labs": {
-   "built": 0,
+   "built": 2,
    "planned": 12,
    "verified_executable": 0
   },
   "modules": {
    "FND-M01": {
-    "catalog_status": "PLANNED",
-    "edition_config": false,
+    "catalog_status": "BUILT",
+    "edition_config": true,
     "evidence": "no recorded execution evidence for this module",
-    "executed_blocks": 0,
-    "outcomes": null,
+    "executed_blocks": 5,
+    "outcomes": 4,
     "private_pack_recorded": false,
-    "quiz_items": null,
-    "rubric_criteria": null,
-    "state": "NOT_STARTED"
+    "quiz_items": 8,
+    "rubric_criteria": 4,
+    "state": "IMPLEMENTED_UNVERIFIED"
    },
    "FND-M02": {
     "catalog_status": "PLANNED",
@@ -685,7 +685,7 @@
    }
   },
   "outcomes": {
-   "outcomes_assessed": 0,
+   "outcomes_assessed": 1,
    "outcomes_total": 6
   },
   "release_status_claimed_in_catalog": "REENGINEERING",
@@ -694,10 +694,10 @@
    "time_dependent_verified": 0,
    "verified": 0
   },
-  "score": 0.0,
+  "score": 4.5,
   "source_pages_with_module_disposition": 0,
   "source_pdfs_pages": {},
-  "state": "NOT_STARTED"
+  "state": "IN_PROGRESS"
  },
  "COURSE-GCP-DE": {
   "approvals": {
@@ -1434,9 +1434,9 @@
    "A19": "NOT_MET"
   },
   "labs": {
-   "built": 18,
+   "built": 22,
    "planned": 25,
-   "verified_executable": 18
+   "verified_executable": 22
   },
   "modules": {
    "PY-M01": {
@@ -1517,26 +1517,26 @@
     "state": "TECHNICALLY_VERIFIED"
    },
    "PY-M08": {
-    "catalog_status": "PLANNED",
-    "edition_config": false,
-    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0",
-    "executed_blocks": 0,
-    "outcomes": null,
-    "private_pack_recorded": false,
-    "quiz_items": null,
-    "rubric_criteria": null,
-    "state": "IN_PROGRESS"
+    "catalog_status": "BUILT",
+    "edition_config": true,
+    "evidence": "14 tests on 5 interpreters; failed 0, skipped 0",
+    "executed_blocks": 31,
+    "outcomes": 5,
+    "private_pack_recorded": true,
+    "quiz_items": 8,
+    "rubric_criteria": 5,
+    "state": "TECHNICALLY_VERIFIED"
    },
    "PY-M09": {
-    "catalog_status": "PLANNED",
-    "edition_config": false,
-    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0",
-    "executed_blocks": 0,
-    "outcomes": null,
-    "private_pack_recorded": false,
-    "quiz_items": null,
-    "rubric_criteria": null,
-    "state": "NOT_STARTED"
+    "catalog_status": "BUILT",
+    "edition_config": true,
+    "evidence": "13 tests on 5 interpreters; failed 0, skipped 0",
+    "executed_blocks": 22,
+    "outcomes": 5,
+    "private_pack_recorded": true,
+    "quiz_items": 8,
+    "rubric_criteria": 5,
+    "state": "TECHNICALLY_VERIFIED"
    },
    "PY-M10": {
     "catalog_status": "PLANNED",
@@ -1584,7 +1584,7 @@
    }
   },
   "outcomes": {
-   "outcomes_assessed": 9,
+   "outcomes_assessed": 11,
    "outcomes_total": 13
   },
   "release_status_claimed_in_catalog": "REENGINEERING",
@@ -1593,8 +1593,8 @@
    "time_dependent_verified": 5,
    "verified": 5
   },
-  "score": 53.9,
-  "source_pages_with_module_disposition": 107,
+  "score": 63.4,
+  "source_pages_with_module_disposition": 132,
   "source_pdfs_pages": {
    "SRC-PY-HANDBOOK": 654
   },

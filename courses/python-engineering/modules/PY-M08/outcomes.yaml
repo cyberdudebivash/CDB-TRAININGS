@@ -1,0 +1,39 @@
+# Outcome traceability for PY-M08: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M08
+outcomes:
+  - id: LO1
+    verb: protect
+    statement: "Put data into SQL only as bound parameters, show with an exploit that string formatting is injectable and parameters are not, and handle the three things that cannot be parameters: identifiers, ORDER BY and LIKE wildcards."
+    instruction: ["lesson.md#3-parameters-the-only-safe-way-to-put-data-into-sql-lo1", "lesson.md#2-sqlite-from-python-in-ten-minutes-lo1-lo3"]
+    practice: ["lab-guided/README.md#step-3---append-validate-normalise-decide-inside-one-transaction-lo1-lo2-lo5", "lab-guided/README.md#step-8---search-and-count_by_type-user-input-is-data-lo1", "lab-independent/README.md#rules-for-the-whole-module", "lab-independent/README.md#queries"]
+    assessment: ["quiz:Q1", "quiz:Q2", "lab-check:guided-injection-battery", "lab-check:hidden-suite-threshold", "rubric:C2", "rubric:C4"]
+    rubric: [C2, C4]
+  - id: LO2
+    verb: use
+    statement: "Use transactions correctly: know what with conn does and does not do, make a multi-step change atomic, roll back on every failure, close connections, and explain what the connection's default settings (foreign keys off, implicit transactions) do to you."
+    instruction: ["lesson.md#4-transactions-all-of-a-change-or-none-of-it-lo2", "lesson.md#5-constraints-the-second-line-of-defence-lo3", "lesson.md#10-files-locks-backups-and-what-a-database-file-reveals-lo2-lo5"]
+    practice: ["lab-guided/README.md#step-1---open-the-store-lo2-lo3", "lab-guided/README.md#step-7---append_many-a-batch-is-one-transaction-lo2-lo5", "lab-independent/README.md#rules-for-the-whole-module", "lab-independent/README.md#cases"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:guided-transaction-checks", "lab-check:hidden-suite-threshold", "rubric:C2", "rubric:C3"]
+    rubric: [C2, C3]
+  - id: LO3
+    verb: build
+    statement: "Build a repository layer that keeps all SQL in one place, maps rows to typed values, lets constraints be the second line of defence, and turns database errors into the errors your program defines."
+    instruction: ["lesson.md#6-a-repository-layer-lo3", "lesson.md#5-constraints-the-second-line-of-defence-lo3"]
+    practice: ["lab-guided/README.md#step-5---count-lo3", "lab-guided/README.md#step-9---retention-purge-by-time-of-receipt-lo3-lo5", "lab-independent/README.md#values", "lab-independent/README.md#comments"]
+    assessment: ["quiz:Q5", "lab-check:guided-retention-checks", "lab-check:hidden-suite-threshold", "rubric:C2", "rubric:C3"]
+    rubric: [C2, C3]
+  - id: LO4
+    verb: evolve
+    statement: "Evolve a schema safely: versioned, atomic, forward-only migrations; adopt a database that has no version; rebuild a table to add a constraint; refuse a database from the future."
+    instruction: ["lesson.md#7-schema-migrations-lo4"]
+    practice: ["lab-guided/README.md#step-6---migrate-a-versioned-schema-lo4", "lab-independent/README.md#the-first-releases-database"]
+    assessment: ["quiz:Q6", "lab-check:guided-migration-checks", "lab-check:hidden-suite-threshold", "rubric:C2", "rubric:C5"]
+    rubric: [C2, C5]
+  - id: LO5
+    verb: judge
+    statement: "Make writes idempotent and concurrency-safe (retries, conflicts, optimistic locking) and judge a query by its shape: how many statements it runs, whether an index serves it, and how it pages."
+    instruction: ["lesson.md#8-retries-conflicts-and-concurrent-edits-lo5", "lesson.md#9-the-shape-of-a-query-lo5"]
+    practice: ["lab-guided/README.md#step-4---list_for_entity-seek-pagination-lo1-lo5", "lab-guided/README.md#step-10---the-shape-of-a-query-lo5", "lab-independent/README.md#queries", "lab-independent/README.md#import_casesrows---importreport", "lab-independent/README.md#query-cost"]
+    assessment: ["quiz:Q7", "quiz:Q8", "lab-check:guided-query-shape-checks", "lab-check:hidden-suite-threshold", "rubric:C2", "rubric:C3", "rubric:C4"]
+    rubric: [C2, C3, C4]
