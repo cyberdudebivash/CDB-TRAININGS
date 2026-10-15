@@ -29,7 +29,7 @@ Levels describe **evidence collected inside this academy**. They are not job tit
 |---|---:|---:|---:|---:|
 | `COURSE-FND-DIGITAL` | 6 | · | · | · |
 | `COURSE-SOC` | · | 3 | 5 | 6 |
-| `COURSE-PY-ENG` | · | 2 | 7 | 2 |
+| `COURSE-PY-ENG` | · | 2 | 8 | 2 |
 | `COURSE-PY-AUTO` | · | · | 5 | 5 |
 | `COURSE-JAVA-QA` | · | 3 | 4 | 3 |
 | `COURSE-AI-ENG` | · | 1 | 4 | 7 |
@@ -46,10 +46,10 @@ Levels describe **evidence collected inside this academy**. They are not job tit
 |---|---:|---:|---|---|
 | **SOC analyst** (`PATH-SOC-ANALYST`) | 22 | 156 | `SOC-M14` | `FND-DIGITAL` → `PY-ENG`* → `SOC` |
 | **Detection engineer** (`PATH-DETECTION-ENGINEER`) | 18 | 132 | `CYB-M11` | `FND-DIGITAL` → `PY-ENG`* → `SOC`* → `CYBER-MEGA`* |
-| **Python engineer** (`PATH-PYTHON-ENGINEER`) | 17 | 124 | `PY-M11` | `FND-DIGITAL` → `PY-ENG` |
-| **Automation engineer (Python)** (`PATH-AUTOMATION-ENGINEER`) | 21 | 145 | `PA-M10` | `FND-DIGITAL` → `PY-ENG`* → `PY-AUTO` |
+| **Python engineer** (`PATH-PYTHON-ENGINEER`) | 18 | 132 | `PY-M11` | `FND-DIGITAL` → `PY-ENG` |
+| **Automation engineer (Python)** (`PATH-AUTOMATION-ENGINEER`) | 22 | 153 | `PA-M10` | `FND-DIGITAL` → `PY-ENG`* → `PY-AUTO` |
 | **Test automation engineer (Java)** (`PATH-TEST-AUTOMATION-JAVA`) | 16 | 124 | `JQA-M10` | `FND-DIGITAL` → `JAVA-QA` |
-| **Applied AI / LLM engineer** (`PATH-AI-ENGINEER`) | 29 | 238 | `AI-M12` | `FND-DIGITAL` → `PY-ENG` → `AI-ENG` |
+| **Applied AI / LLM engineer** (`PATH-AI-ENGINEER`) | 30 | 246 | `AI-M12` | `FND-DIGITAL` → `PY-ENG` → `AI-ENG` |
 | **AI security practitioner** (`PATH-AI-SECURITY`) | 19 | 148 | `AI-M07` | `FND-DIGITAL` → `PY-ENG`* → `AI-ENG`* → `CYBER-MEGA`* |
 | **Data engineer (Google Cloud)** (`PATH-DATA-ENGINEER-GCP`) | 22 | 166 | `GCP-M11` | `FND-DIGITAL` → `PY-ENG`* → `GCP-DE` |
 | **Frontend engineer** (`PATH-FRONTEND-ENGINEER`) | 17 | 124 | `FE-M11` | `FND-DIGITAL` → `FE-ONBOARD` |
@@ -87,19 +87,19 @@ _Total:_ 18 modules, 132 planning hours
 
 _Audience:_ Developers and analysts who need production-quality Python  
 _Capstone evidence:_ `PY-M11`  
-_Total:_ 17 modules, 124 planning hours
+_Total:_ 18 modules, 132 planning hours
 
 1. Digital and Technical Foundations (`COURSE-FND-DIGITAL`): all modules · 6 modules · 32 h
-2. Python Engineering Pathway (`COURSE-PY-ENG`): all modules · 11 modules · 92 h
+2. Python Engineering Pathway (`COURSE-PY-ENG`): all modules · 12 modules · 100 h
 
 ### Automation engineer (Python) (`PATH-AUTOMATION-ENGINEER`)
 
 _Audience:_ Operations, QA and security staff automating repeatable work  
 _Capstone evidence:_ `PA-M10`  
-_Total:_ 21 modules, 145 planning hours
+_Total:_ 22 modules, 153 planning hours
 
 1. Digital and Technical Foundations (`COURSE-FND-DIGITAL`): all modules · 6 modules · 32 h
-2. Python Engineering Pathway (`COURSE-PY-ENG`): PY-M01, PY-M02, PY-M03, PY-M04, PY-M05 · 5 modules · 40 h
+2. Python Engineering Pathway (`COURSE-PY-ENG`): PY-M01, PY-M02, PY-M03, PY-M12, PY-M04, PY-M05 · 6 modules · 48 h
 3. Python Automation Pathway (`COURSE-PY-AUTO`): all modules · 10 modules · 73 h
 
 ### Test automation engineer (Java) (`PATH-TEST-AUTOMATION-JAVA`)
@@ -115,10 +115,10 @@ _Total:_ 16 modules, 124 planning hours
 
 _Audience:_ Engineers building LLM-based applications  
 _Capstone evidence:_ `AI-M12`  
-_Total:_ 29 modules, 238 planning hours
+_Total:_ 30 modules, 246 planning hours
 
 1. Digital and Technical Foundations (`COURSE-FND-DIGITAL`): all modules · 6 modules · 32 h
-2. Python Engineering Pathway (`COURSE-PY-ENG`): all modules · 11 modules · 92 h
+2. Python Engineering Pathway (`COURSE-PY-ENG`): all modules · 12 modules · 100 h
 3. Applied AI and LLM Engineering Pathway (`COURSE-AI-ENG`): all modules · 12 modules · 114 h
 
 ### AI security practitioner (`PATH-AI-SECURITY`)

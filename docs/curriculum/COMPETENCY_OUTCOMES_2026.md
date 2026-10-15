@@ -43,13 +43,14 @@ Outcomes total: **19**; assessed: **6**; labs planned/built/verified: 27/2/2; re
 
 ## COURSE-PY-ENG - Python Engineering Pathway
 
-Outcomes total: **11**; assessed: **7**; labs planned/built/verified: 21/14/14; release status `REENGINEERING`.
+Outcomes total: **12**; assessed: **8**; labs planned/built/verified: 23/16/16; release status `REENGINEERING`.
 
 | Module | Level | Outcome (observable) | Bloom | Planned evidence | Lab / build state | Change records | Developments |
 |---|---|---|---|---|---|---|---|
 | PY-M01 | 1 | Implement five data-processing functions that pass provided unit tests. | Apply | Guided-lab automated checks plus a short rubric-scored artefact | VERIFIED_EXECUTABLE | MC-PYH-01 | ND-PY-04 |
 | PY-M02 | 1 | Write parametrised pytest tests that detect three seeded defects in a provided module. | Apply | Guided-lab automated checks plus a short rubric-scored artefact | VERIFIED_EXECUTABLE | MC-PYH-15, MC-PYH-17 | - |
 | PY-M03 | 2 | Refactor a script into a typed package that passes a static type checker without errors. | Apply | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
+| PY-M12 | 2 | Model a small domain with frozen value types, per-instance state, injected behaviour and an event bus, and keep every rule true under a hidden suite that tests equality, immutability, isolation and refusal. | Create | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-21 | - |
 | PY-M04 | 2 | Build, install and import a wheel produced with python -m build in a clean virtual environment. | Create | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
 | PY-M05 | 2 | Consume a paginated API fixture with retries and timeouts and validate every response against a schema. | Apply | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-19 | - |
 | PY-M06 | 2 | Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark. | Evaluate | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
@@ -193,7 +194,7 @@ Outcomes total: **14**; assessed: **0**; labs planned/built/verified: 27/0/0; re
 | Bloom level | Modules |
 |---|---|
 | Apply | 47 |
-| Create | 32 |
+| Create | 33 |
 | Analyse | 18 |
 | Evaluate | 11 |
 | Understand | 3 |

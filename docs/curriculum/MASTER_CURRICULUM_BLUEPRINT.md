@@ -45,9 +45,9 @@ Rules that keep this a single curriculum rather than ten documents:
 | Measure | Value |
 |---|---:|
 | Courses | 10 |
-| Modules planned / with built content | 111 / 8 |
-| Labs planned / built / verified executable in QA | 213 / 16 / 16 |
-| Module outcomes total / assessed | 116 / 13 |
+| Modules planned / with built content | 112 / 9 |
+| Labs planned / built / verified executable in QA | 215 / 18 / 18 |
+| Module outcomes total / assessed | 117 / 14 |
 | Courses with SME review recorded | 0 |
 | Courses with a named owner | 0 |
 | Courses by release status | REENGINEERING: 10 |
@@ -58,7 +58,7 @@ Rules that keep this a single curriculum rather than ten documents:
 |---|---|---|---:|---:|---|---:|---|---|
 | Digital and Technical Foundations | `COURSE-FND-DIGITAL` | L0-L0 | 6 | 32 | 12 / 0 / 0 | 0/6 | PLANNED | `REENGINEERING` |
 | SOC Analyst Professional Pathway | `COURSE-SOC` | L1-L3 | 14 | 104 | 27 / 2 / 2 | 6/19 | PILOT_BUILT | `REENGINEERING` |
-| Python Engineering Pathway | `COURSE-PY-ENG` | L1-L3 | 11 | 92 | 21 / 14 / 14 | 7/11 | IN_BUILD | `REENGINEERING` |
+| Python Engineering Pathway | `COURSE-PY-ENG` | L1-L3 | 12 | 100 | 23 / 16 / 16 | 8/12 | IN_BUILD | `REENGINEERING` |
 | Python Automation Pathway | `COURSE-PY-AUTO` | L2-L3 | 10 | 73 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
 | Java Test Automation Engineer Pathway | `COURSE-JAVA-QA` | L1-L3 | 10 | 92 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
 | Applied AI and LLM Engineering Pathway | `COURSE-AI-ENG` | L1-L3 | 12 | 114 | 23 / 0 / 0 | 0/12 | IN_DESIGN | `REENGINEERING` |
@@ -66,7 +66,7 @@ Rules that keep this a single curriculum rather than ten documents:
 | Google Cloud Data Engineering Pathway | `COURSE-GCP-DE` | L2-L3 | 11 | 94 | 21 / 0 / 0 | 0/11 | IN_DESIGN | `REENGINEERING` |
 | Frontend Engineering Onboarding Pathway | `COURSE-FE-ONBOARD` | L1-L3 | 11 | 92 | 21 / 0 / 0 | 0/11 | IN_DESIGN | `REENGINEERING` |
 | Cybersecurity Specialist Tracks (from the Mega Course) | `COURSE-CYBER-MEGA` | L1-L3 | 14 | 188 | 27 / 0 / 0 | 0/14 | IN_DESIGN | `REENGINEERING` |
-| **Total** | | | **111** | **947** | **213** planned | | | |
+| **Total** | | | **112** | **955** | **215** planned | | | |
 
 Hours are **planning estimates** (module authoring budgets), not measured learner times. The portfolio total counts modules that appear in several pathways once.
 <!-- END GENERATED: portfolio -->
@@ -78,7 +78,7 @@ Level spread (modules per level):
 |---|---:|---:|---:|---:|
 | `COURSE-FND-DIGITAL` | 6 | · | · | · |
 | `COURSE-SOC` | · | 3 | 5 | 6 |
-| `COURSE-PY-ENG` | · | 2 | 7 | 2 |
+| `COURSE-PY-ENG` | · | 2 | 8 | 2 |
 | `COURSE-PY-AUTO` | · | · | 5 | 5 |
 | `COURSE-JAVA-QA` | · | 3 | 4 | 3 |
 | `COURSE-AI-ENG` | · | 1 | 4 | 7 |
@@ -176,13 +176,14 @@ Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 104 · Capstone: End-to-
 
 ### Python Engineering Pathway (`COURSE-PY-ENG`)
 
-Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 92 · Capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
+Prerequisites: `COURSE-FND-DIGITAL` · Estimated hours: 100 · Capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
 
 | Module | Title | Level | Hours | State | Primary outcome (observable) |
 |---|---|---:|---:|---|---|
 | `PY-M01` | Language core and data structures | L1 | 12 | BUILT / lab VERIFIED_EXECUTABLE | Implement five data-processing functions that pass provided unit tests. |
 | `PY-M02` | Functions, errors and testing with pytest | L1 | 8 | BUILT / lab VERIFIED_EXECUTABLE | Write parametrised pytest tests that detect three seeded defects in a provided module. |
 | `PY-M03` | Types, modules and project layout | L2 | 6 | BUILT / lab VERIFIED_EXECUTABLE | Refactor a script into a typed package that passes a static type checker without errors. |
+| `PY-M12` | Classes, dataclasses and object-oriented design | L2 | 8 | BUILT / lab VERIFIED_EXECUTABLE | Model a small domain with frozen value types, per-instance state, injected behaviour and an event bus, and keep every rule true under a hidden suite that tests equality, immutability, isolation and refusal. |
 | `PY-M04` | Environments, dependencies and packaging (pyproject, build) | L2 | 6 | BUILT / lab VERIFIED_EXECUTABLE | Build, install and import a wheel produced with python -m build in a clean virtual environment. |
 | `PY-M05` | Files, structured data and HTTP clients | L2 | 8 | BUILT / lab VERIFIED_EXECUTABLE | Consume a paginated API fixture with retries and timeouts and validate every response against a schema. |
 | `PY-M06` | Concurrency and asynchronous programming | L2 | 8 | BUILT / lab VERIFIED_EXECUTABLE | Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark. |

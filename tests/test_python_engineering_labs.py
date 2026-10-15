@@ -382,3 +382,60 @@ def test_m06_independent_hidden_suite_is_discriminating_and_starter_fails_it():
     assert report["required_killed"] == report["required_total"] == 21 and report["all_killed"] == report["total"] == 21, [m for m in report["mutants"] if not m["killed"]]
     results = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(M06 / "lab-independent" / "starter")}, timeout=1200)
     assert len(results) == 45 and set(results.values()) <= {"failed", "error"}
+
+
+# ------------------------------------------------------------------------------------------------------------------ PY-M12
+M12 = COURSE / "modules" / "PY-M12"
+
+
+def test_m12_guided_solution_passes_every_check():
+    results = run_pytest(M12 / "lab-guided", env={"LAB_TARGET": "solution"})
+    assert len(results) == 167 and failing(results) == set(), failing(results)
+
+
+def test_m12_guided_starter_fails_every_check():
+    results = run_pytest(M12 / "lab-guided")
+    assert len(results) == 167 and set(results.values()) <= {"failed", "error"}, {k: v for k, v in results.items() if v == "passed"}
+
+
+@pytest.mark.private_materials
+def test_m12_guided_checks_are_discriminating():
+    mutants = PRIVATE / "PY-M12" / "guided-mutants.json"
+    if not mutants.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    solution = M12 / "lab-guided" / "solution"
+    proc = subprocess.run([sys.executable, str(TOOL), "--module-dir", str(solution), "--module", "ledgerkit", "--tests", str(M12 / "lab-guided" / "checks"), "--mutants", str(mutants), "--json", "--jobs", "3"],
+                          capture_output=True, text=True, timeout=1200, env=dict(os.environ, LAB_TARGET="import"))
+    report = json.loads(proc.stdout)
+    assert report["baseline_passes"] and report["passed"]
+    assert report["required_killed"] == report["required_total"] == 47 and report["total"] == 47, [m for m in report["mutants"] if not m["killed"]]
+
+
+def test_m12_independent_starter_fails_every_published_check():
+    results = run_pytest(M12 / "lab-independent")
+    assert len(results) == 10 and set(results.values()) <= {"failed", "error"}, results
+
+
+@pytest.mark.private_materials
+def test_m12_independent_reference_passes_published_and_hidden_checks():
+    ref = PRIVATE / "PY-M12" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    published = run_pytest(M12 / "lab-independent", env={"LAB_PROJECT": str(ref)})
+    assert len(published) == 10 and failing(published) == set(), failing(published)
+    hidden = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(ref)})
+    assert len(hidden) == 54 and failing(hidden) == set(), failing(hidden)
+
+
+@pytest.mark.private_materials
+def test_m12_independent_hidden_suite_is_discriminating_and_starter_fails_it():
+    ref = PRIVATE / "PY-M12" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    proc = subprocess.run([sys.executable, str(TOOL), "--module-dir", str(ref), "--module", "rulekit", "--tests", str(ref / "test_hidden.py"), "--mutants", str(ref / "mutants.json"), "--json", "--jobs", "3"],
+                          capture_output=True, text=True, timeout=1200, env=dict(os.environ, LAB_TARGET="import"))
+    report = json.loads(proc.stdout)
+    assert report["baseline_passes"] and report["passed"]
+    assert report["required_killed"] == report["required_total"] == 41 and report["all_killed"] == report["total"] == 41, [m for m in report["mutants"] if not m["killed"]]
+    results = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(M12 / "lab-independent" / "starter")})
+    assert len(results) == 54 and set(results.values()) <= {"failed", "error"}

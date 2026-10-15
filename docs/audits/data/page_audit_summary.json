@@ -27,7 +27,6 @@
     "AI-M09": 140,
     "GCP-M02": 58
    },
-   "human_read_pages": 18,
    "issue_pages": {
     "MARKDOWN_LEAK": 24,
     "NO_TEXT_LAYER": 1,
@@ -41,6 +40,7 @@
     "source_default": 1
    },
    "mapping_no_destination": 258,
+   "model_read_pages": 18,
    "pages": 937,
    "rule_hits": {
     "DR-GC-003": 1,
@@ -55,9 +55,9 @@
     "P4": 24
    },
    "status": {
-    "HUMAN_READ_FINDING_CITED": 18,
     "MACHINE_FLAGGED_REVIEW_REQUIRED": 31,
     "MACHINE_SCANNED_NO_FLAGS": 887,
+    "MODEL_READ_FINDING_CITED": 18,
     "VISUAL_REVIEW_REQUIRED": 1
    },
    "top_technologies": [
@@ -151,7 +151,6 @@
     "FE-M10": 80,
     "FE-M11": 35
    },
-   "human_read_pages": 7,
    "issue_pages": {
     "MARKDOWN_LEAK": 16,
     "OLD_BASELINE": 3,
@@ -165,6 +164,7 @@
     "source_default": 112
    },
    "mapping_no_destination": 48,
+   "model_read_pages": 7,
    "pages": 441,
    "rule_hits": {
     "DR-FE-007": 3
@@ -178,9 +178,9 @@
     "P4": 13
    },
    "status": {
-    "HUMAN_READ_FINDING_CITED": 7,
     "MACHINE_FLAGGED_REVIEW_REQUIRED": 18,
-    "MACHINE_SCANNED_NO_FLAGS": 416
+    "MACHINE_SCANNED_NO_FLAGS": 416,
+    "MODEL_READ_FINDING_CITED": 7
    },
    "top_technologies": [
     [
@@ -272,7 +272,6 @@
     "GCP-M09": 35,
     "GCP-M11": 12
    },
-   "human_read_pages": 6,
    "issue_pages": {
     "MARKDOWN_LEAK": 8,
     "NO_TEXT_LAYER": 1,
@@ -288,6 +287,7 @@
     "source_default": 54
    },
    "mapping_no_destination": 94,
+   "model_read_pages": 6,
    "pages": 257,
    "rule_hits": {
     "DR-GC-006": 3,
@@ -301,10 +301,10 @@
     "P4": 37
    },
    "status": {
-    "HUMAN_READ_FINDING_CITED": 6,
     "MACHINE_FLAGGED_REVIEW_REQUIRED": 13,
     "MACHINE_SCANNED_NEAR_BLANK": 22,
     "MACHINE_SCANNED_NO_FLAGS": 215,
+    "MODEL_READ_FINDING_CITED": 6,
     "VISUAL_REVIEW_REQUIRED": 1
    },
    "top_technologies": [
@@ -397,7 +397,6 @@
     "JQA-M09": 18,
     "JQA-M10": 2
    },
-   "human_read_pages": 4,
    "issue_pages": {
     "NO_TEXT_LAYER": 1,
     "OLD_BASELINE": 1,
@@ -411,6 +410,7 @@
     "source_default": 1
    },
    "mapping_no_destination": 113,
+   "model_read_pages": 4,
    "pages": 709,
    "rule_hits": {
     "DR-JV-006": 2,
@@ -424,9 +424,9 @@
     "P4": 6
    },
    "status": {
-    "HUMAN_READ_FINDING_CITED": 4,
     "MACHINE_FLAGGED_REVIEW_REQUIRED": 22,
     "MACHINE_SCANNED_NO_FLAGS": 682,
+    "MODEL_READ_FINDING_CITED": 4,
     "VISUAL_REVIEW_REQUIRED": 1
    },
    "top_technologies": [
@@ -529,7 +529,6 @@
     "SOC-M12": 51,
     "SOC-M13": 19
    },
-   "human_read_pages": 15,
    "issue_pages": {
     "END_OF_LIFE_VERSION": 1,
     "INCORRECT_CLAIM": 6,
@@ -547,6 +546,7 @@
     "source_default": 170
    },
    "mapping_no_destination": 1,
+   "model_read_pages": 15,
    "pages": 2837,
    "rule_hits": {
     "DR-FE-011": 1,
@@ -567,10 +567,10 @@
     "P4": 24
    },
    "status": {
-    "HUMAN_READ_FINDING_CITED": 15,
     "MACHINE_FLAGGED_REVIEW_REQUIRED": 207,
     "MACHINE_SCANNED_NEAR_BLANK": 5,
-    "MACHINE_SCANNED_NO_FLAGS": 2610
+    "MACHINE_SCANNED_NO_FLAGS": 2610,
+    "MODEL_READ_FINDING_CITED": 15
    },
    "top_technologies": [
     [
@@ -669,7 +669,6 @@
     "SOC-M12": 19,
     "SOC-M13": 42
    },
-   "human_read_pages": 1,
    "issue_pages": {
     "LEGAL_ETHICS_REVIEW": 5,
     "PERSONAL_DATA_RISK": 1,
@@ -683,6 +682,7 @@
     "source_default": 36
    },
    "mapping_no_destination": 3,
+   "model_read_pages": 1,
    "pages": 827,
    "rule_hits": {
     "DR-GC-002": 2,
@@ -698,9 +698,9 @@
     "P4": 1
    },
    "status": {
-    "HUMAN_READ_FINDING_CITED": 1,
     "MACHINE_FLAGGED_REVIEW_REQUIRED": 89,
-    "MACHINE_SCANNED_NO_FLAGS": 737
+    "MACHINE_SCANNED_NO_FLAGS": 737,
+    "MODEL_READ_FINDING_CITED": 1
    },
    "top_technologies": [
     [
@@ -775,7 +775,6 @@
    "destination": {
     "OSINT-M01": 23
    },
-   "human_read_pages": 0,
    "issue_pages": {
     "NO_TEXT_LAYER": 23
    },
@@ -783,6 +782,7 @@
     "keyword_rule": 23
    },
    "mapping_no_destination": 0,
+   "model_read_pages": 0,
    "pages": 23,
    "rule_hits": {},
    "severity": {
@@ -820,7 +820,6 @@
     "PA-M10": 77,
     "PY-M01": 117
    },
-   "human_read_pages": 12,
    "issue_pages": {
     "DUPLICATE_CONTENT": 10,
     "END_OF_LIFE_VERSION": 1,
@@ -837,6 +836,7 @@
     "source_default": 3
    },
    "mapping_no_destination": 339,
+   "model_read_pages": 12,
    "pages": 1458,
    "rule_hits": {
     "DR-PY-007": 1,
@@ -851,9 +851,9 @@
     "P4": 57
    },
    "status": {
-    "HUMAN_READ_FINDING_CITED": 12,
     "MACHINE_FLAGGED_REVIEW_REQUIRED": 60,
     "MACHINE_SCANNED_NO_FLAGS": 1385,
+    "MODEL_READ_FINDING_CITED": 12,
     "VISUAL_REVIEW_REQUIRED": 1
    },
    "top_technologies": [
@@ -922,10 +922,10 @@
   "SRC-PY-HANDBOOK": {
    "action": {
     "EXPAND": 12,
-    "KEEP": 325,
+    "KEEP": 315,
     "REMOVE": 74,
     "REPLACE": 93,
-    "UPDATE": 150
+    "UPDATE": 160
    },
    "currency": {
     "BASELINE_AVAILABLE": 295,
@@ -958,7 +958,6 @@
     "PY-M11": 9,
     "SOC-M03": 72
    },
-   "human_read_pages": 23,
    "issue_pages": {
     "END_OF_LIFE_VERSION": 2,
     "LEGAL_ETHICS_REVIEW": 2,
@@ -978,6 +977,7 @@
     "source_default": 1
    },
    "mapping_no_destination": 74,
+   "model_read_pages": 33,
    "pages": 654,
    "rule_hits": {
     "DR-AI-003": 2,
@@ -992,17 +992,17 @@
     "DR-PY-024": 1
    },
    "severity": {
-    "NONE": 563,
+    "NONE": 553,
     "P0": 2,
     "P1": 12,
-    "P2": 51,
+    "P2": 61,
     "P3": 14,
     "P4": 12
    },
    "status": {
-    "HUMAN_READ_FINDING_CITED": 23,
     "MACHINE_FLAGGED_REVIEW_REQUIRED": 55,
-    "MACHINE_SCANNED_NO_FLAGS": 575,
+    "MACHINE_SCANNED_NO_FLAGS": 565,
+    "MODEL_READ_FINDING_CITED": 33,
     "VISUAL_REVIEW_REQUIRED": 1
    },
    "top_technologies": [
@@ -1089,7 +1089,6 @@
     "SOC-M07": 8,
     "SOC-M08": 14
    },
-   "human_read_pages": 21,
    "issue_pages": {
     "NO_TEXT_LAYER": 1,
     "OLD_BASELINE": 1,
@@ -1103,6 +1102,7 @@
     "source_default": 2
    },
    "mapping_no_destination": 2,
+   "model_read_pages": 21,
    "pages": 43,
    "rule_hits": {
     "DR-AI-007": 1,
@@ -1116,10 +1116,10 @@
     "P4": 3
    },
    "status": {
-    "HUMAN_READ_FINDING_CITED": 21,
     "MACHINE_FLAGGED_REVIEW_REQUIRED": 6,
     "MACHINE_SCANNED_NEAR_BLANK": 2,
     "MACHINE_SCANNED_NO_FLAGS": 13,
+    "MODEL_READ_FINDING_CITED": 21,
     "VISUAL_REVIEW_REQUIRED": 1
    },
    "top_technologies": [
@@ -1188,26 +1188,26 @@
  },
  "totals": {
   "action:EXPAND": 91,
-  "action:KEEP": 3274,
+  "action:KEEP": 3264,
   "action:MERGE": 936,
   "action:REMOVE": 932,
   "action:REPLACE": 491,
-  "action:UPDATE": 2462,
+  "action:UPDATE": 2472,
   "currency:BASELINE_AVAILABLE": 1394,
   "currency:CURRENCY_FLAGGED": 156,
   "currency:NO_TECHNOLOGY_DETECTED": 3244,
   "currency:UNVERIFIED_CURRENCY": 3392,
   "pages": 8186,
-  "severity:NONE": 7378,
+  "severity:NONE": 7368,
   "severity:P0": 10,
   "severity:P1": 71,
-  "severity:P2": 205,
+  "severity:P2": 215,
   "severity:P3": 345,
   "severity:P4": 177,
-  "status:HUMAN_READ_FINDING_CITED": 107,
   "status:MACHINE_FLAGGED_REVIEW_REQUIRED": 501,
   "status:MACHINE_SCANNED_NEAR_BLANK": 29,
-  "status:MACHINE_SCANNED_NO_FLAGS": 7520,
+  "status:MACHINE_SCANNED_NO_FLAGS": 7510,
+  "status:MODEL_READ_FINDING_CITED": 117,
   "status:VISUAL_REVIEW_REQUIRED": 29
  }
 }

@@ -22,7 +22,7 @@ Editions that could exist technically *today* from this repository are limited t
 |---|---|---|---|---|---|
 | Digital and Technical Foundations | new | self-paced entry course (free or low-friction entry is a hypothesis to test) | plan only (no learner content built) | SME and editorial review (A17), labs (A06), assessments (A07) | NOT SET (owner decision) |
 | SOC Analyst Professional Pathway | `SRC-SOC-PLAYBOOK` | self-paced course with automated lab checks | 1 module built (SOC-M04); 2/27 labs built | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
-| Python Engineering Pathway | `SRC-PY-HANDBOOK` | self-paced course with automated lab checks | 14/21 labs built | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
+| Python Engineering Pathway | `SRC-PY-HANDBOOK` | self-paced course with automated lab checks | 16/23 labs built | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
 | Python Automation Pathway | `SRC-PY-AUTOMATION` | self-paced course with automated lab checks | plan only (no learner content built) | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
 | Java Test Automation Engineer Pathway | `SRC-JAVA-AUTOTEST` | self-paced course with automated lab checks | plan only (no learner content built) | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
 | Applied AI and LLM Engineering Pathway | `SRC-AI-BUNDLE` | self-paced course with automated lab checks | plan only (no learner content built) | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
@@ -41,10 +41,10 @@ Editions that could exist technically *today* from this repository are limited t
 |---|---|---:|---:|---|
 | SOC analyst pathway | `PATH-SOC-ANALYST` | 22 | 156 | HYPOTHESIS — not buildable until its courses leave REENGINEERING |
 | Detection engineer pathway | `PATH-DETECTION-ENGINEER` | 18 | 132 | HYPOTHESIS — not buildable until its courses leave REENGINEERING |
-| Python engineer pathway | `PATH-PYTHON-ENGINEER` | 17 | 124 | HYPOTHESIS — not buildable until its courses leave REENGINEERING |
-| Automation engineer (Python) pathway | `PATH-AUTOMATION-ENGINEER` | 21 | 145 | HYPOTHESIS — not buildable until its courses leave REENGINEERING |
+| Python engineer pathway | `PATH-PYTHON-ENGINEER` | 18 | 132 | HYPOTHESIS — not buildable until its courses leave REENGINEERING |
+| Automation engineer (Python) pathway | `PATH-AUTOMATION-ENGINEER` | 22 | 153 | HYPOTHESIS — not buildable until its courses leave REENGINEERING |
 | Test automation engineer (Java) pathway | `PATH-TEST-AUTOMATION-JAVA` | 16 | 124 | HYPOTHESIS — not buildable until its courses leave REENGINEERING |
-| Applied AI / LLM engineer pathway | `PATH-AI-ENGINEER` | 29 | 238 | HYPOTHESIS — not buildable until its courses leave REENGINEERING |
+| Applied AI / LLM engineer pathway | `PATH-AI-ENGINEER` | 30 | 246 | HYPOTHESIS — not buildable until its courses leave REENGINEERING |
 | AI security practitioner pathway | `PATH-AI-SECURITY` | 19 | 148 | HYPOTHESIS — not buildable until its courses leave REENGINEERING |
 | Data engineer (Google Cloud) pathway | `PATH-DATA-ENGINEER-GCP` | 22 | 166 | HYPOTHESIS — not buildable until its courses leave REENGINEERING |
 | Frontend engineer pathway | `PATH-FRONTEND-ENGINEER` | 17 | 124 | HYPOTHESIS — not buildable until its courses leave REENGINEERING |

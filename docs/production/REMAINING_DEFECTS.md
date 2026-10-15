@@ -13,7 +13,7 @@
 | DEF-003 | P1 | OPEN_OWNER_ACTION | OSINT | GPL tool redistribution plan conflicts with proprietary licensing (INC-003 / D3) | legal review recorded |
 | DEF-004 | P1 | OPEN_OWNER_ACTION | all courses | Copyright holder and licence undecided; no LICENSE file (INC-004 / D4) | LICENSE file present and docs/release/data/readiness_inputs_2026.yaml ip_licensing MET |
 | DEF-005 | P1 | OPEN_OWNER_ACTION | all courses | Instructor packs live only in the assistant's session, not in private storage (INC-005 / D8) | private repository exists and the packs are stored there |
-| DEF-006 | P1 | OPEN | PY-ENG | Object-oriented programming (classes, properties, inheritance, composition, dataclasses) is taught by no module | a built module covers handbook pp. 48-55 with an executed lab and hidden suite |
+| DEF-006 | P1 | REMEDIATED_PENDING_VERIFICATION | PY-ENG | Object-oriented programming (classes, properties, inheritance, composition, dataclasses) is taught by no module | a built module covers handbook pp. 48-55 with an executed lab and hidden suite |
 | DEF-007 | P1 | CLOSED | all courses | 29 image-only source pages were never visually reviewed | each page rendered and inspected, recorded in docs/production/data/visual_review.yaml |
 | DEF-008 | P1 | OPEN | all courses | Source-page review is incomplete: most pages are rule-scanned only (see docs/audits/OCT2026_COMPLETE_PDF_AUDIT.md) | every page carries a semantic-inspection record or a module disposition |
 | DEF-009 | P1 | OPEN_OWNER_ACTION | all courses | No subject-matter, editorial or learner-pilot review has taken place | entries in docs/production/data/human_reviews.yaml |

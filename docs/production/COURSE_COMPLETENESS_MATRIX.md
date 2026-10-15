@@ -12,7 +12,7 @@ Counts are recomputed from files at generation time; a file existing is only `IM
 |---|---|---|---|---|---|---|---|---|---|---|
 | COURSE-FND-DIGITAL | 0/6 | 0 | 0 | 0/12 | 0/6 | 0/3 | n/a | no | 0.0 | NOT_STARTED |
 | COURSE-SOC | 1/14 | 1 | 0 | 2/27 | 6/19 | 2/12 | 20/43 | no | 11.2 | IN_PROGRESS |
-| COURSE-PY-ENG | 7/11 | 7 | 0 | 14/21 | 7/11 | 5/10 | 87/654 | no | 50.6 | IN_PROGRESS |
+| COURSE-PY-ENG | 8/12 | 7 | 0 | 16/23 | 8/12 | 5/10 | 96/654 | no | 50.3 | IN_PROGRESS |
 | COURSE-PY-AUTO | 0/10 | 0 | 0 | 0/19 | 0/10 | 0/10 | 0/1458 | no | 0.0 | NOT_STARTED |
 | COURSE-JAVA-QA | 0/10 | 0 | 0 | 0/19 | 0/10 | 0/10 | 0/709 | no | 0.0 | NOT_STARTED |
 | COURSE-AI-ENG | 0/12 | 0 | 0 | 0/23 | 0/12 | 0/11 | 0/937 | no | 0.0 | NOT_STARTED |
@@ -21,7 +21,7 @@ Counts are recomputed from files at generation time; a file existing is only `IM
 | COURSE-FE-ONBOARD | 0/11 | 0 | 0 | 0/21 | 0/11 | 0/10 | 0/441 | no | 0.0 | NOT_STARTED |
 | COURSE-CYBER-MEGA | 0/14 | 0 | 0 | 0/27 | 0/14 | 0/4 | 0/3664 | no | 0.0 | NOT_STARTED |
 
-Portfolio: 8 of 111 (7%) modules implemented, 8 of 111 (7%) technically verified, 0 courses at TRAINING_CONTENT_GO.
+Portfolio: 9 of 112 (8%) modules implemented, 8 of 112 (7%) technically verified, 0 courses at TRAINING_CONTENT_GO.
 
 ## 2. Modules
 
@@ -50,6 +50,7 @@ Portfolio: 8 of 111 (7%) modules implemented, 8 of 111 (7%) technically verified
 | PY-M01 | Language core and data structures | BUILT | TECHNICALLY_VERIFIED | 3281 | 8 | 12 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M02 | Functions, errors and testing with pytest | BUILT | TECHNICALLY_VERIFIED | 1725 | 6 | 12 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M03 | Types, modules and project layout | BUILT | TECHNICALLY_VERIFIED | 2410 | 7 | 12 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M12 | Classes, dataclasses and object-oriented design | BUILT | IMPLEMENTED_UNVERIFIED | 6472 | 34 | 0 tests on 5 interpreters; failed 0, skipped 0; STALE: 17 input file(s) changed after the recorded run at bad7a2941c44 |
 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | BUILT | TECHNICALLY_VERIFIED | 2199 | 5 | 11 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M05 | Files, structured data and HTTP clients | BUILT | TECHNICALLY_VERIFIED | 5528 | 14 | 12 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M06 | Concurrency and asynchronous programming | BUILT | TECHNICALLY_VERIFIED | 4935 | 12 | 13 tests on 5 interpreters; failed 0, skipped 0 |

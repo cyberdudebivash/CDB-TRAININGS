@@ -57,8 +57,8 @@ mappings:
   - source_pages: [48, 49, 50, 51, 52, 53, 54, 55]
     source_topic: "Object-oriented programming: classes, access conventions, properties, MRO, polymorphism, composition, design patterns"
     disposition: DROPPED
-    new_content: "not covered by PY-M01; no module of COURSE-PY-ENG currently teaches classes"
-    note: "Outside this module's five outcomes. This is a coverage gap in the course plan, recorded in the course README, not an editorial decision that the topic is unimportant (F-PYH-007: no assessable outcomes existed for it)."
+    new_content: "not covered by PY-M01; covered by PY-M12 (classes, dataclasses and object-oriented design)"
+    note: "Outside this module's five outcomes. The independent audit found that no module of the course taught classes (defect DEF-006); PY-M12 was added to close the gap and maps these pages itself (F-PYH-011; F-PYH-007: no assessable outcomes existed for them)."
   - source_pages: [56, 57, 60]
     source_topic: "Reference counting, interning, bytecode and other 'internals'"
     disposition: DROPPED

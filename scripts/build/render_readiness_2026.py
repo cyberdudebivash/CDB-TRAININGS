@@ -249,7 +249,7 @@ class Report:
             rows.append([c["id"], f"{len(m['built'])} / {len(c['modules'])}", f"{c['lab_coverage']['verified_executable']} / {c['lab_coverage']['planned']}", f"{c['assessment_coverage']['outcomes_assessed']} / {c['assessment_coverage']['outcomes_total']}",
                          f"{m['pages']:,}" if m["pages"] else "-", f"{m['sev'].get('P0', 0)} / {m['sev'].get('P1', 0)}", m["status"].get("VISUAL_REVIEW_REQUIRED", 0), f"{len(m['verified'])} / {len(m['changes'])}", c["qa_status"], c["review_status"]])
         L += [table(["Course", "Modules built", "Labs verified", "Outcomes assessed", "Source pages audited", "Pages P0 / P1", "Pages needing visual review", "Change records verified", "Catalog qa_status", "Catalog review_status"], rows), "",
-              "Source pages are audited by rules over **all** pages; only finding-cited pages were read by a person (see [OCT2026_COMPLETE_PDF_AUDIT.md](../audits/OCT2026_COMPLETE_PDF_AUDIT.md)). `Change records verified` counts records whose verification is EXECUTED or RESEARCH_VERIFIED.", "",
+              "Source pages are audited by rules over **all** pages; only finding-cited pages were read in context, by the AI model and not by a person (see [OCT2026_COMPLETE_PDF_AUDIT.md](../audits/OCT2026_COMPLETE_PDF_AUDIT.md)). `Change records verified` counts records whose verification is EXECUTED or RESEARCH_VERIFIED.", "",
               "## 2. What is automatically checked", "",
               table(["Check", "Where", "What it proves"], [
                   ["Catalog schema and cross references", "`scripts/validation/validate_catalog.py`", "Courses, modules, pathways and the TRAINING_CONTENT_GO hard gate are consistent"],
@@ -305,7 +305,7 @@ def _progress(self) -> str:
          table(["Measure", "Value", "Where it comes from"], [
              ["PDFs inventoried", "10 of 10 (hashes verified by tests)", "docs/audits/SOURCE_INVENTORY.md"],
              ["PDFs with a complete page-record set", f"10 of 10; {totals['pages']:,} pages, one record each", "docs/audits/data/page_records/"],
-             ["Pages read by a person", f"{totals.get('status:HUMAN_READ_FINDING_CITED', 0)} (only pages cited by a finding); the rest are rule-scanned", "OCT2026_COMPLETE_PDF_AUDIT.md"],
+             ["Pages read in context by the AI model (no page has had a human review)", f"{totals.get('status:MODEL_READ_FINDING_CITED', 0)} (only pages cited by a finding); the rest are rule-scanned", "OCT2026_COMPLETE_PDF_AUDIT.md"],
              ["Pages with no readable text layer (visual review needed)", f"{totals.get('status:VISUAL_REVIEW_REQUIRED', 0)}", "page records"],
              ["Topics audited (lesson-level inventory entries)", f"{lessons:,}", "docs/audits/data/lesson_inventory/"],
              ["Outdated or defective: pages with a currency rule flagged / pages with any issue (P0-P4)", f"{flagged} / {totals['pages'] - totals.get('severity:NONE', 0)}", "page_audit_summary.json"],

@@ -57,7 +57,7 @@ pathways:
     audience: "Operations, QA and security staff automating repeatable work"
     steps:
       - {course: COURSE-FND-DIGITAL}
-      - {course: COURSE-PY-ENG, modules: [PY-M01, PY-M02, PY-M03, PY-M04, PY-M05]}
+      - {course: COURSE-PY-ENG, modules: [PY-M01, PY-M02, PY-M03, PY-M12, PY-M04, PY-M05]}
       - {course: COURSE-PY-AUTO}
     capstone_module: PA-M10
   - id: PATH-TEST-AUTOMATION-JAVA

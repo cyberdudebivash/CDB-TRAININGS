@@ -14,9 +14,9 @@ Portfolio totals (generated from `catalog/courses.yaml`):
 | Measure | Value |
 |---|---:|
 | Courses | 10 |
-| Modules planned / with built content | 111 / 8 |
-| Labs planned / built / verified executable in QA | 213 / 16 / 16 |
-| Module outcomes total / assessed | 116 / 13 |
+| Modules planned / with built content | 112 / 9 |
+| Labs planned / built / verified executable in QA | 215 / 18 / 18 |
+| Module outcomes total / assessed | 117 / 14 |
 | Courses with SME review recorded | 0 |
 | Courses with a named owner | 0 |
 | Courses by release status | REENGINEERING: 10 |

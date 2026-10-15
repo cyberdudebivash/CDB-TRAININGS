@@ -10,7 +10,7 @@
 |---|---|---|---|
 | FND-DIGITAL | 0/6 | not defined | - |
 | SOC | 6/19 | SOC-M14 | NOT_STARTED |
-| PY-ENG | 7/11 | PY-M11 | NOT_STARTED |
+| PY-ENG | 8/12 | PY-M11 | NOT_STARTED |
 | PY-AUTO | 0/10 | PA-M10 | NOT_STARTED |
 | JAVA-QA | 0/10 | JQA-M10 | NOT_STARTED |
 | AI-ENG | 0/12 | AI-M12 | NOT_STARTED |
@@ -19,7 +19,7 @@
 | FE-ONBOARD | 0/11 | FE-M11 | NOT_STARTED |
 | CYBER-MEGA | 0/14 | CYB-M14 | NOT_STARTED |
 
-Outcomes assessed overall: 13 of 116 (11%).
+Outcomes assessed overall: 14 of 117 (12%).
 
 ## 2. Built modules
 
@@ -29,6 +29,7 @@ Outcomes assessed overall: 13 of 116 (11%).
 | PY-M01 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
 | PY-M02 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
 | PY-M03 | 5 | 8 | 6 | yes | TECHNICALLY_VERIFIED |
+| PY-M12 | 5 | 8 | 5 | no | IMPLEMENTED_UNVERIFIED |
 | PY-M04 | 5 | 8 | 6 | yes | TECHNICALLY_VERIFIED |
 | PY-M05 | 5 | 8 | 4 | yes | TECHNICALLY_VERIFIED |
 | PY-M06 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |

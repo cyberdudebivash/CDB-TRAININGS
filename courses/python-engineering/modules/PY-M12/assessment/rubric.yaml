@@ -1,0 +1,51 @@
+# Public rubric for the PY-M12 independent lab (rulekit). Students see exactly how they are graded.
+# Mechanical criteria (kind: automated) are run by instructors; judgement criteria (kind: reviewer) are scored 0-3 using the level descriptors below.
+rubric_id: RUB-PY-M12
+module: PY-M12
+version: 0.1.0
+pass_rule: >
+  Every must-pass criterion is met, no reviewer criterion is scored 0, and the reviewer criteria total at least 60% of their maximum.
+  Finishing the lesson or the guided lab alone is not a completion claim.
+criteria:
+  - id: C1
+    name: "Published checks pass"
+    outcomes: [LO3, LO5]
+    kind: automated
+    must_pass: true
+    measure: "python -m pytest in lab-independent/ passes with the learner's starter/rulekit.py (all ten published checks, none skipped or xfail)"
+  - id: C2
+    name: "Hidden suite"
+    outcomes: [LO1, LO5]
+    kind: automated
+    must_pass: true
+    measure: "the instructors' hidden suite (54 checks: value semantics of FrozenMap, Event, matchers and Rule; operator flattening; isolation between engines; error recording; subscriber rules; refusal without side effects) is run against the learner's rulekit.py: at least 46 of the 54 pass, and every check about state shared between engines passes"
+  - id: C3
+    name: "Value semantics and validation"
+    outcomes: [LO2, LO3]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Values are mutable or unhashable, or equality and hash disagree; bad input is accepted silently"
+      1: "Most values are frozen and compare by content, but some validation is missing (bool as a number, a mapping that is not copied) or hash and equality differ for equal objects"
+      2: "All values are immutable, hashable and consistent; validation uses the exceptions the specification names; the original dictionary cannot reach the object after construction"
+      3: "As level 2, and the code shows the reasoning: frozen dataclasses with the sanctioned `object.__setattr__` normalisation, one place for each rule, and no validation duplicated between classes"
+  - id: C4
+    name: "Composition and interfaces"
+    outcomes: [LO4]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Matchers inherit from each other or from the Protocol, or the engine inherits from a container"
+      1: "Works, but behaviour is chosen with isinstance ladders instead of each matcher knowing how to match"
+      2: "Matchers are independent frozen values that satisfy the Protocol structurally; operators come from a small state-free helper; the engine has its parts rather than being one"
+      3: "As level 2, and the code works unchanged with a duck-typed matcher the learner did not write, and the notes explain why inheritance was not used for the matchers"
+  - id: C5
+    name: "Notes and design questions"
+    outcomes: [LO5]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "No notes, or notes that restate the specification"
+      1: "Notes say what was built but not why; none of the four design questions (equality and hash, immutability, isolation, refusal) is discussed"
+      2: "Notes explain where state lives, what each class hands out, and answer the four questions for at least two classes"
+      3: "As level 2, plus one design decision that was reconsidered, with the evidence (a failing check, a test the learner wrote) that changed the learner's mind"

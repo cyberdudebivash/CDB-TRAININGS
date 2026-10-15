@@ -1,0 +1,39 @@
+# Outcome traceability for PY-M12: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M12
+outcomes:
+  - id: LO1
+    verb: find
+    statement: "Tell instance state from class state, find and fix the bugs caused by a shared mutable class attribute or a mutable default, and say what a leading underscore, name mangling and __slots__ do and do not protect."
+    instruction: ["lesson.md#2-state-instance-class-and-the-shared-list-trap-lo1", "lesson.md#3-hiding-things-conventions-name-mangling-and-properties-lo1-lo3"]
+    practice: ["lab-guided/README.md#step-b---account-state-that-belongs-to-the-instance-lo1-lo3", "lab-guided/README.md#step-c---eventbus-observers-without-shared-state-lo1-lo5", "lab-independent/README.md#ruleengine"]
+    assessment: ["quiz:Q1", "quiz:Q2", "lab-check:guided-state-checks", "lab-check:hidden-suite-threshold", "rubric:C2"]
+    rubric: [C2]
+  - id: LO2
+    verb: model
+    statement: "Model values with dataclass (frozen, slots, kw_only, default_factory, __post_init__) and define equality, hashing, ordering and repr that agree with each other; explain why changing an object that is a dictionary key loses it."
+    instruction: ["lesson.md#4-dataclasses-values-with-little-code-lo2", "lesson.md#41-class-methods-static-methods-and-alternative-constructors-lo2", "lesson.md#42-special-methods-what-python-calls-when-you-write-syntax-lo2-lo5", "lesson.md#5-equality-hashing-and-the-lost-key-lo2"]
+    practice: ["lab-guided/README.md#step-a---money-a-value-type-lo2-lo3", "lab-independent/README.md#frozenmap", "lab-independent/README.md#event"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:guided-value-checks", "lab-check:hidden-suite-threshold", "rubric:C3"]
+    rubric: [C3]
+  - id: LO3
+    verb: protect
+    statement: "Protect invariants with constructors and properties: validate at the boundary, make values immutable, remember that bool is an int, and write a boundary check that is correct for its unit."
+    instruction: ["lesson.md#3-hiding-things-conventions-name-mangling-and-properties-lo1-lo3", "lesson.md#5-equality-hashing-and-the-lost-key-lo2"]
+    practice: ["lab-guided/README.md#step-a---money-a-value-type-lo2-lo3", "lab-guided/README.md#step-b---account-state-that-belongs-to-the-instance-lo1-lo3", "lab-independent/README.md#event", "lab-independent/README.md#rule-and-alert"]
+    assessment: ["quiz:Q5", "lab-check:guided-value-checks", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C3"]
+    rubric: [C1, C3]
+  - id: LO4
+    verb: choose
+    statement: "Use super() and the method resolution order correctly, prefer composition to inheritance, and choose between an abstract base class, a Protocol and plain duck typing, knowing what a runtime protocol check does not verify."
+    instruction: ["lesson.md#6-inheritance-super-and-method-resolution-order-lo4", "lesson.md#7-composition-has-a-lo4", "lesson.md#8-abstract-base-classes-protocols-and-duck-typing-lo4"]
+    practice: ["lab-guided/README.md#step-d---fee-policies-behaviour-behind-a-small-interface-lo4-lo5", "lab-guided/README.md#step-f---ledger-composition-lo4-lo5", "lab-independent/README.md#matchers"]
+    assessment: ["quiz:Q6", "quiz:Q7", "lab-check:guided-design-checks", "lab-check:hidden-suite-threshold", "rubric:C4"]
+    rubric: [C4]
+  - id: LO5
+    verb: build
+    statement: "Build small, testable designs - Strategy, Observer and a registry factory - without shared state or leaked subscribers, and test them for the properties that matter: equality, immutability, isolation and refusal."
+    instruction: ["lesson.md#9-patterns-the-python-way-lo5", "lesson.md#10-testing-a-design-lo5"]
+    practice: ["lab-guided/README.md#step-c---eventbus-observers-without-shared-state-lo1-lo5", "lab-guided/README.md#step-e---a-registry-instead-of-an-if-ladder-lo5", "lab-independent/README.md#ruleengine"]
+    assessment: ["quiz:Q8", "lab-check:published-rulekit-checks", "lab-check:hidden-suite-threshold", "rubric:C1", "rubric:C2", "rubric:C5"]
+    rubric: [C1, C2, C5]

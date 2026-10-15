@@ -9,12 +9,12 @@ corrections were made during the work. It exists so that every number in the aud
 |---|---|---|---|
 | L1 Inventory | 10/10 files: SHA-256, size, pages, metadata, bookmarks, text-layer status | `pdfinfo`, `pypdf`, `scripts/inventory/build_inventory.py` | Deterministic |
 | L2 Machine scan | 100% of text-layer pages (8,163 of 8,186): sections, depth, duplication, claims, currency, secrets, PII, URLs, topic probes, code syntax | `pdftotext`, `scripts/inventory/run_forensics.py` | Deterministic, but heuristic (see section 3) |
-| L3 Targeted human reading | High-risk regions chosen by L2 plus whole small sources | Reading page text and rendered page images | Contextual judgement |
+| L3 Targeted reading by the AI model (not human review) | High-risk regions chosen by L2 plus whole small sources | Reading page text and rendered page images | Contextual judgement |
 | L4 Primary-source verification | Claims checked against the standard, vendor documentation or an executed experiment | Downloaded PDFs, web pages, clean-venv execution | Strongest; recorded in `docs/research/research_register.yaml` |
 
-## 2. Human-reading coverage (actual)
+## 2. Model-reading coverage (actual; no page has had a human review)
 
-| Source | Pages read by a human reader in context | Notes |
+| Source | Pages read in context by the AI model | Notes |
 |---|---:|---|
 | `SRC-SOC-PLAYBOOK` | 43 / 43 | Whole text read. |
 | `SRC-OSINT-STARTER` | 23 / 23 | Rendered and read visually (no text layer). |

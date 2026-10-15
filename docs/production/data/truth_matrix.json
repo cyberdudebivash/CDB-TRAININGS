@@ -1421,11 +1421,11 @@
    "A06": "PARTIAL",
    "A07": "PARTIAL",
    "A08": "NOT_MET",
-   "A09": "PARTIAL",
+   "A09": "NOT_MET",
    "A10": "MET",
    "A11": "NOT_MET",
    "A12": "PARTIAL",
-   "A13": "PARTIAL",
+   "A13": "NOT_MET",
    "A14": "NOT_MET",
    "A15": "PARTIAL",
    "A16": "NOT_MET",
@@ -1434,9 +1434,9 @@
    "A19": "NOT_MET"
   },
   "labs": {
-   "built": 14,
-   "planned": 21,
-   "verified_executable": 14
+   "built": 16,
+   "planned": 23,
+   "verified_executable": 16
   },
   "modules": {
    "PY-M01": {
@@ -1559,11 +1559,22 @@
     "quiz_items": null,
     "rubric_criteria": null,
     "state": "NOT_STARTED"
+   },
+   "PY-M12": {
+    "catalog_status": "BUILT",
+    "edition_config": true,
+    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0; STALE: 17 input file(s) changed after the recorded run at bad7a2941c44",
+    "executed_blocks": 34,
+    "outcomes": 5,
+    "private_pack_recorded": false,
+    "quiz_items": 8,
+    "rubric_criteria": 5,
+    "state": "IMPLEMENTED_UNVERIFIED"
    }
   },
   "outcomes": {
-   "outcomes_assessed": 7,
-   "outcomes_total": 11
+   "outcomes_assessed": 8,
+   "outcomes_total": 12
   },
   "release_status_claimed_in_catalog": "REENGINEERING",
   "scenarios": {
@@ -1571,8 +1582,8 @@
    "time_dependent_verified": 5,
    "verified": 5
   },
-  "score": 50.6,
-  "source_pages_with_module_disposition": 87,
+  "score": 50.3,
+  "source_pages_with_module_disposition": 96,
   "source_pdfs_pages": {
    "SRC-PY-HANDBOOK": 654
   },
