@@ -1,0 +1,40 @@
+rubric_id: RUB-FND-M02
+module: FND-M02
+version: 0.1.0
+pass_rule: >-
+  Every required automated criterion must pass on the student's submitted work,
+  and each qualified reviewer criterion must score at least 2/3.
+  Neither a passed quiz nor a completed preview grants Academy certification.
+criteria:
+  - id: C1
+    name: Shell and path diagnosis
+    outcomes: [LO1]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "No shell, scope, or path evidence; unsafe commands proposed."
+      1: "Shell named, but relative paths or command arguments misunderstood."
+      2: "Explains shell, working directory and practice path correctly."
+      3: "As 2, plus isolates a reproducible path-resolution failure."
+  - id: C2
+    name: Independent exit-status contract
+    outcomes: [LO2]
+    kind: automated
+    must_pass: true
+    measure: "Published transcript tests pass against learner implementation; hidden instructor checks remain pending."
+  - id: C3
+    name: Command-data boundary explanation
+    outcomes: [LO3]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Evaluates untrusted text or recommends unsafe shell execution."
+      1: "Mentions quoting without explaining expansion or pipeline risks."
+      2: "Distinguishes program arguments from shell syntax and states two risks."
+      3: "As 2, plus explains platform differences and status propagation."
+  - id: C4
+    name: Guided synthetic support diagnostic
+    outcomes: [LO4]
+    kind: automated
+    must_pass: true
+    measure: "Fourteen guided reference contract tests pass and learner documents observed 0/2/3 statuses."

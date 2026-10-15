@@ -1,0 +1,34 @@
+module: FND-M02
+items:
+  - id: Q1
+    outcome: LO1
+    stem: "What determines the resolution of a relative input file path?"
+    options: {A: "The process current working directory", B: "The router gateway", C: "The CPU model", D: "The screen resolution"}
+  - id: Q2
+    outcome: LO1
+    stem: "What is the relevant PowerShell command to inspect the current location?"
+    options: {A: "Get-Location", B: "chmod 777", C: "kill -9", D: "format C:"}
+  - id: Q3
+    outcome: LO2
+    stem: "When the synthetic CLI deliberately returns 3 under --fail-on-error, what does it mean?"
+    options: {A: "An expected alert policy matched", B: "The kernel crashed", C: "The network was breached", D: "A real customer was attacked"}
+  - id: Q4
+    outcome: LO2
+    stem: "Which stream should normally carry parseable command results?"
+    options: {A: "Standard output", B: "Standard error", C: "Shell history", D: "Keyboard layout"}
+  - id: Q5
+    outcome: LO3
+    stem: "Why avoid interpolating raw user text into a shell command?"
+    options: {A: "Shell syntax could interpret additional operations", B: "It guarantees faster execution", C: "It automatically anonymizes logs", D: "It removes filesystem races"}
+  - id: Q6
+    outcome: LO3
+    stem: "What is achieved by passing an explicit argument array without a shell?"
+    options: {A: "It avoids another shell parsing layer", B: "It guarantees the called program is harmless", C: "It grants business authorization", D: "It disables operating-system permissions"}
+  - id: Q7
+    outcome: LO4
+    stem: "How should a fictional replay dataset be described in an operational report?"
+    options: {A: "Synthetic or replay evidence, not verified live customer telemetry", B: "Live customer detection accuracy", C: "Proof of attacker attribution", D: "A completed enterprise incident"}
+  - id: Q8
+    outcome: LO4
+    stem: "What is the appropriate response to a malformed CSV status 2?"
+    options: {A: "Check and document the declared input contract", B: "Suppress all diagnostics", C: "Modify production permissions", D: "Treat malformed data as a confirmed attack"}
