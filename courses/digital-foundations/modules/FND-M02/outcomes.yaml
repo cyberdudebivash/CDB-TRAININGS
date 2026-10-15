@@ -1,0 +1,30 @@
+module: FND-M02
+outcomes:
+  - id: LO1
+    verb: identify
+    statement: "Identify the command, arguments and current working directory in a practice shell."
+    instruction: ["lesson.md#1-shells-commands-and-working-directories-lo1"]
+    practice: ["lab-guided/README.md#step-1--establish-the-practice-shell-and-working-directory-lo1"]
+    assessment: ["quiz:Q1", "quiz:Q2", "rubric:C1"]
+    rubric: [C1]
+  - id: LO2
+    verb: interpret
+    statement: "Explain stdout, stderr and documented process return codes in diagnostic execution."
+    instruction: ["lesson.md#2-standard-streams-and-exit-status-lo2"]
+    practice: ["lab-guided/README.md#step-3--validate-output-and-exit-status-lo2-lo4", "lab-independent/README.md#step-1--predict-outcomes-lo2-lo3"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:transcript-contract", "rubric:C2"]
+    rubric: [C2]
+  - id: LO3
+    verb: explain
+    statement: "Distinguish untrusted data from shell commands and identify pipeline and quoting risks."
+    instruction: ["lesson.md#3-quoting-pipelines-and-untrusted-command-data-lo3"]
+    practice: ["lab-guided/README.md#step-4--failure-injection-and-safe-handling-lo2-lo3"]
+    assessment: ["quiz:Q5", "quiz:Q6", "rubric:C3"]
+    rubric: [C3]
+  - id: LO4
+    verb: document
+    statement: "Execute a bounded CLI over synthetic data and write a reproducible sanitized handoff."
+    instruction: ["lesson.md#4-diagnostic-command-execution-and-synthetic-event-reporting-lo4"]
+    practice: ["lab-guided/README.md#step-5--professional-operations-handoff-lo3-lo4", "lab-independent/README.md#step-3--evidence-handoff-lo3-lo4"]
+    assessment: ["quiz:Q7", "quiz:Q8", "lab-check:guided-runbook-contract", "rubric:C4"]
+    rubric: [C4]
