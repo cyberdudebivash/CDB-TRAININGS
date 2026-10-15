@@ -578,7 +578,7 @@ Your loop must also survive a server that is wrong or hostile:
 - **A cursor that repeats** (or a `next` link that points back to an earlier page) makes `while next_page:` run forever. Remember the cursors you have seen and fail on a repeat.
 - **A listing without end** (every page returns a new cursor and nothing else) needs a maximum page count.
 - **A `next` link is untrusted input.** If you follow it blindly, a compromised or malicious response can send your client (and its `Authorization` header or its position inside your network) to another host. Resolve relative links against the current URL, then require the **same scheme, host and port** as the API you were configured for, and refuse before sending anything.
-  Compare parsed URLs, never strings: `http://127.0.0.1:80@evil.test/` begins with the allowed host and is a request to `evil.test`.
+  Compare parsed URLs, never strings: `http://127.0.0.1@evil.test/` begins with the allowed host and is a request to `evil.test`.
 - **Duplicates and bad items happen.** Decide the policy up front: keep the latest version of an item, set invalid items aside with their position and reason, and fail the whole run when too many are invalid.
 
 ```python run
@@ -594,10 +594,10 @@ base = httpx.URL("http://127.0.0.1:8000/v2/prices?page_size=50")
 assert same_origin(base.join("/v2/prices?page_token=2"), base)                    # a relative link resolves against the current URL
 assert same_origin(base.join("http://127.0.0.1:8000/v2/prices?page_token=2"), base)
 for hostile in ["http://localhost:8000/v2/prices", "http://127.0.0.1:9/v2/prices", "https://127.0.0.1:8000/v2/prices", "//evil.test/v2/prices",
-                "http://127.0.0.1:8000@evil.test/v2/prices", "ftp://127.0.0.1:8000/v2/prices"]:
+                "http://127.0.0.1@evil.test/v2/prices", "ftp://127.0.0.1:8000/v2/prices"]:
     assert not same_origin(base.join(hostile), base), hostile
 
-userinfo_trick = httpx.URL("http://127.0.0.1:80@evil.test/x")
+userinfo_trick = httpx.URL("http://127.0.0.1@evil.test/x")
 assert userinfo_trick.host == "evil.test" and "127.0.0.1" in str(userinfo_trick)      # the string looks right; the host is not
 
 
