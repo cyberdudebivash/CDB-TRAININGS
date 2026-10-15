@@ -1,0 +1,61 @@
+module: FND-M03
+outcomes:
+- id: LO1
+  verb: identify
+  statement: Distinguish DNS, IP, TCP, TLS and HTTP and classify which stages were actually observed.
+  instruction:
+  - lesson.md#1-names-addresses-and-layered-communication-lo1
+  - lesson.md#3-tls-and-what-a-trace-can-actually-prove-lo1-lo3
+  practice:
+  - lab-guided/README.md#step-1--establish-scope-and-terminology-lo1
+  - lab-independent/README.md#step-1--predict-stage-behavior-lo1
+  assessment:
+  - quiz:Q1
+  - quiz:Q2
+  - rubric:C1
+  rubric:
+  - C1
+- id: LO2
+  verb: interpret
+  statement: Interpret a real local TCP and HTTP/1.1 exchange with accurate response-status semantics.
+  instruction:
+  - lesson.md#4-http-requests-response-codes-and-headers-lo2
+  - lesson.md#5-actual-controlled-local-http-trace-lo2-lo4
+  practice:
+  - lab-guided/README.md#step-2--execute-a-real-local-http-exchange-lo2
+  assessment:
+  - quiz:Q3
+  - quiz:Q4
+  - lab-check:loopback-http-contract
+  - rubric:C2
+  rubric:
+  - C2
+- id: LO3
+  verb: diagnose
+  statement: Classify synthetic stage failures and reject malformed trace inputs.
+  instruction:
+  - lesson.md#6-synthetic-failure-chain-interpretation-lo3-lo4
+  practice:
+  - lab-guided/README.md#step-3--failure-injection-and-boundary-tests-lo3
+  - lab-independent/README.md#step-2--implement-the-student-contract-lo3
+  assessment:
+  - quiz:Q5
+  - quiz:Q6
+  - lab-check:student-trace-contract
+  - rubric:C3
+  rubric:
+  - C3
+- id: LO4
+  verb: document
+  statement: Prepare a sanitized support handoff distinguishing observed facts from inference.
+  instruction:
+  - lesson.md#7-operator-troubleshooting-and-safety-lo1-lo2-lo3-lo4
+  practice:
+  - lab-guided/README.md#step-4--requestresponse-evidence-lo4
+  - lab-independent/README.md#step-3--incident-triage-handoff-lo4
+  assessment:
+  - quiz:Q7
+  - quiz:Q8
+  - rubric:C4
+  rubric:
+  - C4

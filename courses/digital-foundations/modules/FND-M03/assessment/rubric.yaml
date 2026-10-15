@@ -1,0 +1,42 @@
+rubric_id: RUB-FND-M03
+module: FND-M03
+version: 0.1.0
+pass_rule: Both executable criteria must pass with student evidence; a real qualified reviewer must score each human-assessed
+  criterion >=2 of 3; no automated substitute for human approval.
+criteria:
+- id: C1
+  name: Protocol observations and limitations
+  outcomes:
+  - LO1
+  kind: reviewer
+  max: 3
+  levels:
+    0: Falsely claims captured DNS or TLS, or lacks evidence.
+    1: Names stages but confuses simulated and observed evidence.
+    2: Accurately identifies stages and which were not observed.
+    3: As 2 plus explains one valid alternate path such as an HTTP/3 or proxy deployment.
+- id: C2
+  name: Controlled live local HTTP experiment
+  outcomes:
+  - LO2
+  kind: automated
+  must_pass: true
+  measure: 12 guided tests pass, responses and cleanup documented, no unexpected external endpoints.
+- id: C3
+  name: Independent synthetic failure-chain classifier
+  outcomes:
+  - LO3
+  kind: automated
+  must_pass: true
+  measure: Learner implementation passes 12 published public contracts; further protected reviewer checks are required.
+- id: C4
+  name: Operational handoff accuracy and privacy
+  outcomes:
+  - LO4
+  kind: reviewer
+  max: 3
+  levels:
+    0: Sensitive information exposed or invented live telemetry.
+    1: Output reported without clear source or limitations.
+    2: Test commands, actual statuses, known unknowns and permitted scope recorded.
+    3: As 2 plus correctly distinguishes network from HTTP status failure and justifies escalation.
