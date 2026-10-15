@@ -12,7 +12,7 @@ Counts are recomputed from files at generation time; a file existing is only `IM
 |---|---|---|---|---|---|---|---|---|---|---|
 | COURSE-FND-DIGITAL | 0/6 | 0 | 0 | 0/12 | 0/6 | 0/3 | n/a | no | 0.0 | NOT_STARTED |
 | COURSE-SOC | 1/14 | 1 | 0 | 2/27 | 6/19 | 2/12 | 20/43 | no | 11.2 | IN_PROGRESS |
-| COURSE-PY-ENG | 7/11 | 7 | 0 | 14/21 | 7/11 | 5/10 | 87/654 | no | 50.6 | IN_PROGRESS |
+| COURSE-PY-ENG | 9/13 | 9 | 0 | 18/25 | 9/13 | 5/10 | 107/654 | no | 53.9 | IN_PROGRESS |
 | COURSE-PY-AUTO | 0/10 | 0 | 0 | 0/19 | 0/10 | 0/10 | 0/1458 | no | 0.0 | NOT_STARTED |
 | COURSE-JAVA-QA | 0/10 | 0 | 0 | 0/19 | 0/10 | 0/10 | 0/709 | no | 0.0 | NOT_STARTED |
 | COURSE-AI-ENG | 0/12 | 0 | 0 | 0/23 | 0/12 | 0/11 | 0/937 | no | 0.0 | NOT_STARTED |
@@ -21,7 +21,7 @@ Counts are recomputed from files at generation time; a file existing is only `IM
 | COURSE-FE-ONBOARD | 0/11 | 0 | 0 | 0/21 | 0/11 | 0/10 | 0/441 | no | 0.0 | NOT_STARTED |
 | COURSE-CYBER-MEGA | 0/14 | 0 | 0 | 0/27 | 0/14 | 0/4 | 0/3664 | no | 0.0 | NOT_STARTED |
 
-Portfolio: 8 of 111 (7%) modules implemented, 8 of 111 (7%) technically verified, 0 courses at TRAINING_CONTENT_GO.
+Portfolio: 10 of 113 (9%) modules implemented, 10 of 113 (9%) technically verified, 0 courses at TRAINING_CONTENT_GO.
 
 ## 2. Modules
 
@@ -49,12 +49,14 @@ Portfolio: 8 of 111 (7%) modules implemented, 8 of 111 (7%) technically verified
 | SOC-M14 | Capstone: end-to-end SOC investigation | PLANNED | NOT_STARTED | - | - | - |
 | PY-M01 | Language core and data structures | BUILT | TECHNICALLY_VERIFIED | 3281 | 8 | 12 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M02 | Functions, errors and testing with pytest | BUILT | TECHNICALLY_VERIFIED | 1725 | 6 | 12 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M13 | Iterators, generators, closures, decorators and context managers | BUILT | TECHNICALLY_VERIFIED | 4930 | 26 | 13 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M03 | Types, modules and project layout | BUILT | TECHNICALLY_VERIFIED | 2410 | 7 | 12 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M12 | Classes, dataclasses and object-oriented design | BUILT | TECHNICALLY_VERIFIED | 6472 | 34 | 13 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | BUILT | TECHNICALLY_VERIFIED | 2199 | 5 | 11 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M05 | Files, structured data and HTTP clients | BUILT | TECHNICALLY_VERIFIED | 5528 | 14 | 12 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M06 | Concurrency and asynchronous programming | BUILT | TECHNICALLY_VERIFIED | 4935 | 12 | 13 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M07 | Secure coding for Python | BUILT | TECHNICALLY_VERIFIED | 2190 | 3 | 12 tests on 5 interpreters; failed 0, skipped 0 |
-| PY-M08 | Databases and persistence | PLANNED | NOT_STARTED | - | - | - |
+| PY-M08 | Databases and persistence | PLANNED | IN_PROGRESS | - | - | 0 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M09 | Profiling, performance and maintainable architecture | PLANNED | NOT_STARTED | - | - | - |
 | PY-M10 | API development: typed, tested and secure HTTP services | PLANNED | NOT_STARTED | - | - | - |
 | PY-M11 | Capstone: typed, tested, documented application with CI | PLANNED | NOT_STARTED | - | - | - |

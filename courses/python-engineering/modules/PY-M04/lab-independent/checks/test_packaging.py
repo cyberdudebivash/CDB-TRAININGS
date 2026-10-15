@@ -86,6 +86,7 @@ def test_wheel_contents_and_metadata(built):
 
 
 def test_installed_command_filters_the_sample_log(clean_venv, project, tmp_path):
+    assert "error" not in clean_venv, clean_venv.get("error")
     assert clean_venv["install"].returncode == 0, clean_venv["install"].stderr[-1500:]
     exe = clean_venv["bin"] / "logslice"
     out = subprocess.run([str(exe), str(project / "data" / "sample.log"), "--level", "ERROR"], capture_output=True, text=True, cwd=tmp_path, timeout=120)

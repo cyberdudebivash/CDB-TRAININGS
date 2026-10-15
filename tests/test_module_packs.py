@@ -15,7 +15,8 @@ import render_module_assets
 
 ROOT = Path(__file__).resolve().parents[1]
 MODULES = sorted(p for p in (ROOT / "courses").glob("*/modules/*") if (p / "lesson.md").exists())
-CUTOFF = "2026-10-14"
+CUTOFF = "2026-10-14"      # the baseline snapshot date
+EXECUTION_DATE = str(yaml.safe_load((ROOT / "docs" / "production" / "data" / "continuity.yaml").read_text(encoding="utf-8"))["as_of"])      # nothing may be dated after the day the work was executed
 REQUIRED_FILES = ["lesson.md", "outcomes.yaml", "source-map.yaml", "assessment/quiz.yaml", "assessment/quiz.md", "assessment/rubric.yaml",
                   "lab-guided/README.md", "lab-independent/README.md"]
 
@@ -52,7 +53,7 @@ def test_lesson_front_matter_and_status(module):
     assert fm["id"] == module.name
     for key in ("title", "course", "level", "audience", "prerequisites", "estimated_time_hours", "status", "versions_cited", "last_verified"):
         assert key in fm, key
-    assert str(fm["last_verified"]) <= CUTOFF
+    assert str(fm["last_verified"]) <= EXECUTION_DATE
     assert fm["status"].startswith("BUILT") and "NOT_SME_REVIEWED" in fm["status"], "a built module must not claim SME review"
     catalog = load(ROOT / "catalog" / "courses.yaml")
     module_row = next(m for c in catalog["courses"] for m in c["modules"] if m["id"] == module.name)

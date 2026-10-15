@@ -16,7 +16,7 @@ This is the ledger behind every currency claim in the modernization: what was ch
 | Method | Entries | What it proves | Usable for customer-facing claims |
 |---|---|---|---|
 | PRIMARY_DOCUMENT_READ | 10 | A primary document/page was downloaded and the cited passage read directly. | Yes |
-| EXECUTED | 6 | The claim was reproduced by running code in a clean environment (see section 4). | Yes, for the stated version only |
+| EXECUTED | 8 | The claim was reproduced by running code in a clean environment (see section 4). | Yes, for the stated version only |
 | REGISTRY_API | 1 | Machine-readable package-registry or lifecycle data retrieved by `scripts/research/fetch_registry_versions.py`. | Yes, for version/date statements |
 | OFFICIAL_PAGE_SUMMARY | 73 | An official page was fetched through a summarising tool; the summary was NOT cross-checked against raw text. | No: re-verify against the primary text first |
 | SECONDARY_SOURCE | 5 | Trade press or other non-primary coverage; carries a caveat. | No |
@@ -66,7 +66,7 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 
 ## 5. Research register ledger
 
-95 entries in `docs/research/research_register.yaml`. `Used by` lists the findings, change records and rules that cite the entry.
+97 entries in `docs/research/research_register.yaml`. `Used by` lists the findings, change records and rules that cite the entry.
 
 | Id | Subject | Publisher | Version / state | Method | Verified on | URL | Caveat | Used by |
 |---|---|---|---|---|---|---|---|---|
@@ -74,7 +74,7 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 | R-002 | NIST CSWP 29 - The NIST Cybersecurity Framework (CSF) 2.0 | NIST | CSF 2.0 (Feb 2024) | PRIMARY_DOCUMENT_READ | 2026-10-14 | https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf |  | DR-SC-002, F-SOC-002, MC-SOC-01 |
 | R-003 | CERT-In Directions No. 20(3)/2022-CERT-In under section 70B(6) of the IT Act 2000 | Indian Computer Emergency Response Team (MeitY) | 28 April 2022 | PRIMARY_DOCUMENT_READ | 2026-10-14 | https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf |  | F-SOC-003, MC-SOC-04 |
 | R-004 | LangChain 1.x import-path removal (reproduced) | PyPI / LangChain | langchain 1.4.5, langchain-core 1.6.10, openai 3.31.0, faiss-cpu 1.15.1 (latest at test... | EXECUTED | 2026-10-14 | https://pypi.org/project/langchain/ |  | DR-PY-004, F-AI-001, MC-AIB-01, ND-AI-02 |
-| R-005 | Python Developer's Guide - Status of Python versions | Python Software Foundation | as published 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://devguide.python.org/versions/ |  | F-PYH-005 |
+| R-005 | Python Developer's Guide - Status of Python versions | Python Software Foundation | as published 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://devguide.python.org/versions/ |  | F-PYH-005, MC-PYH-21, MC-PYH-22 |
 | R-006 | Python Packaging User Guide - Is setup.py deprecated? | Python Packaging Authority (PyPA) | latest as of 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://packaging.python.org/en/latest/discussions/setup-py-deprecated/ |  | F-PYH-003 |
 | R-007 | Eclipse Adoptium - Supported platforms / LTS release support | Eclipse Adoptium | as published 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://adoptium.net/support/ |  | F-JAV-002 |
 | R-008 | JUnit - current generation | JUnit team | JUnit 6 (Java 17 baseline) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://junit.org/ |  | F-JAV-002 |
@@ -165,6 +165,8 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 | R-093 | Python documentation - Coroutines and Tasks (gather, TaskGroup, timeout, create_task, cancellation) | Python Software Foundation | page read 2026-10-14 (documentation for the current stable release) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://docs.python.org/3/library/asyncio-task.html | yes | DR-PY-025, MC-PYH-20 |
 | R-094 | PyPI package 'asyncio' is a deprecated, code-free placeholder (reproduced) | PyPI | asyncio 4.0.0 (uploaded 2025-08-05), CPython 3.13.16 | EXECUTED | 2026-10-14 | https://pypi.org/project/asyncio/ |  | DR-PY-024, MC-PYH-20 |
 | R-095 | asyncio and concurrency features by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0) | Python Software Foundation | CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds, GIL enabled) | EXECUTED | 2026-10-14 | https://docs.python.org/3/library/asyncio.html |  | DR-PY-025, MC-PYH-20 |
+| R-096 | Object model, dataclass and typing behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0) | Python Software Foundation | CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds) | EXECUTED | 2026-10-15 | https://docs.python.org/3/reference/datamodel.html |  | MC-PYH-21 |
+| R-097 | Iterator, generator, decorator and context-manager behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.... | Python Software Foundation | CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds) | EXECUTED | 2026-10-15 | https://docs.python.org/3/reference/expressions.html#yield-expressions |  | MC-PYH-22 |
 
 ## 6. Limitations and items that must not be used in customer-facing material yet
 

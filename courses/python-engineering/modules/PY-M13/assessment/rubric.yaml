@@ -1,0 +1,51 @@
+# Public rubric for the PY-M13 independent lab (flowkit). Students see exactly how they are graded.
+# Mechanical criteria (kind: automated) are run by instructors; judgement criteria (kind: reviewer) are scored 0-3 using the level descriptors below.
+rubric_id: RUB-PY-M13
+module: PY-M13
+version: 0.1.0
+pass_rule: >
+  Every must-pass criterion is met, no reviewer criterion is scored 0, and the reviewer criteria total at least 60% of their maximum.
+  Finishing the lesson or the guided lab alone is not a completion claim.
+criteria:
+  - id: C1
+    name: "Published checks pass"
+    outcomes: [LO2]
+    kind: automated
+    must_pass: true
+    measure: "python -m pytest in lab-independent/ passes with the learner's starter/flowkit.py (all ten published checks, none skipped or xfail)"
+  - id: C2
+    name: "Hidden suite"
+    outcomes: [LO1, LO2, LO5]
+    kind: automated
+    must_pass: true
+    measure: "the instructors' hidden suite (63 checks: merge order and ties, laziness counted item by item, cleanup of sources on every path, group runs, cache eviction and statistics, rollback and nesting) is run against the learner's flowkit.py: at least 54 of the 63 pass, and every check about closing sources and rolling back passes"
+  - id: C3
+    name: "Decorators and closures"
+    outcomes: [LO3, LO4]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "The cache is global state shared by all decorated functions, or the decorator loses the function's name and arguments"
+      1: "Works, but the factory, decorator and wrapper levels are mixed up (validation at call time of the decorated function instead of when the decorator is created), or the metadata is copied by hand"
+      2: "Three clear levels; state lives in the closure of each decorated function; functools.wraps is used; arguments are validated in the factory; keyword order and unhashable arguments are handled as specified"
+      3: "As level 2, and the notes say what the cache keeps alive (arguments and results) and why caching methods needs care"
+  - id: C4
+    name: "Laziness and argument checking"
+    outcomes: [LO2]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "merge_sorted or group_runs reads its whole input before producing anything"
+      1: "Lazy, but reads more than one item ahead, or a non-iterable is reported only at the first next()"
+      2: "Reads exactly what the result needs and reports bad arguments at the call by returning an inner generator"
+      3: "As level 2, and the learner can show (with a counting iterator of their own) how much each function consumed, and explains why the check happens in an ordinary function"
+  - id: C5
+    name: "Notes and cleanup reasoning"
+    outcomes: [LO5]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "No notes, or notes that restate the specification"
+      1: "Notes say what was built but not where cleanup runs or what releases the resources"
+      2: "Notes name, for each function, what it holds, what releases it and on which paths (exhaustion, close, exception), and one test that proves it"
+      3: "As level 2, plus one design decision that was reconsidered, with the evidence (a failing check, a test the learner wrote) that changed the learner's mind"

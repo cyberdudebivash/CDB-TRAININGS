@@ -1,0 +1,61 @@
+# Source-to-new-content trace for PY-M12. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower). Mapping of pages to this module is a reading by the module author, not a measurement.
+source: SRC-PY-HANDBOOK
+module: PY-M12
+mappings:
+  - source_pages: [40, 41, 42, 43]
+    source_topic: "31. Object-oriented programming ('Python's MOST IMPORTANT SECTION', 'This is a HUGE section'): class and object, attributes, __init__, methods, self, inheritance, super(), polymorphism, encapsulation (as names only)"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md sections 2, 3, 6 and 8"
+    note: "The introduction defines each term in a line or two with no executable example and promises more than it shows. The lesson assumes the basic syntax (PY-M01 to PY-M03 use classes) and teaches what goes wrong: shared class state, mangling, the MRO and cooperative super(), abstract classes and Protocols. Encapsulation appears on the page as two bare names; section 3 explains what they do and do not protect (F-PYH-011)."
+  - source_pages: [44, 45]
+    source_topic: "31.11 magic methods, 31.12 operator overloading (`Box.__add__` returns `self.volume + other.volume`), 31.13 overriding, 31.14 class methods (`build(cls)`)"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 4.1 and 4.2; lab-guided step A (Money arithmetic, NotImplemented)"
+    note: "`__add__` returns a number, so the result cannot be added again, and raises AttributeError for a non-box instead of returning NotImplemented (both executed). Class methods are kept and shown as alternative constructors with subclasses (F-PYH-011)."
+  - source_pages: [64, 65, 66, 67]
+    source_topic: "45. Python data model: __str__ versus __repr__, __len__, __getitem__, __call__, __enter__ and __exit__; 'This is how FastAPI, Django middlewares, decorators and machine learning layers work'"
+    disposition: CORRECTED
+    new_content: "lesson.md section 4.2; lab-guided step C (falsy bus)"
+    note: "The __repr__ example returns a fixed sentence while the page shows `User(name='Bivash')` as its output, __exit__(self, *args) hides the three arguments and the meaning of the return value, and the closing sentence is an unsupported claim. The lesson gives the table of syntax to special method with executed contracts (F-PYH-011)."
+  - source_pages: [48]
+    source_topic: "35.1 Class versus instance variables: 'class variables ... Used for: tracking objects, configuration, static information'"
+    disposition: CORRECTED
+    new_content: "lesson.md section 2; lab-guided step B (Account.opened)"
+    note: "The advice is incomplete in a way that causes bugs: a mutable class attribute is shared by every instance, and writing through self creates an instance attribute that hides the class one (both executed, F-PYH-011). The lesson keeps the idea and adds the rule for what may live on the class."
+  - source_pages: [49, 50]
+    source_topic: "35.2 Private, protected and public members; 'self.__secret' is changed internally to '_user__secret'"
+    disposition: CORRECTED
+    new_content: "lesson.md section 3"
+    note: "The mangled name is _User__secret, with the capital of the class name (executed); the handbook's _user__secret does not exist. Mangling is a rename that avoids clashes between base and subclass, not protection. F-PYH-011."
+  - source_pages: [50, 51]
+    source_topic: "35.3 Property decorator for getters and setters; temperature setter that raises below -273"
+    disposition: CORRECTED
+    new_content: "lesson.md section 3 (temperature module and its tests); lab-guided steps A and B"
+    note: "Absolute zero is -273.15 degrees Celsius: the check `value < -273` refuses the valid values from -273.15 to -273, absolute zero included (executed boundary tests). The lesson also adds the setter-in-the-constructor idiom and excludes bool. F-PYH-011."
+  - source_pages: [51]
+    source_topic: "35.4 Inheritance deep dive: single, multi-level, hierarchical, multiple, hybrid; MRO printed with C.mro()"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 6; quiz Q6"
+    note: "The listing of inheritance kinds is replaced by what decides behaviour: the C3 method resolution order, cooperative super(), the inconsistent-bases error, subclassing built-in containers, and the slots plus zero-argument super() change in 3.13 (all executed on 3.11 to 3.15)."
+  - source_pages: [52]
+    source_topic: "35.5 Abstract classes and interfaces; Circle.area returns '3.14 * r*r'; 35.6 Polymorphism with Dog and Cat"
+    disposition: CORRECTED
+    new_content: "lesson.md section 8; lab-guided step D; quiz Q7"
+    note: "The Circle example uses the undefined name r and the constant 3.14 (executed NameError); the lesson uses math.pi and adds Protocol, the limit of runtime_checkable (names only, executed), and typing.override with its 3.12 availability. F-PYH-011."
+  - source_pages: [52, 53]
+    source_topic: "35.7 Composition is more powerful than inheritance; Car creates its own Engine; 'This is how real enterprise systems work'"
+    disposition: CORRECTED
+    new_content: "lesson.md section 7; lab-guided step F"
+    note: "The example is right in spirit but hard-wires its dependency, and the closing claim is unsupported. The lesson injects the part, shows delegation and replaces the claim with the design reason (every operation of the base class must make sense on the subclass). F-PYH-011."
+  - source_pages: [54]
+    source_topic: "35.8 'We cover 12 important patterns': Singleton via __new__; Factory with `def create(self, type)` and an if ladder"
+    disposition: CORRECTED
+    new_content: "lesson.md section 9; lab-guided step E"
+    note: "Four patterns are shown, not twelve. The __new__ singleton re-runs __init__ on every call (executed); the factory shadows the built-in `type` and needs editing for each new kind. Replaced by a module-level object and a registry with explicit errors. F-PYH-011."
+  - source_pages: [55]
+    source_topic: "Strategy pattern (PaymentStrategy with Paytm and UPI skeletons) and Observer pattern with `observers = []` in the class body"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 2 and 9; lab-guided steps C and D; lab-independent"
+    note: "The skeletons contain no behaviour, and the Observer keeps its list on the class so that every subject shares it (executed). Replaced by working Strategy and Observer designs with unsubscribe, error isolation and weak references to bound methods, and by an independent lab that builds a rule engine on the same ideas. F-PYH-011."

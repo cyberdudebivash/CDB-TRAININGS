@@ -13,7 +13,7 @@
 | DEF-003 | P1 | OPEN_OWNER_ACTION | OSINT | GPL tool redistribution plan conflicts with proprietary licensing (INC-003 / D3) | legal review recorded |
 | DEF-004 | P1 | OPEN_OWNER_ACTION | all courses | Copyright holder and licence undecided; no LICENSE file (INC-004 / D4) | LICENSE file present and docs/release/data/readiness_inputs_2026.yaml ip_licensing MET |
 | DEF-005 | P1 | OPEN_OWNER_ACTION | all courses | Instructor packs live only in the assistant's session, not in private storage (INC-005 / D8) | private repository exists and the packs are stored there |
-| DEF-006 | P1 | OPEN | PY-ENG | Object-oriented programming (classes, properties, inheritance, composition, dataclasses) is taught by no module | a built module covers handbook pp. 48-55 with an executed lab and hidden suite |
+| DEF-006 | P1 | REMEDIATED_PENDING_VERIFICATION | PY-ENG | Object-oriented programming (classes, properties, inheritance, composition, dataclasses) is taught by no module | a built module covers handbook pp. 48-55 with an executed lab and hidden suite |
 | DEF-007 | P1 | CLOSED | all courses | 29 image-only source pages were never visually reviewed | each page rendered and inspected, recorded in docs/production/data/visual_review.yaml |
 | DEF-008 | P1 | OPEN | all courses | Source-page review is incomplete: most pages are rule-scanned only (see docs/audits/OCT2026_COMPLETE_PDF_AUDIT.md) | every page carries a semantic-inspection record or a module disposition |
 | DEF-009 | P1 | OPEN_OWNER_ACTION | all courses | No subject-matter, editorial or learner-pilot review has taken place | entries in docs/production/data/human_reviews.yaml |
@@ -21,8 +21,10 @@
 | DEF-011 | P2 | OPEN | all courses | Lab validation covers Linux only | matrix extended to Windows and macOS or the supported platform statement is narrowed by the owner |
 | DEF-012 | P2 | OPEN | all courses | 31 technology-registry entries have no verified version (GitHub release data not collected) | fetch_registry_versions.py with release access |
 | DEF-013 | P2 | OPEN_OWNER_ACTION | PY-ENG | GitGuardian false positive on PY-M05 lesson still reported on an earlier commit (INC-006) | dashboard incident 38216690 marked as false positive |
+| DEF-014 | P2 | OPEN | all courses | The executed API probes and the generated technology baselines carry the 2026-10-14 date; the registry re-check of 2026-10-15 found 19 changed records that those documents do not reflect | api_probes.py and the baseline renderers re-run with the later cutoff, or the Stage B refresh executed on or after 2026-10-24 |
+| DEF-015 | P1 | REMEDIATED_PENDING_VERIFICATION | PY-ENG | Iterators, generators, closures, decorators and context managers (handbook pp. 33-39, 67-69, 78-79) are taught by no module | a built module covers them with an executable lesson, labs and assessment |
 
-Open P0: 1; open P1: 7. A course cannot reach TRAINING_CONTENT_GO with an open P0 or P1 defect that applies to it.
+Open P0: 1; open P1: 8. A course cannot reach TRAINING_CONTENT_GO with an open P0 or P1 defect that applies to it.
 
 ## 2. Incidents and owner decisions (public-safe)
 

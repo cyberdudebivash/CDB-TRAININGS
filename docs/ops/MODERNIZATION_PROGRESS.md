@@ -9,17 +9,17 @@ Milestone report in the fields the directive asks for. Every number is computed 
 |---|---|---|
 | PDFs inventoried | 10 of 10 (hashes verified by tests) | docs/audits/SOURCE_INVENTORY.md |
 | PDFs with a complete page-record set | 10 of 10; 8,186 pages, one record each | docs/audits/data/page_records/ |
-| Pages read by a person | 107 (only pages cited by a finding); the rest are rule-scanned | OCT2026_COMPLETE_PDF_AUDIT.md |
+| Pages read in context by the AI model (no page has had a human review) | 123 (only pages cited by a finding); the rest are rule-scanned | OCT2026_COMPLETE_PDF_AUDIT.md |
 | Pages with no readable text layer (visual review needed) | 29 | page records |
 | Topics audited (lesson-level inventory entries) | 7,432 | docs/audits/data/lesson_inventory/ |
-| Outdated or defective: pages with a currency rule flagged / pages with any issue (P0-P4) | 156 / 808 | page_audit_summary.json |
-| Concept-level change records | 93: verification RESEARCH_VERIFIED 48, MACHINE_ONLY 20, EXECUTED 17, NEEDS_VERIFICATION 7, SECONDARY_ONLY 1 | docs/audits/data/modernization_changes.yaml |
-| Change records whose destination is built / partly built | 9 / 6 (of 93) | same, status checked against the catalog |
+| Outdated or defective: pages with a currency rule flagged / pages with any issue (P0-P4) | 156 / 824 | page_audit_summary.json |
+| Concept-level change records | 95: verification RESEARCH_VERIFIED 48, MACHINE_ONLY 20, EXECUTED 19, NEEDS_VERIFICATION 7, SECONDARY_ONLY 1 | docs/audits/data/modernization_changes.yaml |
+| Change records whose destination is built / partly built | 11 / 6 (of 95) | same, status checked against the catalog |
 | New developments recorded | 37: STABLE 29, EMERGING 7, EXPERIMENTAL 1; 35 have at least one non-secondary evidence entry | docs/research/new_developments.yaml |
-| Research entries / executed probes / registry records | 95 / 23 / 180 | docs/research/ |
-| Modules built | 8 of 111 (SOC-M04, PY-M01, PY-M02, PY-M03, PY-M04, PY-M05, PY-M06, PY-M07) | catalog/courses.yaml |
-| Labs built / verified executable | 16 / 16 of 213 planned | catalog; docs/qa/LAB_EXECUTION_EVIDENCE.md |
-| Student editions buildable (preview or pilot, never premium) | 8 configurations; premium editions: 0 | courses/*/student/ |
+| Research entries / executed probes / registry records | 97 / 23 / 180 | docs/research/ |
+| Modules built | 10 of 113 (SOC-M04, PY-M01, PY-M02, PY-M13, PY-M03, PY-M12, PY-M04, PY-M05, PY-M06, PY-M07) | catalog/courses.yaml |
+| Labs built / verified executable | 20 / 20 of 217 planned | catalog; docs/qa/LAB_EXECUTION_EVIDENCE.md |
+| Student editions buildable (preview or pilot, never premium) | 10 configurations; premium editions: 0 | courses/*/student/ |
 | Courses passing every readiness field | 0 of 10 | OCT2026_PRODUCTION_READINESS.md |
 | Research cutoff | Stage A 2026-10-14; Stage B 2026-10-24 `PENDING_FUTURE_REFRESH` | OCT24_FINAL_REFRESH_CHECKLIST.md |
 | Commercial readiness | hypotheses only; no price set, nothing listed | PRICING_AND_POSITIONING_RESEARCH.md |
@@ -30,7 +30,7 @@ Milestone report in the fields the directive asks for. Every number is computed 
 |---|---|---|---|---|
 | COURSE-FND-DIGITAL | 0 / 6 | 0 / 12 | 0.0 | 0 / 0 |
 | COURSE-SOC | 1 / 14 | 2 / 27 | 16.0 | 6 / 8 |
-| COURSE-PY-ENG | 7 / 11 | 14 / 21 | 42.8 | 17 / 20 |
+| COURSE-PY-ENG | 9 / 13 | 18 / 25 | 45.8 | 19 / 22 |
 | COURSE-PY-AUTO | 0 / 10 | 0 / 19 | 5.7 | 5 / 11 |
 | COURSE-JAVA-QA | 0 / 10 | 0 / 19 | 6.2 | 5 / 10 |
 | COURSE-AI-ENG | 0 / 12 | 0 / 23 | 11.1 | 8 / 9 |

@@ -513,6 +513,44 @@ findings:
     recommendation: "Choose threads, asyncio, processes or free-threading from a measured profile; bound concurrency; put a timeout on every call; use TaskGroup and asyncio.timeout; keep references to tasks; write benchmarks that report medians and variance and never state a speed-up that was not measured."
     remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M06 (courses/python-engineering/modules/PY-M06)"}
 
+  - id: F-PYH-011
+    source_id: SRC-PY-HANDBOOK
+    severity: P2
+    dimension: technical_correctness
+    title: "The advanced object-oriented chapter contains errors a learner would copy, shows skeletons instead of working patterns and omits the idioms modern Python uses"
+    evidence:
+      - {page: 55, note: "Observer pattern keeps `observers = []` in the class body, so every Subject in the program shares one list; Strategy and Observer are skeletons (`class Paytm(PaymentStrategy): ...`) with no behaviour."}
+      - {page: 50, note: "'self.__secret' is said to be changed internally to '_user__secret'; the mangled name keeps the capital of the class name (_User__secret)."}
+      - {page: 51, note: "The temperature setter rejects `value < -273`; absolute zero is -273.15 degrees Celsius, so valid values between -273.15 and -273 (and absolute zero itself) are refused."}
+      - {page: 52, note: "Circle.area returns '3.14 * r*r' with `r` never defined (NameError when run) and 3.14 instead of math.pi."}
+      - {page: 54, note: "'We cover 12 important patterns' is followed by four; the factory parameter is named `type`, hiding the built-in, and selects a class with an if ladder; the __new__ singleton runs __init__ again on every call."}
+      - {page: 53, note: "Composition is said to be 'how real enterprise systems work' with no evidence; Car creates its own Engine, so nothing can be substituted in a test."}
+      - {page: 44, note: "Operator overloading: `Box.__add__` returns `self.volume + other.volume` (a number, not a Box) and raises AttributeError for a non-Box operand instead of returning NotImplemented."}
+      - {page: 65, note: "The __repr__ example returns a fixed sentence while the page shows `User(name='Bivash')` as its output; __exit__(self, *args) hides the three arguments and the meaning of the return value; 'This is how FastAPI, Django middlewares, decorators and machine learning layers work' is unsupported."}
+      - {page: 40, note: "The introduction to OOP is called 'Python's MOST IMPORTANT SECTION' and 'HUGE' and consists of one- or two-line definitions without executable examples."}
+      - {page: 48, note: "Class variables are recommended for 'tracking objects' without the rule that a mutable class attribute is shared by every instance and that `self.count += 1` creates an instance attribute."}
+    verification: EXECUTED
+    detail: "Executed on CPython 3.11, 3.12, 3.13, 3.14 and 3.15 (PY-M12 lesson, R-096): the shared observer list is visible from a second subject; the mangled name is _User__secret; -273.1 and -273.15 are refused by `value < -273`; BrokenCircle().area() raises NameError; the __new__ singleton re-initialises its one object on every call. The `__add__` of page 44 returns an int and raises AttributeError for a non-Box. Dataclasses, __slots__, immutability, hashing and typing.Protocol, which current Python code uses daily, are absent from the chapter."
+    recommendation: "Teach instance versus class state with the shared-list bug, validate at the boundary with constructors and properties, model values as frozen dataclasses, state what name mangling and runtime protocol checks do not do, prefer injected composition, and build working Strategy, Observer and registry examples that are tested for equality, immutability, isolation and refusal."
+    remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M12 (courses/python-engineering/modules/PY-M12)"}
+
+  - id: F-PYH-012
+    source_id: SRC-PY-HANDBOOK
+    severity: P2
+    dimension: technical_correctness
+    title: "The iterator, generator, decorator and context-manager sections contain examples that leak resources, drop arguments and results, or use Python 2 spellings, and make unqualified speed claims"
+    evidence:
+      - {page: 33, note: "The `finally` example opens a file in a `try` with a bare `except:` and prints 'Always executed' in `finally`; the file is never closed and the bare except also hides KeyboardInterrupt."}
+      - {page: 35, note: "The custom iterator class defines a method `next` (the Python 2 name) next to `__next__`, and is called Counter, hiding collections.Counter."}
+      - {page: 36, note: "Generators are said to be 'faster for large datasets' with no measurement; what they save is memory."}
+      - {page: 38, note: "The basic decorator's `wrapper()` takes no arguments, discards the return value and renames the function; 'DECORATORS - The Most Important Python Concept' is not supported."}
+      - {page: 68, note: "The context-manager example `FileManager` prints 'Open file' and 'Close file' without opening a file and takes `__exit__(self, *args)` without saying what the arguments or the return value mean; the same shape recurs on pages 66 and 79."}
+      - {page: 79, note: "`@lru_cache(maxsize=None)` is listed as an execution optimisation without the hashable-argument rule, the unbounded memory growth or the effect on methods."}
+    verification: EXECUTED
+    detail: "Executed on CPython 3.11-3.15 (PY-M13 lesson, R-097): next() on a class that only has `next` raises TypeError; a decorator written like page 38 cannot wrap a function with a parameter, returns None and renames the function to wrapper; the file of the page-33 pattern is still open after the block; the peak memory of a generator is a small fraction of the list's (the speed claim was not measured and is not made); `@contextmanager` code after the yield is skipped when the block raises unless it is in a finally; a list argument to an lru_cache function raises TypeError."
+    recommendation: "Teach the iterator protocol with single-pass behaviour, generators with laziness and cleanup (with inside the generator, close(), argument checks at the call), the three-line decorator pattern with functools.wraps, decorators with arguments and stacking order, context managers with guaranteed cleanup (class form, contextmanager with try/finally, ExitStack), and test them by counting consumption and recording cleanup."
+    remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M13 (courses/python-engineering/modules/PY-M13)"}
+
   # ------------------------------------------------------------------------- Python Automation Training
   - id: F-PYA-001
     source_id: SRC-PY-AUTOMATION

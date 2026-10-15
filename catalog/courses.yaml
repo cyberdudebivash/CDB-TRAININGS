@@ -93,7 +93,9 @@ courses:
     modules:
       - {id: PY-M01, title: "Language core and data structures", level: 1, status: BUILT, estimated_hours: 12, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Implement five data-processing functions that pass provided unit tests."}
       - {id: PY-M02, title: "Functions, errors and testing with pytest", level: 1, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Write parametrised pytest tests that detect three seeded defects in a provided module."}
+      - {id: PY-M13, title: "Iterators, generators, closures, decorators and context managers", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Build a lazy stream-processing toolkit whose generators, decorators and context managers consume only what they need and release every resource on every path, verified by tests that count consumption."}
       - {id: PY-M03, title: "Types, modules and project layout", level: 2, status: BUILT, estimated_hours: 6, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Refactor a script into a typed package that passes a static type checker without errors."}
+      - {id: PY-M12, title: "Classes, dataclasses and object-oriented design", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Model a small domain with frozen value types, per-instance state, injected behaviour and an event bus, and keep every rule true under a hidden suite that tests equality, immutability, isolation and refusal."}
       - {id: PY-M04, title: "Environments, dependencies and packaging (pyproject, build)", level: 2, status: BUILT, estimated_hours: 6, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Build, install and import a wheel produced with python -m build in a clean virtual environment."}
       - {id: PY-M05, title: "Files, structured data and HTTP clients", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Consume a paginated API fixture with retries and timeouts and validate every response against a schema."}
       - {id: PY-M06, title: "Concurrency and asynchronous programming", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark."}
@@ -102,9 +104,9 @@ courses:
       - {id: PY-M09, title: "Profiling, performance and maintainable architecture", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent."}
       - {id: PY-M10, title: "API development: typed, tested and secure HTTP services", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Build a typed HTTP API with request validation and authentication that passes contract tests and an injection test suite."}
       - {id: PY-M11, title: "Capstone: typed, tested, documented application with CI", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a packaged application whose tests, type checks and security scan pass in a clean environment."}
-    estimated_duration_hours: 92
-    lab_coverage: {planned: 21, built: 14, verified_executable: 14}
-    assessment_coverage: {outcomes_total: 11, outcomes_assessed: 7}
+    estimated_duration_hours: 108
+    lab_coverage: {planned: 25, built: 18, verified_executable: 18}
+    assessment_coverage: {outcomes_total: 13, outcomes_assessed: 9}
     capstone: "A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan."
     review_status: AUTOMATED_ONLY
     qa_status: PARTIAL
@@ -114,7 +116,7 @@ courses:
     owner: UNASSIGNED
     reviewers: []
     last_verified: 2026-10-14
-    notes: "Seven of eleven modules are built (PY-M01 to PY-M07) with fourteen labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are not yet covered by any module."
+    notes: "Nine of thirteen modules are built (PY-M01 to PY-M07, PY-M12 and PY-M13) with eighteen labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are covered by PY-M12."
 
   - id: COURSE-PY-AUTO
     slug: python-automation

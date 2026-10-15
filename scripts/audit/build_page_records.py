@@ -4,8 +4,8 @@
 For each page the record carries the sixteen fields required by the modernization directive
 (source_pdf, source_page, chapter, lesson, topic, technology, original_claim, evidence, issue_type, severity,
 modernization_action, source_url, source_date, verification_status, destination_file, test_evidence) plus
-machine-confidence fields. Nothing here claims a page was *read by a person* unless a finding in
-docs/audits/data/findings.yaml cites that page; every other page is `MACHINE_SCANNED_*`,
+machine-confidence fields. Nothing here claims a page was read by a person: a page cited by a finding in
+docs/audits/data/findings.yaml is marked as read in context by the AI model (never as human review); every other page is `MACHINE_SCANNED_*`,
 `MACHINE_FLAGGED_REVIEW_REQUIRED` or `VISUAL_REVIEW_REQUIRED`.
 
 Inputs  : the ten PDFs (read-only), docs/audits/data/source_inventory.json, docs/research/technology_registry.yaml,
@@ -314,7 +314,7 @@ def build_source(ctx: Context, pdf: Path) -> tuple[list[dict], dict]:
         if not text.strip():
             status = "VISUAL_REVIEW_REQUIRED"
         elif fids:
-            status = "HUMAN_READ_FINDING_CITED"
+            status = "MODEL_READ_FINDING_CITED"
         elif issues and any(i["issue_type"] not in ("STUB_PAGE", "MARKDOWN_LEAK") for i in issues):
             status = "MACHINE_FLAGGED_REVIEW_REQUIRED"
         elif words < 5:
@@ -415,7 +415,7 @@ def write_outputs(ctx: Context, all_recs: dict[str, list[dict]], dry: bool) -> d
              "mapping_no_destination": sum(1 for r in recs if not r["destination_module"]),
              "destination": Counter(r["destination_module"] or "-" for r in recs),
              "rule_hits": Counter(x for r in recs for x in r["evidence"]["rules"]),
-             "human_read_pages": sum(1 for r in recs if r["verification_status"] == "HUMAN_READ_FINDING_CITED"),
+             "model_read_pages": sum(1 for r in recs if r["verification_status"] == "MODEL_READ_FINDING_CITED"),
              "top_technologies": Counter(t for r in recs for t in r["technology"]).most_common(15)}
         summary["sources"][sid] = {k: (dict(v) if isinstance(v, Counter) else v) for k, v in c.items()}
         tot["pages"] += len(recs)

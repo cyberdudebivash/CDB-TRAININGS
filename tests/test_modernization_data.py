@@ -16,7 +16,8 @@ import render_research_docs
 import validate_modernization_data as V
 
 ROOT = Path(__file__).resolve().parents[1]
-CUTOFF = "2026-10-14"
+CUTOFF = "2026-10-14"      # the baseline snapshot date; entries verified later carry their own date and may not be later than the execution date
+EXECUTION_DATE = str(M.load_yaml("docs/production/data/continuity.yaml")["as_of"])
 
 
 @pytest.fixture(scope="module")
@@ -40,7 +41,7 @@ def test_registry_and_rule_patterns_compile(data):
 
 def test_no_evidence_is_dated_after_the_cutoff(data):
     for rid, r in data.register.items():
-        assert str(r["verified_on"]) <= CUTOFF, rid
+        assert str(r["verified_on"]) <= EXECUTION_DATE, rid
     for p in data.probes.values():
         assert p["executed_utc"][:10] <= CUTOFF, p["id"]
         assert p["status"] == "OK", p["id"]

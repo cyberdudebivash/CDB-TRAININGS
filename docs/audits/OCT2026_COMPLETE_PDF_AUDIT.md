@@ -9,15 +9,15 @@ The ten source PDFs contain **8,186 pages**. Every page has a machine-readable r
 
 | Verification status | Pages | Share | Meaning |
 |---|---|---|---|
-| HUMAN_READ_FINDING_CITED | 107 | 1.3 % | A finding in docs/audits/data/findings.yaml cites this page, and the page text was read in context while writing that finding. This is the only status that implies a person's read; it does not imply the whole page was reviewed for every issue. |
+| MODEL_READ_FINDING_CITED | 123 | 1.5 % | A finding in docs/audits/data/findings.yaml cites this page, and the page text was read in context while writing that finding. The read was done by the AI model that wrote the finding: it is model reading, not human review, and it does not imply the whole page was reviewed for every issue. |
 | MACHINE_FLAGGED_REVIEW_REQUIRED | 501 | 6.1 % | A deterministic rule matched this page (obsolete API, superseded product, unsupported claim, markdown leakage, stub). A person must confirm before the flag is treated as a defect. |
-| MACHINE_SCANNED_NO_FLAGS | 7,520 | 91.9 % | Text extracted and scanned by every rule; nothing matched. This is NOT evidence that the page is correct or current, only that none of the implemented rules fired. |
+| MACHINE_SCANNED_NO_FLAGS | 7,504 | 91.7 % | Text extracted and scanned by every rule; nothing matched. This is NOT evidence that the page is correct or current, only that none of the implemented rules fired. |
 | MACHINE_SCANNED_NEAR_BLANK | 29 | 0.4 % | Text layer present but almost empty; a person should confirm nothing is lost. |
 | VISUAL_REVIEW_REQUIRED | 29 | 0.4 % | No usable text layer (image-only page). The content has not been read by anyone or anything; it needs a visual read or OCR. |
 
 Consequences that every reader of this audit must keep in mind:
 
-- **No claim of a complete human page-by-page review is made.** Only the pages cited by a finding were read by a person in context. The remaining pages were extracted (poppler) and scanned by deterministic rules in `docs/research/deprecation_rules.yaml`, the technology registry and `catalog/source_mapping.yaml`.
+- **No claim of a complete human page-by-page review is made.** Only the pages cited by a finding were read in context, by the AI model; no page has had a human review. The remaining pages were extracted (poppler) and scanned by deterministic rules in `docs/research/deprecation_rules.yaml`, the technology registry and `catalog/source_mapping.yaml`.
 - **`KEEP` at page level is a machine *candidate*** (`action_basis: CANDIDATE`): no rule found a problem. It is not a verdict that the page is current.
 - **Page-to-module mapping is heuristic** (`mapping_basis` records which rule fired: keyword rule, container default, source default). Where it is wrong, the page stays in the audit but its destination is a suggestion.
 - **Currency is evidence-linked, not assumed.** `BASELINE_AVAILABLE` means the page mentions a technology with a dated baseline in `docs/research/data/registry_snapshot_2026-10-14.json`; `UNVERIFIED_CURRENCY` means a technology was detected but no baseline exists yet; `CURRENCY_FLAGGED` means a deprecation rule matched; `NO_TECHNOLOGY_DETECTED` means none of the 332 registry patterns matched.
@@ -28,10 +28,10 @@ Consequences that every reader of this audit must keep in mind:
 | Measure | Result |
 |---|---|
 | Pages with a record | 8,186 |
-| Severity | P0 10, P1 71, P2 205, P3 345, P4 177, NONE 7,378 |
-| Machine-derived action (page level) | KEEP 3,274, UPDATE 2,462, REPLACE 491, EXPAND 91, MERGE 936, REMOVE 932 |
+| Severity | P0 10, P1 71, P2 221, P3 345, P4 177, NONE 7,362 |
+| Machine-derived action (page level) | KEEP 3,258, UPDATE 2,478, REPLACE 491, EXPAND 91, MERGE 936, REMOVE 932 |
 | Currency status | BASELINE_AVAILABLE 1,394, CURRENCY_FLAGGED 156, NO_TECHNOLOGY_DETECTED 3,244, UNVERIFIED_CURRENCY 3,392 |
-| Verification status | HUMAN_READ_FINDING_CITED 107, MACHINE_FLAGGED_REVIEW_REQUIRED 501, MACHINE_SCANNED_NO_FLAGS 7,520, MACHINE_SCANNED_NEAR_BLANK 29, VISUAL_REVIEW_REQUIRED 29 |
+| Verification status | MODEL_READ_FINDING_CITED 123, MACHINE_FLAGGED_REVIEW_REQUIRED 501, MACHINE_SCANNED_NO_FLAGS 7,504, MACHINE_SCANNED_NEAR_BLANK 29, VISUAL_REVIEW_REQUIRED 29 |
 
 Page-level actions are **rule outputs** (precedence REPLACE > REMOVE > EXPAND > MERGE > UPDATE > KEEP-candidate). `REMOVE` pages are those mapped to career/marketing/out-of-scope headings with no destination module (the source is preserved; only the product omits them). `MERGE` pages belong to a topic owned by a different course (single owner per topic). The curated, concept-level differential analysis is in [2025_TO_2026_MODERNIZATION_MATRIX.md](2025_TO_2026_MODERNIZATION_MATRIX.md).
 
@@ -47,7 +47,7 @@ Page-level actions are **rule outputs** (precedence REPLACE > REMOVE > EXPAND > 
 | SRC-MEGA-P2 | Official Mega Course 2026, Part 2 | 827 | P2 9, P3 81, P4 1, NONE 736 | KEEP 121, UPDATE 429, REPLACE 49, EXPAND 1, MERGE 224, REMOVE 3 | 1 | 89 | 0 |
 | SRC-OSINT-STARTER | OSINT Starter Bundle (FULL) | 23 | P0 6, P1 11, P2 6 | REPLACE 23 | 0 | 0 | 23 |
 | SRC-PY-AUTOMATION | Python Automation Training | 1,458 | P1 5, P2 40, P3 28, P4 57, NONE 1,328 | KEEP 848, UPDATE 111, REPLACE 19, EXPAND 31, MERGE 110, REMOVE 339 | 12 | 60 | 1 |
-| SRC-PY-HANDBOOK | CyberDudeBivash Python Engineering Handbook | 654 | P0 2, P1 12, P2 51, P3 14, P4 12, NONE 563 | KEEP 325, UPDATE 150, REPLACE 93, EXPAND 12, REMOVE 74 | 23 | 55 | 1 |
+| SRC-PY-HANDBOOK | CyberDudeBivash Python Engineering Handbook | 654 | P0 2, P1 12, P2 67, P3 14, P4 12, NONE 547 | KEEP 309, UPDATE 166, REPLACE 93, EXPAND 12, REMOVE 74 | 39 | 55 | 1 |
 | SRC-SOC-PLAYBOOK | SOC Analyst Survival Playbook (2026 Edition) | 43 | P1 11, P2 8, P3 8, P4 3, NONE 13 | KEEP 2, UPDATE 33, REPLACE 4, EXPAND 2, REMOVE 2 | 21 | 6 | 1 |
 
 ## 4. Pages that need attention first
@@ -145,7 +145,7 @@ Pages rated P0 or P1 by the rules or by a finding. Every one is also in the page
 - PDF: `Complete AI Training Bundle 2026.pdf`; pages: **937**; records: `docs/audits/data/page_records/SRC-AI-BUNDLE.part*.jsonl`
 - Severity: P1 10, P2 26, P3 14, P4 24, NONE 863
 - Page-level action (machine): KEEP 434, UPDATE 90, REPLACE 97, MERGE 58, REMOVE 258
-- Verification status: HUMAN_READ_FINDING_CITED 18, MACHINE_FLAGGED_REVIEW_REQUIRED 31, MACHINE_SCANNED_NO_FLAGS 887, VISUAL_REVIEW_REQUIRED 1
+- Verification status: MODEL_READ_FINDING_CITED 18, MACHINE_FLAGGED_REVIEW_REQUIRED 31, MACHINE_SCANNED_NO_FLAGS 887, VISUAL_REVIEW_REQUIRED 1
 - Currency: BASELINE_AVAILABLE 44, CURRENCY_FLAGGED 4, NO_TECHNOLOGY_DETECTED 699, UNVERIFIED_CURRENCY 190
 - Issue types (pages): MARKDOWN_LEAK 24, NO_TEXT_LAYER 1, OBSOLETE_API 3, STUB_PAGE 2, SUPERSEDED_PRODUCT 1, UNSUPPORTED_CLAIM 34
 - Mapping basis: M-AIB-01 258, M-AIB-02 76, M-AIB-03 51, M-AIB-04 140, M-AIB-05 40, M-AIB-06 17, M-AIB-06+HEADING_OVERRIDE 2, M-AIB-07 42, M-AIB-08 54, M-AIB-09 58, M-AIB-11 197, default 1, default+HEADING_OVERRIDE 1
@@ -226,7 +226,7 @@ Pages by issue type:
 - PDF: `INTERNAL FRONTEND DEVELOPER ONBOARDING PLAYBOOK.pdf`; pages: **441**; records: `docs/audits/data/page_records/SRC-FRONTEND-ONBOARD.part*.jsonl`
 - Severity: P0 2, P1 3, P2 6, P3 14, P4 13, NONE 403
 - Page-level action (machine): KEEP 303, UPDATE 84, REPLACE 2, EXPAND 4, REMOVE 48
-- Verification status: HUMAN_READ_FINDING_CITED 7, MACHINE_FLAGGED_REVIEW_REQUIRED 18, MACHINE_SCANNED_NO_FLAGS 416
+- Verification status: MODEL_READ_FINDING_CITED 7, MACHINE_FLAGGED_REVIEW_REQUIRED 18, MACHINE_SCANNED_NO_FLAGS 416
 - Currency: BASELINE_AVAILABLE 116, CURRENCY_FLAGGED 3, NO_TECHNOLOGY_DETECTED 243, UNVERIFIED_CURRENCY 79
 - Issue types (pages): MARKDOWN_LEAK 16, OLD_BASELINE 3, PERSONAL_DATA_RISK 2, SECURITY_ANTIPATTERN 2, STUB_PAGE 1, UNSUPPORTED_CLAIM 15
 - Mapping basis: M-FEO-01 48, M-FEO-02 35, M-FEO-03 14, M-FEO-04 3, M-FEO-05 60, M-FEO-06 30, M-FEO-07 80, M-FEO-08 18, M-FEO-09 18, M-FEO-10 1, M-FEO-11 13, M-FEO-12 9, default 112
@@ -289,7 +289,7 @@ Pages by issue type:
 - PDF: `GCP-DATA-ENGINEER-TRAINING.pdf`; pages: **257**; records: `docs/audits/data/page_records/SRC-GCP-DATAENG.part*.jsonl`
 - Severity: P1 5, P2 6, P3 9, P4 37, NONE 200
 - Page-level action (machine): KEEP 85, UPDATE 57, REPLACE 5, EXPAND 16, REMOVE 94
-- Verification status: HUMAN_READ_FINDING_CITED 6, MACHINE_FLAGGED_REVIEW_REQUIRED 13, MACHINE_SCANNED_NO_FLAGS 215, MACHINE_SCANNED_NEAR_BLANK 22, VISUAL_REVIEW_REQUIRED 1
+- Verification status: MODEL_READ_FINDING_CITED 6, MACHINE_FLAGGED_REVIEW_REQUIRED 13, MACHINE_SCANNED_NO_FLAGS 215, MACHINE_SCANNED_NEAR_BLANK 22, VISUAL_REVIEW_REQUIRED 1
 - Currency: BASELINE_AVAILABLE 46, CURRENCY_FLAGGED 2, NO_TECHNOLOGY_DETECTED 116, UNVERIFIED_CURRENCY 93
 - Issue types (pages): MARKDOWN_LEAK 8, NO_TEXT_LAYER 1, OBSOLETE_API 2, PERSONAL_DATA_RISK 1, SECURITY_ANTIPATTERN 3, STUB_PAGE 30, UNSUPPORTED_CLAIM 10
 - Mapping basis: C-GCP-2 1, M-GCP-01 94, M-GCP-02 12, M-GCP-04 4, M-GCP-04+HEADING_OVERRIDE 3, M-GCP-05 35, M-GCP-06 12, M-GCP-07 4, M-GCP-08 8, M-GCP-09 4, M-GCP-10 11, M-GCP-11 8, M-GCP-12 7, default 54
@@ -422,7 +422,7 @@ Pages by issue type:
 - PDF: `CyberDudeBivash_Java_Automation_Test_Engineer_Real_Time_Job_Training.pdf`; pages: **709**; records: `docs/audits/data/page_records/SRC-JAVA-AUTOTEST.part*.jsonl`
 - Severity: P1 1, P2 16, P3 8, P4 6, NONE 678
 - Page-level action (machine): KEEP 461, UPDATE 34, REPLACE 97, EXPAND 4, REMOVE 113
-- Verification status: HUMAN_READ_FINDING_CITED 4, MACHINE_FLAGGED_REVIEW_REQUIRED 22, MACHINE_SCANNED_NO_FLAGS 682, VISUAL_REVIEW_REQUIRED 1
+- Verification status: MODEL_READ_FINDING_CITED 4, MACHINE_FLAGGED_REVIEW_REQUIRED 22, MACHINE_SCANNED_NO_FLAGS 682, VISUAL_REVIEW_REQUIRED 1
 - Currency: BASELINE_AVAILABLE 148, CURRENCY_FLAGGED 1, NO_TECHNOLOGY_DETECTED 531, UNVERIFIED_CURRENCY 29
 - Issue types (pages): NO_TEXT_LAYER 1, OLD_BASELINE 1, STUB_PAGE 4, TEST_ANTIPATTERN 2, UNSUPPORTED_CLAIM 21
 - Mapping basis: C-JAV-1 21, C-JAV-2 2, C-JAV-3 23, C-JAV-4 80, C-JAV-6 48, C-JAV-7 35, M-JAV-01 113, M-JAV-02 2, M-JAV-03 33, M-JAV-04 18, M-JAV-05 11, M-JAV-06 70, M-JAV-07 16, M-JAV-08 10, M-JAV-09 1, M-JAV-10 76, M-JAV-11 68, M-JAV-12 81, default 1
@@ -488,7 +488,7 @@ Pages by issue type:
 - PDF: `OFFICIAL_CYBERDUDEBIVASH_MEGA_COURSE_2026_Part_1.pdf`; pages: **2,837**; records: `docs/audits/data/page_records/SRC-MEGA-P1.part*.jsonl`
 - Severity: P1 13, P2 37, P3 169, P4 24, NONE 2,594
 - Page-level action (machine): KEEP 695, UPDATE 1,474, REPLACE 102, EXPAND 21, MERGE 544, REMOVE 1
-- Verification status: HUMAN_READ_FINDING_CITED 15, MACHINE_FLAGGED_REVIEW_REQUIRED 207, MACHINE_SCANNED_NO_FLAGS 2,610, MACHINE_SCANNED_NEAR_BLANK 5
+- Verification status: MODEL_READ_FINDING_CITED 15, MACHINE_FLAGGED_REVIEW_REQUIRED 207, MACHINE_SCANNED_NO_FLAGS 2,610, MACHINE_SCANNED_NEAR_BLANK 5
 - Currency: BASELINE_AVAILABLE 76, CURRENCY_FLAGGED 86, NO_TECHNOLOGY_DETECTED 668, UNVERIFIED_CURRENCY 2,007
 - Issue types (pages): END_OF_LIFE_VERSION 1, INCORRECT_CLAIM 6, LEGAL_ETHICS_REVIEW 16, PERSONAL_DATA_RISK 2, SECURITY_ANTIPATTERN 16, STANDARD_VERSION_UNVERIFIED 3, STUB_PAGE 21, SUPERSEDED_PRODUCT 81, SUPERSEDED_STANDARD 1, UNSUPPORTED_CLAIM 95
 - Mapping basis: M-MEG-01 1, M-MEG-02 1, M-MEG-03 37, M-MEG-04 214, M-MEG-05 10, M-MEG-06 293, M-MEG-07 51, M-MEG-08 19, M-MEG-09 359, M-MEG-10 252, M-MEG-11 299, M-MEG-12 149, M-MEG-13 66, M-MEG-14 173, M-MEG-15 117, M-MEG-16 146, M-MEG-17 76, M-MEG-18 185, M-MEG-19 174, M-MEG-20 45, default 170
@@ -947,7 +947,7 @@ Pages by issue type:
 - PDF: `OFFICIAL_CYBERDUDEBIVASH_MEGA_COURSE_2026_Part_2.pdf`; pages: **827**; records: `docs/audits/data/page_records/SRC-MEGA-P2.part*.jsonl`
 - Severity: P2 9, P3 81, P4 1, NONE 736
 - Page-level action (machine): KEEP 121, UPDATE 429, REPLACE 49, EXPAND 1, MERGE 224, REMOVE 3
-- Verification status: HUMAN_READ_FINDING_CITED 1, MACHINE_FLAGGED_REVIEW_REQUIRED 89, MACHINE_SCANNED_NO_FLAGS 737
+- Verification status: MODEL_READ_FINDING_CITED 1, MACHINE_FLAGGED_REVIEW_REQUIRED 89, MACHINE_SCANNED_NO_FLAGS 737
 - Currency: BASELINE_AVAILABLE 20, CURRENCY_FLAGGED 47, NO_TECHNOLOGY_DETECTED 121, UNVERIFIED_CURRENCY 639
 - Issue types (pages): LEGAL_ETHICS_REVIEW 5, PERSONAL_DATA_RISK 1, SECURITY_ANTIPATTERN 3, STUB_PAGE 1, SUPERSEDED_PRODUCT 47, UNSUPPORTED_CLAIM 36
 - Mapping basis: M-MEG-01 3, M-MEG-04 50, M-MEG-06 135, M-MEG-07 19, M-MEG-08 42, M-MEG-09 91, M-MEG-10 15, M-MEG-11 45, M-MEG-12 55, M-MEG-13 27, M-MEG-14 126, M-MEG-15 19, M-MEG-16 28, M-MEG-17 98, M-MEG-18 8, M-MEG-19 23, M-MEG-20 7, default 36
@@ -1129,7 +1129,7 @@ Pages by issue type:
 - PDF: `CYBERDUDEBIVASH-PYTHON-AUTOMATION-TRAINING.pdf`; pages: **1,458**; records: `docs/audits/data/page_records/SRC-PY-AUTOMATION.part*.jsonl`
 - Severity: P1 5, P2 40, P3 28, P4 57, NONE 1,328
 - Page-level action (machine): KEEP 848, UPDATE 111, REPLACE 19, EXPAND 31, MERGE 110, REMOVE 339
-- Verification status: HUMAN_READ_FINDING_CITED 12, MACHINE_FLAGGED_REVIEW_REQUIRED 60, MACHINE_SCANNED_NO_FLAGS 1,385, VISUAL_REVIEW_REQUIRED 1
+- Verification status: MODEL_READ_FINDING_CITED 12, MACHINE_FLAGGED_REVIEW_REQUIRED 60, MACHINE_SCANNED_NO_FLAGS 1,385, VISUAL_REVIEW_REQUIRED 1
 - Currency: BASELINE_AVAILABLE 649, CURRENCY_FLAGGED 2, NO_TECHNOLOGY_DETECTED 670, UNVERIFIED_CURRENCY 137
 - Issue types (pages): DUPLICATE_CONTENT 10, END_OF_LIFE_VERSION 1, MARKDOWN_LEAK 23, NO_TEXT_LAYER 1, OBSOLETE_API 1, PERSONAL_DATA_RISK 1, SECURITY_ANTIPATTERN 17, STUB_PAGE 38, UNSUPPORTED_CLAIM 34
 - Mapping basis: M-PYA-01 303, M-PYA-02 36, M-PYA-03 77, M-PYA-04 117, M-PYA-05 191, M-PYA-06 143, M-PYA-07 75, M-PYA-08 219, M-PYA-09 219, M-PYA-10 40, M-PYA-13 35, default 3
@@ -1299,13 +1299,13 @@ Pages by issue type:
 ### SRC-PY-HANDBOOK - CyberDudeBivash Python Engineering Handbook
 
 - PDF: `CyberDudeBivash Python Engineering Handbook.pdf`; pages: **654**; records: `docs/audits/data/page_records/SRC-PY-HANDBOOK.part*.jsonl`
-- Severity: P0 2, P1 12, P2 51, P3 14, P4 12, NONE 563
-- Page-level action (machine): KEEP 325, UPDATE 150, REPLACE 93, EXPAND 12, REMOVE 74
-- Verification status: HUMAN_READ_FINDING_CITED 23, MACHINE_FLAGGED_REVIEW_REQUIRED 55, MACHINE_SCANNED_NO_FLAGS 575, VISUAL_REVIEW_REQUIRED 1
+- Severity: P0 2, P1 12, P2 67, P3 14, P4 12, NONE 547
+- Page-level action (machine): KEEP 309, UPDATE 166, REPLACE 93, EXPAND 12, REMOVE 74
+- Verification status: MODEL_READ_FINDING_CITED 39, MACHINE_FLAGGED_REVIEW_REQUIRED 55, MACHINE_SCANNED_NO_FLAGS 559, VISUAL_REVIEW_REQUIRED 1
 - Currency: BASELINE_AVAILABLE 295, CURRENCY_FLAGGED 9, NO_TECHNOLOGY_DETECTED 167, UNVERIFIED_CURRENCY 183
 - Issue types (pages): END_OF_LIFE_VERSION 2, LEGAL_ETHICS_REVIEW 2, MARKDOWN_LEAK 1, NO_TEXT_LAYER 1, OBSOLETE_API 5, PERSONAL_DATA_RISK 2, RETIRED_MODEL 2, SECURITY_ANTIPATTERN 49, STUB_PAGE 13, SUPERSEDED_PRODUCT 2, UNSUPPORTED_CLAIM 9
 - Mapping basis: C-PYH-1 42, C-PYH-2 27, C-PYH-3 13, C-PYH-4 45, C-PYH-5 8, M-PYH-01 74, M-PYH-02 9, M-PYH-03 29, M-PYH-06 82, M-PYH-07 16, M-PYH-08 10, M-PYH-09 12, M-PYH-10 24, M-PYH-11 19, M-PYH-13 43, M-PYH-14 10, M-PYH-15 18, M-PYH-15+HEADING_OVERRIDE 1, M-PYH-16 14, M-PYH-17 27, M-PYH-18 10, M-PYH-19 40, M-PYH-20 7, M-PYH-21 1, M-PYH-22 6, M-PYH-23 53, M-PYH-24 1, M-PYH-25 9, M-PYH-28 2, default 1, default+HEADING_OVERRIDE 1
-- Findings cited by pages: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-005, F-PYH-006, F-PYH-008, F-PYH-009, F-PYH-010
+- Findings cited by pages: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-005, F-PYH-006, F-PYH-008, F-PYH-009, F-PYH-010, F-PYH-011, F-PYH-012
 
 Technologies detected (pages where the registry pattern matched; top 15):
 
@@ -1350,9 +1350,9 @@ Pages by issue type:
 | 1 | 1 | (front matter / untitled) | REPLACE 1 | PY-M01 | P2 |
 | 2-15 | 14 | MODULE 1 PYTHON FOUNDATIONS | KEEP 13, UPDATE 1 | PY-M01 | NONE |
 | 16-28 | 13 | MODULE 1 PYTHON FOUNDATIONS (PART 2) | KEEP 12, EXPAND 1 | PY-M01 | P4 |
-| 29-47 | 19 | MODULE 1 PYTHON FOUNDATIONS (PART 3) | KEEP 19 | PA-M02 | P4 |
-| 48-63 | 16 | MODULE 1 PYTHON FOUNDATIONS (PART 4) | KEEP 14, UPDATE 2 | PY-M01, PY-M09, PY-M02 | P1 |
-| 64-79 | 16 | MODULE 1 PYTHON FOUNDATIONS (PART 5) | KEEP 13, UPDATE 2, REPLACE 1 | GCP-M03 | P1 |
+| 29-47 | 19 | MODULE 1 PYTHON FOUNDATIONS (PART 3) | KEEP 13, UPDATE 6 | PA-M02 | P2 |
+| 48-63 | 16 | MODULE 1 PYTHON FOUNDATIONS (PART 4) | KEEP 7, UPDATE 9 | PY-M01, PY-M09, PY-M02 | P1 |
+| 64-79 | 16 | MODULE 1 PYTHON FOUNDATIONS (PART 5) | KEEP 10, UPDATE 5, REPLACE 1 | GCP-M03 | P1 |
 | 80-91 | 12 | MODULE 1 PYTHON FOUNDATIONS (PART 6) | KEEP 7, UPDATE 3, REPLACE 2 | PY-M02, PY-M05, PA-M09 | P2 |
 | 92-105 | 14 | MODULE 1 PYTHON FOUNDATIONS (PART 7) | KEEP 14 | PA-M07, PY-M01, GCP-M02 | NONE |
 | 106-118 | 13 | MODULE 2 PYTHON SCRIPTING & AUTOMATION (PART 1) | KEEP 7, UPDATE 4, EXPAND 2 | PA-M02, PY-M08, PA-M09 | P4 |
@@ -1403,7 +1403,7 @@ Pages by issue type:
 - PDF: `SOC Analyst Survival Playbook (2026 Edition).pdf`; pages: **43**; records: `docs/audits/data/page_records/SRC-SOC-PLAYBOOK.part*.jsonl`
 - Severity: P1 11, P2 8, P3 8, P4 3, NONE 13
 - Page-level action (machine): KEEP 2, UPDATE 33, REPLACE 4, EXPAND 2, REMOVE 2
-- Verification status: HUMAN_READ_FINDING_CITED 21, MACHINE_FLAGGED_REVIEW_REQUIRED 6, MACHINE_SCANNED_NO_FLAGS 13, MACHINE_SCANNED_NEAR_BLANK 2, VISUAL_REVIEW_REQUIRED 1
+- Verification status: MODEL_READ_FINDING_CITED 21, MACHINE_FLAGGED_REVIEW_REQUIRED 6, MACHINE_SCANNED_NO_FLAGS 13, MACHINE_SCANNED_NEAR_BLANK 2, VISUAL_REVIEW_REQUIRED 1
 - Currency: CURRENCY_FLAGGED 2, NO_TECHNOLOGY_DETECTED 6, UNVERIFIED_CURRENCY 35
 - Issue types (pages): NO_TEXT_LAYER 1, OLD_BASELINE 1, PERSONAL_DATA_RISK 1, STUB_PAGE 2, SUPERSEDED_STANDARD 1, UNSUPPORTED_CLAIM 16
 - Mapping basis: M-SOC-01 2, M-SOC-02 14, M-SOC-03 8, M-SOC-04 3, M-SOC-05 10, M-SOC-06 4, default 2

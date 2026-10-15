@@ -1,0 +1,41 @@
+# Source-to-new-content trace for PY-M13. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower). Mapping of pages to this module is a reading by the module author, not a measurement.
+source: SRC-PY-HANDBOOK
+module: PY-M13
+mappings:
+  - source_pages: [33, 34]
+    source_topic: "27. Error handling: try, except, finally; 'finally block always runs' shown with `f = open(...)`, a bare `except:` and a print"
+    disposition: CORRECTED
+    new_content: "lesson.md section 8 (the executed contrast with `with`)"
+    note: "The example opens a file and never closes it, catches everything with a bare except (which includes KeyboardInterrupt) and uses finally for a print. Exceptions as such are taught in PY-M02; this module takes the cleanup half (F-PYH-012)."
+  - source_pages: [35, 36]
+    source_topic: "28. Iterators: iterable, iterator, StopIteration; a Counter class with `next` and `__next__`"
+    disposition: CORRECTED
+    new_content: "lesson.md section 2; lab-guided steps A to C"
+    note: "`next` is the Python 2 method name: the built-in next() needs __next__ (executed); the class name Counter hides collections.Counter. The protocol is kept and extended with single-pass behaviour (F-PYH-012)."
+  - source_pages: [37, 38]
+    source_topic: "29. Generators: yield, 'faster for large datasets', infinite generator, generator comprehension"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 3 and 4; lab-guided steps A to C; lab-independent"
+    note: "The speed claim has no measurement; what the lesson measures is memory (peak allocation of a list against a generator). Cleanup, argument checks at the call and the groupby traps are added because they decide whether generator pipelines are safe (F-PYH-012)."
+  - source_pages: [38, 39]
+    source_topic: "30. Decorators ('the most important Python concept'): a wrapper without arguments that drops the result; decorators with arguments"
+    disposition: CORRECTED
+    new_content: "lesson.md section 6; lab-guided step D; lab-independent (memo)"
+    note: "The first wrapper takes no arguments, returns None and renames the function (executed). The corrected pattern, decorators with arguments, stacking order and the limits of caching replace it (F-PYH-012)."
+  - source_pages: [67, 68]
+    source_topic: "45.5 `__enter__` / `__exit__(self, *args)` with FileManager that prints 'Open file' and 'Close file'; 46. Closures, 'the foundation of decorators and callbacks'"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 5 and 8; lab-guided step E"
+    note: "The example opens no file and hides the three __exit__ arguments and the meaning of the return value; closures are kept with nonlocal state and the late-binding trap (executed; F-PYH-012)."
+  - source_pages: [69]
+    source_topic: "47. Functions as first-class citizens: 'the heart of machine learning pipelines, AI model layers, framework design, callback systems, clean architecture'"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 7"
+    note: "The list of what a function can be is correct and is shown with a dispatch dictionary and key functions; the claims about machine learning and clean architecture cannot be checked and are not repeated (F-PYH-012)."
+  - source_pages: [78, 79]
+    source_topic: "58. Context managers 'real engineering' (`with open(...)`, a Log class), 59. execution optimization: `@lru_cache(maxsize=None)`"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 6 and 8; lab-independent (memo, Transaction)"
+    note: "Context managers are taught with guaranteed cleanup, contextmanager with try/finally and ExitStack. The unbounded lru_cache is shown with its limits (hashable arguments, memory held for the life of the program). The other optimisation tools on page 79 (PyPy, Cython, NumPy) are not covered here and belong with PY-M09 (F-PYH-012)."

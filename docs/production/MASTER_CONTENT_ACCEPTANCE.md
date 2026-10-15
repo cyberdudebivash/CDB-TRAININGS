@@ -17,16 +17,16 @@ Gate A never reads a status that someone typed in to decide completeness. A modu
 ## 2. Result
 
 ### REPOSITORY STATE
-- Courses in the catalog: 10; modules required by the approved catalog: 111; planned labs: 213; planned learning outcomes: 116.
-- Branch content recomputed from files at the latest lab-matrix commit `bad7a2941c44`; the matrix covers 5 interpreters.
+- Courses in the catalog: 10; modules required by the approved catalog: 113; planned labs: 217; planned learning outcomes: 118.
+- Branch content recomputed from files at the latest lab-matrix commit `4e4700ffaf7d`; the matrix covers 5 interpreters.
 
 ### CONTENT STATE
-- Modules implemented (all required files present): 8 of 111 (7%); technically verified: 8 of 111 (7%).
-- Module states: NOT_STARTED 103, TECHNICALLY_VERIFIED 8.
-- Substantive executed lessons: 8 of 111 (7%).
-- Labs verified executable: 16 of 213 (8%); outcomes assessed: 13 of 116 (11%).
-- Source pages with a recorded module disposition: 107 of 8186 (1%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
-- Python Engineering: 7 of 11 catalog modules implemented, score 50.6 of 100, state IN_PROGRESS.
+- Modules implemented (all required files present): 10 of 113 (9%); technically verified: 10 of 113 (9%).
+- Module states: NOT_STARTED 102, IN_PROGRESS 1, TECHNICALLY_VERIFIED 10.
+- Substantive executed lessons: 10 of 113 (9%).
+- Labs verified executable: 20 of 217 (9%); outcomes assessed: 15 of 118 (13%).
+- Source pages with a recorded module disposition: 127 of 8186 (2%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
+- Python Engineering: 9 of 13 catalog modules implemented, score 53.9 of 100, state IN_PROGRESS.
 
 ### OPERATIONS STATE
 - Operational scenarios technically verified: 7 of 89 (8%); scenario states: IN_PROGRESS 6, NOT_STARTED 76, TECHNICALLY_VERIFIED 7.
@@ -37,7 +37,7 @@ Gate A never reads a status that someone typed in to decide completeness. A modu
 - Nothing has been published, deployed, sold or priced. Instructor material is not in the public repository.
 
 ### RELEASE STATE
-- Gate A `TRAINING_CONTENT_GO`: **0 of 10 courses**. Courses at REVIEW_REQUIRED: 0. Open P0 defects: 1; open P1 defects: 7.
+- Gate A `TRAINING_CONTENT_GO`: **0 of 10 courses**. Courses at REVIEW_REQUIRED: 0. Open P0 defects: 1; open P1 defects: 8.
 - Human reviews recorded (subject-matter, editorial, learner pilot, owner acceptance): 0.
 - `COMMERCIAL_GO` and `ACADEMY_LIVE_GO`: not assessed, not authorised in this phase.
 
@@ -86,14 +86,14 @@ Each dimension is a fraction in [0, 1] computed from evidence (formulas in `scri
 | Category | Pages | Meaning |
 |---|---|---|
 | Machine-scanned (text layer, rules, technology and currency detectors) | 8186 | automated; no judgement of correctness |
-| Model-inspected, finding cited (pages a model read in full and cited in a finding) | 107 | recorded as `HUMAN_READ_FINDING_CITED` in the page records; this is model inspection, not human review |
+| Model-inspected, finding cited (pages a model read in full and cited in a finding) | 123 | recorded as `MODEL_READ_FINDING_CITED` in the page records; this is model inspection, not human review |
 | Machine-flagged, review required | 501 | flagged by a rule; awaiting a reviewer |
 | Visually inspected by the model (page image rendered and viewed; not human) | 58 | of 58 pages the text scan cannot judge (no text layer or near blank); recorded in `docs/production/data/visual_review.yaml`, check G08. The 22 near-blank GCP pages are figure and screenshot pages, the 5 near-blank MEGA pages are empty, the 23 OSINT pages without a text layer are marketing prose rendered as images |
-| Externally verified (claims checked against primary sources) | 107 | pages whose content maps to a built module with research-verified change records |
+| Externally verified (claims checked against primary sources) | 127 | pages whose content maps to a built module with research-verified change records |
 | Human-reviewed | 0 | none: no reviewer has signed any page (see HUMAN_REVIEW_REGISTER.md) |
 
 The categories are not additive and a page may appear in several. Model inspection is never described as human review. All 8186 pages were machine-scanned; the remaining pages stay open items (DEF-007, DEF-008).
 
 ## 6. Technical currency
 
-The research registry and executed API probes carry the cutoff **2026-10-14**; the lab matrix recorded commit `bad7a2941c44`. This document was generated for execution date **2026-10-15**. The Stage B refresh is dated **2026-10-24** and cannot be executed or certified before that date (DEF-010). See TECHNICAL_CURRENCY_VALIDATION.md.
+The research registry and executed API probes carry the cutoff **2026-10-14**; the lab matrix recorded commit `4e4700ffaf7d`. This document was generated for execution date **2026-10-15**. The Stage B refresh is dated **2026-10-24** and cannot be executed or certified before that date (DEF-010). See TECHNICAL_CURRENCY_VALIDATION.md.

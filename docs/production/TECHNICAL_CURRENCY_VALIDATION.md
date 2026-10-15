@@ -4,17 +4,17 @@
 > Gate A only: this is `TRAINING_CONTENT_GO` (is the training content complete, correct and releasable as content). Commercial readiness (`COMMERCIAL_GO`) and Academy
 > publication (`ACADEMY_LIVE_GO`) are separate gates that are not part of this phase and are not assessed here.
 
-Execution date of this generation: **2026-10-15**. Registry snapshot, executed API probes and the lab-matrix baseline carry the cutoff **2026-10-14** (lab matrix recorded commit `bad7a2941c44`, cutoff `2026-10-14`).
+Execution date of this generation: **2026-10-15**. The registry snapshot, the executed API probes and the first lab-matrix baseline carry the cutoff **2026-10-14** (lab matrix recorded commit `4e4700ffaf7d`, cutoff `2026-10-14`).
 
-A re-check against the actual execution date is a separate action from the Stage B refresh. Until a research run is recorded with the later date, no document may say that a fact was verified on the later date.
+A re-check against the execution date is a separate action from the Stage B refresh. Facts verified on the execution date carry their own date (`verified_on` in the research register); nothing claims that a fact verified earlier was verified again.
 
 ## 1. Per-course currency manifest
 
-| Course | Change records | Verified (EXECUTED or RESEARCH_VERIFIED) | Open (needs verification, secondary only or machine only) | Research cutoff | Stage B refresh |
+| Course | Change records | Verified (EXECUTED or RESEARCH_VERIFIED) | Open (needs verification, secondary only or machine only) | Baseline research cutoff | Stage B refresh |
 |---|---|---|---|---|---|
 | COURSE-FND-DIGITAL | 0 | 0 | 0 | 2026-10-14 | PENDING (not before 2026-10-24) |
 | COURSE-SOC | 8 | 6 | 2 | 2026-10-14 | PENDING (not before 2026-10-24) |
-| COURSE-PY-ENG | 20 | 17 | 3 | 2026-10-14 | PENDING (not before 2026-10-24) |
+| COURSE-PY-ENG | 22 | 19 | 3 | 2026-10-14 | PENDING (not before 2026-10-24) |
 | COURSE-PY-AUTO | 11 | 5 | 6 | 2026-10-14 | PENDING (not before 2026-10-24) |
 | COURSE-JAVA-QA | 10 | 5 | 5 | 2026-10-14 | PENDING (not before 2026-10-24) |
 | COURSE-AI-ENG | 9 | 8 | 1 | 2026-10-14 | PENDING (not before 2026-10-24) |
@@ -24,3 +24,29 @@ A re-check against the actual execution date is a separate action from the Stage
 | COURSE-CYBER-MEGA | 13 | 6 | 7 | 2026-10-14 | PENDING (not before 2026-10-24) |
 
 A change record is a modernization decision tied to a finding, a research entry or an executed probe. Open records block criterion A04. Stage B (**2026-10-24**) checks are listed in `docs/release/OCT24_FINAL_REFRESH_CHECKLIST.md`; it is `PENDING_FUTURE_REFRESH` and cannot be claimed early.
+
+## 2. Re-check of the version registry against the execution date
+
+The registry was fetched again (`registry_snapshot_2026-10-15.json`) and compared with the baseline (`registry_snapshot_2026-10-14.json`) by `scripts/research/diff_snapshots.py`: **19 technology records differ** (new patch or minor releases published on or after the day the baseline was taken). The Python Engineering lab pins (build, httpx, mypy, pydantic, pyjwt, pytest, pyyaml, requests, ruff, setuptools, wheel) are affected by **0** of them. The generated technology baselines and the executed API probes still carry the baseline date; they were **not** re-run, so a technology in the table below is described in the course documents by its baseline version. The built modules cite only technologies whose version did not change.
+
+| Technology | Source | Baseline | Execution-date snapshot |
+|---|---|---|---|
+| angular | endoflife | 22.2.2 (2026-10-08) | 22.2.3 (2026-10-14) |
+| angular | npm | 22.2.2 (2026-10-08) | 22.2.3 (2026-10-14) |
+| claude | pypi | 1.13.0 (2026-10-09) | 1.14.0 (2026-10-14) |
+| cypress | npm | 16.1.1 (2026-09-29) | 16.2.0 (2026-10-14) |
+| dbt | pypi | 1.12.5 (2026-09-15) | 1.12.6 (2026-10-14) |
+| docker | endoflife | 29.9.0 (2026-10-08) | 29.9.1 (2026-10-14) |
+| fastapi | pypi | 0.143.0 (2026-10-08) | 0.143.1 (2026-10-14) |
+| gemini | pypi | 2.30.1 (2026-10-13) | 2.31.0 (2026-10-14) |
+| jenkins | endoflife | 2.585 (2026-10-06) | 2.586 (2026-10-13) |
+| langchain | pypi | 1.4.5 (2026-10-12) | 1.4.6 (2026-10-14) |
+| nextjs | endoflife | 16.4.0 (2026-10-06) | 16.4.1 (2026-10-14) |
+| nextjs | npm | 16.4.0 (2026-10-06) | 16.4.1 (2026-10-14) |
+| node | endoflife | 26.11.1 (2026-10-08) | 26.12.0 (2026-10-14) |
+| playwright | npm | 1.64.0 (2026-10-07) | 1.64.1 (2026-10-14) |
+| puppeteer | npm | 25.13.0 (2026-10-08) | 25.14.0 (2026-10-14) |
+| react | endoflife | 19.3.0 (2026-09-09) | 19.3.1 (2026-10-14) |
+| react | npm | 19.3.0 (2026-09-09) | 19.3.1 (2026-10-14) |
+| terraform | endoflife | 1.16.5 (2026-09-30) | 1.16.6 (2026-10-14) |
+| vue | endoflife | 3.5.43 (2026-09-17) | 3.5.44 (2026-10-13) |

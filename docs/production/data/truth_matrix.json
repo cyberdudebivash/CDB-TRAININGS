@@ -1434,9 +1434,9 @@
    "A19": "NOT_MET"
   },
   "labs": {
-   "built": 14,
-   "planned": 21,
-   "verified_executable": 14
+   "built": 18,
+   "planned": 25,
+   "verified_executable": 18
   },
   "modules": {
    "PY-M01": {
@@ -1525,7 +1525,7 @@
     "private_pack_recorded": false,
     "quiz_items": null,
     "rubric_criteria": null,
-    "state": "NOT_STARTED"
+    "state": "IN_PROGRESS"
    },
    "PY-M09": {
     "catalog_status": "PLANNED",
@@ -1559,11 +1559,33 @@
     "quiz_items": null,
     "rubric_criteria": null,
     "state": "NOT_STARTED"
+   },
+   "PY-M12": {
+    "catalog_status": "BUILT",
+    "edition_config": true,
+    "evidence": "13 tests on 5 interpreters; failed 0, skipped 0",
+    "executed_blocks": 34,
+    "outcomes": 5,
+    "private_pack_recorded": true,
+    "quiz_items": 8,
+    "rubric_criteria": 5,
+    "state": "TECHNICALLY_VERIFIED"
+   },
+   "PY-M13": {
+    "catalog_status": "BUILT",
+    "edition_config": true,
+    "evidence": "13 tests on 5 interpreters; failed 0, skipped 0",
+    "executed_blocks": 26,
+    "outcomes": 5,
+    "private_pack_recorded": true,
+    "quiz_items": 8,
+    "rubric_criteria": 5,
+    "state": "TECHNICALLY_VERIFIED"
    }
   },
   "outcomes": {
-   "outcomes_assessed": 7,
-   "outcomes_total": 11
+   "outcomes_assessed": 9,
+   "outcomes_total": 13
   },
   "release_status_claimed_in_catalog": "REENGINEERING",
   "scenarios": {
@@ -1571,8 +1593,8 @@
    "time_dependent_verified": 5,
    "verified": 5
   },
-  "score": 50.6,
-  "source_pages_with_module_disposition": 87,
+  "score": 53.9,
+  "source_pages_with_module_disposition": 107,
   "source_pdfs_pages": {
    "SRC-PY-HANDBOOK": 654
   },

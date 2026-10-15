@@ -25,7 +25,7 @@ OUT = ROOT / "docs" / "audits"
 ACTION_ORDER = ["KEEP", "UPDATE", "REPLACE", "DEPRECATE", "EXPAND", "ADD", "MERGE", "REMOVE"]
 SEV_ORDER = ["P0", "P1", "P2", "P3", "P4", "NONE"]
 STATUS_MEANING = {
-    "HUMAN_READ_FINDING_CITED": "A finding in docs/audits/data/findings.yaml cites this page, and the page text was read in context while writing that finding. This is the only status that implies a person's read; it does not imply the whole page was reviewed for every issue.",
+    "MODEL_READ_FINDING_CITED": "A finding in docs/audits/data/findings.yaml cites this page, and the page text was read in context while writing that finding. The read was done by the AI model that wrote the finding: it is model reading, not human review, and it does not imply the whole page was reviewed for every issue.",
     "MACHINE_FLAGGED_REVIEW_REQUIRED": "A deterministic rule matched this page (obsolete API, superseded product, unsupported claim, markdown leakage, stub). A person must confirm before the flag is treated as a defect.",
     "MACHINE_SCANNED_NO_FLAGS": "Text extracted and scanned by every rule; nothing matched. This is NOT evidence that the page is correct or current, only that none of the implemented rules fired.",
     "MACHINE_SCANNED_NEAR_BLANK": "Text layer present but almost empty; a person should confirm nothing is lost.",
@@ -82,7 +82,7 @@ def render_complete_audit(d: M.Data) -> str:
         "",
         "Consequences that every reader of this audit must keep in mind:",
         "",
-        "- **No claim of a complete human page-by-page review is made.** Only the pages cited by a finding were read by a person in context. "
+        "- **No claim of a complete human page-by-page review is made.** Only the pages cited by a finding were read in context, by the AI model; no page has had a human review. "
         "The remaining pages were extracted (poppler) and scanned by deterministic rules in `docs/research/deprecation_rules.yaml`, "
         "the technology registry and `catalog/source_mapping.yaml`.",
         "- **`KEEP` at page level is a machine *candidate*** (`action_basis: CANDIDATE`): no rule found a problem. It is not a verdict that the page is current.",
@@ -117,7 +117,7 @@ def render_complete_audit(d: M.Data) -> str:
     for sid in sorted(d.records):
         st = M.source_stats(d.records[sid])
         rows.append([sid, M.SOURCE_TITLES.get(sid, sid), f"{st['pages']:,}", ordered(st["severity"], SEV_ORDER),
-                     ordered(st["action"], ACTION_ORDER), f"{st['status'].get('HUMAN_READ_FINDING_CITED', 0):,}",
+                     ordered(st["action"], ACTION_ORDER), f"{st['status'].get('MODEL_READ_FINDING_CITED', 0):,}",
                      f"{st['status'].get('MACHINE_FLAGGED_REVIEW_REQUIRED', 0):,}", f"{st['status'].get('VISUAL_REVIEW_REQUIRED', 0):,}"])
     lines += [table(["Source", "Title", "Pages", "Severity", "Page-level action (machine)", "Human-read (finding-cited)", "Flagged", "Visual review needed"], rows), ""]
 
@@ -276,7 +276,7 @@ def course_log(d: M.Data, c: dict) -> str:
         for s in sids:
             st = M.source_stats(d.records[s])
             rows.append([s, f"{st['pages']:,}", ordered(st["action"], ACTION_ORDER), ordered(st["severity"], SEV_ORDER),
-                         f"{st['status'].get('HUMAN_READ_FINDING_CITED', 0):,}", f"{st['status'].get('VISUAL_REVIEW_REQUIRED', 0):,}"])
+                         f"{st['status'].get('MODEL_READ_FINDING_CITED', 0):,}", f"{st['status'].get('VISUAL_REVIEW_REQUIRED', 0):,}"])
         lines += [table(["Source", "Pages", "Page-level action", "Severity", "Human-read (finding-cited)", "Visual review needed"], rows), "",
                   "These counts are rule outputs over every page; `KEEP` is a candidate, not a verdict.", ""]
     if chs:

@@ -9,7 +9,7 @@
 | Review confidence | **MEDIUM** |
 | Review coverage | 654/654 pages machine-scanned; ~15 pages read in context (pp. 63-64, 83, 163-164, 220, 427-428, 585-586 and code-failure contexts); 404 code blocks syntax-checked. |
 | Quality score (source as received) | **36 / 100** (internal instrument; see `COURSE_QUALITY_SCORECARD.md`) |
-| Open findings | P0: 1, P1: 3, P2: 6, P3: 0, P4: 0 |
+| Open findings | P0: 1, P1: 3, P2: 8, P3: 0, P4: 0 |
 | Release status | `REENGINEERING` (lifecycle `IN_BUILD`) |
 | Audit date | 2026-10-14 |
 
@@ -42,6 +42,8 @@ Severity scale: **P0** dangerous, materially incorrect, legally problematic or f
 | F-PYH-008 | P2 | Technical correctness and security | Dataclasses described as providing type validation; type hints promise bug detection without naming a checker | p. 85 | EXECUTED | PLANNED_IN_TRACK |
 | F-PYH-009 | P2 | Technical correctness and security | HTTP calls taught without timeouts or status checks; files opened without a context manager or an encoding; a destructive bulk-rename example | p. 83, p. 91, p. 125, p. 129 | EXECUTED | PLANNED_IN_TRACK |
 | F-PYH-010 | P2 | Technical correctness and security | Concurrency examples promise speed-ups without measurement and show unbounded, unsupervised asyncio patterns | p. 134, p. 135, p. 136, p. 177, p. 178 | EXECUTED | PLANNED_IN_TRACK |
+| F-PYH-011 | P2 | Technical correctness and security | The advanced object-oriented chapter contains errors a learner would copy, shows skeletons instead of working patterns and omits the idioms modern Python uses | p. 40, p. 44, p. 48, p. 50, p. 51, p. 52, p. 53, p. 54, p. 55, p. 65 | EXECUTED | PLANNED_IN_TRACK |
+| F-PYH-012 | P2 | Technical correctness and security | The iterator, generator, decorator and context-manager sections contain examples that leak resources, drop arguments and results, or use Python 2 spellings, and make unqualified speed claims | p. 33, p. 35, p. 36, p. 38, p. 68, p. 79 | EXECUTED | PLANNED_IN_TRACK |
 
 ### F-PYH-001 (P0) Agent 'math tool' evaluates model-controlled input with eval()
 
@@ -151,6 +153,38 @@ Executed on CPython 3.11-3.15 (PY-M06 lesson): gather leaves sibling tasks runni
 **Verification:** EXECUTED. **Recommendation:** Choose threads, asyncio, processes or free-threading from a measured profile; bound concurrency; put a timeout on every call; use TaskGroup and asyncio.timeout; keep references to tasks; write benchmarks that report medians and variance and never state a speed-up that was not measured.
 **Remediation:** PLANNED_IN_TRACK - Module PY-M06 (courses/python-engineering/modules/PY-M06).
 
+### F-PYH-011 (P2) The advanced object-oriented chapter contains errors a learner would copy, shows skeletons instead of working patterns and omits the idioms modern Python uses
+
+- **p. 55:** Observer pattern keeps `observers = []` in the class body, so every Subject in the program shares one list; Strategy and Observer are skeletons (`class Paytm(PaymentStrategy): ...`) with no behaviour.
+- **p. 50:** 'self.__secret' is said to be changed internally to '_user__secret'; the mangled name keeps the capital of the class name (_User__secret).
+- **p. 51:** The temperature setter rejects `value < -273`; absolute zero is -273.15 degrees Celsius, so valid values between -273.15 and -273 (and absolute zero itself) are refused.
+- **p. 52:** Circle.area returns '3.14 * r*r' with `r` never defined (NameError when run) and 3.14 instead of math.pi.
+- **p. 54:** 'We cover 12 important patterns' is followed by four; the factory parameter is named `type`, hiding the built-in, and selects a class with an if ladder; the __new__ singleton runs __init__ again on every call.
+- **p. 53:** Composition is said to be 'how real enterprise systems work' with no evidence; Car creates its own Engine, so nothing can be substituted in a test.
+- **p. 44:** Operator overloading: `Box.__add__` returns `self.volume + other.volume` (a number, not a Box) and raises AttributeError for a non-Box operand instead of returning NotImplemented.
+- **p. 65:** The __repr__ example returns a fixed sentence while the page shows `User(name='Bivash')` as its output; __exit__(self, *args) hides the three arguments and the meaning of the return value; 'This is how FastAPI, Django middlewares, decorators and machine learning layers work' is unsupported.
+- **p. 40:** The introduction to OOP is called 'Python's MOST IMPORTANT SECTION' and 'HUGE' and consists of one- or two-line definitions without executable examples.
+- **p. 48:** Class variables are recommended for 'tracking objects' without the rule that a mutable class attribute is shared by every instance and that `self.count += 1` creates an instance attribute.
+
+Executed on CPython 3.11, 3.12, 3.13, 3.14 and 3.15 (PY-M12 lesson, R-096): the shared observer list is visible from a second subject; the mangled name is _User__secret; -273.1 and -273.15 are refused by `value < -273`; BrokenCircle().area() raises NameError; the __new__ singleton re-initialises its one object on every call. The `__add__` of page 44 returns an int and raises AttributeError for a non-Box. Dataclasses, __slots__, immutability, hashing and typing.Protocol, which current Python code uses daily, are absent from the chapter.
+
+**Verification:** EXECUTED. **Recommendation:** Teach instance versus class state with the shared-list bug, validate at the boundary with constructors and properties, model values as frozen dataclasses, state what name mangling and runtime protocol checks do not do, prefer injected composition, and build working Strategy, Observer and registry examples that are tested for equality, immutability, isolation and refusal.
+**Remediation:** PLANNED_IN_TRACK - Module PY-M12 (courses/python-engineering/modules/PY-M12).
+
+### F-PYH-012 (P2) The iterator, generator, decorator and context-manager sections contain examples that leak resources, drop arguments and results, or use Python 2 spellings, and make unqualified speed claims
+
+- **p. 33:** The `finally` example opens a file in a `try` with a bare `except:` and prints 'Always executed' in `finally`; the file is never closed and the bare except also hides KeyboardInterrupt.
+- **p. 35:** The custom iterator class defines a method `next` (the Python 2 name) next to `__next__`, and is called Counter, hiding collections.Counter.
+- **p. 36:** Generators are said to be 'faster for large datasets' with no measurement; what they save is memory.
+- **p. 38:** The basic decorator's `wrapper()` takes no arguments, discards the return value and renames the function; 'DECORATORS - The Most Important Python Concept' is not supported.
+- **p. 68:** The context-manager example `FileManager` prints 'Open file' and 'Close file' without opening a file and takes `__exit__(self, *args)` without saying what the arguments or the return value mean; the same shape recurs on pages 66 and 79.
+- **p. 79:** `@lru_cache(maxsize=None)` is listed as an execution optimisation without the hashable-argument rule, the unbounded memory growth or the effect on methods.
+
+Executed on CPython 3.11-3.15 (PY-M13 lesson, R-097): next() on a class that only has `next` raises TypeError; a decorator written like page 38 cannot wrap a function with a parameter, returns None and renames the function to wrapper; the file of the page-33 pattern is still open after the block; the peak memory of a generator is a small fraction of the list's (the speed claim was not measured and is not made); `@contextmanager` code after the yield is skipped when the block raises unless it is in a finally; a list argument to an lru_cache function raises TypeError.
+
+**Verification:** EXECUTED. **Recommendation:** Teach the iterator protocol with single-pass behaviour, generators with laziness and cleanup (with inside the generator, close(), argument checks at the call), the three-line decorator pattern with functools.wraps, decorators with arguments and stacking order, context managers with guaranteed cleanup (class form, contextmanager with try/finally, ExitStack), and test them by counting consumption and recording cleanup.
+**Remediation:** PLANNED_IN_TRACK - Module PY-M13 (courses/python-engineering/modules/PY-M13).
+
 ## 4. Mandated-topic coverage (keyword probes)
 
 Zero matches are a definitive gap; a match only shows a term is mentioned, not taught. See `TECHNICAL_GAP_MATRIX.md` for the legend.
@@ -199,5 +233,5 @@ Security-pattern hits in code (each read in context): bare_except=10, debug_true
 
 - Blocking findings recorded in the catalog: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
 - Release status: `REENGINEERING`. A course cannot reach `TRAINING_CONTENT_GO` until Gate A in `docs/release/RELEASE_GATES.md` is computed as met; this one fails most of its criteria (see `docs/production/TRAINING_CONTENT_GO_REPORT.md`).
-- Notes: Seven of eleven modules are built (PY-M01 to PY-M07) with fourteen labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are not yet covered by any module.
+- Notes: Nine of thirteen modules are built (PY-M01 to PY-M07, PY-M12 and PY-M13) with eighteen labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are covered by PY-M12.
 - Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.

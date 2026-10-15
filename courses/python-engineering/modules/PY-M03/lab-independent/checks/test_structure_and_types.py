@@ -59,6 +59,7 @@ def test_legacy_flat_modules_are_gone(project):
 
 
 def test_package_has_one_module_per_idea(package):
+    assert package.is_dir(), "create the package folder src/fleetlog/"
     missing = [m for m in MODULES + ["__init__"] if not (package / f"{m}.py").exists()]
     assert missing == [], missing
     assert (package / "py.typed").exists(), "add an empty src/fleetlog/py.typed"
@@ -73,6 +74,7 @@ def test_pyproject_configures_strict_mypy_and_pytest(project):
 
 
 def test_no_circular_imports_between_modules(package, project, runner):
+    assert package.is_dir(), "create the package folder src/fleetlog/"
     graph = {m: {d for d in sibling_imports(package / f"{m}.py") if d != "__init__"} for m in MODULES}
     cycle = has_cycle(graph)
     assert cycle is None, "circular dependency: " + " -> ".join(cycle or [])
@@ -82,6 +84,7 @@ def test_no_circular_imports_between_modules(package, project, runner):
 
 
 def test_public_interface_is_declared(package, project, runner):
+    assert package.is_dir(), "create the package folder src/fleetlog/"
     proc = runner(["-c", "import fleetlog; print(sorted(fleetlog.__all__)); print(all(hasattr(fleetlog, n) for n in fleetlog.__all__))"], project, PYTHONPATH=str(project / "src"))
     assert proc.returncode == 0, proc.stderr[-800:]
     names, ok = proc.stdout.strip().splitlines()
@@ -89,12 +92,14 @@ def test_public_interface_is_declared(package, project, runner):
 
 
 def test_mypy_strict_is_clean_for_package_and_tests(package, project, runner):
+    assert package.is_dir(), "create the package folder src/fleetlog/"
     assert (project / "tests").is_dir(), "tests/ is missing"
     proc = runner(["-m", "mypy", "--strict", "--no-color-output", "--show-error-codes", "src", "tests"], project, MYPYPATH="src")
     assert proc.returncode == 0, proc.stdout[-2500:]
 
 
 def test_errors_are_fixed_not_silenced(package, project):
+    assert package.is_dir(), "create the package folder src/fleetlog/"
     for path in python_files(project / "src") + python_files(project / "tests"):
         text = path.read_text(encoding="utf-8")
         assert not re.search(r"#\s*type:\s*ignore", text), f"{path.name}: `# type: ignore` hides the problem"
@@ -103,6 +108,7 @@ def test_errors_are_fixed_not_silenced(package, project):
 
 
 def test_tests_live_outside_the_package_and_pass(package, project, runner):
+    assert package.is_dir(), "create the package folder src/fleetlog/"
     assert not list(package.rglob("test_*.py"))
     tests = sorted((project / "tests").glob("test_*.py"))
     assert tests and sum(p.read_text(encoding="utf-8").count("def test_") for p in tests) >= 3
@@ -112,5 +118,6 @@ def test_tests_live_outside_the_package_and_pass(package, project, runner):
 
 @pytest.mark.parametrize("module", MODULES)
 def test_modules_are_documented(package, module):
+    assert package.is_dir(), "create the package folder src/fleetlog/"
     tree = ast.parse((package / f"{module}.py").read_text(encoding="utf-8"))
     assert ast.get_docstring(tree), f"{module}.py needs a module docstring saying what it is for"

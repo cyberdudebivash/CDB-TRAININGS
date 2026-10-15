@@ -18,7 +18,7 @@ FIELDS_16 = ["source_pdf", "source_page", "chapter", "lesson", "topic", "technol
              "severity", "modernization_action", "source_url", "source_date", "verification_status", "destination_file", "test_evidence"]
 ACTIONS = {"KEEP", "UPDATE", "REPLACE", "DEPRECATE", "EXPAND", "ADD", "MERGE", "REMOVE"}
 SEVERITIES = {"P0", "P1", "P2", "P3", "P4", "NONE"}
-STATUSES = {"HUMAN_READ_FINDING_CITED", "MACHINE_FLAGGED_REVIEW_REQUIRED", "MACHINE_SCANNED_NO_FLAGS", "MACHINE_SCANNED_NEAR_BLANK", "VISUAL_REVIEW_REQUIRED"}
+STATUSES = {"MODEL_READ_FINDING_CITED", "MACHINE_FLAGGED_REVIEW_REQUIRED", "MACHINE_SCANNED_NO_FLAGS", "MACHINE_SCANNED_NEAR_BLANK", "VISUAL_REVIEW_REQUIRED"}
 CURRENCY = {"BASELINE_AVAILABLE", "CURRENCY_FLAGGED", "NO_TECHNOLOGY_DETECTED", "UNVERIFIED_CURRENCY"}
 
 
@@ -100,10 +100,10 @@ def test_status_labels_do_not_overclaim(records):
     cited = {(f["source_id"], e["page"]) for f in findings for e in f["evidence"] if e.get("page")}
     for r in records:
         key = (r["source_id"], r["source_page"])
-        if r["verification_status"] == "HUMAN_READ_FINDING_CITED":
+        if r["verification_status"] == "MODEL_READ_FINDING_CITED":
             assert r["finding_ids"] and key in cited, key
         elif key in cited:
-            assert r["verification_status"] in {"HUMAN_READ_FINDING_CITED", "VISUAL_REVIEW_REQUIRED"}, key
+            assert r["verification_status"] in {"MODEL_READ_FINDING_CITED", "VISUAL_REVIEW_REQUIRED"}, key
         if r["modernization_action"] == "KEEP":
             assert r["action_basis"] == "CANDIDATE" and r["confidence"] == "MACHINE", key
             assert r["severity"] in {"NONE", "P3", "P4"}, f"{key}: a page with a serious issue cannot be a KEEP candidate"

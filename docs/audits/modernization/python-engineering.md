@@ -5,19 +5,19 @@
 
 - Course: `COURSE-PY-ENG` (catalog version 0.1.0-build, slug `python-engineering`)
 - Legacy sources: SRC-PY-HANDBOOK (CyberDudeBivash Python Engineering Handbook)
-- Concept-level change records: **20**; new developments assigned: **5**
+- Concept-level change records: **22**; new developments assigned: **5**
 
 ## Page-level audit rollup (machine candidates)
 
 | Source | Pages | Page-level action | Severity | Human-read (finding-cited) | Visual review needed |
 |---|---|---|---|---|---|
-| SRC-PY-HANDBOOK | 654 | KEEP 325, UPDATE 150, REPLACE 93, EXPAND 12, REMOVE 74 | P0 2, P1 12, P2 51, P3 14, P4 12, NONE 563 | 23 | 1 |
+| SRC-PY-HANDBOOK | 654 | KEEP 309, UPDATE 166, REPLACE 93, EXPAND 12, REMOVE 74 | P0 2, P1 12, P2 67, P3 14, P4 12, NONE 547 | 39 | 1 |
 
 These counts are rule outputs over every page; `KEEP` is a candidate, not a verdict.
 
 ## Differential analysis
 
-Actions: KEEP 1, UPDATE 7, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
+Actions: KEEP 1, UPDATE 9, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 
 ### MC-PYH-01 - Python language foundations (installing, syntax, types, control flow, functions, data structures)
 
@@ -295,6 +295,34 @@ Actions: KEEP 1, UPDATE 7, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
   - `R-094`: PyPI package 'asyncio' is a deprecated, code-free placeholder (reproduced) (PyPI; EXECUTED; verified 2026-10-14) <https://pypi.org/project/asyncio/>
   - `R-095`: asyncio and concurrency features by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0) (Python Software Foundation; EXECUTED; verified 2026-10-14) <https://docs.python.org/3/library/asyncio.html>
   - `probe:pypi-asyncio-placeholder`: executed probe, status OK, 2026-10-14T16:52:18Z, Python 3.13.16
+
+### MC-PYH-21 - Object-oriented programming: class and instance state, access conventions, properties, inheritance, abstract classes, composition, special methods and design patterns
+
+- **Action:** UPDATE  |  **Source:** SRC-PY-HANDBOOK, pages 40-45, 48-55, 64-67
+- **2025 source state:** Eighteen pages of object-oriented material (introduction, advanced chapter, special methods) with a shared observer list, a wrong mangled name, a temperature bound of -273, an undefined variable in an abstract-class example, 'twelve patterns' with four skeletons and an unsupported 'enterprise' claim (pp. 40-45, 48-55, 64-67; F-PYH-011); no dataclasses, __slots__, immutability or Protocol.
+- **Verified state at 2026-10-14:** Dataclasses (frozen, slots, kw_only), typing.Protocol, immutability and hashing rules are standard practice; behaviour differs between 3.11 and 3.15 in four documented places (R-096).
+- **Why:** Errors in examples meant to be copied, and a missing area (classes) that no module of the course taught before PY-M12 (DEF-006).
+- **Destination:** PY-M12 (BUILT)
+- **Learner impact:** Learners model values and state without shared-state bugs, test equality, immutability, isolation and refusal, and build a ledger and a rule engine under a hidden suite.
+- **Verification:** EXECUTED - PY-M12 lesson blocks and labs executed on CPython 3.11-3.15 (tests/test_python_engineering_labs.py and the lab matrix)
+- **Evidence:**
+  - `F-PYH-011`: P2 The advanced object-oriented chapter contains errors a learner would copy, shows skeletons instead of working patterns and omits the idioms modern Python uses
+  - `R-096`: Object model, dataclass and typing behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0) (Python Software Foundation; EXECUTED; verified 2026-10-15) <https://docs.python.org/3/reference/datamodel.html>
+  - `R-005`: Python Developer's Guide - Status of Python versions (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://devguide.python.org/versions/>
+
+### MC-PYH-22 - Error-handling cleanup, iterators, generators, decorators, closures, context managers and caching
+
+- **Action:** UPDATE  |  **Source:** SRC-PY-HANDBOOK, pages 33-39, 67-69, 78-79
+- **2025 source state:** Seven short sections with a bare except and an unclosed file, a Python 2 `next` method, an unqualified 'faster' claim for generators, a decorator without arguments or results, context managers that open nothing and an unbounded lru_cache (pp. 33-39, 67-69, 78-79; F-PYH-012).
+- **Verified state at 2026-10-14:** Lazy pipelines with guaranteed cleanup, decorators that preserve arguments, results and metadata, and context managers with try/finally and ExitStack are standard practice; behaviour is the same on 3.11 to 3.15 except itertools.batched (3.12+) (R-097).
+- **Why:** Examples meant to be copied would leak files, drop results or hide interrupts; the pages also left the core of Python function and resource handling without an assessable outcome (DEF-015).
+- **Destination:** PY-M13 (BUILT)
+- **Learner impact:** Learners write generators that stop early and clean up, decorators that keep what they wrap, and context managers that release on every path, and prove it with tests that count consumption.
+- **Verification:** EXECUTED - PY-M13 lesson blocks and labs executed on CPython 3.11-3.15 (tests/test_python_engineering_labs.py and the lab matrix)
+- **Evidence:**
+  - `F-PYH-012`: P2 The iterator, generator, decorator and context-manager sections contain examples that leak resources, drop arguments and results, or use Python 2 spellings, and make unqualified speed claims
+  - `R-097`: Iterator, generator, decorator and context-manager behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0) (Python Software Foundation; EXECUTED; verified 2026-10-15) <https://docs.python.org/3/reference/expressions.html#yield-expressions>
+  - `R-005`: Python Developer's Guide - Status of Python versions (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://devguide.python.org/versions/>
 
 ## New developments relevant to this course
 

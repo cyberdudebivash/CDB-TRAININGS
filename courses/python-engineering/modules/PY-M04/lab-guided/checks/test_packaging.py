@@ -69,10 +69,12 @@ def test_sdist_contains_sources_and_metadata(built):
 
 
 def test_wheel_installs_into_a_clean_environment(clean_venv):
+    assert "error" not in clean_venv, clean_venv.get("error")
     assert clean_venv["install"].returncode == 0, clean_venv["install"].stderr[-1500:]
 
 
 def test_installed_command_runs_and_uses_the_installed_copy(clean_venv, project, tmp_path):
+    assert "error" not in clean_venv, clean_venv.get("error")
     exe = clean_venv["bin"] / "tinycsv-summary"
     out = subprocess.run([str(exe), str(project / "sample" / "people.csv")], capture_output=True, text=True, cwd=tmp_path, timeout=120)
     assert out.returncode == 0, out.stderr
