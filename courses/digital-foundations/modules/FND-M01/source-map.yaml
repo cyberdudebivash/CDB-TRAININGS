@@ -1,0 +1,10 @@
+source: null
+module: FND-M01
+origin: NEW_ORIGINAL_FOUNDATIONS_CURRICULUM
+mappings: []
+rationale: >-
+  COURSE-FND-DIGITAL has no legacy source PDF (catalog source_ids is empty).
+  This original foundational curriculum covers general operating system principles.
+  A source-to-page mapping is not applicable. Technical and accessibility review,
+  appropriate references and learner pilot are pending; no current product
+  version or externally researched October 24 claim is implied.

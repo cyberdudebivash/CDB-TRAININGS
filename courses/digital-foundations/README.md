@@ -1,29 +1,16 @@
-# Digital and Technical Foundations
+# Digital and Technical Foundations (COURSE-FND-DIGITAL)
 
-**Course ID:** `COURSE-FND-DIGITAL`  
-**Development state:** `STARTER_LAB_IMPLEMENTED` — NOT a completed course, NOT `TRAINING_CONTENT_GO`, NOT approved for sale or Academy publication.  
-**Planned parent modules:** FND-M01 / FND-M06  
-**Legacy source:** New prerequisite pathway; no original standalone PDF
+**Release:** REENGINEERING — not TRAINING_CONTENT_GO and not approved for sale or Academy deployment.
 
-## Current usable training artifact
+This introductory pathway has six planned modules. **FND-M01 is authored but not technically certified or SME-reviewed.** FND-M02 through FND-M06 remain unimplemented. The standalone file-integrity starter lab has been retained and reused.
 
-[File integrity and controlled directory inspection](labs/file-integrity/README.md) is a standalone, locally testable operational starter. Its synthetic customer scenario is: A support technician receives a folder of exported diagnostic reports and must establish whether its contents changed before investigation.
+| Module | Status | Scope |
+|---|---|---|
+| FND-M01 | Built; unverified; no human reviews | [Operating systems, files and permissions](modules/FND-M01/lesson.md), guided/independent exercises and quiz |
+| FND-M02–M06 | Planned only | Five further prerequisite modules |
 
-**Outcomes from this starter:** Path confinement, hashes, tamper evidence, test-based verification. The lab establishes a concrete exercise with positive and negative cases and requires no paid cloud/API subscriptions.
+Begin with [FND-M01 lesson](modules/FND-M01/lesson.md), then the [guided integrity lab](modules/FND-M01/lab-guided/README.md) and [independent access simulation](modules/FND-M01/lab-independent/README.md).
 
-## How this fits the professional curriculum
+The student [preview edition configuration](student/FND-M01-student-edition.yaml) is not a generated PDF and must not be advertised as one. Complete technical currency verification, cross-platform lab checks, protected instructor grading pack, real learner pilot and signed review are still needed.
 
-This starter is an early work product aligned to the existing `catalog/courses.yaml` pathway, **not** an implemented catalog module. Do not change any module to `BUILT` based solely on the presence of this exercise. The complete course requires its full source-PDF semantic audit (where applicable), curriculum modules, lessons, graded independent assessments, operational scenarios, capstone, research currency verification, protected instructor materials, a validated course PDF and documented approvals.
-
-## Operational and release limitations
-
-TOCTOU changes during enumeration, operating-system permissions, digital signatures, and real chain-of-custody are outside this bounded starter.
-
-Full source traceability and author permissions remain governed by the portfolio release gates. No claim of customer system integration has been made. **The legacy source PDF remains unchanged.**
-
-## Immediate next work
-
-- Expand the mapped module into a comprehensive lesson with instructional examples, source-to-new-content mapping, assessment and independent lab.
-- Confirm technology baselines against official sources and document dated evidence.
-- Exercise a clean learner environment and review security/privacy/IP applicability.
-- Add content-bound execution evidence to the existing Gate A system **only after** all module-required artifacts and tests are complete.
+This newly authored curriculum has no legacy PDF. Its source-map explicitly identifies that status rather than inventing provenance. No production system or customer data is involved.

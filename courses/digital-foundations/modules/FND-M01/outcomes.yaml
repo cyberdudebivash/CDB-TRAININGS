@@ -1,0 +1,30 @@
+module: FND-M01
+outcomes:
+  - id: LO1
+    verb: identify
+    statement: "Identify local OS path conventions and construct safe relative paths."
+    instruction: ["lesson.md#1-operating-systems-processes-and-paths-lo1"]
+    practice: ["lab-guided/README.md#step-1-practice-environment-lo1"]
+    assessment: ["quiz:Q1", "quiz:Q2", "rubric:C1"]
+    rubric: [C1]
+  - id: LO2
+    verb: verify
+    statement: "Explain symbolic links and demonstrate synthetic file hash comparisons."
+    instruction: ["lesson.md#2-files-metadata-symbolic-links-and-hashes-lo2"]
+    practice: ["lab-guided/README.md#step-2-verify-synthetic-artifacts-lo2-lo4"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:shared-integrity-regression", "rubric:C2"]
+    rubric: [C2]
+  - id: LO3
+    verb: interpret
+    statement: "Interpret POSIX bits and apply bounded simulated access decisions."
+    instruction: ["lesson.md#3-users-roles-posix-bits-and-windows-acls-lo3"]
+    practice: ["lab-independent/README.md#step-2-implement-the-policy-contract-lo3"]
+    assessment: ["quiz:Q5", "quiz:Q6", "lab-check:independent-student-contract", "rubric:C3"]
+    rubric: [C3]
+  - id: LO4
+    verb: document
+    statement: "Record synthetic evidence safely with explicit limitations."
+    instruction: ["lesson.md#4-controlled-file-evidence-and-incident-hygiene-lo4"]
+    practice: ["lab-guided/README.md#step-3-record-a-handoff-lo4", "lab-independent/README.md#step-3-document-operational-limits-lo4"]
+    assessment: ["quiz:Q7", "quiz:Q8", "rubric:C4"]
+    rubric: [C4]

@@ -1,0 +1,40 @@
+rubric_id: RUB-FND-M01
+module: FND-M01
+version: 0.1.0
+pass_rule: >-
+  Every automated must-pass criterion needs genuine learner evidence, and a
+  qualified reviewer must score each reviewer criterion at least 2/3.
+  Public tests alone do not establish mastery or course release readiness.
+criteria:
+  - id: C1
+    name: "Path and operating system reasoning"
+    outcomes: [LO1]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Cannot explain current working directory or safe practice scope."
+      1: "Identifies local paths but confuses absolute and relative resolution."
+      2: "Explains relative paths and Windows/Linux distinctions correctly."
+      3: "As 2, plus diagnoses a realistic path-resolution failure safely."
+  - id: C2
+    name: "Synthetic integrity regression"
+    outcomes: [LO2]
+    kind: automated
+    must_pass: true
+    measure: "Shared file-integrity unittest passes without unexpected failure; learner documents skipped cases and SHA-256 limits."
+  - id: C3
+    name: "Independent synthetic access contract"
+    outcomes: [LO3]
+    kind: automated
+    must_pass: true
+    measure: "Published access-check contracts pass against the learner's implementation; protected instructor boundary suite remains pending."
+  - id: C4
+    name: "Safe evidence and limitations handoff"
+    outcomes: [LO4]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Includes private customer data or lacks execution evidence."
+      1: "Gives commands but no meaningful scope or limitations."
+      2: "States scope, commands, results, skips and two relevant limitations."
+      3: "As 2, plus distinguishes hash integrity, OS access and business approval."

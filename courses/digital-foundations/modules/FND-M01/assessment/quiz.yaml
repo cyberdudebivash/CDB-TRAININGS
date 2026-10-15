@@ -1,0 +1,34 @@
+module: FND-M01
+items:
+  - id: Q1
+    outcome: LO1
+    stem: "Which code constructs a relative path using local operating system semantics?"
+    options: {A: "Path('logs') / 'status.txt'", B: "eval('logs/status.txt')", C: "chmod('/logs')", D: "os.system('rm -rf /')"}
+  - id: Q2
+    outcome: LO1
+    stem: "Where is a relative filename normally resolved?"
+    options: {A: "Against a fixed C: drive", B: "Relative to the process working directory", C: "Relative to CPU architecture", D: "Within browser cache only"}
+  - id: Q3
+    outcome: LO2
+    stem: "Which claim can matching SHA-256 digests against a trusted reference support?"
+    options: {A: "The author is authentic", B: "The file is malware-free", C: "The file bytes almost certainly match the reference", D: "The user may access the file"}
+  - id: Q4
+    outcome: LO2
+    stem: "What is a symlink handling risk in a scoped file inventory?"
+    options: {A: "It always contains malware", B: "It may resolve outside the inspected directory", C: "It always links to a regular file", D: "It cannot exist on Windows"}
+  - id: Q5
+    outcome: LO3
+    stem: "What does execute permission on a POSIX directory ordinarily permit?"
+    options: {A: "Traverse/search it", B: "Copy every file automatically", C: "Change its owner", D: "Compile Python programs"}
+  - id: Q6
+    outcome: LO3
+    stem: "Why can Windows ACLs not be completely represented as POSIX octal mode bits?"
+    options: {A: "Windows has no user accounts", B: "Windows only allows read and write", C: "Windows permissions do not exist", D: "ACLs have richer entries and inheritance"}
+  - id: Q7
+    outcome: LO4
+    stem: "What is the appropriate first response to an unexplained access-denied error?"
+    options: {A: "Grant Everyone full control", B: "Disable endpoint protection", C: "Verify authorized scope, account, path and operation", D: "Delete the file"}
+  - id: Q8
+    outcome: LO4
+    stem: "Why is a live folder inventory not automatically a forensic-grade snapshot?"
+    options: {A: "Hashes cannot run on Windows", B: "Files can change while the inventory runs", C: "Two distinct files always hash identically", D: "Directories cannot contain symbolic links"}
