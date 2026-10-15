@@ -10,7 +10,7 @@ There are three independent gates ([RELEASE_GATES.md](RELEASE_GATES.md)): Gate A
 
 | Course | Built modules | Evidence index (target 95) | Gate A fields MET | Unmet Gate A fields | TRAINING_CONTENT_GO |
 |---|---|---|---|---|---|
-| COURSE-FND-DIGITAL | 0 / 6 | 0.0 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
+| COURSE-FND-DIGITAL | 1 / 6 | 4.2 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
 | COURSE-SOC | 1 / 14 | 16.0 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
 | COURSE-PY-ENG | 11 / 13 | 53.7 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
 | COURSE-PY-AUTO | 0 / 10 | 5.7 | 0 / 8 | research_currency, technical_correctness, curriculum_completeness, lab_readiness, assessment_readiness, editorial, ip_licensing, human_approval | NO |
@@ -31,9 +31,9 @@ There are three independent gates ([RELEASE_GATES.md](RELEASE_GATES.md)): Gate A
 |---|---|---|---|
 | Research currency | A | NOT_ASSESSED | no legacy source, so no change records |
 | Technical correctness | A | NOT_ASSESSED | nothing built to assess |
-| Curriculum completeness | A | NOT_MET | 0 of 6 modules built |
-| Lab readiness | A | NOT_MET | 0 of 12 labs verified executable (0 built) |
-| Assessment readiness | A | NOT_MET | 0 of 6 outcomes assessed; no SME review, no learner pilot |
+| Curriculum completeness | A | PARTIAL | 1 of 6 modules built |
+| Lab readiness | A | NOT_MET | 0 of 12 labs verified executable (2 built) |
+| Assessment readiness | A | PARTIAL | 1 of 6 outcomes assessed; no SME review, no learner pilot |
 | Editorial review | A | NOT_MET | No editorial or SME review has taken place; automated checks only. |
 | IP / licensing | A | NOT_MET | Copyright holder and licence are undecided (D4); similarity scan and authorship statement not done (IP-9 / A5). Blockers: D4. |
 | Commercial readiness | B | DEFERRED | Pricing and positioning exist only as hypotheses (docs/commercial/PRICING_AND_POSITIONING_RESEARCH.md); no demand evidence, no listing, no price set. |

@@ -18,17 +18,17 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | Pathway | Title | Audience | Modules | Planned hours | Built | Capstone | 2026 developments |
 |---|---|---|---|---|---|---|---|
-| PATH-SOC-ANALYST | SOC analyst | Learners aiming at Tier-1/Tier-2 security-operations work | 22 | 156 | 3 | SOC-M14 | 4 |
-| PATH-DETECTION-ENGINEER | Detection engineer | SOC analysts moving to detection engineering | 18 | 132 | 5 | CYB-M11 | 5 |
-| PATH-PYTHON-ENGINEER | Python engineer | Developers and analysts who need production-quality Python | 19 | 142 | 11 | PY-M11 | 4 |
-| PATH-AUTOMATION-ENGINEER | Automation engineer (Python) | Operations, QA and security staff automating repeatable work | 25 | 177 | 9 | PA-M10 | 5 |
-| PATH-TEST-AUTOMATION-JAVA | Test automation engineer (Java) | Manual testers and Java developers moving into test automation | 16 | 124 | 0 | JQA-M10 | 5 |
-| PATH-AI-ENGINEER | Applied AI / LLM engineer | Engineers building LLM-based applications | 31 | 256 | 11 | AI-M12 | 11 |
-| PATH-AI-SECURITY | AI security practitioner | Security staff assessing AI-enabled systems | 19 | 148 | 4 | AI-M07 | 8 |
-| PATH-DATA-ENGINEER-GCP | Data engineer (Google Cloud) | Data and software engineers building pipelines on Google Cloud | 22 | 168 | 5 | GCP-M11 | 8 |
-| PATH-FRONTEND-ENGINEER | Frontend engineer | New frontend engineers and backend developers moving to frontend | 17 | 124 | 0 | FE-M11 | 8 |
-| PATH-OSINT-ANALYST | Lawful OSINT analyst | Analysts, journalists and security staff who need defensible open-source research | 18 | 98 | 0 | OSINT-M12 | 3 |
-| PATH-SECURITY-GENERALIST | Cybersecurity generalist | Learners choosing a specialism or building a broad security base | 20 | 220 | 0 | CYB-M14 | 3 |
+| PATH-SOC-ANALYST | SOC analyst | Learners aiming at Tier-1/Tier-2 security-operations work | 22 | 156 | 4 | SOC-M14 | 4 |
+| PATH-DETECTION-ENGINEER | Detection engineer | SOC analysts moving to detection engineering | 18 | 132 | 6 | CYB-M11 | 5 |
+| PATH-PYTHON-ENGINEER | Python engineer | Developers and analysts who need production-quality Python | 19 | 142 | 12 | PY-M11 | 4 |
+| PATH-AUTOMATION-ENGINEER | Automation engineer (Python) | Operations, QA and security staff automating repeatable work | 25 | 177 | 10 | PA-M10 | 5 |
+| PATH-TEST-AUTOMATION-JAVA | Test automation engineer (Java) | Manual testers and Java developers moving into test automation | 16 | 124 | 1 | JQA-M10 | 5 |
+| PATH-AI-ENGINEER | Applied AI / LLM engineer | Engineers building LLM-based applications | 31 | 256 | 12 | AI-M12 | 11 |
+| PATH-AI-SECURITY | AI security practitioner | Security staff assessing AI-enabled systems | 19 | 148 | 5 | AI-M07 | 8 |
+| PATH-DATA-ENGINEER-GCP | Data engineer (Google Cloud) | Data and software engineers building pipelines on Google Cloud | 22 | 168 | 6 | GCP-M11 | 8 |
+| PATH-FRONTEND-ENGINEER | Frontend engineer | New frontend engineers and backend developers moving to frontend | 17 | 124 | 1 | FE-M11 | 8 |
+| PATH-OSINT-ANALYST | Lawful OSINT analyst | Analysts, journalists and security staff who need defensible open-source research | 18 | 98 | 1 | OSINT-M12 | 3 |
+| PATH-SECURITY-GENERALIST | Cybersecurity generalist | Learners choosing a specialism or building a broad security base | 20 | 220 | 1 | CYB-M14 | 3 |
 
 `2026 developments` counts the distinct `ND-*` entries in [NEW_DEVELOPMENTS_2026.md](../research/NEW_DEVELOPMENTS_2026.md) whose destination modules lie on the pathway.
 
@@ -42,7 +42,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | # | Module | Title | Level | Hours | State | Change records | Developments |
 |---|---|---|---|---|---|---|---|
-| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED | - | - |
+| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT | - | - |
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
@@ -74,7 +74,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | # | Module | Title | Level | Hours | State | Change records | Developments |
 |---|---|---|---|---|---|---|---|
-| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED | - | - |
+| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT | - | - |
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
@@ -102,7 +102,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | # | Module | Title | Level | Hours | State | Change records | Developments |
 |---|---|---|---|---|---|---|---|
-| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED | - | - |
+| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT | - | - |
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
@@ -131,7 +131,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | # | Module | Title | Level | Hours | State | Change records | Developments |
 |---|---|---|---|---|---|---|---|
-| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED | - | - |
+| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT | - | - |
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
@@ -166,7 +166,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | # | Module | Title | Level | Hours | State | Change records | Developments |
 |---|---|---|---|---|---|---|---|
-| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED | - | - |
+| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT | - | - |
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
@@ -192,7 +192,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | # | Module | Title | Level | Hours | State | Change records | Developments |
 |---|---|---|---|---|---|---|---|
-| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED | - | - |
+| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT | - | - |
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
@@ -233,7 +233,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | # | Module | Title | Level | Hours | State | Change records | Developments |
 |---|---|---|---|---|---|---|---|
-| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED | - | - |
+| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT | - | - |
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
@@ -262,7 +262,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | # | Module | Title | Level | Hours | State | Change records | Developments |
 |---|---|---|---|---|---|---|---|
-| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED | - | - |
+| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT | - | - |
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
@@ -294,7 +294,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | # | Module | Title | Level | Hours | State | Change records | Developments |
 |---|---|---|---|---|---|---|---|
-| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED | - | - |
+| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT | - | - |
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
@@ -321,7 +321,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | # | Module | Title | Level | Hours | State | Change records | Developments |
 |---|---|---|---|---|---|---|---|
-| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED | - | - |
+| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT | - | - |
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
@@ -349,7 +349,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | # | Module | Title | Level | Hours | State | Change records | Developments |
 |---|---|---|---|---|---|---|---|
-| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED | - | - |
+| 1 | FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT | - | - |
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |

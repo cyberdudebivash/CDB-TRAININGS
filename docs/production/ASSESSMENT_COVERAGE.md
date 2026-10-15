@@ -8,7 +8,7 @@
 
 | Course | Outcomes assessed | Capstone module | Capstone state |
 |---|---|---|---|
-| FND-DIGITAL | 0/6 | not defined | - |
+| FND-DIGITAL | 1/6 | not defined | - |
 | SOC | 6/19 | SOC-M14 | NOT_STARTED |
 | PY-ENG | 11/13 | PY-M11 | NOT_STARTED |
 | PY-AUTO | 0/10 | PA-M10 | NOT_STARTED |
@@ -19,12 +19,13 @@
 | FE-ONBOARD | 0/11 | FE-M11 | NOT_STARTED |
 | CYBER-MEGA | 0/14 | CYB-M14 | NOT_STARTED |
 
-Outcomes assessed overall: 17 of 118 (14%).
+Outcomes assessed overall: 18 of 118 (15%).
 
 ## 2. Built modules
 
 | Module | Outcomes | Quiz items | Rubric criteria | Instructor pack recorded at the last run | State |
 |---|---|---|---|---|---|
+| FND-M01 | 4 | 8 | 4 | no | IMPLEMENTED_UNVERIFIED |
 | SOC-M04 | 6 | 10 | 9 | yes | TECHNICALLY_VERIFIED |
 | PY-M01 | 5 | 8 | 5 | yes | IMPLEMENTED_UNVERIFIED |
 | PY-M02 | 5 | 8 | 5 | yes | IMPLEMENTED_UNVERIFIED |

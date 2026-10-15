@@ -1,6 +1,6 @@
 # Digital and Technical Foundations (COURSE-FND-DIGITAL)
 
-**Release:** REENGINEERING — not TRAINING_CONTENT_GO and not approved for sale or Academy deployment.
+**Release:** REENGINEERING — NOT TRAINING_CONTENT_GO and NOT approved for sale or Academy deployment.
 
 This introductory pathway has six planned modules. **FND-M01 is authored but not technically certified or SME-reviewed.** FND-M02 through FND-M06 remain unimplemented. The standalone file-integrity starter lab has been retained and reused.
 

@@ -20,7 +20,7 @@ Editions that could exist technically *today* from this repository are limited t
 <!-- BEGIN GENERATED: products -->
 | Candidate product | Based on | Format hypothesis | Content ready | Blocking Gate A criteria | Price |
 |---|---|---|---|---|---|
-| Digital and Technical Foundations | new | self-paced entry course (free or low-friction entry is a hypothesis to test) | plan only (no learner content built) | SME and editorial review (A17), labs (A06), assessments (A07) | NOT SET (owner decision) |
+| Digital and Technical Foundations | new | self-paced entry course (free or low-friction entry is a hypothesis to test) | 2/12 labs built | SME and editorial review (A17), labs (A06), assessments (A07) | NOT SET (owner decision) |
 | SOC Analyst Professional Pathway | `SRC-SOC-PLAYBOOK` | self-paced course with automated lab checks | 1 module built (SOC-M04); 2/27 labs built | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
 | Python Engineering Pathway | `SRC-PY-HANDBOOK` | self-paced course with automated lab checks | 22/25 labs built | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
 | Python Automation Pathway | `SRC-PY-AUTOMATION` | self-paced course with automated lab checks | plan only (no learner content built) | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |

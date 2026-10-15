@@ -17,9 +17,9 @@ Milestone report in the fields the directive asks for. Every number is computed 
 | Change records whose destination is built / partly built | 13 / 7 (of 97) | same, status checked against the catalog |
 | New developments recorded | 37: STABLE 29, EMERGING 7, EXPERIMENTAL 1; 35 have at least one non-secondary evidence entry | docs/research/new_developments.yaml |
 | Research entries / executed probes / registry records | 99 / 23 / 180 | docs/research/ |
-| Modules built | 12 of 113 (SOC-M04, PY-M01, PY-M02, PY-M13, PY-M03, PY-M12, PY-M04, PY-M05, PY-M06, PY-M07, PY-M08, PY-M09) | catalog/courses.yaml |
-| Labs built / verified executable | 24 / 24 of 217 planned | catalog; docs/qa/LAB_EXECUTION_EVIDENCE.md |
-| Student editions buildable (preview or pilot, never premium) | 12 configurations; premium editions: 0 | courses/*/student/ |
+| Modules built | 13 of 113 (FND-M01, SOC-M04, PY-M01, PY-M02, PY-M13, PY-M03, PY-M12, PY-M04, PY-M05, PY-M06, PY-M07, PY-M08, PY-M09) | catalog/courses.yaml |
+| Labs built / verified executable | 26 / 24 of 217 planned | catalog; docs/qa/LAB_EXECUTION_EVIDENCE.md |
+| Student editions buildable (preview or pilot, never premium) | 13 configurations; premium editions: 0 | courses/*/student/ |
 | Courses passing every readiness field | 0 of 10 | OCT2026_PRODUCTION_READINESS.md |
 | Research cutoff | Stage A 2026-10-14; Stage B 2026-10-24 `PENDING_FUTURE_REFRESH` | OCT24_FINAL_REFRESH_CHECKLIST.md |
 | Commercial readiness | hypotheses only; no price set, nothing listed | PRICING_AND_POSITIONING_RESEARCH.md |
@@ -28,7 +28,7 @@ Milestone report in the fields the directive asks for. Every number is computed 
 
 | Course | Built / modules | Labs verified / planned | Evidence index | Change records verified / all |
 |---|---|---|---|---|
-| COURSE-FND-DIGITAL | 0 / 6 | 0 / 12 | 0.0 | 0 / 0 |
+| COURSE-FND-DIGITAL | 1 / 6 | 0 / 12 | 4.2 | 0 / 0 |
 | COURSE-SOC | 1 / 14 | 2 / 27 | 16.0 | 6 / 8 |
 | COURSE-PY-ENG | 11 / 13 | 22 / 25 | 53.7 | 21 / 24 |
 | COURSE-PY-AUTO | 0 / 10 | 0 / 19 | 5.7 | 5 / 11 |

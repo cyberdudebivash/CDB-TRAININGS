@@ -1,7 +1,6 @@
 # FND-M01 knowledge check (8 questions)
 
-Formative: it checks understanding of the lesson and is **not** evidence of competence on its own (the independent lab is). 
-The answer key is held by instructors and is not published.
+Formative: it checks understanding of the lesson and is **not** evidence of competence on its own (the independent lab is). The answer key is held by instructors and is not published.
 Questions are generated from `quiz.yaml`; each is tied to a learning outcome.
 
 | # | Outcome | Question | Options |

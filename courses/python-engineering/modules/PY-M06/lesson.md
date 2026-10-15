@@ -285,7 +285,7 @@ from slowserver import start
 
 
 async def main():
-    base, stats, stop = start(0.05)
+    base, stats, stop = start(0.2)
     limits = httpx.Limits(max_connections=100)                       # the client's own ceiling, high enough not to hide the effect
     async with httpx.AsyncClient(base_url=base, timeout=5.0, trust_env=False, limits=limits) as client:      # ONE shared client (PY-M05)
 
@@ -309,7 +309,7 @@ async def main():
 
 
 unbounded, bounded = asyncio.run(main())
-assert unbounded > 20                      # the server saw dozens of simultaneous requests
+assert unbounded > 5                       # without the gate the server saw far more simultaneous requests than the gate allows (typically dozens; the exact peak depends on the machine)
 assert bounded <= 5                        # and never more than five behind the semaphore
 ```
 

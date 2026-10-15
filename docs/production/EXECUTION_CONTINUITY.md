@@ -42,19 +42,19 @@
 - Branch content recomputed from files at the latest lab-matrix commit `4e4700ffaf7d`; the matrix covers 5 interpreters.
 
 ### CONTENT STATE
-- Modules implemented (all required files present): 12 of 113 (11%); technically verified: 1 of 113 (1%).
-- Module states: NOT_STARTED 101, IMPLEMENTED_UNVERIFIED 11, TECHNICALLY_VERIFIED 1.
+- Modules implemented (all required files present): 13 of 113 (12%); technically verified: 1 of 113 (1%).
+- Module states: NOT_STARTED 100, IMPLEMENTED_UNVERIFIED 12, TECHNICALLY_VERIFIED 1.
 - Substantive executed lessons: 1 of 113 (1%).
-- Labs verified executable: 24 of 217 (11%); outcomes assessed: 17 of 118 (14%).
+- Labs verified executable: 24 of 217 (11%); outcomes assessed: 18 of 118 (15%).
 - Source pages with a recorded module disposition: 152 of 8186 (2%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
-- Python Engineering: 11 of 13 catalog modules implemented, score 47.9 of 100, state IN_PROGRESS.
+- Python Engineering: 11 of 13 catalog modules implemented, score 47.5 of 100, state IN_PROGRESS.
 
 ### OPERATIONS STATE
 - Operational scenarios technically verified: 7 of 89 (8%); scenario states: IN_PROGRESS 6, NOT_STARTED 76, TECHNICALLY_VERIFIED 7.
 - Courses with at least one verified time-dependent scenario (CONTROLLED_LIVE or REPLAY_SIMULATION): 2 of 10 (20%); EXTERNAL_LIVE scenarios: 0.
 
 ### PUBLICATION STATE
-- Complete course PDF editions validated: 0 of 10 (0%); module student editions passing every gate: 8 (this file reports the committed manifest, not a file on disk).
+- Complete course PDF editions validated: 0 of 10 (0%); module student editions passing every gate: 7 (this file reports the committed manifest, not a file on disk).
 - Nothing has been published, deployed, sold or priced. Instructor material is not in the public repository.
 
 ### RELEASE STATE

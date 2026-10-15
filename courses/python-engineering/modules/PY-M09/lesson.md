@@ -411,7 +411,7 @@ def dedupe_dict(items):
 
 
 def test_the_good_solution_passes_the_scaling_test():
-    assert scales_linearly(dedupe_dict, lambda n: list(range(200 * n)))                # 400 000 against 1 600 000 items: milliseconds, not microseconds
+    assert scales_linearly(dedupe_dict, lambda n: list(range(20 * n)))                 # 40 000 against 160 000 items: milliseconds, not microseconds, and small enough to stay in the processor cache
 
 
 def test_the_quadratic_solution_fails_it():

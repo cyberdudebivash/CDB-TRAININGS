@@ -45,9 +45,9 @@ Rules that keep this a single curriculum rather than ten documents:
 | Measure | Value |
 |---|---:|
 | Courses | 10 |
-| Modules planned / with built content | 113 / 12 |
-| Labs planned / built / verified executable in QA | 217 / 24 / 24 |
-| Module outcomes total / assessed | 118 / 17 |
+| Modules planned / with built content | 113 / 13 |
+| Labs planned / built / verified executable in QA | 217 / 26 / 24 |
+| Module outcomes total / assessed | 118 / 18 |
 | Courses with SME review recorded | 0 |
 | Courses with a named owner | 0 |
 | Courses by release status | REENGINEERING: 10 |
@@ -56,7 +56,7 @@ Rules that keep this a single curriculum rather than ten documents:
 <!-- BEGIN GENERATED: portfolio -->
 | Course | ID | Level span | Modules | Planned hours | Labs planned / built / verified | Outcomes assessed | Lifecycle | Release status |
 |---|---|---|---:|---:|---|---:|---|---|
-| Digital and Technical Foundations | `COURSE-FND-DIGITAL` | L0-L0 | 6 | 32 | 12 / 0 / 0 | 0/6 | PLANNED | `REENGINEERING` |
+| Digital and Technical Foundations | `COURSE-FND-DIGITAL` | L0-L0 | 6 | 32 | 12 / 2 / 0 | 1/6 | IN_BUILD | `REENGINEERING` |
 | SOC Analyst Professional Pathway | `COURSE-SOC` | L1-L3 | 14 | 104 | 27 / 2 / 2 | 6/19 | PILOT_BUILT | `REENGINEERING` |
 | Python Engineering Pathway | `COURSE-PY-ENG` | L1-L3 | 13 | 110 | 25 / 22 / 22 | 11/13 | IN_BUILD | `REENGINEERING` |
 | Python Automation Pathway | `COURSE-PY-AUTO` | L2-L3 | 10 | 73 | 19 / 0 / 0 | 0/10 | IN_DESIGN | `REENGINEERING` |
@@ -146,7 +146,7 @@ Prerequisites: none · Estimated hours: 32 · Capstone: Automate a small file-re
 
 | Module | Title | Level | Hours | State | Primary outcome (observable) |
 |---|---|---:|---:|---|---|
-| `FND-M01` | Operating systems, files and permissions | L0 | 4 | PLANNED | Navigate a Linux and a Windows file system and explain how permissions restrict access to a file. |
+| `FND-M01` | Operating systems, files and permissions | L0 | 4 | BUILT | Navigate a Linux and a Windows file system and explain how permissions restrict access to a file. |
 | `FND-M02` | Command-line fundamentals | L0 | 5 | PLANNED | Complete a file-management task using only shell commands and record the commands used. |
 | `FND-M03` | Networking and HTTP basics | L0 | 6 | PLANNED | Trace an HTTP request from browser to server and identify the DNS, TCP and HTTP steps in a packet capture. |
 | `FND-M04` | Git and GitHub workflow | L0 | 4 | PLANNED | Create a branch, commit a change and open a pull request in a practice repository. |

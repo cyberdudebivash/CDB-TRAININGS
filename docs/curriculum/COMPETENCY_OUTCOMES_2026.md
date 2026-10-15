@@ -9,11 +9,11 @@ Bloom classification is derived from the outcome's leading verb by a fixed table
 
 ## COURSE-FND-DIGITAL - Digital and Technical Foundations
 
-Outcomes total: **6**; assessed: **0**; labs planned/built/verified: 12/0/0; release status `REENGINEERING`.
+Outcomes total: **6**; assessed: **1**; labs planned/built/verified: 12/2/0; release status `REENGINEERING`.
 
 | Module | Level | Outcome (observable) | Bloom | Planned evidence | Lab / build state | Change records | Developments |
 |---|---|---|---|---|---|---|---|
-| FND-M01 | 0 | Navigate a Linux and a Windows file system and explain how permissions restrict access to a file. | Apply | Guided-lab automated checks plus a retrieval quiz | PLANNED | - | - |
+| FND-M01 | 0 | Navigate a Linux and a Windows file system and explain how permissions restrict access to a file. | Apply | Guided-lab automated checks plus a retrieval quiz | BUILT | - | - |
 | FND-M02 | 0 | Complete a file-management task using only shell commands and record the commands used. | Apply | Guided-lab automated checks plus a retrieval quiz | PLANNED | - | - |
 | FND-M03 | 0 | Trace an HTTP request from browser to server and identify the DNS, TCP and HTTP steps in a packet capture. | Analyse | Guided-lab automated checks plus a retrieval quiz | PLANNED | - | - |
 | FND-M04 | 0 | Create a branch, commit a change and open a pull request in a practice repository. | Create | Guided-lab automated checks plus a retrieval quiz | PLANNED | - | - |

@@ -10,10 +10,10 @@ Every edition, when it exists, must disclose these items on its front matter: co
 
 ## Digital and Technical Foundations
 
-- Course id `COURSE-FND-DIGITAL`, catalog version `0.0.1-plan`, audience: Career changers and students with basic computer literacy and no technical background.
+- Course id `COURSE-FND-DIGITAL`, catalog version `0.1.0-build`, audience: Career changers and students with basic computer literacy and no technical background.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Digital and Technical Foundations — October 2026 Premium Edition`
 - Planned duration 32 hours across 6 modules (planning estimate, not measured learner time); capstone: Automate a small file-reporting task in a Git repository, with tests, a README and a pull request reviewed against a checklist.
-- State today: 0 of 6 modules built; labs verified 0 of 12; release status `REENGINEERING`; evidence index 0.0 / 100.
+- State today: 1 of 6 modules built; labs verified 0 of 12; release status `REENGINEERING`; evidence index 4.2 / 100.
 - Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
@@ -28,7 +28,7 @@ Edition disclosure (values today):
 
 | Module | Title | Level | Hours | State |
 |---|---|---|---|---|
-| FND-M01 | Operating systems, files and permissions | 0 | 4 | PLANNED |
+| FND-M01 | Operating systems, files and permissions | 0 | 4 | BUILT |
 | FND-M02 | Command-line fundamentals | 0 | 5 | PLANNED |
 | FND-M03 | Networking and HTTP basics | 0 | 6 | PLANNED |
 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED |
