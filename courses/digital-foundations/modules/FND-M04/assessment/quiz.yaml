@@ -1,68 +1,66 @@
 module: FND-M04
 items:
-- id: Q1
-  outcome: LO1
-  stem: Which statement accurately distinguishes Git and GitHub?
-  options:
-    A: Git works locally with commits; GitHub supplies hosted collaboration and PR
-      review
-    B: Git commits require a GitHub account
-    C: A local merge proves a GitHub reviewer approved it
-    D: GitHub replaces the staging area
-- id: Q2
-  outcome: LO1
-  stem: What does Git staging represent?
-  options:
-    A: Changes intended for the next commit
-    B: Files already pushed to remote main
-    C: A completed approval in branch protection
-    D: A cryptographic signature of a release
-- id: Q3
-  outcome: LO2
-  stem: Why review a diff before committing?
-  options:
-    A: To inspect intended file content and catch unexpected changes
-    B: To ensure commits cannot contain bugs
-    C: To automatically certify a lesson
-    D: To bypass CI requirements
-- id: Q4
-  outcome: LO2
-  stem: Which evidence is proven by a local two-parent merge commit?
-  options:
-    A: Two parent commits are in local history
-    B: A hosted PR was approved
-    C: Cloud CI successfully ran
-    D: Customer operations accepted the release
-- id: Q5
-  outcome: LO3
-  stem: What does an unmerged index entry mean?
-  options:
-    A: A conflict remains to be resolved
-    B: All branches have been deleted
-    C: GitHub is temporarily offline
-    D: A GPG signature is valid
-- id: Q6
-  outcome: LO3
-  stem: Who should select a production configuration after conflicting requirements?
-  options:
-    A: The authorized service owner or reviewer using documented requirements
-    B: The shortest string automatically
-    C: Whichever commit is newest without review
-    D: The local synthetic training script
-- id: Q7
-  outcome: LO4
-  stem: Which condition must cause the student review classifier to reject evidence
-    as invalid?
-  options:
-    A: checks_passed provided as numeric 1 rather than boolean true
-    B: checks_passed is boolean false
-    C: A true conflicts_remaining flag
-    D: Different base and feature hashes
-- id: Q8
-  outcome: LO4
-  stem: Why should a local training handoff say remote review NOT_VERIFIED?
-  options:
-    A: The offline lab did not query or observe actual GitHub reviewer events
-    B: Every Git command automatically creates a PR
-    C: A merge commit proves the approver identity
-    D: An unchanged diff guarantees safe production release
+  - id: Q1
+    outcome: LO1
+    stem: "Which statement accurately distinguishes Git and GitHub?"
+    options:
+      A: "Git commits require a GitHub account"
+      B: "A local merge proves a GitHub reviewer approved it"
+      C: "Git works locally with commits; GitHub supplies hosted collaboration and PR review"
+      D: "GitHub replaces the staging area"
+  - id: Q2
+    outcome: LO1
+    stem: "What does Git staging represent?"
+    options:
+      A: "Files already pushed to remote main"
+      B: "A completed approval in branch protection"
+      C: "A cryptographic signature of a release"
+      D: "Changes intended for the next commit"
+  - id: Q3
+    outcome: LO2
+    stem: "Why review a diff before committing?"
+    options:
+      A: "To ensure commits cannot contain bugs"
+      B: "To inspect intended file content and catch unexpected changes"
+      C: "To automatically certify a lesson"
+      D: "To bypass CI requirements"
+  - id: Q4
+    outcome: LO2
+    stem: "Which evidence is proven by a local two-parent merge commit?"
+    options:
+      A: "Two parent commits are in local history"
+      B: "A hosted PR was approved"
+      C: "Cloud CI successfully ran"
+      D: "Customer operations accepted the release"
+  - id: Q5
+    outcome: LO3
+    stem: "What does an unmerged index entry mean?"
+    options:
+      A: "All branches have been deleted"
+      B: "GitHub is temporarily offline"
+      C: "A GPG signature is valid"
+      D: "A conflict remains to be resolved"
+  - id: Q6
+    outcome: LO3
+    stem: "Who should select a production configuration after conflicting requirements?"
+    options:
+      A: "The shortest string automatically"
+      B: "The authorized service owner or reviewer using documented requirements"
+      C: "Whichever commit is newest without review"
+      D: "The local synthetic training script"
+  - id: Q7
+    outcome: LO4
+    stem: "Which condition must cause the student review classifier to reject evidence as invalid?"
+    options:
+      A: "checks_passed provided as numeric 1 rather than boolean true"
+      B: "checks_passed is boolean false"
+      C: "A true conflicts_remaining flag"
+      D: "Different base and feature hashes"
+  - id: Q8
+    outcome: LO4
+    stem: "Why should a local training handoff say remote review NOT_VERIFIED?"
+    options:
+      A: "Every Git command automatically creates a PR"
+      B: "A merge commit proves the approver identity"
+      C: "The offline lab did not query or observe actual GitHub reviewer events"
+      D: "An unchanged diff guarantees safe production release"
