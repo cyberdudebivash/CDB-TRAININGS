@@ -45,3 +45,26 @@ Never represent synthetic local SQLite operations as a live customer integration
 ## Required follow-on release work
 
 Complete the full PY-M08 lesson package, source mapping, eight-item assessment, rubric, independent lab, negative controls, cross-version matrix, user pilot, protected instructor pack, and course-wide build gates. The existing catalog stays PLANNED until the full package is complete.
+
+## Complete the guided starter
+
+The starter contains deliberate, clearly labeled omissions. The default test mode
+exercises the provided reference, while starter mode exercises your own implementation.
+A clean starter must initially fail its contract tests with actionable messages.
+
+Linux/macOS:
+
+    PY_M08_TARGET=starter python -m unittest discover -s courses/python-engineering/modules/PY-M08/lab-guided/checks -p "test_*.py" -v
+
+Windows PowerShell:
+
+    $env:PY_M08_TARGET = "starter"
+    py -m unittest discover -s courses/python-engineering/modules/PY-M08/lab-guided/checks -p "test_*.py" -v
+    Remove-Item Env:PY_M08_TARGET
+
+Move through steps 1 to 5 in starter/eventstore.py and re-run until all 14
+contracts pass. The reference is intentionally visible in the guided lab.
+A later independent exercise will use a separate problem and protected grading materials.
+
+The initial starter failing all 14 contract tests is expected and does not indicate
+a failure of the reference implementation. A passing starter must be earned by the learner.

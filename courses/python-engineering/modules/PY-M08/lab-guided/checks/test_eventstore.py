@@ -3,10 +3,15 @@ import math
 import tempfile
 import unittest
 import sys
+import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "solution") if (Path(__file__).resolve().parents[1] / "solution").is_dir() else str(Path(__file__).resolve().parent))
+lab_dir = Path(__file__).resolve().parents[1]
+target = os.environ.get("PY_M08_TARGET", "solution")
+if target not in {"solution", "starter"}:
+    raise ValueError("PY_M08_TARGET must be solution or starter")
+sys.path.insert(0, str(lab_dir / target) if (lab_dir / target).is_dir() else str(Path(__file__).resolve().parent))
 from eventstore import Event, EventStore, IdempotencyConflict
 
 NOW = datetime(2026, 10, 14, 12, tzinfo=timezone.utc)
@@ -18,7 +23,10 @@ def event(eid="evt-1", entity="customer-A", kind="created", when=NOW, payload=No
 
 class EventStoreContract(unittest.TestCase):
     def setUp(self):
-        self.store = EventStore()
+        try:
+            self.store = EventStore()
+        except NotImplementedError as exc:
+            self.fail(str(exc))
 
     def tearDown(self):
         self.store.close()
