@@ -1,0 +1,15 @@
+# Reviewed allow-list for scripts/validation/check_privacy.py. A string with the shape of an e-mail address or telephone number that is NOT covered here fails the check.
+# Every entry needs a reason. Adding a domain that belongs to a real person's mailbox provider (gmail.com, outlook.com, yahoo.com, ...) is never acceptable.
+email_domains:
+  - example.com        # reserved for documentation (RFC 2606)
+  - example.org
+  - example.net
+  - example.test
+  - evil.test          # lab examples under the reserved .test top-level domain (RFC 2606)
+  - localhost
+  - invalid
+  - users.noreply.github.com   # GitHub's no-reply commit identity
+  - cyberdudebivash.com        # the owner's own public project domain
+phone_digits: []      # numbers that are known to be fictitious and may appear verbatim (digits only); empty on purpose
+path_globs:
+  - tests/test_privacy_guard.py   # contains deliberately fake sample strings that exercise the detector
