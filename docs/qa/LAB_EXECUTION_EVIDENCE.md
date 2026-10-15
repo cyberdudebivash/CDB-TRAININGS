@@ -13,8 +13,8 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Item | Value |
 |---|---|
-| Commit at run time | `bad7a2941c44` (clean tracked tree) |
-| Run (UTC) | 2026-10-15T05:16:52Z |
+| Commit at run time | `adf6a33a962b` (clean tracked tree) |
+| Run (UTC) | 2026-10-15T06:25:44Z |
 | Host | Linux 6.18.44-fc-v114 x86_64 |
 | Instructor pack present in the environment | yes - private-material tests were executed |
 | Toolchain pins | `courses/python-engineering/labs/requirements.txt` |
@@ -24,11 +24,11 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Requested | Interpreter | Source | pytest | ruff | setuptools | build | Status | Passed / failed / skipped | Seconds |
 |---|---|---|---|---|---|---|---|---|---|
-| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 86 / 0 / 0 | 390.7 |
-| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 86 / 0 / 0 | 404.6 |
-| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 86 / 0 / 0 | 391.2 |
-| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 86 / 0 / 0 | 380.4 |
-| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 86 / 0 / 0 | 375.1 |
+| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 99 / 0 / 0 | 457.8 |
+| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 99 / 0 / 0 | 462.5 |
+| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 99 / 0 / 0 | 457.0 |
+| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 99 / 0 / 0 | 453.2 |
+| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 99 / 0 / 0 | 459.0 |
 
 Interpreters from `uv` are python-build-standalone builds, not python.org installers; behaviour on distribution-packaged or Windows/macOS interpreters is not claimed.
 
@@ -52,16 +52,18 @@ Interpreters from `uv` are python-build-standalone builds, not python.org instal
 | PY-M06 independent | Starter fails all 10 published checks; instructor reference passes them and the 45-case hidden suite (concurrency limit, speed, event-loop health, deadline, cancellation, safe paths, benchmark report), which kills all 21 seeded defects (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
 | PY-M07 guided | Reference passes all checks; starter works but fails exploit/static checks in all 8 areas; reference regression tests kill 8/8 required mutants | pass (4) | pass (4) | pass (4) | pass (4) | pass (4) |
 | PY-M07 independent | Instructor reference is secure and the starter is not (17 exploit tests fail on it); 9/9 required mutants killed (private pack) | pass (1) | pass (1) | pass (1) | pass (1) | pass (1) |
+| PY-M12 guided | Public solution passes all 167 provided checks (value types, per-instance state, observers, fee policies, registry, composition); the starter fails all 167; the checks kill all 47 seeded defects of the solution (private pack) | not run | not run | not run | not run | not run |
+| PY-M12 independent | Starter fails all 10 published checks; instructor reference passes them and the 54-case hidden suite (value semantics, operators, isolation, error recording, subscriber rules, refusal), which kills all 41 seeded defects (private pack) | not run | not run | not run | not run | not run |
 
 ## 5. Module-pack checks (lessons, outcomes, quizzes, rubrics, source maps)
 
 | Interpreter | Checks | Passed | Lesson code-block runs | Passed |
 |---|---|---|---|---|
-| 3.11 | 51 | 51 | 7 | 7 |
-| 3.12 | 51 | 51 | 7 | 7 |
-| 3.13 | 51 | 51 | 7 | 7 |
-| 3.14 | 51 | 51 | 7 | 7 |
-| 3.15 | 51 | 51 | 7 | 7 |
+| 3.11 | 58 | 58 | 8 | 8 |
+| 3.12 | 58 | 58 | 8 | 8 |
+| 3.13 | 58 | 58 | 8 | 8 |
+| 3.14 | 58 | 58 | 8 | 8 |
+| 3.15 | 58 | 58 | 8 | 8 |
 
 Each lesson's `python run`, `python module` and `python test` blocks are executed by `scripts/validation/lesson_blocks.py`; a lesson with no executable example fails the check.
 

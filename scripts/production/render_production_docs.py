@@ -186,19 +186,42 @@ class Renderer:
             "- No lab calls a paid service. Any use of a paid or external service requires the owner's explicit approval first.", "",
         ])
 
+    def recheck(self) -> dict:
+        """Compare the baseline registry snapshot with the latest one (a re-check made on a later date) and say which changed technologies the built modules depend on."""
+        sys.path.insert(0, str(ROOT / "scripts" / "research"))
+        import diff_snapshots as D
+
+        files = sorted((ROOT / "docs" / "research" / "data").glob("registry_snapshot_*.json"))
+        baseline = ROOT / "docs" / "research" / "data" / f"registry_snapshot_{self.p.summary['as_of']}.json"
+        latest = files[-1]
+        rows = D.diff(D.load(str(baseline)), D.load(str(latest))) if latest != baseline else []
+        pins = {line.split("==")[0].strip().lower() for line in (ROOT / "courses" / "python-engineering" / "labs" / "requirements.txt").read_text(encoding="utf-8").splitlines() if "==" in line}
+        used = sorted({r[0] for r in rows if r[0].lower() in pins or r[0].lower().replace("_", "-") in pins})
+        return {"baseline": baseline.name, "latest": latest.name, "rows": rows, "used_by_lab_pins": used, "pins": sorted(pins)}
+
     def currency(self) -> str:
         rows = []
         for c in self.p.courses.values():
             rows.append([c["id"], c["changes_total"], c["changes_verified"], c["changes_open"], f"{self.p.summary['as_of']}", "PENDING (not before " + G.STAGE_B_DATE + ")"])
+        rc = self.recheck()
+        change_rows = [[r[0], r[1], r[2], r[3]] for r in rc["rows"]]
         return "\n".join([
             "# Technical currency validation", "", HEADER,
-            f"Execution date of this generation: **{self.as_of}**. Registry snapshot, executed API probes and the lab-matrix baseline carry the cutoff **{self.p.summary['as_of']}** "
+            f"Execution date of this generation: **{self.as_of}**. The registry snapshot, the executed API probes and the first lab-matrix baseline carry the cutoff **{self.p.summary['as_of']}** "
             f"(lab matrix recorded commit `{self.matrix_commit}`, cutoff `{self.matrix_date}`).", "",
-            "A re-check against the actual execution date is a separate action from the Stage B refresh. Until a research run is recorded with the later date, no document may say that a fact was verified on the later date.", "",
+            "A re-check against the execution date is a separate action from the Stage B refresh. Facts verified on the execution date carry their own date (`verified_on` in the research register); "
+            "nothing claims that a fact verified earlier was verified again.", "",
             "## 1. Per-course currency manifest", "",
-            md_table(["Course", "Change records", "Verified (EXECUTED or RESEARCH_VERIFIED)", "Open (needs verification, secondary only or machine only)", "Research cutoff", "Stage B refresh"], rows), "",
+            md_table(["Course", "Change records", "Verified (EXECUTED or RESEARCH_VERIFIED)", "Open (needs verification, secondary only or machine only)", "Baseline research cutoff", "Stage B refresh"], rows), "",
             f"A change record is a modernization decision tied to a finding, a research entry or an executed probe. Open records block criterion A04. Stage B (**{G.STAGE_B_DATE}**) checks are listed in "
             "`docs/release/OCT24_FINAL_REFRESH_CHECKLIST.md`; it is `PENDING_FUTURE_REFRESH` and cannot be claimed early.", "",
+            "## 2. Re-check of the version registry against the execution date", "",
+            f"The registry was fetched again (`{rc['latest']}`) and compared with the baseline (`{rc['baseline']}`) by `scripts/research/diff_snapshots.py`: **{len(rc['rows'])} technology records differ** "
+            "(new patch or minor releases published on or after the day the baseline was taken). "
+            f"The Python Engineering lab pins ({', '.join(rc['pins'])}) are affected by **{len(rc['used_by_lab_pins'])}** of them" + (f" ({', '.join(rc['used_by_lab_pins'])})." if rc["used_by_lab_pins"] else ".") + " "
+            "The generated technology baselines and the executed API probes still carry the baseline date; they were **not** re-run, so a technology in the table below is described in the course documents by its baseline version. "
+            "The built modules cite only technologies whose version did not change.", "",
+            md_table(["Technology", "Source", "Baseline", "Execution-date snapshot"], change_rows) if change_rows else "No record differs.", "",
         ])
 
     def pdf_integrity(self) -> str:

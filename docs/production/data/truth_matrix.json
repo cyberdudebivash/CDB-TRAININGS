@@ -1421,11 +1421,11 @@
    "A06": "PARTIAL",
    "A07": "PARTIAL",
    "A08": "NOT_MET",
-   "A09": "NOT_MET",
+   "A09": "PARTIAL",
    "A10": "MET",
    "A11": "NOT_MET",
    "A12": "PARTIAL",
-   "A13": "NOT_MET",
+   "A13": "PARTIAL",
    "A14": "NOT_MET",
    "A15": "PARTIAL",
    "A16": "NOT_MET",
@@ -1563,13 +1563,13 @@
    "PY-M12": {
     "catalog_status": "BUILT",
     "edition_config": true,
-    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0; STALE: 17 input file(s) changed after the recorded run at bad7a2941c44",
+    "evidence": "13 tests on 5 interpreters; failed 0, skipped 0",
     "executed_blocks": 34,
     "outcomes": 5,
-    "private_pack_recorded": false,
+    "private_pack_recorded": true,
     "quiz_items": 8,
     "rubric_criteria": 5,
-    "state": "IMPLEMENTED_UNVERIFIED"
+    "state": "TECHNICALLY_VERIFIED"
    }
   },
   "outcomes": {
@@ -1582,7 +1582,7 @@
    "time_dependent_verified": 5,
    "verified": 5
   },
-  "score": 50.3,
+  "score": 52.4,
   "source_pages_with_module_disposition": 96,
   "source_pdfs_pages": {
    "SRC-PY-HANDBOOK": 654

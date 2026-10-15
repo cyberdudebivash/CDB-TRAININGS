@@ -52,7 +52,7 @@
   "COURSE-PY-ENG": {
    "eligible": false,
    "engineering_state": "IN_PROGRESS",
-   "score": 50.3,
+   "score": 52.4,
    "state": "IN_PROGRESS"
   },
   "COURSE-SOC": {
@@ -62,7 +62,7 @@
    "state": "IN_PROGRESS"
   }
  },
- "lab_matrix_commit": "bad7a2941c44",
+ "lab_matrix_commit": "adf6a33a962b",
  "totals": {
   "course_pdfs_required": 10,
   "course_pdfs_validated": 0,
@@ -75,16 +75,15 @@
   "go": 0,
   "labs_planned": 215,
   "labs_verified": 18,
-  "lessons_substantive": 8,
+  "lessons_substantive": 9,
   "module_editions_passing": 8,
   "module_states": {
-   "IMPLEMENTED_UNVERIFIED": 1,
    "NOT_STARTED": 103,
-   "TECHNICALLY_VERIFIED": 8
+   "TECHNICALLY_VERIFIED": 9
   },
   "modules_implemented": 9,
   "modules_required": 112,
-  "modules_verified": 8,
+  "modules_verified": 9,
   "open_p0": 1,
   "open_p1": 7,
   "outcomes_assessed": 14,

@@ -29,7 +29,7 @@ Outcomes assessed overall: 14 of 117 (12%).
 | PY-M01 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
 | PY-M02 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
 | PY-M03 | 5 | 8 | 6 | yes | TECHNICALLY_VERIFIED |
-| PY-M12 | 5 | 8 | 5 | no | IMPLEMENTED_UNVERIFIED |
+| PY-M12 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
 | PY-M04 | 5 | 8 | 6 | yes | TECHNICALLY_VERIFIED |
 | PY-M05 | 5 | 8 | 4 | yes | TECHNICALLY_VERIFIED |
 | PY-M06 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
