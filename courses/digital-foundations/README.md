@@ -1,27 +1,28 @@
 # Digital and Technical Foundations — COURSE-FND-DIGITAL
 
-**Status: REENGINEERING — 0 completed course editions.** Authored student material exists for two of six planned modules. No individual learner mastery, qualified SME signoff, customer delivery, or Academy deployment is claimed.
+**Status: REENGINEERING — no complete course edition has Gate A approval.** Three of six modules contain authored instruction, but human SME review, learner trials, complete curriculum, privacy/IP gates, and the final course PDF are still required.
 
-| Module | Release classification | Available instructional material |
+| Module | Status | Learning artifacts |
 |---|---|---|
-| FND-M01 | BUILT, unverified | [Files, paths and permissions](modules/FND-M01/lesson.md), guided SHA-256 exercise, access-policy starter, quiz, rubric |
-| FND-M02 | BUILT, unverified | [Command-line fundamentals](modules/FND-M02/lesson.md), 14-check guided diagnostic CLI, independent transcript parser starter, quiz, rubric |
-| FND-M03–FND-M06 | PLANNED only | Networking/HTTP, Git, Python fundamentals, troubleshooting and safe computing |
+| FND-M01 — Operating systems | Built, unverified | [Lesson](modules/FND-M01/lesson.md), guided file-integrity lab, access-policy learner starter, assessment |
+| FND-M02 — Command lines | Built, unverified | [Lesson](modules/FND-M02/lesson.md), guided synthetic event CLI, independent transcript parser, assessment |
+| FND-M03 — Networking/HTTP | Built, unverified | [Lesson](modules/FND-M03/lesson.md), **live controlled loopback TCP/HTTP** lab, synthetic protocol-failure classifier, assessment |
+| FND-M04–M06 | Planned | Git collaboration, Python programming, troubleshooting and safe computing |
 
-## Begin training
+## Learner path and operational exercises
 
-Start with [FND-M01](modules/FND-M01/lesson.md), then [FND-M02](modules/FND-M02/lesson.md). Each module has a guided lab and an independent exercise; the student starter is *intentionally unfinished*. The guided CLI uses synthetic CSV event records with deterministic JSON and deliberately fails malformed or unauthorized inputs.
+Begin with [FND-M01](modules/FND-M01/lesson.md), then [FND-M02](modules/FND-M02/lesson.md), followed by [FND-M03](modules/FND-M03/lesson.md). The lesson explains exactly what an exercise proves and what it does not.
 
-**FND-M02 guided test command:**
+**FND-M03 guided exercise** (no external hosts, customer accounts, DNS lookups, TLS session or cloud charges):
 
 ```text
-python -m unittest discover -s courses/digital-foundations/modules/FND-M02/lab-guided/checks -p test_runbook.py -v
+python -m unittest discover -s courses/digital-foundations/modules/FND-M03/lab-guided/checks -p test_http_trace.py -v
 ```
 
-The student preview configurations in [student/](student/) are build inputs, not evidence that downloadable PDFs were generated or quality-approved. The 2026-10-15 standalone review-preview PDF for FND-M01 is separate from the repository strict production publishing pipeline.
+The lab starts a local HTTP/1.1 service bound to `127.0.0.1` and an ephemeral TCP port. It tests 200/404 responses, request boundaries and cleanup. Its independent lab contains deliberately incomplete starter code which learners must implement against public tests. Real external packet capture is **not** part of this module.
 
-## Non-negotiable limitations
+## PDF and customer readiness
 
-These lessons teach controlled local tasks, not live external customer operations. No GCP, paid service, network access, customer data or production privileges are required. Source provenance for Foundations is deliberately marked original with no fabricated references to legacy PDFs.
+Student PDF preview **configurations** are under [student](student/), not proof of successfully generated or commercially approved PDFs. A local review preview may be shared only as an unapproved draft. The repository's strict renderer, qualified reviewer and actual learner pilot must still pass.
 
-Before any Gate A `TRAINING_CONTENT_GO` claim: complete FND-M03–M06, fully execute curriculum-specific tests and version matrix, validate all final rendered course PDFs, secure instructor packs, close privacy/IP blockers, and obtain real technical/editorial/learner/owner acceptance. **Commercial release and Academy integration are separate future gates.**
+The six-module Foundations course, original 2025 PDF modernization elsewhere in the portfolio, and the Academy production experience are not complete. The training-content gate is separate from commercial and Academy-live gates. Instructor answer keys and customer information must not be exposed through this public repository.
