@@ -5,6 +5,7 @@ Every test builds a portfolio in which something is wrong or faked and asserts t
 from __future__ import annotations
 
 import copy
+import json
 import sys
 from pathlib import Path
 
@@ -131,6 +132,24 @@ def test_the_lab_matrix_runs_the_foundations_tests_too():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     assert "tests/test_fnd_m01.py" in module.SUITES and "tests/test_module_packs.py" in module.SUITES
+    on_disk = sorted(f"tests/{p.name}" for p in (ROOT / "tests").glob("test_fnd_m[0-9][0-9].py"))
+    assert on_disk and all(name in module.SUITES for name in on_disk), on_disk      # a foundations module whose tests the matrix does not run has no recorded evidence
+
+
+def test_an_interrupted_matrix_run_resumes_only_with_identical_content(tmp_path):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("run_lab_matrix", ROOT / "scripts" / "validation" / "run_lab_matrix.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    same = module.tree_id({"PY-M01": "a"}, {"PY-M01": "b"})
+    assert same == module.tree_id({"PY-M01": "a"}, {"PY-M01": "b"}) and same != module.tree_id({"PY-M01": "a2"}, {"PY-M01": "b"}) and same != module.tree_id({"PY-M01": "a"}, {})
+    partial = tmp_path / "partial.json"
+    partial.write_text(json.dumps({"tree_id": same, "results": [{"requested": "3.11", "status": "PASS"}, {"requested": "3.12", "status": "FAIL"}, {"requested": "3.13", "status": "NOT_EXECUTED"}]}), encoding="utf-8")
+    assert list(module.resumable(partial, same)) == ["3.11"]                 # only a pass is reused: a failure or a missing interpreter is run again
+    assert module.resumable(partial, "0" * 64) == {}                           # other content: nothing is reused
+    assert module.resumable(tmp_path / "missing.json", same) == {}
+    partial.write_text("not json", encoding="utf-8")
+    assert module.resumable(partial, same) == {}
 
 
 def test_evidence_becomes_stale_when_the_module_changes_after_the_recorded_run():

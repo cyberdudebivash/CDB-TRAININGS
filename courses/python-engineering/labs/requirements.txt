@@ -15,3 +15,6 @@ pydantic==2.14.1
 fastapi==0.143.1
 starlette==1.8.0
 httpx2==2.13.1
+# PY-M11 (capstone). coverage measures the learner's tests; types-PyYAML lets mypy --strict check the YAML loader.
+coverage==7.16.2
+types-PyYAML==6.0.12.20260906

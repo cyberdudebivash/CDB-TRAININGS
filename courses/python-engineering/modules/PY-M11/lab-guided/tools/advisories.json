@@ -1,0 +1,8 @@
+{
+  "_note": "SYNTHETIC teaching advisories in a simplified shape. They are not real vulnerability records. They exist so that the capstone can practise the mechanism of a dependency scan offline: a lock file is compared with a list of affected ranges. With network access, use a real scanner (for example pip-audit, or an OSV-based scanner) on the same lock file.",
+  "advisories": [
+    {"id": "SYN-2026-0001", "package": "pyyaml", "affected": "<6.0", "summary": "synthetic: an old loader executes constructors named in the document; use 6.0 or later with safe_load"},
+    {"id": "SYN-2026-0002", "package": "pyyaml", "affected": ">=6.0,<6.0.1", "summary": "synthetic: a build problem with a newer toolchain; use 6.0.1 or later"},
+    {"id": "SYN-2026-0003", "package": "setuptools", "affected": "<78.1.1", "summary": "synthetic: build-time path handling; use a current release"}
+  ]
+}

@@ -1,0 +1,46 @@
+# Outcome traceability for PY-M11: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M11
+outcomes:
+  - id: LO1
+    verb: specify
+    statement: "Turn a prototype into a specification: characterise what it does today, decide row by row what is a feature and what is a defect, and write the contract (inputs, outputs, errors, exit codes, limits) so precisely that two people would build the same program."
+    instruction: ["lesson.md#2-the-handbooks-project-executed-lo1", "lesson.md#3-characterise-before-you-change-lo1"]
+    practice: ["lab-guided/README.md#step-1---characterise-the-prototype-lo1-about-45-minutes", "lab-independent/README.md#what-you-hand-in"]
+    assessment: ["quiz:Q1", "lab-check:capstone-notes", "rubric:C4"]
+    rubric: [C4]
+  - id: LO2
+    verb: structure
+    statement: "Structure an application as a package that a stranger can install: `src` layout, a single source of truth for the version, a typed public API, an entry point, a wheel that contains what it should and nothing else, and proof that it runs outside the source tree."
+    instruction: ["lesson.md#4-a-package-a-stranger-can-install-lo2", "lesson.md#10-what-differs-between-python-versions-executed"]
+    practice: ["lab-guided/README.md#step-2---the-package-lo2-about-1-hour", "lab-guided/README.md#step-5---run-the-gate-lo2-lo5-lo6-about-30-minutes"]
+    assessment: ["quiz:Q2", "lab-check:release-gate-packaging", "rubric:C1", "rubric:C5"]
+    rubric: [C1, C5]
+  - id: LO3
+    verb: test
+    statement: "Test it so that the tests can fail: black-box tests through the public interface, a direct reading of the specification used as an oracle against random input, branch coverage with its limits understood, and a mutation check of your own suite."
+    instruction: ["lesson.md#5-tests-that-can-fail-lo3"]
+    practice: ["lab-independent/README.md#the-milestones-a-suggestion-not-a-rule", "lab-independent/README.md#the-interface-the-tests-call"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:release-gate-tests", "lab-check:hidden-detection-oracle", "lab-check:learner-tests-mutation", "rubric:C1", "rubric:C2", "rubric:C3"]
+    rubric: [C1, C2, C3]
+  - id: LO4
+    verb: protect
+    statement: "Handle untrusted input and a hostile supply chain: bounded reads, safe parsers, no input text in any diagnostic, exact pins checked against advisories, a wheel with no stray files, and a workflow whose permissions, action versions and inputs cannot be abused."
+    instruction: ["lesson.md#6-untrusted-input-lo4", "lesson.md#8-a-supply-chain-you-can-check-and-a-pipeline-you-can-trust-lo4-lo6"]
+    practice: ["lab-guided/README.md#step-4---the-pipeline-lo6-about-30-minutes", "lab-independent/README.md#hints-that-are-not-solutions", "lab-independent/README.md#what-you-hand-in"]
+    assessment: ["quiz:Q5", "quiz:Q6", "lab-check:release-gate-supply-chain", "lab-check:hidden-hostile-input", "rubric:C1", "rubric:C2", "rubric:C4"]
+    rubric: [C1, C2, C4]
+  - id: LO5
+    verb: operate
+    statement: "Make the command line a contract: exit codes, standard output for the result and standard error for diagnostics, atomic output files, signals, a closed pipe, and logs that name events without quoting data."
+    instruction: ["lesson.md#7-the-command-line-is-a-contract-lo5", "lesson.md#9-operating-notes-lo5-lo6"]
+    practice: ["lab-independent/README.md#the-milestones-a-suggestion-not-a-rule", "lab-guided/README.md#step-5---run-the-gate-lo2-lo5-lo6-about-30-minutes"]
+    assessment: ["quiz:Q7", "lab-check:release-gate-scenario", "lab-check:hidden-command-line", "rubric:C1", "rubric:C2"]
+    rubric: [C1, C2]
+  - id: LO6
+    verb: release
+    statement: "Release it: one command that runs the same checks locally and in the pipeline, a changelog and a version that agree, a README that states what the tool does and does not protect, and a short note that lets the next owner continue."
+    instruction: ["lesson.md#8-a-supply-chain-you-can-check-and-a-pipeline-you-can-trust-lo4-lo6", "lesson.md#9-operating-notes-lo5-lo6"]
+    practice: ["lab-guided/README.md#step-3---one-command-lo6-about-45-minutes", "lab-guided/README.md#step-4---the-pipeline-lo6-about-30-minutes", "lab-independent/README.md#what-you-hand-in"]
+    assessment: ["quiz:Q8", "lab-check:release-gate-documents", "rubric:C1", "rubric:C4", "rubric:C5"]
+    rubric: [C1, C4, C5]

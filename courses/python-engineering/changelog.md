@@ -1,5 +1,13 @@
 # Changelog - Python Engineering
 
+## 2026-10-15 (independent audit, sixth module)
+
+- Added PY-M11 (capstone: typed, tested, documented application with CI, 14 hours): the handbook's closing project (pp. 93-106) was a forty-line log monitor presented as production-grade. It alerts for every line after the fifth, matches substrings of prose, uses naive time, calls a function it never imports and has no test, type, package or pipeline; the closing chapters were bullet lists, interview questions and link lists. Lesson (11 executed blocks on CPython 3.11-3.15, R-101), part A (a walking skeleton and a release gate of thirteen gates with a negative control for each), part B (the specified application `authwatch`, 22 published cases, a 585-case hidden suite that kills 312 of 312 required seeded defects, a mutation check of the learner's own tests), assessment and the instructor pack. Evidence chain: finding F-PYH-016, research entry R-101, change record MC-PYH-26, defect DEF-020. The lab toolchain pins now include coverage and types-PyYAML.
+
+## 2026-10-15 (independent audit, fifth module)
+
+- Added PY-M10 (API development: typed, tested and secure HTTP services, 10 hours): the handbook's web chapter (pp. 215-311) built an unauthenticated, unvalidated CRUD API with secrets in source and taught security as bullet lists. Lesson (25 executed blocks on CPython 3.11-3.15, R-100), guided lab `ticketapi` (1625 provided checks including an injection and abuse suite; 432 of 432 seeded defects killed), independent lab `inventory` (multi-tenant API; 10 published checks, 16 cases; 482-case hidden suite that kills 274 of 274 required seeded defects), assessment and the instructor pack. Evidence chain: finding F-PYH-015, research entry R-100, change record MC-PYH-25, defect DEF-018. The lab toolchain pins now include FastAPI, Starlette and httpx2.
+
 ## 2026-10-15 (independent audit, fourth module)
 
 - Added PY-M09 (profiling, performance and maintainable architecture, 8 hours): the handbook's memory and optimisation pages (56-57, 79-80) were mapped to no built module. Lesson (22 executed blocks on CPython 3.11-3.15, R-099, including the 3.15 sampling profiler behind a version check), guided lab `perfkit` (196 provided checks; 59 of 59 seeded defects killed), independent lab `triage` (10 published checks; 378-case hidden suite that kills 52 of 52 seeded defects and runs the learner's own budget tests against the solution and the original), assessment and the instructor pack. Evidence chain: finding F-PYH-014, research entry R-099, change record MC-PYH-24, defect DEF-017.

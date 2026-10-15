@@ -1,0 +1,161 @@
+# Source-to-new-content trace for PY-M10. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower). Mapping of pages to this module is a reading by the module author, not a measurement.
+source: SRC-PY-HANDBOOK
+module: PY-M10
+mappings:
+  - source_pages: [215, 216, 217, 218, 219, 220, 221]
+    source_topic: "Module 3 part 1: what web development is, HTTP and web architecture, Flask versus Django versus FastAPI, setting up an environment, the first Flask application"
+    disposition: REPLACED
+    new_content: "lesson.md sections 1 and 2"
+    note: "HTTP and the framework choice are reduced to one decision (FastAPI, in-process test client, nothing listens on a port) and to the defaults that matter: a 422 that echoes input, unknown fields dropped, public documentation routes. The first Flask application is not carried (F-PYH-015)."
+  - source_pages: [222]
+    source_topic: "7-8. First Flask web app with `app.run(debug=True)`; routing and dynamic routes"
+    disposition: CORRECTED
+    new_content: "lesson.md section 9 (nothing listens on a port; configuration fails closed); lab-guided step 6 (routes, path parameters)"
+    note: "A debug server must never be reachable from outside; the labs start nothing but the in-process test client. The `<name>` route shows a path value reflected into a response; the module validates every path value (F-PYH-002, F-PYH-015)."
+  - source_pages: [223, 224, 225]
+    source_topic: "9-13. Templates, forms and the first mini project (a contact API)"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Server-rendered HTML templates and forms are a front-end topic. The contact API idea is replaced by the ticket API of the guided lab."
+  - source_pages: [226, 227, 228]
+    source_topic: "14-16. Professional project structure, the application factory with a literal SECRET_KEY, blueprints"
+    disposition: RETAINED_IDEA
+    new_content: "lab-guided/solution/ticketapi.py (`create_app(settings)`, nothing global); lesson.md section 9"
+    note: "The application factory is kept: two applications with two settings share nothing. Blueprints correspond to FastAPI routers. The secret in the source (`'cyberdudebivash_secret'`) is replaced by settings that fail closed, and `debug=True` by nothing (F-PYH-015)."
+  - source_pages: [229, 230]
+    source_topic: "17. Template loops and inheritance"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Server-side templating is not taught here."
+  - source_pages: [231]
+    source_topic: "18. Form validation with Flask-WTF"
+    disposition: REPLACED
+    new_content: "lesson.md section 3; lab-guided step 2"
+    note: "Validation is declared in the request model (types, limits, forbidden extras, anchored patterns) and refused with a 422 problem, not coded into a form class."
+  - source_pages: [233]
+    source_topic: "20. Middleware: before and after request hooks that print"
+    disposition: REPLACED
+    new_content: "lesson.md section 9 (the edge); lab-guided step 7 (`Guard`, a pure ASGI layer)"
+    note: "The hooks only print. The outermost layer now sets a request id, four security headers and a body-size limit on every response, including errors."
+  - source_pages: [234]
+    source_topic: "21. File uploads saved under `file.filename`"
+    disposition: CORRECTED
+    new_content: "lesson.md section 7 (file names and paths)"
+    note: "The client chooses the name, which can be absolute or contain `..`; the module's rule is a server-chosen name and a containment check (F-PYH-015)."
+  - source_pages: [236, 237, 238, 239, 240, 242, 244, 246]
+    source_topic: "24-35. The contact-management system: models, application initialisation, admin login manager, user and admin routes, dashboard"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "A server-rendered Flask project with templates and sessions is not taught. Its subject matter - who may see which record, and how an administrator is authenticated - is the object and function level authorisation of lesson section 6 and the guided lab."
+  - source_pages: [248, 249, 250, 251]
+    source_topic: "base, contact and admin dashboard HTML templates"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "HTML templates are a front-end topic."
+  - source_pages: [252]
+    source_topic: "38-39. Creating an admin user with a hashed `password123`; the final testing workflow (manual clicks)"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 5 and 8; lab-guided steps 1 and 10"
+    note: "Hashing is the right idea with the wrong password: credentials come from configuration and a weak one is refused at start-up. The testing workflow is manual; the module replaces it by negative tests and a contract test (F-PYH-002, F-PYH-015)."
+  - source_pages: [258, 259, 260, 261]
+    source_topic: "47-51. Profile picture upload, the task CRUD API (create, read all, update, delete), pagination and search with `contains(q)`"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 2, 3, 6 and 7; lab-guided steps 2, 3, 5, 6 and 8"
+    note: "None of the four task routes authenticates or validates; a missing id on update or delete is an exception; the search value may be absent and has no limit. The guided lab is the same CRUD shape with every route authenticated, authorised, validated and attacked (F-PYH-015)."
+  - source_pages: [264, 265, 266, 267, 268]
+    source_topic: "55-58. What a SaaS back end is, the project structure, database set-up with a URL containing a user name and password, the user model"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md sections 1 and 9; lab-guided/solution/ticketapi.py (layers: settings, tokens, repository, application)"
+    note: "API-first structure is kept as layers that are tested separately. The database URL with a password in source is replaced by configuration; PostgreSQL and an ORM are not part of the course dependencies (SQLite is, see PY-M08) (F-PYH-015)."
+  - source_pages: [269, 270, 271]
+    source_topic: "59-61. Password utilities, the JWT handler with a literal secret and `utcnow()` expiry that changes its argument, register and login routes"
+    disposition: CORRECTED
+    new_content: "lesson.md section 5; lab-guided step 1 (`issue_token`, `verify_token`); lab-guided step 5"
+    note: "Executed: `exp` appears in the caller's dictionary, `utcnow()` warns from Python 3.12, a 30-day token verifies exactly like a 1-hour one. The replacement pins the algorithm, checks issuer, audience, expiry and issue time against an injectable clock, and gives every failure one answer (F-PYH-015). Password hashing is PY-M07."
+  - source_pages: [273]
+    source_topic: "62-64. Sending a verification e-mail with SMTP credentials in source, OTP generation, role-based authorisation `if not user.is_admin`"
+    disposition: REPLACED
+    new_content: "lesson.md section 6; lab-guided step 5"
+    note: "A role check in a few routes becomes three levels of authorisation (object, function, field) with a table of state transitions and an order of rules that decides what an attacker learns. E-mail sending needs credentials and a network and is not carried."
+  - source_pages: [274]
+    source_topic: "65. The Flask dashboard with `app.config['SECRET_KEY'] = \"DUDExBIVASH\"`"
+    disposition: CORRECTED
+    new_content: "lesson.md section 9"
+    note: "A second secret in source (F-PYH-015)."
+  - source_pages: [275, 276]
+    source_topic: "66-67. Connecting the dashboard to the back end; analytics with charts"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Dashboards and charts are a front-end topic."
+  - source_pages: [277, 278, 279, 280]
+    source_topic: "68-69. Dockerfiles, NGINX, docker-compose and a CI workflow for the SaaS"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Deployment is outside this module (nothing listens on a port in the labs); the CI idea is PY-M11 and CYB-M07."
+  - source_pages: [281, 295]
+    source_topic: "70 and 90. 'Security best practices' and 'full security hardening' as bullet lists"
+    disposition: REPLACED
+    new_content: "lesson.md sections 3, 5, 6, 7 and 9; lab-guided step 8 (the injection and abuse suite) and step 10"
+    note: "Every bullet that can be tested becomes a test: validated inputs, short-lived tokens, no debug, rate limiting, secret rotation. 'Use the ORM (no raw SQL)' is not a control: a text value pasted into any query language is an injection, and wildcards need escaping (F-PYH-015)."
+  - source_pages: [282]
+    source_topic: "72. SaaS tiers (free, pro, enterprise)"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "A product-plan topic."
+  - source_pages: [283, 284, 285]
+    source_topic: "73-75. Multi-tenant patterns, tenant and user models, role-based access control"
+    disposition: RETAINED_IDEA
+    new_content: "lab-independent (inventory): every asset belongs to a tenant and a key reaches nothing outside its tenant"
+    note: "The shared-schema pattern is kept and made testable: the tenant is part of every key and every query, and another tenant's object is a 404. The chapter declares a `tenant_id` and a `require_role` helper and shows no query that filters by tenant (F-PYH-015)."
+  - source_pages: [286, 287, 288]
+    source_topic: "76-78. Stripe subscriptions, checkout sessions, webhooks and the billing state machine"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Payment integrations need a payment account and secrets the course does not hold. The webhook idea (verify a signature before trusting a payload) is the same discipline as token verification in section 5."
+  - source_pages: [289]
+    source_topic: "79-80. E-mail automation with background tasks; refresh tokens (introduction)"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "E-mail sending is not carried; refresh tokens are treated on the next page."
+  - source_pages: [290, 291]
+    source_topic: "80-82. Refresh tokens signed like access tokens; rate limiting with `slowapi`; an audit log table"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 5 and 9; lab-guided step 9; lab-independent (rate limit per key, audit records)"
+    note: "A refresh token that is the same kind of token as an access token is an access token that lasts 30 days; the labs issue short access tokens only. The rate limit counts authenticated requests per key in a fixed window and forgets past windows; the audit trail records who did what and never what they wrote (F-PYH-015)."
+  - source_pages: [292, 293]
+    source_topic: "83-87. Teams and invitations, an analytics dashboard, Kubernetes manifests and Helm"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Product features and cluster deployment are outside this module."
+  - source_pages: [294]
+    source_topic: "88. Health checks: one `/health` route used as the Kubernetes readiness probe"
+    disposition: CORRECTED
+    new_content: "lesson.md section 9; lab-guided step 9"
+    note: "Two routes: liveness says the process runs; readiness says it may receive traffic (it is false before start-up has finished and after shut-down has begun) (F-PYH-015)."
+  - source_pages: [296, 297, 298]
+    source_topic: "91-92. A React front end that keeps the JWT in `localStorage`; real-time features with WebSockets"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Browser-side storage and WebSockets belong to the front-end course. A token in `localStorage` is readable by any script that runs on the page (F-PYH-015)."
+  - source_pages: [299, 300, 301, 302, 303, 304, 305, 306]
+    source_topic: "92-99. WebSocket client, API caching, Celery workers, AWS deployment, CDN and static hosting, the platform summary"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Real-time clients, caches, queues and cloud deployment are outside this module."
+  - source_pages: [307, 308, 309, 310, 311]
+    source_topic: "Module 3 certification exam: theory, code output, short coding, long answers"
+    disposition: REPLACED
+    new_content: "assessment/quiz.yaml and assessment/rubric.yaml; the two labs"
+    note: "Question lists without a rubric or a pass rule become eight multiple-choice items and a graded independent lab with a hidden suite (F-PYH-007)."
+  - source_pages: [351, 394]
+    source_topic: "38.1 A 'simple C2 API' in Flask; a Python exploit PoC template"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Offensive tooling is outside this course; any such material belongs in an isolated, authorised lab with a scope statement."
+  - source_pages: [452]
+    source_topic: "49.2 Auto-instrumenting a Flask application"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Observability is a topic of the automation pathway (PA-M07); this module covers the audit trail and request ids that observability builds on."

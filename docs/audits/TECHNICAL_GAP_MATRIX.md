@@ -13,7 +13,7 @@
 
 | Dimension | P0 | P1 | P2 | P3-P4 | Total |
 |---|---:|---:|---:|---:|---:|
-| Technical correctness and security | 2 | 6 | 11 | 0 | 19 |
+| Technical correctness and security | 2 | 7 | 12 | 0 | 21 |
 | Hands-on practical effectiveness | 0 | 10 | 2 | 0 | 12 |
 | Demonstrable professional outcomes | 0 | 3 | 5 | 1 | 9 |
 | Assessment validity and rigor | 0 | 4 | 0 | 0 | 4 |
@@ -114,6 +114,7 @@
 | F-PYH-002 | P1 | `COURSE-PY-ENG` | Automation examples teach insecure credential, TLS, SSH and shell patterns without warnings | p. 163, p. 164, p. 168, p. 222, p. 252, p. 269, p. 373, p. 428 | NOT_STARTED |
 | F-PYH-003 | P1 | `COURSE-PY-ENG` | Packaging taught as `python setup.py sdist`; no pyproject.toml or build workflow | p. 63, p. 64 | NOT_STARTED |
 | F-PYH-007 | P1 | `COURSE-PY-ENG` | No graded assessment, rubric or capstone acceptance criteria | document-wide scan | PLANNED_IN_TRACK |
+| F-PYH-015 | P1 | `COURSE-PY-ENG` | The web-development chapter builds a CRUD API with no authentication or validation and teaches secrets in source, a token helper that changes its argument and uses a deprecated clock, one token for two purposes, uploads under a client-chosen name and security measures as unverified bullets | p. 227, p. 234, p. 259, p. 260, p. 261, p. 268, p. 270, p. 281, p. 285, p. 290, p. 294, p. 297 | PLANNED_IN_TRACK |
 | F-SOC-001 | P1 | `COURSE-SOC` | Six-phase IR lifecycle attributed to NIST SP 800-61 Rev. 3 / Rev. 2 | p. 6, p. 30 | DONE_IN_PILOT |
 | F-SOC-004 | P1 | `COURSE-SOC` | Example brute-force correlation rule cannot detect password spraying | p. 17, p. 22 | DONE_IN_PILOT |
 | F-SOC-005 | P1 | `COURSE-SOC` | Uncited statistics, salary bands and workforce numbers presented as 2026 benchmarks | p. 3, p. 11, p. 25, p. 28, p. 36, p. 37, p. 39 | NOT_STARTED |

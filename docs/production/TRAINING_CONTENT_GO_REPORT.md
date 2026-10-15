@@ -8,22 +8,22 @@ Result: **0 of 10 courses are TRAINING_CONTENT_GO.** The decision is computed pe
 
 ## COURSE-FND-DIGITAL: Digital and Technical Foundations
 
-State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **4.5** of 100; eligible: no.
+State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **9.0** of 100; eligible: no.
 
 | Criterion | Status | Evidence |
 |---|---|---|
-| A01 All approved required modules are implemented | PARTIAL | 1 of 6 required modules implemented |
-| A02 Every required lesson contains substantive, executed instruction | NOT_MET | 0 of 6 lessons substantive and executed (8 numbered sections, 5 executed blocks) |
+| A01 All approved required modules are implemented | PARTIAL | 2 of 6 required modules implemented |
+| A02 Every required lesson contains substantive, executed instruction | NOT_MET | 0 of 6 lessons substantive and executed (15 numbered sections, 9 executed blocks) |
 | A03 Source coverage is reconciled: every source page has a recorded disposition | NOT_APPLICABLE | the course has no legacy source PDF |
 | A04 Material technical claims are verified and the October 24 refresh is executed | NOT_MET | 0 of 0 change records EXECUTED or RESEARCH_VERIFIED, 0 open; October 24 refresh PENDING (not executable before 2026-10-24) |
 | A05 Required operational scenarios are implemented and verified | NOT_MET | 0 of 3 operational scenarios technically verified; 0 time-dependent scenario(s) verified (minimum 1) |
 | A06 Required practical labs pass their validation criteria on the declared matrix | NOT_MET | 0 of 12 planned labs verified executable |
-| A07 Every learning outcome is measurable and assessed | PARTIAL | 1 of 6 outcomes assessed |
+| A07 Every learning outcome is measurable and assessed | PARTIAL | 2 of 6 outcomes assessed |
 | A08 The capstone has a working deliverable, acceptance criteria and a check | NOT_MET | capstone module not defined: n/a |
 | A09 Automated QA passes and relevant negative controls pass | NOT_MET | recorded automated QA run all PASS, negative controls present for built modules |
 | A10 Security and privacy issues affecting the course are resolved | MET | no open privacy or security incident applies |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4) |
-| A12 Student materials are complete | PARTIAL | 1 of 6 module student-edition configs; complete course edition absent |
+| A12 Student materials are complete | PARTIAL | 2 of 6 module student-edition configs; complete course edition absent |
 | A13 Instructor materials are complete and protected in private storage | NOT_MET | instructor packs recorded for 0 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 6 module editions pass the accessibility and structure gates |
@@ -35,14 +35,14 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **4.5** of 100; el
 | Dimension | Weight | Fraction | Points |
 |---|---|---|---|
 | Technical accuracy and currency | 20 | 0.0 | 0.0 |
-| Curriculum and lesson completeness | 15 | 0.1667 | 2.5 |
+| Curriculum and lesson completeness | 15 | 0.3333 | 5.0 |
 | Customer operational relevance | 15 | 0.0 | 0.0 |
 | Practical labs and reproducibility | 15 | 0.0 | 0.0 |
-| Assessment and capstone rigor | 10 | 0.1167 | 1.17 |
+| Assessment and capstone rigor | 10 | 0.2333 | 2.33 |
 | Security and reliability | 10 | 0.0 | 0.0 |
 | Instructional clarity and accessibility | 5 | 0.0 | 0.0 |
 | Premium PDF and document integrity | 5 | 0.0 | 0.0 |
-| Source traceability and maintainability | 5 | 0.1667 | 0.83 |
+| Source traceability and maintainability | 5 | 0.3333 | 1.67 |
 
 ## COURSE-SOC: SOC Analyst Professional Pathway
 
@@ -84,41 +84,41 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **11.2** of 100; e
 
 ## COURSE-PY-ENG: Python Engineering Pathway
 
-State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **63.4** of 100; eligible: no.
+State: **IMPLEMENTED_UNVERIFIED** (engineering state IMPLEMENTED_UNVERIFIED); score **54.4** of 100; eligible: no.
 
 | Criterion | Status | Evidence |
 |---|---|---|
-| A01 All approved required modules are implemented | PARTIAL | 11 of 13 required modules implemented |
-| A02 Every required lesson contains substantive, executed instruction | PARTIAL | 11 of 13 lessons substantive and executed (141 numbered sections, 168 executed blocks) |
-| A03 Source coverage is reconciled: every source page has a recorded disposition | PARTIAL | 132 of 654 source pages have a recorded disposition in a built module's source map |
-| A04 Material technical claims are verified and the October 24 refresh is executed | PARTIAL | 21 of 24 change records EXECUTED or RESEARCH_VERIFIED, 3 open; October 24 refresh PENDING (not executable before 2026-10-24) |
+| A01 All approved required modules are implemented | MET | 13 of 13 required modules implemented |
+| A02 Every required lesson contains substantive, executed instruction | NOT_MET | 0 of 13 lessons substantive and executed (169 numbered sections, 204 executed blocks) |
+| A03 Source coverage is reconciled: every source page has a recorded disposition | PARTIAL | 224 of 654 source pages have a recorded disposition in a built module's source map |
+| A04 Material technical claims are verified and the October 24 refresh is executed | PARTIAL | 23 of 26 change records EXECUTED or RESEARCH_VERIFIED, 3 open; October 24 refresh PENDING (not executable before 2026-10-24) |
 | A05 Required operational scenarios are implemented and verified | PARTIAL | 5 of 10 operational scenarios technically verified; 5 time-dependent scenario(s) verified (minimum 1) |
-| A06 Required practical labs pass their validation criteria on the declared matrix | PARTIAL | 22 of 25 planned labs verified executable |
-| A07 Every learning outcome is measurable and assessed | PARTIAL | 11 of 13 outcomes assessed |
-| A08 The capstone has a working deliverable, acceptance criteria and a check | NOT_MET | capstone module PY-M11: NOT_STARTED |
-| A09 Automated QA passes and relevant negative controls pass | PARTIAL | recorded automated QA run all PASS, negative controls present for built modules |
+| A06 Required practical labs pass their validation criteria on the declared matrix | PARTIAL | 25 of 25 planned labs verified executable |
+| A07 Every learning outcome is measurable and assessed | MET | 13 of 13 outcomes assessed |
+| A08 The capstone has a working deliverable, acceptance criteria and a check | NOT_MET | capstone module PY-M11: IMPLEMENTED_UNVERIFIED |
+| A09 Automated QA passes and relevant negative controls pass | NOT_MET | recorded automated QA run all PASS, negative controls present for built modules |
 | A10 Security and privacy issues affecting the course are resolved | MET | no open privacy or security incident applies |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4) |
-| A12 Student materials are complete | PARTIAL | 11 of 13 module student-edition configs; complete course edition absent |
-| A13 Instructor materials are complete and protected in private storage | PARTIAL | instructor packs recorded for 11 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
+| A12 Student materials are complete | PARTIAL | 13 of 13 module student-edition configs; complete course edition absent |
+| A13 Instructor materials are complete and protected in private storage | NOT_MET | instructor packs recorded for 11 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
 | A15 Accessibility checks pass for every student edition | PARTIAL | 6 of 13 module editions pass the accessibility and structure gates |
-| A16 No unresolved P0 or P1 defect | NOT_MET | 8 open P0/P1 defects apply: DEF-004, DEF-005, DEF-006, DEF-008, DEF-009, DEF-015 ... |
+| A16 No unresolved P0 or P1 defect | NOT_MET | 10 open P0/P1 defects apply: DEF-004, DEF-005, DEF-006, DEF-008, DEF-009, DEF-015 ... |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
 | A19 The owner's acceptance is recorded | NOT_MET | owner acceptance not recorded |
 
 | Dimension | Weight | Fraction | Points |
 |---|---|---|---|
-| Technical accuracy and currency | 20 | 0.7404 | 14.81 |
-| Curriculum and lesson completeness | 15 | 0.8462 | 12.69 |
+| Technical accuracy and currency | 20 | 0.0 | 0.0 |
+| Curriculum and lesson completeness | 15 | 1.0 | 15.0 |
 | Customer operational relevance | 15 | 0.5 | 7.5 |
-| Practical labs and reproducibility | 15 | 0.88 | 13.2 |
-| Assessment and capstone rigor | 10 | 0.5923 | 5.92 |
+| Practical labs and reproducibility | 15 | 1.0 | 15.0 |
+| Assessment and capstone rigor | 10 | 0.7 | 7.0 |
 | Security and reliability | 10 | 0.5923 | 5.92 |
 | Instructional clarity and accessibility | 5 | 0.4615 | 2.31 |
 | Premium PDF and document integrity | 5 | 0.0 | 0.0 |
-| Source traceability and maintainability | 5 | 0.2018 | 1.01 |
+| Source traceability and maintainability | 5 | 0.3425 | 1.71 |
 
 ## COURSE-PY-AUTO: Python Automation Pathway
 

@@ -55,11 +55,11 @@ Catalog slug `python-engineering`; legacy sources: SRC-PY-HANDBOOK.
 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | NET_NEW | - | - | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
 | PY-M05 | Files, structured data and HTTP clients | 6 | SRC-PY-HANDBOOK: 6 pp (82, 90, 125-126, 128-129) | KEEP 3, UPDATE 1, REPLACE 2 | MC-PYH-19 | - |
 | PY-M06 | Concurrency and asynchronous programming | 1 | SRC-PY-HANDBOOK: 1 pp (177) | REPLACE 1 | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
-| PY-M07 | Secure coding for Python | 19 | SRC-PY-HANDBOOK: 19 pp (86, 120, 232, 245, ... (+5 more ranges)) | KEEP 12, UPDATE 5, REPLACE 2 | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
+| PY-M07 | Secure coding for Python | 19 | SRC-PY-HANDBOOK: 19 pp (86, 120, 232, 245, ... (+5 more ranges)) | KEEP 9, UPDATE 8, REPLACE 2 | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
 | PY-M08 | Databases and persistence: safe SQL, transactions, repositories, migrations and query cost | 10 | SRC-PY-HANDBOOK: 10 pp (108, 154, 176, 181, ... (+6 more ranges)) | KEEP 6, UPDATE 2, REPLACE 2 | MC-PYH-08, MC-PYH-23 | - |
 | PY-M09 | Profiling, performance and maintainable architecture | 2 | SRC-PY-HANDBOOK: 2 pp (57, 464) | UPDATE 1, REPLACE 1 | MC-PYH-24 | ND-PY-01 |
-| PY-M10 | API development: typed, tested and secure HTTP services | 27 | SRC-PY-HANDBOOK: 27 pp (226-230, 233-234, 236-240, 242, ... (+7 more ranges)) | KEEP 18, UPDATE 5, REPLACE 3, EXPAND 1 | MC-PYH-06, MC-PYH-08 | - |
-| PY-M11 | Capstone: typed, tested, documented application with CI | 9 | SRC-PY-HANDBOOK: 9 pp (646-654) | REPLACE 9 | MC-PYH-14 | - |
+| PY-M10 | API development: typed, tested and secure HTTP services | 27 | SRC-PY-HANDBOOK: 27 pp (226-230, 233-234, 236-240, 242, ... (+7 more ranges)) | KEEP 16, UPDATE 7, REPLACE 3, EXPAND 1 | MC-PYH-06, MC-PYH-08, MC-PYH-25 | - |
+| PY-M11 | Capstone: typed, tested, documented application with CI | 9 | SRC-PY-HANDBOOK: 9 pp (646-654) | REPLACE 9 | MC-PYH-14, MC-PYH-26 | - |
 
 ## COURSE-PY-AUTO - Python Automation Pathway
 
@@ -73,7 +73,7 @@ Catalog slug `python-automation`; legacy sources: SRC-PY-AUTOMATION.
 | PA-M04 | Browser automation with supported tools | 219 | SRC-PY-AUTOMATION: 219 pp (6, 78-86, 88-89, 92-103, ... (+23 more ranges)) | KEEP 162, UPDATE 49, REPLACE 1, EXPAND 7 | MC-PYA-01, MC-PYA-04 | ND-JV-04 |
 | PA-M05 | Scheduling, configuration and secrets | 9 | SRC-PY-HANDBOOK: 9 pp (114, 459-460, 462, 465, ... (+2 more ranges)) | KEEP 3, UPDATE 4, REPLACE 1, EXPAND 1 | MC-PYA-01, MC-PYA-05 | - |
 | PA-M06 | Reliability: retries, idempotency and recovery | NET_NEW | - | - | MC-PYA-01, MC-PYA-08 | - |
-| PA-M07 | Observability and auditable output | 40 | SRC-PY-HANDBOOK: 40 pp (93-96, 98-105, 115, 158, ... (+3 more ranges)) | KEEP 31, UPDATE 3, REPLACE 5, EXPAND 1 | MC-PYA-01, MC-PYA-08 | - |
+| PA-M07 | Observability and auditable output | 40 | SRC-PY-HANDBOOK: 40 pp (93-96, 98-105, 115, 158, ... (+3 more ranges)) | KEEP 24, UPDATE 10, REPLACE 5, EXPAND 1 | MC-PYA-01, MC-PYA-08 | - |
 | PA-M08 | Testing automations: unit, integration, regression | 374 | SRC-PY-AUTOMATION: 374 pp (4, 9, 19, 43-60, ... (+39 more ranges)) | KEEP 344, UPDATE 23, REPLACE 1, EXPAND 6 | MC-PYA-01, MC-PYA-03, MC-PYA-09 | - |
 | PA-M09 | Command-line tools and guarded AI-assisted automation | 82 | SRC-PY-AUTOMATION: 75 pp (7, 107-119, 121, 1069-1115, ... (+2 more ranges)); SRC-PY-HANDBOOK: 7 pp (85, 111, 124, 163, ... (+3 more ranges)) | KEEP 69, UPDATE 3, REPLACE 9, EXPAND 1 | MC-PYA-01, MC-PYA-10, MC-PYH-05 | - |
 | PA-M10 | Capstone: safe operational workflow | 77 | SRC-PY-AUTOMATION: 77 pp (10, 171-178, 180-185, 442-455, ... (+9 more ranges)) | KEEP 66, UPDATE 10, EXPAND 1 | MC-PYA-01, MC-PYA-11 | - |
@@ -111,7 +111,7 @@ Catalog slug `ai-engineering`; legacy sources: SRC-AI-BUNDLE.
 | AI-M08 | Evaluation suites, observability, cost and latency | 40 | SRC-AI-BUNDLE: 40 pp (67, 69, 87, 100, ... (+21 more ranges)) | KEEP 33, UPDATE 7 | MC-AIB-04 | - |
 | AI-M09 | Governance and responsible deployment (NIST AI RMF) | 140 | SRC-AI-BUNDLE: 140 pp (46-60, 63-65, 68, 71, ... (+28 more ranges)) | KEEP 124, UPDATE 16 | MC-AIB-03 | ND-AI-05, ND-AI-06 |
 | AI-M10 | Model Context Protocol, tool interoperability and multi-agent systems | NET_NEW | - | - | MC-AIB-02, MC-AIB-08 | ND-AI-01 |
-| AI-M11 | Model selection, multimodal inputs and deployment economics | 82 | SRC-PY-HANDBOOK: 82 pp (198-210, 215-225, 264-306, 311, ... (+3 more ranges)) | KEEP 46, UPDATE 24, REPLACE 8, EXPAND 4 | MC-AIB-09, MC-PYH-07, MC-PYH-12 | ND-AI-03, ND-AI-07 |
+| AI-M11 | Model selection, multimodal inputs and deployment economics | 82 | SRC-PY-HANDBOOK: 82 pp (198-210, 215-225, 264-306, 311, ... (+3 more ranges)) | KEEP 41, UPDATE 29, REPLACE 8, EXPAND 4 | MC-AIB-09, MC-PYH-07, MC-PYH-12 | ND-AI-03, ND-AI-07 |
 | AI-M12 | Capstone: secure production-oriented AI assistant | NET_NEW | - | - | - | - |
 
 ## COURSE-OSINT - Lawful OSINT Investigation Pathway
@@ -140,7 +140,7 @@ Catalog slug `gcp-data-engineering`; legacy sources: SRC-GCP-DATAENG.
 | Module | Title | Mapped source pages | Source pages (by PDF) | Page-level actions (candidate) | Change records | New developments |
 |---|---|---|---|---|---|---|
 | GCP-M01 | Cloud foundations, IAM, cost safety and sandbox setup | 61 | SRC-GCP-DATAENG: 61 pp (1, 5-8, 23, 26-27, ... (+21 more ranges)) | KEEP 32, UPDATE 18, REPLACE 2, EXPAND 9 | MC-GCP-05 | - |
-| GCP-M02 | Cloud Storage and batch ingestion | 110 | SRC-AI-BUNDLE: 58 pp (74-83, 85-86, 88-97, 99, ... (+9 more ranges)); SRC-GCP-DATAENG: 9 pp (9, 37-39, 41-44, 50); SRC-PY-HANDBOOK: 43 pp (97, 133-146, 156-157, 168-169, ... (+6 more ranges)) | KEEP 12, UPDATE 31, REPLACE 8, EXPAND 1, MERGE 58 | MC-AIB-06, MC-PYH-13 | ND-PY-04 |
+| GCP-M02 | Cloud Storage and batch ingestion | 110 | SRC-AI-BUNDLE: 58 pp (74-83, 85-86, 88-97, 99, ... (+9 more ranges)); SRC-GCP-DATAENG: 9 pp (9, 37-39, 41-44, 50); SRC-PY-HANDBOOK: 43 pp (97, 133-146, 156-157, 168-169, ... (+6 more ranges)) | KEEP 11, UPDATE 32, REPLACE 8, EXPAND 1, MERGE 58 | MC-AIB-06, MC-PYH-13 | ND-PY-04 |
 | GCP-M03 | BigQuery SQL and analytical modelling | 30 | SRC-GCP-DATAENG: 11 pp (2, 10-11, 25, 47, ... (+2 more ranges)); SRC-PY-HANDBOOK: 19 pp (64-79, 179, 354, 374) | KEEP 18, UPDATE 9, REPLACE 2, EXPAND 1 | MC-AIB-06, MC-GCP-03, MC-PYH-13 | ND-AI-07 |
 | GCP-M04 | Pub/Sub and streaming ingestion | 28 | SRC-GCP-DATAENG: 4 pp (40, 45-46, 58); SRC-PY-HANDBOOK: 24 pp (610-633) | KEEP 13, UPDATE 15 | MC-PYH-13 | - |
 | GCP-M05 | Apache Beam and Dataflow | 8 | SRC-GCP-DATAENG: 8 pp (12, 24, 62-66, 115) | KEEP 2, UPDATE 6 | MC-GCP-06 | ND-GC-04 |

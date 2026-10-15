@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 import os
 import platform
@@ -32,7 +33,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import evidence_fingerprint as EF  # noqa: E402
 
 REQS = ROOT / "courses" / "python-engineering" / "labs" / "requirements.txt"
-SUITES = ["tests/test_python_engineering_labs.py", "tests/test_module_packs.py", "tests/test_fnd_m01.py"]
+SUITES = ["tests/test_python_engineering_labs.py", "tests/test_module_packs.py", *sorted(f"tests/{p.name}" for p in (ROOT / "tests").glob("test_fnd_m[0-9][0-9].py"))]      # one file per foundations module
 
 
 def sh(cmd: list[str], **kw) -> subprocess.CompletedProcess:
@@ -103,22 +104,32 @@ def run_one(version: str, work: Path, cutoff: str) -> dict:
     return record
 
 
+def tree_id(fingerprints: dict[str, str], private_fingerprints: dict[str, str]) -> str:
+    """Identity of the content that a run executes: the fingerprints of every module and of every private pack, whatever the commit."""
+    return hashlib.sha256(json.dumps([fingerprints, private_fingerprints, EF.FORMULA, SUITES], sort_keys=True).encode()).hexdigest()
+
+
+def resumable(partial: Path, identity: str) -> dict[str, dict]:
+    """The interpreters that already PASSED in an interrupted run of exactly this content (`--resume`); nothing else is ever reused."""
+    try:
+        saved = json.loads(partial.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    if saved.get("tree_id") != identity:
+        return {}
+    return {r["requested"]: r for r in saved.get("results", []) if r.get("status") == "PASS" and r.get("requested")}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--versions", default="3.11,3.12,3.13,3.14,3.15")
     ap.add_argument("--cutoff", default="2026-10-14")
+    ap.add_argument("--resume", action="store_true", help="reuse the interpreters that passed in an interrupted run of the same content (a long run survives a restart)")
     a = ap.parse_args()
     work = ROOT / ".work" / "lab-venvs"
     work.mkdir(parents=True, exist_ok=True)
     head = sh(["git", "rev-parse", "--short=12", "HEAD"], cwd=ROOT).stdout.strip()
     dirty = bool(sh(["git", "status", "--porcelain", "--untracked-files=no"], cwd=ROOT).stdout.strip())
-    results = []
-    for v in a.versions.split(","):
-        print(f"== CPython {v}", flush=True)
-        r = run_one(v.strip(), work, a.cutoff)
-        print(f"   {r['status']}  {r.get('python', '')}  {r.get('counts', r.get('reason', ''))}", flush=True)
-        results.append(r)
-    private = (ROOT / "courses" / "python-engineering" / "instructor" / "PY-M02" / "independent-reference").exists()
     fingerprints, private_fingerprints = {}, {}
     for lesson in sorted((ROOT / "courses").glob("*/modules/*/lesson.md")):
         slug, module_id = lesson.parts[-4], lesson.parts[-2]
@@ -126,6 +137,22 @@ def main() -> int:
         private_fp = EF.private_fingerprint(slug, module_id)
         if private_fp:
             private_fingerprints[module_id] = private_fp
+    identity = tree_id(fingerprints, private_fingerprints)
+    partial = work / f"partial_{a.cutoff}.json"
+    reused = resumable(partial, identity) if a.resume else {}
+    results = []
+    for v in a.versions.split(","):
+        v = v.strip()
+        print(f"== CPython {v}", flush=True)
+        if v in reused:
+            r = reused[v]
+            print(f"   reused from the interrupted run: {r['status']}  {r.get('python', '')}  {r.get('counts', '')}", flush=True)
+        else:
+            r = run_one(v, work, a.cutoff)
+            print(f"   {r['status']}  {r.get('python', '')}  {r.get('counts', r.get('reason', ''))}", flush=True)
+        results.append(r)
+        partial.write_text(json.dumps({"tree_id": identity, "results": results}, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    private = (ROOT / "courses" / "python-engineering" / "instructor" / "PY-M02" / "independent-reference").exists()
     out = {"schema_version": 1, "cutoff": a.cutoff, "run_utc": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "commit": head, "working_tree_dirty": dirty,
            "host": f"{platform.system()} {platform.release()} {platform.machine()}", "private_instructor_pack_present": private,
            "fingerprint_formula": EF.FORMULA, "fingerprints": fingerprints, "private_fingerprints": private_fingerprints,

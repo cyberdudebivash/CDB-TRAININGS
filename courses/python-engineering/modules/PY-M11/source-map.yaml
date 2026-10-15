@@ -1,0 +1,71 @@
+# Source-to-new-content trace for PY-M11. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower). Mapping of pages to this module is a reading by the module author, not a measurement.
+source: SRC-PY-HANDBOOK
+module: PY-M11
+mappings:
+  - source_pages: [93, 94, 95, 96, 97]
+    source_topic: "73. Real-time Python project: Log Monitoring & Alerting System - folder structure, config.py, reader.py, analyzer.py, alert.py, the summary writer and main.py"
+    disposition: REPLACED
+    new_content: "lesson.md sections 2 and 3 (the project executed, the characterisation method); lab-guided (the prototype, the walking skeleton); lab-independent (SPEC.md and the application `authwatch`)"
+    note: "The project keeps a good idea (a reader, an analysis step, an alert step and an entry point) and fails in the details; executed on CPython 3.11 to 3.15 (F-PYH-016): 100 identical error lines raise 96 alerts because the rule is `count >= 5` for every line; `if key in line` matches substrings of prose (`RETRY_FAILED_COUNT=0`, `CRITICALITY=low`) and misses `error:` and `Failed password`; the alert time is naive local time; the summary is written into a `reports/` folder that the code does not create; `main.py` calls `write_summary` without importing it, so the program as printed ends with a `NameError`; there is no test, type, package or pipeline."
+  - source_pages: [93, 98]
+    source_topic: "Claims about the project: 'Reads live logs', 'Production-grade folder structure', 'could run in a SOC, a server, a DevOps environment, a cloud system'"
+    disposition: CORRECTED
+    new_content: "lesson.md section 2 and the specification (SPEC.md): what the tool does and does not protect; lab-independent README (the live scenario that really is a stream)"
+    note: "The code reads a finished file from start to end, not a live log, and the folder layout is not a package that installs; the lesson states what the new tool protects against and what it does not (F-PYH-016)."
+  - source_pages: [99]
+    source_topic: "74.1 Builder pattern: `ReportBuilder` with `self.data = []` and chained setters"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "A builder that mutates itself and hands out its own list is the opposite of the immutable value types taught in PY-M12; `authwatch` builds a frozen `Report` in one call."
+  - source_pages: [100]
+    source_topic: "74.2 Adapter pattern: `LoggerAdapter` around a JSON logger"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "The structured logging of the capstone is a plain `logging` formatter (lesson section 7); an adapter around a class that only prints adds nothing."
+  - source_pages: [100, 101]
+    source_topic: "74.3 Facade pattern: one entry point over reader, analyzer and alert"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 9 (one command); lab-independent SPEC.md section 3 (the public interface) and section 7 (the command line)"
+    note: "A small public surface over several internal modules is exactly the shape of the capstone: the package API and the command line are the only things the tests and the instructors may use."
+  - source_pages: [101, 102]
+    source_topic: "75. Writing robust Python code (pro tips) and 76. Security best practices for Python code (including `bandit` and `pip-audit`)"
+    disposition: REPLACED
+    new_content: "lesson.md sections 6 and 8 and the gates G06 to G11 of lab-guided/tools/gate.py"
+    note: "Each bullet that can be tested is now a gate or a test: bounded reads, a safe parser, no input text in diagnostics, `ruff` with the `S` rules (the `bandit` family), a dependency check (the mechanism offline, `pip-audit` named for use with a network), pinned actions and a least-privilege token (F-PYH-016)."
+  - source_pages: [102, 103]
+    source_topic: "77. Python interview preparation: question lists and one-line answers"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Question lists are not instruction; the skills they ask about are taught and assessed in the modules where they belong, and the quiz and rubric of this module assess the capstone."
+  - source_pages: [103, 104]
+    source_topic: "78. Module summary: a checklist of everything learned so far"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "A list of topics is not evidence of a skill; the outcomes of each module are traced to a lesson, a lab and an assessment in its `outcomes.yaml`."
+  - source_pages: [104, 105]
+    source_topic: "79. Module assignments (a log analyzer, a `pycalc` command, a user and permissions class, a decorator refactoring, a multithreaded download)"
+    disposition: REPLACED
+    new_content: "lab-guided and lab-independent: one assignment with a specification, acceptance criteria, a release gate, a hidden suite and a rubric"
+    note: "The assignments name a task and nothing else: no input format, no failure behaviour, no check. The capstone replaces them with one project whose every sentence is testable."
+  - source_pages: [105, 106]
+    source_topic: "80. Bonus resources for deep Python mastery (a list of sites and documents)"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "A list of links is not content and was not checked; this module cites the primary sources it used (lesson section 14)."
+  - source_pages: [645, 646, 647, 648, 649, 650]
+    source_topic: "'Certification exam' question lists without answers or rubrics (the part that follows the capstone's chapters)"
+    disposition: REPLACED
+    new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
+    note: "Finding F-PYH-007: question lists without answers are not an assessment; the capstone is assessed by a hidden suite, a mutation check of the learner's own tests and a rubric."
+  - source_pages: [651, 652]
+    source_topic: "Back matter: 'The Global Cybersecurity, AI & Automation Ecosystem'"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Promotional text about an organisation; not instruction. Whether it belongs in a published edition is a commercial decision outside this phase."
+  - source_pages: [653, 654]
+    source_topic: "Back matter: the founder's message"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "A personal message to readers; not instruction. It is neither used nor altered here."

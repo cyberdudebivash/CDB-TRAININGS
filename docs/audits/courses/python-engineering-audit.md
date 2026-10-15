@@ -9,7 +9,7 @@
 | Review confidence | **MEDIUM** |
 | Review coverage | 654/654 pages machine-scanned; ~15 pages read in context (pp. 63-64, 83, 163-164, 220, 427-428, 585-586 and code-failure contexts); 404 code blocks syntax-checked. |
 | Quality score (source as received) | **36 / 100** (internal instrument; see `COURSE_QUALITY_SCORECARD.md`) |
-| Open findings | P0: 1, P1: 3, P2: 10, P3: 0, P4: 0 |
+| Open findings | P0: 1, P1: 4, P2: 11, P3: 0, P4: 0 |
 | Release status | `REENGINEERING` (lifecycle `IN_BUILD`) |
 | Audit date | 2026-10-14 |
 
@@ -36,6 +36,7 @@ Severity scale: **P0** dangerous, materially incorrect, legally problematic or f
 | F-PYH-002 | P1 | Technical correctness and security | Automation examples teach insecure credential, TLS, SSH and shell patterns without warnings | p. 163, p. 164, p. 168, p. 222, p. 252, p. 269, p. 373, p. 428 | STATIC_SCAN | NOT_STARTED |
 | F-PYH-003 | P1 | Technical currency and relevance | Packaging taught as `python setup.py sdist`; no pyproject.toml or build workflow | p. 63, p. 64 | PRIMARY_SOURCE | NOT_STARTED |
 | F-PYH-007 | P1 | Assessment validity and rigor | No graded assessment, rubric or capstone acceptance criteria | document-wide scan | STATIC_SCAN | PLANNED_IN_TRACK |
+| F-PYH-015 | P1 | Technical correctness and security | The web-development chapter builds a CRUD API with no authentication or validation and teaches secrets in source, a token helper that changes its argument and uses a deprecated clock, one token for two purposes, uploads under a client-chosen name and security measures as unverified bullets | p. 227, p. 234, p. 259, p. 260, p. 261, p. 268, p. 270, p. 281, p. 285, p. 290, p. 294, p. 297 | EXECUTED | PLANNED_IN_TRACK |
 | F-PYH-004 | P2 | Hands-on practical effectiveness | Code is mostly syntactically valid but unexecuted and untested | document-wide scan | STATIC_SCAN | PLANNED_IN_TRACK |
 | F-PYH-005 | P2 | Technical currency and relevance | Recommends Python 3.10+, which reached end-of-life on 2026-10-01; no version policy | p. 220 | PRIMARY_SOURCE | NOT_STARTED |
 | F-PYH-006 | P2 | Instructional clarity and sequencing | Thin sections and uncontrolled scope | p. 63 | STATIC_SCAN | PLANNED_IN_TRACK |
@@ -46,6 +47,7 @@ Severity scale: **P0** dangerous, materially incorrect, legally problematic or f
 | F-PYH-012 | P2 | Technical correctness and security | The iterator, generator, decorator and context-manager sections contain examples that leak resources, drop arguments and results, or use Python 2 spellings, and make unqualified speed claims | p. 33, p. 35, p. 36, p. 38, p. 68, p. 79 | EXECUTED | PLANNED_IN_TRACK |
 | F-PYH-013 | P2 | Technical correctness and security | The database examples open a connection and rebuild the schema per event, never close connections on failure, put a root password in the source and present create_all() as schema management | p. 141, p. 142, p. 154, p. 156, p. 236, p. 240 | EXECUTED | PLANNED_IN_TRACK |
 | F-PYH-014 | P2 | Technical correctness and security | The memory and optimisation sections demonstrate reference counting without its caveats, present string identity as an optimisation and list speed-up tools without any measurement | p. 56, p. 57, p. 79, p. 80 | EXECUTED | PLANNED_IN_TRACK |
+| F-PYH-016 | P2 | Technical correctness and security | The capstone project is a 40-line log monitor presented as production-grade: it raises an alert for every line after the fifth, matches substrings of prose, misses real events, uses naive local time, writes into a folder it does not create, calls a function it never imports, and has no test, type, package or pipeline; the closing chapters are bullet lists, interview questions and link lists | p. 93, p. 95, p. 96, p. 97, p. 98, p. 101, p. 102, p. 104, p. 106 | EXECUTED | PLANNED_IN_TRACK |
 
 ### F-PYH-001 (P0) Agent 'math tool' evaluates model-controlled input with eval()
 
@@ -93,6 +95,26 @@ PyPA states these commands MUST NOT be run anymore. The whole packaging 'chapter
 
 **Verification:** STATIC_SCAN. **Recommendation:** Add diagnostic, formative and project assessments with rubrics (docs/architecture/ASSESSMENT_FRAMEWORK.md).
 **Remediation:** PLANNED_IN_TRACK - Track PY-6 capstone.
+
+### F-PYH-015 (P1) The web-development chapter builds a CRUD API with no authentication or validation and teaches secrets in source, a token helper that changes its argument and uses a deprecated clock, one token for two purposes, uploads under a client-chosen name and security measures as unverified bullets
+
+- **p. 259:** `create_task` stores `data["title"]` from `request.get_json()` with no validation and no authentication (pp. 259-260: create, read all, update, delete).
+- **p. 260:** `update_task` and `delete_task` call `Task.query.get(id)` and use the result without checking for None (a missing id is an exception, not a 404); every route is open to any caller.
+- **p. 227:** `app.config['SECRET_KEY'] = 'cyberdudebivash_secret'` (also p. 274: `"DUDExBIVASH"`) and `app.run(debug=True)` (p. 228).
+- **p. 268:** `DATABASE_URL = "postgresql://admin:password@localhost/saasdb"` in source.
+- **p. 270:** `create_token` builds the expiry with `datetime.utcnow()` (deprecated from Python 3.12) and calls `data.update(...)` on the dictionary it was given; the signing secret is the literal `"CYBERDUDEBIVASH_SECRET"` (p. 269).
+- **p. 290:** The refresh token is signed with the same secret and verified by the same `verify_token` as an access token: nothing in the claims says which kind it is.
+- **p. 234:** File upload saves under `os.path.join(UPLOAD_FOLDER, file.filename)` with the client-supplied name (also p. 258).
+- **p. 261:** Search passes `request.args.get("q")`, which may be absent, straight to `Contact.name.contains(q)` with no validation or length limit.
+- **p. 285:** A multi-tenant model declares `tenant_id` and a `require_role` helper; no query in the chapter filters by tenant.
+- **p. 294:** A single `/health` route is used as the Kubernetes readiness probe.
+- **p. 281:** Security 'best practices' (SQL injection and CSRF protection, validate all inputs, hide debug mode) are bullets with no code and no test; p. 295 repeats them ('Use SQLAlchemy ORM (no raw SQL)').
+- **p. 297:** The JWT is kept in `localStorage`, readable by any script on the page.
+
+Read in the page text; the Python-side claims were executed on CPython 3.11-3.15 (PY-M10 lesson, R-100): datetime.utcnow() warns from 3.12 and create_token's `exp` appears in the caller's dictionary; a 30-day token verifies exactly as a 1-hour token; FastAPI's default 422 body repeats the rejected input; unknown fields are dropped; `pattern` is a search; os.path.join discards the base for an absolute second part; int() accepts '01', '+1', '1_0' and ' 1'. The framework-side claims about Flask-SQLAlchemy `contains`, `Task.query.get` and the front-end storage were read, not executed (Flask is not part of the course dependencies) and are worded as what the page shows.
+
+**Verification:** EXECUTED. **Recommendation:** Teach the API as a service that is attacked: validated bodies, queries and paths; authentication that pins the algorithm and reads time from an injectable clock; authorisation at object, function and field level; parameterised SQL with fixed tables for names; a problem-details error shape that never echoes input; configuration that fails closed; an audit trail without content; and an injection suite that runs on every change.
+**Remediation:** PLANNED_IN_TRACK - Module PY-M10 (courses/python-engineering/modules/PY-M10).
 
 ### F-PYH-004 (P2) Code is mostly syntactically valid but unexecuted and untested
 
@@ -213,6 +235,23 @@ Executed on CPython 3.11-3.15 (PY-M09 lesson, R-099): sys.getrefcount(object()) 
 **Verification:** EXECUTED. **Recommendation:** Teach measurement first (perf_counter, timeit with the minimum of repeats, cProfile and pstats, the 3.15 sampling profiler), Amdahl's law, algorithmic fixes proved equivalent, tracemalloc, the real meaning of reference counts, cycles, interning and slots, performance tests built from counts and size ratios, and a core/edge structure with a dependency rule enforced by a test.
 **Remediation:** PLANNED_IN_TRACK - Module PY-M09 (courses/python-engineering/modules/PY-M09).
 
+### F-PYH-016 (P2) The capstone project is a 40-line log monitor presented as production-grade: it raises an alert for every line after the fifth, matches substrings of prose, misses real events, uses naive local time, writes into a folder it does not create, calls a function it never imports, and has no test, type, package or pipeline; the closing chapters are bullet lists, interview questions and link lists
+
+- **p. 93:** The project is announced as 'Reads live logs' and 'Production-grade folder structure' (p. 93); the code reads a finished file from start to end.
+- **p. 95:** `analyze` returns the first keyword of ["ERROR", "FAILED", "CRITICAL"] that is a substring of the line (`if key in line`): `RETRY_FAILED_COUNT=0` and `CRITICALITY=low` match, `error: disk full` and `Failed password for root` do not.
+- **p. 96:** `send_alert` prints `datetime.now()`: naive local time with no zone; `write_summary` opens `reports/summary.txt` for writing and does not create `reports/` (the tree on p. 94 lists the folder).
+- **p. 97:** `main.py` alerts `if counts[match] >= ALERT_THRESHOLD` (threshold 5): every matching line from the fifth on raises an alert (100 identical errors give 96 alerts), and `write_summary` is called without being imported (a NameError after the loop).
+- **p. 98:** The project 'could run in: SOC, Server, DevOps environment, Cloud system, Automation pipeline'; it has no test, no type annotation, no package metadata and no pipeline.
+- **p. 101:** 'Robust code' and 'security best practices' (including bandit and pip-audit) are bullet lists with no code, no configuration and no check; p. 102 repeats them.
+- **p. 102:** Python interview preparation is a list of questions with one-line answers.
+- **p. 104:** The module summary is a checklist of topics; the five assignments (p. 105) name a task and nothing else: no input format, no failure behaviour, no acceptance check.
+- **p. 106:** 'Bonus resources' is a list of sites and documents that were not checked.
+
+The project of pp. 93-97 was executed as printed on CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0 (PY-M11 lesson section 2, R-101): 100 identical error lines raise 96 alerts; the three substring matches and the two missed events above; the alert time has no tzinfo; opening reports/summary.txt in a folder without reports/ raises FileNotFoundError; the main of p. 97, compiled with exactly the names that the page imports, ends with a NameError for write_summary. 'Reads live logs' is a statement about the code, which opens a path and iterates to end of file: that is a reading of the code, not a measurement. The claims about the closing chapters are readings of the page text. Nothing here says the author's intent was other than teaching; the finding is that the project is presented as production-grade and is not.
+
+**Verification:** EXECUTED. **Recommendation:** Teach the capstone as a specified, packaged, tested and operated application: characterise the script before changing it; write a specification with a decision for every observed behaviour; build a package that installs from a wheel and runs from elsewhere; test through the public interface and grade the tests by mutation; bound every read of untrusted input; load configuration with a safe parser; keep input text out of diagnostics; write output atomically with a restrictive mode; check the supply chain and the pipeline; and assess the result with a hidden suite, a mutation check and a rubric instead of a list of topics.
+**Remediation:** PLANNED_IN_TRACK - Module PY-M11 (courses/python-engineering/modules/PY-M11).
+
 ## 4. Mandated-topic coverage (keyword probes)
 
 Zero matches are a definitive gap; a match only shows a term is mentioned, not taught. See `TECHNICAL_GAP_MATRIX.md` for the legend.
@@ -259,7 +298,7 @@ Security-pattern hits in code (each read in context): bare_except=10, debug_true
 
 ## 7. Release blockers and disposition
 
-- Blocking findings recorded in the catalog: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
+- Blocking findings recorded in the catalog: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007, F-PYH-015.
 - Release status: `REENGINEERING`. A course cannot reach `TRAINING_CONTENT_GO` until Gate A in `docs/release/RELEASE_GATES.md` is computed as met; this one fails most of its criteria (see `docs/production/TRAINING_CONTENT_GO_REPORT.md`).
-- Notes: Eleven of thirteen modules are built (PY-M01 to PY-M09, PY-M12 and PY-M13) with twenty-two labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are covered by PY-M12; databases (pp. 141-142, 154-156) by PY-M08, which extends the guided-lab increment merged in PR #4; profiling, memory and architecture (pp. 56-57, 79-80) by PY-M09.
+- Notes: All thirteen modules are built (PY-M01 to PY-M13) with twenty-five labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The capstone (PY-M11) replaces the handbook's closing project (pp. 93-106) by a specified application, a release gate, a hidden suite and a mutation check of the learner's own tests. Classes and object-oriented design (handbook pp. 48-55) are covered by PY-M12; databases (pp. 141-142, 154-156) by PY-M08, which extends the guided-lab increment merged in PR #4; profiling, memory and architecture (pp. 56-57, 79-80) by PY-M09; web and API development (pp. 215-311) by PY-M10.
 - Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.

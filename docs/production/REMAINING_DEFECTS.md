@@ -25,9 +25,11 @@
 | DEF-015 | P1 | REMEDIATED_PENDING_VERIFICATION | PY-ENG | Iterators, generators, closures, decorators and context managers (handbook pp. 33-39, 67-69, 78-79) are taught by no module | a built module covers them with an executable lesson, labs and assessment |
 | DEF-016 | P1 | REMEDIATED_PENDING_VERIFICATION | PY-ENG | Databases and persistence (handbook pp. 141-142, 154-156, 234-241) had no lesson, no assessment and only a guided-lab increment without an independent lab | a built module covers them with an executed lesson, guided and independent labs and assessment |
 | DEF-017 | P1 | REMEDIATED_PENDING_VERIFICATION | PY-ENG | Profiling, performance and memory (handbook pp. 56-57, 79-80) are taught by no module: a tool list without measurement, identity and reference counts presented as optimisations | a built module covers them with an executed lesson, labs and assessment |
+| DEF-018 | P1 | REMEDIATED_PENDING_VERIFICATION | PY-ENG | API development (handbook pp. 215-311) is taught by no module: an unauthenticated, unvalidated CRUD API, secrets and a database password in source, a token helper with a deprecated clock and one token for two purposes, uploads under a client-chosen name, and security measures as untested bullets | a built module covers them with an executed lesson, guided and independent labs, an injection suite and assessment |
 | DEF-019 | P3 | CLOSED | all courses | The lab evidence report matched only the module numbers PY-M01 to PY-M09, so the rows of PY-M12 and PY-M13 read not run although the recorded matrix had executed them | tests/test_python_engineering_labs.py::test_the_lab_evidence_renderer_recognises_every_lab_row |
+| DEF-020 | P1 | REMEDIATED_PENDING_VERIFICATION | PY-ENG | The course has no capstone: the handbook's closing project (pp. 93-106) is an unspecified forty-line script and the catalog module PY-M11 was planned only, so no learner produces a typed, tested, documented, packaged and pipeline-checked application | a built module covers it with an executed lesson, a release gate, a hidden suite, a mutation check of the learner's tests and a rubric |
 
-Open P0: 1; open P1: 10. A course cannot reach TRAINING_CONTENT_GO with an open P0 or P1 defect that applies to it.
+Open P0: 1; open P1: 12. A course cannot reach TRAINING_CONTENT_GO with an open P0 or P1 defect that applies to it.
 
 ## 2. Incidents and owner decisions (public-safe)
 
@@ -46,9 +48,9 @@ Personal data is never reproduced in this repository's reports. The detailed han
 
 | Course | Modules not implemented | Module ids |
 |---|---|---|
-| COURSE-FND-DIGITAL | 5 | FND-M02, FND-M03, FND-M04, FND-M05, FND-M06 |
+| COURSE-FND-DIGITAL | 4 | FND-M03, FND-M04, FND-M05, FND-M06 |
 | COURSE-SOC | 13 | SOC-M01, SOC-M02, SOC-M03, SOC-M05, SOC-M06, SOC-M07, SOC-M08, SOC-M09, SOC-M10, SOC-M11, SOC-M12, SOC-M13, SOC-M14 |
-| COURSE-PY-ENG | 2 | PY-M10, PY-M11 |
+| COURSE-PY-ENG | 0 |  |
 | COURSE-PY-AUTO | 10 | PA-M01, PA-M02, PA-M03, PA-M04, PA-M05, PA-M06, PA-M07, PA-M08, PA-M09, PA-M10 |
 | COURSE-JAVA-QA | 10 | JQA-M01, JQA-M02, JQA-M03, JQA-M04, JQA-M05, JQA-M06, JQA-M07, JQA-M08, JQA-M09, JQA-M10 |
 | COURSE-AI-ENG | 12 | AI-M01, AI-M02, AI-M03, AI-M04, AI-M05, AI-M06, AI-M07, AI-M08, AI-M09, AI-M10, AI-M11, AI-M12 |

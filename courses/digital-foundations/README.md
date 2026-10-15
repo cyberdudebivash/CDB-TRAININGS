@@ -1,6 +1,6 @@
 # Digital and Technical Foundations — COURSE-FND-DIGITAL
 
-**Status: REENGINEERING — 0 completed course editions.** Authored student material exists for two of six planned modules. No individual learner mastery, qualified SME signoff, customer delivery, or Academy deployment is claimed.
+**Status: REENGINEERING — 0 completed course editions.** This course is NOT complete and NOT released. Authored student material exists for two of six planned modules. No individual learner mastery, qualified SME signoff, customer delivery, or Academy deployment is claimed.
 
 | Module | Release classification | Available instructional material |
 |---|---|---|
