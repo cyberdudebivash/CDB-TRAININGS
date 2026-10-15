@@ -1,5 +1,5 @@
 {
- "commit": "f7234ff78eff",
+ "commit": "b2f6372aa3b4",
  "is_learner_pilot": false,
  "modules": {
   "PY-M01": {
@@ -47,7 +47,7 @@
    "ok": true
   },
   "PY-M03": {
-   "fingerprint": "f6a566f2ac169149479dc2a6f8588797fa9ead8c39745664290f6b46f2a2ad1f",
+   "fingerprint": "61841a4c426e89b9ce5dbf680b7d85a3d58aaa6d075934c6e100c7b72f50980d",
    "guided_solution": {
     "errors": 0,
     "failed": 0,
@@ -56,23 +56,23 @@
     "skipped": 0
    },
    "guided_starter": {
-    "errors": 25,
-    "failed": 2,
+    "errors": 0,
+    "failed": 27,
     "passed": 0,
     "returncode": 1,
     "skipped": 0
    },
    "independent_starter": {
-    "errors": 28,
-    "failed": 2,
+    "errors": 0,
+    "failed": 30,
     "passed": 0,
     "returncode": 1,
     "skipped": 0
    },
-   "ok": false
+   "ok": true
   },
   "PY-M04": {
-   "fingerprint": "18bef626e5cdc48f21d2c34c158a9107cd9875a5494a76742b9c9b43779ad654",
+   "fingerprint": "8e4a656e3f506578553a1b998ea9cf3b1b7e539dbeeff15b11fe21818eb63fb4",
    "guided_solution": {
     "errors": 0,
     "failed": 0,
@@ -88,13 +88,13 @@
     "skipped": 0
    },
    "independent_starter": {
-    "errors": 1,
-    "failed": 6,
+    "errors": 0,
+    "failed": 7,
     "passed": 2,
     "returncode": 1,
     "skipped": 0
    },
-   "ok": false
+   "ok": true
   },
   "PY-M05": {
    "fingerprint": "ed1be0119711c5fd942d92c1d6858014090728066679a3567c25f5b1a94beb3b",
@@ -183,6 +183,31 @@
    "guided_starter": {
     "errors": 0,
     "failed": 167,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "independent_starter": {
+    "errors": 0,
+    "failed": 10,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "ok": true
+  },
+  "PY-M13": {
+   "fingerprint": "a2ee9b4305a0365806c9fb8789afb053cdc92d4d916c9ed3167f4561c9a82e2a",
+   "guided_solution": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 128,
+    "returncode": 0,
+    "skipped": 0
+   },
+   "guided_starter": {
+    "errors": 0,
+    "failed": 128,
     "passed": 0,
     "returncode": 1,
     "skipped": 0
