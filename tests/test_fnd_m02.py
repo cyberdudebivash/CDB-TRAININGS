@@ -48,7 +48,8 @@ def test_independent_student_starter_is_intentionally_unfinished():
                           cwd=folder, capture_output=True, text=True, timeout=60)
     assert proc.returncode != 0
     assert "Ran 9 tests" in proc.stderr
-    assert "NotImplementedError" in proc.stderr
+    assert "FND-M02 STARTER INCOMPLETE" in proc.stderr
+    assert "FAILED (failures=" in proc.stderr
     assert "ModuleNotFoundError" not in proc.stderr
 
 
