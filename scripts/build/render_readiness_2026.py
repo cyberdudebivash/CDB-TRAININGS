@@ -10,7 +10,9 @@ Outputs: docs/release/OCT2026_PRODUCTION_READINESS.md
          docs/ops/MODERNIZATION_PROGRESS.md
 
 Run:    .venv/bin/python scripts/build/render_readiness_2026.py [--check]
-Nothing here can authorise a release: PRODUCTION_GO needs every readiness field MET, which includes human approval that only a person can record.
+Nothing here can authorise a release. Gate A (`TRAINING_CONTENT_GO`, content only) needs every Gate A readiness field MET, which includes human approval that only a person can record.
+The commercial and Academy fields belong to the separate Gates B and C, which are not assessed in this phase; they are listed as DEFERRED and never count toward Gate A.
+The authoritative Gate A computation is docs/production/ (scripts/production/gate_a.py); this document is a coarser per-field view of the same evidence.
 """
 from __future__ import annotations
 
@@ -55,6 +57,8 @@ HEADER = (
     f"> Research cutoff (Stage A): **{M.CUTOFF}**. Stage B refresh targeted at **{M.REFRESH_TARGET}**: `PENDING_FUTURE_REFRESH`.\n"
 )
 OPEN_VERIFICATION = {"NEEDS_VERIFICATION", "SECONDARY_ONLY", "MACHINE_ONLY"}
+DEFERRED = {"commercial": "B", "academy_integration": "C"}          # Gate B (COMMERCIAL_GO) and Gate C (ACADEMY_LIVE_GO): not assessed in this phase
+GATE_A_FIELDS = [k for k, _ in FIELDS if k not in DEFERRED]
 
 
 def md(x) -> str:
@@ -113,8 +117,9 @@ class Report:
             blockers = entry.get("blockers", [])
             fields[key] = {"status": entry["status"], "fraction": 1.0 if entry["status"] == "MET" else 0.5 if entry["status"] == "PARTIAL" else 0.0,
                            "detail": entry["note"] + (f" Blockers: {', '.join(blockers)}." if blockers else "")}
-        index = 100 * sum(1.0 if f["status"] == "MET" else f["fraction"] if f["status"] == "PARTIAL" else 0.0 for f in fields.values()) / len(fields)
-        unmet = [k for k, f in fields.items() if f["status"] != "MET"]
+        gate_a = {k: f for k, f in fields.items() if k in GATE_A_FIELDS}
+        index = 100 * sum(1.0 if f["status"] == "MET" else f["fraction"] if f["status"] == "PARTIAL" else 0.0 for f in gate_a.values()) / len(gate_a)
+        unmet = [k for k, f in gate_a.items() if f["status"] != "MET"]
         return {"mods": mods, "built": built, "labs": labs, "outs": outs, "changes": chs, "verified": verified, "open": opened, "pages": pages, "sev": sev, "status": status, "cur": cur,
                 "fields": fields, "index": index, "unmet": unmet, "go": not unmet}
 
@@ -123,35 +128,38 @@ class Report:
         d = self.d
         L = ["# October 2026 Production Readiness", "", HEADER,
              "## 1. Decision", "",
-             "**PRODUCTION_GO is not recommended for any course.** " + ("No course has all ten readiness fields MET." if not any(m["go"] for m in self.metrics.values()) else "Courses with all ten fields MET are eligible for owner review only."),
-             "The ten readiness fields below are kept **separate on purpose**: a high score in one never offsets a failed field. The evidence-completeness index is the average of the ten fields (MET counts 1, PARTIAL counts its evidenced fraction, "
-             "everything else 0) and is **a measure of how much evidence exists, not of quality**. The directive's 95/100 target is an index target; reaching it would not override a field that is not MET, and a course is only eligible when all ten are MET. "
-             "No gate in this repository can release or publish anything: the owner's approval is recorded outside the automation (see [RELEASE_GATES.md](RELEASE_GATES.md)).", "",
-             table(["Course", "Built modules", "Evidence index (target 95)", "Fields MET", "Unmet fields", "PRODUCTION_GO"],
+             "**TRAINING_CONTENT_GO is not recommended for any course.** " + ("No course has all eight Gate A readiness fields MET." if not any(m["go"] for m in self.metrics.values()) else "Courses with all eight Gate A fields MET are eligible for owner review only."),
+             "There are three independent gates ([RELEASE_GATES.md](RELEASE_GATES.md)): Gate A `TRAINING_CONTENT_GO` (the content is complete, correct, executable and releasable as content), Gate B `COMMERCIAL_GO` and Gate C `ACADEMY_LIVE_GO`. "
+             "Only Gate A is in scope of this phase. The eight Gate A fields below are kept **separate on purpose**: a high score in one never offsets a failed field. The evidence-completeness index is the average of the eight fields (MET counts 1, PARTIAL counts its evidenced fraction, "
+             "everything else 0) and is **a measure of how much evidence exists, not of quality**. Reaching 95 would not override a field that is not MET, and a course is only eligible when all eight are MET. "
+             "The authoritative per-course Gate A computation (19 mandatory criteria and the weighted quality score) is in [docs/production/TRAINING_CONTENT_GO_REPORT.md](../production/TRAINING_CONTENT_GO_REPORT.md). "
+             "No gate in this repository can release or publish anything: approvals are recorded by people, outside the automation.", "",
+             table(["Course", "Built modules", "Evidence index (target 95)", "Gate A fields MET", "Unmet Gate A fields", "TRAINING_CONTENT_GO"],
                    [[c["id"], f"{len(self.metrics[c['id']]['built'])} / {len(c['modules'])}", f"{self.metrics[c['id']]['index']:.1f}",
-                     f"{10 - len(self.metrics[c['id']]['unmet'])} / 10", ", ".join(self.metrics[c['id']]['unmet']), "NO"] for c in d.catalog["courses"]]), "",
+                     f"{len(GATE_A_FIELDS) - len(self.metrics[c['id']]['unmet'])} / {len(GATE_A_FIELDS)}", ", ".join(self.metrics[c['id']]['unmet']), "NO"] for c in d.catalog["courses"]]), "",
              "## 2. Readiness fields per course", "",
-             "`MET` / `PARTIAL` / `NOT_MET` / `NOT_ASSESSED` (nothing exists to assess). The detail column says what the status rests on.", ""]
+             "`MET` / `PARTIAL` / `NOT_MET` / `NOT_ASSESSED` (nothing exists to assess) / `DEFERRED` (belongs to Gate B or Gate C, not assessed in this phase). The detail column says what the status rests on.", ""]
         for c in d.catalog["courses"]:
             m = self.metrics[c["id"]]
-            L += [f"### {c['id']} - {c['title']}", "", table(["Field", "Status", "Evidence"], [[label, m["fields"][k]["status"], m["fields"][k]["detail"]] for k, label in FIELDS]), ""]
+            L += [f"### {c['id']} - {c['title']}", "", table(["Field", "Gate", "Status", "Evidence"], [[label, DEFERRED.get(k, "A"), "DEFERRED" if k in DEFERRED else m["fields"][k]["status"], m["fields"][k]["detail"]] for k, label in FIELDS]), ""]
         L += ["## 3. What each field means and what would make it MET", "",
               table(["Field", "MET when", "How the status is computed"], [[label, FIELD_MEANING[k][0], FIELD_MEANING[k][1]] for k, label in FIELDS]), "",
-              "## 4. Relationship to the eight release gates", "",
-              "[RELEASE_GATES.md](RELEASE_GATES.md) defines gates G1-G8 and `scripts/validation/run_qa.py` writes [PRODUCTION_GO_GATE_REPORT.md](PRODUCTION_GO_GATE_REPORT.md). The ten fields here are a finer view of the same evidence: "
-              "research currency and technical correctness feed G2; curriculum completeness, lab readiness and assessment readiness feed G3-G5; editorial feeds G6-G7; IP/licensing is G1; commercial, Academy integration and human approval feed G8 and the owner sign-off. "
-              "`validate_catalog.py` rejects a PRODUCTION_GO claim without the evidence the gates require.", "",
+              "## 4. Relationship to the three gates", "",
+              "[RELEASE_GATES.md](RELEASE_GATES.md) defines Gate A (`TRAINING_CONTENT_GO`), Gate B (`COMMERCIAL_GO`) and Gate C (`ACADEMY_LIVE_GO`). The eight Gate A fields here are a coarse view of the evidence that "
+              "`scripts/production/gate_a.py` evaluates in detail (19 mandatory criteria); commercial readiness and Academy integration are Gate B and Gate C inputs and are DEFERRED. "
+              "`scripts/validation/validate_gate_a.py` rejects a `TRAINING_CONTENT_GO` claim that the evidence does not support.", "",
               "## 5. Two-stage currency policy", "",
               f"- **Stage A (done):** execution and research cutoff {M.CUTOFF}.",
               f"- **Stage B (`PENDING_FUTURE_REFRESH`):** the refresh requested for {M.REFRESH_TARGET} has not been performed; the checks it must make are in [OCT24_FINAL_REFRESH_CHECKLIST.md](OCT24_FINAL_REFRESH_CHECKLIST.md). Nothing dated after the cutoff is claimed anywhere.", "",
               "## 6. Owner decisions that block progress", "",
               "Defined in [EXECUTION_HANDOFF.md](../execution/EXECUTION_HANDOFF.md): D1 (public personal data in the Frontend PDF), D2 (origin of the \"INTERNAL\" playbook), D3 (GPL redistribution in the OSINT bundle), D4 (copyright holder and licence), D5 (named SME reviewers), D6 (Academy platform and payment stack), D7 (any paid-resource budget), D8 (private repository for instructor packs).", "",
-              "## 7. What would have to be true for a course to reach PRODUCTION_GO", "",
+              "## 7. What would have to be true for a course to reach TRAINING_CONTENT_GO", "",
               "1. Every planned module is built and every lab executes on the declared toolchain matrix with a recorded result (fields 3-4).",
               "2. Every outcome has a reviewed, piloted assessment (field 5) and a named SME has signed off the technical content (field 2).",
               "3. The Stage B refresh is done and no change record is left open (field 1).",
               "4. Licence, rights holder and third-party terms are settled (field 7); editorial review is complete (field 6).",
-              "5. Pricing and delivery are decided on evidence (fields 8-9) and the owner records approval (field 10).", ""]
+              "5. Named people record the subject-matter, editorial, learner-pilot and owner approvals (human approval field).",
+              "Pricing, packaging, listing and Academy delivery are separate decisions under Gate B and Gate C and are not part of this list.", ""]
         return "\n".join(L)
 
     def premium_catalog(self) -> str:
@@ -159,7 +167,7 @@ class Report:
         use = M.tech_usage(d)
         L = ["# Premium Course Catalog (October 2026) - status of each planned edition", "", HEADER,
              "This catalog lists the **planned** premium editions. **No edition may be titled \"Premium Edition\" or sold today**: the reserved title",
-             "`CYBERDUDEBIVASH — <Course> — October 2026 Premium Edition` becomes usable only for a course whose ten readiness fields are all MET "
+             "`CYBERDUDEBIVASH — <Course> — October 2026 Premium Edition` becomes usable only for a course that has reached `TRAINING_CONTENT_GO` (Gate A) "
              "([OCT2026_PRODUCTION_READINESS.md](../release/OCT2026_PRODUCTION_READINESS.md)); until then any build must be labelled as a preview or student pilot. "
              "No price is set (see [PRICING_AND_POSITIONING_RESEARCH.md](PRICING_AND_POSITIONING_RESEARCH.md), hypotheses only), and no listing exists.", "",
              "Every edition, when it exists, must disclose these items on its front matter: content revision date, research verification date, technical baseline, unverified external changes and next review date. "
@@ -244,7 +252,7 @@ class Report:
               "Source pages are audited by rules over **all** pages; only finding-cited pages were read by a person (see [OCT2026_COMPLETE_PDF_AUDIT.md](../audits/OCT2026_COMPLETE_PDF_AUDIT.md)). `Change records verified` counts records whose verification is EXECUTED or RESEARCH_VERIFIED.", "",
               "## 2. What is automatically checked", "",
               table(["Check", "Where", "What it proves"], [
-                  ["Catalog schema and cross references", "`scripts/validation/validate_catalog.py`", "Courses, modules, pathways and the PRODUCTION_GO hard gate are consistent"],
+                  ["Catalog schema and cross references", "`scripts/validation/validate_catalog.py`", "Courses, modules, pathways and the TRAINING_CONTENT_GO hard gate are consistent"],
                   ["Page-level audit records", "`tests/test_page_records.py`, `build_page_records.py --check`", "All 8,186 pages have a record, hashes match, no personal data or credential literals, status labels do not overclaim"],
                   ["Evidence references", "`scripts/audit/validate_modernization_data.py`", "Every finding, research, probe, snapshot and module reference resolves; delivery status matches the catalog"],
                   ["Generated documents", "`--check` modes of the renderers, `tests/test_modernization_data.py`", "Documents reproduce from data; none is hand-edited"],

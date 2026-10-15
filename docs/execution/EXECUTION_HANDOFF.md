@@ -15,7 +15,7 @@ For the repository owner and whoever continues this work. Read this first; it te
 | Release control | Six release states, eight gates, generated gate report | `docs/release/` |
 | Commercial | Product and bundle hypotheses, readiness verdict (not ready), claims policy | `docs/commercial/` |
 
-**Not production-ready:** nothing. `PRODUCTION_GO` count is 0 and the validator refuses to let you set it by hand without evidence.
+**Not release-ready:** nothing. The `TRAINING_CONTENT_GO` count is 0 and the validator refuses to let you set it by hand without evidence.
 
 ## 2. Verify it yourself (10 minutes)
 
@@ -72,7 +72,7 @@ The quiz answer key, the independent-lab reference solution and grading notes ar
 | 6 | PY-M01..M05, then Python Automation | Highest reuse |
 | 7 | AI Engineering (free local model labs) | Large source defects F-AI-001..004 to remediate |
 | 8 | GCP, Java QA, Frontend, OSINT, CYBER tracks | Each needs its own lab environment decisions |
-| 9 | Generate website/marketplace listings from the catalog | Only after a course reaches `PRODUCTION_GO` and the owner authorises |
+| 9 | Generate website/marketplace listings from the catalog | Only after a course reaches `TRAINING_CONTENT_GO`, Gate B (commercial) is passed in a later phase and the owner authorises |
 
 For each module follow the unit contract in `MASTER_CURRICULUM_BLUEPRINT.md` section 4 and the checklist in `PRACTICAL_LAB_STANDARDS.md` section 9.
 

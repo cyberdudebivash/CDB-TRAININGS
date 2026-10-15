@@ -1,0 +1,6 @@
+# Records of the assistant's ADVERSARIAL self-review and independent-learner dry run of a module (directive sections 12 and 18). These are engineering records,
+# not human review: a module whose only review is recorded here is REVIEW_REQUIRED, never TRAINING_CONTENT_GO.
+# Entry format: id, module, date, method (what was run, from which files only), findings (id list or []), outcome (CLEAN | FINDINGS_REMEDIATED | FINDINGS_OPEN), evidence (paths).
+schema_version: 1
+as_of: 2026-10-15
+reviews: []

@@ -50,6 +50,8 @@ class ScriptedServer:
     def __init__(self, app: Callable[[Request], Reply]) -> None:
         self.app = app
         self.requests: list[Request] = []
+        self.inflight = 0                  # requests being handled right now (including those waiting out a Reply.delay)
+        self.peak_inflight = 0             # the highest value `inflight` has had
         self._lock = threading.Lock()
         self._stopping = threading.Event()
         owner = self
@@ -67,6 +69,16 @@ class ScriptedServer:
                     number = len(owner.requests) + 1
                     request = Request(number, self.command, parts.path, parse_qs(parts.query), {k.lower(): v for k, v in self.headers.items()}, body)
                     owner.requests.append(request)
+                with owner._lock:
+                    owner.inflight += 1
+                    owner.peak_inflight = max(owner.peak_inflight, owner.inflight)
+                try:
+                    self._answer(request)
+                finally:
+                    with owner._lock:
+                        owner.inflight -= 1
+
+            def _answer(self, request: Request) -> None:
                 reply = owner.app(request)
                 if reply.delay and owner._stopping.wait(reply.delay):
                     return
@@ -96,6 +108,7 @@ class ScriptedServer:
         class Server(http.server.ThreadingHTTPServer):
             daemon_threads = True
             block_on_close = False
+            request_queue_size = 128           # the default backlog of 5 makes a burst of simultaneous connections wait for a 1 s SYN retransmit, which skews concurrency measurements
 
             def handle_error(self, request, client_address) -> None:
                 if not isinstance(sys.exc_info()[1], ConnectionError):      # clients that give up on purpose are not worth a traceback

@@ -52,7 +52,7 @@ Catalog slug `python-engineering`; legacy sources: SRC-PY-HANDBOOK.
 | PY-M03 | Types, modules and project layout | NET_NEW | - | - | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | NET_NEW | - | - | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
 | PY-M05 | Files, structured data and HTTP clients | 6 | SRC-PY-HANDBOOK: 6 pp (82, 90, 125-126, 128-129) | KEEP 3, UPDATE 1, REPLACE 2 | MC-PYH-19 | - |
-| PY-M06 | Concurrency and asynchronous programming | 1 | SRC-PY-HANDBOOK: 1 pp (177) | UPDATE 1 | MC-PYH-16 | ND-PY-02 |
+| PY-M06 | Concurrency and asynchronous programming | 1 | SRC-PY-HANDBOOK: 1 pp (177) | REPLACE 1 | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
 | PY-M07 | Secure coding for Python | 19 | SRC-PY-HANDBOOK: 19 pp (86, 120, 232, 245, ... (+5 more ranges)) | KEEP 12, UPDATE 5, REPLACE 2 | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
 | PY-M08 | Databases and persistence | 10 | SRC-PY-HANDBOOK: 10 pp (108, 154, 176, 181, ... (+6 more ranges)) | KEEP 7, UPDATE 1, REPLACE 2 | MC-PYH-08 | - |
 | PY-M09 | Profiling, performance and maintainable architecture | 2 | SRC-PY-HANDBOOK: 2 pp (57, 464) | KEEP 1, REPLACE 1 | - | ND-PY-01 |
@@ -138,7 +138,7 @@ Catalog slug `gcp-data-engineering`; legacy sources: SRC-GCP-DATAENG.
 | Module | Title | Mapped source pages | Source pages (by PDF) | Page-level actions (candidate) | Change records | New developments |
 |---|---|---|---|---|---|---|
 | GCP-M01 | Cloud foundations, IAM, cost safety and sandbox setup | 61 | SRC-GCP-DATAENG: 61 pp (1, 5-8, 23, 26-27, ... (+21 more ranges)) | KEEP 32, UPDATE 18, REPLACE 2, EXPAND 9 | MC-GCP-05 | - |
-| GCP-M02 | Cloud Storage and batch ingestion | 110 | SRC-AI-BUNDLE: 58 pp (74-83, 85-86, 88-97, 99, ... (+9 more ranges)); SRC-GCP-DATAENG: 9 pp (9, 37-39, 41-44, 50); SRC-PY-HANDBOOK: 43 pp (97, 133-146, 156-157, 168-169, ... (+6 more ranges)) | KEEP 14, UPDATE 29, REPLACE 8, EXPAND 1, MERGE 58 | MC-AIB-06, MC-PYH-13 | ND-PY-04 |
+| GCP-M02 | Cloud Storage and batch ingestion | 110 | SRC-AI-BUNDLE: 58 pp (74-83, 85-86, 88-97, 99, ... (+9 more ranges)); SRC-GCP-DATAENG: 9 pp (9, 37-39, 41-44, 50); SRC-PY-HANDBOOK: 43 pp (97, 133-146, 156-157, 168-169, ... (+6 more ranges)) | KEEP 13, UPDATE 30, REPLACE 8, EXPAND 1, MERGE 58 | MC-AIB-06, MC-PYH-13 | ND-PY-04 |
 | GCP-M03 | BigQuery SQL and analytical modelling | 30 | SRC-GCP-DATAENG: 11 pp (2, 10-11, 25, 47, ... (+2 more ranges)); SRC-PY-HANDBOOK: 19 pp (64-79, 179, 354, 374) | KEEP 21, UPDATE 6, REPLACE 2, EXPAND 1 | MC-AIB-06, MC-GCP-03, MC-PYH-13 | ND-AI-07 |
 | GCP-M04 | Pub/Sub and streaming ingestion | 28 | SRC-GCP-DATAENG: 4 pp (40, 45-46, 58); SRC-PY-HANDBOOK: 24 pp (610-633) | KEEP 13, UPDATE 15 | MC-PYH-13 | - |
 | GCP-M05 | Apache Beam and Dataflow | 8 | SRC-GCP-DATAENG: 8 pp (12, 24, 62-66, 115) | KEEP 2, UPDATE 6 | MC-GCP-06 | ND-GC-04 |

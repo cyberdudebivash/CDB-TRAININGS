@@ -9,7 +9,7 @@
 | Review confidence | **MEDIUM** |
 | Review coverage | 654/654 pages machine-scanned; ~15 pages read in context (pp. 63-64, 83, 163-164, 220, 427-428, 585-586 and code-failure contexts); 404 code blocks syntax-checked. |
 | Quality score (source as received) | **36 / 100** (internal instrument; see `COURSE_QUALITY_SCORECARD.md`) |
-| Open findings | P0: 1, P1: 3, P2: 5, P3: 0, P4: 0 |
+| Open findings | P0: 1, P1: 3, P2: 6, P3: 0, P4: 0 |
 | Release status | `REENGINEERING` (lifecycle `IN_BUILD`) |
 | Audit date | 2026-10-14 |
 
@@ -41,6 +41,7 @@ Severity scale: **P0** dangerous, materially incorrect, legally problematic or f
 | F-PYH-006 | P2 | Instructional clarity and sequencing | Thin sections and uncontrolled scope | p. 63 | STATIC_SCAN | PLANNED_IN_TRACK |
 | F-PYH-008 | P2 | Technical correctness and security | Dataclasses described as providing type validation; type hints promise bug detection without naming a checker | p. 85 | EXECUTED | PLANNED_IN_TRACK |
 | F-PYH-009 | P2 | Technical correctness and security | HTTP calls taught without timeouts or status checks; files opened without a context manager or an encoding; a destructive bulk-rename example | p. 83, p. 91, p. 125, p. 129 | EXECUTED | PLANNED_IN_TRACK |
+| F-PYH-010 | P2 | Technical correctness and security | Concurrency examples promise speed-ups without measurement and show unbounded, unsupervised asyncio patterns | p. 134, p. 135, p. 136, p. 177, p. 178 | EXECUTED | PLANNED_IN_TRACK |
 
 ### F-PYH-001 (P0) Agent 'math tool' evaluates model-controlled input with eval()
 
@@ -137,6 +138,19 @@ Scan of the extracted text: 38 requests/httpx calls, one of them with a timeout 
 **Verification:** EXECUTED. **Recommendation:** Teach an explicit timeout on every request, status checking before decoding, one shared client, bounded retries for idempotent requests only, pathlib with a with-block or Path.read_text/write_text and an explicit encoding, and validation of decoded data against a schema.
 **Remediation:** PLANNED_IN_TRACK - Module PY-M05 (courses/python-engineering/modules/PY-M05).
 
+### F-PYH-010 (P2) Concurrency examples promise speed-ups without measurement and show unbounded, unsupervised asyncio patterns
+
+- **p. 135:** ThreadPoolExecutor example for three URLs ends 'Result -> 3x faster execution with minimal effort' with no timing shown; the example calls requests.get without a timeout.
+- **p. 136:** '1000 API calls': one AsyncClient is created per task, 1000 tasks run at once with no concurrency limit, no timeout and gather without error handling; the text says '1000 requests happen in SECONDS' and 'This is impossible with regular code'.
+- **p. 134:** 'Python's GIL blocks CPU-bound threads but NOT IO-bound threads' is stated as the whole story; Python 3.14 officially supports free-threaded builds (R-046).
+- **p. 177:** `pip install httpx asyncio`: asyncio is part of the standard library; the PyPI project of that name is a deprecated placeholder.
+- **p. 178:** 'This can fetch 20 feeds in under 3 seconds' with asyncio.gather and no timing, limit or error policy.
+
+Executed on CPython 3.11-3.15 (PY-M06 lesson): gather leaves sibling tasks running after one fails while TaskGroup cancels them (R-093); an unbounded fan-out of 60 requests put dozens of them in flight at once on the server (20 to 60 in the runs) while a semaphore of 5 kept the peak at 5; a blocking call inside a coroutine freezes every other task; threads do not speed up CPU-bound work on a GIL build. Probe pypi-asyncio-placeholder: pip install asyncio installs a code-free deprecated placeholder (R-094). The speed claims have no measurement in the source, so they are neither confirmed nor refuted; the module replaces them with a benchmark the learner runs.
+
+**Verification:** EXECUTED. **Recommendation:** Choose threads, asyncio, processes or free-threading from a measured profile; bound concurrency; put a timeout on every call; use TaskGroup and asyncio.timeout; keep references to tasks; write benchmarks that report medians and variance and never state a speed-up that was not measured.
+**Remediation:** PLANNED_IN_TRACK - Module PY-M06 (courses/python-engineering/modules/PY-M06).
+
 ## 4. Mandated-topic coverage (keyword probes)
 
 Zero matches are a definitive gap; a match only shows a term is mentioned, not taught. See `TECHNICAL_GAP_MATRIX.md` for the legend.
@@ -184,6 +198,6 @@ Security-pattern hits in code (each read in context): bare_except=10, debug_true
 ## 7. Release blockers and disposition
 
 - Blocking findings recorded in the catalog: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
-- Release status: `REENGINEERING`. A course cannot reach `PRODUCTION_GO` until all 15 gates in `docs/release/RELEASE_GATES.md` pass; this one fails most of them (see `docs/release/PRODUCTION_GO_GATE_REPORT.md`).
-- Notes: Six of eleven modules are built (PY-M01, PY-M02, PY-M03, PY-M04, PY-M05, PY-M07) with twelve labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other five modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are not yet covered by any module.
+- Release status: `REENGINEERING`. A course cannot reach `TRAINING_CONTENT_GO` until Gate A in `docs/release/RELEASE_GATES.md` is computed as met; this one fails most of its criteria (see `docs/production/TRAINING_CONTENT_GO_REPORT.md`).
+- Notes: Seven of eleven modules are built (PY-M01 to PY-M07) with fourteen labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are not yet covered by any module.
 - Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.

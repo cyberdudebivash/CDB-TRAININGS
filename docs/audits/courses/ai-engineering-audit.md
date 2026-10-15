@@ -179,6 +179,6 @@ Zero matches are a definitive gap; a match only shows a term is mentioned, not t
 ## 7. Release blockers and disposition
 
 - Blocking findings recorded in the catalog: F-AI-001, F-AI-002, F-AI-003, F-AI-004.
-- Release status: `REENGINEERING`. A course cannot reach `PRODUCTION_GO` until all 15 gates in `docs/release/RELEASE_GATES.md` pass; this one fails most of them (see `docs/release/PRODUCTION_GO_GATE_REPORT.md`).
+- Release status: `REENGINEERING`. A course cannot reach `TRAINING_CONTENT_GO` until Gate A in `docs/release/RELEASE_GATES.md` is computed as met; this one fails most of its criteria (see `docs/production/TRAINING_CONTENT_GO_REPORT.md`).
 - Notes: Labs must run at zero cost (local or open-weights model option) per the free local-first policy.
 - Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.

@@ -497,6 +497,21 @@ findings:
     detail: "Scan of the extracted text: 38 requests/httpx calls, one of them with a timeout (p. 336); 26 one-line open(...).read()/json.load(open(...)) patterns; 34 `with open(` uses; no `encoding=` argument anywhere. Executed (probe http-client-defaults, requests 2.34.2): against a server that never answers, requests.get(url) was still blocked after 3 s while a call with timeout=0.5 raised ReadTimeout; httpx defaults to a 5 s timeout. The scan counts come from regular expressions over extracted text, not from a person reading every page."
     recommendation: "Teach an explicit timeout on every request, status checking before decoding, one shared client, bounded retries for idempotent requests only, pathlib with a with-block or Path.read_text/write_text and an explicit encoding, and validation of decoded data against a schema."
     remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M05 (courses/python-engineering/modules/PY-M05)"}
+  - id: F-PYH-010
+    source_id: SRC-PY-HANDBOOK
+    severity: P2
+    dimension: technical_correctness
+    title: "Concurrency examples promise speed-ups without measurement and show unbounded, unsupervised asyncio patterns"
+    evidence:
+      - {page: 135, note: "ThreadPoolExecutor example for three URLs ends 'Result -> 3x faster execution with minimal effort' with no timing shown; the example calls requests.get without a timeout."}
+      - {page: 136, note: "'1000 API calls': one AsyncClient is created per task, 1000 tasks run at once with no concurrency limit, no timeout and gather without error handling; the text says '1000 requests happen in SECONDS' and 'This is impossible with regular code'."}
+      - {page: 134, note: "'Python's GIL blocks CPU-bound threads but NOT IO-bound threads' is stated as the whole story; Python 3.14 officially supports free-threaded builds (R-046)."}
+      - {page: 177, note: "`pip install httpx asyncio`: asyncio is part of the standard library; the PyPI project of that name is a deprecated placeholder."}
+      - {page: 178, note: "'This can fetch 20 feeds in under 3 seconds' with asyncio.gather and no timing, limit or error policy."}
+    verification: EXECUTED
+    detail: "Executed on CPython 3.11-3.15 (PY-M06 lesson): gather leaves sibling tasks running after one fails while TaskGroup cancels them (R-093); an unbounded fan-out of 60 requests put dozens of them in flight at once on the server (20 to 60 in the runs) while a semaphore of 5 kept the peak at 5; a blocking call inside a coroutine freezes every other task; threads do not speed up CPU-bound work on a GIL build. Probe pypi-asyncio-placeholder: pip install asyncio installs a code-free deprecated placeholder (R-094). The speed claims have no measurement in the source, so they are neither confirmed nor refuted; the module replaces them with a benchmark the learner runs."
+    recommendation: "Choose threads, asyncio, processes or free-threading from a measured profile; bound concurrency; put a timeout on every call; use TaskGroup and asyncio.timeout; keep references to tasks; write benchmarks that report medians and variance and never state a speed-up that was not measured."
+    remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M06 (courses/python-engineering/modules/PY-M06)"}
 
   # ------------------------------------------------------------------------- Python Automation Training
   - id: F-PYA-001

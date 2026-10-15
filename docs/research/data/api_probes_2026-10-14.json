@@ -398,6 +398,35 @@
   {
    "status": "OK",
    "pins": [
+    "asyncio"
+   ],
+   "installed": {
+    "asyncio": "4.0.0"
+   },
+   "python": "Python 3.13.16",
+   "observed": {
+    "installed_version": "4.0.0",
+    "summary": "Deprecated backport of asyncio; use the stdlib package instead",
+    "installed_files": [
+     "asyncio-4.0.0.dist-info/INSTALLER",
+     "asyncio-4.0.0.dist-info/METADATA",
+     "asyncio-4.0.0.dist-info/RECORD",
+     "asyncio-4.0.0.dist-info/REQUESTED",
+     "asyncio-4.0.0.dist-info/WHEEL",
+     "asyncio-4.0.0.dist-info/licenses/COPYING",
+     "asyncio-4.0.0.dist-info/top_level.txt"
+    ],
+    "ships_python_code": false,
+    "import_resolves_to_stdlib": true
+   },
+   "id": "pypi-asyncio-placeholder",
+   "taught_pattern": "pip install httpx asyncio",
+   "runtime": "python",
+   "executed_utc": "2026-10-14T16:52:18Z"
+  },
+  {
+   "status": "OK",
+   "pins": [
     "pytest==9.1.1"
    ],
    "installed": {

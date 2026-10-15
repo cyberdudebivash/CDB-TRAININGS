@@ -922,16 +922,16 @@
   "SRC-PY-HANDBOOK": {
    "action": {
     "EXPAND": 12,
-    "KEEP": 326,
+    "KEEP": 325,
     "REMOVE": 74,
-    "REPLACE": 92,
+    "REPLACE": 93,
     "UPDATE": 150
    },
    "currency": {
     "BASELINE_AVAILABLE": 295,
-    "CURRENCY_FLAGGED": 8,
+    "CURRENCY_FLAGGED": 9,
     "NO_TECHNOLOGY_DETECTED": 167,
-    "UNVERIFIED_CURRENCY": 184
+    "UNVERIFIED_CURRENCY": 183
    },
    "destination": {
     "-": 74,
@@ -958,7 +958,7 @@
     "PY-M11": 9,
     "SOC-M03": 72
    },
-   "human_read_pages": 18,
+   "human_read_pages": 23,
    "issue_pages": {
     "END_OF_LIFE_VERSION": 2,
     "LEGAL_ETHICS_REVIEW": 2,
@@ -969,7 +969,7 @@
     "RETIRED_MODEL": 2,
     "SECURITY_ANTIPATTERN": 49,
     "STUB_PAGE": 13,
-    "SUPERSEDED_PRODUCT": 1,
+    "SUPERSEDED_PRODUCT": 2,
     "UNSUPPORTED_CLAIM": 9
    },
    "mapping": {
@@ -988,20 +988,21 @@
     "DR-PY-018": 3,
     "DR-PY-020": 1,
     "DR-PY-021": 2,
-    "DR-PY-023": 32
+    "DR-PY-023": 32,
+    "DR-PY-024": 1
    },
    "severity": {
-    "NONE": 567,
+    "NONE": 563,
     "P0": 2,
     "P1": 12,
-    "P2": 47,
+    "P2": 51,
     "P3": 14,
     "P4": 12
    },
    "status": {
-    "HUMAN_READ_FINDING_CITED": 18,
-    "MACHINE_FLAGGED_REVIEW_REQUIRED": 56,
-    "MACHINE_SCANNED_NO_FLAGS": 579,
+    "HUMAN_READ_FINDING_CITED": 23,
+    "MACHINE_FLAGGED_REVIEW_REQUIRED": 55,
+    "MACHINE_SCANNED_NO_FLAGS": 575,
     "VISUAL_REVIEW_REQUIRED": 1
    },
    "top_technologies": [
@@ -1187,26 +1188,26 @@
  },
  "totals": {
   "action:EXPAND": 91,
-  "action:KEEP": 3275,
+  "action:KEEP": 3274,
   "action:MERGE": 936,
   "action:REMOVE": 932,
-  "action:REPLACE": 490,
+  "action:REPLACE": 491,
   "action:UPDATE": 2462,
   "currency:BASELINE_AVAILABLE": 1394,
-  "currency:CURRENCY_FLAGGED": 155,
+  "currency:CURRENCY_FLAGGED": 156,
   "currency:NO_TECHNOLOGY_DETECTED": 3244,
-  "currency:UNVERIFIED_CURRENCY": 3393,
+  "currency:UNVERIFIED_CURRENCY": 3392,
   "pages": 8186,
-  "severity:NONE": 7382,
+  "severity:NONE": 7378,
   "severity:P0": 10,
   "severity:P1": 71,
-  "severity:P2": 201,
+  "severity:P2": 205,
   "severity:P3": 345,
   "severity:P4": 177,
-  "status:HUMAN_READ_FINDING_CITED": 102,
-  "status:MACHINE_FLAGGED_REVIEW_REQUIRED": 502,
+  "status:HUMAN_READ_FINDING_CITED": 107,
+  "status:MACHINE_FLAGGED_REVIEW_REQUIRED": 501,
   "status:MACHINE_SCANNED_NEAR_BLANK": 29,
-  "status:MACHINE_SCANNED_NO_FLAGS": 7524,
+  "status:MACHINE_SCANNED_NO_FLAGS": 7520,
   "status:VISUAL_REVIEW_REQUIRED": 29
  }
 }

@@ -1,0 +1,158 @@
+{
+ "course_editions": [],
+ "editions": [
+  {
+   "edition": "PY-M01-student-preview-0.1.0-preview",
+   "html_sha256": "b1d55c465e3391291dd990a3dba24d236c8a348a5adec4cf7b5895e3649ef223",
+   "mobile_360px": "scrollWidth=360 viewportWidth=360",
+   "module": "PY-M01",
+   "outline_entries": 2,
+   "passed": true,
+   "pdf_pages": 22,
+   "pdf_words": 5815,
+   "problems": {},
+   "sources": {
+    "courses/python-engineering/modules/PY-M01/assessment/quiz.md": "58944a7f802a4f4d45ff10fb6566962a90172c885a09cf6e50e4ccb90c3fade8",
+    "courses/python-engineering/modules/PY-M01/lab-guided/README.md": "4027736cda403719a8fc56279a959da96ae82e5d615a834b925dcd98346a7259",
+    "courses/python-engineering/modules/PY-M01/lab-independent/README.md": "1055a4a9b819d8ddddd38bc9b15f465ce1ceff14ce3df6fa34666c0e09fc16ff",
+    "courses/python-engineering/modules/PY-M01/lesson.md": "cecfe4c8454a8c5d4b5ff6f75143aaf758f54863fda69cfd802945a3388e206d",
+    "courses/python-engineering/student/PY-M01-student-edition.yaml": "9debdb6917d21ac60cbbda102009b6e39d30964ef68f42421e8f22729b28edbe"
+   },
+   "tagged": "yes"
+  },
+  {
+   "edition": "PY-M02-student-preview-0.1.0-preview",
+   "html_sha256": "9eb9394a3b850f503011e0ced9c6df2a805183313273c5c78babf7c25786a273",
+   "mobile_360px": "scrollWidth=360 viewportWidth=360",
+   "module": "PY-M02",
+   "outline_entries": 2,
+   "passed": true,
+   "pdf_pages": 17,
+   "pdf_words": 3931,
+   "problems": {},
+   "sources": {
+    "courses/python-engineering/modules/PY-M02/assessment/quiz.md": "d7a0e77410124bbb1914c7495b4dd40ae81b3f9294243102e57358284fbf2c5a",
+    "courses/python-engineering/modules/PY-M02/lab-guided/README.md": "6d0ca6725b3a152b9fdae8af2543f6bb1e8ace8fedaddf0073767384fc207568",
+    "courses/python-engineering/modules/PY-M02/lab-independent/README.md": "65b34f6399b6c132fb9c4cd8d962350cd7faac1d25d4ef16e16ceadac584c6db",
+    "courses/python-engineering/modules/PY-M02/lesson.md": "73b8ab4142438c3c3b6a7771f1e633f60f5c5f83b184afbcd82ead7658e9454e",
+    "courses/python-engineering/student/PY-M02-student-edition.yaml": "8d06acf64799ad7b47d4e9f79aec3ccb412ccca6760a6eb68b2e07eb9af3d8dc"
+   },
+   "tagged": "yes"
+  },
+  {
+   "edition": "PY-M03-student-preview-0.1.0-preview",
+   "html_sha256": "dabdb6f20253b4c52d1616b90db315492974672155bb2b6ac9f9eabfc080ce13",
+   "mobile_360px": "scrollWidth=360 viewportWidth=360",
+   "module": "PY-M03",
+   "outline_entries": 2,
+   "passed": true,
+   "pdf_pages": 21,
+   "pdf_words": 4959,
+   "problems": {},
+   "sources": {
+    "courses/python-engineering/modules/PY-M03/assessment/quiz.md": "921479b255c0df48de9f9136c23241a768e709437550f378785220098d61f8f9",
+    "courses/python-engineering/modules/PY-M03/lab-guided/README.md": "2bef58e4d9b6d68ead9d9aa785d94eee721128071fc29a2bf2a434b8173c2e5a",
+    "courses/python-engineering/modules/PY-M03/lab-independent/README.md": "eb155da0e8dab82b14ecd4ea93bfa678a1a0458572c3e6cb36a0ae29286c4a17",
+    "courses/python-engineering/modules/PY-M03/lesson.md": "2e630d6df8f9c63c8709f515c85da10231ca571bf069083793423023656f6795",
+    "courses/python-engineering/student/PY-M03-student-edition.yaml": "73ac52b34b1873a6c2b87446990bc01c48d67d51aef9c46b21d75e28e45872ca"
+   },
+   "tagged": "yes"
+  },
+  {
+   "edition": "PY-M04-student-preview-0.1.0-preview",
+   "html_sha256": "3ebba094b47728349c81d9d0877fbd5143fcba4372df592a716a83b0abc58af8",
+   "mobile_360px": "scrollWidth=360 viewportWidth=360",
+   "module": "PY-M04",
+   "outline_entries": 2,
+   "passed": true,
+   "pdf_pages": 18,
+   "pdf_words": 4124,
+   "problems": {},
+   "sources": {
+    "courses/python-engineering/modules/PY-M04/assessment/quiz.md": "90947233c30731c337538cef6d1c7dfa2b68a237d08585b89461d087e40333cb",
+    "courses/python-engineering/modules/PY-M04/lab-guided/README.md": "8acb292245fb1003b73850bd84376834053b6acbe0973e0e841bd8287677d37d",
+    "courses/python-engineering/modules/PY-M04/lab-independent/README.md": "32c2eeaddeeda99a2ebf81cc53915e880a5de2e374190bc4bd4c47c0fd1a8856",
+    "courses/python-engineering/modules/PY-M04/lesson.md": "5d1c6c0e4ef396719a0d9c7a5c846ee9f930efdcc7fb7ea83188144b3b820bec",
+    "courses/python-engineering/student/PY-M04-student-edition.yaml": "278ea6ca78d89a23380ebaa2b8fff0d622101246fbe77652490f116d57ba19ac"
+   },
+   "tagged": "yes"
+  },
+  {
+   "edition": "PY-M05-student-preview-0.1.0-preview",
+   "html_sha256": "2616998c0221bef5d6b3c6b840f0f37a6e60906b817c97e5cda021ee3023e309",
+   "mobile_360px": "scrollWidth=360 viewportWidth=360",
+   "module": "PY-M05",
+   "outline_entries": 2,
+   "passed": true,
+   "pdf_pages": 33,
+   "pdf_words": 8138,
+   "problems": {},
+   "sources": {
+    "courses/python-engineering/modules/PY-M05/assessment/quiz.md": "0aa827f725bf66e7863bfa49965d661651d42488267b958e41167c315e014940",
+    "courses/python-engineering/modules/PY-M05/lab-guided/README.md": "6cc7cb30145de15ed63d8f10ec4a5dc2acf3c4d3d7d876f28fb5d0c81cf8fbb9",
+    "courses/python-engineering/modules/PY-M05/lab-independent/README.md": "0743af5a175a409ff66064f1c6dbcceac3f01e1703e2f0f2ae518876538a61da",
+    "courses/python-engineering/modules/PY-M05/lesson.md": "5ac9d1321a52506bdd6302f769023282576528c16ceca52ab25e2578a3e6a9ce",
+    "courses/python-engineering/student/PY-M05-student-edition.yaml": "dde41388c799585220681579c15db48e339c26dbfcf02ad5e3111d304ff78cc4"
+   },
+   "tagged": "yes"
+  },
+  {
+   "edition": "PY-M06-student-preview-0.1.0-preview",
+   "html_sha256": "918da0cb40feaed6ff8763a9b4551159e732c4c40fb63b22d86bd24e120545f9",
+   "mobile_360px": "scrollWidth=360 viewportWidth=360",
+   "module": "PY-M06",
+   "outline_entries": 2,
+   "passed": true,
+   "pdf_pages": 31,
+   "pdf_words": 7411,
+   "problems": {},
+   "sources": {
+    "courses/python-engineering/modules/PY-M06/assessment/quiz.md": "d690e454c1dbaf670e16c9575a4ab0d5777c469e0a77c8f95febd6c0c3930507",
+    "courses/python-engineering/modules/PY-M06/lab-guided/README.md": "42d064344a498c7db1b58e7d0873d5721e33658e2faf7d9f602559ed4bcf743b",
+    "courses/python-engineering/modules/PY-M06/lab-independent/README.md": "2b46bf1361c8b112ecd14f7def75b786191d7d3d1f20ee540e8e59d9d1be2ef8",
+    "courses/python-engineering/modules/PY-M06/lesson.md": "dd7464bc0c4e7cbc8ab2c743bfafe6a4ebf373839574060f740b42b76fe27f1c",
+    "courses/python-engineering/student/PY-M06-student-edition.yaml": "81e97befa8eb64bd5bb7fcf7188a2b525dff0dfca4a1ba373c5c2d0b8aec98a7"
+   },
+   "tagged": "yes"
+  },
+  {
+   "edition": "PY-M07-student-preview-0.1.0-preview",
+   "html_sha256": "86da9448457f26a00e41d6bb012f1a7211de010d4d18b532324f58ca40096ae8",
+   "mobile_360px": "scrollWidth=360 viewportWidth=360",
+   "module": "PY-M07",
+   "outline_entries": 2,
+   "passed": true,
+   "pdf_pages": 18,
+   "pdf_words": 4544,
+   "problems": {},
+   "sources": {
+    "courses/python-engineering/modules/PY-M07/assessment/quiz.md": "66e46a97a38d3b247f8f85900829c8ae821760decabc948f11d9dec5f2e553e8",
+    "courses/python-engineering/modules/PY-M07/lab-guided/README.md": "43ecd38ebe865f4db0280edf7567293d7c13192d8aeb6a8514d3548d9c812120",
+    "courses/python-engineering/modules/PY-M07/lab-independent/README.md": "de6fd1921f19d3c386933fae3b41aacd3078e3e83e302bfbcd3b8ffcd6106729",
+    "courses/python-engineering/modules/PY-M07/lesson.md": "55db9ccc52a94e5dce23edbafd1be4c172869bc96dbfe68a8c14a0df67ff6c75",
+    "courses/python-engineering/student/PY-M07-student-edition.yaml": "98b6258b816de945773d49cd72388070431995b18e496de95d698adc656901e0"
+   },
+   "tagged": "yes"
+  },
+  {
+   "edition": "SOC-M04-student-0.1.0-pilot",
+   "html_sha256": "97f5fb712da06664efd05d8bbf66063a3a78fc3cf6a460d3cdc637be90644151",
+   "mobile_360px": "scrollWidth=360 viewportWidth=360",
+   "module": "SOC-M04",
+   "outline_entries": 2,
+   "passed": true,
+   "pdf_pages": 23,
+   "pdf_words": 5363,
+   "problems": {},
+   "sources": {
+    "courses/soc-analyst/assessments/m04/quiz.md": "5d049487098f46a3325e084f7931b610a1a79daa079f7c18b4e6b5f811dd2235",
+    "courses/soc-analyst/labs/m04-guided/README.md": "65de43c8790f60463cc4c88a24c43e2bf06838f9f86fe86f8df17543f8dd13aa",
+    "courses/soc-analyst/labs/m04-independent/README.md": "fcfe1dddc56c84888261bf589179c92dff6904edde55564cbbca8c9c46b5eefa",
+    "courses/soc-analyst/lessons/m04-auth-detection/lesson.md": "9895897c0130597b565f3255db98157e85fbb6959245a1a75839a25082b8e656",
+    "courses/soc-analyst/student/student-edition.yaml": "b65aedc964b4fa0a99c5320d30f418feff4195cb46bb74883839bbc5bb091543"
+   },
+   "tagged": "yes"
+  }
+ ],
+ "schema_version": 1
+}

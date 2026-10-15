@@ -98,17 +98,18 @@ def check_sources(cfg: dict) -> list[Path]:
 
 
 def edition_gate(cfg: dict) -> None:
-    """A title may say "Premium Edition" only for a course whose ten readiness fields are all MET (docs/release/OCT2026_PRODUCTION_READINESS.md)."""
+    """A title may say "Premium Edition" only for a course that Gate A computes as TRAINING_CONTENT_GO (docs/production/TRAINING_CONTENT_GO_REPORT.md).
+    The label is a content-quality claim; selling it is a separate decision (Gate B) that this builder does not make."""
     if "premium edition" not in cfg["title"].lower():
         return
-    import modern_data as M
-    import render_readiness_2026 as R
+    sys.path.insert(0, str(ROOT / "scripts" / "production"))
+    import gate_a
 
-    report = R.Report(M.Data())
-    metrics = report.metrics.get(cfg["course"])
-    if metrics is None or not metrics["go"]:
-        unmet = ", ".join(metrics["unmet"]) if metrics else "unknown course"
-        raise BuildError(f"title claims 'Premium Edition' but {cfg['course']} has unmet readiness fields: {unmet}")
+    course = gate_a.Portfolio().courses.get(cfg["course"])
+    if course is None or course["state"] != "TRAINING_CONTENT_GO":
+        unmet = ", ".join(k for k, v in course["criteria"].items() if v["status"] not in (gate_a.MET, "NOT_APPLICABLE")) if course else "unknown course"
+        state = course["state"] if course else "unknown"
+        raise BuildError(f"title claims 'Premium Edition' but {cfg['course']} has not reached TRAINING_CONTENT_GO (computed state {state}; unmet Gate A criteria: {unmet})")
 
 
 def auto_metadata(cfg: dict, front_matter: dict) -> dict:
@@ -468,6 +469,10 @@ def build(config_path: Path, out_dir: Path, strict: bool = False) -> dict:
     html_path = out_dir / f"{stem}.html"
     html_path.write_text(html_text, encoding="utf-8")
     problems = {"html": check_html(html_text)}
+    sys.path.insert(0, str(ROOT / "scripts" / "validation"))
+    import check_privacy
+
+    problems["privacy"] = [str(f) for f in check_privacy.scan_text(html_text, html_path.name)]     # masked findings: no personal data is copied into the build log
     ok_mobile, mobile_detail = check_mobile_overflow(html_path)
     problems["mobile_360px"] = [] if ok_mobile else [f"horizontal overflow or probe failure: {mobile_detail}"]
     pdf_path = out_dir / f"{stem}.pdf"

@@ -28,6 +28,9 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import evidence_fingerprint as EF  # noqa: E402
+
 REQS = ROOT / "courses" / "python-engineering" / "labs" / "requirements.txt"
 SUITES = ["tests/test_python_engineering_labs.py", "tests/test_module_packs.py"]
 
@@ -116,8 +119,16 @@ def main() -> int:
         print(f"   {r['status']}  {r.get('python', '')}  {r.get('counts', r.get('reason', ''))}", flush=True)
         results.append(r)
     private = (ROOT / "courses" / "python-engineering" / "instructor" / "PY-M02" / "independent-reference").exists()
+    fingerprints, private_fingerprints = {}, {}
+    for lesson in sorted((ROOT / "courses").glob("*/modules/*/lesson.md")):
+        slug, module_id = lesson.parts[-4], lesson.parts[-2]
+        fingerprints[module_id] = EF.fingerprint(EF.execution_inputs(slug, module_id))
+        private_fp = EF.private_fingerprint(slug, module_id)
+        if private_fp:
+            private_fingerprints[module_id] = private_fp
     out = {"schema_version": 1, "cutoff": a.cutoff, "run_utc": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "commit": head, "working_tree_dirty": dirty,
            "host": f"{platform.system()} {platform.release()} {platform.machine()}", "private_instructor_pack_present": private,
+           "fingerprint_formula": EF.FORMULA, "fingerprints": fingerprints, "private_fingerprints": private_fingerprints,
            "requirements_file": "courses/python-engineering/labs/requirements.txt", "suites": SUITES, "interpreters": results}
     path = ROOT / "docs" / "qa" / "data" / f"lab_execution_{a.cutoff}.json"
     path.write_text(json.dumps(out, indent=1, sort_keys=True) + "\n", encoding="utf-8")

@@ -9,17 +9,17 @@ Milestone report in the fields the directive asks for. Every number is computed 
 |---|---|---|
 | PDFs inventoried | 10 of 10 (hashes verified by tests) | docs/audits/SOURCE_INVENTORY.md |
 | PDFs with a complete page-record set | 10 of 10; 8,186 pages, one record each | docs/audits/data/page_records/ |
-| Pages read by a person | 102 (only pages cited by a finding); the rest are rule-scanned | OCT2026_COMPLETE_PDF_AUDIT.md |
+| Pages read by a person | 107 (only pages cited by a finding); the rest are rule-scanned | OCT2026_COMPLETE_PDF_AUDIT.md |
 | Pages with no readable text layer (visual review needed) | 29 | page records |
 | Topics audited (lesson-level inventory entries) | 7,432 | docs/audits/data/lesson_inventory/ |
-| Outdated or defective: pages with a currency rule flagged / pages with any issue (P0-P4) | 155 / 804 | page_audit_summary.json |
-| Concept-level change records | 92: verification RESEARCH_VERIFIED 48, MACHINE_ONLY 20, EXECUTED 16, NEEDS_VERIFICATION 7, SECONDARY_ONLY 1 | docs/audits/data/modernization_changes.yaml |
-| Change records whose destination is built / partly built | 7 / 6 (of 92) | same, status checked against the catalog |
+| Outdated or defective: pages with a currency rule flagged / pages with any issue (P0-P4) | 156 / 808 | page_audit_summary.json |
+| Concept-level change records | 93: verification RESEARCH_VERIFIED 48, MACHINE_ONLY 20, EXECUTED 17, NEEDS_VERIFICATION 7, SECONDARY_ONLY 1 | docs/audits/data/modernization_changes.yaml |
+| Change records whose destination is built / partly built | 9 / 6 (of 93) | same, status checked against the catalog |
 | New developments recorded | 37: STABLE 29, EMERGING 7, EXPERIMENTAL 1; 35 have at least one non-secondary evidence entry | docs/research/new_developments.yaml |
-| Research entries / executed probes / registry records | 92 / 22 / 180 | docs/research/ |
-| Modules built | 7 of 111 (SOC-M04, PY-M01, PY-M02, PY-M03, PY-M04, PY-M05, PY-M07) | catalog/courses.yaml |
-| Labs built / verified executable | 14 / 14 of 213 planned | catalog; docs/qa/LAB_EXECUTION_EVIDENCE.md |
-| Student editions buildable (preview or pilot, never premium) | 7 configurations; premium editions: 0 | courses/*/student/ |
+| Research entries / executed probes / registry records | 95 / 23 / 180 | docs/research/ |
+| Modules built | 8 of 111 (SOC-M04, PY-M01, PY-M02, PY-M03, PY-M04, PY-M05, PY-M06, PY-M07) | catalog/courses.yaml |
+| Labs built / verified executable | 16 / 16 of 213 planned | catalog; docs/qa/LAB_EXECUTION_EVIDENCE.md |
+| Student editions buildable (preview or pilot, never premium) | 8 configurations; premium editions: 0 | courses/*/student/ |
 | Courses passing every readiness field | 0 of 10 | OCT2026_PRODUCTION_READINESS.md |
 | Research cutoff | Stage A 2026-10-14; Stage B 2026-10-24 `PENDING_FUTURE_REFRESH` | OCT24_FINAL_REFRESH_CHECKLIST.md |
 | Commercial readiness | hypotheses only; no price set, nothing listed | PRICING_AND_POSITIONING_RESEARCH.md |
@@ -29,15 +29,15 @@ Milestone report in the fields the directive asks for. Every number is computed 
 | Course | Built / modules | Labs verified / planned | Evidence index | Change records verified / all |
 |---|---|---|---|---|
 | COURSE-FND-DIGITAL | 0 / 6 | 0 / 12 | 0.0 | 0 / 0 |
-| COURSE-SOC | 1 / 14 | 2 / 27 | 12.8 | 6 / 8 |
-| COURSE-PY-ENG | 6 / 11 | 12 / 21 | 30.5 | 16 / 19 |
-| COURSE-PY-AUTO | 0 / 10 | 0 / 19 | 4.5 | 5 / 11 |
-| COURSE-JAVA-QA | 0 / 10 | 0 / 19 | 5.0 | 5 / 10 |
-| COURSE-AI-ENG | 0 / 12 | 0 / 23 | 8.9 | 8 / 9 |
-| COURSE-OSINT | 0 / 12 | 0 / 23 | 6.7 | 4 / 6 |
-| COURSE-GCP-DE | 0 / 11 | 0 / 21 | 10.0 | 9 / 9 |
-| COURSE-FE-ONBOARD | 0 / 11 | 0 / 21 | 7.1 | 5 / 7 |
-| COURSE-CYBER-MEGA | 0 / 14 | 0 / 27 | 4.6 | 6 / 13 |
+| COURSE-SOC | 1 / 14 | 2 / 27 | 16.0 | 6 / 8 |
+| COURSE-PY-ENG | 7 / 11 | 14 / 21 | 42.8 | 17 / 20 |
+| COURSE-PY-AUTO | 0 / 10 | 0 / 19 | 5.7 | 5 / 11 |
+| COURSE-JAVA-QA | 0 / 10 | 0 / 19 | 6.2 | 5 / 10 |
+| COURSE-AI-ENG | 0 / 12 | 0 / 23 | 11.1 | 8 / 9 |
+| COURSE-OSINT | 0 / 12 | 0 / 23 | 8.3 | 4 / 6 |
+| COURSE-GCP-DE | 0 / 11 | 0 / 21 | 12.5 | 9 / 9 |
+| COURSE-FE-ONBOARD | 0 / 11 | 0 / 21 | 8.9 | 5 / 7 |
+| COURSE-CYBER-MEGA | 0 / 14 | 0 / 27 | 5.8 | 6 / 13 |
 
 ## Blockers
 

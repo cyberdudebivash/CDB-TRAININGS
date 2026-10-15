@@ -139,7 +139,7 @@ def test_python_engineering_preview_configs_are_clean_and_honestly_labelled(conf
 def test_premium_title_is_refused_while_readiness_fields_are_unmet(tmp_path):
     cfg = yaml.safe_load(PY_CONFIGS[0].read_text(encoding="utf-8"))
     cfg["title"] = "CYBERDUDEBIVASH — Python Engineering Pathway — October 2026 Premium Edition"
-    with pytest.raises(be.BuildError, match="Premium Edition.*unmet readiness fields"):
+    with pytest.raises(be.BuildError, match="Premium Edition.*not reached TRAINING_CONTENT_GO"):
         be.edition_gate(cfg)
 
 

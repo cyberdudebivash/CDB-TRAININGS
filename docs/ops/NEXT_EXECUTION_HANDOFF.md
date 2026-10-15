@@ -6,7 +6,9 @@ The figures that change as work proceeds live in [MODERNIZATION_PROGRESS.md](MOD
 ## 1. State in one paragraph
 
 All ten source PDFs are preserved unchanged. Every one of their pages has a machine-readable audit record; the concept-level 2025-to-2026 differential analysis, the research register (with executed probes and a reproducible registry snapshot dated 2026-10-14) and the new-developments register exist and are cross-validated.
-A few modules are built with executed labs (the built modules are listed in [MODERNIZATION_PROGRESS.md](MODERNIZATION_PROGRESS.md)); the rest are planned only. No course is eligible for PRODUCTION_GO and none may be called a "Premium Edition". The 2026-10-24 refresh is a future event (`PENDING_FUTURE_REFRESH`).
+A few modules are built with executed labs (the built modules are listed in [MODERNIZATION_PROGRESS.md](MODERNIZATION_PROGRESS.md)); the rest are planned only. No course is eligible for TRAINING_CONTENT_GO (Gate A, computed in docs/production/) and none may be called a "Premium Edition". The 2026-10-24 refresh is a future event (`PENDING_FUTURE_REFRESH`).
+
+**Release readiness is three independent gates** ([docs/release/RELEASE_GATES.md](../release/RELEASE_GATES.md)): Gate A `TRAINING_CONTENT_GO` (computed from evidence by `scripts/production/gate_a.py`, rendered to [docs/production/](../production/PORTFOLIO_FINAL_ACCEPTANCE.md), enforced by `scripts/validation/validate_gate_a.py`), Gate B `COMMERCIAL_GO` and Gate C `ACADEMY_LIVE_GO` (not implemented, not assessed). Start a new session from [docs/production/EXECUTION_CONTINUITY.md](../production/EXECUTION_CONTINUITY.md) and [REMAINING_DEFECTS.md](../production/REMAINING_DEFECTS.md); the structured sources of truth are in `docs/production/data/`.
 
 ## 2. Verify it yourself
 
@@ -15,11 +17,17 @@ python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
 pytest                                              # full suite; private-pack tests report SKIPPED_PRIVATE_MATERIALS without the instructor pack
 python scripts/validation/run_qa.py --skip-build    # catalog, evidence, generated documents, tests; rewrites the QA and gate reports
 python scripts/audit/build_page_records.py --check  # about 70 s; page records reproduce from the PDFs and the rules
+python scripts/validation/validate_gate_a.py        # no status, review or scenario claims more than the evidence supports
+python scripts/validation/check_privacy.py          # no e-mail address or telephone number outside the reviewed allow-list
+python scripts/validation/learner_dry_run.py        # committed files only, clean environment (not a learner pilot); needs the lab dependencies and network
 ```
 
 ## 3. Owner decisions first
 
 Nothing below is a substitute for D1-D8 in [EXECUTION_HANDOFF.md](../execution/EXECUTION_HANDOFF.md). In practice: D4 (licence and copyright holder) before any distribution; D8 (private repository for the instructor pack, which currently exists only in the working environment of the modernization session) before the independent labs can be re-verified by anyone else; D5 (named reviewers) before any course can reach technical correctness or editorial MET; D1-D3 before the Frontend and OSINT products.
+
+
+**Secret-scanner finding on the pull request (owner action).** GitGuardian reported one "Basic Auth String" in `courses/python-engineering/modules/PY-M05/lesson.md` at commit d3ad36d. It is a false positive: the lesson shows a web address of the form `<host>:<port>@<other host>/...` (the part before the `@` is user-info, so the request really goes to the host after it) as a trap for programs that compare addresses as text, and no credential exists. The example was rewritten in a later commit to a password-free form, but the scanner keeps the occurrence in the earlier commit; marking incident 38216690 as a false positive in the GitGuardian dashboard needs the repository owner's login. Do not rewrite the pushed history for it.
 
 ## 4. How to build the next module
 
@@ -32,11 +40,11 @@ The Python Engineering modules are the template (`courses/python-engineering/mod
 5. Set the module `status: BUILT` and `lab_state: VERIFIED_EXECUTABLE` in `catalog/courses.yaml` **only after** the labs have been executed; update `lab_coverage` and `assessment_coverage`. `validate_modernization_data.py` then tells you which change records need their `implemented.status` updated (it is checked against the catalog).
 6. Execute the labs on the interpreter or toolchain matrix (`scripts/validation/run_lab_matrix.py`, then `render_lab_evidence.py`), regenerate the derived documents (section 6), and commit. A lab that was not executed is `UNVERIFIED`; never mark it otherwise.
 
-Suggested order, with reasons: finish Python Engineering (PY-M05, M06, M08, M09, M10, M11 and the missing classes/object-oriented coverage: every other Python course depends on it and the toolchain is already proven); then Python Automation; then the Java course (JDK 21, Maven 3.9.11 and Gradle 8.14.3 are present; JUnit 6 needs Java 17+, so no JDK 25 is required); then the SOC modules (the pilot gives the pattern); AI, GCP, Frontend, OSINT and the security tracks need design decisions about local-first labs before building (no paid service is authorised, D7).
+Suggested order, with reasons: finish Python Engineering (PY-M08, M09, M10, M11 and the missing classes/object-oriented coverage: every other Python course depends on it and the toolchain is already proven); then Python Automation; then the Java course (JDK 21, Maven 3.9.11 and Gradle 8.14.3 are present; JUnit 6 needs Java 17+, so no JDK 25 is required); then the SOC modules (the pilot gives the pattern); AI, GCP, Frontend, OSINT and the security tracks need design decisions about local-first labs before building (no paid service is authorised, D7).
 
 ## 5. Known limits and traps
 
-- Page-to-module mapping and page-level actions are **heuristic**; only finding-cited pages were read by a person. 29 pages have no text layer and need visual review or OCR.
+- Page-to-module mapping and page-level actions are **heuristic**; only the pages cited by a finding were read in context, **by the AI model, not by a person**, and no page has had a human review. The 58 pages the text scan cannot judge (29 without a text layer, 29 near blank) were rendered and viewed by the model ([visual_review.yaml](../production/data/visual_review.yaml)); that is model inspection only.
 - `KEEP` at page level is a candidate, not a verdict.
 - Register entries with method `OFFICIAL_PAGE_SUMMARY` or `SECONDARY_SOURCE` were read through a summarising tool or from trade press; re-verify against primary text before customer-facing use (listed in `docs/research/RESEARCH_VERIFICATION_2026.md`).
 - GitHub release data was not collected (the session scope was restricted to this repository); 31 registry entries therefore have no verified version.
@@ -55,6 +63,8 @@ python scripts/build/render_readiness_2026.py       # readiness, premium catalog
 python scripts/build/render_program_docs.py         # catalog-derived tables in the program documents
 python scripts/inventory/render_audits.py           # first-audit documents and the research register view
 python scripts/validation/render_lab_evidence.py    # lab evidence from docs/qa/data/lab_execution_<cutoff>.json
+python scripts/production/render_production_docs.py # Gate A acceptance documents and machine-readable state (docs/production/)
+python scripts/production/build_pdf_manifest.py     # builds every module student edition and records hashes (needs pandoc and Chromium)
 ```
 
 Every generator has a `--check` mode that `run_qa.py` and the tests use; a hand-edit of a generated file fails them.

@@ -1,0 +1,19 @@
+# Tracked defects that bear on Gate A. severity P0..P4; status OPEN | OPEN_OWNER_ACTION | REMEDIATED_PENDING_VERIFICATION | CLOSED.
+# `check` names the repeatable verification that closes the defect. A course cannot reach TRAINING_CONTENT_GO while a P0 or P1 defect that applies to it is not CLOSED.
+# `applies_to` is a list of course ids or ["*"].
+schema_version: 1
+as_of: 2026-10-15
+defects:
+  - {id: DEF-001, severity: P0, status: OPEN_OWNER_ACTION, applies_to: [COURSE-FE-ONBOARD], title: "Third-party personal data in the public source PDF (INC-001 / D1)", check: "owner records removal or consent; scripts/validation/check_privacy.py stays clean; source file no longer exposes the data"}
+  - {id: DEF-002, severity: P1, status: OPEN_OWNER_ACTION, applies_to: [COURSE-FE-ONBOARD], title: "Origin and confidentiality of the INTERNAL Frontend playbook unknown (INC-002 / D2)", check: "owner statement recorded in docs/audits/IP_AND_LICENSE_REVIEW.md"}
+  - {id: DEF-003, severity: P1, status: OPEN_OWNER_ACTION, applies_to: [COURSE-OSINT], title: "GPL tool redistribution plan conflicts with proprietary licensing (INC-003 / D3)", check: "legal review recorded"}
+  - {id: DEF-004, severity: P1, status: OPEN_OWNER_ACTION, applies_to: ["*"], title: "Copyright holder and licence undecided; no LICENSE file (INC-004 / D4)", check: "LICENSE file present and docs/release/data/readiness_inputs_2026.yaml ip_licensing MET"}
+  - {id: DEF-005, severity: P1, status: OPEN_OWNER_ACTION, applies_to: ["*"], title: "Instructor packs live only in the assistant's session, not in private storage (INC-005 / D8)", check: "private repository exists and the packs are stored there"}
+  - {id: DEF-006, severity: P1, status: OPEN, applies_to: [COURSE-PY-ENG], title: "Object-oriented programming (classes, properties, inheritance, composition, dataclasses) is taught by no module", check: "a built module covers handbook pp. 48-55 with an executed lab and hidden suite"}
+  - {id: DEF-007, severity: P1, status: CLOSED, applies_to: ["*"], title: "29 image-only source pages were never visually reviewed", check: "each page rendered and inspected, recorded in docs/production/data/visual_review.yaml", closed_by: "all 58 flagged pages (29 without a text layer, 29 near blank) were rendered and inspected by the AI model on 2026-10-15 and recorded in visual_review.yaml (validator check G08); this is model inspection only, a human visual review remains part of DEF-009"}
+  - {id: DEF-008, severity: P1, status: OPEN, applies_to: ["*"], title: "Source-page review is incomplete: most pages are rule-scanned only (see docs/audits/OCT2026_COMPLETE_PDF_AUDIT.md)", check: "every page carries a semantic-inspection record or a module disposition"}
+  - {id: DEF-009, severity: P1, status: OPEN_OWNER_ACTION, applies_to: ["*"], title: "No subject-matter, editorial or learner-pilot review has taken place", check: "entries in docs/production/data/human_reviews.yaml"}
+  - {id: DEF-010, severity: P2, status: OPEN, applies_to: ["*"], title: "October 24 technical refresh not yet executable (date has not arrived)", check: "docs/release/OCT24_FINAL_REFRESH_CHECKLIST.md executed on or after 2026-10-24"}
+  - {id: DEF-011, severity: P2, status: OPEN, applies_to: ["*"], title: "Lab validation covers Linux only", check: "matrix extended to Windows and macOS or the supported platform statement is narrowed by the owner"}
+  - {id: DEF-012, severity: P2, status: OPEN, applies_to: ["*"], title: "31 technology-registry entries have no verified version (GitHub release data not collected)", check: "fetch_registry_versions.py with release access"}
+  - {id: DEF-013, severity: P2, status: OPEN_OWNER_ACTION, applies_to: [COURSE-PY-ENG], title: "GitGuardian false positive on PY-M05 lesson still reported on an earlier commit (INC-006)", check: "dashboard incident 38216690 marked as false positive"}

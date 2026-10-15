@@ -4,7 +4,7 @@
 > Research cutoff (Stage A): **2026-10-14**. Stage B refresh targeted at **2026-10-24**: `PENDING_FUTURE_REFRESH`.
 
 This catalog lists the **planned** premium editions. **No edition may be titled "Premium Edition" or sold today**: the reserved title
-`CYBERDUDEBIVASH — <Course> — October 2026 Premium Edition` becomes usable only for a course whose ten readiness fields are all MET ([OCT2026_PRODUCTION_READINESS.md](../release/OCT2026_PRODUCTION_READINESS.md)); until then any build must be labelled as a preview or student pilot. No price is set (see [PRICING_AND_POSITIONING_RESEARCH.md](PRICING_AND_POSITIONING_RESEARCH.md), hypotheses only), and no listing exists.
+`CYBERDUDEBIVASH — <Course> — October 2026 Premium Edition` becomes usable only for a course that has reached `TRAINING_CONTENT_GO` (Gate A) ([OCT2026_PRODUCTION_READINESS.md](../release/OCT2026_PRODUCTION_READINESS.md)); until then any build must be labelled as a preview or student pilot. No price is set (see [PRICING_AND_POSITIONING_RESEARCH.md](PRICING_AND_POSITIONING_RESEARCH.md), hypotheses only), and no listing exists.
 
 Every edition, when it exists, must disclose these items on its front matter: content revision date, research verification date, technical baseline, unverified external changes and next review date. The values below are what the disclosure would say **today**.
 
@@ -14,7 +14,7 @@ Every edition, when it exists, must disclose these items on its front matter: co
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Digital and Technical Foundations — October 2026 Premium Edition`
 - Planned duration 32 hours across 6 modules (planning estimate, not measured learner time); capstone: Automate a small file-reporting task in a Git repository, with tests, a README and a pull request reviewed against a checklist.
 - State today: 0 of 6 modules built; labs verified 0 of 12; release status `REENGINEERING`; evidence index 0.0 / 100.
-- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Commercial readiness, Academy integration, Human approval.
+- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
 
@@ -40,8 +40,8 @@ Edition disclosure (values today):
 - Course id `COURSE-SOC`, catalog version `0.1.0-pilot`, audience: Aspiring Tier-1/Tier-2 SOC analysts; IT staff moving into security operations; Teams standardising triage and detection practice.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — SOC Analyst Professional Pathway — October 2026 Premium Edition`
 - Planned duration 104 hours across 14 modules (planning estimate, not measured learner time); capstone: End-to-end synthetic intrusion investigation with a detection improvement validated on labelled telemetry and a graded incident report.
-- State today: 1 of 14 modules built; labs verified 2 of 27; release status `REENGINEERING`; evidence index 12.8 / 100.
-- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Commercial readiness, Academy integration, Human approval.
+- State today: 1 of 14 modules built; labs verified 2 of 27; release status `REENGINEERING`; evidence index 16.0 / 100.
+- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
 
@@ -75,8 +75,8 @@ Edition disclosure (values today):
 - Course id `COURSE-PY-ENG`, catalog version `0.1.0-build`, audience: Developers and analysts who need production-quality Python; Learners continuing from Digital Foundations.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Python Engineering Pathway — October 2026 Premium Edition`
 - Planned duration 92 hours across 11 modules (planning estimate, not measured learner time); capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
-- State today: 6 of 11 modules built; labs verified 12 of 21; release status `REENGINEERING`; evidence index 30.5 / 100.
-- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Commercial readiness, Academy integration, Human approval.
+- State today: 7 of 11 modules built; labs verified 14 of 21; release status `REENGINEERING`; evidence index 42.8 / 100.
+- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
 
@@ -95,7 +95,7 @@ Edition disclosure (values today):
 | PY-M03 | Types, modules and project layout | 2 | 6 | BUILT |
 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT |
 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT |
-| PY-M06 | Concurrency and asynchronous programming | 2 | 8 | PLANNED |
+| PY-M06 | Concurrency and asynchronous programming | 2 | 8 | BUILT |
 | PY-M07 | Secure coding for Python | 2 | 8 | BUILT |
 | PY-M08 | Databases and persistence | 2 | 6 | PLANNED |
 | PY-M09 | Profiling, performance and maintainable architecture | 3 | 8 | PLANNED |
@@ -107,8 +107,8 @@ Edition disclosure (values today):
 - Course id `COURSE-PY-AUTO`, catalog version `0.0.1-plan`, audience: Operations, QA and security staff automating repeatable work; Learners who completed Python Engineering modules PY-M01..PY-M05.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Python Automation Pathway — October 2026 Premium Edition`
 - Planned duration 73 hours across 10 modules (planning estimate, not measured learner time); capstone: A safe, reproducible automation of a real operational workflow with auditable output and a fault-injection test suite.
-- State today: 0 of 10 modules built; labs verified 0 of 19; release status `REENGINEERING`; evidence index 4.5 / 100.
-- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Commercial readiness, Academy integration, Human approval.
+- State today: 0 of 10 modules built; labs verified 0 of 19; release status `REENGINEERING`; evidence index 5.7 / 100.
+- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
 
@@ -138,8 +138,8 @@ Edition disclosure (values today):
 - Course id `COURSE-JAVA-QA`, catalog version `0.0.1-plan`, audience: Manual testers moving to automation; Java developers adding test-framework skills.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Java Test Automation Engineer Pathway — October 2026 Premium Edition`
 - Planned duration 92 hours across 10 modules (planning estimate, not measured learner time); capstone: Reproducible UI and API automation framework (Java, Maven, CI) against an authorised sample application.
-- State today: 0 of 10 modules built; labs verified 0 of 19; release status `REENGINEERING`; evidence index 5.0 / 100.
-- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Commercial readiness, Academy integration, Human approval.
+- State today: 0 of 10 modules built; labs verified 0 of 19; release status `REENGINEERING`; evidence index 6.2 / 100.
+- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
 
@@ -169,8 +169,8 @@ Edition disclosure (values today):
 - Course id `COURSE-AI-ENG`, catalog version `0.0.1-plan`, audience: Engineers building LLM-based applications; Security and governance staff evaluating AI systems.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Applied AI and LLM Engineering Pathway — October 2026 Premium Edition`
 - Planned duration 114 hours across 12 modules (planning estimate, not measured learner time); capstone: Production-oriented AI assistant with documented threat model, evaluation suite, secure tool permissions, logging, failure handling and reproducible tests.
-- State today: 0 of 12 modules built; labs verified 0 of 23; release status `REENGINEERING`; evidence index 8.9 / 100.
-- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Commercial readiness, Academy integration, Human approval.
+- State today: 0 of 12 modules built; labs verified 0 of 23; release status `REENGINEERING`; evidence index 11.1 / 100.
+- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
 
@@ -202,8 +202,8 @@ Edition disclosure (values today):
 - Course id `COURSE-OSINT`, catalog version `0.0.1-plan`, audience: Analysts, journalists and security staff who need defensible open-source research.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Lawful OSINT Investigation Pathway — October 2026 Premium Edition`
 - Planned duration 66 hours across 12 modules (planning estimate, not measured learner time); capstone: Defensible OSINT intelligence report on a synthetic or consented case with source provenance, uncertainty analysis and ethical collection records.
-- State today: 0 of 12 modules built; labs verified 0 of 23; release status `REENGINEERING`; evidence index 6.7 / 100.
-- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Commercial readiness, Academy integration, Human approval.
+- State today: 0 of 12 modules built; labs verified 0 of 23; release status `REENGINEERING`; evidence index 8.3 / 100.
+- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
 
@@ -235,8 +235,8 @@ Edition disclosure (values today):
 - Course id `COURSE-GCP-DE`, catalog version `0.0.1-plan`, audience: Data and software engineers building pipelines on Google Cloud; Learners preparing for role-based Google Cloud certification (alignment to be verified).
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Google Cloud Data Engineering Pathway — October 2026 Premium Edition`
 - Planned duration 94 hours across 11 modules (planning estimate, not measured learner time); capstone: A documented, monitored, secure, cost-aware batch and streaming data pipeline with tests and a teardown script.
-- State today: 0 of 11 modules built; labs verified 0 of 21; release status `REENGINEERING`; evidence index 10.0 / 100.
-- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Commercial readiness, Academy integration, Human approval.
+- State today: 0 of 11 modules built; labs verified 0 of 21; release status `REENGINEERING`; evidence index 12.5 / 100.
+- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
 
@@ -267,8 +267,8 @@ Edition disclosure (values today):
 - Course id `COURSE-FE-ONBOARD`, catalog version `0.0.1-plan`, audience: New frontend engineers joining ecosystem product teams; Developers moving from backend to frontend.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Frontend Engineering Onboarding Pathway — October 2026 Premium Edition`
 - Planned duration 92 hours across 11 modules (planning estimate, not measured learner time); capstone: A secure, tested, responsive, accessible frontend feature integrated with a controlled API fixture or authorised development environment.
-- State today: 0 of 11 modules built; labs verified 0 of 21; release status `REENGINEERING`; evidence index 7.1 / 100.
-- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Commercial readiness, Academy integration, Human approval.
+- State today: 0 of 11 modules built; labs verified 0 of 21; release status `REENGINEERING`; evidence index 8.9 / 100.
+- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
 
@@ -299,8 +299,8 @@ Edition disclosure (values today):
 - Course id `COURSE-CYBER-MEGA`, catalog version `0.0.1-plan`, audience: Learners choosing a cybersecurity specialism after Digital Foundations; Enterprise teams needing role-based upskilling.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Cybersecurity Specialist Tracks (from the Mega Course) — October 2026 Premium Edition`
 - Planned duration 188 hours across 14 modules (planning estimate, not measured learner time); capstone: Multi-domain, authorised, simulated security exercise delivering a graded technical report and executive briefing.
-- State today: 0 of 14 modules built; labs verified 0 of 27; release status `REENGINEERING`; evidence index 4.6 / 100.
-- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Commercial readiness, Academy integration, Human approval.
+- State today: 0 of 14 modules built; labs verified 0 of 27; release status `REENGINEERING`; evidence index 5.8 / 100.
+- Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
 

@@ -192,6 +192,6 @@ Zero matches are a definitive gap; a match only shows a term is mentioned, not t
 ## 7. Release blockers and disposition
 
 - Blocking findings recorded in the catalog: F-MEGA-001, F-MEGA-002, F-MEGA-003, F-MEGA-005, F-MEGA-007.
-- Release status: `REENGINEERING`. A course cannot reach `PRODUCTION_GO` until all 15 gates in `docs/release/RELEASE_GATES.md` pass; this one fails most of them (see `docs/release/PRODUCTION_GO_GATE_REPORT.md`).
+- Release status: `REENGINEERING`. A course cannot reach `TRAINING_CONTENT_GO` until Gate A in `docs/release/RELEASE_GATES.md` is computed as met; this one fails most of its criteria (see `docs/production/TRAINING_CONTENT_GO_REPORT.md`).
 - Notes: Replaces a ~3,660-page two-PDF source with modular tracks. SOC and AI-security specialisms are delivered by COURSE-SOC and COURSE-AI-ENG (overlap removed rather than duplicated). CYB-M13 is an assessment-level module for security practitioners; it shares the OWASP LLM Top 10 reference sheet with AI-M07 but has a different outcome (assess and recommend, not build and test), so it is not a reuse.
 - Replacement plan: modules and outcomes are defined in `catalog/courses.yaml` and described in `docs/architecture/MASTER_CURRICULUM_BLUEPRINT.md`. The original PDF stays untouched as the preserved source.

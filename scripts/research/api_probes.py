@@ -352,6 +352,17 @@ PROBES: list[dict] = [
         out["requests_session_max_redirects"] = requests.Session().max_redirects
         print(json.dumps(out))
      """},
+    {"id": "pypi-asyncio-placeholder", "runtime": PY, "pkgs": ["asyncio"], "taught_pattern": "pip install httpx asyncio",
+     "code": """
+        import asyncio, importlib.metadata, json, pathlib, sysconfig
+        dist = importlib.metadata.distribution("asyncio")
+        files = sorted(str(f) for f in dist.files)
+        stdlib = pathlib.Path(sysconfig.get_paths()["stdlib"]).resolve()
+        out = {"installed_version": dist.version, "summary": dist.metadata["Summary"], "installed_files": files,
+               "ships_python_code": any(f.endswith(".py") for f in files),
+               "import_resolves_to_stdlib": stdlib in pathlib.Path(asyncio.__file__).resolve().parents}
+        print(json.dumps(out))
+     """},
     {"id": "pydantic-lax-and-strict-validation", "runtime": PY, "pkgs": ["pydantic"], "taught_pattern": "validating decoded JSON with a model: coercion, missing fields, extra fields",
      "code": """
         import json

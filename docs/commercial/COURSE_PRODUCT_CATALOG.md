@@ -18,21 +18,21 @@ Editions that could exist technically *today* from this repository are limited t
 ## 2. Course-level product candidates
 
 <!-- BEGIN GENERATED: products -->
-| Candidate product | Based on | Format hypothesis | Content ready | Blocking gates (from gate report) | Price |
+| Candidate product | Based on | Format hypothesis | Content ready | Blocking Gate A criteria | Price |
 |---|---|---|---|---|---|
-| Digital and Technical Foundations | new | self-paced entry course (free or low-friction entry is a hypothesis to test) | plan only (no learner content built) | SME review (G7), labs (G4), assessments (G3) | NOT SET (owner decision) |
-| SOC Analyst Professional Pathway | `SRC-SOC-PLAYBOOK` | self-paced course with automated lab checks | 1 module built (SOC-M04); 2/27 labs built | licence/provenance (G1), SME review (G7), labs (G4), assessments (G3), open P0/P1 (G8) | NOT SET (owner decision) |
-| Python Engineering Pathway | `SRC-PY-HANDBOOK` | self-paced course with automated lab checks | 12/21 labs built | licence/provenance (G1), SME review (G7), labs (G4), assessments (G3), open P0/P1 (G8) | NOT SET (owner decision) |
-| Python Automation Pathway | `SRC-PY-AUTOMATION` | self-paced course with automated lab checks | plan only (no learner content built) | licence/provenance (G1), SME review (G7), labs (G4), assessments (G3), open P0/P1 (G8) | NOT SET (owner decision) |
-| Java Test Automation Engineer Pathway | `SRC-JAVA-AUTOTEST` | self-paced course with automated lab checks | plan only (no learner content built) | licence/provenance (G1), SME review (G7), labs (G4), assessments (G3), open P0/P1 (G8) | NOT SET (owner decision) |
-| Applied AI and LLM Engineering Pathway | `SRC-AI-BUNDLE` | self-paced course with automated lab checks | plan only (no learner content built) | licence/provenance (G1), SME review (G7), labs (G4), assessments (G3), open P0/P1 (G8) | NOT SET (owner decision) |
-| Lawful OSINT Investigation Pathway | `SRC-OSINT-STARTER` | self-paced course with automated lab checks | plan only (no learner content built) | licence/provenance (G1), SME review (G7), labs (G4), assessments (G3), open P0/P1 (G8) | NOT SET (owner decision) |
-| Google Cloud Data Engineering Pathway | `SRC-GCP-DATAENG` | self-paced course with automated lab checks | plan only (no learner content built) | licence/provenance (G1), SME review (G7), labs (G4), assessments (G3), open P0/P1 (G8) | NOT SET (owner decision) |
-| Frontend Engineering Onboarding Pathway | `SRC-FRONTEND-ONBOARD` | self-paced course with automated lab checks | plan only (no learner content built) | licence/provenance (G1), SME review (G7), labs (G4), assessments (G3), open P0/P1 (G8) | NOT SET (owner decision) |
-| Cybersecurity Specialist Tracks (from the Mega Course) | `SRC-MEGA-P1`, `SRC-MEGA-P2` | self-paced course with automated lab checks | plan only (no learner content built) | licence/provenance (G1), SME review (G7), labs (G4), assessments (G3), open P0/P1 (G8) | NOT SET (owner decision) |
+| Digital and Technical Foundations | new | self-paced entry course (free or low-friction entry is a hypothesis to test) | plan only (no learner content built) | SME and editorial review (A17), labs (A06), assessments (A07) | NOT SET (owner decision) |
+| SOC Analyst Professional Pathway | `SRC-SOC-PLAYBOOK` | self-paced course with automated lab checks | 1 module built (SOC-M04); 2/27 labs built | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
+| Python Engineering Pathway | `SRC-PY-HANDBOOK` | self-paced course with automated lab checks | 14/21 labs built | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
+| Python Automation Pathway | `SRC-PY-AUTOMATION` | self-paced course with automated lab checks | plan only (no learner content built) | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
+| Java Test Automation Engineer Pathway | `SRC-JAVA-AUTOTEST` | self-paced course with automated lab checks | plan only (no learner content built) | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
+| Applied AI and LLM Engineering Pathway | `SRC-AI-BUNDLE` | self-paced course with automated lab checks | plan only (no learner content built) | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
+| Lawful OSINT Investigation Pathway | `SRC-OSINT-STARTER` | self-paced course with automated lab checks | plan only (no learner content built) | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
+| Google Cloud Data Engineering Pathway | `SRC-GCP-DATAENG` | self-paced course with automated lab checks | plan only (no learner content built) | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
+| Frontend Engineering Onboarding Pathway | `SRC-FRONTEND-ONBOARD` | self-paced course with automated lab checks | plan only (no learner content built) | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
+| Cybersecurity Specialist Tracks (from the Mega Course) | `SRC-MEGA-P1`, `SRC-MEGA-P2` | self-paced course with automated lab checks | plan only (no learner content built) | rights and licence (A11), SME and editorial review (A17), labs (A06), assessments (A07), open P0/P1 defects (A16) | NOT SET (owner decision) |
 <!-- END GENERATED: products -->
 
-"Blocking gates" lists the gates that are not `PASS` for that course in the latest gate report; see `docs/release/PRODUCTION_GO_GATE_REPORT.md` for the reasons.
+"Blocking Gate A criteria" lists the mandatory content criteria that are not met for that course (a summary, not the full list); see `docs/production/TRAINING_CONTENT_GO_REPORT.md` for every criterion and its evidence. Gate B (commercial) is not assessed in this phase.
 
 ## 3. Bundle candidates
 

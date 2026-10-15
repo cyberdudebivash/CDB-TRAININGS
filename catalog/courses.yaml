@@ -3,7 +3,7 @@
 #
 # Conventions
 #   * estimated_duration_hours / estimated_hours are PLANNING ESTIMATES, not measured learner times.
-#   * release_status uses the six gates from docs/release/RELEASE_GATES.md. No course is PRODUCTION_GO.
+#   * release_status uses the Gate A states from docs/release/RELEASE_GATES.md. TRAINING_CONTENT_GO is computed by scripts/production/gate_a.py and no course has it; commercial and Academy readiness are separate, unassessed gates.
 #   * lifecycle says how far the replacement content has progressed; release_status says whether it may ship.
 #   * lab_coverage.verified_executable counts only labs whose automated check passed in the recorded QA run.
 #   * blocking_findings must list EVERY P0/P1 finding against the course's sources until the course is fully rebuilt (lifecycle VALIDATED);
@@ -96,15 +96,15 @@ courses:
       - {id: PY-M03, title: "Types, modules and project layout", level: 2, status: BUILT, estimated_hours: 6, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Refactor a script into a typed package that passes a static type checker without errors."}
       - {id: PY-M04, title: "Environments, dependencies and packaging (pyproject, build)", level: 2, status: BUILT, estimated_hours: 6, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Build, install and import a wheel produced with python -m build in a clean virtual environment."}
       - {id: PY-M05, title: "Files, structured data and HTTP clients", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Consume a paginated API fixture with retries and timeouts and validate every response against a schema."}
-      - {id: PY-M06, title: "Concurrency and asynchronous programming", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark."}
+      - {id: PY-M06, title: "Concurrency and asynchronous programming", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark."}
       - {id: PY-M07, title: "Secure coding for Python", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Find and fix eight seeded vulnerabilities (injection, secrets, TLS, deserialisation) and add a regression test for each."}
       - {id: PY-M08, title: "Databases and persistence", level: 2, status: PLANNED, estimated_hours: 6, primary_outcome: "Implement a repository layer using parameterised SQL and demonstrate that an injection attempt fails."}
       - {id: PY-M09, title: "Profiling, performance and maintainable architecture", level: 3, status: PLANNED, estimated_hours: 8, primary_outcome: "Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent."}
       - {id: PY-M10, title: "API development: typed, tested and secure HTTP services", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Build a typed HTTP API with request validation and authentication that passes contract tests and an injection test suite."}
       - {id: PY-M11, title: "Capstone: typed, tested, documented application with CI", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a packaged application whose tests, type checks and security scan pass in a clean environment."}
     estimated_duration_hours: 92
-    lab_coverage: {planned: 21, built: 12, verified_executable: 12}
-    assessment_coverage: {outcomes_total: 11, outcomes_assessed: 6}
+    lab_coverage: {planned: 21, built: 14, verified_executable: 14}
+    assessment_coverage: {outcomes_total: 11, outcomes_assessed: 7}
     capstone: "A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan."
     review_status: AUTOMATED_ONLY
     qa_status: PARTIAL
@@ -114,7 +114,7 @@ courses:
     owner: UNASSIGNED
     reviewers: []
     last_verified: 2026-10-14
-    notes: "Six of eleven modules are built (PY-M01, PY-M02, PY-M03, PY-M04, PY-M05, PY-M07) with twelve labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other five modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are not yet covered by any module."
+    notes: "Seven of eleven modules are built (PY-M01 to PY-M07) with fourteen labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are not yet covered by any module."
 
   - id: COURSE-PY-AUTO
     slug: python-automation

@@ -13,7 +13,7 @@
   },
   "$defs": {
     "release_status": {
-      "enum": ["SOURCE_PENDING", "AUDIT_PENDING", "REENGINEERING", "VALIDATION", "REVIEW_REQUIRED", "PRODUCTION_GO"]
+      "enum": ["SOURCE_PENDING", "AUDIT_PENDING", "REENGINEERING", "VALIDATION", "REVIEW_REQUIRED", "TRAINING_CONTENT_GO"]
     },
     "lifecycle": {"enum": ["PLANNED", "IN_DESIGN", "IN_BUILD", "PILOT_BUILT", "VALIDATED"]},
     "lab_state": {

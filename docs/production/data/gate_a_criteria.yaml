@@ -1,0 +1,53 @@
+# GATE A - TRAINING_CONTENT_GO: definition, mandatory criteria and quality-score model.
+# This file is the single source of truth for what "complete training content" means. scripts/production/gate_a.py computes every status from repository artifacts and
+# evidence files; nothing here is a status. Gate B (commercial) and Gate C (Academy) are deliberately NOT part of this file - see docs/production/MASTER_CONTENT_ACCEPTANCE.md.
+schema_version: 1
+state_vocabulary:           # ordered from least to most mature; a module or course has exactly one
+  - NOT_STARTED             # no implementation artifacts
+  - IN_PROGRESS             # some artifacts exist, required ones are missing
+  - IMPLEMENTED_UNVERIFIED  # all required artifacts exist; no passing execution evidence yet
+  - TECHNICALLY_VERIFIED    # execution evidence passes on the declared matrix; adversarial review and learner dry run not yet recorded
+  - REVIEW_REQUIRED         # technically verified AND adversarially reviewed; only human approvals (SME, editor, learner pilot, owner) are missing
+  - TRAINING_CONTENT_GO     # every mandatory criterion MET, quality score at least the threshold, human approvals recorded
+  - BLOCKED                 # reserved for items that cannot proceed at all (not used for items that merely await a release-gate decision)
+score_threshold: 95
+module_required_files:      # relative to the module folder (courses/<slug>/modules/<ID>/), see layout_overrides in scripts/production/gate_a.py for the SOC pilot
+  - lesson.md
+  - outcomes.yaml
+  - source-map.yaml
+  - assessment/quiz.yaml
+  - assessment/quiz.md
+  - assessment/rubric.yaml
+  - lab-guided/README.md
+  - lab-independent/README.md
+min_lesson_words: 1500      # a lesson shorter than this is not substantive instruction
+quality_dimensions:         # weights sum to 100; each is computed from evidence by scripts/production/gate_a.py (see the formulas in docs/production/MASTER_CONTENT_ACCEPTANCE.md)
+  - {id: technical_accuracy_currency, name: "Technical accuracy and currency", weight: 20}
+  - {id: curriculum_completeness, name: "Curriculum and lesson completeness", weight: 15}
+  - {id: operational_relevance, name: "Customer operational relevance", weight: 15}
+  - {id: labs_reproducibility, name: "Practical labs and reproducibility", weight: 15}
+  - {id: assessment_capstone, name: "Assessment and capstone rigor", weight: 10}
+  - {id: security_reliability, name: "Security and reliability", weight: 10}
+  - {id: clarity_accessibility, name: "Instructional clarity and accessibility", weight: 5}
+  - {id: pdf_integrity, name: "Premium PDF and document integrity", weight: 5}
+  - {id: traceability_maintainability, name: "Source traceability and maintainability", weight: 5}
+mandatory_criteria:         # a course reaches TRAINING_CONTENT_GO only if EVERY one of these is MET, whatever its score
+  - {id: A01, name: "All approved required modules are implemented", check: modules_implemented}
+  - {id: A02, name: "Every required lesson contains substantive, executed instruction", check: lessons_substantive}
+  - {id: A03, name: "Source coverage is reconciled: every source page has a recorded disposition", check: source_coverage_reconciled}
+  - {id: A04, name: "Material technical claims are verified and the October 24 refresh is executed", check: technical_claims_verified}
+  - {id: A05, name: "Required operational scenarios are implemented and verified", check: operational_scenarios}
+  - {id: A06, name: "Required practical labs pass their validation criteria on the declared matrix", check: labs_validated}
+  - {id: A07, name: "Every learning outcome is measurable and assessed", check: assessments_measurable}
+  - {id: A08, name: "The capstone has a working deliverable, acceptance criteria and a check", check: capstone_complete}
+  - {id: A09, name: "Automated QA passes and relevant negative controls pass", check: automated_qa_passes}
+  - {id: A10, name: "Security and privacy issues affecting the course are resolved", check: security_privacy_resolved}
+  - {id: A11, name: "Source provenance and rights are cleared", check: rights_cleared}
+  - {id: A12, name: "Student materials are complete", check: student_materials_complete}
+  - {id: A13, name: "Instructor materials are complete and protected in private storage", check: instructor_materials_protected}
+  - {id: A14, name: "Final PDF edition built from the whole approved curriculum and validated", check: pdf_validated}
+  - {id: A15, name: "Accessibility checks pass for every student edition", check: accessibility_passes}
+  - {id: A16, name: "No unresolved P0 or P1 defect", check: no_open_p0_p1}
+  - {id: A17, name: "Subject-matter and editorial review recorded by named humans", check: sme_editorial_recorded}
+  - {id: A18, name: "A real learner pilot is recorded", check: learner_pilot_recorded}
+  - {id: A19, name: "The owner's acceptance is recorded", check: owner_acceptance_recorded}
