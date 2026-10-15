@@ -1519,13 +1519,13 @@
    "PY-M08": {
     "catalog_status": "PLANNED",
     "edition_config": false,
-    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0",
+    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0; STALE: 4 input file(s) changed after the recorded run at adf6a33a962b",
     "executed_blocks": 0,
     "outcomes": null,
     "private_pack_recorded": false,
     "quiz_items": null,
     "rubric_criteria": null,
-    "state": "NOT_STARTED"
+    "state": "IN_PROGRESS"
    },
    "PY-M09": {
     "catalog_status": "PLANNED",

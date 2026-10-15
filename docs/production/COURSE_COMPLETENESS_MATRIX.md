@@ -56,7 +56,7 @@ Portfolio: 10 of 113 (9%) modules implemented, 7 of 113 (6%) technically verifie
 | PY-M05 | Files, structured data and HTTP clients | BUILT | TECHNICALLY_VERIFIED | 5528 | 14 | 12 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M06 | Concurrency and asynchronous programming | BUILT | TECHNICALLY_VERIFIED | 4935 | 12 | 13 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M07 | Secure coding for Python | BUILT | TECHNICALLY_VERIFIED | 2190 | 3 | 12 tests on 5 interpreters; failed 0, skipped 0 |
-| PY-M08 | Databases and persistence | PLANNED | NOT_STARTED | - | - | - |
+| PY-M08 | Databases and persistence | PLANNED | IN_PROGRESS | - | - | 0 tests on 5 interpreters; failed 0, skipped 0; STALE: 4 input file(s) changed after the recorded run at adf6a33a962b |
 | PY-M09 | Profiling, performance and maintainable architecture | PLANNED | NOT_STARTED | - | - | - |
 | PY-M10 | API development: typed, tested and secure HTTP services | PLANNED | NOT_STARTED | - | - | - |
 | PY-M11 | Capstone: typed, tested, documented application with CI | PLANNED | NOT_STARTED | - | - | - |

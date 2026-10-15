@@ -79,7 +79,8 @@
   "module_editions_passing": 8,
   "module_states": {
    "IMPLEMENTED_UNVERIFIED": 3,
-   "NOT_STARTED": 103,
+   "IN_PROGRESS": 1,
+   "NOT_STARTED": 102,
    "TECHNICALLY_VERIFIED": 7
   },
   "modules_implemented": 10,
