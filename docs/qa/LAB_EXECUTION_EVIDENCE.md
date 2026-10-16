@@ -5,7 +5,7 @@
 
 ## 1. What this records
 
-Execution of the Python Engineering labs (PY-M01 to PY-M07) and of the module-pack checks that run every lesson code block and verify outcome traceability. Each interpreter row is a **fresh virtual environment** with the pinned toolchain from `courses/python-engineering/labs/requirements.txt`; the suites run with that environment's interpreter, and the lab tests start their own sub-processes with it, so the build, install, mutation and exploit steps ran on that Python version.
+Execution of the Python Engineering labs (PY-M01 to PY-M13), of the Digital Foundations module checks (FND-M01, FND-M02) and of the module-pack checks that run every lesson code block and verify outcome traceability. Each interpreter row is a **fresh virtual environment** with the pinned toolchain from `courses/python-engineering/labs/requirements.txt`; the suites run with that environment's interpreter, and the lab tests start their own sub-processes with it, so the build, install, mutation and exploit steps ran on that Python version.
 
 A lab is called *executed* here only for the interpreters listed below, in this environment, at the stated commit. It is not evidence of learner success, subject-matter correctness review, or behaviour on other operating systems.
 
@@ -13,22 +13,22 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Item | Value |
 |---|---|
-| Commit at run time | `9e03a201529a` (clean tracked tree) |
-| Run (UTC) | 2026-10-15T14:08:43Z |
-| Host | Linux 6.18.44-fc-v114 x86_64 |
+| Commit at run time | `52ed97e6c141` (clean tracked tree) |
+| Run (UTC) | 2026-10-16T04:38:58Z |
+| Host | Linux 6.18.44-fc-v139 x86_64 |
 | Instructor pack present in the environment | yes - private-material tests were executed |
 | Toolchain pins | `courses/python-engineering/labs/requirements.txt` |
-| Suites | `tests/test_python_engineering_labs.py`, `tests/test_module_packs.py` |
+| Suites | `tests/test_python_engineering_labs.py`, `tests/test_module_packs.py`, `tests/test_fnd_m01.py`, `tests/test_fnd_m02.py` |
 
 ## 3. Interpreter matrix
 
 | Requested | Interpreter | Source | pytest | ruff | setuptools | build | Status | Passed / failed / skipped | Seconds |
 |---|---|---|---|---|---|---|---|---|---|
-| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 146 / 0 / 0 | 657.4 |
-| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 146 / 0 / 0 | 674.2 |
-| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 146 / 0 / 0 | 630.4 |
-| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 146 / 0 / 0 | 627.9 |
-| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 146 / 0 / 0 | 653.8 |
+| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 220 / 0 / 0 | 3435.0 |
+| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 220 / 0 / 0 | 3342.0 |
+| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 222 / 0 / 0 | 3672.8 |
+| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 222 / 0 / 0 | 4387.3 |
+| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 222 / 0 / 0 | 4308.1 |
 
 Interpreters from `uv` are python-build-standalone builds, not python.org installers; behaviour on distribution-packaged or Windows/macOS interpreters is not claimed.
 
@@ -54,10 +54,10 @@ Interpreters from `uv` are python-build-standalone builds, not python.org instal
 | PY-M07 independent | Instructor reference is secure and the starter is not (17 exploit tests fail on it); 9/9 required mutants killed (private pack) | pass (1) | pass (1) | pass (1) | pass (1) | pass (1) |
 | PY-M09 guided | Public solution passes all 196 provided checks (profiling helpers, hotspot, four algorithms checked against the slow program and for how their work grows, parsing, memory with tracemalloc, core/edge); the starter keeps the 146 correctness checks green and fails the 49 about profiling, speed, memory and structure; the checks kill all 59 seeded defects of the solution (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
 | PY-M09 independent | Starter fails the scaling check and the check for learner-written budget tests (2 of 10 published); instructor reference passes all 10 and the 378-case hidden suite (equivalence with the original on random and awkward input, growth of the work, the core's code, the edge, and the learner's own budget tests run against the solution and the original), which kills all 52 seeded defects (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
-| PY-M10 guided | Public solution passes all 1625 provided checks (settings and tokens, models, repository, errors, authentication and authorisation, endpoints and contract, edge hardening, an injection and abuse suite, operations, mypy --strict and ruff); the starter keeps the 82 checks of its given parts green and fails the other 1543; the checks kill all 432 seeded defects of the solution (private pack) | not run | not run | not run | not run | not run |
-| PY-M10 independent | Starter fails all 16 published cases (10 checks); instructor reference passes them and the 482-case hidden suite (key store, authentication, tenant isolation, hostnames and bodies, PUT/ETag/If-Match including twelve concurrent writers, cursor paging, the network filter on both address families, the rate limit window, the edge, hostile input, audit records, mypy and ruff), which kills all 274 required of its 275 seeded defects (private pack) | not run | not run | not run | not run | not run |
-| PY-M11 guided | Part A (the walking skeleton): the release gate has thirteen gates, each with a negative control that damages the reference application in one way and must fail exactly that gate; it passes nothing on an empty project; a minimal skeleton built from the README passes the eleven gates of part A and fails the three that need the finished application | not run | not run | not run | not run | not run |
-| PY-M11 independent | Empty starter fails all 22 published cases (14 checks); the instructor reference passes them, the 585-case hidden suite (parsing, bounded reads, rules and safe loading, window arithmetic, an oracle on random streams, byte-exact output, every option and exit status, atomic 0600 output, closed pipe and Ctrl-C, hostile input) and all thirteen gates; the suite kills all 312 required seeded defects of the reference (private pack) and rejects a walking skeleton; the reference tests calibrate the grading of learner tests by mutation | not run | not run | not run | not run | not run |
+| PY-M10 guided | Public solution passes all 1625 provided checks (settings and tokens, models, repository, errors, authentication and authorisation, endpoints and contract, edge hardening, an injection and abuse suite, operations, mypy --strict and ruff); the starter keeps the 82 checks of its given parts green and fails the other 1543; the checks kill all 432 seeded defects of the solution (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
+| PY-M10 independent | Starter fails all 16 published cases (10 checks); instructor reference passes them and the 482-case hidden suite (key store, authentication, tenant isolation, hostnames and bodies, PUT/ETag/If-Match including twelve concurrent writers, cursor paging, the network filter on both address families, the rate limit window, the edge, hostile input, audit records, mypy and ruff), which kills all 274 required of its 275 seeded defects (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
+| PY-M11 guided | Part A (the walking skeleton): the release gate has thirteen gates, each with a negative control that damages the reference application in one way and must fail exactly that gate; it passes nothing on an empty project; a minimal skeleton built from the README passes the eleven gates of part A and fails the three that need the finished application | pass (28) | pass (28) | pass (28) | pass (28) | pass (28) |
+| PY-M11 independent | Empty starter fails all 22 published cases (14 checks); the instructor reference passes them, the 585-case hidden suite (parsing, bounded reads, rules and safe loading, window arithmetic, an oracle on random streams, byte-exact output, every option and exit status, atomic 0600 output, closed pipe and Ctrl-C, hostile input) and all thirteen gates; the suite kills all 312 required seeded defects of the reference (private pack) and rejects a walking skeleton; the reference tests calibrate the grading of learner tests by mutation | pass (7) | pass (7) | pass (7) | pass (7) | pass (7) |
 | PY-M12 guided | Public solution passes all 167 provided checks (value types, per-instance state, observers, fee policies, registry, composition); the starter fails all 167; the checks kill all 47 seeded defects of the solution (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
 | PY-M12 independent | Starter fails all 10 published checks; instructor reference passes them and the 54-case hidden suite (value semantics, operators, isolation, error recording, subscriber rules, refusal), which kills all 41 seeded defects (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
 | PY-M13 guided | Public solution passes all 128 provided checks (a generator that owns a file, lazy parsing, chunks and windows with eager argument checks, decorators, context managers); the starter fails all 128; the checks kill all 49 seeded defects of the solution (private pack) | pass (3) | pass (3) | pass (3) | pass (3) | pass (3) |
@@ -69,11 +69,11 @@ Interpreters from `uv` are python-build-standalone builds, not python.org instal
 
 | Interpreter | Checks | Passed | Lesson code-block runs | Passed |
 |---|---|---|---|---|
-| 3.11 | 86 | 86 | 12 | 12 |
-| 3.12 | 86 | 86 | 12 | 12 |
-| 3.13 | 86 | 86 | 12 | 12 |
-| 3.14 | 86 | 86 | 12 | 12 |
-| 3.15 | 86 | 86 | 12 | 12 |
+| 3.11 | 107 | 107 | 15 | 15 |
+| 3.12 | 107 | 107 | 15 | 15 |
+| 3.13 | 107 | 107 | 15 | 15 |
+| 3.14 | 107 | 107 | 15 | 15 |
+| 3.15 | 107 | 107 | 15 | 15 |
 
 Each lesson's `python run`, `python module` and `python test` blocks are executed by `scripts/validation/lesson_blocks.py`; a lesson with no executable example fails the check.
 
@@ -101,3 +101,5 @@ python scripts/validation/render_lab_evidence.py
 ## Issues the matrix found, and what was done
 
 - **2026-10-14, CPython 3.12.3 (distribution package):** A first matrix run failed one check on this interpreter only: test_exploit_tls_context_verifies_certificates_and_names asserted ssl.SSLContext.minimum_version >= TLS 1.2, which the distribution's OpenSSL configuration reports differently than the other builds. The assertion about the minimum protocol version was removed from the check and from the lab README contract (it depended on platform configuration, not on the learner's code); certificate and host-name verification are still checked. The matrix was re-run on the committed tree.
+- **2026-10-16, CPython 3.13.16 (distribution package):** In a long run that the environment interrupted several times, the piece labs-m10 failed once on this interpreter: the hidden suite of the PY-M10 independent lab reported one required seeded defect (I140) as surviving, although the same defect was killed in 12 of 12 isolated runs afterwards and the standalone mutation run killed 274 of 274 required defects. The container had restarted at the end of that piece; a mutant whose test process is cut short by a signal is not reported as a failure by pytest, so it looks alive. The cause was probable, not proven. The three mutation tests of PY-M10 and PY-M11 that read a survivor now run each required survivor again, alone, and count it as alive only if it survives twice (settle_survivors in tests/test_python_engineering_labs.py, with its own unit tests); the mutation tools and the modules were not changed. The piece was re-run and passed on 3.13, 3.14 and 3.15.
+- **2026-10-16, CPython 3.11.17 and 3.12.3:** The run was assembled from interrupted runs of identical module content (the recorded tree identity is the same): CPython 3.11 and 3.12 executed 220 tests, 3.13 to 3.15 executed 222. The two additional tests are the unit tests of the survivor-rerun safeguard above, which did not exist when 3.11 and 3.12 ran. Not repeated: the safeguard changes the outcome of a mutation test only when a required defect is reported alive, and on 3.11 and 3.12 every required defect was killed at the first attempt, so the assertions that were executed are the same. The lab tests of every module ran on all five interpreters.

@@ -1,32 +1,35 @@
 {
- "commit": "9e03a201529a",
+ "commit": "52ed97e6c141",
  "cutoff": "2026-10-14",
  "fingerprint_formula": 2,
  "fingerprints": {
   "FND-M01": "a0135dfdda2d6e4d403395fda13a462ffbcf51befd163c68168cdf87b239eefe",
-  "PY-M01": "12e321c8f18aeef96606b818d1ab0fa805f1cc87cade04c4d2e647a63f7e7875",
-  "PY-M02": "5574e5e36813cf1bd606bbd03406efbbc88b81f14be7392daa1bb6858da2ae7b",
-  "PY-M03": "ec0e139b4ad4c045a62eaeda30a3473f6333965e591976bd5b81f29c5db82f85",
-  "PY-M04": "dfe0dd8c072f120c48cd1ee5a0f9009c529d1be0ca2e9b6afa60e265b9aa5a96",
-  "PY-M05": "7f488471722b745de406f0db60c0f8525254ce3723a8b8450dad372290bf49df",
-  "PY-M06": "2d8b2530017371203302c18d000ddfc43f6e769b689f6c819694f8cae11c8c94",
-  "PY-M07": "894bbfab919700fff35f2268d7231408950b24283adac15885759da0b19b8184",
-  "PY-M08": "d085882829284dca6527771bc6b8c1462ef52f4e1d7e3edc5730c76a5fea4f6e",
-  "PY-M09": "b6fab248185fdf8bad278a36bfb16a0cf1c46f7ffff17c7622a771abd9e32edb",
-  "PY-M12": "95cc22c918f98643653f1efedaa60b05437e98de7fd5620653d131b804333056",
-  "PY-M13": "ce780d3bfbee611c30e3b0e8a8be908f3a8f5dc65cf5107687f3cd0d2dabd530"
+  "FND-M02": "dd43f6a0d4cf9174297e29c29901e86508fdc2f83ce5312663a426842302d6b8",
+  "PY-M01": "7031dc25e992762991ca1e1b4363e2164ae2e7743842ccf990de5392bc465cba",
+  "PY-M02": "260cfc1c7f04ce087fb1ff7fedb7d9ea6950211ccb2116f6388032644a31cc5f",
+  "PY-M03": "e2827925db580e767406c3644c7b8fb7e29effb8ab9759f0542e9a573e0ed0a3",
+  "PY-M04": "2e3380694ffcb14e27f18bc66dd327fd76e0cc8161c3ed38a1e238983202e4a2",
+  "PY-M05": "01debf9c863af9ab0635ddbb0caa3450f0c0faab024a26b9d57f7f8d1628550b",
+  "PY-M06": "f2b22813f2a641ad52bc6fb6118da591781028e6323d24dcae3169aeda9261e9",
+  "PY-M07": "88dc7fe83f18f03d5f06cf37af616e92eeb5031bd9fbed05936c9fe75f258207",
+  "PY-M08": "f3c782fb0a75114423db2e0f201d4421b2728e827bce899cc0da242d5e2b512d",
+  "PY-M09": "f14d7badc5fd56c5245bb4fb1013c24a03b0702e0af5bf01458bc99c9e5ee396",
+  "PY-M10": "b0aa1bc4a4362bf1171885f12f49abaf4e52af21add0977022cb9100854d9f13",
+  "PY-M11": "7069915ad253b1bfdd76ce438ca9831f48cf4044204805ceb558bd651667b1ab",
+  "PY-M12": "77e4cf283aa579dd660a62f69ded6f15c58b8a543884306962f043a8a17782c3",
+  "PY-M13": "ef8c966cc129f8faa9fbedbf62f0d979d900fb42dc2ff0812d93d17749c03ebb"
  },
- "host": "Linux 6.18.44-fc-v114 x86_64",
+ "host": "Linux 6.18.44-fc-v139 x86_64",
  "interpreters": [
   {
-   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py -q -p no:cacheprovider",
+   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py -q -p no:cacheprovider",
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 146,
+    "passed": 220,
     "skipped": 0
    },
-   "duration_s": 657.4,
+   "duration_s": 3435.0,
    "executable": "/usr/bin/python3.11",
    "implementation": "CPython",
    "install_exit": 0,
@@ -295,7 +298,179 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_python_engineering_labs::test_the_lab_evidence_renderer_recognises_every_lab_row",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m10_guided_solution_passes_every_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m10_guided_starter_fails_everything_a_learner_has_to_write",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m10_guided_checks_are_discriminating",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m10_independent_starter_fails_every_published_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m10_independent_reference_passes_published_and_hidden_checks",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m10_independent_hidden_suite_is_discriminating_and_the_starter_fails_it",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_starter_fails_every_published_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_passes_nothing_on_an_empty_project",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_part_a_solution_passes_the_part_a_gate_and_is_not_a_finished_application",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_reference_passes_published_hidden_and_gate",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_hidden_suite_rejects_a_walking_skeleton",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G01-the entry point module is missing]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G01-there are no tests]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G02-there is no requires-python]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G02-the dependency on PyYAML is missing]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G03-the build backend does not exist]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G04-the typing marker is not in the wheel]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G05-the command prints another version than the package]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G05-the version is written in two places]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G06-a type error]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G07-a blanket suppression]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G07-a call that runs text as code]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G08-fewer than thirty tests]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-the workflow runs on pull_request_target]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-an action is pinned to a tag]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-the token may write]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-event text is expanded inside a script]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-a version is not quoted]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G10-a locked version has a known advisory]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G11-a credential in the source]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G11-.gitignore does not mention .env]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G12-there is no security section]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G12-the changelog does not name the version]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-Ctrl-C is not handled]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-a closed pipe is not handled]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-the unusable lines are not counted]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_every_gate_has_a_negative_control",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_hidden_suite_is_discriminating",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_reference_tests_kill_most_defects_and_a_weak_suite_does_not",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_rubric_states_the_numbers_that_the_checks_use",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_every_check_named_in_the_grading_notes_exists_in_the_hidden_suite",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -335,6 +510,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M12]",
      "outcome": "passed"
     },
@@ -344,6 +527,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -383,6 +570,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M12]",
      "outcome": "passed"
     },
@@ -392,6 +587,10 @@
     },
     {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -431,6 +630,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M12]",
      "outcome": "passed"
     },
@@ -440,6 +647,10 @@
     },
     {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -479,6 +690,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M12]",
      "outcome": "passed"
     },
@@ -488,6 +707,10 @@
     },
     {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -527,6 +750,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M12]",
      "outcome": "passed"
     },
@@ -536,6 +767,10 @@
     },
     {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -575,6 +810,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M12]",
      "outcome": "passed"
     },
@@ -584,6 +827,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -623,6 +870,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M12]",
      "outcome": "passed"
     },
@@ -637,18 +892,62 @@
     {
      "id": "tests/test_module_packs::test_course_readme_lists_exactly_the_built_modules",
      "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m01::test_original_source_declaration_is_honest",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m01::test_lesson_has_substantive_content_and_executable_examples",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m01::test_guided_regressions",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m01::test_independent_starter_fails_as_intended",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m01::test_quiz_outcomes_and_private_material_exclusion",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m02::test_course_module_identity_and_source_provenance",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m02::test_lesson_is_substantive_and_examples_execute",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m02::test_guided_reference_contracts_are_executable",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m02::test_independent_student_starter_is_intentionally_unfinished",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m02::test_outcome_links_and_all_quiz_items",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m02::test_public_student_config_never_includes_instructor_material",
+     "outcome": "passed"
     }
    ]
   },
   {
-   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py -q -p no:cacheprovider",
+   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py -q -p no:cacheprovider",
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 146,
+    "passed": 220,
     "skipped": 0
    },
-   "duration_s": 674.2,
+   "duration_s": 3342.0,
    "executable": "/usr/bin/python3.12",
    "implementation": "CPython",
    "install_exit": 0,
@@ -917,7 +1216,179 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_python_engineering_labs::test_the_lab_evidence_renderer_recognises_every_lab_row",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m10_guided_solution_passes_every_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m10_guided_starter_fails_everything_a_learner_has_to_write",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m10_guided_checks_are_discriminating",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m10_independent_starter_fails_every_published_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m10_independent_reference_passes_published_and_hidden_checks",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m10_independent_hidden_suite_is_discriminating_and_the_starter_fails_it",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_starter_fails_every_published_check",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_passes_nothing_on_an_empty_project",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_part_a_solution_passes_the_part_a_gate_and_is_not_a_finished_application",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_reference_passes_published_hidden_and_gate",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_hidden_suite_rejects_a_walking_skeleton",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G01-the entry point module is missing]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G01-there are no tests]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G02-there is no requires-python]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G02-the dependency on PyYAML is missing]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G03-the build backend does not exist]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G04-the typing marker is not in the wheel]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G05-the command prints another version than the package]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G05-the version is written in two places]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G06-a type error]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G07-a blanket suppression]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G07-a call that runs text as code]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G08-fewer than thirty tests]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-the workflow runs on pull_request_target]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-an action is pinned to a tag]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-the token may write]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-event text is expanded inside a script]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-a version is not quoted]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G10-a locked version has a known advisory]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G11-a credential in the source]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G11-.gitignore does not mention .env]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G12-there is no security section]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G12-the changelog does not name the version]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-Ctrl-C is not handled]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-a closed pipe is not handled]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-the unusable lines are not counted]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_guided_every_gate_has_a_negative_control",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_hidden_suite_is_discriminating",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_reference_tests_kill_most_defects_and_a_weak_suite_does_not",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_rubric_states_the_numbers_that_the_checks_use",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_python_engineering_labs::test_m11_independent_every_check_named_in_the_grading_notes_exists_in_the_hidden_suite",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -957,6 +1428,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M12]",
      "outcome": "passed"
     },
@@ -966,6 +1445,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -1005,6 +1488,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M12]",
      "outcome": "passed"
     },
@@ -1014,6 +1505,10 @@
     },
     {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -1053,6 +1548,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M12]",
      "outcome": "passed"
     },
@@ -1062,6 +1565,10 @@
     },
     {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -1101,6 +1608,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M12]",
      "outcome": "passed"
     },
@@ -1110,6 +1625,10 @@
     },
     {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -1149,6 +1668,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M12]",
      "outcome": "passed"
     },
@@ -1158,6 +1685,10 @@
     },
     {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -1197,6 +1728,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M12]",
      "outcome": "passed"
     },
@@ -1206,6 +1745,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M02]",
      "outcome": "passed"
     },
     {
@@ -1245,6 +1788,14 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M11]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M12]",
      "outcome": "passed"
     },
@@ -1259,18 +1810,62 @@
     {
      "id": "tests/test_module_packs::test_course_readme_lists_exactly_the_built_modules",
      "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m01::test_original_source_declaration_is_honest",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m01::test_lesson_has_substantive_content_and_executable_examples",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m01::test_guided_regressions",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m01::test_independent_starter_fails_as_intended",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m01::test_quiz_outcomes_and_private_material_exclusion",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m02::test_course_module_identity_and_source_provenance",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m02::test_lesson_is_substantive_and_examples_execute",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m02::test_guided_reference_contracts_are_executable",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m02::test_independent_student_starter_is_intentionally_unfinished",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m02::test_outcome_links_and_all_quiz_items",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m02::test_public_student_config_never_includes_instructor_material",
+     "outcome": "passed"
     }
    ]
   },
   {
-   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py -q -p no:cacheprovider",
+   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 146,
+    "passed": 222,
     "skipped": 0
    },
-   "duration_s": 630.4,
+   "duration_s": 3672.8,
    "executable": "/usr/bin/python3.13",
    "implementation": "CPython",
    "install_exit": 0,
@@ -1292,12 +1887,502 @@
     "starlette": "1.8.0",
     "wheel": "0.48.0"
    },
+   "pieces": [
+    {
+     "duration_s": 43.6,
+     "exit": 0,
+     "name": "module-packs",
+     "tests": 107
+    },
+    {
+     "duration_s": 43.5,
+     "exit": 0,
+     "name": "labs-m01-m04",
+     "tests": 19
+    },
+    {
+     "duration_s": 233.4,
+     "exit": 0,
+     "name": "labs-m05-m06",
+     "tests": 11
+    },
+    {
+     "duration_s": 62.3,
+     "exit": 0,
+     "name": "labs-m07-m08",
+     "tests": 12
+    },
+    {
+     "duration_s": 163.5,
+     "exit": 0,
+     "name": "labs-m09",
+     "tests": 6
+    },
+    {
+     "duration_s": 1606.0,
+     "exit": 0,
+     "name": "labs-m10",
+     "tests": 6
+    },
+    {
+     "duration_s": 1481.6,
+     "exit": 0,
+     "name": "labs-m11",
+     "tests": 35
+    },
+    {
+     "duration_s": 37.5,
+     "exit": 0,
+     "name": "labs-m12-m13",
+     "tests": 12
+    },
+    {
+     "duration_s": 0.6,
+     "exit": 0,
+     "name": "labs-other",
+     "tests": 3
+    },
+    {
+     "duration_s": 0.8,
+     "exit": 0,
+     "name": "foundations",
+     "tests": 11
+    }
+   ],
    "pytest_exit": 0,
    "python": "3.13.16",
    "requested": "3.13",
    "skipped": [],
    "status": "PASS",
    "tests": [
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_public_files_contain_no_instructor_material",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_course_readme_lists_exactly_the_built_modules",
+     "outcome": "passed"
+    },
     {
      "id": "tests/test_python_engineering_labs::test_m01_guided_solution_passes_every_check",
      "outcome": "passed"
@@ -1352,26 +2437,6 @@
     },
     {
      "id": "tests/test_python_engineering_labs::test_m04_independent_reference_overlay_passes_every_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_guided_solution_passes_every_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_guided_starter_works_but_is_vulnerable_in_all_eight_areas",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_guided_reference_regression_tests_kill_every_vulnerability_mutant",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_guided_template_has_no_tests_yet",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_independent_reference_is_secure_and_starter_is_not",
      "outcome": "passed"
     },
     {
@@ -1439,51 +2504,23 @@
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_guided_solution_passes_every_check",
+     "id": "tests/test_python_engineering_labs::test_m07_guided_solution_passes_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_guided_starter_fails_every_check",
+     "id": "tests/test_python_engineering_labs::test_m07_guided_starter_works_but_is_vulnerable_in_all_eight_areas",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_guided_checks_are_discriminating",
+     "id": "tests/test_python_engineering_labs::test_m07_guided_reference_regression_tests_kill_every_vulnerability_mutant",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_independent_starter_fails_every_published_check",
+     "id": "tests/test_python_engineering_labs::test_m07_guided_template_has_no_tests_yet",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_independent_reference_passes_published_and_hidden_checks",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m12_independent_hidden_suite_is_discriminating_and_starter_fails_it",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_guided_solution_passes_every_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_guided_starter_fails_every_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_guided_checks_are_discriminating",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_independent_starter_fails_every_published_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_independent_reference_passes_published_and_hidden_checks",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_independent_hidden_suite_is_discriminating_and_starter_fails_it",
+     "id": "tests/test_python_engineering_labs::test_m07_independent_reference_is_secure_and_starter_is_not",
      "outcome": "passed"
     },
     {
@@ -1539,360 +2576,284 @@
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m10_guided_solution_passes_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m10_guided_starter_fails_everything_a_learner_has_to_write",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m10_guided_checks_are_discriminating",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m10_independent_starter_fails_every_published_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m10_independent_reference_passes_published_and_hidden_checks",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_m10_independent_hidden_suite_is_discriminating_and_the_starter_fails_it",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_starter_fails_every_published_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_passes_nothing_on_an_empty_project",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M08]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_part_a_solution_passes_the_part_a_gate_and_is_not_a_finished_application",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M09]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_reference_passes_published_hidden_and_gate",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M12]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_hidden_suite_rejects_a_walking_skeleton",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M13]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G01-the entry point module is missing]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G01-there are no tests]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G02-there is no requires-python]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G02-the dependency on PyYAML is missing]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G03-the build backend does not exist]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G04-the typing marker is not in the wheel]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G05-the command prints another version than the package]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G05-the version is written in two places]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G06-a type error]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M08]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G07-a blanket suppression]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M09]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G07-a call that runs text as code]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M12]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G08-fewer than thirty tests]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M13]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-the workflow runs on pull_request_target]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-an action is pinned to a tag]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-the token may write]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-event text is expanded inside a script]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-a version is not quoted]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G10-a locked version has a known advisory]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G11-a credential in the source]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G11-.gitignore does not mention .env]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G12-there is no security section]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M08]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G12-the changelog does not name the version]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M09]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-Ctrl-C is not handled]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M12]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-a closed pipe is not handled]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M13]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-the unusable lines are not counted]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_every_gate_has_a_negative_control",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_hidden_suite_is_discriminating",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_reference_tests_kill_most_defects_and_a_weak_suite_does_not",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_rubric_states_the_numbers_that_the_checks_use",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_every_check_named_in_the_grading_notes_exists_in_the_hidden_suite",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_m12_guided_solution_passes_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_m12_guided_starter_fails_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_m12_guided_checks_are_discriminating",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M08]",
+     "id": "tests/test_python_engineering_labs::test_m12_independent_starter_fails_every_published_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M09]",
+     "id": "tests/test_python_engineering_labs::test_m12_independent_reference_passes_published_and_hidden_checks",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M12]",
+     "id": "tests/test_python_engineering_labs::test_m12_independent_hidden_suite_is_discriminating_and_starter_fails_it",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M13]",
+     "id": "tests/test_python_engineering_labs::test_m13_guided_solution_passes_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m13_guided_starter_fails_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m13_guided_checks_are_discriminating",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m13_independent_starter_fails_every_published_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m13_independent_reference_passes_published_and_hidden_checks",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m13_independent_hidden_suite_is_discriminating_and_starter_fails_it",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_settle_survivors_counts_a_mutant_as_alive_only_if_it_survives_twice",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_settle_survivors_never_rescues_a_failing_baseline_or_runs_when_nothing_survived",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_the_lab_evidence_renderer_recognises_every_lab_row",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M08]",
+     "id": "tests/test_fnd_m01::test_original_source_declaration_is_honest",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M09]",
+     "id": "tests/test_fnd_m01::test_lesson_has_substantive_content_and_executable_examples",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M12]",
+     "id": "tests/test_fnd_m01::test_guided_regressions",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M13]",
+     "id": "tests/test_fnd_m01::test_independent_starter_fails_as_intended",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M01]",
+     "id": "tests/test_fnd_m01::test_quiz_outcomes_and_private_material_exclusion",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M01]",
+     "id": "tests/test_fnd_m02::test_course_module_identity_and_source_provenance",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M02]",
+     "id": "tests/test_fnd_m02::test_lesson_is_substantive_and_examples_execute",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M03]",
+     "id": "tests/test_fnd_m02::test_guided_reference_contracts_are_executable",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M04]",
+     "id": "tests/test_fnd_m02::test_independent_student_starter_is_intentionally_unfinished",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M05]",
+     "id": "tests/test_fnd_m02::test_outcome_links_and_all_quiz_items",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M06]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M07]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M08]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M09]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M12]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M13]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M01]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M01]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M02]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M03]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M04]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M05]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M06]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M07]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M08]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M09]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M12]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M13]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_public_files_contain_no_instructor_material",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_course_readme_lists_exactly_the_built_modules",
+     "id": "tests/test_fnd_m02::test_public_student_config_never_includes_instructor_material",
      "outcome": "passed"
     }
    ]
   },
   {
-   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py -q -p no:cacheprovider",
+   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 146,
+    "passed": 222,
     "skipped": 0
    },
-   "duration_s": 627.9,
+   "duration_s": 4387.3,
    "executable": "/root/.local/bin/python3.14",
    "implementation": "CPython",
    "install_exit": 0,
@@ -1914,12 +2875,502 @@
     "starlette": "1.8.0",
     "wheel": "0.48.0"
    },
+   "pieces": [
+    {
+     "duration_s": 49.2,
+     "exit": 0,
+     "name": "module-packs",
+     "tests": 107
+    },
+    {
+     "duration_s": 55.6,
+     "exit": 0,
+     "name": "labs-m01-m04",
+     "tests": 19
+    },
+    {
+     "duration_s": 244.7,
+     "exit": 0,
+     "name": "labs-m05-m06",
+     "tests": 11
+    },
+    {
+     "duration_s": 112.2,
+     "exit": 0,
+     "name": "labs-m07-m08",
+     "tests": 12
+    },
+    {
+     "duration_s": 253.4,
+     "exit": 0,
+     "name": "labs-m09",
+     "tests": 6
+    },
+    {
+     "duration_s": 1859.7,
+     "exit": 0,
+     "name": "labs-m10",
+     "tests": 6
+    },
+    {
+     "duration_s": 1744.0,
+     "exit": 0,
+     "name": "labs-m11",
+     "tests": 35
+    },
+    {
+     "duration_s": 66.1,
+     "exit": 0,
+     "name": "labs-m12-m13",
+     "tests": 12
+    },
+    {
+     "duration_s": 1.0,
+     "exit": 0,
+     "name": "labs-other",
+     "tests": 3
+    },
+    {
+     "duration_s": 1.4,
+     "exit": 0,
+     "name": "foundations",
+     "tests": 11
+    }
+   ],
    "pytest_exit": 0,
    "python": "3.14.8",
    "requested": "3.14",
    "skipped": [],
    "status": "PASS",
    "tests": [
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_public_files_contain_no_instructor_material",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_course_readme_lists_exactly_the_built_modules",
+     "outcome": "passed"
+    },
     {
      "id": "tests/test_python_engineering_labs::test_m01_guided_solution_passes_every_check",
      "outcome": "passed"
@@ -1974,26 +3425,6 @@
     },
     {
      "id": "tests/test_python_engineering_labs::test_m04_independent_reference_overlay_passes_every_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_guided_solution_passes_every_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_guided_starter_works_but_is_vulnerable_in_all_eight_areas",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_guided_reference_regression_tests_kill_every_vulnerability_mutant",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_guided_template_has_no_tests_yet",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_independent_reference_is_secure_and_starter_is_not",
      "outcome": "passed"
     },
     {
@@ -2061,51 +3492,23 @@
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_guided_solution_passes_every_check",
+     "id": "tests/test_python_engineering_labs::test_m07_guided_solution_passes_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_guided_starter_fails_every_check",
+     "id": "tests/test_python_engineering_labs::test_m07_guided_starter_works_but_is_vulnerable_in_all_eight_areas",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_guided_checks_are_discriminating",
+     "id": "tests/test_python_engineering_labs::test_m07_guided_reference_regression_tests_kill_every_vulnerability_mutant",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_independent_starter_fails_every_published_check",
+     "id": "tests/test_python_engineering_labs::test_m07_guided_template_has_no_tests_yet",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_independent_reference_passes_published_and_hidden_checks",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m12_independent_hidden_suite_is_discriminating_and_starter_fails_it",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_guided_solution_passes_every_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_guided_starter_fails_every_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_guided_checks_are_discriminating",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_independent_starter_fails_every_published_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_independent_reference_passes_published_and_hidden_checks",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_independent_hidden_suite_is_discriminating_and_starter_fails_it",
+     "id": "tests/test_python_engineering_labs::test_m07_independent_reference_is_secure_and_starter_is_not",
      "outcome": "passed"
     },
     {
@@ -2161,360 +3564,284 @@
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m10_guided_solution_passes_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m10_guided_starter_fails_everything_a_learner_has_to_write",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m10_guided_checks_are_discriminating",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m10_independent_starter_fails_every_published_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m10_independent_reference_passes_published_and_hidden_checks",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_m10_independent_hidden_suite_is_discriminating_and_the_starter_fails_it",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_starter_fails_every_published_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_passes_nothing_on_an_empty_project",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M08]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_part_a_solution_passes_the_part_a_gate_and_is_not_a_finished_application",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M09]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_reference_passes_published_hidden_and_gate",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M12]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_hidden_suite_rejects_a_walking_skeleton",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M13]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G01-the entry point module is missing]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G01-there are no tests]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G02-there is no requires-python]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G02-the dependency on PyYAML is missing]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G03-the build backend does not exist]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G04-the typing marker is not in the wheel]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G05-the command prints another version than the package]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G05-the version is written in two places]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G06-a type error]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M08]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G07-a blanket suppression]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M09]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G07-a call that runs text as code]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M12]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G08-fewer than thirty tests]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M13]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-the workflow runs on pull_request_target]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-an action is pinned to a tag]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-the token may write]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-event text is expanded inside a script]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-a version is not quoted]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G10-a locked version has a known advisory]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G11-a credential in the source]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G11-.gitignore does not mention .env]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G12-there is no security section]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M08]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G12-the changelog does not name the version]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M09]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-Ctrl-C is not handled]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M12]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-a closed pipe is not handled]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M13]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-the unusable lines are not counted]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_every_gate_has_a_negative_control",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_hidden_suite_is_discriminating",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_reference_tests_kill_most_defects_and_a_weak_suite_does_not",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_rubric_states_the_numbers_that_the_checks_use",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_every_check_named_in_the_grading_notes_exists_in_the_hidden_suite",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_m12_guided_solution_passes_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_m12_guided_starter_fails_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_m12_guided_checks_are_discriminating",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M08]",
+     "id": "tests/test_python_engineering_labs::test_m12_independent_starter_fails_every_published_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M09]",
+     "id": "tests/test_python_engineering_labs::test_m12_independent_reference_passes_published_and_hidden_checks",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M12]",
+     "id": "tests/test_python_engineering_labs::test_m12_independent_hidden_suite_is_discriminating_and_starter_fails_it",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M13]",
+     "id": "tests/test_python_engineering_labs::test_m13_guided_solution_passes_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m13_guided_starter_fails_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m13_guided_checks_are_discriminating",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m13_independent_starter_fails_every_published_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m13_independent_reference_passes_published_and_hidden_checks",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m13_independent_hidden_suite_is_discriminating_and_starter_fails_it",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_settle_survivors_counts_a_mutant_as_alive_only_if_it_survives_twice",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_settle_survivors_never_rescues_a_failing_baseline_or_runs_when_nothing_survived",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_the_lab_evidence_renderer_recognises_every_lab_row",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M08]",
+     "id": "tests/test_fnd_m01::test_original_source_declaration_is_honest",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M09]",
+     "id": "tests/test_fnd_m01::test_lesson_has_substantive_content_and_executable_examples",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M12]",
+     "id": "tests/test_fnd_m01::test_guided_regressions",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M13]",
+     "id": "tests/test_fnd_m01::test_independent_starter_fails_as_intended",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M01]",
+     "id": "tests/test_fnd_m01::test_quiz_outcomes_and_private_material_exclusion",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M01]",
+     "id": "tests/test_fnd_m02::test_course_module_identity_and_source_provenance",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M02]",
+     "id": "tests/test_fnd_m02::test_lesson_is_substantive_and_examples_execute",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M03]",
+     "id": "tests/test_fnd_m02::test_guided_reference_contracts_are_executable",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M04]",
+     "id": "tests/test_fnd_m02::test_independent_student_starter_is_intentionally_unfinished",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M05]",
+     "id": "tests/test_fnd_m02::test_outcome_links_and_all_quiz_items",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M06]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M07]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M08]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M09]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M12]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M13]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M01]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M01]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M02]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M03]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M04]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M05]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M06]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M07]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M08]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M09]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M12]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M13]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_public_files_contain_no_instructor_material",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_course_readme_lists_exactly_the_built_modules",
+     "id": "tests/test_fnd_m02::test_public_student_config_never_includes_instructor_material",
      "outcome": "passed"
     }
    ]
   },
   {
-   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py -q -p no:cacheprovider",
+   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 146,
+    "passed": 222,
     "skipped": 0
    },
-   "duration_s": 653.8,
+   "duration_s": 4308.1,
    "executable": "/root/.local/bin/python3.15",
    "implementation": "CPython",
    "install_exit": 0,
@@ -2536,12 +3863,502 @@
     "starlette": "1.8.0",
     "wheel": "0.48.0"
    },
+   "pieces": [
+    {
+     "duration_s": 61.0,
+     "exit": 0,
+     "name": "module-packs",
+     "tests": 107
+    },
+    {
+     "duration_s": 72.3,
+     "exit": 0,
+     "name": "labs-m01-m04",
+     "tests": 19
+    },
+    {
+     "duration_s": 245.0,
+     "exit": 0,
+     "name": "labs-m05-m06",
+     "tests": 11
+    },
+    {
+     "duration_s": 113.4,
+     "exit": 0,
+     "name": "labs-m07-m08",
+     "tests": 12
+    },
+    {
+     "duration_s": 243.7,
+     "exit": 0,
+     "name": "labs-m09",
+     "tests": 6
+    },
+    {
+     "duration_s": 1820.8,
+     "exit": 0,
+     "name": "labs-m10",
+     "tests": 6
+    },
+    {
+     "duration_s": 1683.0,
+     "exit": 0,
+     "name": "labs-m11",
+     "tests": 35
+    },
+    {
+     "duration_s": 66.7,
+     "exit": 0,
+     "name": "labs-m12-m13",
+     "tests": 12
+    },
+    {
+     "duration_s": 0.9,
+     "exit": 0,
+     "name": "labs-other",
+     "tests": 3
+    },
+    {
+     "duration_s": 1.3,
+     "exit": 0,
+     "name": "foundations",
+     "tests": 11
+    }
+   ],
    "pytest_exit": 0,
    "python": "3.15.0",
    "requested": "3.15",
    "skipped": [],
    "status": "PASS",
    "tests": [
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_required_files_exist[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M01]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M02]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M03]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M05]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M06]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M07]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M08]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M09]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M10]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M11]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M12]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M13]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_public_files_contain_no_instructor_material",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_course_readme_lists_exactly_the_built_modules",
+     "outcome": "passed"
+    },
     {
      "id": "tests/test_python_engineering_labs::test_m01_guided_solution_passes_every_check",
      "outcome": "passed"
@@ -2596,26 +4413,6 @@
     },
     {
      "id": "tests/test_python_engineering_labs::test_m04_independent_reference_overlay_passes_every_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_guided_solution_passes_every_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_guided_starter_works_but_is_vulnerable_in_all_eight_areas",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_guided_reference_regression_tests_kill_every_vulnerability_mutant",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_guided_template_has_no_tests_yet",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m07_independent_reference_is_secure_and_starter_is_not",
      "outcome": "passed"
     },
     {
@@ -2683,51 +4480,23 @@
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_guided_solution_passes_every_check",
+     "id": "tests/test_python_engineering_labs::test_m07_guided_solution_passes_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_guided_starter_fails_every_check",
+     "id": "tests/test_python_engineering_labs::test_m07_guided_starter_works_but_is_vulnerable_in_all_eight_areas",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_guided_checks_are_discriminating",
+     "id": "tests/test_python_engineering_labs::test_m07_guided_reference_regression_tests_kill_every_vulnerability_mutant",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_independent_starter_fails_every_published_check",
+     "id": "tests/test_python_engineering_labs::test_m07_guided_template_has_no_tests_yet",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_python_engineering_labs::test_m12_independent_reference_passes_published_and_hidden_checks",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m12_independent_hidden_suite_is_discriminating_and_starter_fails_it",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_guided_solution_passes_every_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_guided_starter_fails_every_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_guided_checks_are_discriminating",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_independent_starter_fails_every_published_check",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_independent_reference_passes_published_and_hidden_checks",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_python_engineering_labs::test_m13_independent_hidden_suite_is_discriminating_and_starter_fails_it",
+     "id": "tests/test_python_engineering_labs::test_m07_independent_reference_is_secure_and_starter_is_not",
      "outcome": "passed"
     },
     {
@@ -2783,347 +4552,271 @@
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m10_guided_solution_passes_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m10_guided_starter_fails_everything_a_learner_has_to_write",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m10_guided_checks_are_discriminating",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m10_independent_starter_fails_every_published_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m10_independent_reference_passes_published_and_hidden_checks",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_m10_independent_hidden_suite_is_discriminating_and_the_starter_fails_it",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_starter_fails_every_published_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_passes_nothing_on_an_empty_project",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M08]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_part_a_solution_passes_the_part_a_gate_and_is_not_a_finished_application",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M09]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_reference_passes_published_hidden_and_gate",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M12]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_hidden_suite_rejects_a_walking_skeleton",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_required_files_exist[PY-M13]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G01-the entry point module is missing]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G01-there are no tests]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G02-there is no requires-python]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G02-the dependency on PyYAML is missing]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G03-the build backend does not exist]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G04-the typing marker is not in the wheel]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G05-the command prints another version than the package]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G05-the version is written in two places]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G06-a type error]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M08]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G07-a blanket suppression]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M09]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G07-a call that runs text as code]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M12]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G08-fewer than thirty tests]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[PY-M13]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-the workflow runs on pull_request_target]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-an action is pinned to a tag]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-the token may write]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-event text is expanded inside a script]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G09-a version is not quoted]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G10-a locked version has a known advisory]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G11-a credential in the source]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G11-.gitignore does not mention .env]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G12-there is no security section]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M08]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G12-the changelog does not name the version]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M09]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-Ctrl-C is not handled]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M12]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-a closed pipe is not handled]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M13]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_gate_catches_each_damage[G13-the unusable lines are not counted]",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_guided_every_gate_has_a_negative_control",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_hidden_suite_is_discriminating",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_reference_tests_kill_most_defects_and_a_weak_suite_does_not",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_the_rubric_states_the_numbers_that_the_checks_use",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m11_independent_every_check_named_in_the_grading_notes_exists_in_the_hidden_suite",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_m12_guided_solution_passes_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_m12_guided_starter_fails_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_m12_guided_checks_are_discriminating",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M08]",
+     "id": "tests/test_python_engineering_labs::test_m12_independent_starter_fails_every_published_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M09]",
+     "id": "tests/test_python_engineering_labs::test_m12_independent_reference_passes_published_and_hidden_checks",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M12]",
+     "id": "tests/test_python_engineering_labs::test_m12_independent_hidden_suite_is_discriminating_and_starter_fails_it",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[PY-M13]",
+     "id": "tests/test_python_engineering_labs::test_m13_guided_solution_passes_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M01]",
+     "id": "tests/test_python_engineering_labs::test_m13_guided_starter_fails_every_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M01]",
+     "id": "tests/test_python_engineering_labs::test_m13_guided_checks_are_discriminating",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M02]",
+     "id": "tests/test_python_engineering_labs::test_m13_independent_starter_fails_every_published_check",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M03]",
+     "id": "tests/test_python_engineering_labs::test_m13_independent_reference_passes_published_and_hidden_checks",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M04]",
+     "id": "tests/test_python_engineering_labs::test_m13_independent_hidden_suite_is_discriminating_and_starter_fails_it",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M05]",
+     "id": "tests/test_python_engineering_labs::test_settle_survivors_counts_a_mutant_as_alive_only_if_it_survives_twice",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M06]",
+     "id": "tests/test_python_engineering_labs::test_settle_survivors_never_rescues_a_failing_baseline_or_runs_when_nothing_survived",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M07]",
+     "id": "tests/test_python_engineering_labs::test_the_lab_evidence_renderer_recognises_every_lab_row",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M08]",
+     "id": "tests/test_fnd_m01::test_original_source_declaration_is_honest",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M09]",
+     "id": "tests/test_fnd_m01::test_lesson_has_substantive_content_and_executable_examples",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M12]",
+     "id": "tests/test_fnd_m01::test_guided_regressions",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M13]",
+     "id": "tests/test_fnd_m01::test_independent_starter_fails_as_intended",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M01]",
+     "id": "tests/test_fnd_m01::test_quiz_outcomes_and_private_material_exclusion",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M01]",
+     "id": "tests/test_fnd_m02::test_course_module_identity_and_source_provenance",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M02]",
+     "id": "tests/test_fnd_m02::test_lesson_is_substantive_and_examples_execute",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M03]",
+     "id": "tests/test_fnd_m02::test_guided_reference_contracts_are_executable",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M04]",
+     "id": "tests/test_fnd_m02::test_independent_student_starter_is_intentionally_unfinished",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M05]",
+     "id": "tests/test_fnd_m02::test_outcome_links_and_all_quiz_items",
      "outcome": "passed"
     },
     {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M06]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M07]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M08]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M09]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M12]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M13]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M01]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M01]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M02]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M03]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M04]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M05]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M06]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M07]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M08]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M09]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M12]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[PY-M13]",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_public_files_contain_no_instructor_material",
-     "outcome": "passed"
-    },
-    {
-     "id": "tests/test_module_packs::test_course_readme_lists_exactly_the_built_modules",
+     "id": "tests/test_fnd_m02::test_public_student_config_never_includes_instructor_material",
      "outcome": "passed"
     }
    ]
@@ -3139,16 +4832,20 @@
   "PY-M07": "220c332739cca74047a57984a2c1761a86d76e223b6391274008cb4afd101a9d",
   "PY-M08": "be56bc553622ca43d0053dd0562d986eb62409d8905456f67dba26e07c205f6e",
   "PY-M09": "8b0d311c70561e2628a360ea3542aacc9ccf64454b55a1c85643182a1e9d6913",
+  "PY-M10": "44dc92138a46da29006f14da929e4f5427eca5c662ea3d640a83d0b91ae16443",
+  "PY-M11": "ec428f05257e94d1fe11322d199f0fa986ea10614dc3176c92547d15360e4319",
   "PY-M12": "cd361b925d1e664f99ea747f9b065059f6ea0f17e0d3eca4985001d204df04df",
   "PY-M13": "920f5dd8c1e196f119155395705fb5cd06c17cb377590ca5f56e34935eb79149"
  },
  "private_instructor_pack_present": true,
  "requirements_file": "courses/python-engineering/labs/requirements.txt",
- "run_utc": "2026-10-15T14:08:43Z",
+ "run_utc": "2026-10-16T04:38:58Z",
  "schema_version": 1,
  "suites": [
   "tests/test_python_engineering_labs.py",
-  "tests/test_module_packs.py"
+  "tests/test_module_packs.py",
+  "tests/test_fnd_m01.py",
+  "tests/test_fnd_m02.py"
  ],
  "working_tree_dirty": false
 }

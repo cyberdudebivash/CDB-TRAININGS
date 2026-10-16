@@ -18,10 +18,10 @@ Scenario inventory by class: CONTROLLED_LIVE 8, NONE_YET 76, REPLAY_SIMULATION 5
 
 | ID | Course | Scenario | Class | Computed state | Note |
 |---|---|---|---|---|---|
-| PYE-01 | PY-ENG | Production-style application components (typed package with a checked layout) | CONTROLLED_LIVE | IMPLEMENTED_UNVERIFIED | controlled live: the release gate builds the wheel, installs it into a scratch environment and runs the installed application against a generated stream; nothing external is used |
+| PYE-01 | PY-ENG | Production-style application components (typed package with a checked layout) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED | controlled live: the release gate builds the wheel, installs it into a scratch environment and runs the installed application against a generated stream; nothing external is used |
 | PYE-02 | PY-ENG | Fault-tolerant API client (timeouts, bounded retries, Retry-After, pagination, same-origin links) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED | loopback server started by the lab; deadline and measured timing in hidden suite |
 | PYE-03 | PY-ENG | Data validation at the boundary (schemas, quarantine of bad records, reject threshold) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
-| PYE-04 | PY-ENG | Structured logging for diagnosis | CONTROLLED_LIVE | IMPLEMENTED_UNVERIFIED | authwatch -v writes one JSON object per line to standard error and no character of the input; the live scenario of the release gate (G13) and the hidden suite check it; no external system is involved |
+| PYE-04 | PY-ENG | Structured logging for diagnosis | CONTROLLED_LIVE | TECHNICALLY_VERIFIED | authwatch -v writes one JSON object per line to standard error and no character of the input; the live scenario of the release gate (G13) and the hidden suite check it; no external system is involved |
 | PYE-06 | PY-ENG | Automated tests that catch seeded defects (mutation-graded) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
 | PYE-08 | PY-ENG | Concurrency: bounded fan-out, supervision, cancellation, partial failure, deadline | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
 | PYE-09 | PY-ENG | Performance debugging with a profiler | CONTROLLED_LIVE | TECHNICALLY_VERIFIED | the profile is produced live by running the lab program; the budgets use counts and ratios, not wall-clock thresholds alone |

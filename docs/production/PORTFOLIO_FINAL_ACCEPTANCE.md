@@ -8,18 +8,18 @@
 
 ### REPOSITORY STATE
 - Courses in the catalog: 10; modules required by the approved catalog: 113; planned labs: 217; planned learning outcomes: 118.
-- Branch content recomputed from files at the latest lab-matrix commit `9e03a201529a`; the matrix covers 5 interpreters.
+- Branch content recomputed from files at the latest lab-matrix commit `52ed97e6c141`; the matrix covers 5 interpreters.
 
 ### CONTENT STATE
-- Modules implemented (all required files present): 16 of 113 (14%); technically verified: 1 of 113 (1%).
-- Module states: NOT_STARTED 97, IMPLEMENTED_UNVERIFIED 15, TECHNICALLY_VERIFIED 1.
-- Substantive executed lessons: 1 of 113 (1%).
+- Modules implemented (all required files present): 16 of 113 (14%); technically verified: 16 of 113 (14%).
+- Module states: NOT_STARTED 97, TECHNICALLY_VERIFIED 16.
+- Substantive executed lessons: 16 of 113 (14%).
 - Labs verified executable: 27 of 217 (12%); outcomes assessed: 21 of 118 (18%).
 - Source pages with a recorded module disposition: 674 of 8186 (8%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
-- Python Engineering: 13 of 13 catalog modules implemented, score 59.2 of 100, state IMPLEMENTED_UNVERIFIED.
+- Python Engineering: 13 of 13 catalog modules implemented, score 84.0 of 100, state TECHNICALLY_VERIFIED.
 
 ### OPERATIONS STATE
-- Operational scenarios technically verified: 8 of 89 (9%); scenario states: IMPLEMENTED_UNVERIFIED 2, IN_PROGRESS 5, NOT_STARTED 74, TECHNICALLY_VERIFIED 8.
+- Operational scenarios technically verified: 10 of 89 (11%); scenario states: IN_PROGRESS 5, NOT_STARTED 74, TECHNICALLY_VERIFIED 10.
 - Courses with at least one verified time-dependent scenario (CONTROLLED_LIVE or REPLAY_SIMULATION): 2 of 10 (20%); EXTERNAL_LIVE scenarios: 0.
 
 ### PUBLICATION STATE
@@ -36,14 +36,14 @@
 | Criterion | Name | Courses not meeting it |
 |---|---|---|
 | A01 | All approved required modules are implemented | 9 of 10 |
-| A02 | Every required lesson contains substantive, executed instruction | 10 of 10 |
+| A02 | Every required lesson contains substantive, executed instruction | 9 of 10 |
 | A03 | Source coverage is reconciled: every source page has a recorded disposition | 8 of 10 |
 | A04 | Material technical claims are verified and the October 24 refresh is executed | 10 of 10 |
 | A05 | Required operational scenarios are implemented and verified | 10 of 10 |
-| A06 | Required practical labs pass their validation criteria on the declared matrix | 10 of 10 |
+| A06 | Required practical labs pass their validation criteria on the declared matrix | 9 of 10 |
 | A07 | Every learning outcome is measurable and assessed | 9 of 10 |
-| A08 | The capstone has a working deliverable, acceptance criteria and a check | 10 of 10 |
-| A09 | Automated QA passes and relevant negative controls pass | 10 of 10 |
+| A08 | The capstone has a working deliverable, acceptance criteria and a check | 9 of 10 |
+| A09 | Automated QA passes and relevant negative controls pass | 9 of 10 |
 | A10 | Security and privacy issues affecting the course are resolved | 7 of 10 |
 | A11 | Source provenance and rights are cleared | 10 of 10 |
 | A12 | Student materials are complete | 10 of 10 |

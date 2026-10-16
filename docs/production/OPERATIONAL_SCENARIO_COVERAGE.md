@@ -12,7 +12,7 @@ Every course has to teach the customer-operations scenarios of its domain across
 |---|---|---|---|
 | FND-DIGITAL | 3 | 0 | 0 |
 | SOC | 12 | 2 | 2 |
-| PY-ENG | 10 | 6 | 6 |
+| PY-ENG | 10 | 8 | 8 |
 | PY-AUTO | 10 | 0 | 0 |
 | JAVA-QA | 10 | 0 | 0 |
 | AI-ENG | 11 | 0 | 0 |
@@ -21,16 +21,16 @@ Every course has to teach the customer-operations scenarios of its domain across
 | FE-ONBOARD | 10 | 0 | 0 |
 | CYBER-MEGA | 4 | 0 | 0 |
 
-Total: 8 of 89 (9%) technically verified. Scenario states: IMPLEMENTED_UNVERIFIED 2, IN_PROGRESS 5, NOT_STARTED 74, TECHNICALLY_VERIFIED 8.
+Total: 10 of 89 (11%) technically verified. Scenario states: IN_PROGRESS 5, NOT_STARTED 74, TECHNICALLY_VERIFIED 10.
 
 ## 2. All scenarios
 
 | ID | Course | Scenario | Computed state | Classification | Lifecycle steps | Failure injections | Evidence tests |
 |---|---|---|---|---|---|---|---|
-| PYE-01 | PY-ENG | Production-style application components (typed package with a checked layout) | IMPLEMENTED_UNVERIFIED | CONTROLLED_LIVE | 7/9 | 2 | `test_m11_guided_every_gate_has_a_negative_control`, `test_m11_guided_gate_passes_nothing_on_an_empty_project`, `test_m11_guided_part_a_solution_passes_the_part_a_gate_and_is_not_a_finished_application`, `test_m11_independent_reference_passes_published_hidden_and_gate` |
+| PYE-01 | PY-ENG | Production-style application components (typed package with a checked layout) | TECHNICALLY_VERIFIED | CONTROLLED_LIVE | 7/9 | 2 | `test_m11_guided_every_gate_has_a_negative_control`, `test_m11_guided_gate_passes_nothing_on_an_empty_project`, `test_m11_guided_part_a_solution_passes_the_part_a_gate_and_is_not_a_finished_application`, `test_m11_independent_reference_passes_published_hidden_and_gate` |
 | PYE-02 | PY-ENG | Fault-tolerant API client (timeouts, bounded retries, Retry-After, pagination, same-origin links) | TECHNICALLY_VERIFIED | CONTROLLED_LIVE | 8/9 | 5 | `test_m05_guided_solution_passes_every_check`, `test_m05_independent_reference_passes_published_and_hidden_checks` |
 | PYE-03 | PY-ENG | Data validation at the boundary (schemas, quarantine of bad records, reject threshold) | TECHNICALLY_VERIFIED | CONTROLLED_LIVE | 6/9 | 3 | `test_m05_independent_reference_passes_published_and_hidden_checks` |
-| PYE-04 | PY-ENG | Structured logging for diagnosis | IMPLEMENTED_UNVERIFIED | CONTROLLED_LIVE | 5/9 | 5 | `test_m11_independent_reference_passes_published_hidden_and_gate` |
+| PYE-04 | PY-ENG | Structured logging for diagnosis | TECHNICALLY_VERIFIED | CONTROLLED_LIVE | 5/9 | 5 | `test_m11_independent_reference_passes_published_hidden_and_gate` |
 | PYE-05 | PY-ENG | Package maintenance (migrate a legacy project to pyproject, build, install, verify) | IN_PROGRESS | NONE_YET | 3/9 | 0 | - |
 | PYE-06 | PY-ENG | Automated tests that catch seeded defects (mutation-graded) | TECHNICALLY_VERIFIED | CONTROLLED_LIVE | 4/9 | 1 | `test_m02_guided_reference_tests_kill_every_mutant` |
 | PYE-07 | PY-ENG | Secure application configuration (secrets, defaults, token validation) | IN_PROGRESS | NONE_YET | 3/9 | 0 | - |

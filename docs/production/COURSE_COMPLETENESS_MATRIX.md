@@ -10,9 +10,9 @@ Counts are recomputed from files at generation time; a file existing is only `IM
 
 | Course | Modules implemented | Verified | Reviewed | Labs verified | Outcomes assessed | Scenarios verified | Source pages dispositioned | Course PDF | Score | State |
 |---|---|---|---|---|---|---|---|---|---|---|
-| COURSE-FND-DIGITAL | 2/6 | 0 | 0 | 0/12 | 2/6 | 0/3 | n/a | no | 9.0 | IN_PROGRESS |
+| COURSE-FND-DIGITAL | 2/6 | 2 | 0 | 0/12 | 2/6 | 0/3 | n/a | no | 16.8 | IN_PROGRESS |
 | COURSE-SOC | 1/14 | 1 | 0 | 2/27 | 6/19 | 2/12 | 20/43 | no | 11.2 | IN_PROGRESS |
-| COURSE-PY-ENG | 13/13 | 0 | 0 | 25/25 | 13/13 | 6/10 | 654/654 | no | 59.2 | IMPLEMENTED_UNVERIFIED |
+| COURSE-PY-ENG | 13/13 | 13 | 0 | 25/25 | 13/13 | 8/10 | 654/654 | no | 84.0 | TECHNICALLY_VERIFIED |
 | COURSE-PY-AUTO | 0/10 | 0 | 0 | 0/19 | 0/10 | 0/10 | 0/1458 | no | 0.0 | NOT_STARTED |
 | COURSE-JAVA-QA | 0/10 | 0 | 0 | 0/19 | 0/10 | 0/10 | 0/709 | no | 0.0 | NOT_STARTED |
 | COURSE-AI-ENG | 0/12 | 0 | 0 | 0/23 | 0/12 | 0/11 | 0/937 | no | 0.0 | NOT_STARTED |
@@ -21,14 +21,14 @@ Counts are recomputed from files at generation time; a file existing is only `IM
 | COURSE-FE-ONBOARD | 0/11 | 0 | 0 | 0/21 | 0/11 | 0/10 | 0/441 | no | 0.0 | NOT_STARTED |
 | COURSE-CYBER-MEGA | 0/14 | 0 | 0 | 0/27 | 0/14 | 0/4 | 0/3664 | no | 0.0 | NOT_STARTED |
 
-Portfolio: 16 of 113 (14%) modules implemented, 1 of 113 (1%) technically verified, 0 courses at TRAINING_CONTENT_GO.
+Portfolio: 16 of 113 (14%) modules implemented, 16 of 113 (14%) technically verified, 0 courses at TRAINING_CONTENT_GO.
 
 ## 2. Modules
 
 | Module | Title | Catalog status | Computed state | Lesson words | Executed blocks | Execution evidence |
 |---|---|---|---|---|---|---|
-| FND-M01 | Operating systems, files and permissions | BUILT | IMPLEMENTED_UNVERIFIED | 2498 | 5 | 7 tests on 5 interpreters; failed 0, skipped 0 |
-| FND-M02 | Command-line fundamentals | BUILT | IMPLEMENTED_UNVERIFIED | 2164 | 4 | 0 tests on 5 interpreters; failed 0, skipped 0; STALE: 7 input file(s) changed after the recorded run at 9e03a201529a |
+| FND-M01 | Operating systems, files and permissions | BUILT | TECHNICALLY_VERIFIED | 2498 | 5 | 12 tests on 5 interpreters; failed 0, skipped 0 |
+| FND-M02 | Command-line fundamentals | BUILT | TECHNICALLY_VERIFIED | 2164 | 4 | 13 tests on 5 interpreters; failed 0, skipped 0 |
 | FND-M03 | Networking and HTTP basics | PLANNED | NOT_STARTED | - | - | - |
 | FND-M04 | Git and GitHub workflow | PLANNED | NOT_STARTED | - | - | - |
 | FND-M05 | Programming fundamentals with Python | PLANNED | NOT_STARTED | - | - | - |
@@ -47,19 +47,19 @@ Portfolio: 16 of 113 (14%) modules implemented, 1 of 113 (1%) technically verifi
 | SOC-M12 | Cloud and identity threat detection | PLANNED | NOT_STARTED | - | - | - |
 | SOC-M13 | SOAR playbooks and AI-assisted investigation automation | PLANNED | NOT_STARTED | - | - | - |
 | SOC-M14 | Capstone: end-to-end SOC investigation | PLANNED | NOT_STARTED | - | - | - |
-| PY-M01 | Language core and data structures | BUILT | IMPLEMENTED_UNVERIFIED | 3281 | 8 | 12 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed |
-| PY-M02 | Functions, errors and testing with pytest | BUILT | IMPLEMENTED_UNVERIFIED | 1725 | 6 | 12 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed |
-| PY-M13 | Iterators, generators, closures, decorators and context managers | BUILT | IMPLEMENTED_UNVERIFIED | 4930 | 26 | 13 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed |
-| PY-M03 | Types, modules and project layout | BUILT | IMPLEMENTED_UNVERIFIED | 2410 | 7 | 12 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed |
-| PY-M12 | Classes, dataclasses and object-oriented design | BUILT | IMPLEMENTED_UNVERIFIED | 6472 | 34 | 13 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed |
-| PY-M04 | Environments, dependencies and packaging (pyproject, build) | BUILT | IMPLEMENTED_UNVERIFIED | 2199 | 5 | 11 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed |
-| PY-M05 | Files, structured data and HTTP clients | BUILT | IMPLEMENTED_UNVERIFIED | 5528 | 14 | 12 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed |
-| PY-M06 | Concurrency and asynchronous programming | BUILT | IMPLEMENTED_UNVERIFIED | 4951 | 12 | 13 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed |
-| PY-M07 | Secure coding for Python | BUILT | IMPLEMENTED_UNVERIFIED | 2190 | 3 | 12 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed |
-| PY-M08 | Databases and persistence: safe SQL, transactions, repositories, migrations and query cost | BUILT | IMPLEMENTED_UNVERIFIED | 9234 | 31 | 14 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed |
-| PY-M09 | Profiling, performance and maintainable architecture | BUILT | IMPLEMENTED_UNVERIFIED | 5940 | 22 | 13 tests on 5 interpreters; failed 0, skipped 0; STALE: content of the module's lesson, labs or shared lab tools differs from the content that was executed |
-| PY-M10 | API development: typed, tested and secure HTTP services | BUILT | IMPLEMENTED_UNVERIFIED | 8399 | 25 | 0 tests on 5 interpreters; failed 0, skipped 0; STALE: 23 input file(s) changed after the recorded run at 9e03a201529a |
-| PY-M11 | Capstone: typed, tested, documented application with CI | BUILT | IMPLEMENTED_UNVERIFIED | 6942 | 11 | 0 tests on 5 interpreters; failed 0, skipped 0; STALE: 16 input file(s) changed after the recorded run at 9e03a201529a |
+| PY-M01 | Language core and data structures | BUILT | TECHNICALLY_VERIFIED | 3281 | 8 | 12 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M02 | Functions, errors and testing with pytest | BUILT | TECHNICALLY_VERIFIED | 1725 | 6 | 12 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M13 | Iterators, generators, closures, decorators and context managers | BUILT | TECHNICALLY_VERIFIED | 4930 | 26 | 13 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M03 | Types, modules and project layout | BUILT | TECHNICALLY_VERIFIED | 2410 | 7 | 12 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M12 | Classes, dataclasses and object-oriented design | BUILT | TECHNICALLY_VERIFIED | 6472 | 34 | 13 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M04 | Environments, dependencies and packaging (pyproject, build) | BUILT | TECHNICALLY_VERIFIED | 2199 | 5 | 11 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M05 | Files, structured data and HTTP clients | BUILT | TECHNICALLY_VERIFIED | 5528 | 14 | 12 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M06 | Concurrency and asynchronous programming | BUILT | TECHNICALLY_VERIFIED | 4951 | 12 | 13 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M07 | Secure coding for Python | BUILT | TECHNICALLY_VERIFIED | 2190 | 3 | 12 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M08 | Databases and persistence: safe SQL, transactions, repositories, migrations and query cost | BUILT | TECHNICALLY_VERIFIED | 9234 | 31 | 14 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M09 | Profiling, performance and maintainable architecture | BUILT | TECHNICALLY_VERIFIED | 5940 | 22 | 13 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M10 | API development: typed, tested and secure HTTP services | BUILT | TECHNICALLY_VERIFIED | 8399 | 25 | 13 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M11 | Capstone: typed, tested, documented application with CI | BUILT | TECHNICALLY_VERIFIED | 6942 | 11 | 42 tests on 5 interpreters; failed 0, skipped 0 |
 | PA-M01 | Automation design and shared Python foundations | PLANNED | NOT_STARTED | - | - | - |
 | PA-M02 | Filesystem and document workflows | PLANNED | NOT_STARTED | - | - | - |
 | PA-M03 | API integrations and data validation | PLANNED | NOT_STARTED | - | - | - |
