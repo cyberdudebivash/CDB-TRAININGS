@@ -127,6 +127,20 @@ class PilotLedger:
         with self._lock:
             self._connection.execute("BEGIN IMMEDIATE")
             try:
+                self._verify_state(self._connection)
+                yield self._connection
+                self._connection.execute("COMMIT")
+            except BaseException:
+                self._connection.execute("ROLLBACK")
+                raise
+
+    @contextmanager
+    def _read_snapshot(self) -> Iterator[sqlite3.Connection]:
+        """Reconcile and read within one SQLite snapshot; never mix verification and later edits."""
+        with self._lock:
+            self._connection.execute("BEGIN")
+            try:
+                self._verify_state(self._connection)
                 yield self._connection
                 self._connection.execute("COMMIT")
             except BaseException:
@@ -148,6 +162,78 @@ class PilotLedger:
         db.execute("INSERT INTO audit(tenant,timestamp,event,payload,previous_sha,current_sha) VALUES(?,?,?,?,?,?)",
                    (tenant, now, event, body, prev_sha, digest))
         return digest
+
+    def _verify_state(self, db: sqlite3.Connection) -> None:
+        """Fail closed if an audit event and any materialized pilot row disagree.
+
+        This detects accidental/direct SQL row edits ONLY while the corresponding
+        hash-chain history remains intact. A database writer can still rewrite
+        both tables and the unkeyed history; immutable external anchors are
+        required before any production evidence assurance can be claimed.
+        Full replay is intentionally O(events) for small offline cohorts.
+        """
+        tables = {
+            "tenants": "SELECT id FROM tenants",
+            "principals": "SELECT tenant,id,role FROM principals",
+            "cohorts": "SELECT tenant,id,course,content_version,minimum_percent,state FROM cohorts",
+            "cohort_instructors": "SELECT tenant,cohort,instructor FROM cohort_instructors",
+            "enrollments": "SELECT tenant,cohort,learner FROM enrollments",
+            "assignments": "SELECT tenant,cohort,id,title FROM assignments",
+            "submissions": "SELECT tenant,cohort,assignment,learner,submission_id,artifact_sha FROM submissions",
+            "grades": "SELECT tenant,submission_id,instructor,score,evidence_sha FROM grades",
+        }
+        expected: dict[str, set[tuple]] = {table: set() for table in tables}
+        previous: dict[str, str] = {}
+        event_specs = {
+            "TENANT_PROVISIONED": {"admin"},
+            "PRINCIPAL_ADDED": {"actor", "principal", "role"},
+            "COHORT_CREATED": {"actor", "cohort", "course", "version", "minimum_percent"},
+            "INSTRUCTOR_ASSIGNED": {"actor", "cohort", "instructor"},
+            "LEARNER_ENROLLED": {"actor", "cohort", "learner"},
+            "ASSIGNMENT_DEFINED": {"actor", "cohort", "assignment", "title"},
+            "ARTIFACT_SUBMITTED": {"learner", "cohort", "assignment", "submission", "artifact_sha"},
+            "GRADE_RECORDED": {"instructor", "submission", "score", "evidence_sha"},
+        }
+        for tenant, timestamp, event, body, prev, digest in db.execute(
+                "SELECT tenant,timestamp,event,payload,previous_sha,current_sha FROM audit ORDER BY seq"):
+            ancestor = previous.get(tenant, GENESIS)
+            if prev != ancestor or digest != _event_hash(tenant, ancestor, timestamp, event, body):
+                raise PolicyError("audit chain verification failed")
+            previous[tenant] = digest
+            try:
+                fields = json.loads(body)
+                if type(fields) is not dict or _canonical(fields) != body or set(fields) != event_specs[event]:
+                    raise ValueError("invalid audited event schema")
+            except (ValueError, TypeError, KeyError) as exc:
+                raise PolicyError("audit event schema mismatch; migration/review required") from exc
+            if event == "TENANT_PROVISIONED":
+                rows = {"tenants": (tenant,), "principals": (tenant, fields["admin"], "admin")}
+            elif event == "PRINCIPAL_ADDED":
+                rows = {"principals": (tenant, fields["principal"], fields["role"])}
+            elif event == "COHORT_CREATED":
+                rows = {"cohorts": (tenant, fields["cohort"], fields["course"], fields["version"],
+                                   fields["minimum_percent"], "INTERNAL_PILOT")}
+            elif event == "INSTRUCTOR_ASSIGNED":
+                rows = {"cohort_instructors": (tenant, fields["cohort"], fields["instructor"])}
+            elif event == "LEARNER_ENROLLED":
+                rows = {"enrollments": (tenant, fields["cohort"], fields["learner"])}
+            elif event == "ASSIGNMENT_DEFINED":
+                rows = {"assignments": (tenant, fields["cohort"], fields["assignment"], fields["title"])}
+            elif event == "ARTIFACT_SUBMITTED":
+                # The original immutable submission also records its learner, cohort and assignment.
+                rows = {"submissions": (tenant, fields["cohort"], fields["assignment"], fields["learner"],
+                                        fields["submission"], fields["artifact_sha"])}
+            else:  # GRADE_RECORDED
+                rows = {"grades": (tenant, fields["submission"], fields["instructor"],
+                                  fields["score"], fields["evidence_sha"])}
+            for table, row in rows.items():
+                if row in expected[table]:
+                    raise PolicyError("duplicate audit event for materialized row")
+                expected[table].add(row)
+        for table, query in tables.items():
+            actual = set(db.execute(query).fetchall())
+            if actual != expected[table]:
+                raise PolicyError(f"audit/materialized state mismatch: {table}")
 
     def bootstrap_tenant(self, tenant: str, admin: str) -> None:
         """Trusted offline setup only. NO public endpoint or self-registration."""
@@ -184,7 +270,8 @@ class PilotLedger:
                            (tenant, cohort, course, version, minimum_percent))
             except sqlite3.IntegrityError as exc:
                 raise PolicyError("cohort already exists") from exc
-            self._log(db, tenant, "COHORT_CREATED", {"actor": actor, "cohort": cohort, "course": course, "version": version})
+            self._log(db, tenant, "COHORT_CREATED", {"actor": actor, "cohort": cohort, "course": course,
+                                                     "version": version, "minimum_percent": minimum_percent})
 
     def assign_instructor(self, tenant: str, actor: str, cohort: str, instructor: str) -> None:
         tenant, actor, cohort, instructor = map(_id, (tenant, actor, cohort, instructor))
@@ -224,7 +311,8 @@ class PilotLedger:
                 db.execute("INSERT INTO assignments VALUES(?,?,?,?)", (tenant, cohort, assignment, title))
             except sqlite3.IntegrityError as exc:
                 raise PolicyError("assignment invalid or duplicate") from exc
-            self._log(db, tenant, "ASSIGNMENT_DEFINED", {"actor": actor, "cohort": cohort, "assignment": assignment})
+            self._log(db, tenant, "ASSIGNMENT_DEFINED", {"actor": actor, "cohort": cohort, "assignment": assignment,
+                                                        "title": title})
 
     def submit(self, tenant: str, actor: str, cohort: str, assignment: str,
                submission: str, artifact_sha: str) -> bool:
@@ -266,8 +354,7 @@ class PilotLedger:
 
     def progress(self, tenant: str, actor: str, cohort: str, learner: str) -> dict:
         tenant, actor, cohort, learner = map(_id, (tenant, actor, cohort, learner))
-        with self._lock:
-            db = self._connection
+        with self._read_snapshot() as db:
             role = self._role(db, tenant, actor, {"admin", "instructor", "learner"})
             if role == "learner" and actor != learner:
                 raise PolicyError("learner cannot inspect another learner")
@@ -298,8 +385,7 @@ class PilotLedger:
 
     def audit_anchor(self, tenant: str, actor: str) -> dict:
         tenant, actor = _id(tenant), _id(actor)
-        with self._lock:
-            db=self._connection
+        with self._read_snapshot() as db:
             self._role(db, tenant, actor, {"admin", "instructor"})
             chain = db.execute("SELECT seq,timestamp,event,payload,previous_sha,current_sha FROM audit WHERE tenant=? ORDER BY seq", (tenant,)).fetchall()
             previous = GENESIS
