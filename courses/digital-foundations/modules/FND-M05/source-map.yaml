@@ -1,0 +1,8 @@
+module: FND-M05
+source: null
+origin: NEW_ORIGINAL_FOUNDATIONS_CURRICULUM
+mappings: []
+rationale: >-
+  Newly designed beginner prerequisite; no legacy source PDF exists.
+  Never invent source-page references. Technical review, learner pilot
+  and customer release authorization remain pending.

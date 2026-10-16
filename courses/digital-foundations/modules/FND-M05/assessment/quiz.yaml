@@ -1,0 +1,34 @@
+module: FND-M05
+items:
+  - id: Q1
+    outcome: LO1
+    stem: "Which data type best represents a ticket identifier such as AB-001?"
+    options: {A: "An integer with arithmetic behavior", B: "A text string whose format is validated", C: "A boolean flag", D: "A binary floating-point duration"}
+  - id: Q2
+    outcome: LO1
+    stem: "What does a Python dictionary provide for per-team report aggregation?"
+    options: {A: "A permission model for the operating system", B: "Proof of record provenance", C: "A mapping from each team name to running counters", D: "Automatic cryptographic integrity"}
+  - id: Q3
+    outcome: LO2
+    stem: "What makes an ordered report deterministic for the same valid input?"
+    options: {A: "An explicit sort rule for the report groups", B: "The operating system file timestamps", C: "Randomized group identifiers", D: "Assuming insertion order has no effects"}
+  - id: Q4
+    outcome: LO2
+    stem: "Why split input parsing, validation, and aggregation into functions?"
+    options: {A: "To disable exceptions automatically", B: "To avoid reading the specifications", C: "To replace independent unit tests", D: "To isolate contracts so each transformation is testable"}
+  - id: Q5
+    outcome: LO3
+    stem: "What should happen when two synthetic tickets reuse the same unique ticket ID?"
+    options: {A: "Count both to maximize output", B: "Reject the invalid dataset according to the contract", C: "Silently rename the second ID", D: "Mark both as real customer incidents"}
+  - id: Q6
+    outcome: LO3
+    stem: "Which result is appropriate when the student starter has not been implemented?"
+    options: {A: "A complete Academy certification", B: "A silently skipped verification", C: "An actionable expected failing test", D: "A claim of live system validation"}
+  - id: Q7
+    outcome: LO4
+    stem: "What should a learner include in a reproducible report?"
+    options: {A: "Runtime, command, actual tests run, outcomes, and unverified limits", B: "Only screenshots of success messages", C: "Real customer records and passwords", D: "A statement that all platforms are supported"}
+  - id: Q8
+    outcome: LO4
+    stem: "Why does a green synthetic CSV test not prove SLA compliance?"
+    options: {A: "CSV has no possible type validation", B: "Python cannot read a local file", C: "Any ticket record is necessarily fraudulent", D: "It exercises synthetic transformations, not the customer service lifecycle"}

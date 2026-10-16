@@ -109,6 +109,8 @@ def check_modernization_evidence(include_page_rebuild: bool = True) -> list[dict
 def check_gate_a() -> list[dict]:
     """Personal-data guard, Gate A validator (claims must not exceed evidence) and freshness of the generated Gate A documents."""
     return [
+        _script_check("known-source-quarantine", "Known personal-data source cannot be tracked in the distributable repository tree",
+                      ["scripts/validation/check_public_source_exposure.py"], "current Git index excludes the known source; historical exposure is separate"),
         _script_check("privacy-guard", "No e-mail address or telephone number outside the reviewed allow-list in any authored or generated text file",
                       ["scripts/validation/check_privacy.py"], "no personal-data-shaped string found"),
         _script_check("gate-a-validator", "Gate A validator: no status, review or scenario claims more than the evidence supports; no placeholder in finished content",

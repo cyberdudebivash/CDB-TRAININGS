@@ -1,0 +1,40 @@
+rubric_id: RUB-FND-M05
+module: FND-M05
+version: 0.1.0
+pass_rule: >-
+  All mandatory automated contracts must pass on student-produced work and
+  real reviewers must score each reviewer criterion at least 2/3.
+  Passing public tests does not establish full-course acceptance.
+criteria:
+  - id: C1
+    name: "Data structure and type reasoning"
+    outcomes: [LO1]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Cannot explain fundamental input types or safe boundaries."
+      1: "Can name types but confuses IDs with numeric quantities."
+      2: "Explains strings, integers, loops, collections and validation roles."
+      3: "As 2, plus predicts effects of duplicate IDs and malformed rows."
+  - id: C2
+    name: "Guided aggregation correctness"
+    outcomes: [LO2]
+    kind: automated
+    must_pass: true
+    measure: "Run the 16 guided support metrics tests and document actual outcomes; hidden learner evaluation remains separate."
+  - id: C3
+    name: "Independent learner implementation"
+    outcomes: [LO3]
+    kind: automated
+    must_pass: true
+    measure: "Student implementation passes 10 public contracts plus protected reviewer suite without weakening tests."
+  - id: C4
+    name: "Safe reproducible operations handoff"
+    outcomes: [LO4]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Exposes sensitive data or invents customer verification."
+      1: "Lists commands but omits failed checks or limitations."
+      2: "Documents runtime, actual tests, synthetic scope and residual risks."
+      3: "As 2, plus distinguishes syntactic validity from data truth."

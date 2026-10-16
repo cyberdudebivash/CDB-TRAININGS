@@ -1,29 +1,26 @@
 # Digital and Technical Foundations — COURSE-FND-DIGITAL
 
-**Status: REENGINEERING — the course is NOT complete and NOT released, and no complete course edition has Gate A approval.** Three of six modules contain authored instruction, but human SME review, learner trials, complete curriculum, privacy/IP gates, and the final course PDF are still required.
+**Release state: REENGINEERING.** Five instructional modules now have source assets; no complete course edition has passed TRAINING_CONTENT_GO. No Academy customer publication or commercial authorization.
 
-| Module | Status | Learning artifacts |
+| Module | Honest status | Learning content |
 |---|---|---|
-| FND-M01 — Operating systems | Built, unverified | [Lesson](modules/FND-M01/lesson.md), guided file-integrity lab, access-policy learner starter, assessment |
-| FND-M02 — Command lines | Built, unverified | [Lesson](modules/FND-M02/lesson.md), guided synthetic event CLI, independent transcript parser, assessment |
-| FND-M03 — Networking/HTTP | Built, unverified | [Lesson](modules/FND-M03/lesson.md), **live controlled loopback TCP/HTTP** lab, synthetic protocol-failure classifier, assessment |
-| FND-M04 — Git and GitHub | Candidate, incomplete | [Git lesson](modules/FND-M04/lesson.md), genuine local Git branches/conflict-resolution lab, unverified external PR objective |
-| FND-M05–M06 | Planned | Python programming, troubleshooting and safe computing |
+| FND-M01 | BUILT, unverified | [Operating systems, files and permissions](modules/FND-M01/lesson.md) with synthetic integrity and access exercises |
+| FND-M02 | BUILT, unverified | [Command-line fundamentals](modules/FND-M02/lesson.md) with safe local diagnostic CLI |
+| FND-M03 | BUILT, unverified | [Networking and HTTP basics](modules/FND-M03/lesson.md) with controlled TCP/HTTP loopback |
+| FND-M04 | Candidate, incomplete | [Git and GitHub workflow](modules/FND-M04/lesson.md); local Git labs exist, **hosted practice PR still unverified**, so catalog remains PLANNED |
+| FND-M05 | BUILT, unverified | [Programming fundamentals with Python](modules/FND-M05/lesson.md), 16-check ticket-summary guided reference and independent queue-summary learner starter |
+| FND-M06 | PLANNED | Troubleshooting and safe computing; not implemented |
 
-## Learner path and operational exercises
+## FND-M05 hands-on path
 
-Begin with [FND-M01](modules/FND-M01/lesson.md), then [FND-M02](modules/FND-M02/lesson.md), followed by [FND-M03](modules/FND-M03/lesson.md). The lesson explains exactly what an exercise proves and what it does not.
-
-**FND-M03 guided exercise** (no external hosts, customer accounts, DNS lookups, TLS session or cloud charges):
-
+Start with the [FND-M05 lesson](modules/FND-M05/lesson.md), then the [guided lab](modules/FND-M05/lab-guided/README.md). Execute the following in an unprivileged, disposable environment:
 ```text
-python -m unittest discover -s courses/digital-foundations/modules/FND-M03/lab-guided/checks -p test_http_trace.py -v
+python -m unittest discover -s courses/digital-foundations/modules/FND-M05/lab-guided/checks -p test_support_metrics.py -v
 ```
+The guided reference works exclusively with invented local CSV files and does not perform real support-desk operations. Continue to the [independent lab](modules/FND-M05/lab-independent/README.md) and implement the intentionally incomplete starter without weakening tests. This is how learner skill will eventually be evaluated; the reference tests alone do not prove mastery.
 
-The lab starts a local HTTP/1.1 service bound to `127.0.0.1` and an ephemeral TCP port. It tests 200/404 responses, request boundaries and cleanup. Its independent lab contains deliberately incomplete starter code which learners must implement against public tests. Real external packet capture is **not** part of this module.
+## Quality and commercial release limits
 
-## PDF and customer readiness
+All source-free Foundation lessons use explicit original provenance rather than fabricating source-PDF citations. Student preview configurations in [student/](student/) are only build inputs. They do not constitute finished, accessible, downloadable or approved course PDFs. Source material from other tracks is unchanged.
 
-Student PDF preview **configurations** are under [student](student/), not proof of successfully generated or commercially approved PDFs. A local review preview may be shared only as an unapproved draft. The repository's strict renderer, qualified reviewer and actual learner pilot must still pass.
-
-The six-module Foundations course, original 2025 PDF modernization elsewhere in the portfolio, and the Academy production experience are not complete. The training-content gate is separate from commercial and Academy-live gates. Instructor answer keys and customer information must not be exposed through this public repository.
+FND-M04's real hosted-PR objective remains unverified; FND-M06 and the complete capstone are outstanding. Execution matrices, final PDF generation, technical currency review, protected instructor tests, subject-matter/editorial reviews, actual learner pilots and owner acceptance must pass before Gate A. The unresolved public legacy-PDF privacy issue also remains a portfolio release blocker. Commercialization and Academy launch are separate future decisions.

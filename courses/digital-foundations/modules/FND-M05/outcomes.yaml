@@ -1,0 +1,30 @@
+module: FND-M05
+outcomes:
+  - id: LO1
+    verb: explain
+    statement: "Explain values, types, conditions, collections and loops in a synthetic support workflow."
+    instruction: ["lesson.md#1-data-types-and-control-flow-lo1"]
+    practice: ["lab-guided/README.md#step-1--define-data-and-validation-lo1"]
+    assessment: ["quiz:Q1", "quiz:Q2", "rubric:C1"]
+    rubric: [C1]
+  - id: LO2
+    verb: create
+    statement: "Use Python functions and dictionaries to return deterministic validated summaries."
+    instruction: ["lesson.md#2-functions-collection-operations-and-deterministic-reports-lo2"]
+    practice: ["lab-guided/README.md#step-2--execute-the-guided-tests-lo2-lo3", "lab-independent/README.md#step-2--implement-independently-and-test-lo2-lo3"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:guided-reference-contract", "rubric:C2"]
+    rubric: [C2]
+  - id: LO3
+    verb: diagnose
+    statement: "Reject malformed data and verify boundary behavior with actual unit tests."
+    instruction: ["lesson.md#3-input-validation-errors-and-tests-lo3"]
+    practice: ["lab-guided/README.md#step-3--controlled-negative-tests-lo3", "lab-independent/README.md#step-3--explain-an-unsafe-assumption-lo3"]
+    assessment: ["quiz:Q5", "quiz:Q6", "lab-check:independent-learner-contract", "rubric:C3"]
+    rubric: [C3]
+  - id: LO4
+    verb: document
+    statement: "Produce an accurate privacy-respecting training handoff with scope and limitations."
+    instruction: ["lesson.md#4-practice-operations-and-learner-evidence-lo4"]
+    practice: ["lab-guided/README.md#step-4--accurate-support-handoff-lo4", "lab-independent/README.md#step-4--submit-reproducible-learner-evidence-lo4"]
+    assessment: ["quiz:Q7", "quiz:Q8", "rubric:C4"]
+    rubric: [C4]
