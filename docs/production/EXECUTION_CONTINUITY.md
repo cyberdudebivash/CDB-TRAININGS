@@ -15,23 +15,24 @@
 
 | ID | Item | Status | Evidence |
 |---|---|---|---|
-| P0-A | Confirm the baseline from HEAD, restart the branch from the merged default branch, push and open a new draft pull request | IN_PROGRESS | baseline recomputed from files in COURSE_COMPLETENESS_MATRIX.md; the branch carries unpushed commits until the matrix evidence is committed |
+| P0-A | Confirm the baseline from HEAD, restart the branch from the merged default branch, push and open a new draft pull request | DONE | pull request 11 was merged into the default branch; this branch was restarted from it and is carried by pull request 14 (cyberdudebivash/CDB-TRAININGS#14, open); baseline recomputed from files in COURSE_COMPLETENESS_MATRIX.md |
 | P0-B | Privacy escalation D1: verify, contain in authored artifacts, guard against recurrence | OWNER_ACTION | scripts/validation/check_privacy.py; tests/test_privacy_guard.py; INC-001 in incidents.yaml. The source file in the public tree and the Git history need the owner's decision |
 | P0-C | Independent Gate A readiness system (separate from commercial and Academy gates) | DONE | scripts/production/gate_a.py, render_production_docs.py, validate_gate_a.py (checks G01-G08), tests/test_gate_a.py (negative controls), wired into scripts/validation/run_qa.py; PDF manifest, visual review and learner dry-run scripts exist. Open inside P0-C: the dry run has not been executed yet |
 | P0-D | Finish PY-M06 and record matrix evidence | DONE | docs/qa/data/lab_execution_2026-10-14.json: 86 tests per interpreter on CPython 3.11-3.15, none failed or skipped, recorded commit bad7a29 with content fingerprints; gate_a.py computes PY-M06 TECHNICALLY_VERIFIED from it |
-| P0-E | Close the object-oriented programming gap in Python Engineering (DEF-006) | IN_PROGRESS | module PY-M12 is drafted outside the repository (lesson executed on CPython 3.11-3.15, 167 guided checks with 47 of 47 seeded defects killed, 10 published and 54 hidden independent checks with 41 of 41 seeded defects killed); it is not installed, not in the catalog and not yet in a lab-matrix run |
-| P0-F | Remaining Python Engineering modules, capstone and complete course edition | NOT_STARTED | - |
-| P0-G | Digital Foundations pathway | NOT_STARTED | - |
-| P0-H | SOC Analyst pathway (remaining modules) | NOT_STARTED | - |
+| P0-E | Close the object-oriented programming gap in Python Engineering (DEF-006) | DONE | module PY-M12 is installed and executed by the lab matrix on CPython 3.11-3.15 (python scripts/validation/run_lab_matrix.py --resume; docs/qa/LAB_EXECUTION_EVIDENCE.md); Gate A computes it TECHNICALLY_VERIFIED (python scripts/validation/validate_gate_a.py: 0 failures) |
+| P0-F | Remaining Python Engineering modules, capstone and complete course edition | DONE | PY-M08 to PY-M11 built; all 13 modules executed on 5 interpreters; every one of the 654 handbook pages has a disposition (A03); complete-course PREVIEW edition built by scripts/build/build_course_edition.py (13 modules, 397 pages, recorded in pdf_manifest.json). A FINAL edition is not possible before approved curriculum and human reviews (A14, A17-A19): see P0-L |
+| P0-G | Digital Foundations pathway | IN_PROGRESS | FND-M01 and FND-M02 built and executed by the lab matrix; four of six required modules are not built |
+| P0-H | SOC Analyst pathway (remaining modules) | IN_PROGRESS | SOC-M04 is the only built module of fourteen |
 | P0-I | Remaining seven course tracks | NOT_STARTED | - |
-| P0-J | Complete-course PDF factory and release integrity checks | NOT_STARTED | - |
-| P0-K | Full regression, currency re-check and zero-placeholder scan | NOT_STARTED | - |
+| P0-J | Complete-course PDF factory and release integrity checks | IN_PROGRESS | scripts/production/build_pdf_manifest.py builds 16 module editions (all pass the tagged-PDF, outline, personal-data and 360 px gates) and scripts/build/build_course_edition.py builds a course PREVIEW; only Python Engineering has one, the other nine courses are not built |
+| P0-K | Full regression, currency re-check and zero-placeholder scan | IN_PROGRESS | the placeholder scan and the claims check run in scripts/validation/validate_gate_a.py for built modules; the currency re-check to the execution date cannot be certified before 2026-10-24 |
 | P0-L | Human reviews (SME, editorial, learner pilot) and owner acceptance | OWNER_ACTION | entries in human_reviews.yaml can only be made by the reviewers |
 
 ## Cycle log
 
 | Cycle | Date | Done | Next |
 |---|---|---|---|
+| C-03 | 2026-10-16 | Python Engineering completed to TECHNICALLY_VERIFIED: PY-M10 (secure HTTP services; 432 guided and 274 required independent seeded defects killed) and PY-M11 (capstone; 13-gate release gate with a negative control per gate, 585-case hidden suite, 312 of 312 required seeded defects killed) installed; lab matrix 13 passes on CPython 3.11-3.15 (220/220/222/222/222 tests, none failed or skipped); 10 of 10 operational scenarios technically verified; 654 of 654 handbook pages with a disposition; 16 module editions and one course PREVIEW (397 pages) built; two model-performed adversarial reviews recorded (PY-M10, PY-M11), not human review. COURSE-PY-ENG is TECHNICALLY_VERIFIED, not TRAINING_CONTENT_GO; 0 of 10 courses are. | Owner: D4 licence and provenance, D8 private repository for instructor material, INC-001 purge decision, named SME and editorial reviewers, a real learner pilot, owner acceptance. Engineering: re-run the research and lab matrix on or after 2026-10-24; build the remaining nine courses. |
 | C-02 | 2026-10-15 | Gate A system finished and wired into QA; lab matrix re-run after a fixture defect (a backlog setting skewed a concurrency measurement on CPython 3.14) and recorded as passing on five interpreters; 58 flagged source pages visually inspected by the model; personal-data guard and incident register in place; PY-M12 (object-oriented design) drafted and mutation-tested. | Open the pull request; install PY-M12 and rerun the matrix; extend the research re-check to the execution date; run the learner dry run; build the OOP-gap closure into the page-to-module mapping; continue with PY-M08 to PY-M11. |
 | C-01 | 2026-10-15 | Independent audit started: baseline recomputed, privacy exposure verified and scoped, personal-data guard added, Gate A computation engine written, PY-M06 built. | Render the acceptance documents, wire the validator into QA, re-run the lab matrix with PY-M06, push on a new branch from the merged default branch and open a draft pull request. |
 
@@ -42,10 +43,10 @@
 - Branch content recomputed from files at the latest lab-matrix commit `52ed97e6c141`; the matrix covers 5 interpreters.
 
 ### CONTENT STATE
-- Modules implemented (all required files present): 16 of 113 (14%); technically verified: 16 of 113 (14%).
-- Module states: NOT_STARTED 97, TECHNICALLY_VERIFIED 16.
+- Modules implemented (all required files present): 17 of 113 (15%); technically verified: 16 of 113 (14%).
+- Module states: NOT_STARTED 95, IN_PROGRESS 1, IMPLEMENTED_UNVERIFIED 1, TECHNICALLY_VERIFIED 14, REVIEW_REQUIRED 2.
 - Substantive executed lessons: 16 of 113 (14%).
-- Labs verified executable: 27 of 217 (12%); outcomes assessed: 21 of 118 (18%).
+- Labs verified executable: 27 of 217 (12%); outcomes assessed: 22 of 118 (19%).
 - Source pages with a recorded module disposition: 674 of 8186 (8%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
 - Python Engineering: 13 of 13 catalog modules implemented, score 89.7 of 100, state TECHNICALLY_VERIFIED.
 

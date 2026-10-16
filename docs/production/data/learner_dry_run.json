@@ -1,5 +1,5 @@
 {
- "commit": "dfdd838d7b27",
+ "commit": "d1232aeb8831",
  "is_learner_pilot": false,
  "modules": {
   "PY-M01": {
@@ -173,7 +173,13 @@
   },
   "PY-M10": {
    "fingerprint": "b0aa1bc4a4362bf1171885f12f49abaf4e52af21add0977022cb9100854d9f13",
-   "guided_solution": null,
+   "guided_solution": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 1625,
+    "returncode": 0,
+    "skipped": 0
+   },
    "guided_starter": {
     "errors": 0,
     "failed": 1543,

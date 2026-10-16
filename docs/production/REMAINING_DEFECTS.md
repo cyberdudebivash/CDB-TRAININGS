@@ -48,7 +48,7 @@ Personal data is never reproduced in this repository's reports. The detailed han
 
 | Course | Modules not implemented | Module ids |
 |---|---|---|
-| COURSE-FND-DIGITAL | 4 | FND-M03, FND-M04, FND-M05, FND-M06 |
+| COURSE-FND-DIGITAL | 3 | FND-M04, FND-M05, FND-M06 |
 | COURSE-SOC | 13 | SOC-M01, SOC-M02, SOC-M03, SOC-M05, SOC-M06, SOC-M07, SOC-M08, SOC-M09, SOC-M10, SOC-M11, SOC-M12, SOC-M13, SOC-M14 |
 | COURSE-PY-ENG | 0 |  |
 | COURSE-PY-AUTO | 10 | PA-M01, PA-M02, PA-M03, PA-M04, PA-M05, PA-M06, PA-M07, PA-M08, PA-M09, PA-M10 |

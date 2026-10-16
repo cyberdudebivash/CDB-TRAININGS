@@ -612,7 +612,7 @@
    "A19": "NOT_MET"
   },
   "labs": {
-   "built": 4,
+   "built": 6,
    "planned": 12,
    "verified_executable": 0
   },
@@ -640,26 +640,26 @@
     "state": "TECHNICALLY_VERIFIED"
    },
    "FND-M03": {
-    "catalog_status": "PLANNED",
-    "edition_config": false,
-    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0",
-    "executed_blocks": 0,
-    "outcomes": null,
+    "catalog_status": "BUILT",
+    "edition_config": true,
+    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0; STALE: 7 input file(s) changed after the recorded run at 52ed97e6c141",
+    "executed_blocks": 5,
+    "outcomes": 4,
     "private_pack_recorded": false,
-    "quiz_items": null,
-    "rubric_criteria": null,
-    "state": "NOT_STARTED"
+    "quiz_items": 8,
+    "rubric_criteria": 4,
+    "state": "IMPLEMENTED_UNVERIFIED"
    },
    "FND-M04": {
     "catalog_status": "PLANNED",
-    "edition_config": false,
-    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0",
-    "executed_blocks": 0,
-    "outcomes": null,
+    "edition_config": true,
+    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0; STALE: 7 input file(s) changed after the recorded run at 52ed97e6c141",
+    "executed_blocks": 4,
+    "outcomes": 4,
     "private_pack_recorded": false,
-    "quiz_items": null,
-    "rubric_criteria": null,
-    "state": "NOT_STARTED"
+    "quiz_items": 8,
+    "rubric_criteria": 4,
+    "state": "IN_PROGRESS"
    },
    "FND-M05": {
     "catalog_status": "PLANNED",
@@ -685,7 +685,7 @@
    }
   },
   "outcomes": {
-   "outcomes_assessed": 2,
+   "outcomes_assessed": 3,
    "outcomes_total": 6
   },
   "release_status_claimed_in_catalog": "REENGINEERING",
@@ -694,7 +694,7 @@
    "time_dependent_verified": 0,
    "verified": 0
   },
-  "score": 18.5,
+  "score": 23.0,
   "source_pages_with_module_disposition": 0,
   "source_pdfs_pages": {},
   "state": "IN_PROGRESS"
@@ -1409,7 +1409,7 @@
   },
   "capstone": {
    "module": "PY-M11",
-   "state": "TECHNICALLY_VERIFIED"
+   "state": "REVIEW_REQUIRED"
   },
   "course_pdf": true,
   "criteria": {
@@ -1547,7 +1547,7 @@
     "private_pack_recorded": true,
     "quiz_items": 8,
     "rubric_criteria": 5,
-    "state": "TECHNICALLY_VERIFIED"
+    "state": "REVIEW_REQUIRED"
    },
    "PY-M11": {
     "catalog_status": "BUILT",
@@ -1558,7 +1558,7 @@
     "private_pack_recorded": true,
     "quiz_items": 8,
     "rubric_criteria": 5,
-    "state": "TECHNICALLY_VERIFIED"
+    "state": "REVIEW_REQUIRED"
    },
    "PY-M12": {
     "catalog_status": "BUILT",

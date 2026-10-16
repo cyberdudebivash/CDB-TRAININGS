@@ -9,7 +9,7 @@ Per-course quality-assurance status from the evidence files. Automated check res
 
 | Course | Modules built | Labs verified | Outcomes assessed | Source pages audited | Pages P0 / P1 | Pages needing visual review | Change records verified | Catalog qa_status | Catalog review_status |
 |---|---|---|---|---|---|---|---|---|---|
-| COURSE-FND-DIGITAL | 2 / 6 | 0 / 12 | 2 / 6 | - | 0 / 0 | 0 | 0 / 0 | PARTIAL | AUTOMATED_ONLY |
+| COURSE-FND-DIGITAL | 3 / 6 | 0 / 12 | 3 / 6 | - | 0 / 0 | 0 | 0 / 0 | PARTIAL | AUTOMATED_ONLY |
 | COURSE-SOC | 1 / 14 | 2 / 27 | 6 / 19 | 43 | 0 / 11 | 1 | 6 / 8 | PARTIAL | AUTOMATED_ONLY |
 | COURSE-PY-ENG | 13 / 13 | 25 / 25 | 13 / 13 | 654 | 2 / 24 | 1 | 23 / 26 | PARTIAL | AUTOMATED_ONLY |
 | COURSE-PY-AUTO | 0 / 10 | 0 / 19 | 0 / 10 | 1,458 | 0 / 5 | 1 | 5 / 11 | NOT_RUN | NOT_REVIEWED |
@@ -38,8 +38,8 @@ Source pages are audited by rules over **all** pages; only finding-cited pages w
 
 ### COURSE-FND-DIGITAL - Digital and Technical Foundations
 
-- Built modules: FND-M01, FND-M02.
-- Labs: 12 planned, 4 built, 0 verified executable.
+- Built modules: FND-M01, FND-M02, FND-M03.
+- Labs: 12 planned, 6 built, 0 verified executable.
 - Blocking findings: none.
 
 ### COURSE-SOC - SOC Analyst Professional Pathway

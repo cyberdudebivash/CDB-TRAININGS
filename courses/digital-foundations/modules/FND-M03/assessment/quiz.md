@@ -1,9 +1,9 @@
 # FND-M03 knowledge check (8 questions)
 
-A formative assessment of the lesson. Practical evidence and qualified review are required separately.
-The correct-answer key is not stored in this public student package.
+Formative: it checks understanding of the lesson and is **not** evidence of competence on its own (the independent lab is). The answer key is held by instructors and is not published.
+Questions are generated from `quiz.yaml`; each is tied to a learning outcome.
 
-| Item | Outcome | Question | Answer choices |
+| # | Outcome | Question | Options |
 |---|---|---|---|
 | Q1 | LO1 | Which stage converts a hostname into addressing information? | A) TLS. B) DNS. C) HTTP status. D) TCP port scanning. |
 | Q2 | LO1 | What does a successful HTTP exchange on 127.0.0.1 prove about DNS? | A) An authoritative DNS lookup was performed. B) Public DNS servers are healthy. C) The HTTPS certificate is valid. D) It does not prove that a DNS lookup occurred. |
@@ -14,4 +14,4 @@ The correct-answer key is not stored in this public student package.
 | Q7 | LO4 | What is the correct label for the guided lab TCP exchange? | A) Confirmed remote production telemetry. B) Packet-captured internet TLS session. C) Controlled live loopback. D) Simulated DNS query. |
 | Q8 | LO4 | Which incident handoff is defensible? | A) Recorded test results, stated missing DNS/TLS observation and limitations. B) Unobserved DNS resolution marked verified. C) HTTP 503 attributed to a specific engineer without evidence. D) Collected customer tokens to prove lab success. |
 
-**Checkpoint:** 6/8 questions plus practical labs and independent reviewer criteria. This quiz alone does not certify mastery.
+**Scoring:** instructors apply the key; 6/8 is the formative checkpoint.

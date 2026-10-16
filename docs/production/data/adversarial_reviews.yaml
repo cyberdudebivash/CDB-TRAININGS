@@ -3,4 +3,43 @@
 # Entry format: id, module, date, method (what was run, from which files only), findings (id list or []), outcome (CLEAN | FINDINGS_REMEDIATED | FINDINGS_OPEN), evidence (paths).
 schema_version: 1
 as_of: 2026-10-15
-reviews: []
+reviews:
+  - id: ADV-PY-M10-01
+    module: PY-M10
+    date: 2026-10-16
+    outcome: FINDINGS_REMEDIATED
+    reviewer: "assistant (a language model; self-review of its own work, not independent of the author and not a human reviewer)"
+    method: "Reread the lesson, both lab READMEs, the starter, the public solution, the quiz and the rubric as a learner would meet them; ran every executable block and every check on CPython 3.11 to 3.15 (lab matrix 13); ran the seeded-defect (mutation) check of the guided checks and of the instructor hidden suite; ran the learner dry run on a clean git archive checkout in a fresh environment; compared the counts quoted in the documents with the counts that the tests assert."
+    findings:
+      - "F1: the mutation check of the guided checks left 15 of 432 seeded defects alive; fifteen checks were added and two defects that did not change behaviour were removed, after which all 432 required defects are killed"
+      - "F2: a mutation run that the environment cut short (a container restart) reported a required defect of the independent hidden suite as alive on CPython 3.13 although it was killed in 12 of 12 isolated runs; the mutation tests now run a surviving required defect again, alone, and count it alive only if it survives twice (probable cause, not proven)"
+      - "F3: the learner dry run printed 'solution -' for this module: it recognised a lab graded by checks/ only through testpaths in a pytest.ini, which this guided lab does not have, so its public solution was never exercised in a clean checkout and its starter was not required to fail; the dry run was fixed and now records 1625 of 1625 checks passing on the public solution and 1543 failing on the starter"
+    evidence:
+      - docs/qa/data/lab_execution_2026-10-14.json
+      - docs/qa/data/lab_matrix_notes.yaml
+      - docs/production/data/learner_dry_run.json
+      - docs/audits/data/findings.yaml
+      - docs/production/data/defects.yaml
+    not_covered: "no subject-matter expert, editor or learner has read or used this module; a live service, a real identity provider and real traffic were not used (the service is called in-process); the quiz items have not been shown to discriminate between learners"
+  - id: ADV-PY-M11-01
+    module: PY-M11
+    date: 2026-10-16
+    outcome: FINDINGS_REMEDIATED
+    reviewer: "assistant (a language model; self-review of its own work, not independent of the author and not a human reviewer)"
+    method: "Reread the lesson, the part A and part B READMEs, the release gate, the specification, the rubric and the quiz as a learner would meet them; ran the thirteen gates with a negative control for each, the gate on an empty project and on a walking skeleton, the 585-case hidden suite against the instructor reference, the mutation check of the hidden suite (312 required seeded defects) and of the reference tests (251 of 312 killed), and the 22 published cases against the empty starter; ran the learner dry run on a clean git archive checkout; built the module and course editions and checked them at 360 px."
+    findings:
+      - "F1: the part A README did not offer --format json although gate G05 ran scan --format json; README and walking skeleton now offer it and the gate is unchanged"
+      - "F2: the lesson claimed more than the executed blocks show (output 'exactly as printed', and an account of the handbook's p.97 NameError); the wording was corrected to what the executed output is"
+      - "F3: one seeded defect on the closed output pipe did not change behaviour (an equivalent mutant); it was replaced and the behaviour is now shown in an executed lesson block"
+      - "F4: the hidden suite failed at collection on a walking skeleton because it read attributes of the learner's module at import time; the reads are lazy, so a skeleton fails assertions rather than collection"
+      - "F5: the negative control of gate G13 ('unusable lines are not counted') damaged a file the counter does not live in; it now damages the counter in cli.py"
+      - "F6: the reference tests could not run in the neutral mutation harness because they import conftest; the harness uses --import-mode=prepend"
+      - "F7: rubric criteria named learning outcomes that outcomes.yaml does not map to them; the lists were aligned"
+      - "F8: the module edition failed the 360 px layout gate because a long URL in the reference list could not wrap; the shared stylesheet now wraps long words in paragraphs and list items"
+    evidence:
+      - docs/qa/data/lab_execution_2026-10-14.json
+      - docs/production/data/learner_dry_run.json
+      - docs/production/data/pdf_manifest.json
+      - docs/audits/data/findings.yaml
+      - docs/production/data/defects.yaml
+    not_covered: "no subject-matter expert, editor or learner has read or used this module; the capstone has never been attempted by a person, so the time estimate (14 hours) and the 85 percent and 60 percent thresholds are unvalidated; the pinned action SHAs of the capstone's workflow, a real CI runner and real vulnerability data were not used"

@@ -9,13 +9,13 @@ Bloom classification is derived from the outcome's leading verb by a fixed table
 
 ## COURSE-FND-DIGITAL - Digital and Technical Foundations
 
-Outcomes total: **6**; assessed: **2**; labs planned/built/verified: 12/4/0; release status `REENGINEERING`.
+Outcomes total: **6**; assessed: **3**; labs planned/built/verified: 12/6/0; release status `REENGINEERING`.
 
 | Module | Level | Outcome (observable) | Bloom | Planned evidence | Lab / build state | Change records | Developments |
 |---|---|---|---|---|---|---|---|
 | FND-M01 | 0 | Navigate a Linux and a Windows file system and explain how permissions restrict access to a file. | Apply | Guided-lab automated checks plus a retrieval quiz | BUILT | - | - |
 | FND-M02 | 0 | Execute a bounded diagnostic CLI, explain process exit statuses and record reproducible synthetic evidence. | Apply | Guided-lab automated checks plus a retrieval quiz | BUILT | - | - |
-| FND-M03 | 0 | Trace an HTTP request from browser to server and identify the DNS, TCP and HTTP steps in a packet capture. | Analyse | Guided-lab automated checks plus a retrieval quiz | PLANNED | - | - |
+| FND-M03 | 0 | Observe a controlled local TCP/HTTP exchange and distinguish that evidence from synthetic DNS and TLS failure records. | Unclassified | Guided-lab automated checks plus a retrieval quiz | BUILT | - | - |
 | FND-M04 | 0 | Create a branch, commit a change and open a pull request in a practice repository. | Create | Guided-lab automated checks plus a retrieval quiz | PLANNED | - | - |
 | FND-M05 | 0 | Write a Python script with functions that passes a provided automated test suite. | Apply | Guided-lab automated checks plus a retrieval quiz | PLANNED | MC-PYH-01 | - |
 | FND-M06 | 0 | Diagnose a deliberately broken script from its error output and describe the fix and the safe-lab rules followed. | Analyse | Guided-lab automated checks plus a retrieval quiz | PLANNED | - | - |
@@ -196,8 +196,9 @@ Outcomes total: **14**; assessed: **0**; labs planned/built/verified: 27/0/0; re
 |---|---|
 | Apply | 47 |
 | Create | 34 |
-| Analyse | 18 |
+| Analyse | 17 |
 | Evaluate | 11 |
 | Understand | 3 |
+| Unclassified | 1 |
 
 A portfolio that is mostly `Apply` and `Analyse` with `Create` at capstones matches the framework's intent that performance, not recall, is assessed. Outcome counts in the catalog (`outcomes_total`) include capstone sub-outcomes that are not separate rows here.
