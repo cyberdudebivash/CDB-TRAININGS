@@ -7,6 +7,7 @@ independent trust boundary to detect simultaneous rewrites of SQLite history.
 from __future__ import annotations
 
 import argparse
+import errno
 from datetime import datetime, timezone
 import hashlib
 import hmac
@@ -128,15 +129,35 @@ def _reject_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict:
 
 
 def _load_receipt(path: Path) -> dict:
+    """Bounded regular-file read. Reject FIFOs, links and path replacement."""
+    if os.name != 'posix' or not hasattr(os, 'O_NOFOLLOW'):
+        raise PolicyError('receipt-file operations require POSIX O_NOFOLLOW support')
+    flags = os.O_RDONLY | os.O_NOFOLLOW | getattr(os, 'O_CLOEXEC', 0) | getattr(os, 'O_NONBLOCK', 0)
     try:
-        if path.stat().st_size > 4096 or path.is_symlink():
-            raise PolicyError('checkpoint file must be a small regular file, not a symlink')
-        return json.loads(path.read_text(encoding='utf-8'), object_pairs_hook=_reject_duplicate_keys,
+        fd = os.open(path, flags)
+        try:
+            info = os.fstat(fd)
+            if not stat.S_ISREG(info.st_mode) or not 1 <= info.st_size <= 4096:
+                raise PolicyError('checkpoint file must be a small regular file, not a symlink')
+            with os.fdopen(fd, 'rb', closefd=False) as fh:
+                data = fh.read(4097)
+            if len(data) > 4096:
+                raise PolicyError('checkpoint file exceeds bounded length')
+        finally:
+            os.close(fd)
+    except PolicyError:
+        raise
+    except OSError as exc:
+        if exc.errno == errno.ELOOP:
+            raise PolicyError('checkpoint receipt symlink not permitted') from exc
+        raise PolicyError('checkpoint file unreadable or not permitted') from exc
+    try:
+        return json.loads(data.decode('utf-8'), object_pairs_hook=_reject_duplicate_keys,
                           parse_constant=lambda value: (_ for _ in ()).throw(PolicyError('nonfinite JSON constant')))
     except PolicyError:
         raise
-    except (OSError, UnicodeError, ValueError, RecursionError) as exc:
-        raise PolicyError('checkpoint file unreadable or malformed') from exc
+    except (UnicodeError, ValueError, RecursionError) as exc:
+        raise PolicyError('checkpoint file malformed') from exc
 
 
 def _write_new_receipt(path: Path, receipt: dict) -> None:
