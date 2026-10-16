@@ -180,5 +180,8 @@ def test_course_readme_lists_exactly_the_built_modules():
         built = sorted(m["id"] for m in course["modules"] if m["status"] != "PLANNED" and (folder / "modules" / m["id"]).exists())
         on_disk = sorted(p.name for p in (folder / "modules").iterdir() if (p / "lesson.md").exists())
         readme = (folder / "README.md").read_text(encoding="utf-8")
-        listed = sorted(set(re.findall(r"^\| (PY-M\d+|[A-Z]+-M\d+) \|", readme, flags=re.M)))
-        assert built == on_disk == listed, (built, on_disk, listed)
+        rows = {m.group(1): m.group(0) for m in re.finditer(r"^\| ((?:PY|[A-Z]+)-M\d+)(?: \u2014 [^|]*)? \|.*$", readme, flags=re.M)}
+        candidates = sorted(set(on_disk) - set(built))            # a lesson exists on disk for a module that the catalog still calls PLANNED
+        assert sorted(rows) == on_disk and sorted(built + candidates) == on_disk, (built, on_disk, sorted(rows))
+        assert all("candidate" not in rows[m].lower() for m in built), "a built module must not be described as a candidate"
+        assert all("candidate" in rows[m].lower() for m in candidates), f"files exist for {candidates} but the catalog says PLANNED: the README must say Candidate"

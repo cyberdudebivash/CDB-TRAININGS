@@ -148,7 +148,7 @@ Prerequisites: none · Estimated hours: 32 · Capstone: Automate a small file-re
 |---|---|---:|---:|---|---|
 | `FND-M01` | Operating systems, files and permissions | L0 | 4 | BUILT | Navigate a Linux and a Windows file system and explain how permissions restrict access to a file. |
 | `FND-M02` | Command-line fundamentals | L0 | 5 | BUILT | Execute a bounded diagnostic CLI, explain process exit statuses and record reproducible synthetic evidence. |
-| `FND-M03` | Networking and HTTP basics | L0 | 6 | BUILT | Observe a controlled local TCP/HTTP exchange and distinguish that evidence from synthetic DNS and TLS failure records. |
+| `FND-M03` | Networking and HTTP basics | L0 | 6 | BUILT | Classify a controlled local TCP/HTTP exchange as observed evidence and distinguish it from synthetic DNS and TLS failure records. |
 | `FND-M04` | Git and GitHub workflow | L0 | 4 | PLANNED | Create a branch, commit a change and open a pull request in a practice repository. |
 | `FND-M05` | Programming fundamentals with Python | L0 | 10 | PLANNED | Write a Python script with functions that passes a provided automated test suite. |
 | `FND-M06` | Troubleshooting and safe computing | L0 | 3 | PLANNED | Diagnose a deliberately broken script from its error output and describe the fix and the safe-lab rules followed. |

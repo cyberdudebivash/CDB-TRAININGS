@@ -26,7 +26,7 @@ courses:
     modules:
       - {id: FND-M01, title: "Operating systems, files and permissions", level: 0, status: BUILT, estimated_hours: 4, primary_outcome: "Navigate a Linux and a Windows file system and explain how permissions restrict access to a file."}
       - {id: FND-M02, title: "Command-line fundamentals", level: 0, status: BUILT, estimated_hours: 5, primary_outcome: "Execute a bounded diagnostic CLI, explain process exit statuses and record reproducible synthetic evidence."}
-      - {id: FND-M03, title: "Networking and HTTP basics", level: 0, status: BUILT, estimated_hours: 6, primary_outcome: "Observe a controlled local TCP/HTTP exchange and distinguish that evidence from synthetic DNS and TLS failure records."}
+      - {id: FND-M03, title: "Networking and HTTP basics", level: 0, status: BUILT, estimated_hours: 6, primary_outcome: "Classify a controlled local TCP/HTTP exchange as observed evidence and distinguish it from synthetic DNS and TLS failure records."}
       - {id: FND-M04, title: "Git and GitHub workflow", level: 0, status: PLANNED, estimated_hours: 4, primary_outcome: "Create a branch, commit a change and open a pull request in a practice repository."}
       - {id: FND-M05, title: "Programming fundamentals with Python", level: 0, status: PLANNED, estimated_hours: 10, primary_outcome: "Write a Python script with functions that passes a provided automated test suite."}
       - {id: FND-M06, title: "Troubleshooting and safe computing", level: 0, status: PLANNED, estimated_hours: 3, primary_outcome: "Diagnose a deliberately broken script from its error output and describe the fix and the safe-lab rules followed."}

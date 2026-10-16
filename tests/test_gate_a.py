@@ -297,5 +297,5 @@ def test_the_matrix_runner_restores_sigint_that_a_background_launch_ignored():
               "print(m.restore_default_sigint())")
     ignoring = subprocess.run([sys.executable, "-c", script], cwd=ROOT, capture_output=True, text=True, preexec_fn=lambda: signal.signal(signal.SIGINT, signal.SIG_IGN))
     assert ignoring.stdout.split() == ["True", "True", "False"], ignoring
-    normal = subprocess.run([sys.executable, "-c", script], cwd=ROOT, capture_output=True, text=True)
+    normal = subprocess.run([sys.executable, "-c", script], cwd=ROOT, capture_output=True, text=True, preexec_fn=lambda: signal.signal(signal.SIGINT, signal.SIG_DFL))
     assert normal.stdout.split() == ["False", "True", "False"], normal

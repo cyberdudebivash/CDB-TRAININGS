@@ -184,7 +184,7 @@ def test_no_third_party_personal_data_in_tracked_text():
         for m in re.finditer(fx.PII_PATTERNS["email"], text):
             domain = m.group(0).split("@", 1)[1].lower()
             local = m.group(0).split("@", 1)[0].lower()
-            if domain in PLACEHOLDER_EMAILS or domain.endswith((".example", ".test")):
+            if domain in PLACEHOLDER_EMAILS or domain.endswith((".example", ".test", ".invalid")):      # reserved top-level domains (RFC 2606): never a real mailbox
                 continue
             if local in {"noreply", "iambivash", "you", "user", "name", "email"} or fx.classify_email(m.group(0)) == "synthetic_placeholder":
                 continue

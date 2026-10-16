@@ -1,6 +1,6 @@
 # Digital and Technical Foundations — COURSE-FND-DIGITAL
 
-**Status: REENGINEERING — no complete course edition has Gate A approval.** Three of six modules contain authored instruction, but human SME review, learner trials, complete curriculum, privacy/IP gates, and the final course PDF are still required.
+**Status: REENGINEERING — the course is NOT complete and NOT released, and no complete course edition has Gate A approval.** Three of six modules contain authored instruction, but human SME review, learner trials, complete curriculum, privacy/IP gates, and the final course PDF are still required.
 
 | Module | Status | Learning artifacts |
 |---|---|---|
