@@ -22,7 +22,7 @@
   "COURSE-FND-DIGITAL": {
    "eligible": false,
    "engineering_state": "IN_PROGRESS",
-   "score": 29.2,
+   "score": 33.7,
    "state": "IN_PROGRESS"
   },
   "COURSE-GCP-DE": {
@@ -52,7 +52,7 @@
   "COURSE-PY-ENG": {
    "eligible": false,
    "engineering_state": "TECHNICALLY_VERIFIED",
-   "score": 89.7,
+   "score": 90.5,
    "state": "TECHNICALLY_VERIFIED"
   },
   "COURSE-SOC": {
@@ -79,17 +79,18 @@
   "lessons_substantive": 17,
   "module_editions_passing": 18,
   "module_states": {
+   "IMPLEMENTED_UNVERIFIED": 1,
    "IN_PROGRESS": 1,
-   "NOT_STARTED": 95,
+   "NOT_STARTED": 94,
    "REVIEW_REQUIRED": 2,
    "TECHNICALLY_VERIFIED": 15
   },
-  "modules_implemented": 17,
+  "modules_implemented": 18,
   "modules_required": 113,
   "modules_verified": 17,
   "open_p0": 1,
   "open_p1": 12,
-  "outcomes_assessed": 22,
+  "outcomes_assessed": 23,
   "outcomes_total": 118,
   "realtime_courses_ok": 2,
   "review_required": 0,

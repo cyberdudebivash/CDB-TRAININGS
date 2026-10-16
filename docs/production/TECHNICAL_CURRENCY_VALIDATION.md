@@ -14,7 +14,7 @@ A re-check against the execution date is a separate action from the Stage B refr
 |---|---|---|---|---|---|
 | COURSE-FND-DIGITAL | 0 | 0 | 0 | 2026-10-14 | PENDING (not before 2026-10-24) |
 | COURSE-SOC | 8 | 6 | 2 | 2026-10-14 | PENDING (not before 2026-10-24) |
-| COURSE-PY-ENG | 26 | 23 | 3 | 2026-10-14 | PENDING (not before 2026-10-24) |
+| COURSE-PY-ENG | 26 | 24 | 2 | 2026-10-14 | PENDING (not before 2026-10-24) |
 | COURSE-PY-AUTO | 11 | 5 | 6 | 2026-10-14 | PENDING (not before 2026-10-24) |
 | COURSE-JAVA-QA | 10 | 5 | 5 | 2026-10-14 | PENDING (not before 2026-10-24) |
 | COURSE-AI-ENG | 9 | 8 | 1 | 2026-10-14 | PENDING (not before 2026-10-24) |

@@ -21,7 +21,7 @@ Concept-level differential analysis: for each major concept the legacy PDFs teac
 | COURSE-PY-ENG | 26 | KEEP 1, UPDATE 11, REPLACE 9, EXPAND 1, ADD 1, MERGE 2, REMOVE 1 |
 | COURSE-SOC | 8 | UPDATE 1, REPLACE 4, EXPAND 1, ADD 1, REMOVE 1 |
 
-Verification mix across 99 records: RESEARCH_VERIFIED 48, EXECUTED 23, MACHINE_ONLY 20, NEEDS_VERIFICATION 7, SECONDARY_ONLY 1.
+Verification mix across 99 records: RESEARCH_VERIFIED 48, EXECUTED 24, MACHINE_ONLY 19, NEEDS_VERIFICATION 7, SECONDARY_ONLY 1.
 
 Page-level (machine) action counts per source are in [OCT2026_COMPLETE_PDF_AUDIT.md](OCT2026_COMPLETE_PDF_AUDIT.md); per-course logs with resolved evidence are in `docs/audits/modernization/`.
 
@@ -129,7 +129,7 @@ Page-level (machine) action counts per source are in [OCT2026_COMPLETE_PDF_AUDIT
 
 | ID | Concept | Action | Source pages | 2025 source state | Verified state (cutoff 2026-10-14) | Destination | Evidence | Verification |
 |---|---|---|---|---|---|---|---|---|
-| MC-PYH-01 | Python language foundations (installing, syntax, types, control flow, functions, data structures) | KEEP | 2-105 | Module 1 teaches core Python with many small examples; its code blocks are syntactically valid but were never executed (F-PYH-004). | Core language semantics are stable; the supported runtime set is 3.11-3.15 (3.10 ended 2026-10-01). | PY-M01, FND-M05 (PARTIAL) | F-PYH-004, R-024, snapshot:python | MACHINE_ONLY |
+| MC-PYH-01 | Python language foundations (installing, syntax, types, control flow, functions, data structures) | KEEP | 2-105 | Module 1 teaches core Python with many small examples; its code blocks are syntactically valid but were never executed (F-PYH-004). | Core language semantics are stable; the supported runtime set is 3.11-3.15 (3.10 ended 2026-10-01). | PY-M01, PY-M12, FND-M05 (BUILT) | F-PYH-004, R-024, snapshot:python | EXECUTED |
 | MC-PYH-02 | Python version baseline | UPDATE | 220 | 'Install Python 3.10+ recommended' (also p. 462 Lambda runtime python3.9; Python Automation p. 29 'Use Python 3.10+'). | Python 3.10 reached end of life on 2026-10-01 and 3.9 on 2025-10-31; Python 3.15.0 was released 2026-10-09. | PY-M04 (BUILT) | R-024, R-046, snapshot:python | RESEARCH_VERIFIED |
 | MC-PYH-03 | Packaging with `python setup.py sdist` | REPLACE | 64 | Packaging is taught as `python setup.py sdist`; no pyproject.toml or build workflow (F-PYH-003). | On setuptools 84.0.0 `setup.py sdist/bdist_wheel/install` still run with deprecation warnings and `setup.py test` is an invalid command (executed); PyPA lists pyproject.toml, dependency groups, pylock.toml and inline script metadata as active specifications. | PY-M04 (BUILT) | F-PYH-003, R-047, probe:setuptools-setup-py-commands | EXECUTED |
 | MC-PYH-04 | Agent 'math tool' using eval() | REPLACE | see F-PYH-001 | An agent tool evaluates model-controlled input with eval() (P0 finding F-PYH-001). | OWASP LLM Top 10 2025 lists LLM05 Improper Output Handling and LLM06 Excessive Agency; eval on model output is remote code execution through prompt injection. | AI-M05, PY-M07 (PARTIAL) | F-PYH-001, R-028 | RESEARCH_VERIFIED |

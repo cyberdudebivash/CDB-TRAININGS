@@ -1,7 +1,7 @@
 # Public-safe incident and owner-decision register (no personal data, no secrets). Detailed handling notes for incident INC-001 are kept privately by the assistant's
 # session and handed to the owner directly; they are deliberately not stored in this public repository.
 schema_version: 1
-as_of: 2026-10-15
+as_of: 2026-10-16
 incidents:
   - id: INC-001
     severity: P0
@@ -9,7 +9,7 @@ incidents:
     decision: D1
     summary: "Third-party personal data (name, e-mail address, telephone number, city) on two pages of the source file INTERNAL FRONTEND DEVELOPER ONBOARDING PLAYBOOK.pdf (pages 357 and 360), which is stored in this PUBLIC repository."
     verified: {on: 2026-10-15, by: "text extraction of the two pages; counts only, values not reproduced", result: "CONFIRMED: each page contains one e-mail address and one telephone number; the same values appear on both pages and nowhere else in the ten source PDFs"}
-    exposure: {repository_visibility: public, forks: 0, stars: 0, watchers: 0, tip_of_default_branch: true, history: "the file entered history in commit 9e9141c and is reachable from main and from every branch that descends from it"}
+    exposure: {repository_visibility: public, forks: 0, stars: 0, watchers: 0, tip_of_default_branch: false, tip_removed: "pull request 22 (2026-10-16) removed the file from the current tree; scripts/validation/check_public_source_exposure.py reports CURRENT_TREE_PASS", history: "the file entered history in commit 9e9141c and is reachable from main and from every branch that descends from it"}
     derived_artifacts: "none: no generated document, page record, data file, student edition or evidence file in the repository contains the values (checked by scripts/validation/check_privacy.py and a value-level search of the working tree)"
     done: ["Verified and scoped the exposure", "Added scripts/validation/check_privacy.py and tests so no authored or generated text can carry e-mail addresses or telephone numbers outside a reviewed allow-list", "Student editions are scanned by the same guard"]
     owner_actions: ["Decide whether the repository is made private while this is handled", "Decide how the source file leaves the public tree (see the private runbook given to the owner)", "Purge history and pull-request refs only with the owner's explicit authorisation: rewriting shared history is not done by automation", "Ask GitHub Support to remove cached views of the old objects after any rewrite", "Contact the data subject if the owner decides that is appropriate"]

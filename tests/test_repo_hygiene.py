@@ -91,10 +91,18 @@ def test_swept_findings_match_the_pilot_claims():
 # ------------------------------------------------------------------------------------ preservation of the sources
 
 def test_source_pdfs_are_unchanged_since_the_audit():
+    sys.path.insert(0, str(ROOT / "scripts" / "validation"))
+    from check_public_source_exposure import PROHIBITED_NAMES      # the owner's containment of INC-001: this source is deliberately absent from the public tree
+
     inv = json.loads((ROOT / "docs" / "audits" / "data" / "source_inventory.json").read_text(encoding="utf-8"))
-    assert inv["present_count"] == inv["intended_count"] == 10
+    assert inv["present_count"] == inv["intended_count"] == len(inv["documents"]) == 10          # the inventory is the historical record of the audit
+    quarantined = {d["path"] for d in inv["documents"] if d["path"] in PROHIBITED_NAMES}
+    assert len(quarantined) <= len(PROHIBITED_NAMES)
     for d in inv["documents"]:
         p = ROOT / d["path"]
+        if d["path"] in quarantined:
+            assert not p.exists() or hashlib.sha256(p.read_bytes()).hexdigest() == d["sha256"], f"quarantined source modified: {d['path']}"
+            continue
         assert p.exists(), f"source moved or deleted: {d['path']}"
         assert hashlib.sha256(p.read_bytes()).hexdigest() == d["sha256"], f"source modified: {d['path']}"
 

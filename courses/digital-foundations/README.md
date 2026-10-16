@@ -1,6 +1,6 @@
 # Digital and Technical Foundations — COURSE-FND-DIGITAL
 
-**Release state: REENGINEERING.** Five instructional modules now have source assets; no complete course edition has passed TRAINING_CONTENT_GO. No Academy customer publication or commercial authorization.
+**Release state: REENGINEERING.** Five instructional modules now have source assets; no complete course edition has passed TRAINING_CONTENT_GO, so the course is NOT complete and NOT released. No Academy customer publication or commercial authorization.
 
 | Module | Honest status | Learning content |
 |---|---|---|
