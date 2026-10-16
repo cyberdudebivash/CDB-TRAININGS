@@ -29,7 +29,7 @@ Outcomes assessed overall: 23 of 118 (19%).
 | FND-M02 | 4 | 8 | 4 | no | TECHNICALLY_VERIFIED |
 | FND-M03 | 4 | 8 | 4 | no | TECHNICALLY_VERIFIED |
 | FND-M04 | 4 | 8 | 4 | no | IN_PROGRESS |
-| FND-M05 | 4 | 8 | 4 | no | IMPLEMENTED_UNVERIFIED |
+| FND-M05 | 4 | 8 | 4 | no | TECHNICALLY_VERIFIED |
 | SOC-M04 | 6 | 10 | 9 | yes | TECHNICALLY_VERIFIED |
 | PY-M01 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |
 | PY-M02 | 5 | 8 | 5 | yes | TECHNICALLY_VERIFIED |

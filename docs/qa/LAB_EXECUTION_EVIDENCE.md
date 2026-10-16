@@ -13,22 +13,23 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Item | Value |
 |---|---|
-| Commit at run time | `9d784f3ca2d6` (clean tracked tree) |
-| Run (UTC) | 2026-10-16T11:08:37Z |
+| Commit at run time | `3e8fd6b050ca` (clean tracked tree) |
+| Run (UTC) | 2026-10-16T14:44:53Z |
 | Host | Linux 6.18.44-fc-v139 x86_64 |
 | Instructor pack present in the environment | yes - private-material tests were executed |
 | Toolchain pins | `courses/python-engineering/labs/requirements.txt` |
-| Suites | `tests/test_python_engineering_labs.py`, `tests/test_module_packs.py`, `tests/test_fnd_m01.py`, `tests/test_fnd_m02.py`, `tests/test_fnd_m03.py`, `tests/test_fnd_m04.py` |
+| Suites | `tests/test_python_engineering_labs.py`, `tests/test_module_packs.py`, `tests/test_fnd_m01.py`, `tests/test_fnd_m02.py`, `tests/test_fnd_m03.py`, `tests/test_fnd_m04.py`, `tests/test_fnd_m05.py` |
+| Pieces carried from an earlier recorded run | `labs-m01-m04`, `labs-m05-m06`, `labs-m07-m08`, `labs-m09`, `labs-m10`, `labs-m11`, `labs-m12-m13` from the run at `9d784f3ca2d6 (2026-10-16T11:08:37Z)` (on every interpreter listed; pieces that ran now: `foundations`, `labs-other`, `module-packs`) |
 
 ## 3. Interpreter matrix
 
 | Requested | Interpreter | Source | pytest | ruff | setuptools | build | Status | Passed / failed / skipped | Seconds |
 |---|---|---|---|---|---|---|---|---|---|
-| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 248 / 0 / 0 | 3284.4 |
-| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 248 / 0 / 0 | 3388.0 |
-| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 248 / 0 / 0 | 3387.9 |
-| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 248 / 0 / 0 | 3193.5 |
-| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 248 / 0 / 0 | 3160.9 |
+| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 261 / 0 / 0 | 3288.6 |
+| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 261 / 0 / 0 | 3394.2 |
+| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 261 / 0 / 0 | 3390.9 |
+| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 261 / 0 / 0 | 3194.8 |
+| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 261 / 0 / 0 | 3160.7 |
 
 Interpreters from `uv` are python-build-standalone builds, not python.org installers; behaviour on distribution-packaged or Windows/macOS interpreters is not claimed.
 
@@ -69,11 +70,11 @@ Interpreters from `uv` are python-build-standalone builds, not python.org instal
 
 | Interpreter | Checks | Passed | Lesson code-block runs | Passed |
 |---|---|---|---|---|
-| 3.11 | 121 | 121 | 17 | 17 |
-| 3.12 | 121 | 121 | 17 | 17 |
-| 3.13 | 121 | 121 | 17 | 17 |
-| 3.14 | 121 | 121 | 17 | 17 |
-| 3.15 | 121 | 121 | 17 | 17 |
+| 3.11 | 128 | 128 | 18 | 18 |
+| 3.12 | 128 | 128 | 18 | 18 |
+| 3.13 | 128 | 128 | 18 | 18 |
+| 3.14 | 128 | 128 | 18 | 18 |
+| 3.15 | 128 | 128 | 18 | 18 |
 
 Each lesson's `python run`, `python module` and `python test` blocks are executed by `scripts/validation/lesson_blocks.py`; a lesson with no executable example fails the check.
 
@@ -104,3 +105,4 @@ python scripts/validation/render_lab_evidence.py
 - **2026-10-16, CPython 3.13.16 (distribution package):** In a long run that the environment interrupted several times, the piece labs-m10 failed once on this interpreter: the hidden suite of the PY-M10 independent lab reported one required seeded defect (I140) as surviving, although the same defect was killed in 12 of 12 isolated runs afterwards and the standalone mutation run killed 274 of 274 required defects. The container had restarted at the end of that piece; a mutant whose test process is cut short by a signal is not reported as a failure by pytest, so it looks alive. The cause was probable, not proven. The three mutation tests of PY-M10 and PY-M11 that read a survivor now run each required survivor again, alone, and count it as alive only if it survives twice (settle_survivors in tests/test_python_engineering_labs.py, with its own unit tests); the mutation tools and the modules were not changed. The piece was re-run and passed on 3.13, 3.14 and 3.15.
 - **2026-10-16, CPython 3.11.17 and 3.12.3:** The recorded run was assembled from interrupted attempts on identical module content (the same tree identity): on CPython 3.11 and 3.12, the pieces labs-m01-m04 to labs-m10 were passed in an earlier attempt of this run and reused; module-packs and labs-m11 were run again on both interpreters, and every piece ran in full on 3.13, 3.14 and 3.15. All five interpreters executed the same 248 tests. No action needed. The earlier attempt was started with SIGINT ignored (next note); a piece that depends on Ctrl-C fails in that state, never passes, so a reused pass is not affected, and the two pieces that contain Ctrl-C checks were run again in a correctly started process.
 - **2026-10-16, CPython 3.11.17 (first attempt on the merged tree, discarded):** A matrix run that was started in the background of a non-interactive shell ( ( cmd & ) ) inherited an ignored SIGINT for every process below it. Python then installs no KeyboardInterrupt handler, so the five Ctrl-C checks of PY-M11 (the interrupt test of the hidden suite, the two mutation baselines that include it, and the lesson block that sends SIGINT) failed on CPython 3.11 although the content had not changed; earlier runs passed them because they were launched with job control. The failed attempt was discarded, not recorded. The runner now restores the default SIGINT itself when it finds it ignored (restore_default_sigint, with a test), so the evidence no longer depends on how the run was started; the run was repeated from the start.
+- **2026-10-16, CPython all five:** Modules of the Digital Foundations course kept arriving on the default branch while the five-hour matrix was running (FND-M03 and FND-M04, then FND-M05), and every arrival changed the identity of the whole tree, so a recorded run was out of date for the new module within hours and had to be repeated in full. run_lab_matrix.py --reuse-record reuses, from the last recorded run, each piece whose scope is identical: the same test files, the same content of the modules the piece runs (lesson, labs, shared lab tools, pinned toolchain, private pack) and the same interpreter build. The pieces that read the whole tree (module packs, foundations, the unclassified labs tests) always run again. Every reused piece is marked carried_from in the record and listed in the evidence report. The last matrix of this branch ran in this way: the seven lab pieces of the Python Engineering modules come from the run at 9d784f3ca2d6; the other three ran on all five interpreters.

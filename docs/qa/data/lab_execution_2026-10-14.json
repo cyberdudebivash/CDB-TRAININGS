@@ -1,5 +1,5 @@
 {
- "commit": "9d784f3ca2d6",
+ "commit": "3e8fd6b050ca",
  "cutoff": "2026-10-14",
  "fingerprint_formula": 2,
  "fingerprints": {
@@ -7,6 +7,7 @@
   "FND-M02": "dd43f6a0d4cf9174297e29c29901e86508fdc2f83ce5312663a426842302d6b8",
   "FND-M03": "9db1dcae87716149a77b6bd32c207d772de8c9199868d555629a8430d177ab4f",
   "FND-M04": "c5d852e50dce655a9ffcbe920d4f912321f07cf05d8bc35f9e0fd5cad0abac5a",
+  "FND-M05": "9883a3c6d7ac3f9b6d7a7b7ac8b55f514475faed3468b626ca00d6474c41d571",
   "PY-M01": "7031dc25e992762991ca1e1b4363e2164ae2e7743842ccf990de5392bc465cba",
   "PY-M02": "260cfc1c7f04ce087fb1ff7fedb7d9ea6950211ccb2116f6388032644a31cc5f",
   "PY-M03": "e2827925db580e767406c3644c7b8fb7e29effb8ab9759f0542e9a573e0ed0a3",
@@ -24,14 +25,14 @@
  "host": "Linux 6.18.44-fc-v139 x86_64",
  "interpreters": [
   {
-   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py tests/test_fnd_m03.py tests/test_fnd_m04.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
+   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py tests/test_fnd_m03.py tests/test_fnd_m04.py tests/test_fnd_m05.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 248,
+    "passed": 261,
     "skipped": 0
    },
-   "duration_s": 3284.4,
+   "duration_s": 3288.6,
    "executable": "/usr/bin/python3.11",
    "implementation": "CPython",
    "install_exit": 0,
@@ -53,50 +54,69 @@
     "starlette": "1.8.0",
     "wheel": "0.48.0"
    },
+   "piece_scopes": {
+    "foundations": "3934611d1df2a75d4e983f2e52afe777da47e737751077b76c385edfe444ad33",
+    "labs-m01-m04": "53dfd377dd883400d5fe42a5cb8ecc9eb570c9c352d17e799da458ab2500640c",
+    "labs-m05-m06": "01e578b9d879293b931793339de94c396f33690abe527af06bbea539d5b869d9",
+    "labs-m07-m08": "f689b4c4b63ce64813f234a6c956e252ed8df523ddcf51c73a55b5b126b1d1ac",
+    "labs-m09": "8cc83d714473f2eeadbb7e79ff5ac73a67853048d27205cf24d9748e20688314",
+    "labs-m10": "618f40feed7c45e3212d6a1039b7373c336a46dd0355108d904a953db9238903",
+    "labs-m11": "2c4f8b5aaf0b316b03de430dec05fb64a136826da91daef5ac827929d5ba87a4",
+    "labs-m12-m13": "91ece100eb08dac11ec5929b6322a99af564889305ce967e74a8712ddd5244d3",
+    "labs-other": "179e1d719e72e652a1f09cbefbfa24fad171c2a84411b89e9696be01730893fa",
+    "module-packs": "5d953de8c5468a3f9a5cfbf8b07a2a8576f0b961f8099f45fd4d32fd544d57d5"
+   },
    "pieces": [
     {
-     "duration_s": 45.1,
+     "duration_s": 48.9,
      "exit": 0,
      "name": "module-packs",
-     "tests": 121
+     "tests": 128
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 48.8,
      "exit": 0,
      "name": "labs-m01-m04",
      "tests": 19
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 238.3,
      "exit": 0,
      "name": "labs-m05-m06",
      "tests": 11
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 68.5,
      "exit": 0,
      "name": "labs-m07-m08",
      "tests": 12
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 158.9,
      "exit": 0,
      "name": "labs-m09",
      "tests": 6
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 1359.3,
      "exit": 0,
      "name": "labs-m10",
      "tests": 6
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 1317.5,
      "exit": 0,
      "name": "labs-m11",
      "tests": 35
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 40.1,
      "exit": 0,
      "name": "labs-m12-m13",
@@ -109,10 +129,10 @@
      "tests": 3
     },
     {
-     "duration_s": 7.3,
+     "duration_s": 7.7,
      "exit": 0,
      "name": "foundations",
-     "tests": 23
+     "tests": 29
     }
    ],
    "pytest_exit": 0,
@@ -138,6 +158,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
      "outcome": "passed"
     },
@@ -203,6 +227,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -274,6 +302,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M01]",
      "outcome": "passed"
     },
@@ -339,6 +371,10 @@
     },
     {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -410,6 +446,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M01]",
      "outcome": "passed"
     },
@@ -478,6 +518,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M01]",
      "outcome": "passed"
     },
@@ -543,6 +587,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -1112,18 +1160,42 @@
     {
      "id": "tests/test_fnd_m04::test_preview_is_student_only",
      "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_source_free_integrity",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_lesson_depth_and_runnable_examples",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_guided_reference_suite",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_independent_starter_intentionally_fails",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_outcome_references_and_assessments",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_student_preview_does_not_disclose_instructor_assets",
+     "outcome": "passed"
     }
    ]
   },
   {
-   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py tests/test_fnd_m03.py tests/test_fnd_m04.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
+   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py tests/test_fnd_m03.py tests/test_fnd_m04.py tests/test_fnd_m05.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 248,
+    "passed": 261,
     "skipped": 0
    },
-   "duration_s": 3388.0,
+   "duration_s": 3394.2,
    "executable": "/usr/bin/python3.12",
    "implementation": "CPython",
    "install_exit": 0,
@@ -1145,66 +1217,85 @@
     "starlette": "1.8.0",
     "wheel": "0.48.0"
    },
+   "piece_scopes": {
+    "foundations": "3934611d1df2a75d4e983f2e52afe777da47e737751077b76c385edfe444ad33",
+    "labs-m01-m04": "53dfd377dd883400d5fe42a5cb8ecc9eb570c9c352d17e799da458ab2500640c",
+    "labs-m05-m06": "01e578b9d879293b931793339de94c396f33690abe527af06bbea539d5b869d9",
+    "labs-m07-m08": "f689b4c4b63ce64813f234a6c956e252ed8df523ddcf51c73a55b5b126b1d1ac",
+    "labs-m09": "8cc83d714473f2eeadbb7e79ff5ac73a67853048d27205cf24d9748e20688314",
+    "labs-m10": "618f40feed7c45e3212d6a1039b7373c336a46dd0355108d904a953db9238903",
+    "labs-m11": "2c4f8b5aaf0b316b03de430dec05fb64a136826da91daef5ac827929d5ba87a4",
+    "labs-m12-m13": "91ece100eb08dac11ec5929b6322a99af564889305ce967e74a8712ddd5244d3",
+    "labs-other": "179e1d719e72e652a1f09cbefbfa24fad171c2a84411b89e9696be01730893fa",
+    "module-packs": "5d953de8c5468a3f9a5cfbf8b07a2a8576f0b961f8099f45fd4d32fd544d57d5"
+   },
    "pieces": [
     {
-     "duration_s": 46.7,
+     "duration_s": 52.6,
      "exit": 0,
      "name": "module-packs",
-     "tests": 121
+     "tests": 128
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 52.2,
      "exit": 0,
      "name": "labs-m01-m04",
      "tests": 19
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 239.5,
      "exit": 0,
      "name": "labs-m05-m06",
      "tests": 11
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 76.1,
      "exit": 0,
      "name": "labs-m07-m08",
      "tests": 12
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 170.3,
      "exit": 0,
      "name": "labs-m09",
      "tests": 6
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 1452.0,
      "exit": 0,
      "name": "labs-m10",
      "tests": 6
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 1298.2,
      "exit": 0,
      "name": "labs-m11",
      "tests": 35
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 44.7,
      "exit": 0,
      "name": "labs-m12-m13",
      "tests": 12
     },
     {
-     "duration_s": 0.5,
+     "duration_s": 0.7,
      "exit": 0,
      "name": "labs-other",
      "tests": 3
     },
     {
-     "duration_s": 7.8,
+     "duration_s": 7.9,
      "exit": 0,
      "name": "foundations",
-     "tests": 23
+     "tests": 29
     }
    ],
    "pytest_exit": 0,
@@ -1230,6 +1321,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
      "outcome": "passed"
     },
@@ -1295,6 +1390,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -1366,6 +1465,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M01]",
      "outcome": "passed"
     },
@@ -1431,6 +1534,10 @@
     },
     {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -1502,6 +1609,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M01]",
      "outcome": "passed"
     },
@@ -1570,6 +1681,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M01]",
      "outcome": "passed"
     },
@@ -1635,6 +1750,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -2204,18 +2323,42 @@
     {
      "id": "tests/test_fnd_m04::test_preview_is_student_only",
      "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_source_free_integrity",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_lesson_depth_and_runnable_examples",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_guided_reference_suite",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_independent_starter_intentionally_fails",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_outcome_references_and_assessments",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_student_preview_does_not_disclose_instructor_assets",
+     "outcome": "passed"
     }
    ]
   },
   {
-   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py tests/test_fnd_m03.py tests/test_fnd_m04.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
+   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py tests/test_fnd_m03.py tests/test_fnd_m04.py tests/test_fnd_m05.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 248,
+    "passed": 261,
     "skipped": 0
    },
-   "duration_s": 3387.9,
+   "duration_s": 3390.9,
    "executable": "/usr/bin/python3.13",
    "implementation": "CPython",
    "install_exit": 0,
@@ -2237,50 +2380,69 @@
     "starlette": "1.8.0",
     "wheel": "0.48.0"
    },
+   "piece_scopes": {
+    "foundations": "3934611d1df2a75d4e983f2e52afe777da47e737751077b76c385edfe444ad33",
+    "labs-m01-m04": "53dfd377dd883400d5fe42a5cb8ecc9eb570c9c352d17e799da458ab2500640c",
+    "labs-m05-m06": "01e578b9d879293b931793339de94c396f33690abe527af06bbea539d5b869d9",
+    "labs-m07-m08": "f689b4c4b63ce64813f234a6c956e252ed8df523ddcf51c73a55b5b126b1d1ac",
+    "labs-m09": "8cc83d714473f2eeadbb7e79ff5ac73a67853048d27205cf24d9748e20688314",
+    "labs-m10": "618f40feed7c45e3212d6a1039b7373c336a46dd0355108d904a953db9238903",
+    "labs-m11": "2c4f8b5aaf0b316b03de430dec05fb64a136826da91daef5ac827929d5ba87a4",
+    "labs-m12-m13": "91ece100eb08dac11ec5929b6322a99af564889305ce967e74a8712ddd5244d3",
+    "labs-other": "179e1d719e72e652a1f09cbefbfa24fad171c2a84411b89e9696be01730893fa",
+    "module-packs": "5d953de8c5468a3f9a5cfbf8b07a2a8576f0b961f8099f45fd4d32fd544d57d5"
+   },
    "pieces": [
     {
-     "duration_s": 46.4,
+     "duration_s": 49.0,
      "exit": 0,
      "name": "module-packs",
-     "tests": 121
+     "tests": 128
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 47.1,
      "exit": 0,
      "name": "labs-m01-m04",
      "tests": 19
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 239.8,
      "exit": 0,
      "name": "labs-m05-m06",
      "tests": 11
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 68.9,
      "exit": 0,
      "name": "labs-m07-m08",
      "tests": 12
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 176.2,
      "exit": 0,
      "name": "labs-m09",
      "tests": 6
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 1421.2,
      "exit": 0,
      "name": "labs-m10",
      "tests": 6
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 1342.6,
      "exit": 0,
      "name": "labs-m11",
      "tests": 35
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 37.9,
      "exit": 0,
      "name": "labs-m12-m13",
@@ -2293,10 +2455,10 @@
      "tests": 3
     },
     {
-     "duration_s": 7.4,
+     "duration_s": 7.8,
      "exit": 0,
      "name": "foundations",
-     "tests": 23
+     "tests": 29
     }
    ],
    "pytest_exit": 0,
@@ -2322,6 +2484,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
      "outcome": "passed"
     },
@@ -2387,6 +2553,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -2458,6 +2628,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M01]",
      "outcome": "passed"
     },
@@ -2523,6 +2697,10 @@
     },
     {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -2594,6 +2772,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M01]",
      "outcome": "passed"
     },
@@ -2662,6 +2844,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M01]",
      "outcome": "passed"
     },
@@ -2727,6 +2913,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -3296,18 +3486,42 @@
     {
      "id": "tests/test_fnd_m04::test_preview_is_student_only",
      "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_source_free_integrity",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_lesson_depth_and_runnable_examples",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_guided_reference_suite",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_independent_starter_intentionally_fails",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_outcome_references_and_assessments",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_student_preview_does_not_disclose_instructor_assets",
+     "outcome": "passed"
     }
    ]
   },
   {
-   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py tests/test_fnd_m03.py tests/test_fnd_m04.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
+   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py tests/test_fnd_m03.py tests/test_fnd_m04.py tests/test_fnd_m05.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 248,
+    "passed": 261,
     "skipped": 0
    },
-   "duration_s": 3193.5,
+   "duration_s": 3194.8,
    "executable": "/root/.local/bin/python3.14",
    "implementation": "CPython",
    "install_exit": 0,
@@ -3329,66 +3543,85 @@
     "starlette": "1.8.0",
     "wheel": "0.48.0"
    },
+   "piece_scopes": {
+    "foundations": "3934611d1df2a75d4e983f2e52afe777da47e737751077b76c385edfe444ad33",
+    "labs-m01-m04": "53dfd377dd883400d5fe42a5cb8ecc9eb570c9c352d17e799da458ab2500640c",
+    "labs-m05-m06": "01e578b9d879293b931793339de94c396f33690abe527af06bbea539d5b869d9",
+    "labs-m07-m08": "f689b4c4b63ce64813f234a6c956e252ed8df523ddcf51c73a55b5b126b1d1ac",
+    "labs-m09": "8cc83d714473f2eeadbb7e79ff5ac73a67853048d27205cf24d9748e20688314",
+    "labs-m10": "618f40feed7c45e3212d6a1039b7373c336a46dd0355108d904a953db9238903",
+    "labs-m11": "2c4f8b5aaf0b316b03de430dec05fb64a136826da91daef5ac827929d5ba87a4",
+    "labs-m12-m13": "91ece100eb08dac11ec5929b6322a99af564889305ce967e74a8712ddd5244d3",
+    "labs-other": "179e1d719e72e652a1f09cbefbfa24fad171c2a84411b89e9696be01730893fa",
+    "module-packs": "5d953de8c5468a3f9a5cfbf8b07a2a8576f0b961f8099f45fd4d32fd544d57d5"
+   },
    "pieces": [
     {
-     "duration_s": 47.5,
+     "duration_s": 48.2,
      "exit": 0,
      "name": "module-packs",
-     "tests": 121
+     "tests": 128
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 54.5,
      "exit": 0,
      "name": "labs-m01-m04",
      "tests": 19
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 223.3,
      "exit": 0,
      "name": "labs-m05-m06",
      "tests": 11
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 78.1,
      "exit": 0,
      "name": "labs-m07-m08",
      "tests": 12
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 160.5,
      "exit": 0,
      "name": "labs-m09",
      "tests": 6
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 1392.6,
      "exit": 0,
      "name": "labs-m10",
      "tests": 6
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 1184.4,
      "exit": 0,
      "name": "labs-m11",
      "tests": 35
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 44.6,
      "exit": 0,
      "name": "labs-m12-m13",
      "tests": 12
     },
     {
-     "duration_s": 0.6,
+     "duration_s": 0.7,
      "exit": 0,
      "name": "labs-other",
      "tests": 3
     },
     {
-     "duration_s": 7.4,
+     "duration_s": 7.9,
      "exit": 0,
      "name": "foundations",
-     "tests": 23
+     "tests": 29
     }
    ],
    "pytest_exit": 0,
@@ -3414,6 +3647,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
      "outcome": "passed"
     },
@@ -3479,6 +3716,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -3550,6 +3791,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M01]",
      "outcome": "passed"
     },
@@ -3615,6 +3860,10 @@
     },
     {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -3686,6 +3935,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M01]",
      "outcome": "passed"
     },
@@ -3754,6 +4007,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M01]",
      "outcome": "passed"
     },
@@ -3819,6 +4076,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -4388,18 +4649,42 @@
     {
      "id": "tests/test_fnd_m04::test_preview_is_student_only",
      "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_source_free_integrity",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_lesson_depth_and_runnable_examples",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_guided_reference_suite",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_independent_starter_intentionally_fails",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_outcome_references_and_assessments",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_student_preview_does_not_disclose_instructor_assets",
+     "outcome": "passed"
     }
    ]
   },
   {
-   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py tests/test_fnd_m03.py tests/test_fnd_m04.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
+   "command": "python -m pytest tests/test_python_engineering_labs.py tests/test_module_packs.py tests/test_fnd_m01.py tests/test_fnd_m02.py tests/test_fnd_m03.py tests/test_fnd_m04.py tests/test_fnd_m05.py -q -p no:cacheprovider (run in pieces: module-packs, labs-m01-m04, labs-m05-m06, labs-m07-m08, labs-m09, labs-m10, labs-m11, labs-m12-m13, labs-other, foundations)",
    "counts": {
     "error": 0,
     "failed": 0,
-    "passed": 248,
+    "passed": 261,
     "skipped": 0
    },
-   "duration_s": 3160.9,
+   "duration_s": 3160.7,
    "executable": "/root/.local/bin/python3.15",
    "implementation": "CPython",
    "install_exit": 0,
@@ -4421,66 +4706,85 @@
     "starlette": "1.8.0",
     "wheel": "0.48.0"
    },
+   "piece_scopes": {
+    "foundations": "3934611d1df2a75d4e983f2e52afe777da47e737751077b76c385edfe444ad33",
+    "labs-m01-m04": "53dfd377dd883400d5fe42a5cb8ecc9eb570c9c352d17e799da458ab2500640c",
+    "labs-m05-m06": "01e578b9d879293b931793339de94c396f33690abe527af06bbea539d5b869d9",
+    "labs-m07-m08": "f689b4c4b63ce64813f234a6c956e252ed8df523ddcf51c73a55b5b126b1d1ac",
+    "labs-m09": "8cc83d714473f2eeadbb7e79ff5ac73a67853048d27205cf24d9748e20688314",
+    "labs-m10": "618f40feed7c45e3212d6a1039b7373c336a46dd0355108d904a953db9238903",
+    "labs-m11": "2c4f8b5aaf0b316b03de430dec05fb64a136826da91daef5ac827929d5ba87a4",
+    "labs-m12-m13": "91ece100eb08dac11ec5929b6322a99af564889305ce967e74a8712ddd5244d3",
+    "labs-other": "179e1d719e72e652a1f09cbefbfa24fad171c2a84411b89e9696be01730893fa",
+    "module-packs": "5d953de8c5468a3f9a5cfbf8b07a2a8576f0b961f8099f45fd4d32fd544d57d5"
+   },
    "pieces": [
     {
-     "duration_s": 47.2,
+     "duration_s": 46.2,
      "exit": 0,
      "name": "module-packs",
-     "tests": 121
+     "tests": 128
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 52.7,
      "exit": 0,
      "name": "labs-m01-m04",
      "tests": 19
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 222.8,
      "exit": 0,
      "name": "labs-m05-m06",
      "tests": 11
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 75.5,
      "exit": 0,
      "name": "labs-m07-m08",
      "tests": 12
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 159.6,
      "exit": 0,
      "name": "labs-m09",
      "tests": 6
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 1367.1,
      "exit": 0,
      "name": "labs-m10",
      "tests": 6
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 1184.7,
      "exit": 0,
      "name": "labs-m11",
      "tests": 35
     },
     {
+     "carried_from": "9d784f3ca2d6 (2026-10-16T11:08:37Z)",
      "duration_s": 43.5,
      "exit": 0,
      "name": "labs-m12-m13",
      "tests": 12
     },
     {
-     "duration_s": 0.6,
+     "duration_s": 0.7,
      "exit": 0,
      "name": "labs-other",
      "tests": 3
     },
     {
-     "duration_s": 7.2,
+     "duration_s": 7.9,
      "exit": 0,
      "name": "foundations",
-     "tests": 23
+     "tests": 29
     }
    ],
    "pytest_exit": 0,
@@ -4506,6 +4810,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_required_files_exist[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_required_files_exist[PY-M01]",
      "outcome": "passed"
     },
@@ -4571,6 +4879,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_front_matter_and_status[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -4642,6 +4954,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_outcomes_are_taught_practised_assessed_and_graded[PY-M01]",
      "outcome": "passed"
     },
@@ -4707,6 +5023,10 @@
     },
     {
      "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_quiz_has_no_answers_and_matches_its_rendering[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -4778,6 +5098,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_rubric_is_well_formed[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_rubric_is_well_formed[PY-M01]",
      "outcome": "passed"
     },
@@ -4846,6 +5170,10 @@
      "outcome": "passed"
     },
     {
+     "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[FND-M05]",
+     "outcome": "passed"
+    },
+    {
      "id": "tests/test_module_packs::test_source_map_points_at_real_pages_and_findings[PY-M01]",
      "outcome": "passed"
     },
@@ -4911,6 +5239,10 @@
     },
     {
      "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M04]",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_module_packs::test_lesson_code_blocks_execute[FND-M05]",
      "outcome": "passed"
     },
     {
@@ -5480,6 +5812,30 @@
     {
      "id": "tests/test_fnd_m04::test_preview_is_student_only",
      "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_source_free_integrity",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_lesson_depth_and_runnable_examples",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_guided_reference_suite",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_independent_starter_intentionally_fails",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_outcome_references_and_assessments",
+     "outcome": "passed"
+    },
+    {
+     "id": "tests/test_fnd_m05::test_student_preview_does_not_disclose_instructor_assets",
+     "outcome": "passed"
     }
    ]
   }
@@ -5501,15 +5857,25 @@
  },
  "private_instructor_pack_present": true,
  "requirements_file": "courses/python-engineering/labs/requirements.txt",
- "run_utc": "2026-10-16T11:08:37Z",
+ "run_utc": "2026-10-16T14:44:53Z",
  "schema_version": 1,
+ "suite_hashes": {
+  "tests/test_fnd_m01.py": "217efba66ca21ac96bffac2293441ee64b6da3bf6b508be57958c0d1fe42d141",
+  "tests/test_fnd_m02.py": "b820576d548bb109c158d29aaccefcade0686c9ffef719e81946ff50645e9d37",
+  "tests/test_fnd_m03.py": "6ea802c14abb23e2b5b2f085e3004b9fe01237378c85376bf7a8e5a1ac2d2279",
+  "tests/test_fnd_m04.py": "d3ed575ec5a731efd7090770920cc1e8db321044a3eba6aeb3d90c3926da8d98",
+  "tests/test_fnd_m05.py": "39ff35e5f1014b14725b4a9ad90750c5db216237336b6358ff01c92b92676689",
+  "tests/test_module_packs.py": "563780b94d3df4377714dc28d2fcc5583bb4c9011637beb8466820a49afe4a07",
+  "tests/test_python_engineering_labs.py": "d751b00ab82676565026d9446a5006467d038736f52f89bfe72fbf0246de31fd"
+ },
  "suites": [
   "tests/test_python_engineering_labs.py",
   "tests/test_module_packs.py",
   "tests/test_fnd_m01.py",
   "tests/test_fnd_m02.py",
   "tests/test_fnd_m03.py",
-  "tests/test_fnd_m04.py"
+  "tests/test_fnd_m04.py",
+  "tests/test_fnd_m05.py"
  ],
  "working_tree_dirty": false
 }

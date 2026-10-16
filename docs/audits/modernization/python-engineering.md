@@ -27,7 +27,7 @@ Actions: KEEP 1, UPDATE 11, REPLACE 9, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 - **Why:** Foundational content is timeless but must be re-run on a declared version.
 - **Destination:** PY-M01, PY-M12, FND-M05 (BUILT)
 - **Learner impact:** Same concepts, now with tests that prove each example runs.
-- **Verification:** EXECUTED - Syntax-checked in the first audit. PY-M01 re-teaches pp. 2-28, 58 and 61 with every lesson example executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md); the object-oriented pages are re-taught in PY-M12, and every page of this range has a recorded disposition in a built module's source map (five pages are only dropped, with the reason in the map). FND-M05 is a separate module of the foundations course with its own original material.
+- **Verification:** EXECUTED - Syntax-checked in the first audit. PY-M01 re-teaches pp. 2-28, 58 and 61 with every lesson example executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md; tests/test_module_packs.py executes every lesson block); the object-oriented pages are re-taught in PY-M12, and every page of this range has a recorded disposition in a built module's source map (five pages are only dropped, with the reason in the map). FND-M05 is a separate module of the foundations course with its own original material.
 - **Evidence:**
   - `F-PYH-004`: P2 Code is mostly syntactically valid but unexecuted and untested
   - `R-024`: What's New In Python 3.15 (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://docs.python.org/3/whatsnew/3.15.html>

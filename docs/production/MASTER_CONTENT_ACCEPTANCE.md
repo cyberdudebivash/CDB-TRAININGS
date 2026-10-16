@@ -18,12 +18,12 @@ Gate A never reads a status that someone typed in to decide completeness. A modu
 
 ### REPOSITORY STATE
 - Courses in the catalog: 10; modules required by the approved catalog: 113; planned labs: 217; planned learning outcomes: 118.
-- Branch content recomputed from files at the latest lab-matrix commit `9d784f3ca2d6`; the matrix covers 5 interpreters.
+- Branch content recomputed from files at the latest lab-matrix commit `3e8fd6b050ca`; the matrix covers 5 interpreters.
 
 ### CONTENT STATE
-- Modules implemented (all required files present): 18 of 113 (16%); technically verified: 17 of 113 (15%).
-- Module states: NOT_STARTED 94, IN_PROGRESS 1, IMPLEMENTED_UNVERIFIED 1, TECHNICALLY_VERIFIED 15, REVIEW_REQUIRED 2.
-- Substantive executed lessons: 17 of 113 (15%).
+- Modules implemented (all required files present): 18 of 113 (16%); technically verified: 18 of 113 (16%).
+- Module states: NOT_STARTED 94, IN_PROGRESS 1, TECHNICALLY_VERIFIED 16, REVIEW_REQUIRED 2.
+- Substantive executed lessons: 18 of 113 (16%).
 - Labs verified executable: 27 of 217 (12%); outcomes assessed: 23 of 118 (19%).
 - Source pages with a recorded module disposition: 674 of 8186 (8%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
 - Python Engineering: 13 of 13 catalog modules implemented, score 90.5 of 100, state TECHNICALLY_VERIFIED.
@@ -96,4 +96,4 @@ The categories are not additive and a page may appear in several. Model inspecti
 
 ## 6. Technical currency
 
-The research registry and executed API probes carry the cutoff **2026-10-14**; the lab matrix recorded commit `9d784f3ca2d6`. This document was generated for execution date **2026-10-16**. The Stage B refresh is dated **2026-10-24** and cannot be executed or certified before that date (DEF-010). See TECHNICAL_CURRENCY_VALIDATION.md.
+The research registry and executed API probes carry the cutoff **2026-10-14**; the lab matrix recorded commit `3e8fd6b050ca`. This document was generated for execution date **2026-10-16**. The Stage B refresh is dated **2026-10-24** and cannot be executed or certified before that date (DEF-010). See TECHNICAL_CURRENCY_VALIDATION.md.

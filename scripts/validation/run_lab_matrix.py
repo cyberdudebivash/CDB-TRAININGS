@@ -167,7 +167,7 @@ def carried_pieces(record: dict) -> dict[str, dict[str, dict]]:
             if len(tests) != piece.get("tests") or not tests or any(t["outcome"] != "passed" for t in tests):
                 continue
             result = {"name": name, "exit": 0, "duration_s": piece.get("duration_s", 0), "tests": tests, "skipped": [x for x in interp.get("skipped", []) if chunk_of(x["id"]) == name],
-                      "carried_from": f"{record.get('commit', '?')} ({record.get('run_utc', '?')})"}
+                      "carried_from": piece.get("carried_from") or f"{record.get('commit', '?')} ({record.get('run_utc', '?')})"}      # a piece carried twice keeps the run that executed it
             scope = (interp.get("piece_scopes") or {}).get(name) or piece_scope(name, files, expr, fps, pfs, hashes)
             out.setdefault(interp["requested"], {})[name] = {"scope_id": scope, "python": interp["python"], "result": result}
     return out

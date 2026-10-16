@@ -22,7 +22,7 @@
   "COURSE-FND-DIGITAL": {
    "eligible": false,
    "engineering_state": "IN_PROGRESS",
-   "score": 33.7,
+   "score": 38.2,
    "state": "IN_PROGRESS"
   },
   "COURSE-GCP-DE": {
@@ -62,7 +62,7 @@
    "state": "IN_PROGRESS"
   }
  },
- "lab_matrix_commit": "9d784f3ca2d6",
+ "lab_matrix_commit": "3e8fd6b050ca",
  "totals": {
   "course_pdfs_required": 10,
   "course_pdfs_validated": 0,
@@ -76,18 +76,17 @@
   "go": 0,
   "labs_planned": 217,
   "labs_verified": 27,
-  "lessons_substantive": 17,
+  "lessons_substantive": 18,
   "module_editions_passing": 18,
   "module_states": {
-   "IMPLEMENTED_UNVERIFIED": 1,
    "IN_PROGRESS": 1,
    "NOT_STARTED": 94,
    "REVIEW_REQUIRED": 2,
-   "TECHNICALLY_VERIFIED": 15
+   "TECHNICALLY_VERIFIED": 16
   },
   "modules_implemented": 18,
   "modules_required": 113,
-  "modules_verified": 17,
+  "modules_verified": 18,
   "open_p0": 1,
   "open_p1": 12,
   "outcomes_assessed": 23,
