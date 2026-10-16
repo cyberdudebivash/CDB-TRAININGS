@@ -291,7 +291,7 @@ def test_the_matrix_runner_restores_sigint_that_a_background_launch_ignored():
     import subprocess
     import sys
 
-    script = ("import sys, signal, subprocess; sys.path.insert(0, 'scripts/validation'); import run_lab_matrix as m\n"
+    script = ("import sys, signal, subprocess; sys.path.insert(0, 'scripts/validation'); import launch_env as m\n"
               "print(m.restore_default_sigint())\n"
               "print(subprocess.run([sys.executable, '-c', 'import signal;print(signal.getsignal(signal.SIGINT) is signal.default_int_handler)'], capture_output=True, text=True).stdout.strip())\n"
               "print(m.restore_default_sigint())")

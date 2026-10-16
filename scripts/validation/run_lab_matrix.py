@@ -22,7 +22,6 @@ import json
 import os
 import platform
 import shutil
-import signal
 import subprocess
 import sys
 import time
@@ -32,6 +31,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import evidence_fingerprint as EF  # noqa: E402
+from launch_env import restore_default_sigint  # noqa: E402
 
 REQS = ROOT / "courses" / "python-engineering" / "labs" / "requirements.txt"
 SUITES = ["tests/test_python_engineering_labs.py", "tests/test_module_packs.py", *sorted(f"tests/{p.name}" for p in (ROOT / "tests").glob("test_fnd_m[0-9][0-9].py"))]      # one file per foundations module
@@ -178,16 +178,6 @@ def saved_pieces(partial: Path, identity: str) -> dict[str, dict[str, dict]]:
     except (OSError, ValueError):
         return {}
     return saved.get("pieces", {}) if saved.get("tree_id") == identity else {}
-
-
-def restore_default_sigint() -> bool:
-    """A process started in the background of a non-interactive shell (`( cmd & )`, a scheduler, some CI runners) inherits an IGNORED SIGINT, and so does every process below it:
-    Python then installs no KeyboardInterrupt handler, and every test that sends Ctrl-C to a program under test (PY-M11's interrupt checks and lesson block) hangs or fails.
-    That would make the evidence depend on how the run was started, so the runner restores the default first. Returns True when it had to."""
-    if signal.getsignal(signal.SIGINT) is signal.SIG_IGN:
-        signal.signal(signal.SIGINT, signal.SIG_DFL)
-        return True
-    return False
 
 
 def main() -> int:

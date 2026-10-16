@@ -27,6 +27,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from launch_env import restore_default_sigint  # noqa: E402
 
 DATA_DIR = ROOT / "docs" / "release" / "data"
 LABS = ROOT / "courses" / "soc-analyst" / "labs"
@@ -257,6 +258,7 @@ def render_reports(results: list[dict], head: str, branch: str, now: str, privat
 
 
 def main() -> int:
+    restore_default_sigint()                      # a background launch must not make the Ctrl-C tests fail (scripts/validation/launch_env.py)
     ap = argparse.ArgumentParser()
     ap.add_argument("--skip-build", action="store_true", help="skip the (slow) student-edition build")
     ap.add_argument("--skip-page-rebuild", action="store_true", help="skip the (about 70 s) page-record rebuild comparison")
