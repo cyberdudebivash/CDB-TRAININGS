@@ -152,6 +152,13 @@ class CheckpointTests(unittest.TestCase):
         except OSError:self.skipTest('symlinks unavailable')
         with self.assertRaisesRegex(PolicyError,'symlink'):_load_receipt(link)
 
+    @unittest.skipUnless(os.name == 'posix', 'POSIX-only filesystem fixture')
+    def test_fifo_receipt_rejected_without_blocking(self):
+        fifo = self.base/'untrusted.pipe'
+        os.mkfifo(fifo)
+        with self.assertRaisesRegex(PolicyError, 'small regular'):
+            _load_receipt(fifo)
+
     def test_duplicate_json_key_rejected(self):
         path=self.base/'duplicate.json'
         path.write_text('{"mac":"a", "mac":"b"}',encoding='utf-8')
