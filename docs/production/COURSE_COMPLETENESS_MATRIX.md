@@ -10,7 +10,7 @@ Counts are recomputed from files at generation time; a file existing is only `IM
 
 | Course | Modules implemented | Verified | Reviewed | Labs verified | Outcomes assessed | Scenarios verified | Source pages dispositioned | Course PDF | Score | State |
 |---|---|---|---|---|---|---|---|---|---|---|
-| COURSE-FND-DIGITAL | 3/6 | 3 | 0 | 0/12 | 3/6 | 0/3 | n/a | no | 27.5 | IN_PROGRESS |
+| COURSE-FND-DIGITAL | 3/6 | 3 | 0 | 0/12 | 3/6 | 0/3 | n/a | no | 29.2 | IN_PROGRESS |
 | COURSE-SOC | 1/14 | 1 | 0 | 2/27 | 6/19 | 2/12 | 20/43 | no | 11.2 | IN_PROGRESS |
 | COURSE-PY-ENG | 13/13 | 13 | 2 | 25/25 | 13/13 | 10/10 | 654/654 | yes | 89.7 | TECHNICALLY_VERIFIED |
 | COURSE-PY-AUTO | 0/10 | 0 | 0 | 0/19 | 0/10 | 0/10 | 0/1458 | no | 0.0 | NOT_STARTED |

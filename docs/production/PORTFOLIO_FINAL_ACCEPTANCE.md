@@ -23,7 +23,7 @@
 - Courses with at least one verified time-dependent scenario (CONTROLLED_LIVE or REPLAY_SIMULATION): 2 of 10 (20%); EXTERNAL_LIVE scenarios: 0.
 
 ### PUBLICATION STATE
-- Complete course PDF editions validated: 0 of 10 (0%); module student editions passing every gate: 16 (this file reports the committed manifest, not a file on disk).
+- Complete course PDF editions validated: 0 of 10 (0%); module student editions passing every gate: 18 (this file reports the committed manifest, not a file on disk).
 - Nothing has been published, deployed, sold or priced. Instructor material is not in the public repository.
 
 ### RELEASE STATE

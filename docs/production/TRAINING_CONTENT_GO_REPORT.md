@@ -8,7 +8,7 @@ Result: **0 of 10 courses are TRAINING_CONTENT_GO.** The decision is computed pe
 
 ## COURSE-FND-DIGITAL: Digital and Technical Foundations
 
-State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **27.5** of 100; eligible: no.
+State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **29.2** of 100; eligible: no.
 
 | Criterion | Status | Evidence |
 |---|---|---|
@@ -26,7 +26,7 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **27.5** of 100; e
 | A12 Student materials are complete | PARTIAL | 3 of 6 module student-edition configs; complete course edition absent |
 | A13 Instructor materials are complete and protected in private storage | NOT_MET | instructor packs recorded for 0 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
-| A15 Accessibility checks pass for every student edition | PARTIAL | 2 of 6 module editions pass the accessibility and structure gates |
+| A15 Accessibility checks pass for every student edition | PARTIAL | 4 of 6 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
@@ -40,7 +40,7 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **27.5** of 100; e
 | Practical labs and reproducibility | 15 | 0.0 | 0.0 |
 | Assessment and capstone rigor | 10 | 0.35 | 3.5 |
 | Security and reliability | 10 | 0.2333 | 2.33 |
-| Instructional clarity and accessibility | 5 | 0.3333 | 1.67 |
+| Instructional clarity and accessibility | 5 | 0.6667 | 3.33 |
 | Premium PDF and document integrity | 5 | 0.0 | 0.0 |
 | Source traceability and maintainability | 5 | 0.5 | 2.5 |
 

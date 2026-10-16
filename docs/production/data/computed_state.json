@@ -22,7 +22,7 @@
   "COURSE-FND-DIGITAL": {
    "eligible": false,
    "engineering_state": "IN_PROGRESS",
-   "score": 27.5,
+   "score": 29.2,
    "state": "IN_PROGRESS"
   },
   "COURSE-GCP-DE": {
@@ -77,7 +77,7 @@
   "labs_planned": 217,
   "labs_verified": 27,
   "lessons_substantive": 17,
-  "module_editions_passing": 16,
+  "module_editions_passing": 18,
   "module_states": {
    "IN_PROGRESS": 1,
    "NOT_STARTED": 95,
