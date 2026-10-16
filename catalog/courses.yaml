@@ -18,7 +18,7 @@ courses:
   - id: COURSE-FND-DIGITAL
     slug: digital-foundations
     title: "Digital and Technical Foundations"
-    version: 0.3.0-build
+    version: 0.4.0-build
     source_ids: []
     audience: ["Career changers and students with basic computer literacy and no technical background"]
     competency_levels: [0]
@@ -28,11 +28,11 @@ courses:
       - {id: FND-M02, title: "Command-line fundamentals", level: 0, status: BUILT, estimated_hours: 5, primary_outcome: "Execute a bounded diagnostic CLI, explain process exit statuses and record reproducible synthetic evidence."}
       - {id: FND-M03, title: "Networking and HTTP basics", level: 0, status: BUILT, estimated_hours: 6, primary_outcome: "Observe a controlled local TCP/HTTP exchange and distinguish that evidence from synthetic DNS and TLS failure records."}
       - {id: FND-M04, title: "Git and GitHub workflow", level: 0, status: PLANNED, estimated_hours: 4, primary_outcome: "Create a branch, commit a change and open a pull request in a practice repository."}
-      - {id: FND-M05, title: "Programming fundamentals with Python", level: 0, status: PLANNED, estimated_hours: 10, primary_outcome: "Write a Python script with functions that passes a provided automated test suite."}
+      - {id: FND-M05, title: "Programming fundamentals with Python", level: 0, status: BUILT, estimated_hours: 10, primary_outcome: "Validate synthetic data, produce deterministic reports and test a learner-authored Python implementation."}
       - {id: FND-M06, title: "Troubleshooting and safe computing", level: 0, status: PLANNED, estimated_hours: 3, primary_outcome: "Diagnose a deliberately broken script from its error output and describe the fix and the safe-lab rules followed."}
     estimated_duration_hours: 32
-    lab_coverage: {planned: 12, built: 6, verified_executable: 0}
-    assessment_coverage: {outcomes_total: 6, outcomes_assessed: 3}
+    lab_coverage: {planned: 12, built: 8, verified_executable: 0}
+    assessment_coverage: {outcomes_total: 6, outcomes_assessed: 4}
     capstone: "Automate a small file-reporting task in a Git repository, with tests, a README and a pull request reviewed against a checklist."
     review_status: AUTOMATED_ONLY
     qa_status: PARTIAL
@@ -40,7 +40,7 @@ courses:
     lifecycle: IN_BUILD
     owner: UNASSIGNED
     reviewers: []
-    last_verified: 2026-10-14
+    last_verified: 2026-10-16
     notes: "FND-M01 through FND-M03 authored with guided/independent exercises and formative assessments. FND-M03 uses only loopback TCP/HTTP and synthetic DNS/TLS reasoning, not public capture. Human review, instructor evaluation, cross-platform matrix and final complete course PDF remain unverified. FND-M04 candidate Git lesson and local conflict lab authored in draft; required real practice-repository PR exercise not yet verified, so FND-M04 remains PLANNED. FND-M05–M06 unimplemented; Gate A blocked."
 
   # ------------------------------------------------------------------ SOC analyst (pilot course)
