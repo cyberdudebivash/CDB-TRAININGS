@@ -65,6 +65,13 @@ def testpaths(lab: Path) -> str:
     return cfg.get("pytest", "testpaths", fallback="").strip()
 
 
+def is_graded(lab: Path) -> bool:
+    """A lab is graded by checks/ when its pytest.ini points there, or when it has no pytest.ini testpaths at all and a checks/ folder (plain `python -m pytest` in the lab then runs the checks, which the READMEs tell learners to do).
+    Labs whose pytest.ini points elsewhere (the write-your-own-tests labs, graded by the mutation tool) are not."""
+    paths = testpaths(lab)
+    return paths == "checks" or (paths == "" and (lab / "checks").is_dir())
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--python", default=sys.executable, help="interpreter used to create the clean environment")
@@ -103,7 +110,7 @@ def main(argv: list[str] | None = None) -> int:
         for slug, mid in modules:
             base = tree / "courses" / slug / "modules" / mid
             guided, independent = base / "lab-guided", base / "lab-independent"
-            graded = testpaths(guided) == "checks"           # labs whose pytest.ini points at checks/ are graded by the checks; the others (write-your-own-tests labs) are graded by the mutation tool
+            graded = is_graded(guided)           # labs graded by checks/; the others (write-your-own-tests labs) are graded by the mutation tool
             starter = run_checks(py, guided, work, None)
             solution = run_checks(py, guided, work, "solution") if graded and (guided / "solution").is_dir() else None
             indep = run_checks(py, independent, work, None)
