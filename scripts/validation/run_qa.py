@@ -128,7 +128,7 @@ def soc_fingerprint() -> str:
 def run_pytest() -> tuple[dict, list[dict]]:
     with tempfile.TemporaryDirectory() as td:
         xml_path = Path(td) / "junit.xml"
-        code, out = run([PY, "-m", "pytest", f"--junitxml={xml_path}", "-rs", "-p", "no:randomly"])
+        code, out = run([PY, "-m", "pytest", f"--junitxml={xml_path}", "-rs", "-p", "no:randomly"], timeout=14400)      # with the instructor pack the lab suites alone take about an hour (mutation checks of thirteen modules)
         suites: dict[str, dict] = {}
         skipped: list[dict] = []
         total = {"passed": 0, "failed": 0, "skipped": 0, "errors": 0}
