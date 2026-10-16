@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import logging
 import re
 import subprocess
@@ -69,8 +70,38 @@ def slugify(name: str) -> str:
 
 
 def list_pdfs(root: Path = SOURCES_DIR) -> list[Path]:
-    """Tracked PDFs at the source root, sorted for determinism."""
-    return sorted(p for p in root.glob("*.pdf") if p.is_file())
+    """List distributable PDFs and, only when explicitly supplied, one private source.
+
+    The known quarantined source is never copied into the repository. This
+    path is for authorized audit regeneration, NOT a publication directory.
+    No private input = intentionally incomplete historical source corpus.
+    """
+    root = Path(root)
+    public = sorted((p for p in root.glob("*.pdf") if p.is_file()), key=lambda p: p.name)
+    if root.resolve() != SOURCES_DIR.resolve():
+        return public
+
+    provided = os.environ.get("CDB_PRIVATE_SOURCE_DIR")
+    if not provided:
+        return public
+    protected_dir = Path(provided).expanduser()
+    try:
+        protected_real = protected_dir.resolve(strict=True)
+    except (FileNotFoundError, OSError) as exc:
+        raise RuntimeError("authorized private source directory is unavailable") from exc
+    if not protected_real.is_dir() or protected_dir.is_symlink():
+        raise RuntimeError("authorized private source directory is invalid")
+    if protected_real == REPO_ROOT.resolve() or protected_real.is_relative_to(REPO_ROOT.resolve()):
+        raise RuntimeError("private source directory must be outside the public repository")
+
+    quarantined_name = "INTERNAL FRONTEND DEVELOPER ONBOARDING PLAYBOOK.pdf"
+    private_file = protected_real / quarantined_name
+    if private_file.is_symlink() or not private_file.is_file():
+        raise RuntimeError("quarantined private source missing or not a regular file")
+    if any(f.name == quarantined_name for f in public):
+        raise RuntimeError("quarantined source must not appear in public and private source directories")
+
+    return sorted([*public, private_file], key=lambda p: p.name)
 
 
 def extract_pages(pdf: Path, force: bool = False) -> list[str]:
