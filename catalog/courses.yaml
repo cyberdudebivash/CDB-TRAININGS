@@ -41,7 +41,7 @@ courses:
     owner: UNASSIGNED
     reviewers: []
     last_verified: 2026-10-16
-    notes: "FND-M01 through FND-M03 authored with guided/independent exercises and formative assessments. FND-M03 uses only loopback TCP/HTTP and synthetic DNS/TLS reasoning, not public capture. Human review, instructor evaluation, cross-platform matrix and final complete course PDF remain unverified. FND-M04 candidate Git lesson and local conflict lab authored in draft; required real practice-repository PR exercise not yet verified, so FND-M04 remains PLANNED. FND-M05–M06 unimplemented; Gate A blocked."
+    notes: "FND-M01 through FND-M03 authored with guided/independent exercises and formative assessments. FND-M03 uses only loopback TCP/HTTP and synthetic DNS/TLS reasoning, not public capture. Human review, instructor evaluation, cross-platform matrix and final complete course PDF remain unverified. FND-M04 candidate Git lesson and local conflict lab authored in draft; required real practice-repository PR exercise not yet verified, so FND-M04 remains PLANNED. FND-M05 Python foundations source, guided and independent practice authored but unverified. FND-M04 still lacks a verified hosted learner PR; FND-M06 and the full course/capstone remain unbuilt. Gate A blocked."
 
   # ------------------------------------------------------------------ SOC analyst (pilot course)
   - id: COURSE-SOC
