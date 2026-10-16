@@ -64,9 +64,27 @@ python scripts/build/build_student_edition.py --strict    # builds dist/ (git-ig
 
 Running the pilot lab itself is documented in [`courses/soc-analyst/labs/m04-guided/README.md`](courses/soc-analyst/labs/m04-guided/README.md).
 
+## Enterprise flagship pilot — executable evidence, not a customer launch
+
+**Python Engineering is the first flagship release candidate**, based on the recorded 13/13 modules, 25/25 validated labs and 397-page **PREVIEW** course manifest. No final edition or Gate A approval has been granted.
+
+- [Flagship pilot delivery and release blockers](docs/enterprise/PYTHON_FLAGSHIP_ENTERPRISE_PILOT.md)
+- [Offline, tenant-scoped pilot ledger](scripts/enterprise/pilot_ledger.py): real learner submissions, instructor grading, immutable scores and audit-chain checks
+- [End-to-end synthetic pilot demo](scripts/enterprise/demo_pilot.py): three graded artifacts, hashed evidence anchor, **no certificate**
+- [Fail-closed release evidence preflight](scripts/enterprise/release_preflight.py): reports unmet criteria and never implies commercial or Academy permission
+
+Reproduce locally (requires Python 3.11+; PyYAML for the preflight):
+
+```text
+python -m unittest discover -s tests -p 'test_enterprise_*.py' -v
+python scripts/enterprise/release_preflight.py --course COURSE-PY-ENG
+```
+
+The preflight deliberately exits with status 3 while release remains blocked. This is an **offline internal pilot component**, not an authenticated SaaS or an independently audited multi-tenant service. The GitHub source-PDF privacy incident, rights clearance, private instructor pack, real qualified reviews, and supported-platform release checks remain mandatory.
+
 ## Safety and policy notes
 
 - Labs use **synthetic data** only and need no paid service. Security content stays in isolated, authorised, synthetic environments.
-- **Answer keys and reference solutions are not in this public repository.** They live in a private instructor pack; tests fail if instructor material becomes tracked.
+- **Protected answer keys and independent-grading references must not be stored in this public repository.** Their transfer into owner-controlled private storage is not yet verified (the D8 release blocker remains open); public guided-lab solutions are a separate teaching resource.
 - **No licence has been chosen yet** — see [`LICENSE-STATUS.md`](LICENSE-STATUS.md). Until the owner decides, all rights are reserved by the copyright holder.
 - Nothing here publishes, prices, deploys or contacts external services.
