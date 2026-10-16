@@ -57,7 +57,7 @@ class SourceQuarantineTests(unittest.TestCase):
     def test_index_removal_unblocks_current_tree_only(self):
         name = next(iter(PROHIBITED_NAMES))
         self._add(name)
-        subprocess.run(["git", "-C", str(self.root), "rm", "--", name],
+        subprocess.run(["git", "-C", str(self.root), "rm", "-f", "--", name],
                        check=True, capture_output=True)
         self.assertEqual(check_tree(self.root), [])
 
