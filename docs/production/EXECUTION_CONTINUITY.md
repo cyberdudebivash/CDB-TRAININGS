@@ -43,10 +43,10 @@
 - Branch content recomputed from files at the latest lab-matrix commit `52ed97e6c141`; the matrix covers 5 interpreters.
 
 ### CONTENT STATE
-- Modules implemented (all required files present): 16 of 113 (14%); technically verified: 16 of 113 (14%).
-- Module states: NOT_STARTED 97, TECHNICALLY_VERIFIED 14, REVIEW_REQUIRED 2.
+- Modules implemented (all required files present): 17 of 113 (15%); technically verified: 16 of 113 (14%).
+- Module states: NOT_STARTED 95, IN_PROGRESS 1, IMPLEMENTED_UNVERIFIED 1, TECHNICALLY_VERIFIED 14, REVIEW_REQUIRED 2.
 - Substantive executed lessons: 16 of 113 (14%).
-- Labs verified executable: 27 of 217 (12%); outcomes assessed: 21 of 118 (18%).
+- Labs verified executable: 27 of 217 (12%); outcomes assessed: 22 of 118 (19%).
 - Source pages with a recorded module disposition: 674 of 8186 (8%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
 - Python Engineering: 13 of 13 catalog modules implemented, score 89.7 of 100, state TECHNICALLY_VERIFIED.
 
