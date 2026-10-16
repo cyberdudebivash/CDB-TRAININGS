@@ -283,3 +283,19 @@ def test_every_flagged_source_page_has_a_recorded_visual_inspection_that_is_not_
     extra = copy.deepcopy(baseline.visual)
     extra["pages"].append({"source": "SRC-PY-HANDBOOK", "page": 2, "content_type": "cover", "summary": "x", "disposition": "y"})
     assert any("not a flagged page" in f for f in V.check_visual_review(G.Portfolio({"visual": extra})))
+
+
+def test_the_matrix_runner_restores_sigint_that_a_background_launch_ignored():
+    """Started with SIGINT ignored (as `( cmd & )` does), the runner must hand a default SIGINT to everything below it, or the Ctrl-C tests of the labs fail for a reason that has nothing to do with the content."""
+    import signal
+    import subprocess
+    import sys
+
+    script = ("import sys, signal, subprocess; sys.path.insert(0, 'scripts/validation'); import run_lab_matrix as m\n"
+              "print(m.restore_default_sigint())\n"
+              "print(subprocess.run([sys.executable, '-c', 'import signal;print(signal.getsignal(signal.SIGINT) is signal.default_int_handler)'], capture_output=True, text=True).stdout.strip())\n"
+              "print(m.restore_default_sigint())")
+    ignoring = subprocess.run([sys.executable, "-c", script], cwd=ROOT, capture_output=True, text=True, preexec_fn=lambda: signal.signal(signal.SIGINT, signal.SIG_IGN))
+    assert ignoring.stdout.split() == ["True", "True", "False"], ignoring
+    normal = subprocess.run([sys.executable, "-c", script], cwd=ROOT, capture_output=True, text=True)
+    assert normal.stdout.split() == ["False", "True", "False"], normal

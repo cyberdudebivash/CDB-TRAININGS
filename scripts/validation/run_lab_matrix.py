@@ -22,6 +22,7 @@ import json
 import os
 import platform
 import shutil
+import signal
 import subprocess
 import sys
 import time
@@ -179,7 +180,19 @@ def saved_pieces(partial: Path, identity: str) -> dict[str, dict[str, dict]]:
     return saved.get("pieces", {}) if saved.get("tree_id") == identity else {}
 
 
+def restore_default_sigint() -> bool:
+    """A process started in the background of a non-interactive shell (`( cmd & )`, a scheduler, some CI runners) inherits an IGNORED SIGINT, and so does every process below it:
+    Python then installs no KeyboardInterrupt handler, and every test that sends Ctrl-C to a program under test (PY-M11's interrupt checks and lesson block) hangs or fails.
+    That would make the evidence depend on how the run was started, so the runner restores the default first. Returns True when it had to."""
+    if signal.getsignal(signal.SIGINT) is signal.SIG_IGN:
+        signal.signal(signal.SIGINT, signal.SIG_DFL)
+        return True
+    return False
+
+
 def main() -> int:
+    if restore_default_sigint():
+        print("SIGINT was ignored in this process (background launch); restored the default so that the Ctrl-C tests can run", flush=True)
     ap = argparse.ArgumentParser()
     ap.add_argument("--versions", default="3.11,3.12,3.13,3.14,3.15")
     ap.add_argument("--cutoff", default="2026-10-14")
