@@ -12,7 +12,7 @@
 
 ### CONTENT STATE
 - Modules implemented (all required files present): 16 of 113 (14%); technically verified: 16 of 113 (14%).
-- Module states: NOT_STARTED 97, TECHNICALLY_VERIFIED 16.
+- Module states: NOT_STARTED 97, TECHNICALLY_VERIFIED 14, REVIEW_REQUIRED 2.
 - Substantive executed lessons: 16 of 113 (14%).
 - Labs verified executable: 27 of 217 (12%); outcomes assessed: 21 of 118 (18%).
 - Source pages with a recorded module disposition: 674 of 8186 (8%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).

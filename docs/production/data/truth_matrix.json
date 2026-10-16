@@ -1409,7 +1409,7 @@
   },
   "capstone": {
    "module": "PY-M11",
-   "state": "TECHNICALLY_VERIFIED"
+   "state": "REVIEW_REQUIRED"
   },
   "course_pdf": true,
   "criteria": {
@@ -1547,7 +1547,7 @@
     "private_pack_recorded": true,
     "quiz_items": 8,
     "rubric_criteria": 5,
-    "state": "TECHNICALLY_VERIFIED"
+    "state": "REVIEW_REQUIRED"
    },
    "PY-M11": {
     "catalog_status": "BUILT",
@@ -1558,7 +1558,7 @@
     "private_pack_recorded": true,
     "quiz_items": 8,
     "rubric_criteria": 5,
-    "state": "TECHNICALLY_VERIFIED"
+    "state": "REVIEW_REQUIRED"
    },
    "PY-M12": {
     "catalog_status": "BUILT",

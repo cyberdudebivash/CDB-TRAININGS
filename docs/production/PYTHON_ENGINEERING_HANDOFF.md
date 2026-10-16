@@ -1,4 +1,4 @@
-# Python Engineering pathway: engineering handoff (2026-10-15)
+# Python Engineering pathway: engineering handoff (2026-10-16)
 
 For the repository owner and whoever continues this work. This page is hand-maintained and states what to trust, how to check it, and what nobody has done yet.
 The figures that change live in the generated documents named below; none of them is a release statement. Gate A (`TRAINING_CONTENT_GO`) is the only gate this work addresses.
@@ -49,6 +49,7 @@ The gate itself has a negative control for every gate (a damaged copy of the ref
 ## 5. What is NOT done
 
 - No subject-matter, editorial or learner review exists; no rubric, quiz item or lab has been piloted with a person. The adversarial reviews recorded in `docs/production/data/adversarial_reviews.yaml` were performed by the assistant, are labelled as such, and are not human review.
+- The lab matrix ran on CPython 3.11 to 3.15 on Linux in fresh environments: 220 tests on 3.11 and 3.12, 222 on 3.13 to 3.15 (two unit tests were added between the runs; the notes in `docs/qa/data/lab_matrix_notes.yaml` say why that does not change what was executed) and one piece failed once on 3.13 after a container restart (cause probable, not proven; the mutation tests now run a surviving defect a second time).
 - The October 24 technical refresh has not been executed (it cannot be before that date) and nothing here claims it.
 - The complete-course PDF is a **preview** built from unreviewed content; a final edition needs the approved curriculum (Gate A criteria A17 to A19). Module previews and the course preview are build outputs in the git-ignored `dist/` folder, not published files.
 - Source provenance and licensing (D4) are unresolved, and the privacy incident INC-001 (third-party personal data in a source file of another course, in the public tree and its history) is `OPEN_OWNER_ACTION`; no history was rewritten.

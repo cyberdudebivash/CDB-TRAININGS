@@ -27,4 +27,7 @@ None recorded.
 
 ## 3. Recorded adversarial (independent re-verification) reviews
 
-None recorded.
+| ID | Module | Outcome | Reviewer |
+|---|---|---|---|
+| ADV-PY-M10-01 | PY-M10 | FINDINGS_REMEDIATED | assistant (a language model; self-review of its own work, not independent of the author and not a human reviewer) |
+| ADV-PY-M11-01 | PY-M11 | FINDINGS_REMEDIATED | assistant (a language model; self-review of its own work, not independent of the author and not a human reviewer) |

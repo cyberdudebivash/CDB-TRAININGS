@@ -95,7 +95,7 @@ State: **TECHNICALLY_VERIFIED** (engineering state TECHNICALLY_VERIFIED); score 
 | A05 Required operational scenarios are implemented and verified | MET | 10 of 10 operational scenarios technically verified; 10 time-dependent scenario(s) verified (minimum 1) |
 | A06 Required practical labs pass their validation criteria on the declared matrix | MET | 25 of 25 planned labs verified executable |
 | A07 Every learning outcome is measurable and assessed | MET | 13 of 13 outcomes assessed |
-| A08 The capstone has a working deliverable, acceptance criteria and a check | MET | capstone module PY-M11: TECHNICALLY_VERIFIED |
+| A08 The capstone has a working deliverable, acceptance criteria and a check | MET | capstone module PY-M11: REVIEW_REQUIRED |
 | A09 Automated QA passes and relevant negative controls pass | MET | recorded automated QA run all PASS, negative controls present for built modules |
 | A10 Security and privacy issues affecting the course are resolved | MET | no open privacy or security incident applies |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4) |

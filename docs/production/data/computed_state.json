@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-15",
+ "as_of": "2026-10-16",
  "courses": {
   "COURSE-AI-ENG": {
    "eligible": false,
@@ -80,7 +80,8 @@
   "module_editions_passing": 16,
   "module_states": {
    "NOT_STARTED": 97,
-   "TECHNICALLY_VERIFIED": 16
+   "REVIEW_REQUIRED": 2,
+   "TECHNICALLY_VERIFIED": 14
   },
   "modules_implemented": 16,
   "modules_required": 113,

@@ -22,7 +22,7 @@ Gate A never reads a status that someone typed in to decide completeness. A modu
 
 ### CONTENT STATE
 - Modules implemented (all required files present): 16 of 113 (14%); technically verified: 16 of 113 (14%).
-- Module states: NOT_STARTED 97, TECHNICALLY_VERIFIED 16.
+- Module states: NOT_STARTED 97, TECHNICALLY_VERIFIED 14, REVIEW_REQUIRED 2.
 - Substantive executed lessons: 16 of 113 (14%).
 - Labs verified executable: 27 of 217 (12%); outcomes assessed: 21 of 118 (18%).
 - Source pages with a recorded module disposition: 674 of 8186 (8%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
@@ -96,4 +96,4 @@ The categories are not additive and a page may appear in several. Model inspecti
 
 ## 6. Technical currency
 
-The research registry and executed API probes carry the cutoff **2026-10-14**; the lab matrix recorded commit `52ed97e6c141`. This document was generated for execution date **2026-10-15**. The Stage B refresh is dated **2026-10-24** and cannot be executed or certified before that date (DEF-010). See TECHNICAL_CURRENCY_VALIDATION.md.
+The research registry and executed API probes carry the cutoff **2026-10-14**; the lab matrix recorded commit `52ed97e6c141`. This document was generated for execution date **2026-10-16**. The Stage B refresh is dated **2026-10-24** and cannot be executed or certified before that date (DEF-010). See TECHNICAL_CURRENCY_VALIDATION.md.
