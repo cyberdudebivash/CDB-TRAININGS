@@ -1417,7 +1417,7 @@
    "A02": "MET",
    "A03": "MET",
    "A04": "PARTIAL",
-   "A05": "PARTIAL",
+   "A05": "MET",
    "A06": "MET",
    "A07": "MET",
    "A08": "MET",
@@ -1590,10 +1590,10 @@
   "release_status_claimed_in_catalog": "REENGINEERING",
   "scenarios": {
    "required": 10,
-   "time_dependent_verified": 8,
-   "verified": 8
+   "time_dependent_verified": 10,
+   "verified": 10
   },
-  "score": 84.0,
+  "score": 87.0,
   "source_pages_with_module_disposition": 654,
   "source_pdfs_pages": {
    "SRC-PY-HANDBOOK": 654

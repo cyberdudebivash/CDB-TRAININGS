@@ -12,7 +12,7 @@ Counts are recomputed from files at generation time; a file existing is only `IM
 |---|---|---|---|---|---|---|---|---|---|---|
 | COURSE-FND-DIGITAL | 2/6 | 2 | 0 | 0/12 | 2/6 | 0/3 | n/a | no | 16.8 | IN_PROGRESS |
 | COURSE-SOC | 1/14 | 1 | 0 | 2/27 | 6/19 | 2/12 | 20/43 | no | 11.2 | IN_PROGRESS |
-| COURSE-PY-ENG | 13/13 | 13 | 0 | 25/25 | 13/13 | 8/10 | 654/654 | no | 84.0 | TECHNICALLY_VERIFIED |
+| COURSE-PY-ENG | 13/13 | 13 | 0 | 25/25 | 13/13 | 10/10 | 654/654 | no | 87.0 | TECHNICALLY_VERIFIED |
 | COURSE-PY-AUTO | 0/10 | 0 | 0 | 0/19 | 0/10 | 0/10 | 0/1458 | no | 0.0 | NOT_STARTED |
 | COURSE-JAVA-QA | 0/10 | 0 | 0 | 0/19 | 0/10 | 0/10 | 0/709 | no | 0.0 | NOT_STARTED |
 | COURSE-AI-ENG | 0/12 | 0 | 0 | 0/23 | 0/12 | 0/11 | 0/937 | no | 0.0 | NOT_STARTED |

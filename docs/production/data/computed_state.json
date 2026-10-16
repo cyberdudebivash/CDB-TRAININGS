@@ -52,7 +52,7 @@
   "COURSE-PY-ENG": {
    "eligible": false,
    "engineering_state": "TECHNICALLY_VERIFIED",
-   "score": 84.0,
+   "score": 87.0,
    "state": "TECHNICALLY_VERIFIED"
   },
   "COURSE-SOC": {
@@ -93,12 +93,12 @@
   "review_required": 0,
   "reviews_recorded": 0,
   "scenario_states": {
-   "IN_PROGRESS": 5,
+   "IN_PROGRESS": 3,
    "NOT_STARTED": 74,
-   "TECHNICALLY_VERIFIED": 10
+   "TECHNICALLY_VERIFIED": 12
   },
   "scenarios_required": 89,
-  "scenarios_verified": 10,
+  "scenarios_verified": 12,
   "source_pages": 8186,
   "source_pages_with_disposition": 674,
   "visual_pages_flagged": 58,

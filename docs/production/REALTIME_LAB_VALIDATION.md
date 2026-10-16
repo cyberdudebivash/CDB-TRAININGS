@@ -12,7 +12,7 @@
 | `CONTROLLED_LIVE` | Events produced while the lab runs by a service the lab itself starts (loopback server, seeded event generator) in an authorised environment. |
 | `EXTERNAL_LIVE` | A real authorised external service or customer-approved system. None exists; none may be used without the owner's approval and any spending approval. |
 
-Scenario inventory by class: CONTROLLED_LIVE 8, NONE_YET 76, REPLAY_SIMULATION 5.
+Scenario inventory by class: CONTROLLED_LIVE 10, NONE_YET 74, REPLAY_SIMULATION 5.
 
 ## 2. Time-dependent scenarios that exist
 
@@ -22,7 +22,9 @@ Scenario inventory by class: CONTROLLED_LIVE 8, NONE_YET 76, REPLAY_SIMULATION 5
 | PYE-02 | PY-ENG | Fault-tolerant API client (timeouts, bounded retries, Retry-After, pagination, same-origin links) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED | loopback server started by the lab; deadline and measured timing in hidden suite |
 | PYE-03 | PY-ENG | Data validation at the boundary (schemas, quarantine of bad records, reject threshold) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
 | PYE-04 | PY-ENG | Structured logging for diagnosis | CONTROLLED_LIVE | TECHNICALLY_VERIFIED | authwatch -v writes one JSON object per line to standard error and no character of the input; the live scenario of the release gate (G13) and the hidden suite check it; no external system is involved |
+| PYE-05 | PY-ENG | Package maintenance (migrate a legacy project to pyproject, build, install, verify) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
 | PYE-06 | PY-ENG | Automated tests that catch seeded defects (mutation-graded) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
+| PYE-07 | PY-ENG | Secure application configuration (secrets, defaults, token validation) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
 | PYE-08 | PY-ENG | Concurrency: bounded fan-out, supervision, cancellation, partial failure, deadline | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
 | PYE-09 | PY-ENG | Performance debugging with a profiler | CONTROLLED_LIVE | TECHNICALLY_VERIFIED | the profile is produced live by running the lab program; the budgets use counts and ratios, not wall-clock thresholds alone |
 | PYE-10 | PY-ENG | Failure-handling patterns (retry, fallback, atomic output, no half-written files) | CONTROLLED_LIVE | TECHNICALLY_VERIFIED |  |
