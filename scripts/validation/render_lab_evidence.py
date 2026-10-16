@@ -58,6 +58,23 @@ def lab_key(test_id: str) -> str | None:
     return f"{m.group(1)}_{m.group(2)}" if "test_python_engineering_labs" in test_id and m else None
 
 
+def carried_text(interps: list[dict]) -> str:
+    """Pieces that this run did not execute: reused (`run_lab_matrix.py --reuse-record`) from an earlier recorded run whose scope (test files, content of the modules the piece runs, interpreter build) is identical."""
+    sources: dict[str, set[str]] = {}
+    ran: set[str] = set()
+    total = 0
+    for r in interps:
+        for piece in r.get("pieces", []):
+            total += 1
+            if piece.get("carried_from"):
+                sources.setdefault(piece["carried_from"], set()).add(piece["name"])
+            else:
+                ran.add(piece["name"])
+    if not sources:
+        return "none: every piece ran in this run"
+    return "; ".join(f"{', '.join(f'`{n}`' for n in sorted(names))} from the run at `{src}`" for src, names in sorted(sources.items())) + f" (on every interpreter listed; pieces that ran now: {', '.join(f'`{n}`' for n in sorted(ran))})"
+
+
 def render(data: dict) -> str:
     cut = data["cutoff"]
     interps = data["interpreters"]
@@ -74,7 +91,8 @@ def render(data: dict) -> str:
                  ["Commit at run time", f"`{data['commit']}`" + (" (working tree had uncommitted tracked changes)" if data["working_tree_dirty"] else " (clean tracked tree)")],
                  ["Run (UTC)", data["run_utc"]], ["Host", data["host"]],
                  ["Instructor pack present in the environment", "yes - private-material tests were executed" if data["private_instructor_pack_present"] else "no - private-material tests were skipped"],
-                 ["Toolchain pins", f"`{data['requirements_file']}`"], ["Suites", ", ".join(f"`{s}`" for s in data["suites"])]]), "",
+                 ["Toolchain pins", f"`{data['requirements_file']}`"], ["Suites", ", ".join(f"`{s}`" for s in data["suites"])],
+                 ["Pieces carried from an earlier recorded run", carried_text(interps)]]), "",
              "## 3. Interpreter matrix", ""]
     rows = []
     for r in interps:

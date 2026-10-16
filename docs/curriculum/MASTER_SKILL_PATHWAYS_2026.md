@@ -18,17 +18,17 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 
 | Pathway | Title | Audience | Modules | Planned hours | Built | Capstone | 2026 developments |
 |---|---|---|---|---|---|---|---|
-| PATH-SOC-ANALYST | SOC analyst | Learners aiming at Tier-1/Tier-2 security-operations work | 22 | 156 | 6 | SOC-M14 | 4 |
-| PATH-DETECTION-ENGINEER | Detection engineer | SOC analysts moving to detection engineering | 18 | 132 | 8 | CYB-M11 | 5 |
-| PATH-PYTHON-ENGINEER | Python engineer | Developers and analysts who need production-quality Python | 19 | 144 | 16 | PY-M11 | 4 |
-| PATH-AUTOMATION-ENGINEER | Automation engineer (Python) | Operations, QA and security staff automating repeatable work | 26 | 187 | 13 | PA-M10 | 5 |
-| PATH-TEST-AUTOMATION-JAVA | Test automation engineer (Java) | Manual testers and Java developers moving into test automation | 16 | 124 | 3 | JQA-M10 | 5 |
-| PATH-AI-ENGINEER | Applied AI / LLM engineer | Engineers building LLM-based applications | 31 | 258 | 16 | AI-M12 | 11 |
-| PATH-AI-SECURITY | AI security practitioner | Security staff assessing AI-enabled systems | 19 | 148 | 7 | AI-M07 | 8 |
-| PATH-DATA-ENGINEER-GCP | Data engineer (Google Cloud) | Data and software engineers building pipelines on Google Cloud | 22 | 168 | 8 | GCP-M11 | 8 |
-| PATH-FRONTEND-ENGINEER | Frontend engineer | New frontend engineers and backend developers moving to frontend | 17 | 124 | 3 | FE-M11 | 8 |
-| PATH-OSINT-ANALYST | Lawful OSINT analyst | Analysts, journalists and security staff who need defensible open-source research | 18 | 98 | 3 | OSINT-M12 | 3 |
-| PATH-SECURITY-GENERALIST | Cybersecurity generalist | Learners choosing a specialism or building a broad security base | 20 | 220 | 3 | CYB-M14 | 3 |
+| PATH-SOC-ANALYST | SOC analyst | Learners aiming at Tier-1/Tier-2 security-operations work | 22 | 156 | 7 | SOC-M14 | 4 |
+| PATH-DETECTION-ENGINEER | Detection engineer | SOC analysts moving to detection engineering | 18 | 132 | 9 | CYB-M11 | 5 |
+| PATH-PYTHON-ENGINEER | Python engineer | Developers and analysts who need production-quality Python | 19 | 144 | 17 | PY-M11 | 4 |
+| PATH-AUTOMATION-ENGINEER | Automation engineer (Python) | Operations, QA and security staff automating repeatable work | 26 | 187 | 14 | PA-M10 | 5 |
+| PATH-TEST-AUTOMATION-JAVA | Test automation engineer (Java) | Manual testers and Java developers moving into test automation | 16 | 124 | 4 | JQA-M10 | 5 |
+| PATH-AI-ENGINEER | Applied AI / LLM engineer | Engineers building LLM-based applications | 31 | 258 | 17 | AI-M12 | 11 |
+| PATH-AI-SECURITY | AI security practitioner | Security staff assessing AI-enabled systems | 19 | 148 | 8 | AI-M07 | 8 |
+| PATH-DATA-ENGINEER-GCP | Data engineer (Google Cloud) | Data and software engineers building pipelines on Google Cloud | 22 | 168 | 9 | GCP-M11 | 8 |
+| PATH-FRONTEND-ENGINEER | Frontend engineer | New frontend engineers and backend developers moving to frontend | 17 | 124 | 4 | FE-M11 | 8 |
+| PATH-OSINT-ANALYST | Lawful OSINT analyst | Analysts, journalists and security staff who need defensible open-source research | 18 | 98 | 4 | OSINT-M12 | 3 |
+| PATH-SECURITY-GENERALIST | Cybersecurity generalist | Learners choosing a specialism or building a broad security base | 20 | 220 | 4 | CYB-M14 | 3 |
 
 `2026 developments` counts the distinct `ND-*` entries in [NEW_DEVELOPMENTS_2026.md](../research/NEW_DEVELOPMENTS_2026.md) whose destination modules lie on the pathway.
 
@@ -46,7 +46,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | BUILT | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | BUILT | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
-| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | PLANNED | MC-PYH-01 | - |
+| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | BUILT | MC-PYH-01 | - |
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | PY-M01 | Language core and data structures | 1 | 12 | BUILT | MC-PYH-01 | ND-PY-04 |
 | 8 | PY-M02 | Functions, errors and testing with pytest | 1 | 8 | BUILT | MC-PYH-15, MC-PYH-17 | - |
@@ -78,7 +78,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | BUILT | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | BUILT | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
-| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | PLANNED | MC-PYH-01 | - |
+| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | BUILT | MC-PYH-01 | - |
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | PY-M01 | Language core and data structures | 1 | 12 | BUILT | MC-PYH-01 | ND-PY-04 |
 | 8 | PY-M02 | Functions, errors and testing with pytest | 1 | 8 | BUILT | MC-PYH-15, MC-PYH-17 | - |
@@ -106,13 +106,13 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | BUILT | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | BUILT | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
-| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | PLANNED | MC-PYH-01 | - |
+| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | BUILT | MC-PYH-01 | - |
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | PY-M01 | Language core and data structures | 1 | 12 | BUILT | MC-PYH-01 | ND-PY-04 |
 | 8 | PY-M02 | Functions, errors and testing with pytest | 1 | 8 | BUILT | MC-PYH-15, MC-PYH-17 | - |
 | 9 | PY-M13 | Iterators, generators, closures, decorators and context managers | 2 | 8 | BUILT | MC-PYH-22 | - |
 | 10 | PY-M03 | Types, modules and project layout | 2 | 6 | BUILT | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
-| 11 | PY-M12 | Classes, dataclasses and object-oriented design | 2 | 8 | BUILT | MC-PYH-21 | - |
+| 11 | PY-M12 | Classes, dataclasses and object-oriented design | 2 | 8 | BUILT | MC-PYH-01, MC-PYH-21 | - |
 | 12 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
 | 13 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT | MC-PYH-19 | - |
 | 14 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | BUILT | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
@@ -135,13 +135,13 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | BUILT | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | BUILT | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
-| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | PLANNED | MC-PYH-01 | - |
+| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | BUILT | MC-PYH-01 | - |
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | PY-M01 | Language core and data structures | 1 | 12 | BUILT | MC-PYH-01 | ND-PY-04 |
 | 8 | PY-M02 | Functions, errors and testing with pytest | 1 | 8 | BUILT | MC-PYH-15, MC-PYH-17 | - |
 | 9 | PY-M13 | Iterators, generators, closures, decorators and context managers | 2 | 8 | BUILT | MC-PYH-22 | - |
 | 10 | PY-M03 | Types, modules and project layout | 2 | 6 | BUILT | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
-| 11 | PY-M12 | Classes, dataclasses and object-oriented design | 2 | 8 | BUILT | MC-PYH-21 | - |
+| 11 | PY-M12 | Classes, dataclasses and object-oriented design | 2 | 8 | BUILT | MC-PYH-01, MC-PYH-21 | - |
 | 12 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
 | 13 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT | MC-PYH-19 | - |
 | 14 | PY-M08 | Databases and persistence: safe SQL, transactions, repositories, migrations and query cost | 2 | 8 | BUILT | MC-PYH-08, MC-PYH-23 | - |
@@ -171,7 +171,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | BUILT | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | BUILT | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
-| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | PLANNED | MC-PYH-01 | - |
+| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | BUILT | MC-PYH-01 | - |
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | JQA-M01 | Java 21+ essentials for test engineers | 1 | 12 | PLANNED | MC-JAV-01, MC-JAV-02 | ND-JV-01 |
 | 8 | JQA-M02 | Object-oriented design and collections for frameworks | 1 | 8 | PLANNED | MC-JAV-01 | - |
@@ -197,13 +197,13 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | BUILT | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | BUILT | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
-| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | PLANNED | MC-PYH-01 | - |
+| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | BUILT | MC-PYH-01 | - |
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | PY-M01 | Language core and data structures | 1 | 12 | BUILT | MC-PYH-01 | ND-PY-04 |
 | 8 | PY-M02 | Functions, errors and testing with pytest | 1 | 8 | BUILT | MC-PYH-15, MC-PYH-17 | - |
 | 9 | PY-M13 | Iterators, generators, closures, decorators and context managers | 2 | 8 | BUILT | MC-PYH-22 | - |
 | 10 | PY-M03 | Types, modules and project layout | 2 | 6 | BUILT | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
-| 11 | PY-M12 | Classes, dataclasses and object-oriented design | 2 | 8 | BUILT | MC-PYH-21 | - |
+| 11 | PY-M12 | Classes, dataclasses and object-oriented design | 2 | 8 | BUILT | MC-PYH-01, MC-PYH-21 | - |
 | 12 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | 2 | 6 | BUILT | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
 | 13 | PY-M05 | Files, structured data and HTTP clients | 2 | 8 | BUILT | MC-PYH-19 | - |
 | 14 | PY-M06 | Concurrency and asynchronous programming | 2 | 8 | BUILT | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
@@ -238,7 +238,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | BUILT | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | BUILT | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
-| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | PLANNED | MC-PYH-01 | - |
+| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | BUILT | MC-PYH-01 | - |
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | PY-M01 | Language core and data structures | 1 | 12 | BUILT | MC-PYH-01 | ND-PY-04 |
 | 8 | PY-M02 | Functions, errors and testing with pytest | 1 | 8 | BUILT | MC-PYH-15, MC-PYH-17 | - |
@@ -267,7 +267,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | BUILT | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | BUILT | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
-| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | PLANNED | MC-PYH-01 | - |
+| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | BUILT | MC-PYH-01 | - |
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | PY-M01 | Language core and data structures | 1 | 12 | BUILT | MC-PYH-01 | ND-PY-04 |
 | 8 | PY-M02 | Functions, errors and testing with pytest | 1 | 8 | BUILT | MC-PYH-15, MC-PYH-17 | - |
@@ -299,7 +299,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | BUILT | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | BUILT | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
-| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | PLANNED | MC-PYH-01 | - |
+| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | BUILT | MC-PYH-01 | - |
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | FE-M01 | Web fundamentals and semantic HTML | 1 | 6 | PLANNED | - | - |
 | 8 | FE-M02 | CSS and responsive layout | 1 | 8 | PLANNED | - | - |
@@ -326,7 +326,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | BUILT | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | BUILT | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
-| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | PLANNED | MC-PYH-01 | - |
+| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | BUILT | MC-PYH-01 | - |
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | OSINT-M01 | Law, ethics, privacy and prohibited activities | 1 | 5 | PLANNED | MC-OSI-01, MC-OSI-03, MC-OSI-06 | ND-OS-03 |
 | 8 | OSINT-M02 | Research planning and collection management | 1 | 4 | PLANNED | MC-OSI-01 | - |
@@ -354,7 +354,7 @@ Role-oriented learning pathways assembled from the module catalog. Levels descri
 | 2 | FND-M02 | Command-line fundamentals | 0 | 5 | BUILT | - | - |
 | 3 | FND-M03 | Networking and HTTP basics | 0 | 6 | BUILT | - | - |
 | 4 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED | - | - |
-| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | PLANNED | MC-PYH-01 | - |
+| 5 | FND-M05 | Programming fundamentals with Python | 0 | 10 | BUILT | MC-PYH-01 | - |
 | 6 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED | - | - |
 | 7 | CYB-M01 | Security foundations, threats and frameworks (ATT&CK, CSF 2.0, OWASP) | 1 | 12 | PLANNED | MC-MEG-01 | - |
 | 8 | CYB-M02 | Networking and operating-system security | 1 | 16 | PLANNED | MC-MEG-01 | - |

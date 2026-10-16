@@ -12,6 +12,8 @@ A *course edition* is the PDF built from the whole approved curriculum of a cour
 |---|---|---|---|---|---|
 | FND-M01 | FND-M01-student-preview-0.1.0-preview | 15 | 8c1e1c4f477753c1 | yes | yes |
 | FND-M02 | FND-M02-student-preview-0.1.0-preview | 14 | 7726863c50cc7f74 | yes | yes |
+| FND-M03 | FND-M03-student-preview-0.1.0-preview | 14 | c9bbad8b848e814e | yes | yes |
+| FND-M04 | FND-M04-student-preview-0.1.0-preview | 14 | 3f551900d0b732d2 | yes | yes |
 | SOC-M04 | SOC-M04-student-0.1.0-pilot | 23 | 07dbcede0ede9306 | yes | yes |
 | PY-M01 | PY-M01-student-preview-0.1.0-preview | 22 | 517d94b5bfec1294 | yes | yes |
 | PY-M02 | PY-M02-student-preview-0.1.0-preview | 17 | bcabff6ec41cc1c0 | yes | yes |

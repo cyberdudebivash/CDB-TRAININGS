@@ -137,6 +137,44 @@
    "tagged": "yes"
   },
   {
+   "edition": "FND-M03-student-preview-0.1.0-preview",
+   "html_sha256": "c9bbad8b848e814ed7f2e9a00a2147410d5a9c06748d9fba39cdde693055b89c",
+   "mobile_360px": "scrollWidth=360 viewportWidth=360",
+   "module": "FND-M03",
+   "outline_entries": 2,
+   "passed": true,
+   "pdf_pages": 14,
+   "pdf_words": 3916,
+   "problems": {},
+   "sources": {
+    "courses/digital-foundations/modules/FND-M03/assessment/quiz.md": "dd4f55ba8111f524dcbc2a8087286f2ba19088c6e28081e1f19a759ce4c67a6b",
+    "courses/digital-foundations/modules/FND-M03/lab-guided/README.md": "cd48fea265a022bde1193a04b3a156b3aa6e1a1cb6ebd36cd02592b6ac79bf23",
+    "courses/digital-foundations/modules/FND-M03/lab-independent/README.md": "28252e7382bc2641495bbf083dc046fb9e53aadcb52c28c3777dae4e2b46e16d",
+    "courses/digital-foundations/modules/FND-M03/lesson.md": "5430df9b71a6663d14741ced002435d15aef508680c09f85be9d0e8d455c1cde",
+    "courses/digital-foundations/student/FND-M03-student-edition.yaml": "37c0007c489029c28de8333a52bdec034213b7e4e2daec2e1c007849b9a0bb76"
+   },
+   "tagged": "yes"
+  },
+  {
+   "edition": "FND-M04-student-preview-0.1.0-preview",
+   "html_sha256": "3f551900d0b732d2bd677de04fa3882ff4da41e7fb8f0507fe470eef7a2d055d",
+   "mobile_360px": "scrollWidth=360 viewportWidth=360",
+   "module": "FND-M04",
+   "outline_entries": 2,
+   "passed": true,
+   "pdf_pages": 14,
+   "pdf_words": 3875,
+   "problems": {},
+   "sources": {
+    "courses/digital-foundations/modules/FND-M04/assessment/quiz.md": "cddee5a3d5c312a868183bdb771f9d9cf69fcf24263b09a1dc8b0cc798c65c6f",
+    "courses/digital-foundations/modules/FND-M04/lab-guided/README.md": "9156cb5ec65595046b69f2d36c00372ef1b150694bdb92b8cd659d8f612c1545",
+    "courses/digital-foundations/modules/FND-M04/lab-independent/README.md": "dc6b9ca7f7c666a1f829b615d5a40823d8c0f6dbf477ad1b2d81903338b34b14",
+    "courses/digital-foundations/modules/FND-M04/lesson.md": "0ceb418988d2e086974b2df9b7d21f7ee59b126849781c6b4ded7d1e36d64b24",
+    "courses/digital-foundations/student/FND-M04-student-edition.yaml": "cc712265e032c3c8728d72a677ccd7cf8ca99f4766d75030a21d15aac02fe93b"
+   },
+   "tagged": "yes"
+  },
+  {
    "edition": "PY-M01-student-preview-0.1.0-preview",
    "html_sha256": "517d94b5bfec1294a805a9a5768fe0779d2f6f72950bf6d6af43ed5c9307353f",
    "mobile_360px": "scrollWidth=360 viewportWidth=360",

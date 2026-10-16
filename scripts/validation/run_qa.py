@@ -27,6 +27,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from launch_env import restore_default_sigint  # noqa: E402
 
 DATA_DIR = ROOT / "docs" / "release" / "data"
 LABS = ROOT / "courses" / "soc-analyst" / "labs"
@@ -129,7 +130,7 @@ def soc_fingerprint() -> str:
 def run_pytest() -> tuple[dict, list[dict]]:
     with tempfile.TemporaryDirectory() as td:
         xml_path = Path(td) / "junit.xml"
-        code, out = run([PY, "-m", "pytest", f"--junitxml={xml_path}", "-rs", "-p", "no:randomly"])
+        code, out = run([PY, "-m", "pytest", f"--junitxml={xml_path}", "-rs", "-p", "no:randomly"], timeout=14400)      # with the instructor pack the lab suites alone take about an hour (mutation checks of thirteen modules)
         suites: dict[str, dict] = {}
         skipped: list[dict] = []
         total = {"passed": 0, "failed": 0, "skipped": 0, "errors": 0}
@@ -259,6 +260,7 @@ def render_reports(results: list[dict], head: str, branch: str, now: str, privat
 
 
 def main() -> int:
+    restore_default_sigint()                      # a background launch must not make the Ctrl-C tests fail (scripts/validation/launch_env.py)
     ap = argparse.ArgumentParser()
     ap.add_argument("--skip-build", action="store_true", help="skip the (slow) student-edition build")
     ap.add_argument("--skip-page-rebuild", action="store_true", help="skip the (about 70 s) page-record rebuild comparison")
