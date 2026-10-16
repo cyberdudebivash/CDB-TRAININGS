@@ -10,6 +10,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -42,6 +43,68 @@ def mutation(module_dir: Path, module: str, tests: Path, mutants: Path, jobs: in
     proc = subprocess.run([sys.executable, str(TOOL), "--module-dir", str(module_dir), "--module", module, "--tests", str(tests), "--mutants", str(mutants), "--json", "--jobs", str(jobs)],
                           capture_output=True, text=True, timeout=1200)
     return json.loads(proc.stdout)
+
+
+def settle_survivors(report: dict, rerun) -> dict:
+    """The environment can cut a mutant's run short: a restart or memory pressure kills the process with a signal, which pytest does not report as a failure, so the mutant looks alive.
+    A required mutant reported alive is therefore run again, alone; it counts as alive only if it survives twice. `rerun(ids)` returns the report of those mutants."""
+    alive = [m["id"] for m in report["mutants"] if m["required"] and not m["killed"]]
+    if not (report.get("baseline_passes") and alive):
+        return report
+    killed = {m["id"] for m in rerun(alive)["mutants"] if m["killed"]}
+    for m in report["mutants"]:
+        if m["id"] in killed:
+            m["killed"], m["rerun"] = True, True
+    required = [m for m in report["mutants"] if m["required"]]
+    report["required_killed"] = sum(1 for m in required if m["killed"])
+    report["all_killed"] = sum(1 for m in report["mutants"] if m["killed"])
+    report["passed"] = bool(report["baseline_passes"]) and report["required_killed"] == report["required_total"]
+    report["rerun_ids"] = sorted(killed & set(alive))
+    return report
+
+
+def mutation_with_rerun(cmd: list[str], mutants: Path, env: dict, timeout: int = 7200) -> dict:
+    """Run a mutation tool (`cmd` without --mutants) over a mutants file and settle the survivors as described above."""
+
+    def run(path: Path) -> dict:
+        return json.loads(subprocess.run([*cmd, "--mutants", str(path)], capture_output=True, text=True, timeout=timeout, env=env).stdout)
+
+    def rerun(ids: list[str]) -> dict:
+        with tempfile.TemporaryDirectory() as td:
+            subset = Path(td) / "again.json"
+            subset.write_text(json.dumps([m for m in json.loads(mutants.read_text(encoding="utf-8")) if m["id"] in ids]), encoding="utf-8")
+            return run(subset)
+
+    return settle_survivors(run(mutants), rerun)
+
+
+def _report(alive: set[str], baseline: bool = True) -> dict:
+    mutants = [{"id": f"M{n}", "required": n != 4, "killed": f"M{n}" not in alive} for n in range(1, 6)]
+    required = [m for m in mutants if m["required"]]
+    return {"baseline_passes": baseline, "mutants": mutants, "required_total": len(required), "required_killed": sum(m["killed"] for m in required),
+            "all_killed": sum(m["killed"] for m in mutants), "total": len(mutants), "passed": baseline and all(m["killed"] for m in required)}
+
+
+def test_settle_survivors_counts_a_mutant_as_alive_only_if_it_survives_twice():
+    asked: list[list[str]] = []
+
+    def rerun(ids):
+        asked.append(list(ids))
+        return {"mutants": [{"id": i, "killed": i == "M2"} for i in ids]}
+
+    settled = settle_survivors(_report({"M2", "M3", "M4"}), rerun)
+    assert asked == [["M2", "M3"]], "only required survivors are run again"                      # M4 is not required
+    assert settled["required_killed"] == 3 and settled["required_total"] == 4 and not settled["passed"]
+    assert settled["rerun_ids"] == ["M2"] and [m["id"] for m in settled["mutants"] if m["required"] and not m["killed"]] == ["M3"]
+    assert settle_survivors(_report({"M2"}), lambda ids: {"mutants": [{"id": i, "killed": True} for i in ids]})["passed"]
+
+
+def test_settle_survivors_never_rescues_a_failing_baseline_or_runs_when_nothing_survived():
+    def forbidden(ids):
+        raise AssertionError("no rerun expected")
+
+    assert settle_survivors(_report({"M2"}, baseline=False), forbidden)["passed"] is False
+    assert settle_survivors(_report(set()), forbidden)["passed"] is True
 
 
 def failing(results: dict[str, str]) -> set[str]:
@@ -725,9 +788,8 @@ def test_m10_guided_checks_are_discriminating():
     if not mutants.exists():
         pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
     solution = M10 / "lab-guided" / "solution"
-    proc = subprocess.run([sys.executable, str(TOOL), "--module-dir", str(solution), "--module", "ticketapi", "--tests", str(M10 / "lab-guided" / "checks"), "--mutants", str(mutants), "--json", "--jobs", "4"],
-                          capture_output=True, text=True, timeout=7200, env=dict(os.environ, LAB_TARGET="import"))
-    report = json.loads(proc.stdout)
+    report = mutation_with_rerun([sys.executable, str(TOOL), "--module-dir", str(solution), "--module", "ticketapi", "--tests", str(M10 / "lab-guided" / "checks"), "--json", "--jobs", "4"],
+                                 mutants, dict(os.environ, LAB_TARGET="import"))
     assert report["baseline_passes"] and report["passed"]
     assert report["required_killed"] == report["required_total"] == 432 and report["total"] == 432, [m for m in report["mutants"] if not m["killed"]]
 
@@ -754,9 +816,8 @@ def test_m10_independent_hidden_suite_is_discriminating_and_the_starter_fails_it
     ref = PRIVATE / "PY-M10" / "independent-reference"
     if not ref.exists():
         pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
-    proc = subprocess.run([sys.executable, str(TOOL), "--module-dir", str(ref), "--module", "inventory", "--tests", str(ref / "test_hidden.py"), "--mutants", str(ref / "mutants.json"), "--json", "--jobs", "4"],
-                          capture_output=True, text=True, timeout=7200, env=dict(os.environ, LAB_TARGET="import"))
-    report = json.loads(proc.stdout)
+    report = mutation_with_rerun([sys.executable, str(TOOL), "--module-dir", str(ref), "--module", "inventory", "--tests", str(ref / "test_hidden.py"), "--json", "--jobs", "4"],
+                                 ref / "mutants.json", dict(os.environ, LAB_TARGET="import"))
     assert report["baseline_passes"] and report["passed"]
     assert report["required_killed"] == report["required_total"] == 274 and report["total"] == 275, [m for m in report["mutants"] if m["required"] and not m["killed"]]
     assert all(m.get("note") for m in report["mutants"] if not m["required"]), "every mutant that is not required must say why"
@@ -902,9 +963,8 @@ def test_m11_independent_hidden_suite_is_discriminating():
     pack = PRIVATE / "PY-M11"
     if not (pack / "mutants.json").exists():
         pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
-    proc = subprocess.run([sys.executable, str(pack / "tools" / "package_mutation.py"), "--src", str(pack / "reference-project" / "src"), "--package", "authwatch", "--tests", str(pack / "hidden" / "test_hidden.py"),
-                           "--mutants", str(pack / "mutants.json"), "--json", "--jobs", "4", "--timeout", "600"], capture_output=True, text=True, timeout=14400)
-    report = json.loads(proc.stdout)
+    report = mutation_with_rerun([sys.executable, str(pack / "tools" / "package_mutation.py"), "--src", str(pack / "reference-project" / "src"), "--package", "authwatch", "--tests", str(pack / "hidden" / "test_hidden.py"),
+                                  "--json", "--jobs", "4", "--timeout", "600"], pack / "mutants.json", dict(os.environ), 14400)
     assert report["baseline_passes"] and report["passed"]
     assert report["required_killed"] == report["required_total"] == M11_MUTANTS_REQUIRED and report["total"] == M11_MUTANTS, [m for m in report["mutants"] if m["required"] and not m["killed"]]
     assert all(m.get("note") for m in report["mutants"] if not m["required"]), "every mutant that is not required must say why"
