@@ -1,0 +1,26 @@
+edition: student-preview
+course: COURSE-FND-DIGITAL
+module: FND-M04
+title: FND-M04 Git and GitHub workflow - Student Preview Edition
+version: 0.1.0-preview
+language: en
+attribution: false
+notice_title: Unreviewed training preview
+notice_text: Offline Git lab draft only. No remote GitHub PR review, Academy readiness
+  or final course approval.
+edition_metadata: auto
+expected_strings:
+- FND-M04
+- Student Preview Edition
+- Git
+include:
+- courses/digital-foundations/modules/FND-M04/lesson.md
+- courses/digital-foundations/modules/FND-M04/lab-guided/README.md
+- courses/digital-foundations/modules/FND-M04/lab-independent/README.md
+- courses/digital-foundations/modules/FND-M04/assessment/quiz.md
+forbidden_path_fragments:
+- /instructor/
+- answer-key
+- /solution/
+forbidden_markers:
+- INSTRUCTORS ONLY

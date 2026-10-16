@@ -1,0 +1,9 @@
+module: FND-M03
+source: null
+origin: NEW_ORIGINAL_FOUNDATIONS_CURRICULUM
+mappings: []
+rationale: >-
+  COURSE-FND-DIGITAL is an independently authored prerequisite course with no
+  2025 source PDF. This module does not invent source pages or imply that
+  a public DNS/TLS system was tested. Subject-matter and external standards
+  research reviews are required before customer release.

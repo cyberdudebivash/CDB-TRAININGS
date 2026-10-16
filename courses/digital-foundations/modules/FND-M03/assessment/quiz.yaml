@@ -1,0 +1,66 @@
+module: FND-M03
+items:
+- id: Q1
+  outcome: LO1
+  stem: Which stage converts a hostname into addressing information?
+  options:
+    A: TLS
+    B: DNS
+    C: HTTP status
+    D: TCP port scanning
+- id: Q2
+  outcome: LO1
+  stem: What does a successful HTTP exchange on 127.0.0.1 prove about DNS?
+  options:
+    A: An authoritative DNS lookup was performed
+    B: Public DNS servers are healthy
+    C: The HTTPS certificate is valid
+    D: It does not prove that a DNS lookup occurred
+- id: Q3
+  outcome: LO2
+  stem: The controlled local server responds HTTP 404. What is accurate?
+  options:
+    A: An HTTP response was received; this is not itself a TCP failure
+    B: The host was unreachable
+    C: TLS negotiated TLS 1.3
+    D: A real customer outage is confirmed
+- id: Q4
+  outcome: LO2
+  stem: Why is Content-Length relevant to HTTP/1.1?
+  options:
+    A: It proves server identity
+    B: It sets TTL for DNS
+    C: It supplies body-message length in bytes
+    D: It always prevents truncation
+- id: Q5
+  outcome: LO3
+  stem: What is the first failed stage in the synthetic trace DNS OK, TCP FAIL?
+  options:
+    A: DNS
+    B: TCP
+    C: TLS
+    D: HTTP
+- id: Q6
+  outcome: LO3
+  stem: Why must a boolean value be rejected as an HTTP status in the independent lab?
+  options:
+    A: Python bools are mathematically floats
+    B: HTTPS forbids zero-length responses
+    C: It triggers an actual DNS request
+    D: The contract requires a real integer HTTP status, not True/False
+- id: Q7
+  outcome: LO4
+  stem: What is the correct label for the guided lab TCP exchange?
+  options:
+    A: Confirmed remote production telemetry
+    B: Packet-captured internet TLS session
+    C: Controlled live loopback
+    D: Simulated DNS query
+- id: Q8
+  outcome: LO4
+  stem: Which incident handoff is defensible?
+  options:
+    A: Recorded test results, stated missing DNS/TLS observation and limitations
+    B: Unobserved DNS resolution marked verified
+    C: HTTP 503 attributed to a specific engineer without evidence
+    D: Collected customer tokens to prove lab success
