@@ -8,7 +8,7 @@ Result: **0 of 10 courses are TRAINING_CONTENT_GO.** The decision is computed pe
 
 ## COURSE-FND-DIGITAL: Digital and Technical Foundations
 
-State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **16.8** of 100; eligible: no.
+State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **18.5** of 100; eligible: no.
 
 | Criterion | Status | Evidence |
 |---|---|---|
@@ -26,7 +26,7 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **16.8** of 100; e
 | A12 Student materials are complete | PARTIAL | 2 of 6 module student-edition configs; complete course edition absent |
 | A13 Instructor materials are complete and protected in private storage | NOT_MET | instructor packs recorded for 0 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
 | A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
-| A15 Accessibility checks pass for every student edition | NOT_MET | 0 of 6 module editions pass the accessibility and structure gates |
+| A15 Accessibility checks pass for every student edition | PARTIAL | 2 of 6 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 4 open P0/P1 defects apply: DEF-004, DEF-005, DEF-008, DEF-009 |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
@@ -40,7 +40,7 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **16.8** of 100; e
 | Practical labs and reproducibility | 15 | 0.0 | 0.0 |
 | Assessment and capstone rigor | 10 | 0.2333 | 2.33 |
 | Security and reliability | 10 | 0.1167 | 1.17 |
-| Instructional clarity and accessibility | 5 | 0.0 | 0.0 |
+| Instructional clarity and accessibility | 5 | 0.3333 | 1.67 |
 | Premium PDF and document integrity | 5 | 0.0 | 0.0 |
 | Source traceability and maintainability | 5 | 0.3333 | 1.67 |
 
@@ -84,7 +84,7 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **11.2** of 100; e
 
 ## COURSE-PY-ENG: Python Engineering Pathway
 
-State: **TECHNICALLY_VERIFIED** (engineering state TECHNICALLY_VERIFIED); score **87.0** of 100; eligible: no.
+State: **TECHNICALLY_VERIFIED** (engineering state TECHNICALLY_VERIFIED); score **89.7** of 100; eligible: no.
 
 | Criterion | Status | Evidence |
 |---|---|---|
@@ -99,10 +99,10 @@ State: **TECHNICALLY_VERIFIED** (engineering state TECHNICALLY_VERIFIED); score 
 | A09 Automated QA passes and relevant negative controls pass | MET | recorded automated QA run all PASS, negative controls present for built modules |
 | A10 Security and privacy issues affecting the course are resolved | MET | no open privacy or security incident applies |
 | A11 Source provenance and rights are cleared | NOT_MET | IP/licensing NOT_MET (blockers D4) |
-| A12 Student materials are complete | PARTIAL | 13 of 13 module student-edition configs; complete course edition absent |
+| A12 Student materials are complete | MET | 13 of 13 module student-edition configs; complete course edition present (preview) |
 | A13 Instructor materials are complete and protected in private storage | PARTIAL | instructor packs recorded for 13 modules (they exist only in the assistant's working environment until D8 is resolved); private repository (D8) NOT created |
-| A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | no complete course edition has been built; module previews are not course editions |
-| A15 Accessibility checks pass for every student edition | PARTIAL | 6 of 13 module editions pass the accessibility and structure gates |
+| A14 Final PDF edition built from the whole approved curriculum and validated | NOT_MET | a complete-course PREVIEW edition (397 pages, 13 modules) passed the structure checks, but a final edition needs the approved curriculum (A17 to A19) |
+| A15 Accessibility checks pass for every student edition | MET | 13 of 13 module editions pass the accessibility and structure gates |
 | A16 No unresolved P0 or P1 defect | NOT_MET | 10 open P0/P1 defects apply: DEF-004, DEF-005, DEF-006, DEF-008, DEF-009, DEF-015 ... |
 | A17 Subject-matter and editorial review recorded by named humans | NOT_MET | SME review not recorded; editorial review not recorded |
 | A18 A real learner pilot is recorded | NOT_MET | learner pilot not recorded |
@@ -116,7 +116,7 @@ State: **TECHNICALLY_VERIFIED** (engineering state TECHNICALLY_VERIFIED); score 
 | Practical labs and reproducibility | 15 | 1.0 | 15.0 |
 | Assessment and capstone rigor | 10 | 1.0 | 10.0 |
 | Security and reliability | 10 | 0.7 | 7.0 |
-| Instructional clarity and accessibility | 5 | 0.4615 | 2.31 |
+| Instructional clarity and accessibility | 5 | 1.0 | 5.0 |
 | Premium PDF and document integrity | 5 | 0.0 | 0.0 |
 | Source traceability and maintainability | 5 | 1.0 | 5.0 |
 

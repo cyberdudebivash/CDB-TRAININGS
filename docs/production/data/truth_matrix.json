@@ -605,7 +605,7 @@
    "A12": "PARTIAL",
    "A13": "NOT_MET",
    "A14": "NOT_MET",
-   "A15": "NOT_MET",
+   "A15": "PARTIAL",
    "A16": "NOT_MET",
    "A17": "NOT_MET",
    "A18": "NOT_MET",
@@ -694,7 +694,7 @@
    "time_dependent_verified": 0,
    "verified": 0
   },
-  "score": 16.8,
+  "score": 18.5,
   "source_pages_with_module_disposition": 0,
   "source_pdfs_pages": {},
   "state": "IN_PROGRESS"
@@ -1411,7 +1411,7 @@
    "module": "PY-M11",
    "state": "TECHNICALLY_VERIFIED"
   },
-  "course_pdf": false,
+  "course_pdf": true,
   "criteria": {
    "A01": "MET",
    "A02": "MET",
@@ -1424,10 +1424,10 @@
    "A09": "MET",
    "A10": "MET",
    "A11": "NOT_MET",
-   "A12": "PARTIAL",
+   "A12": "MET",
    "A13": "PARTIAL",
    "A14": "NOT_MET",
-   "A15": "PARTIAL",
+   "A15": "MET",
    "A16": "NOT_MET",
    "A17": "NOT_MET",
    "A18": "NOT_MET",
@@ -1593,7 +1593,7 @@
    "time_dependent_verified": 10,
    "verified": 10
   },
-  "score": 87.0,
+  "score": 89.7,
   "source_pages_with_module_disposition": 654,
   "source_pdfs_pages": {
    "SRC-PY-HANDBOOK": 654

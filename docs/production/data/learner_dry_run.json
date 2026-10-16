@@ -1,5 +1,5 @@
 {
- "commit": "b2f6372aa3b4",
+ "commit": "dfdd838d7b27",
  "is_learner_pilot": false,
  "modules": {
   "PY-M01": {
@@ -167,6 +167,44 @@
     "failed": 0,
     "passed": 0,
     "returncode": 5,
+    "skipped": 0
+   },
+   "ok": true
+  },
+  "PY-M10": {
+   "fingerprint": "b0aa1bc4a4362bf1171885f12f49abaf4e52af21add0977022cb9100854d9f13",
+   "guided_solution": null,
+   "guided_starter": {
+    "errors": 0,
+    "failed": 1543,
+    "passed": 82,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "independent_starter": {
+    "errors": 0,
+    "failed": 16,
+    "passed": 0,
+    "returncode": 1,
+    "skipped": 0
+   },
+   "ok": true
+  },
+  "PY-M11": {
+   "fingerprint": "7069915ad253b1bfdd76ce438ca9831f48cf4044204805ceb558bd651667b1ab",
+   "guided_solution": null,
+   "guided_starter": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 0,
+    "returncode": 5,
+    "skipped": 0
+   },
+   "independent_starter": {
+    "errors": 0,
+    "failed": 22,
+    "passed": 0,
+    "returncode": 1,
     "skipped": 0
    },
    "ok": true

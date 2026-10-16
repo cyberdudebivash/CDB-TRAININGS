@@ -10,14 +10,22 @@ A *course edition* is the PDF built from the whole approved curriculum of a cour
 
 | Module | Edition | Pages | HTML sha256 (prefix) | Passed gates | Fresh vs sources |
 |---|---|---|---|---|---|
-| SOC-M04 | SOC-M04-student-0.1.0-pilot | 23 | 97f5fb712da06664 | yes | yes |
-| PY-M01 | PY-M01-student-preview-0.1.0-preview | 22 | b1d55c465e339129 | yes | yes |
-| PY-M02 | PY-M02-student-preview-0.1.0-preview | 17 | 9eb9394a3b850f50 | yes | yes |
-| PY-M03 | PY-M03-student-preview-0.1.0-preview | 21 | dabdb6f20253b4c5 | yes | yes |
-| PY-M04 | PY-M04-student-preview-0.1.0-preview | 18 | 3ebba094b4772834 | yes | yes |
-| PY-M05 | PY-M05-student-preview-0.1.0-preview | 33 | 2616998c0221bef5 | yes | yes |
-| PY-M06 | PY-M06-student-preview-0.1.0-preview | 31 | 918da0cb40feaed6 | NO | NO (sources changed) |
-| PY-M07 | PY-M07-student-preview-0.1.0-preview | 18 | 86da9448457f26a0 | yes | yes |
+| FND-M01 | FND-M01-student-preview-0.1.0-preview | 15 | 8c1e1c4f477753c1 | yes | yes |
+| FND-M02 | FND-M02-student-preview-0.1.0-preview | 14 | 7726863c50cc7f74 | yes | yes |
+| SOC-M04 | SOC-M04-student-0.1.0-pilot | 23 | 07dbcede0ede9306 | yes | yes |
+| PY-M01 | PY-M01-student-preview-0.1.0-preview | 22 | 517d94b5bfec1294 | yes | yes |
+| PY-M02 | PY-M02-student-preview-0.1.0-preview | 17 | bcabff6ec41cc1c0 | yes | yes |
+| PY-M13 | PY-M13-student-preview-0.1.0-preview | 33 | 4ece5b3dbcb6014c | yes | yes |
+| PY-M03 | PY-M03-student-preview-0.1.0-preview | 21 | a01cfa34f4e10d89 | yes | yes |
+| PY-M12 | PY-M12-student-preview-0.1.0-preview | 42 | cf0c9ef7c2af75e8 | yes | yes |
+| PY-M04 | PY-M04-student-preview-0.1.0-preview | 18 | 648b418f48a79ddc | yes | yes |
+| PY-M05 | PY-M05-student-preview-0.1.0-preview | 33 | f4b033feffefc63a | yes | yes |
+| PY-M06 | PY-M06-student-preview-0.1.0-preview | 31 | 393d616fd8a04d75 | yes | yes |
+| PY-M07 | PY-M07-student-preview-0.1.0-preview | 18 | 7e4c5ae4be3ad9ad | yes | yes |
+| PY-M08 | PY-M08-student-preview-0.1.0-preview | 49 | 2b53db67d3b71bee | yes | yes |
+| PY-M09 | PY-M09-student-preview-0.1.0-preview | 35 | a281f21c9b388cb3 | yes | yes |
+| PY-M10 | PY-M10-student-preview-0.1.0-preview | 49 | 271cc7798bde16b2 | yes | yes |
+| PY-M11 | PY-M11-student-preview-0.1.0-preview | 46 | 9e88ec444b0f0204 | yes | yes |
 
 ## 2. Complete course editions
 
@@ -25,7 +33,7 @@ A *course edition* is the PDF built from the whole approved curriculum of a cour
 |---|---|---|---|---|
 | COURSE-FND-DIGITAL | not built | - | no | no |
 | COURSE-SOC | not built | - | no | no |
-| COURSE-PY-ENG | not built | - | no | no |
+| COURSE-PY-ENG | built (preview) | 397 | yes | yes |
 | COURSE-PY-AUTO | not built | - | no | no |
 | COURSE-JAVA-QA | not built | - | no | no |
 | COURSE-AI-ENG | not built | - | no | no |
