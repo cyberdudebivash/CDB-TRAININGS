@@ -642,18 +642,18 @@
    "FND-M03": {
     "catalog_status": "BUILT",
     "edition_config": true,
-    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0; STALE: 7 input file(s) changed after the recorded run at 52ed97e6c141",
+    "evidence": "13 tests on 5 interpreters; failed 0, skipped 0",
     "executed_blocks": 5,
     "outcomes": 4,
     "private_pack_recorded": false,
     "quiz_items": 8,
     "rubric_criteria": 4,
-    "state": "IMPLEMENTED_UNVERIFIED"
+    "state": "TECHNICALLY_VERIFIED"
    },
    "FND-M04": {
     "catalog_status": "PLANNED",
     "edition_config": true,
-    "evidence": "0 tests on 5 interpreters; failed 0, skipped 0; STALE: 7 input file(s) changed after the recorded run at 52ed97e6c141",
+    "evidence": "13 tests on 5 interpreters; failed 0, skipped 0",
     "executed_blocks": 4,
     "outcomes": 4,
     "private_pack_recorded": false,
@@ -694,7 +694,7 @@
    "time_dependent_verified": 0,
    "verified": 0
   },
-  "score": 23.0,
+  "score": 27.5,
   "source_pages_with_module_disposition": 0,
   "source_pdfs_pages": {},
   "state": "IN_PROGRESS"

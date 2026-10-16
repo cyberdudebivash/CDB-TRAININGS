@@ -8,12 +8,12 @@ Result: **0 of 10 courses are TRAINING_CONTENT_GO.** The decision is computed pe
 
 ## COURSE-FND-DIGITAL: Digital and Technical Foundations
 
-State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **23.0** of 100; eligible: no.
+State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **27.5** of 100; eligible: no.
 
 | Criterion | Status | Evidence |
 |---|---|---|
 | A01 All approved required modules are implemented | PARTIAL | 3 of 6 required modules implemented |
-| A02 Every required lesson contains substantive, executed instruction | PARTIAL | 2 of 6 lessons substantive and executed (23 numbered sections, 18 executed blocks) |
+| A02 Every required lesson contains substantive, executed instruction | PARTIAL | 3 of 6 lessons substantive and executed (23 numbered sections, 18 executed blocks) |
 | A03 Source coverage is reconciled: every source page has a recorded disposition | NOT_APPLICABLE | the course has no legacy source PDF |
 | A04 Material technical claims are verified and the October 24 refresh is executed | NOT_MET | 0 of 0 change records EXECUTED or RESEARCH_VERIFIED, 0 open; October 24 refresh PENDING (not executable before 2026-10-24) |
 | A05 Required operational scenarios are implemented and verified | NOT_MET | 0 of 3 operational scenarios technically verified; 0 time-dependent scenario(s) verified (minimum 1) |
@@ -34,12 +34,12 @@ State: **IN_PROGRESS** (engineering state IN_PROGRESS); score **23.0** of 100; e
 
 | Dimension | Weight | Fraction | Points |
 |---|---|---|---|
-| Technical accuracy and currency | 20 | 0.3333 | 6.67 |
+| Technical accuracy and currency | 20 | 0.5 | 10.0 |
 | Curriculum and lesson completeness | 15 | 0.5 | 7.5 |
 | Customer operational relevance | 15 | 0.0 | 0.0 |
 | Practical labs and reproducibility | 15 | 0.0 | 0.0 |
 | Assessment and capstone rigor | 10 | 0.35 | 3.5 |
-| Security and reliability | 10 | 0.1167 | 1.17 |
+| Security and reliability | 10 | 0.2333 | 2.33 |
 | Instructional clarity and accessibility | 5 | 0.3333 | 1.67 |
 | Premium PDF and document integrity | 5 | 0.0 | 0.0 |
 | Source traceability and maintainability | 5 | 0.5 | 2.5 |

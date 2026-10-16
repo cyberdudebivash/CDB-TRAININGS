@@ -13,22 +13,22 @@ A lab is called *executed* here only for the interpreters listed below, in this 
 
 | Item | Value |
 |---|---|
-| Commit at run time | `52ed97e6c141` (clean tracked tree) |
-| Run (UTC) | 2026-10-16T04:38:58Z |
+| Commit at run time | `9d784f3ca2d6` (clean tracked tree) |
+| Run (UTC) | 2026-10-16T11:08:37Z |
 | Host | Linux 6.18.44-fc-v139 x86_64 |
 | Instructor pack present in the environment | yes - private-material tests were executed |
 | Toolchain pins | `courses/python-engineering/labs/requirements.txt` |
-| Suites | `tests/test_python_engineering_labs.py`, `tests/test_module_packs.py`, `tests/test_fnd_m01.py`, `tests/test_fnd_m02.py` |
+| Suites | `tests/test_python_engineering_labs.py`, `tests/test_module_packs.py`, `tests/test_fnd_m01.py`, `tests/test_fnd_m02.py`, `tests/test_fnd_m03.py`, `tests/test_fnd_m04.py` |
 
 ## 3. Interpreter matrix
 
 | Requested | Interpreter | Source | pytest | ruff | setuptools | build | Status | Passed / failed / skipped | Seconds |
 |---|---|---|---|---|---|---|---|---|---|
-| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 220 / 0 / 0 | 3435.0 |
-| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 220 / 0 / 0 | 3342.0 |
-| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 222 / 0 / 0 | 3672.8 |
-| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 222 / 0 / 0 | 4387.3 |
-| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 222 / 0 / 0 | 4308.1 |
+| 3.11 | CPython 3.11.17 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 248 / 0 / 0 | 3284.4 |
+| 3.12 | CPython 3.12.3 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 248 / 0 / 0 | 3388.0 |
+| 3.13 | CPython 3.13.16 | distribution or PATH interpreter | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 248 / 0 / 0 | 3387.9 |
+| 3.14 | CPython 3.14.8 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 248 / 0 / 0 | 3193.5 |
+| 3.15 | CPython 3.15.0 | uv-managed python-build-standalone build | 9.1.1 | 0.17.0 | 84.0.0 | 1.6.1 | PASS | 248 / 0 / 0 | 3160.9 |
 
 Interpreters from `uv` are python-build-standalone builds, not python.org installers; behaviour on distribution-packaged or Windows/macOS interpreters is not claimed.
 
@@ -69,11 +69,11 @@ Interpreters from `uv` are python-build-standalone builds, not python.org instal
 
 | Interpreter | Checks | Passed | Lesson code-block runs | Passed |
 |---|---|---|---|---|
-| 3.11 | 107 | 107 | 15 | 15 |
-| 3.12 | 107 | 107 | 15 | 15 |
-| 3.13 | 107 | 107 | 15 | 15 |
-| 3.14 | 107 | 107 | 15 | 15 |
-| 3.15 | 107 | 107 | 15 | 15 |
+| 3.11 | 121 | 121 | 17 | 17 |
+| 3.12 | 121 | 121 | 17 | 17 |
+| 3.13 | 121 | 121 | 17 | 17 |
+| 3.14 | 121 | 121 | 17 | 17 |
+| 3.15 | 121 | 121 | 17 | 17 |
 
 Each lesson's `python run`, `python module` and `python test` blocks are executed by `scripts/validation/lesson_blocks.py`; a lesson with no executable example fails the check.
 
@@ -102,5 +102,5 @@ python scripts/validation/render_lab_evidence.py
 
 - **2026-10-14, CPython 3.12.3 (distribution package):** A first matrix run failed one check on this interpreter only: test_exploit_tls_context_verifies_certificates_and_names asserted ssl.SSLContext.minimum_version >= TLS 1.2, which the distribution's OpenSSL configuration reports differently than the other builds. The assertion about the minimum protocol version was removed from the check and from the lab README contract (it depended on platform configuration, not on the learner's code); certificate and host-name verification are still checked. The matrix was re-run on the committed tree.
 - **2026-10-16, CPython 3.13.16 (distribution package):** In a long run that the environment interrupted several times, the piece labs-m10 failed once on this interpreter: the hidden suite of the PY-M10 independent lab reported one required seeded defect (I140) as surviving, although the same defect was killed in 12 of 12 isolated runs afterwards and the standalone mutation run killed 274 of 274 required defects. The container had restarted at the end of that piece; a mutant whose test process is cut short by a signal is not reported as a failure by pytest, so it looks alive. The cause was probable, not proven. The three mutation tests of PY-M10 and PY-M11 that read a survivor now run each required survivor again, alone, and count it as alive only if it survives twice (settle_survivors in tests/test_python_engineering_labs.py, with its own unit tests); the mutation tools and the modules were not changed. The piece was re-run and passed on 3.13, 3.14 and 3.15.
-- **2026-10-16, CPython 3.11.17 and 3.12.3:** The run was assembled from interrupted runs of identical module content (the recorded tree identity is the same): CPython 3.11 and 3.12 executed 220 tests, 3.13 to 3.15 executed 222. The two additional tests are the unit tests of the survivor-rerun safeguard above, which did not exist when 3.11 and 3.12 ran. Not repeated: the safeguard changes the outcome of a mutation test only when a required defect is reported alive, and on 3.11 and 3.12 every required defect was killed at the first attempt, so the assertions that were executed are the same. The lab tests of every module ran on all five interpreters.
+- **2026-10-16, CPython 3.11.17 and 3.12.3:** The recorded run was assembled from interrupted attempts on identical module content (the same tree identity): on CPython 3.11 and 3.12, the pieces labs-m01-m04 to labs-m10 were passed in an earlier attempt of this run and reused; module-packs and labs-m11 were run again on both interpreters, and every piece ran in full on 3.13, 3.14 and 3.15. All five interpreters executed the same 248 tests. No action needed. The earlier attempt was started with SIGINT ignored (next note); a piece that depends on Ctrl-C fails in that state, never passes, so a reused pass is not affected, and the two pieces that contain Ctrl-C checks were run again in a correctly started process.
 - **2026-10-16, CPython 3.11.17 (first attempt on the merged tree, discarded):** A matrix run that was started in the background of a non-interactive shell ( ( cmd & ) ) inherited an ignored SIGINT for every process below it. Python then installs no KeyboardInterrupt handler, so the five Ctrl-C checks of PY-M11 (the interrupt test of the hidden suite, the two mutation baselines that include it, and the lesson block that sends SIGINT) failed on CPython 3.11 although the content had not changed; earlier runs passed them because they were launched with job control. The failed attempt was discarded, not recorded. The runner now restores the default SIGINT itself when it finds it ignored (restore_default_sigint, with a test), so the evidence no longer depends on how the run was started; the run was repeated from the start.

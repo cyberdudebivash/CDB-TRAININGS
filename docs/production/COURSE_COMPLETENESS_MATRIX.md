@@ -10,7 +10,7 @@ Counts are recomputed from files at generation time; a file existing is only `IM
 
 | Course | Modules implemented | Verified | Reviewed | Labs verified | Outcomes assessed | Scenarios verified | Source pages dispositioned | Course PDF | Score | State |
 |---|---|---|---|---|---|---|---|---|---|---|
-| COURSE-FND-DIGITAL | 3/6 | 2 | 0 | 0/12 | 3/6 | 0/3 | n/a | no | 23.0 | IN_PROGRESS |
+| COURSE-FND-DIGITAL | 3/6 | 3 | 0 | 0/12 | 3/6 | 0/3 | n/a | no | 27.5 | IN_PROGRESS |
 | COURSE-SOC | 1/14 | 1 | 0 | 2/27 | 6/19 | 2/12 | 20/43 | no | 11.2 | IN_PROGRESS |
 | COURSE-PY-ENG | 13/13 | 13 | 2 | 25/25 | 13/13 | 10/10 | 654/654 | yes | 89.7 | TECHNICALLY_VERIFIED |
 | COURSE-PY-AUTO | 0/10 | 0 | 0 | 0/19 | 0/10 | 0/10 | 0/1458 | no | 0.0 | NOT_STARTED |
@@ -21,7 +21,7 @@ Counts are recomputed from files at generation time; a file existing is only `IM
 | COURSE-FE-ONBOARD | 0/11 | 0 | 0 | 0/21 | 0/11 | 0/10 | 0/441 | no | 0.0 | NOT_STARTED |
 | COURSE-CYBER-MEGA | 0/14 | 0 | 0 | 0/27 | 0/14 | 0/4 | 0/3664 | no | 0.0 | NOT_STARTED |
 
-Portfolio: 17 of 113 (15%) modules implemented, 16 of 113 (14%) technically verified, 0 courses at TRAINING_CONTENT_GO.
+Portfolio: 17 of 113 (15%) modules implemented, 17 of 113 (15%) technically verified, 0 courses at TRAINING_CONTENT_GO.
 
 ## 2. Modules
 
@@ -29,8 +29,8 @@ Portfolio: 17 of 113 (15%) modules implemented, 16 of 113 (14%) technically veri
 |---|---|---|---|---|---|---|
 | FND-M01 | Operating systems, files and permissions | BUILT | TECHNICALLY_VERIFIED | 2498 | 5 | 12 tests on 5 interpreters; failed 0, skipped 0 |
 | FND-M02 | Command-line fundamentals | BUILT | TECHNICALLY_VERIFIED | 2164 | 4 | 13 tests on 5 interpreters; failed 0, skipped 0 |
-| FND-M03 | Networking and HTTP basics | BUILT | IMPLEMENTED_UNVERIFIED | 2520 | 5 | 0 tests on 5 interpreters; failed 0, skipped 0; STALE: 7 input file(s) changed after the recorded run at 52ed97e6c141 |
-| FND-M04 | Git and GitHub workflow | PLANNED | IN_PROGRESS | 2340 | 4 | 0 tests on 5 interpreters; failed 0, skipped 0; STALE: 7 input file(s) changed after the recorded run at 52ed97e6c141 |
+| FND-M03 | Networking and HTTP basics | BUILT | TECHNICALLY_VERIFIED | 2520 | 5 | 13 tests on 5 interpreters; failed 0, skipped 0 |
+| FND-M04 | Git and GitHub workflow | PLANNED | IN_PROGRESS | 2340 | 4 | 13 tests on 5 interpreters; failed 0, skipped 0 |
 | FND-M05 | Programming fundamentals with Python | PLANNED | NOT_STARTED | - | - | - |
 | FND-M06 | Troubleshooting and safe computing | PLANNED | NOT_STARTED | - | - | - |
 | SOC-M01 | SOC fundamentals, roles and the alert lifecycle | PLANNED | NOT_STARTED | - | - | - |
