@@ -205,6 +205,77 @@ class PilotLedgerContract(unittest.TestCase):
         with self.assertRaisesRegex(PolicyError,"audit chain"):
             self.db.audit_anchor("enterprise_a","owner_a")
 
+    def test_grade_row_tamper_cannot_create_passing_progress(self):
+        self.submit_a(); self.grade_a(score=10)
+        with self.db._transaction() as db:
+            db.execute("UPDATE grades SET score=100 WHERE tenant='enterprise_a' AND submission_id='s1'")
+        with self.assertRaisesRegex(PolicyError, "state mismatch: grades"):
+            self.db.progress("enterprise_a", "learner_a", "cohort_1", "learner_a")
+        with self.assertRaisesRegex(PolicyError, "state mismatch: grades"):
+            self.db.audit_anchor("enterprise_a", "owner_a")
+
+    def test_grade_deletion_blocks_progress(self):
+        self.submit_a(); self.grade_a()
+        with self.db._transaction() as db:
+            db.execute("DELETE FROM grades WHERE tenant='enterprise_a' AND submission_id='s1'")
+        with self.assertRaisesRegex(PolicyError, "state mismatch: grades"):
+            self.db.progress("enterprise_a", "owner_a", "cohort_1", "learner_a")
+
+    def test_forged_grade_without_audit_is_rejected(self):
+        self.submit_a()
+        with self.db._transaction() as db:
+            db.execute("INSERT INTO grades VALUES(?,?,?,?,?)", ("enterprise_a", "s1", "trainer_a", 100, sha()))
+        with self.assertRaisesRegex(PolicyError, "state mismatch: grades"):
+            self.db.progress("enterprise_a", "learner_a", "cohort_1", "learner_a")
+
+    def test_submission_artifact_digest_tamper_is_rejected(self):
+        self.submit_a()
+        with self.db._transaction() as db:
+            db.execute("UPDATE submissions SET artifact_sha=? WHERE tenant='enterprise_a' AND submission_id='s1'", (sha(b'altered'),))
+        with self.assertRaisesRegex(PolicyError, "state mismatch: submissions"):
+            self.db.progress("enterprise_a", "learner_a", "cohort_1", "learner_a")
+
+    def test_cohort_threshold_tamper_is_rejected(self):
+        self.submit_a(); self.grade_a(score=55)
+        with self.db._transaction() as db:
+            db.execute("UPDATE cohorts SET minimum_percent=1 WHERE tenant='enterprise_a' AND id='cohort_1'")
+        with self.assertRaisesRegex(PolicyError, "state mismatch: cohorts"):
+            self.db.progress("enterprise_a", "learner_a", "cohort_1", "learner_a")
+
+    def test_assignment_title_tamper_is_rejected(self):
+        with self.db._transaction() as db:
+            db.execute("UPDATE assignments SET title='Changed after issue' WHERE tenant='enterprise_a' AND id='lab_1'")
+        with self.assertRaisesRegex(PolicyError, "state mismatch: assignments"):
+            self.db.audit_anchor("enterprise_a", "owner_a")
+
+    def test_role_escalation_sql_tamper_is_rejected(self):
+        with self.db._transaction() as db:
+            db.execute("UPDATE principals SET role='admin' WHERE tenant='enterprise_a' AND id='learner_a'")
+        with self.assertRaisesRegex(PolicyError, "state mismatch: principals"):
+            self.db.audit_anchor("enterprise_a", "owner_a")
+
+    def test_unlogged_tenant_insertion_is_rejected(self):
+        with self.db._transaction() as db:
+            db.execute("INSERT INTO tenants VALUES(?)", ('forged_tenant',))
+        with self.assertRaisesRegex(PolicyError, "state mismatch: tenants"):
+            self.db.audit_anchor("enterprise_a", "owner_a")
+
+    def test_mutation_is_fail_closed_after_tamper(self):
+        self.submit_a()
+        with self.db._transaction() as db:
+            db.execute("UPDATE submissions SET artifact_sha=? WHERE tenant='enterprise_a' AND submission_id='s1'", (sha(b'adversarial'),))
+        with self.assertRaisesRegex(PolicyError, "state mismatch: submissions"):
+            self.db.grade("enterprise_a", "trainer_a", "s1", 99, sha())
+        with self.assertRaisesRegex(PolicyError, "state mismatch: submissions"):
+            self.db.progress("enterprise_a", "learner_a", "cohort_1", "learner_a")
+
+    def test_persisted_ledger_verifies_after_reopen(self):
+        self.submit_a(); self.grade_a()
+        good = self.db.audit_anchor('enterprise_a', 'owner_a')
+        self.db.close(); self.db=PilotLedger(self.path)
+        self.assertEqual(good, self.db.audit_anchor('enterprise_a', 'owner_a'))
+        self.assertTrue(self.db.progress('enterprise_a', 'learner_a', 'cohort_1', 'learner_a')['meets_pilot_threshold'])
+
     def test_file_persistence_after_reopening(self):
         self.submit_a()
         self.db.close()

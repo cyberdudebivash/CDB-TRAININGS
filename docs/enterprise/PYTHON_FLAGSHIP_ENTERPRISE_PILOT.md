@@ -21,7 +21,7 @@ Gate A remains BLOCKED, including A04 (the October 24 technical refresh), A11 (r
 
 ## Delivered offline pilot control plane
 
-`pilot_ledger.py` is a real SQLite-backed, **local-only** executable component for demonstration. It supports tenant-scoped cohorts and enrollment, instructor cohort assignment, learner artifact-submission digests, immutable grading, fail-closed progress status, and tamper-evident event chaining. It is tested with positive and negative controls, including cross-tenant and role-abuse probes. The `bootstrap_tenant` method is **trusted-operator only**, with no independent authentication. Do not wrap these methods in a network API or use real customer records.
+`pilot_ledger.py` is a real SQLite-backed, **local-only** executable component for demonstration. It supports tenant-scoped cohorts and enrollment, instructor cohort assignment, learner artifact-submission digests, API-level immutable grading, fail-closed progress status, event chaining, and audit-to-SQLite-state reconciliation. The read path rejects materialized grades, submissions and cohort settings that disagree with their event history, but does not protect against privileged rewriting of both history and state. See [Integrity reconciliation and limitations](PILOT_LEDGER_INTEGRITY_RECONCILIATION_20261016.md). It is tested with positive and negative controls, including cross-tenant and role-abuse probes. The `bootstrap_tenant` method is **trusted-operator only**, with no independent authentication. Do not wrap these methods in a network API or use real customer records.
 
 ### Reproduce without paid services
 
