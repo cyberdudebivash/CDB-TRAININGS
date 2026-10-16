@@ -1,0 +1,30 @@
+module: FND-M04
+outcomes:
+  - id: LO1
+    verb: differentiate
+    statement: "Distinguish working tree, index, commit, branch, remote and PR approval."
+    instruction: ["lesson.md#1-why-version-control-matters-lo1"]
+    practice: ["lab-guided/README.md#step-1--prepare-safe-local-git-context-lo1"]
+    assessment: ["quiz:Q1", "quiz:Q2", "rubric:C1"]
+    rubric: [C1]
+  - id: LO2
+    verb: demonstrate
+    statement: "Inspect a synthetic Git feature branch, commit IDs and reviewable diff."
+    instruction: ["lesson.md#2-make-a-branch-and-review-a-change-lo2"]
+    practice: ["lab-guided/README.md#step-2--branch-stage-commit-and-inspect-a-proposed-change-lo2"]
+    assessment: ["quiz:Q3", "quiz:Q4", "lab-check:git-branch-contract", "rubric:C2"]
+    rubric: [C2]
+  - id: LO3
+    verb: diagnose
+    statement: "Identify real local merge conflicts and document safe recovery."
+    instruction: ["lesson.md#3-merge-conflicts-are-normal-and-require-decisions-lo3"]
+    practice: ["lab-guided/README.md#step-3--create-and-resolve-a-real-synthetic-merge-conflict-lo3"]
+    assessment: ["quiz:Q5", "quiz:Q6", "lab-check:merge-conflict-contract", "rubric:C3"]
+    rubric: [C3]
+  - id: LO4
+    verb: assess
+    statement: "Apply a fail-closed synthetic review gate and document unverified external approval."
+    instruction: ["lesson.md#4-review-gates-should-fail-closed-lo4"]
+    practice: ["lab-independent/README.md#step-2--implement-the-review-evidence-contract-lo4", "lab-guided/README.md#step-5--operational-handoff-lo4"]
+    assessment: ["quiz:Q7", "quiz:Q8", "lab-check:student-review-contract", "rubric:C4"]
+    rubric: [C4]

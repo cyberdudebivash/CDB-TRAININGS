@@ -1,0 +1,40 @@
+rubric_id: RUB-FND-M04
+module: FND-M04
+version: 0.1.0
+pass_rule: >-
+  Both automated criteria must pass with learner-submitted evidence, and a
+  real reviewer must score each reviewer criterion >=2 out of 3. Public
+  tests cannot substitute for actual review or learner pilot evidence.
+criteria:
+  - id: C1
+    name: "Git evidence and hosted review distinctions"
+    outcomes: [LO1]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Confuses local merge with approved hosted pull request or invents remote state."
+      1: "Recognizes commits but not index, branches and review separation."
+      2: "Explains working tree, staging, commit, branch and remote approval correctly."
+      3: "As 2, plus explains stale CI or changing target branch risk."
+  - id: C2
+    name: "Reviewable feature history"
+    outcomes: [LO2]
+    kind: automated
+    must_pass: true
+    measure: "Local branch and diff contracts pass; learner provides actual run evidence and records remote review as NOT_VERIFIED."
+  - id: C3
+    name: "Conflict detection and safe recovery"
+    outcomes: [LO3]
+    kind: automated
+    must_pass: true
+    measure: "Conflict and recovery tests pass, and learner explains why synthetic resolution is not production authorization."
+  - id: C4
+    name: "Fail-closed review policy and handoff"
+    outcomes: [LO4]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "Accepts invalid evidence or claims a real PR was approved."
+      1: "Describes some blocking conditions without a reproducible decision record."
+      2: "Correctly explains tests, review and conflict flags plus limits of synthetic data."
+      3: "As 2, plus identifies time-of-check/time-of-merge and provenance risks."
