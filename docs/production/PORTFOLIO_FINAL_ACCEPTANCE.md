@@ -8,26 +8,26 @@
 
 ### REPOSITORY STATE
 - Courses in the catalog: 10; modules required by the approved catalog: 113; planned labs: 217; planned learning outcomes: 118.
-- Branch content recomputed from files at the latest lab-matrix commit `9e03a201529a`; the matrix covers 5 interpreters.
+- Branch content recomputed from files at the latest lab-matrix commit `52ed97e6c141`; the matrix covers 5 interpreters.
 
 ### CONTENT STATE
-- Modules implemented (all required files present): 13 of 113 (12%); technically verified: 12 of 113 (11%).
-- Module states: NOT_STARTED 100, IMPLEMENTED_UNVERIFIED 1, TECHNICALLY_VERIFIED 12.
-- Substantive executed lessons: 12 of 113 (11%).
-- Labs verified executable: 24 of 217 (11%); outcomes assessed: 18 of 118 (15%).
-- Source pages with a recorded module disposition: 152 of 8186 (2%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
-- Python Engineering: 11 of 13 catalog modules implemented, score 63.4 of 100, state IN_PROGRESS.
+- Modules implemented (all required files present): 16 of 113 (14%); technically verified: 16 of 113 (14%).
+- Module states: NOT_STARTED 97, TECHNICALLY_VERIFIED 16.
+- Substantive executed lessons: 16 of 113 (14%).
+- Labs verified executable: 27 of 217 (12%); outcomes assessed: 21 of 118 (18%).
+- Source pages with a recorded module disposition: 674 of 8186 (8%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
+- Python Engineering: 13 of 13 catalog modules implemented, score 89.7 of 100, state TECHNICALLY_VERIFIED.
 
 ### OPERATIONS STATE
-- Operational scenarios technically verified: 7 of 89 (8%); scenario states: IN_PROGRESS 6, NOT_STARTED 76, TECHNICALLY_VERIFIED 7.
+- Operational scenarios technically verified: 12 of 89 (13%); scenario states: IN_PROGRESS 3, NOT_STARTED 74, TECHNICALLY_VERIFIED 12.
 - Courses with at least one verified time-dependent scenario (CONTROLLED_LIVE or REPLAY_SIMULATION): 2 of 10 (20%); EXTERNAL_LIVE scenarios: 0.
 
 ### PUBLICATION STATE
-- Complete course PDF editions validated: 0 of 10 (0%); module student editions passing every gate: 7 (this file reports the committed manifest, not a file on disk).
+- Complete course PDF editions validated: 0 of 10 (0%); module student editions passing every gate: 16 (this file reports the committed manifest, not a file on disk).
 - Nothing has been published, deployed, sold or priced. Instructor material is not in the public repository.
 
 ### RELEASE STATE
-- Gate A `TRAINING_CONTENT_GO`: **0 of 10 courses**. Courses at REVIEW_REQUIRED: 0. Open P0 defects: 1; open P1 defects: 10.
+- Gate A `TRAINING_CONTENT_GO`: **0 of 10 courses**. Courses at REVIEW_REQUIRED: 0. Open P0 defects: 1; open P1 defects: 12.
 - Human reviews recorded (subject-matter, editorial, learner pilot, owner acceptance): 0.
 - `COMMERCIAL_GO` and `ACADEMY_LIVE_GO`: not assessed, not authorised in this phase.
 
@@ -35,21 +35,21 @@
 
 | Criterion | Name | Courses not meeting it |
 |---|---|---|
-| A01 | All approved required modules are implemented | 10 of 10 |
-| A02 | Every required lesson contains substantive, executed instruction | 10 of 10 |
-| A03 | Source coverage is reconciled: every source page has a recorded disposition | 9 of 10 |
+| A01 | All approved required modules are implemented | 9 of 10 |
+| A02 | Every required lesson contains substantive, executed instruction | 9 of 10 |
+| A03 | Source coverage is reconciled: every source page has a recorded disposition | 8 of 10 |
 | A04 | Material technical claims are verified and the October 24 refresh is executed | 10 of 10 |
-| A05 | Required operational scenarios are implemented and verified | 10 of 10 |
-| A06 | Required practical labs pass their validation criteria on the declared matrix | 10 of 10 |
-| A07 | Every learning outcome is measurable and assessed | 10 of 10 |
-| A08 | The capstone has a working deliverable, acceptance criteria and a check | 10 of 10 |
-| A09 | Automated QA passes and relevant negative controls pass | 10 of 10 |
+| A05 | Required operational scenarios are implemented and verified | 9 of 10 |
+| A06 | Required practical labs pass their validation criteria on the declared matrix | 9 of 10 |
+| A07 | Every learning outcome is measurable and assessed | 9 of 10 |
+| A08 | The capstone has a working deliverable, acceptance criteria and a check | 9 of 10 |
+| A09 | Automated QA passes and relevant negative controls pass | 9 of 10 |
 | A10 | Security and privacy issues affecting the course are resolved | 7 of 10 |
 | A11 | Source provenance and rights are cleared | 10 of 10 |
-| A12 | Student materials are complete | 10 of 10 |
+| A12 | Student materials are complete | 9 of 10 |
 | A13 | Instructor materials are complete and protected in private storage | 10 of 10 |
 | A14 | Final PDF edition built from the whole approved curriculum and validated | 10 of 10 |
-| A15 | Accessibility checks pass for every student edition | 10 of 10 |
+| A15 | Accessibility checks pass for every student edition | 9 of 10 |
 | A16 | No unresolved P0 or P1 defect | 10 of 10 |
 | A17 | Subject-matter and editorial review recorded by named humans | 10 of 10 |
 | A18 | A real learner pilot is recorded | 10 of 10 |

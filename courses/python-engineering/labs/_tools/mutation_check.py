@@ -55,7 +55,7 @@ def check(module_dir: Path, module: str, tests: Path, mutants: list[dict], jobs:
             rc_m, out_m = run_pytest(tests, Path(td))
         # pytest exit codes: 0 all passed, 1 tests failed, 2 interrupted/collection error, 5 no tests collected.
         # "No tests" must never count as detecting a defect, so only 1 and 2 kill a mutant.
-        return {"id": m["id"], "description": m["description"], "required": m.get("required", True), "killed": rc_m in (1, 2),
+        return {"id": m["id"], "description": m["description"], "required": m.get("required", True), "note": m.get("note", ""), "killed": rc_m in (1, 2),
                 "first_failure": next((ln for ln in out_m.splitlines() if "assert" in ln.lower() or "Error" in ln or "FAILED" in ln), "")[:200]}
 
     with ThreadPoolExecutor(max_workers=max(1, jobs)) as pool:        # each mutant runs in its own directory and process

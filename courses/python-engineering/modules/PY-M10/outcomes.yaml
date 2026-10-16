@@ -1,0 +1,46 @@
+# Outcome traceability for PY-M10: outcome -> instruction -> practice -> assessment -> rubric.
+# Validated by tests/test_module_packs.py (every referenced file and anchor must exist).
+module: PY-M10
+outcomes:
+  - id: LO1
+    verb: validate
+    statement: "Validate every input of an HTTP API with types and limits (body, query, path, headers): refuse unknown fields, refuse coercion where a body is concerned, anchor patterns, and know which defaults of the framework echo input back or accept more than you meant."
+    instruction: ["lesson.md#2-a-first-api-and-the-defaults-that-matter-lo1-lo5", "lesson.md#3-validation-types-limits-and-the-traps-in-both-lo1"]
+    practice: ["lab-guided/README.md#step-2---models-what-the-service-accepts-lo1", "lab-guided/README.md#step-6---the-endpoints-and-the-contract-lo1-lo3-lo5", "lab-independent/README.md#the-service"]
+    assessment: ["quiz:Q1", "lab-check:guided-model-checks", "lab-check:hidden-body-validation", "rubric:C1", "rubric:C2"]
+    rubric: [C1, C2]
+  - id: LO2
+    verb: authenticate
+    statement: "Authenticate callers with a signed token or an API key: pin the algorithm, check issuer, audience, expiry and issue time against an injectable clock, compare secrets in constant time, give every failure the same answer and keep the reason in the audit log."
+    instruction: ["lesson.md#5-authentication-who-is-calling-lo2"]
+    practice: ["lab-guided/README.md#step-1---settings-that-fail-closed-tokens-checked-by-what-they-claim-lo2", "lab-guided/README.md#step-5---who-is-calling-and-what-may-they-do-lo2-lo3", "lab-independent/README.md#the-interface-the-tests-call"]
+    assessment: ["quiz:Q2", "quiz:Q3", "lab-check:guided-token-checks", "lab-check:hidden-authentication", "rubric:C1", "rubric:C2", "rubric:C3"]
+    rubric: [C1, C2, C3]
+  - id: LO3
+    verb: authorise
+    statement: "Authorise at three levels - the object (ownership enforced in the query), the function (role before lookup) and the field (who may change what, in which state) - and choose between 403 and 404 for what an attacker should not learn."
+    instruction: ["lesson.md#6-authorisation-what-may-this-caller-do-lo3"]
+    practice: ["lab-guided/README.md#step-5---who-is-calling-and-what-may-they-do-lo2-lo3", "lab-guided/README.md#step-6---the-endpoints-and-the-contract-lo1-lo3-lo5", "lab-independent/README.md#the-service"]
+    assessment: ["quiz:Q4", "quiz:Q5", "lab-check:guided-authorisation-checks", "lab-check:hidden-tenant-isolation", "rubric:C2", "rubric:C3", "rubric:C4"]
+    rubric: [C2, C3, C4]
+  - id: LO4
+    verb: separate
+    statement: "Keep data and statements apart (bound parameters, fixed tables for names and directions, escaped wildcards) and keep client text out of paths, headers and logs; prove it with an injection suite."
+    instruction: ["lesson.md#7-injection-and-abuse-keeping-data-away-from-code-lo4"]
+    practice: ["lab-guided/README.md#step-3---the-repository-lo4", "lab-guided/README.md#step-8---the-injection-and-abuse-suite-lo4-lo5", "lab-independent/README.md#what-you-hand-in"]
+    assessment: ["quiz:Q6", "lab-check:guided-injection-suite", "lab-check:hidden-hostile-input", "rubric:C2", "rubric:C3"]
+    rubric: [C2, C3]
+  - id: LO5
+    verb: specify
+    statement: "State the contract (OpenAPI, problem details, status codes, headers) and test it: contract tests, negative tests, and a corpus of hostile input that runs on every change."
+    instruction: ["lesson.md#4-errors-one-shape-no-echo-no-internals-lo5", "lesson.md#8-the-contract-and-tests-that-hold-it-lo5"]
+    practice: ["lab-guided/README.md#step-4---errors-lo5", "lab-guided/README.md#step-6---the-endpoints-and-the-contract-lo1-lo3-lo5", "lab-guided/README.md#step-8---the-injection-and-abuse-suite-lo4-lo5"]
+    assessment: ["quiz:Q7", "lab-check:guided-contract-checks", "lab-check:hidden-contract-and-errors", "rubric:C2", "rubric:C4"]
+    rubric: [C2, C4]
+  - id: LO6
+    verb: operate
+    statement: "Operate the service: configuration that fails closed, request ids, an audit trail without secrets or content, readiness and liveness, body limits and security headers at the edge, and code that is typed (mypy --strict) and lint-clean."
+    instruction: ["lesson.md#9-operating-the-service-lo6", "lesson.md#10-what-differs-between-python-versions-executed"]
+    practice: ["lab-guided/README.md#step-7---hardening-at-the-edge-lo6", "lab-guided/README.md#step-9---operations-lo6", "lab-guided/README.md#step-10---typed-and-clean-lo6", "lab-independent/README.md#the-service"]
+    assessment: ["quiz:Q8", "lab-check:guided-operations-checks", "lab-check:hidden-operations", "rubric:C2", "rubric:C5"]
+    rubric: [C2, C5]

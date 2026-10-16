@@ -10,9 +10,9 @@ Counts are recomputed from files at generation time; a file existing is only `IM
 
 | Course | Modules implemented | Verified | Reviewed | Labs verified | Outcomes assessed | Scenarios verified | Source pages dispositioned | Course PDF | Score | State |
 |---|---|---|---|---|---|---|---|---|---|---|
-| COURSE-FND-DIGITAL | 1/6 | 0 | 0 | 0/12 | 1/6 | 0/3 | n/a | no | 4.5 | IN_PROGRESS |
+| COURSE-FND-DIGITAL | 2/6 | 2 | 0 | 0/12 | 2/6 | 0/3 | n/a | no | 18.5 | IN_PROGRESS |
 | COURSE-SOC | 1/14 | 1 | 0 | 2/27 | 6/19 | 2/12 | 20/43 | no | 11.2 | IN_PROGRESS |
-| COURSE-PY-ENG | 11/13 | 11 | 0 | 22/25 | 11/13 | 5/10 | 132/654 | no | 63.4 | IN_PROGRESS |
+| COURSE-PY-ENG | 13/13 | 13 | 0 | 25/25 | 13/13 | 10/10 | 654/654 | yes | 89.7 | TECHNICALLY_VERIFIED |
 | COURSE-PY-AUTO | 0/10 | 0 | 0 | 0/19 | 0/10 | 0/10 | 0/1458 | no | 0.0 | NOT_STARTED |
 | COURSE-JAVA-QA | 0/10 | 0 | 0 | 0/19 | 0/10 | 0/10 | 0/709 | no | 0.0 | NOT_STARTED |
 | COURSE-AI-ENG | 0/12 | 0 | 0 | 0/23 | 0/12 | 0/11 | 0/937 | no | 0.0 | NOT_STARTED |
@@ -21,14 +21,14 @@ Counts are recomputed from files at generation time; a file existing is only `IM
 | COURSE-FE-ONBOARD | 0/11 | 0 | 0 | 0/21 | 0/11 | 0/10 | 0/441 | no | 0.0 | NOT_STARTED |
 | COURSE-CYBER-MEGA | 0/14 | 0 | 0 | 0/27 | 0/14 | 0/4 | 0/3664 | no | 0.0 | NOT_STARTED |
 
-Portfolio: 13 of 113 (12%) modules implemented, 12 of 113 (11%) technically verified, 0 courses at TRAINING_CONTENT_GO.
+Portfolio: 16 of 113 (14%) modules implemented, 16 of 113 (14%) technically verified, 0 courses at TRAINING_CONTENT_GO.
 
 ## 2. Modules
 
 | Module | Title | Catalog status | Computed state | Lesson words | Executed blocks | Execution evidence |
 |---|---|---|---|---|---|---|
-| FND-M01 | Operating systems, files and permissions | BUILT | IMPLEMENTED_UNVERIFIED | 2498 | 5 | no recorded execution evidence for this module |
-| FND-M02 | Command-line fundamentals | PLANNED | NOT_STARTED | - | - | - |
+| FND-M01 | Operating systems, files and permissions | BUILT | TECHNICALLY_VERIFIED | 2498 | 5 | 12 tests on 5 interpreters; failed 0, skipped 0 |
+| FND-M02 | Command-line fundamentals | BUILT | TECHNICALLY_VERIFIED | 2164 | 4 | 13 tests on 5 interpreters; failed 0, skipped 0 |
 | FND-M03 | Networking and HTTP basics | PLANNED | NOT_STARTED | - | - | - |
 | FND-M04 | Git and GitHub workflow | PLANNED | NOT_STARTED | - | - | - |
 | FND-M05 | Programming fundamentals with Python | PLANNED | NOT_STARTED | - | - | - |
@@ -58,8 +58,8 @@ Portfolio: 13 of 113 (12%) modules implemented, 12 of 113 (11%) technically veri
 | PY-M07 | Secure coding for Python | BUILT | TECHNICALLY_VERIFIED | 2190 | 3 | 12 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M08 | Databases and persistence: safe SQL, transactions, repositories, migrations and query cost | BUILT | TECHNICALLY_VERIFIED | 9234 | 31 | 14 tests on 5 interpreters; failed 0, skipped 0 |
 | PY-M09 | Profiling, performance and maintainable architecture | BUILT | TECHNICALLY_VERIFIED | 5940 | 22 | 13 tests on 5 interpreters; failed 0, skipped 0 |
-| PY-M10 | API development: typed, tested and secure HTTP services | PLANNED | NOT_STARTED | - | - | - |
-| PY-M11 | Capstone: typed, tested, documented application with CI | PLANNED | NOT_STARTED | - | - | - |
+| PY-M10 | API development: typed, tested and secure HTTP services | BUILT | TECHNICALLY_VERIFIED | 8399 | 25 | 13 tests on 5 interpreters; failed 0, skipped 0 |
+| PY-M11 | Capstone: typed, tested, documented application with CI | BUILT | TECHNICALLY_VERIFIED | 6942 | 11 | 42 tests on 5 interpreters; failed 0, skipped 0 |
 | PA-M01 | Automation design and shared Python foundations | PLANNED | NOT_STARTED | - | - | - |
 | PA-M02 | Filesystem and document workflows | PLANNED | NOT_STARTED | - | - | - |
 | PA-M03 | API integrations and data validation | PLANNED | NOT_STARTED | - | - | - |

@@ -1,0 +1,27 @@
+# Build configuration for the PY-M11 student PREVIEW edition (see scripts/build/build_student_edition.py).
+# Contains the lesson, both lab READMEs and the quiz (questions only). It must NEVER contain instructor material; the build fails if a forbidden path or marker is found.
+# The title says "Preview": the reserved "Premium Edition" title is refused by the build unless Gate A computes TRAINING_CONTENT_GO for the course.
+edition: student-preview
+course: COURSE-PY-ENG
+module: PY-M11
+title: "PY-M11 Capstone: typed, tested, documented application with CI - Student Preview Edition"
+version: 0.1.0-preview
+language: en
+attribution: false
+notice_title: "Preview status."
+notice_text: "This edition has not been reviewed by a qualified subject-matter expert, has not been piloted with learners and is not a certified or production-ready course. Completion is awarded only for demonstrated competence on the rubric, never for reading this document."
+edition_metadata: auto
+expected_strings: ["PY-M11", "Preview status", "Student Preview Edition"]
+include:
+  - courses/python-engineering/modules/PY-M11/lesson.md
+  - courses/python-engineering/modules/PY-M11/lab-guided/README.md
+  - courses/python-engineering/modules/PY-M11/lab-independent/README.md
+  - courses/python-engineering/modules/PY-M11/lab-independent/SPEC.md
+  - courses/python-engineering/modules/PY-M11/assessment/quiz.md
+forbidden_path_fragments:
+  - /instructor/
+  - answer-key
+  - grading-notes
+  - /solution/
+forbidden_markers:
+  - "INSTRUCTORS ONLY"

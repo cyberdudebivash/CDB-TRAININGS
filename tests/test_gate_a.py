@@ -5,6 +5,7 @@ Every test builds a portfolio in which something is wrong or faked and asserts t
 from __future__ import annotations
 
 import copy
+import json
 import sys
 from pathlib import Path
 
@@ -106,6 +107,83 @@ def test_a_recorded_run_with_a_skipped_or_failed_test_is_not_evidence():
     assert not G.matrix_evidence("PY-M09", run("failed"), None)["valid"]
     assert not G.matrix_evidence("PY-M09", run("passed", interpreters=2), None)["valid"]       # fewer than three interpreters
     assert G.matrix_evidence("PY-M09", None, None)["kind"] == "none"
+
+
+def test_foundations_module_evidence_comes_from_its_own_test_file():
+    def run(outcome: str, interpreters: int = 3, names: tuple[str, ...] = ("test_lesson_has_substantive_content_and_executable_examples", "test_guided_regressions", "test_independent_starter_fails_as_intended")) -> dict:
+        tests = [{"id": f"tests/test_fnd_m01::{n}", "outcome": outcome} for n in names]
+        return {"commit": "HEAD", "interpreters": [{"python": f"3.{11 + i}.0", "status": "PASS", "tests": copy.deepcopy(tests)} for i in range(interpreters)]}
+    assert G.matrix_markers("FND-M01") == ("tests/test_fnd_m01::", "[FND-M01]") and G.matrix_markers("PY-M09") == ("::test_m09_", "[PY-M09]")
+    assert G.matrix_markers("SOC-M04") is None and G.matrix_markers("PY-MXX") is None and G.matrix_markers("CYB-M01") is None
+    good = G.matrix_evidence("FND-M01", run("passed"), None)
+    assert good["valid"] and good["negative_controls"] and good["lab_tests"] == 3
+    assert not G.matrix_evidence("FND-M01", run("skipped"), None)["valid"]
+    assert not G.matrix_evidence("FND-M01", run("failed"), None)["valid"]
+    assert not G.matrix_evidence("FND-M01", run("passed", interpreters=2), None)["valid"]
+    assert not G.matrix_evidence("FND-M01", run("passed", names=("test_guided_regressions", "test_independent_starter_fails_as_intended")), None)["valid"]      # fewer than three lab tests
+    other = {"commit": "HEAD", "interpreters": [{"python": f"3.{11 + i}.0", "status": "PASS", "tests": [{"id": f"tests/test_python_engineering_labs.py::test_m09_{n}", "outcome": "passed"} for n in ("a", "b", "c_mutant")]} for i in range(3)]}
+    assert G.matrix_evidence("FND-M01", other, None)["kind"] == "lab_matrix" and not G.matrix_evidence("FND-M01", other, None)["valid"]      # another module's tests are not this module's evidence
+    assert G.matrix_evidence("CYB-M01", run("passed"), None)["kind"] == "none"
+
+
+def test_the_lab_matrix_runs_the_foundations_tests_too():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("run_lab_matrix", ROOT / "scripts" / "validation" / "run_lab_matrix.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    assert "tests/test_fnd_m01.py" in module.SUITES and "tests/test_module_packs.py" in module.SUITES
+    on_disk = sorted(f"tests/{p.name}" for p in (ROOT / "tests").glob("test_fnd_m[0-9][0-9].py"))
+    assert on_disk and all(name in module.SUITES for name in on_disk), on_disk      # a foundations module whose tests the matrix does not run has no recorded evidence
+
+
+def test_a_complete_course_preview_is_not_a_final_edition_and_an_unsourced_one_is_not_evidence():
+    preview = {"course": "COURSE-X", "kind": "PREVIEW", "passed": True, "modules": ["A"]}
+    assert not G.is_final_course_pdf(preview) and not G.is_final_course_pdf(None) and not G.is_final_course_pdf({**preview, "passed": False})
+    assert G.is_final_course_pdf({"course": "COURSE-X", "kind": "FINAL", "passed": True, "modules": ["A"]})
+    assert not G.edition_is_fresh({"sources": {}, "passed": True})                  # no recorded sources: not evidence
+    for course in G.Portfolio().courses.values():
+        cp = course["course_pdf"]
+        if cp:
+            assert cp.get("kind") == "PREVIEW" and course["criteria"]["A14"]["status"] != G.MET      # a recorded course edition is a preview and never satisfies A14
+
+
+def test_the_matrix_pieces_cover_every_test_exactly_once():
+    import importlib.util
+    import subprocess
+
+    spec = importlib.util.spec_from_file_location("run_lab_matrix", ROOT / "scripts" / "validation" / "run_lab_matrix.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    def collected(files: list[str], expr: str | None) -> list[str]:
+        cmd = [sys.executable, "-m", "pytest", *files, *(["-k", expr] if expr else []), "--collect-only", "-q", "-p", "no:cacheprovider", "-o", "addopts="]
+        out = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, check=False).stdout
+        return [line for line in out.splitlines() if "::" in line]
+
+    everything = collected(module.SUITES, None)
+    pieces = [test for _, files, expr in module.chunks() for test in collected(files, expr)]
+    assert len(everything) > 200 and sorted(pieces) == sorted(everything), (len(everything), len(pieces))      # a test in no piece would never be recorded; one in two pieces would be recorded twice
+
+
+def test_an_interrupted_matrix_run_resumes_only_with_identical_content(tmp_path):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("run_lab_matrix", ROOT / "scripts" / "validation" / "run_lab_matrix.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    same = module.tree_id({"PY-M01": "a"}, {"PY-M01": "b"})
+    assert same == module.tree_id({"PY-M01": "a"}, {"PY-M01": "b"}) and same != module.tree_id({"PY-M01": "a2"}, {"PY-M01": "b"}) and same != module.tree_id({"PY-M01": "a"}, {})
+    partial = tmp_path / "partial.json"
+    partial.write_text(json.dumps({"tree_id": same, "results": [{"requested": "3.11", "status": "PASS"}, {"requested": "3.12", "status": "FAIL"}, {"requested": "3.13", "status": "NOT_EXECUTED"}]}), encoding="utf-8")
+    assert list(module.resumable(partial, same)) == ["3.11"]                 # only a pass is reused: a failure or a missing interpreter is run again
+    assert module.resumable(partial, "0" * 64) == {}                           # other content: nothing is reused
+    assert module.resumable(tmp_path / "missing.json", same) == {}
+    module.write_partial(partial, same, [], {"3.13": {"labs-m10": {"name": "labs-m10", "exit": 0, "tests": [{"id": "a::b", "outcome": "passed"}]}}})
+    assert list(module.saved_pieces(partial, same)["3.13"]) == ["labs-m10"] and module.saved_pieces(partial, "0" * 64) == {}      # a piece is reused only for identical content
+    assert module.chunk_passed(module.saved_pieces(partial, same)["3.13"]["labs-m10"])
+    assert not module.chunk_passed({"exit": 0, "tests": []}) and not module.chunk_passed({"exit": 1, "tests": [{"id": "x", "outcome": "passed"}]})
+    assert not module.chunk_passed({"exit": 0, "tests": [{"id": "x", "outcome": "skipped"}]})            # a skipped test is not a passed piece
+    partial.write_text("not json", encoding="utf-8")
+    assert module.resumable(partial, same) == {}
 
 
 def test_evidence_becomes_stale_when_the_module_changes_after_the_recorded_run():

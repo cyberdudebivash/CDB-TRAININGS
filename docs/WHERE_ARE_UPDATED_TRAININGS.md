@@ -4,7 +4,7 @@ This is a location and integrity report, not a commercial release statement.
 
 ## Where to find modernized lessons
 
-- Python Engineering: [ten built lesson modules](../courses/python-engineering/modules/): PY-M01 to PY-M09, PY-M12 and PY-M13, each with a guided lab, an independent lab, a quiz and a rubric. PY-M10 (HTTP APIs) and PY-M11 (capstone) are not built, so the course is not complete. Built means the automated checks exist and are executed; nothing is subject-matter reviewed or learner-piloted (see the [course completeness matrix](production/COURSE_COMPLETENESS_MATRIX.md)).
+- Python Engineering: [thirteen built lesson modules](../courses/python-engineering/modules/): PY-M01 to PY-M13, each with a guided lab, an independent lab, a quiz and a rubric. All thirteen modules exist; nothing is subject-matter reviewed or learner-piloted, so the course is built, not accepted. Built means the automated checks exist and are executed; nothing is subject-matter reviewed or learner-piloted (see the [course completeness matrix](production/COURSE_COMPLETENESS_MATRIX.md)).
 - SOC Analyst: [SOC-M04 pilot lesson](../courses/soc-analyst/lessons/m04-auth-detection/lesson.md) and [its guided lab](../courses/soc-analyst/labs/m04-guided/README.md).
 - PY-M08 (databases and persistence): the [guided lab](../courses/python-engineering/modules/PY-M08/lab-guided/README.md) started in an earlier increment is now part of the finished module with its lesson, independent lab and assessment.
 - Other courses: [catalog and planned pathways](../catalog/courses.yaml). Their full modernized teaching packages are not implemented.

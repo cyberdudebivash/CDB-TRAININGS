@@ -22,7 +22,7 @@
   "COURSE-FND-DIGITAL": {
    "eligible": false,
    "engineering_state": "IN_PROGRESS",
-   "score": 4.5,
+   "score": 18.5,
    "state": "IN_PROGRESS"
   },
   "COURSE-GCP-DE": {
@@ -51,9 +51,9 @@
   },
   "COURSE-PY-ENG": {
    "eligible": false,
-   "engineering_state": "IN_PROGRESS",
-   "score": 63.4,
-   "state": "IN_PROGRESS"
+   "engineering_state": "TECHNICALLY_VERIFIED",
+   "score": 89.7,
+   "state": "TECHNICALLY_VERIFIED"
   },
   "COURSE-SOC": {
    "eligible": false,
@@ -62,45 +62,45 @@
    "state": "IN_PROGRESS"
   }
  },
- "lab_matrix_commit": "9e03a201529a",
+ "lab_matrix_commit": "52ed97e6c141",
  "totals": {
   "course_pdfs_required": 10,
   "course_pdfs_validated": 0,
   "course_states": {
-   "IN_PROGRESS": 3,
-   "NOT_STARTED": 7
+   "IN_PROGRESS": 2,
+   "NOT_STARTED": 7,
+   "TECHNICALLY_VERIFIED": 1
   },
   "courses": 10,
   "courses_with_release_blockers": 10,
   "go": 0,
   "labs_planned": 217,
-  "labs_verified": 24,
-  "lessons_substantive": 12,
-  "module_editions_passing": 7,
+  "labs_verified": 27,
+  "lessons_substantive": 16,
+  "module_editions_passing": 16,
   "module_states": {
-   "IMPLEMENTED_UNVERIFIED": 1,
-   "NOT_STARTED": 100,
-   "TECHNICALLY_VERIFIED": 12
+   "NOT_STARTED": 97,
+   "TECHNICALLY_VERIFIED": 16
   },
-  "modules_implemented": 13,
+  "modules_implemented": 16,
   "modules_required": 113,
-  "modules_verified": 12,
+  "modules_verified": 16,
   "open_p0": 1,
-  "open_p1": 10,
-  "outcomes_assessed": 18,
+  "open_p1": 12,
+  "outcomes_assessed": 21,
   "outcomes_total": 118,
   "realtime_courses_ok": 2,
   "review_required": 0,
   "reviews_recorded": 0,
   "scenario_states": {
-   "IN_PROGRESS": 6,
-   "NOT_STARTED": 76,
-   "TECHNICALLY_VERIFIED": 7
+   "IN_PROGRESS": 3,
+   "NOT_STARTED": 74,
+   "TECHNICALLY_VERIFIED": 12
   },
   "scenarios_required": 89,
-  "scenarios_verified": 7,
+  "scenarios_verified": 12,
   "source_pages": 8186,
-  "source_pages_with_disposition": 152,
+  "source_pages_with_disposition": 674,
   "visual_pages_flagged": 58,
   "visual_pages_inspected": 58
  }

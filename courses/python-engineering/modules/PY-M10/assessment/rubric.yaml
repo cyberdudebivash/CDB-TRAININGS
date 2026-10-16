@@ -1,0 +1,51 @@
+# Public rubric for the PY-M10 independent lab (inventory). Students see exactly how they are graded.
+# Mechanical criteria (kind: automated) are run by instructors; judgement criteria (kind: reviewer) are scored 0-3 using the level descriptors below.
+rubric_id: RUB-PY-M10
+module: PY-M10
+version: 0.1.0
+pass_rule: >
+  Every must-pass criterion is met, no reviewer criterion is scored 0, and the reviewer criteria total at least 60% of their maximum.
+  Finishing the lesson or the guided lab alone is not a completion claim.
+criteria:
+  - id: C1
+    name: "Published checks pass"
+    outcomes: [LO1, LO2]
+    kind: automated
+    must_pass: true
+    measure: "python -m pytest in lab-independent/ passes with the learner's starter/inventory.py (all ten published checks, none skipped or xfail)"
+  - id: C2
+    name: "Hidden suite"
+    outcomes: [LO1, LO2, LO3, LO4, LO5, LO6]
+    kind: automated
+    must_pass: true
+    measure: "the instructors' hidden suite (482 checks: key store and constant-time comparison, authentication in every header form, tenant isolation, hostname and body validation, the PUT/ETag/If-Match rules including twelve concurrent writers, cursor paging under inserts and deletes, the network filter on both address families, the rate limit window and its arithmetic, problem details, the edge, a corpus of hostile input, audit records without content, mypy --strict and ruff) is run against the learner's inventory.py: at least 410 of the 482 pass, no check is skipped or xfail, and every check on tenant isolation, on the storage of keys, on hostile input, on secrets in the source and on concurrent writers passes"
+  - id: C3
+    name: "Threat table"
+    outcomes: [LO2, LO3, LO4]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "No threat table, or entries that name a library instead of a rule"
+      1: "Ten risks listed, but a sentence of the design is missing for several, or the check that would notice its removal is not named"
+      2: "Ten risks, each with the sentence of the design that handles it and a check (published, hidden-style or the learner's own) that would fail if the rule were removed"
+      3: "As level 2, and the learner shows one risk they found by attacking their own service (a request they sent, the answer they got, the change they made) and one that is only partly handled, with the residual risk stated"
+  - id: C4
+    name: "Order of the rules and what each answer reveals"
+    outcomes: [LO3, LO5]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "The order of authentication, rate limit, scope, validation and lookup is not discussed, or is wrong in the notes"
+      1: "The order is stated but not justified, or 403 and 404 are used without saying what each tells a caller"
+      2: "The order is stated and justified by what an attacker would learn from each possible swap, and the 404 for another tenant's asset is justified"
+      3: "As level 2, and the learner demonstrates one swap in a request transcript and explains how the contract tests would catch it"
+  - id: C5
+    name: "Operations and configuration"
+    outcomes: [LO6]
+    kind: reviewer
+    max: 3
+    levels:
+      0: "A secret, a key or an address appears in a log line, an error or the source"
+      1: "Nothing leaks, but the audit events are not described or the limits (body size, rate) are not explained"
+      2: "Audit events with actor, object and request id and no content; the limits are explained; the application fails closed without configuration"
+      3: "As level 2, and the notes say what the service cannot protect (transport security, a flood in front of the limit, a shared counter across several instances) and what would be needed"

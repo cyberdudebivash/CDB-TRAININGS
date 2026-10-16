@@ -16,7 +16,7 @@ This is the ledger behind every currency claim in the modernization: what was ch
 | Method | Entries | What it proves | Usable for customer-facing claims |
 |---|---|---|---|
 | PRIMARY_DOCUMENT_READ | 10 | A primary document/page was downloaded and the cited passage read directly. | Yes |
-| EXECUTED | 10 | The claim was reproduced by running code in a clean environment (see section 4). | Yes, for the stated version only |
+| EXECUTED | 12 | The claim was reproduced by running code in a clean environment (see section 4). | Yes, for the stated version only |
 | REGISTRY_API | 1 | Machine-readable package-registry or lifecycle data retrieved by `scripts/research/fetch_registry_versions.py`. | Yes, for version/date statements |
 | OFFICIAL_PAGE_SUMMARY | 73 | An official page was fetched through a summarising tool; the summary was NOT cross-checked against raw text. | No: re-verify against the primary text first |
 | SECONDARY_SOURCE | 5 | Trade press or other non-primary coverage; carries a caveat. | No |
@@ -66,7 +66,7 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 
 ## 5. Research register ledger
 
-99 entries in `docs/research/research_register.yaml`. `Used by` lists the findings, change records and rules that cite the entry.
+101 entries in `docs/research/research_register.yaml`. `Used by` lists the findings, change records and rules that cite the entry.
 
 | Id | Subject | Publisher | Version / state | Method | Verified on | URL | Caveat | Used by |
 |---|---|---|---|---|---|---|---|---|
@@ -74,7 +74,7 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 | R-002 | NIST CSWP 29 - The NIST Cybersecurity Framework (CSF) 2.0 | NIST | CSF 2.0 (Feb 2024) | PRIMARY_DOCUMENT_READ | 2026-10-14 | https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf |  | DR-SC-002, F-SOC-002, MC-SOC-01 |
 | R-003 | CERT-In Directions No. 20(3)/2022-CERT-In under section 70B(6) of the IT Act 2000 | Indian Computer Emergency Response Team (MeitY) | 28 April 2022 | PRIMARY_DOCUMENT_READ | 2026-10-14 | https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf |  | F-SOC-003, MC-SOC-04 |
 | R-004 | LangChain 1.x import-path removal (reproduced) | PyPI / LangChain | langchain 1.4.5, langchain-core 1.6.10, openai 3.31.0, faiss-cpu 1.15.1 (latest at test... | EXECUTED | 2026-10-14 | https://pypi.org/project/langchain/ |  | DR-PY-004, F-AI-001, MC-AIB-01, ND-AI-02 |
-| R-005 | Python Developer's Guide - Status of Python versions | Python Software Foundation | as published 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://devguide.python.org/versions/ |  | F-PYH-005, MC-PYH-21, MC-PYH-22, MC-PYH-23, MC-PYH-24 |
+| R-005 | Python Developer's Guide - Status of Python versions | Python Software Foundation | as published 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://devguide.python.org/versions/ |  | F-PYH-005, MC-PYH-21, MC-PYH-22, MC-PYH-23, MC-PYH-24, MC-PYH-26 |
 | R-006 | Python Packaging User Guide - Is setup.py deprecated? | Python Packaging Authority (PyPA) | latest as of 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://packaging.python.org/en/latest/discussions/setup-py-deprecated/ |  | F-PYH-003 |
 | R-007 | Eclipse Adoptium - Supported platforms / LTS release support | Eclipse Adoptium | as published 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://adoptium.net/support/ |  | F-JAV-002 |
 | R-008 | JUnit - current generation | JUnit team | JUnit 6 (Java 17 baseline) | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://junit.org/ |  | F-JAV-002 |
@@ -87,7 +87,7 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 | R-015 | Google Cloud IAM - Best practices for managing service account keys | Google Cloud | as published 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://docs.cloud.google.com/iam/docs/best-practices-for-managing-service-account-keys |  | F-GCP-001 |
 | R-016 | Google Cloud - Professional Data Engineer certification | Google Cloud | as published 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://cloud.google.com/learn/certification/data-engineer |  | F-GCP-004 |
 | R-017 | Google Cloud Storage docs - 'Discover object storage' | Google Cloud | as published 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://docs.cloud.google.com/storage/docs/discover-object-storage-gsutil |  | F-GCP-004 |
-| R-018 | datetime.datetime.utcnow() deprecation (reproduced) | Python Software Foundation | CPython 3.13.16 | EXECUTED | 2026-10-14 | https://docs.python.org/3/library/datetime.html#datetime.datetime.utcnow |  | DR-PY-007, F-AI-003, MC-PYA-03, MC-PYH-06 |
+| R-018 | datetime.datetime.utcnow() deprecation (reproduced) | Python Software Foundation | CPython 3.13.16 | EXECUTED | 2026-10-14 | https://docs.python.org/3/library/datetime.html#datetime.datetime.utcnow |  | DR-PY-007, F-AI-003, MC-PYA-03, MC-PYH-06, MC-PYH-25 |
 | R-019 | MITRE ATT&CK Terms of Use | MITRE | page footer year 2026 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://attack.mitre.org/resources/legal-and-branding/terms-of-use/ |  | - |
 | R-020 | SigmaHQ licences | SigmaHQ | repository pages as of 2026-10-14 | OFFICIAL_PAGE_SUMMARY | 2026-10-14 | https://github.com/SigmaHQ/sigma |  | - |
 | R-021 | Microsoft Learn - 4625(F) An account failed to log on (Windows 10 security auditing reference) | Microsoft | page ms.date 2026-03-29 (archived Windows 10 reference) | PRIMARY_DOCUMENT_READ | 2026-10-14 | https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625 |  | - |
@@ -169,6 +169,8 @@ Re-run: `.venv/bin/python scripts/research/api_probes.py --work-dir <dir outside
 | R-097 | Iterator, generator, decorator and context-manager behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.... | Python Software Foundation | CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds) | EXECUTED | 2026-10-15 | https://docs.python.org/3/reference/expressions.html#yield-expressions |  | MC-PYH-22 |
 | R-098 | sqlite3 behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0; bundled SQLite 3.45.1 on 3.11... | Python Software Foundation | CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds) | EXECUTED | 2026-10-15 | https://docs.python.org/3/library/sqlite3.html |  | MC-PYH-23 |
 | R-099 | Profiling, memory and object-identity behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0) | Python Software Foundation | CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds); ruff 0.17.0 | EXECUTED | 2026-10-15 | https://docs.python.org/3/library/profile.html |  | MC-PYH-24 |
+| R-100 | HTTP API behaviours by CPython version and library (FastAPI 0.143.1, Starlette 1.8.0, pydantic 2.14.1, PyJWT 2.15.1, httpx2 2.1... | FastAPI documentation (with the pydantic, PyJWT and Python documentation named in the lesson) | CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds); fastapi 0.143.1; st... | EXECUTED | 2026-10-15 | https://fastapi.tiangolo.com/ |  | MC-PYH-25 |
+| R-101 | Packaging, typing, test and pipeline tool behaviours for the Python Engineering capstone (coverage 7.16.2, types-PyYAML 6.0.12.... | GitHub Docs (secure use reference for GitHub Actions); the actions/checkout and actions/setup-python repositories; PyPI; the Python documentation | CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8, 3.15.0 (standard builds); coverage 7.16.2; ty... | EXECUTED | 2026-10-15 | https://docs.github.com/en/actions/reference/security/secure-use |  | MC-PYH-26 |
 
 ## 6. Limitations and items that must not be used in customer-facing material yet
 

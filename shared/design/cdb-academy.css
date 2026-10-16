@@ -26,7 +26,7 @@ h3 { font-size: 1.2rem; } h4 { font-size: 1.05rem; }
 a { color: var(--primary); text-underline-offset: .15em; }
 a, code, th, td { overflow-wrap: anywhere; }
 a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
-p, li { max-width: 72ch; }
+p, li { max-width: 72ch; overflow-wrap: anywhere; }
 code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: .92em; }
 code { background: var(--code-bg); color: var(--code-text); padding: .1em .35em; border-radius: 4px; }
 pre { background: var(--code-bg); color: var(--code-text); padding: .9rem 1rem; border: 1px solid var(--border); border-radius: 6px; overflow-x: auto; line-height: 1.45; }

@@ -102,21 +102,21 @@ courses:
       - {id: PY-M07, title: "Secure coding for Python", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Find and fix eight seeded vulnerabilities (injection, secrets, TLS, deserialisation) and add a regression test for each."}
       - {id: PY-M08, title: "Databases and persistence: safe SQL, transactions, repositories, migrations and query cost", level: 2, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Implement a repository layer using parameterised SQL, a versioned schema and atomic writes, and demonstrate that an injection attempt, a retry and a concurrent edit do not corrupt the data."}
       - {id: PY-M09, title: "Profiling, performance and maintainable architecture", level: 3, status: BUILT, estimated_hours: 8, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent without changing an answer, and prove it with tests that do not depend on the speed of the machine."}
-      - {id: PY-M10, title: "API development: typed, tested and secure HTTP services", level: 2, status: PLANNED, estimated_hours: 8, primary_outcome: "Build a typed HTTP API with request validation and authentication that passes contract tests and an injection test suite."}
-      - {id: PY-M11, title: "Capstone: typed, tested, documented application with CI", level: 3, status: PLANNED, estimated_hours: 14, primary_outcome: "Deliver a packaged application whose tests, type checks and security scan pass in a clean environment."}
-    estimated_duration_hours: 110
-    lab_coverage: {planned: 25, built: 22, verified_executable: 22}
-    assessment_coverage: {outcomes_total: 13, outcomes_assessed: 11}
+      - {id: PY-M10, title: "API development: typed, tested and secure HTTP services", level: 2, status: BUILT, estimated_hours: 10, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Build a typed HTTP API with request validation and authentication that passes contract tests and an injection test suite, and a multi-tenant API that survives a hidden review suite."}
+      - {id: PY-M11, title: "Capstone: typed, tested, documented application with CI", level: 3, status: BUILT, estimated_hours: 14, lab_state: VERIFIED_EXECUTABLE, primary_outcome: "Deliver a packaged application whose tests, type checks and security scan pass in a clean environment, whose behaviour passes a hidden suite and whose own tests detect seeded defects."}
+    estimated_duration_hours: 112
+    lab_coverage: {planned: 25, built: 25, verified_executable: 25}
+    assessment_coverage: {outcomes_total: 13, outcomes_assessed: 13}
     capstone: "A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan."
     review_status: AUTOMATED_ONLY
     qa_status: PARTIAL
     release_status: REENGINEERING
     lifecycle: IN_BUILD
-    blocking_findings: [F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007]
+    blocking_findings: [F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007, F-PYH-015]
     owner: UNASSIGNED
     reviewers: []
     last_verified: 2026-10-14
-    notes: "Eleven of thirteen modules are built (PY-M01 to PY-M09, PY-M12 and PY-M13) with twenty-two labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The other four modules are planned only. Classes and object-oriented design (handbook pp. 48-55) are covered by PY-M12; databases (pp. 141-142, 154-156) by PY-M08, which extends the guided-lab increment merged in PR #4; profiling, memory and architecture (pp. 56-57, 79-80) by PY-M09."
+    notes: "All thirteen modules are built (PY-M01 to PY-M13) with twenty-five labs executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md). Quiz items and rubrics have had no SME review and no learner pilot; the independent labs depend on the git-ignored instructor pack. The capstone (PY-M11) replaces the handbook's closing project (pp. 93-106) by a specified application, a release gate, a hidden suite and a mutation check of the learner's own tests. Classes and object-oriented design (handbook pp. 48-55) are covered by PY-M12; databases (pp. 141-142, 154-156) by PY-M08, which extends the guided-lab increment merged in PR #4; profiling, memory and architecture (pp. 56-57, 79-80) by PY-M09; web and API development (pp. 215-311) by PY-M10."
 
   - id: COURSE-PY-AUTO
     slug: python-automation

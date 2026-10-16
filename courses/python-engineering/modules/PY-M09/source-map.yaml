@@ -29,3 +29,8 @@ mappings:
     disposition: DROPPED
     new_content: "none in this module"
     note: "Mapped here by the word 'optimization'; it is a cloud-cost topic for the cloud courses. The habit of measuring before changing applies, and is taught here (F-PYH-014)."
+  - source_pages: [76, 77]
+    source_topic: "55-56. Performance tuning bullets (list comprehensions, built-ins, generators, caching, concurrency, 'avoid global lookups') and profiling with `time.time()`, `cProfile.run` and `memory_profiler`"
+    disposition: CORRECTED
+    new_content: "lesson.md sections 2 to 5 and 7"
+    note: "The bullets are tools without a measurement that says when each is the answer; the lesson measures first (`perf_counter`, call counts), profiles with `cProfile`, and measures memory with `tracemalloc`; `memory_profiler` is not used."

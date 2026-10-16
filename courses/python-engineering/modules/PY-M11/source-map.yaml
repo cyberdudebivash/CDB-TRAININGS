@@ -1,0 +1,196 @@
+# Source-to-new-content trace for PY-M11. The original PDF content is preserved untouched; this maps what each new artefact does with it.
+# disposition: REPLACED (re-authored from primary sources), RETAINED_IDEA (idea kept, text and code new), CORRECTED, DROPPED (reason given).
+# Page numbers are PDF page indices in the source file (the printed page label is one lower). Mapping of pages to this module is a reading by the module author, not a measurement.
+source: SRC-PY-HANDBOOK
+module: PY-M11
+mappings:
+  - source_pages: [93, 94, 95, 96, 97]
+    source_topic: "73. Real-time Python project: Log Monitoring & Alerting System - folder structure, config.py, reader.py, analyzer.py, alert.py, the summary writer and main.py"
+    disposition: REPLACED
+    new_content: "lesson.md sections 2 and 3 (the project executed, the characterisation method); lab-guided (the prototype, the walking skeleton); lab-independent (SPEC.md and the application `authwatch`)"
+    note: "The project keeps a good idea (a reader, an analysis step, an alert step and an entry point) and fails in the details; executed on CPython 3.11 to 3.15 (F-PYH-016): 100 identical error lines raise 96 alerts because the rule is `count >= 5` for every line; `if key in line` matches substrings of prose (`RETRY_FAILED_COUNT=0`, `CRITICALITY=low`) and misses `error:` and `Failed password`; the alert time is naive local time; the summary is written into a `reports/` folder that the code does not create; `main.py` calls `write_summary` without importing it, so the program as printed ends with a `NameError`; there is no test, type, package or pipeline."
+  - source_pages: [93, 98]
+    source_topic: "Claims about the project: 'Reads live logs', 'Production-grade folder structure', 'could run in a SOC, a server, a DevOps environment, a cloud system'"
+    disposition: CORRECTED
+    new_content: "lesson.md section 2 and the specification (SPEC.md): what the tool does and does not protect; lab-independent README (the live scenario that really is a stream)"
+    note: "The code reads a finished file from start to end, not a live log, and the folder layout is not a package that installs; the lesson states what the new tool protects against and what it does not (F-PYH-016)."
+  - source_pages: [99]
+    source_topic: "74.1 Builder pattern: `ReportBuilder` with `self.data = []` and chained setters"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "A builder that mutates itself and hands out its own list is the opposite of the immutable value types taught in PY-M12; `authwatch` builds a frozen `Report` in one call."
+  - source_pages: [100]
+    source_topic: "74.2 Adapter pattern: `LoggerAdapter` around a JSON logger"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "The structured logging of the capstone is a plain `logging` formatter (lesson section 7); an adapter around a class that only prints adds nothing."
+  - source_pages: [100, 101]
+    source_topic: "74.3 Facade pattern: one entry point over reader, analyzer and alert"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 9 (one command); lab-independent SPEC.md section 3 (the public interface) and section 7 (the command line)"
+    note: "A small public surface over several internal modules is exactly the shape of the capstone: the package API and the command line are the only things the tests and the instructors may use."
+  - source_pages: [101, 102]
+    source_topic: "75. Writing robust Python code (pro tips) and 76. Security best practices for Python code (including `bandit` and `pip-audit`)"
+    disposition: REPLACED
+    new_content: "lesson.md sections 6 and 8 and the gates G06 to G11 of lab-guided/tools/gate.py"
+    note: "Each bullet that can be tested is now a gate or a test: bounded reads, a safe parser, no input text in diagnostics, `ruff` with the `S` rules (the `bandit` family), a dependency check (the mechanism offline, `pip-audit` named for use with a network), pinned actions and a least-privilege token (F-PYH-016)."
+  - source_pages: [102, 103]
+    source_topic: "77. Python interview preparation: question lists and one-line answers"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Question lists are not instruction; the skills they ask about are taught and assessed in the modules where they belong, and the quiz and rubric of this module assess the capstone."
+  - source_pages: [103, 104]
+    source_topic: "78. Module summary: a checklist of everything learned so far"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "A list of topics is not evidence of a skill; the outcomes of each module are traced to a lesson, a lab and an assessment in its `outcomes.yaml`."
+  - source_pages: [104, 105]
+    source_topic: "79. Module assignments (a log analyzer, a `pycalc` command, a user and permissions class, a decorator refactoring, a multithreaded download)"
+    disposition: REPLACED
+    new_content: "lab-guided and lab-independent: one assignment with a specification, acceptance criteria, a release gate, a hidden suite and a rubric"
+    note: "The assignments name a task and nothing else: no input format, no failure behaviour, no check. The capstone replaces them with one project whose every sentence is testable."
+  - source_pages: [105, 106]
+    source_topic: "80. Bonus resources for deep Python mastery (a list of sites and documents)"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "A list of links is not content and was not checked; this module cites the primary sources it used (lesson section 14)."
+  - source_pages: [645, 646, 647, 648, 649, 650]
+    source_topic: "'Certification exam' question lists without answers or rubrics (the part that follows the capstone's chapters)"
+    disposition: REPLACED
+    new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
+    note: "Finding F-PYH-007: question lists without answers are not an assessment; the capstone is assessed by a hidden suite, a mutation check of the learner's own tests and a rubric."
+  - source_pages: [651, 652]
+    source_topic: "Back matter: 'The Global Cybersecurity, AI & Automation Ecosystem'"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "Promotional text about an organisation; not instruction. Whether it belongs in a published edition is a commercial decision outside this phase."
+  - source_pages: [653, 654]
+    source_topic: "Back matter: the founder's message"
+    disposition: DROPPED
+    new_content: "none in this module"
+    note: "A personal message to readers; not instruction. It is neither used nor altered here."
+  - source_pages: [86]
+    source_topic: "65. argparse command-line tools (end of the example): 'this is how professional CLI tools are built'"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 7 (the command line is a contract)"
+    note: "The idea is kept and made testable: exit statuses, streams, atomic output, signals and a closed pipe are specified and graded."
+  - source_pages: [89]
+    source_topic: "69. Coding standards and best practices (PEP 8): naming, 4 spaces, 'max 79 characters per line', avoid globals"
+    disposition: REPLACED
+    new_content: "lesson.md sections 5 to 8 and gate G07 of lab-guided/tools/gate.py"
+    note: "A list of conventions is replaced by a linter whose rules are configured and checked by the gate (`ruff` with the `S` rules and no blanket suppression); the 79-character limit is not carried."
+  - source_pages: [107, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121]
+    source_topic: "Module 2 part 1-2: what automation is, why Python, types of automation, scripting fundamentals, shebang, argparse, file and folder automation, `subprocess`, scheduling, logging, error handling, the file organiser and bulk-rename mini projects, permissions, disk space, file hashing, temporary files, process monitoring"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-PY-AUTO (Python Automation Training), modules PA-M01, PA-M02, PA-M05, PA-M07, PA-M09; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. The unsafe patterns printed here (bulk rename, shell commands) are corrected where the handbook shows them in this course (PY-M05 pages 90-91, PY-M07 pages 122 and 373)."
+  - source_pages: [123, 124]
+    source_topic: "15.2-15.3 Network automation: a port scanner and SSH automation with Paramiko"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-SOC (SOC-M03) and COURSE-PY-AUTO (PA-M09), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. The SSH examples carry the host-key and credential patterns of F-PYH-002; the safe form is taught in PY-M07 section 5."
+  - source_pages: [130, 131, 132]
+    source_topic: "20-21. Real automation workflows and the 'Daily File Backup and Log Archiving' project (`os.listdir`, `shutil.copy`, `make_archive`)"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-PY-AUTO (PA-M02), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. The project copies without checking for existing names or errors; the plan-then-act habit is taught in PY-M05 section 2."
+  - source_pages: [138, 139, 140]
+    source_topic: "26-29. Email, Slack and SMS automation, MySQL, PostgreSQL and MongoDB automation"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-PY-AUTO (PA-M03, PA-M05) and COURSE-GCP-DE (GCP-M02), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. Credentials and connection handling are corrected in PY-M08 (pages 141-142, F-PYH-013) and PY-M07; the notification services need accounts the course does not hold."
+  - source_pages: [143, 144, 145, 146, 147]
+    source_topic: "30-34. Cloud automation (AWS boto3, GCP, Azure), cybersecurity automation (process check, IOC scanner, port scan with banner grab), enterprise projects 1 to 3 (introductions)"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-GCP-DE (GCP-M02), COURSE-SOC (SOC-M03), COURSE-PY-AUTO, planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. Cloud APIs and scanners need accounts and authorisation that the course does not hold; no scanner is carried."
+  - source_pages: [151, 152, 153]
+    source_topic: "37-41. Log pipeline project: settings, downloader, parser, keyword and regex analysers"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-PY-AUTO (PA-M02), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. A keyword matcher over free text has the weakness that PY-M11 section 2 executes for the monitor of pages 93-97 (F-PYH-016)."
+  - source_pages: [157, 158, 159, 160, 161, 162]
+    source_topic: "46-50. Main pipeline, version 2 ideas, 'AWS log monitoring', enterprise project 2 (automated patch deployment): architecture and folder structure"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-PY-AUTO (PA-M02, PA-M07) and COURSE-GCP-DE (GCP-M02), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. The patch system drives servers over SSH with stored passwords (corrected where printed: PY-M07 pages 163-164 and 168)."
+  - source_pages: [165, 166, 167]
+    source_topic: "55-59. Windows patch engine, Slack alert system, report generator of the patch project"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-PY-AUTO (PA-M02), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. Remote execution on servers is out of scope for a course that opens no connection."
+  - source_pages: [169, 170, 171]
+    source_topic: "60-63. Patch project main pipeline, real-life use cases, optional extensions; enterprise project 3 (threat intelligence aggregator) introduction"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-PY-AUTO, COURSE-SOC (SOC-M03), COURSE-GCP-DE, planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF."
+  - source_pages: [175]
+    source_topic: "66. Folder structure of the threat-intelligence aggregator"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-PY-AUTO (PA-M02), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF."
+  - source_pages: [179, 180]
+    source_topic: "71-72. IOC normalisation engine (regular expressions for hashes and URLs) and enrichment (ASN lookup)"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-GCP-DE (GCP-M03) and COURSE-SOC (SOC-M03), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF."
+  - source_pages: [183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211]
+    source_topic: "75-98. PDF report generator, main pipeline, 'the future of automation': AI and LLM-powered automation, AI email classification, serverless, CI/CD with GitHub Actions, Elasticsearch, SOC level-3 automation, self-healing systems, cross-platform automation, distributed SSH automation, Docker, Kubernetes, Terraform and multi-cloud automation, the 'final mega project', and the module summary and final assignments (start)"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-PY-AUTO (PA-M09, PA-M10), COURSE-AI-ENG (AI-M11), COURSE-GCP-DE (GCP-M02), COURSE-CYBER-MEGA (CYB-M07), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. Executing infrastructure, containers and clusters from scripts needs resources the course does not provide (no cost may be incurred). The CI/CD pipeline rules of the capstone are taught in PY-M11 section 8."
+  - source_pages: [213, 214]
+    source_topic: "Module 2 final assignments, sections C to E: short code writing, long answers and 'practical automation' questions (ping a list of IPs, docker cleanup, Kubernetes client, an asynchronous pipeline of 1000 URLs, a distributed SSH system, a threat-intelligence platform)"
+    disposition: DROPPED
+    new_content: "none: replaced by the quizzes and rubrics of the built modules"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: none: replaced by the quizzes and rubrics of the built modules; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. F-PYH-007: questions without answers or a rubric are not an assessment; the questions ask for infrastructure tasks outside this course."
+  - source_pages: [312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350]
+    source_topic: "Module 4 part 1-3 (Python cybersecurity): why Python, branches of security, lab setup, file-system attacks and defences, process and memory interaction, sockets, Scapy packet crafting, cryptography, OWASP Top 10, malware simulation setup, OSINT and DFIR, port scanners, banner grabbing, network sweeping, OS fingerprinting, service detection, CVE lookup, recon framework, subdomain and directory enumeration, passive recon, a keylogger, clipboard monitor, screenshot tool, reverse shell, file stealer simulation, persistence, privilege enumeration, a ransomware simulator, antivirus evasion, packing and obfuscation"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-SOC (SOC-M03 for the log and detection parts) and COURSE-CYBER-MEGA; the offensive tools are not carried by any planned module; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. Offensive tooling (keylogger, reverse shell, file stealer, persistence, ransomware simulator, evasion, obfuscation) is not carried by this course; if it is ever taught it belongs only in an isolated synthetic laboratory of an authorised security course, never in an engineering course (F-PYH-006)."
+  - source_pages: [352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372]
+    source_topic: "Module 4 part 4-5: a mini SIEM (log parsing, pattern detection, correlation), IOC extraction, YARA automation, Windows and Linux log monitoring, malware analysis automation, a network IDS, threat hunting, Wazuh rule automation, projects 1 to 3 (SIEM, EDR agent, IDS/IPS)"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-SOC (SOC-M03 and later detection modules), COURSE-AI-ENG (AI-M05 for the agent example), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. The detection and log-parsing ideas are reframed in the SOC course; this course keeps only the engineering practice."
+  - source_pages: [374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393]
+    source_topic: "Module 4 part 5-6: projects 5 to 10 (malware sandbox, incident-response toolkit, IOC management, vulnerability assessment, memory forensics, full log pipeline) and exploit development (pwntools, stack buffer overflow, offsets, EIP, shellcode loader, ROP, fuzzing, format strings, heap overflow, network exploit toolkit, shellcode encoder, zero-day workflow)"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-SOC (SOC-M03), COURSE-GCP-DE (GCP-M02, GCP-M03), planned; exploit development is not carried by any planned module; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. Exploit development is not carried here (F-PYH-006); the defensive habit of fuzzing and testing hostile input is taught in PY-M10 and PY-M11."
+  - source_pages: [396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426]
+    source_topic: "Module 4 part 6 end (a web exploit kit, 'final capstone: exploit development framework') and Module 5 (Python DevOps and automation): Linux, systemd, Git automation, CI/CD, build and configuration management, parallel automation of servers, Docker, Kubernetes, Ansible, Terraform, AWS, GCP and Azure, secrets management with Vault and AWS Secrets Manager, monitoring, network automation with Netmiko and Nornir, firewall automation"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-CYBER-MEGA (CYB-M07), COURSE-PY-AUTO (PA-M05, PA-M07, PA-M09), planned; the web exploit kit is not carried; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. Not carried: an exploit kit. DevOps automation needs infrastructure and credentials that the course does not hold; the pipeline rules are taught in PY-M11 section 8 (F-PYH-006)."
+  - source_pages: [429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451]
+    source_topic: "Module 5 part 3-5: BGP configuration, network monitoring (SNMP, syslog), compliance and auto-remediation, auto-healing infrastructure, ChatOps, SRE rules, CI/CD engineering (Jenkins, GitHub Actions, GitLab CI), artifact building, DevSecOps automation, SBOM generation, pipeline security enforcement, release management, rollback, observability basics, Prometheus metrics, Grafana API, log pipeline engineering"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-CYBER-MEGA (CYB-M07) and COURSE-PY-AUTO (PA-M07), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. The supply-chain and pipeline-security ideas are taught at the scale of one project in PY-M11 section 8 (pinned actions, least-privilege token, a dependency check)."
+  - source_pages: [453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463]
+    source_topic: "Module 5 part 5-6: SLO/SLI monitoring, incident detection, auto-healing, alert automation (Slack, email, SMS), incident-response runbooks, postmortem automation, cloud-native architecture, multi-cloud and serverless automation, GitOps with ArgoCD and FluxCD"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-PY-AUTO (PA-M05, PA-M07) and COURSE-CYBER-MEGA (CYB-M07), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF."
+  - source_pages: [465, 466, 467, 468, 469, 470, 471, 472]
+    source_topic: "Module 5 part 6-7: service mesh, API gateway and service discovery automation, event-driven DevOps, AIOps, chaos engineering, edge and IoT automation, cloud security automation, compliance and policy enforcement, 'end-to-end DevOps architect automation'"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-CYBER-MEGA (CYB-M07) and COURSE-PY-AUTO (PA-M05, PA-M07), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF."
+  - source_pages: [473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548]
+    source_topic: "Module 6 (blockchain and Web3): blockchain from scratch, a REST API for it, a cryptocurrency, wallets, peer-to-peer networks, smart contracts and Solidity, ERC20 and ERC721 tokens, DApp backends, NFT minting, trading bots, reentrancy and flash-loan simulations, a Web3 scanner, the Ethereum virtual machine, a DEX, staking, a DAO, Web3 identity, layer-2 rollups, proof of stake, a layer-1 blockchain, consensus, RPC, tokenomics, validator nodes"
+    disposition: DROPPED
+    new_content: "none: out of portfolio scope (catalog/source_mapping.yaml rule M-PYH-01, action REMOVE)"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: none: out of portfolio scope (catalog/source_mapping.yaml rule M-PYH-01, action REMOVE); the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. Preserved in the source PDF only (F-PYH-006: a toy EVM at page 503 dilutes the engineering path)."
+  - source_pages: [549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600]
+    source_topic: "Module 7 (AI engineering): what AI is, NumPy, pandas, Matplotlib, machine learning basics and metrics, XGBoost, neural networks, CNN and RNN, transformers and self-attention, a tokenizer, a mini GPT, fine-tuning, inference optimisation, embeddings, agents, NLP, chatbots, RAG, voice AI, computer vision, generative AI, an agent, GPU deployment with Docker, multi-agent systems, reinforcement learning, AI SaaS, scaling, LLM optimisation, AI safety"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-AI-ENG (AI-M01, AI-M04, AI-M05, AI-M07, AI-M11), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. The agent examples carry the unsafe tool pattern of F-PYH-001 and are rebuilt, not carried, in the AI course."
+  - source_pages: [601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644]
+    source_topic: "Module 8 (data engineering): pipeline architecture, data formats, pandas, Polars, PyArrow, an ETL pipeline, SQL integration, ingestion, Spark and PySpark, Spark SQL and streaming, Kafka, Delta Lake, EMR and Databricks, Hadoop and HDFS, Hive, Presto and Trino, data lakes and warehouses, CDC, data quality, lineage, governance, Airflow, Prefect, data modelling"
+    disposition: DROPPED
+    new_content: "none in this course"
+    note: "Out of scope for COURSE-PY-ENG: the handbook mixes other courses into this book (F-PYH-006). Destination: COURSE-GCP-DE (GCP-M02, GCP-M03, GCP-M04, GCP-M06, GCP-M07), planned; the destination is planned and unbuilt, so no built module covers these pages (candidate modules in docs/audits/data/page_records are machine-assigned and unreviewed). The original is preserved in the source PDF. Cluster and cloud-warehouse topics need resources that the course does not provide."

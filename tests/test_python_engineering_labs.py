@@ -6,9 +6,11 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -41,6 +43,68 @@ def mutation(module_dir: Path, module: str, tests: Path, mutants: Path, jobs: in
     proc = subprocess.run([sys.executable, str(TOOL), "--module-dir", str(module_dir), "--module", module, "--tests", str(tests), "--mutants", str(mutants), "--json", "--jobs", str(jobs)],
                           capture_output=True, text=True, timeout=1200)
     return json.loads(proc.stdout)
+
+
+def settle_survivors(report: dict, rerun) -> dict:
+    """The environment can cut a mutant's run short: a restart or memory pressure kills the process with a signal, which pytest does not report as a failure, so the mutant looks alive.
+    A required mutant reported alive is therefore run again, alone; it counts as alive only if it survives twice. `rerun(ids)` returns the report of those mutants."""
+    alive = [m["id"] for m in report["mutants"] if m["required"] and not m["killed"]]
+    if not (report.get("baseline_passes") and alive):
+        return report
+    killed = {m["id"] for m in rerun(alive)["mutants"] if m["killed"]}
+    for m in report["mutants"]:
+        if m["id"] in killed:
+            m["killed"], m["rerun"] = True, True
+    required = [m for m in report["mutants"] if m["required"]]
+    report["required_killed"] = sum(1 for m in required if m["killed"])
+    report["all_killed"] = sum(1 for m in report["mutants"] if m["killed"])
+    report["passed"] = bool(report["baseline_passes"]) and report["required_killed"] == report["required_total"]
+    report["rerun_ids"] = sorted(killed & set(alive))
+    return report
+
+
+def mutation_with_rerun(cmd: list[str], mutants: Path, env: dict, timeout: int = 7200) -> dict:
+    """Run a mutation tool (`cmd` without --mutants) over a mutants file and settle the survivors as described above."""
+
+    def run(path: Path) -> dict:
+        return json.loads(subprocess.run([*cmd, "--mutants", str(path)], capture_output=True, text=True, timeout=timeout, env=env).stdout)
+
+    def rerun(ids: list[str]) -> dict:
+        with tempfile.TemporaryDirectory() as td:
+            subset = Path(td) / "again.json"
+            subset.write_text(json.dumps([m for m in json.loads(mutants.read_text(encoding="utf-8")) if m["id"] in ids]), encoding="utf-8")
+            return run(subset)
+
+    return settle_survivors(run(mutants), rerun)
+
+
+def _report(alive: set[str], baseline: bool = True) -> dict:
+    mutants = [{"id": f"M{n}", "required": n != 4, "killed": f"M{n}" not in alive} for n in range(1, 6)]
+    required = [m for m in mutants if m["required"]]
+    return {"baseline_passes": baseline, "mutants": mutants, "required_total": len(required), "required_killed": sum(m["killed"] for m in required),
+            "all_killed": sum(m["killed"] for m in mutants), "total": len(mutants), "passed": baseline and all(m["killed"] for m in required)}
+
+
+def test_settle_survivors_counts_a_mutant_as_alive_only_if_it_survives_twice():
+    asked: list[list[str]] = []
+
+    def rerun(ids):
+        asked.append(list(ids))
+        return {"mutants": [{"id": i, "killed": i == "M2"} for i in ids]}
+
+    settled = settle_survivors(_report({"M2", "M3", "M4"}), rerun)
+    assert asked == [["M2", "M3"]], "only required survivors are run again"                      # M4 is not required
+    assert settled["required_killed"] == 3 and settled["required_total"] == 4 and not settled["passed"]
+    assert settled["rerun_ids"] == ["M2"] and [m["id"] for m in settled["mutants"] if m["required"] and not m["killed"]] == ["M3"]
+    assert settle_survivors(_report({"M2"}), lambda ids: {"mutants": [{"id": i, "killed": True} for i in ids]})["passed"]
+
+
+def test_settle_survivors_never_rescues_a_failing_baseline_or_runs_when_nothing_survived():
+    def forbidden(ids):
+        raise AssertionError("no rerun expected")
+
+    assert settle_survivors(_report({"M2"}, baseline=False), forbidden)["passed"] is False
+    assert settle_survivors(_report(set()), forbidden)["passed"] is True
 
 
 def failing(results: dict[str, str]) -> set[str]:
@@ -649,3 +713,294 @@ def test_the_lab_evidence_renderer_recognises_every_lab_row():
     for key, _label, _property in module.LABS:
         assert module.lab_key(f"tests/test_python_engineering_labs.py::test_{key}_probe") == key, key
     assert module.lab_key("tests/test_module_packs.py::test_m10_guided_probe") is None
+
+
+# ------------------------------------------------------------------------------------------------------------------ PY-M10
+M10 = COURSE / "modules" / "PY-M10"
+M10_GUIDED_CHECKS = 1625
+M10_STARTER_GIVEN = frozenset({        # the checks that the given parts of the starter (models, table, headers, error class) already satisfy; nothing a learner has to write is in this set
+    "test_a_body_may_contain_tab_newline_and_carriage_return_but_no_other_control_character",
+    "test_a_minimal_ticket_is_valid_and_the_priority_defaults_to_normal",
+    "test_a_ticket_is_a_frozen_value",
+    "test_an_api_error_becomes_a_problem_with_its_own_status_code_detail_and_headers",
+    "test_any_other_priority_is_refused",
+    "test_at_most_one_type_ignore_and_it_names_its_error",
+    "test_auth_error_carries_its_code",
+    "test_every_editable_field_has_the_limits_of_a_new_ticket",
+    "test_every_function_has_annotated_parameters_and_result",
+    "test_every_listed_priority_is_accepted",
+    "test_every_noqa_names_one_rule_and_says_why",
+    "test_header_values_gives_every_value_of_a_header_in_order",
+    "test_limit_is_one_to_100",
+    "test_list_params_defaults",
+    "test_mypy_strict_is_clean",
+    "test_no_secret_is_written_into_the_module_itself",
+    "test_nothing_is_coerced_into_a_string",
+    "test_offset_is_zero_to_10000",
+    "test_ordinary_unusual_text_is_data_and_is_kept_exactly",
+    "test_other_scope_types_go_straight_to_the_application",
+    "test_page_has_items_total_limit_and_offset",
+    "test_problem_describes_a_failure_in_the_documented_members",
+    "test_query_string_values_are_converted_because_a_query_string_has_no_types",
+    "test_settings_error_is_a_value_error",
+    "test_the_body_is_one_to_4000_characters_after_stripping",
+    "test_the_json_form_is_accepted_too",
+    "test_the_json_form_of_a_ticket_has_exactly_the_documented_fields_and_iso_utc_times",
+    "test_the_listed_values_are_accepted",
+    "test_the_module_calls_nothing_that_runs_text_as_code_and_imports_nothing_that_does",
+    "test_the_title_is_three_to_120_characters_after_stripping",
+    "test_to_out_converts_epoch_seconds_to_timezone_aware_utc_datetimes",
+    "test_transitions_is_the_table_the_rules_are_built_from",
+    "test_values_outside_the_lists_and_limits_are_refused",
+})
+
+
+def test_m10_guided_solution_passes_every_check():
+    results = run_pytest(M10 / "lab-guided", env={"LAB_TARGET": "solution"}, timeout=1800)
+    assert len(results) == M10_GUIDED_CHECKS and failing(results) == set(), sorted(failing(results))[:20]
+
+
+def test_m10_guided_starter_fails_everything_a_learner_has_to_write():
+    results = run_pytest(M10 / "lab-guided", timeout=1800)
+    assert len(results) == M10_GUIDED_CHECKS
+    passed = {k for k, v in results.items() if v == "passed"}
+    assert {k.split("[")[0] for k in passed} == M10_STARTER_GIVEN, sorted({k.split("[")[0] for k in passed} ^ M10_STARTER_GIVEN)
+    assert len(passed) == 82, len(passed)
+    for name in ("test_another_hmac_algorithm_is_refused_even_with_the_right_secret",
+                 "test_the_audience_must_match",
+                 "test_every_token_has_its_own_id",
+                 "test_q_is_a_value_and_never_changes_the_statement",
+                 "test_field_errors_never_repeat_what_the_client_sent",
+                 "test_only_an_admin_may_delete",
+                 "test_the_order_of_the_checks_is_closed_then_role_then_openness_then_transition",
+                 "test_an_id_is_accepted_only_in_its_plain_decimal_form_so_that_a_ticket_has_one_address",
+                 "test_a_body_without_a_length_is_refused_with_411",
+                 "test_a_hostile_title_or_body_is_stored_as_text_or_refused_and_nothing_else_happens",
+                 "test_a_reader_cannot_discover_ticket_ids_by_the_difference_between_403_and_404",
+                 "test_ruff_with_the_security_rules_is_clean"):
+        cases = {k: v for k, v in results.items() if k.split("[")[0] == name}
+        assert cases and all(v in ("failed", "error") for v in cases.values()), name
+
+
+@pytest.mark.private_materials
+def test_m10_guided_checks_are_discriminating():
+    mutants = PRIVATE / "PY-M10" / "guided-mutants.json"
+    if not mutants.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    solution = M10 / "lab-guided" / "solution"
+    report = mutation_with_rerun([sys.executable, str(TOOL), "--module-dir", str(solution), "--module", "ticketapi", "--tests", str(M10 / "lab-guided" / "checks"), "--json", "--jobs", "4"],
+                                 mutants, dict(os.environ, LAB_TARGET="import"))
+    assert report["baseline_passes"] and report["passed"]
+    assert report["required_killed"] == report["required_total"] == 432 and report["total"] == 432, [m for m in report["mutants"] if not m["killed"]]
+
+
+def test_m10_independent_starter_fails_every_published_check():
+    results = run_pytest(M10 / "lab-independent")
+    assert len(results) == 16 and {k.split("[")[0] for k in results} >= {"test_01_the_key_store_keeps_a_hash_and_checks_secrets", "test_10_requests_over_the_limit_in_one_window_are_a_429_with_retry_after"}
+    assert set(results.values()) <= {"failed", "error"}, {k: v for k, v in results.items() if v == "passed"}
+
+
+@pytest.mark.private_materials
+def test_m10_independent_reference_passes_published_and_hidden_checks():
+    ref = PRIVATE / "PY-M10" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    published = run_pytest(M10 / "lab-independent", env={"LAB_PROJECT": str(ref)})
+    assert len(published) == 16 and failing(published) == set(), failing(published)
+    hidden = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(ref)}, timeout=1800)
+    assert len(hidden) == 482 and failing(hidden) == set(), sorted(failing(hidden))[:20]
+
+
+@pytest.mark.private_materials
+def test_m10_independent_hidden_suite_is_discriminating_and_the_starter_fails_it():
+    ref = PRIVATE / "PY-M10" / "independent-reference"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    report = mutation_with_rerun([sys.executable, str(TOOL), "--module-dir", str(ref), "--module", "inventory", "--tests", str(ref / "test_hidden.py"), "--json", "--jobs", "4"],
+                                 ref / "mutants.json", dict(os.environ, LAB_TARGET="import"))
+    assert report["baseline_passes"] and report["passed"]
+    assert report["required_killed"] == report["required_total"] == 274 and report["total"] == 275, [m for m in report["mutants"] if m["required"] and not m["killed"]]
+    assert all(m.get("note") for m in report["mutants"] if not m["required"]), "every mutant that is not required must say why"
+    results = run_pytest(ref, "test_hidden.py", env={"LAB_PROJECT": str(M10 / "lab-independent" / "starter")}, timeout=1800)
+    assert len(results) == 482
+    assert {k for k, v in results.items() if v == "passed"} == {"test_mypy_strict_is_clean", "test_ruff_with_the_security_rules_is_clean", "test_no_secret_or_key_is_written_into_the_module"}
+
+
+# ------------------------------------------------------------------------------------------------------------------ PY-M11
+M11 = COURSE / "modules" / "PY-M11"
+M11_GATE = M11 / "lab-guided" / "tools" / "gate.py"
+M11_PUBLISHED_CASES = 22
+M11_HIDDEN_CHECKS = 585
+M11_MUTANTS = 315
+M11_MUTANTS_REQUIRED = 312
+M11_GATES = [f"G{n:02d}" for n in range(1, 14)]
+M11_C3_GOOD_PERCENT = 75       # what the reference's own tests must kill (measured: 251 of 312, 80 percent); rubric criterion C3 asks learners for 60 percent
+
+
+def _m11_gate(project: Path, *args: str, part: str = "B") -> tuple[int, dict[str, bool]]:
+    """Run the release gate on a project; return the exit status and {gate id: passed}."""
+    done = subprocess.run([sys.executable, str(M11_GATE), "--project", str(project), "--part", part, *args], cwd=M11 / "lab-guided", capture_output=True, text=True, timeout=1800)
+    gates = {m.group(2): m.group(1) == "PASS" for m in re.finditer(r"^\[(PASS|FAIL)\] (G\d\d)", done.stdout, re.M)}
+    return done.returncode, gates
+
+
+def _m11_edit(path: Path, old: str, new: str) -> None:
+    text = path.read_text(encoding="utf-8")
+    assert text.count(old) == 1, (path.name, text.count(old), old[:60])
+    path.write_text(text.replace(old, new), encoding="utf-8")
+
+
+def _m11_append(path: Path, text: str) -> None:
+    path.write_text(path.read_text(encoding="utf-8") + text, encoding="utf-8")
+
+
+def _m11_copy(source: Path, target: Path) -> Path:
+    shutil.copytree(source, target, ignore=shutil.ignore_patterns("__pycache__", ".mypy_cache", ".ruff_cache", ".pytest_cache", ".coverage*", "build", "dist", "*.egg-info"))
+    return target
+
+
+_M11_CREDENTIAL = "pass" + "word = " + '"letmein-letmein"'      # assembled here so that this file does not contain a credential-shaped literal
+_M11_PIPE = "    except BrokenPipeError:\n        os.dup2"
+# Each case damages a copy of the reference application in exactly one way and names the gate that must notice. A gate that cannot fail is not a gate.
+M11_DAMAGE = [
+    ("G01", "the entry point module is missing", lambda p: (p / "src/authwatch/__main__.py").unlink()),
+    ("G01", "there are no tests", lambda p: shutil.rmtree(p / "tests")),
+    ("G02", "there is no requires-python", lambda p: _m11_edit(p / "pyproject.toml", 'requires-python = ">= 3.11"\n', "")),
+    ("G02", "the dependency on PyYAML is missing", lambda p: _m11_edit(p / "pyproject.toml", 'dependencies = ["PyYAML >= 6.0, < 7"]', "dependencies = []")),
+    ("G03", "the build backend does not exist", lambda p: _m11_edit(p / "pyproject.toml", 'build-backend = "setuptools.build_meta"', 'build-backend = "setuptools.no_such_backend"')),
+    ("G04", "the typing marker is not in the wheel", lambda p: (p / "src/authwatch/py.typed").unlink()),
+    ("G05", "the command prints another version than the package", lambda p: _m11_edit(p / "src/authwatch/cli.py", 'version=f"authwatch {__version__}"', 'version="authwatch 0.0.0"')),
+    ("G05", "the version is written in two places", lambda p: _m11_edit(p / "pyproject.toml", 'dynamic = ["version"]', 'version = "9.9.9"')),
+    ("G06", "a type error", lambda p: _m11_append(p / "src/authwatch/render.py", '\n_BAD: int = "text"\n')),
+    ("G07", "a blanket suppression", lambda p: _m11_append(p / "src/authwatch/render.py", "\n_X = 1  # noqa\n")),
+    ("G07", "a call that runs text as code", lambda p: _m11_append(p / "src/authwatch/render.py", '\n_Y = eval("1")\n')),
+    ("G08", "fewer than thirty tests", lambda p: [f.unlink() for f in (p / "tests").glob("test_*.py") if f.name != "test_render.py"]),
+    ("G09", "the workflow runs on pull_request_target", lambda p: _m11_edit(p / ".github/workflows/ci.yml", "  pull_request:\n", "  pull_request_target:\n")),
+    ("G09", "an action is pinned to a tag", lambda p: _m11_edit(p / ".github/workflows/ci.yml", "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1", "actions/checkout@v4")),
+    ("G09", "the token may write", lambda p: _m11_edit(p / ".github/workflows/ci.yml", "permissions:\n  contents: read\n", "permissions:\n  contents: write\n")),
+    ("G09", "event text is expanded inside a script", lambda p: _m11_edit(p / ".github/workflows/ci.yml", "run: python scripts/check.py", 'run: echo "${{ github.event.pull_request.title }}" && python scripts/check.py')),
+    ("G09", "a version is not quoted", lambda p: _m11_edit(p / ".github/workflows/ci.yml", '["3.11", "3.12", "3.13", "3.14"]', '[3.11, "3.12", "3.13", "3.14"]')),
+    ("G10", "a locked version has a known advisory", lambda p: _m11_edit(p / "requirements.lock", "PyYAML==6.0.3", "PyYAML==6.0")),
+    ("G11", "a credential in the source", lambda p: _m11_append(p / "src/authwatch/render.py", "\n# " + _M11_CREDENTIAL + "\n")),
+    ("G11", ".gitignore does not mention .env", lambda p: _m11_edit(p / ".gitignore", ".env\n", "")),
+    ("G12", "there is no security section", lambda p: _m11_edit(p / "README.md", "## Security considerations", "## Notes")),
+    ("G12", "the changelog does not name the version", lambda p: _m11_edit(p / "CHANGELOG.md", "## 1.0.0", "## 0.9.0")),
+    ("G13", "Ctrl-C is not handled", lambda p: _m11_edit(p / "src/authwatch/cli.py", "    except KeyboardInterrupt:\n        return EXIT_INTERRUPT", "    except ZeroDivisionError:\n        return EXIT_INTERRUPT")),
+    ("G13", "a closed pipe is not handled", lambda p: _m11_edit(p / "src/authwatch/cli.py", _M11_PIPE, "    except ZeroDivisionError:\n        os.dup2")),
+    ("G13", "the unusable lines are not counted", lambda p: _m11_edit(p / "src/authwatch/cli.py", "        self.bad += 1\n", "        self.bad += 0\n")),
+]
+
+
+def test_m11_independent_starter_fails_every_published_check():
+    """The learner starts with an empty project folder: every published check must fail, none may pass by accident."""
+    results = run_pytest(M11 / "lab-independent")
+    assert len(results) == M11_PUBLISHED_CASES and len({k.split("[")[0] for k in results}) == 14, len(results)
+    assert set(results.values()) <= {"failed", "error"}, {k: v for k, v in results.items() if v == "passed"}
+
+
+def test_m11_guided_gate_passes_nothing_on_an_empty_project(tmp_path):
+    (tmp_path / "project").mkdir()
+    code, gates = _m11_gate(tmp_path / "project")
+    assert code == 1 and sorted(gates) == M11_GATES and not any(gates.values()), gates
+    code, gates = _m11_gate(tmp_path / "project", part="A")
+    assert code == 1 and sorted(gates) == [g for g in M11_GATES if g not in ("G08", "G13")] and not any(gates.values()), gates
+
+
+@pytest.mark.private_materials
+def test_m11_guided_part_a_solution_passes_the_part_a_gate_and_is_not_a_finished_application():
+    skeleton = PRIVATE / "PY-M11" / "part-a-solution"
+    if not skeleton.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    code, gates = _m11_gate(skeleton, part="A")
+    assert code == 0 and len(gates) == 11 and all(gates.values()), gates
+    code, gates = _m11_gate(skeleton)
+    assert code == 1 and {g for g, ok in gates.items() if not ok} == {"G08", "G12", "G13"}, gates     # tests, the documentation of every option, and the scenario need the finished application
+
+
+@pytest.mark.private_materials
+def test_m11_independent_reference_passes_published_hidden_and_gate():
+    ref = PRIVATE / "PY-M11" / "reference-project"
+    hidden = PRIVATE / "PY-M11" / "hidden" / "test_hidden.py"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    published = run_pytest(M11 / "lab-independent", env={"LAB_PROJECT": str(ref)})
+    assert len(published) == M11_PUBLISHED_CASES and failing(published) == set(), failing(published)
+    results = run_pytest(hidden.parent, hidden.name, env={"LAB_PROJECT": str(ref)}, timeout=1800)
+    assert len(results) == M11_HIDDEN_CHECKS and failing(results) == set(), sorted(failing(results))[:20]
+    code, gates = _m11_gate(ref)
+    assert code == 0 and sorted(gates) == M11_GATES and all(gates.values()), gates
+
+
+@pytest.mark.private_materials
+def test_m11_independent_the_hidden_suite_rejects_a_walking_skeleton():
+    skeleton = PRIVATE / "PY-M11" / "part-a-solution"
+    hidden = PRIVATE / "PY-M11" / "hidden" / "test_hidden.py"
+    if not skeleton.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    results = run_pytest(hidden.parent, hidden.name, env={"LAB_PROJECT": str(skeleton)}, timeout=1800)
+    passed = [k for k, v in results.items() if v == "passed"]
+    assert len(results) == M11_HIDDEN_CHECKS and len(passed) < 30, len(passed)      # the checks that a skeleton may pass: the version, usage errors, a missing file, import hygiene, silence; the rubric asks for 85 percent
+
+
+@pytest.mark.private_materials
+@pytest.mark.parametrize(("gate", "damage"), [(g, i) for i, (g, _, _) in enumerate(M11_DAMAGE)], ids=[f"{g}-{d}" for g, d, _ in M11_DAMAGE])
+def test_m11_guided_gate_catches_each_damage(gate, damage, tmp_path):
+    ref = PRIVATE / "PY-M11" / "reference-project"
+    if not ref.exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    project = _m11_copy(ref, tmp_path / "project")
+    M11_DAMAGE[damage][2](project)
+    code, gates = _m11_gate(project, "--only", gate)
+    assert code == 1 and gates.get(gate) is False, gates
+
+
+def test_m11_guided_every_gate_has_a_negative_control():
+    assert {g for g, _, _ in M11_DAMAGE} == set(M11_GATES)
+
+
+@pytest.mark.private_materials
+def test_m11_independent_hidden_suite_is_discriminating():
+    pack = PRIVATE / "PY-M11"
+    if not (pack / "mutants.json").exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    report = mutation_with_rerun([sys.executable, str(pack / "tools" / "package_mutation.py"), "--src", str(pack / "reference-project" / "src"), "--package", "authwatch", "--tests", str(pack / "hidden" / "test_hidden.py"),
+                                  "--json", "--jobs", "4", "--timeout", "600"], pack / "mutants.json", dict(os.environ), 14400)
+    assert report["baseline_passes"] and report["passed"]
+    assert report["required_killed"] == report["required_total"] == M11_MUTANTS_REQUIRED and report["total"] == M11_MUTANTS, [m for m in report["mutants"] if m["required"] and not m["killed"]]
+    assert all(m.get("note") for m in report["mutants"] if not m["required"]), "every mutant that is not required must say why"
+
+
+@pytest.mark.private_materials
+def test_m11_independent_the_reference_tests_kill_most_defects_and_a_weak_suite_does_not(tmp_path):
+    """Calibration of rubric criterion C3: the learner's tests are graded by mutation against the reference, so the reference's own tests show what a good suite achieves."""
+    pack = PRIVATE / "PY-M11"
+    if not (pack / "mutants.json").exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    tool = [sys.executable, str(pack / "tools" / "package_mutation.py"), "--src", str(pack / "reference-project" / "src"), "--package", "authwatch", "--mutants", str(pack / "mutants.json"), "--json", "--jobs", "4", "--timeout", "300"]
+    good = json.loads(subprocess.run([*tool, "--tests", str(pack / "reference-project" / "tests")], capture_output=True, text=True, timeout=14400).stdout)
+    assert good["baseline_passes"]
+    killed = sum(1 for m in good["mutants"] if m["required"] and m["killed"])
+    assert killed * 100 >= M11_C3_GOOD_PERCENT * M11_MUTANTS_REQUIRED, (killed, M11_MUTANTS_REQUIRED)
+    weak = tmp_path / "weak"
+    weak.mkdir()
+    (weak / "test_weak.py").write_text("import authwatch\n\n\ndef test_it_has_a_version():\n    assert authwatch.__version__\n\n\ndef test_a_good_line_parses():\n    line = b'{\"ts\": \"2026-10-14T12:00:00Z\", \"user\": \"a\", \"ip\": \"203.0.113.5\", \"outcome\": \"failure\"}\\n'\n    assert authwatch.parse_line(line, 1) is not None\n", encoding="utf-8")
+    poor = json.loads(subprocess.run([*tool, "--tests", str(weak)], capture_output=True, text=True, timeout=14400).stdout)
+    assert poor["baseline_passes"] and sum(1 for m in poor["mutants"] if m["required"] and m["killed"]) * 100 < 30 * M11_MUTANTS_REQUIRED      # far below the 60 percent of the rubric
+
+
+def test_m11_independent_the_rubric_states_the_numbers_that_the_checks_use():
+    text = (M11 / "assessment" / "rubric.yaml").read_text(encoding="utf-8")
+    readme = (M11 / "lab-independent" / "README.md").read_text(encoding="utf-8")
+    assert f"{M11_HIDDEN_CHECKS} checks" in text and f"at least {int(M11_HIDDEN_CHECKS * 0.85 + 0.999)} of the {M11_HIDDEN_CHECKS}" in text and f"{M11_MUTANTS_REQUIRED} required defects" in text
+    assert f"{M11_HIDDEN_CHECKS} checks" in readme and f"{M11_PUBLISHED_CASES} cases" in readme and "thirteen gates" in readme
+
+
+@pytest.mark.private_materials
+def test_m11_independent_every_check_named_in_the_grading_notes_exists_in_the_hidden_suite():
+    pack = PRIVATE / "PY-M11"
+    if not (pack / "grading-notes.md").exists():
+        pytest.skip("SKIPPED_PRIVATE_MATERIALS: instructor pack not present")
+    names = set(re.findall(r"`(test_[a-z0-9_]+)`", (pack / "grading-notes.md").read_text(encoding="utf-8")))
+    hidden = (pack / "hidden" / "test_hidden.py").read_text(encoding="utf-8")
+    assert len(names) >= 14 and all(f"def {n}(" in hidden for n in names), sorted(n for n in names if f"def {n}(" not in hidden)
+

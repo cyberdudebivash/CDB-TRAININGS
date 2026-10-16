@@ -16,6 +16,8 @@ the course. Everything in this folder except this README is git-ignored.
 | `PY-M05/` | Answer key, grading notes, the `feedsync` reference, the 138-case hidden suite and 30 hidden mutants |
 | `PY-M08/` | Answer key, grading notes, the `casestore` reference, the 145-case hidden suite, 83 hidden mutants and 95 mutants of the guided-lab solution |
 | `PY-M09/` | Answer key, grading notes, the `triage` reference and its sample budget tests, the 378-case hidden suite, 52 hidden mutants and 59 mutants of the guided-lab solution |
+| `PY-M10/` | Answer key, grading notes, the `inventory` reference and its sample threat table, the 482-case hidden suite, 275 hidden mutants and 432 mutants of the guided-lab solution |
+| `PY-M11/` | Answer key, grading notes, a sample NOTES.md, the reference `authwatch` project, a part A solution, the 585-case hidden suite, 315 seeded defects and the tool that applies them to a package |
 | `PY-M13/` | Answer key, grading notes, the `flowkit` reference, the 63-case hidden suite, 35 hidden mutants and 49 mutants of the guided-lab solution |
 | `PY-M12/` | Answer key, grading notes, the `rulekit` reference, the 54-case hidden suite, 41 hidden mutants and 47 mutants of the guided-lab solution |
 | `PY-M03/`, `PY-M04/`, `PY-M07/` | The same kinds of file for the other built modules (PY-M03's independent reference is a complete project) |

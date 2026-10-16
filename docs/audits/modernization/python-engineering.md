@@ -5,19 +5,19 @@
 
 - Course: `COURSE-PY-ENG` (catalog version 0.1.0-build, slug `python-engineering`)
 - Legacy sources: SRC-PY-HANDBOOK (CyberDudeBivash Python Engineering Handbook)
-- Concept-level change records: **24**; new developments assigned: **5**
+- Concept-level change records: **26**; new developments assigned: **5**
 
 ## Page-level audit rollup (machine candidates)
 
 | Source | Pages | Page-level action | Severity | Human-read (finding-cited) | Visual review needed |
 |---|---|---|---|---|---|
-| SRC-PY-HANDBOOK | 654 | KEEP 302, UPDATE 173, REPLACE 93, EXPAND 12, REMOVE 74 | P0 2, P1 12, P2 75, P3 14, P4 12, NONE 539 | 48 | 1 |
+| SRC-PY-HANDBOOK | 654 | KEEP 284, UPDATE 191, REPLACE 93, EXPAND 12, REMOVE 74 | P0 2, P1 24, P2 84, P3 12, P4 12, NONE 520 | 69 | 1 |
 
 These counts are rule outputs over every page; `KEEP` is a candidate, not a verdict.
 
 ## Differential analysis
 
-Actions: KEEP 1, UPDATE 11, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
+Actions: KEEP 1, UPDATE 11, REPLACE 9, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 
 ### MC-PYH-01 - Python language foundations (installing, syntax, types, control flow, functions, data structures)
 
@@ -93,7 +93,7 @@ Actions: KEEP 1, UPDATE 11, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 - **2025 source state:** Token expiry uses datetime.utcnow(); the signing secret is a string literal in source.
 - **Verified state at 2026-10-14:** utcnow() emits DeprecationWarning on 3.12+ (executed); PyJWT 2.15.1 requires an explicit algorithms argument to decode (executed).
 - **Why:** Deprecated API and secret-in-code anti-pattern.
-- **Destination:** PY-M07, PY-M10 (PARTIAL)
+- **Destination:** PY-M07, PY-M10 (BUILT)
 - **Learner impact:** Timezone-aware expiry, secrets from the environment, algorithm pinning.
 - **Verification:** EXECUTED - two probes
 - **Evidence:**
@@ -120,7 +120,7 @@ Actions: KEEP 1, UPDATE 11, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 - **2025 source state:** Module 3 builds Flask APIs with SQLAlchemy and JWT (FastAPI appears in the later AI deployment chapters).
 - **Verified state at 2026-10-14:** Flask 3.1.3 removed before_first_request, flask.json.JSONEncoder, flask.escape and flask.Markup (executed); FastAPI 0.143.0 accepts @app.on_event with a DeprecationWarning (executed); SQLAlchemy 2.1.4 has no engine.execute (executed).
 - **Why:** Frameworks and ORM APIs moved; the catalog lacked an API-development module.
-- **Destination:** PY-M10, PY-M08 (PARTIAL)
+- **Destination:** PY-M10, PY-M08 (BUILT)
 - **Learner impact:** Typed, tested, secure API with contract and injection tests.
 - **Verification:** EXECUTED - three probes
 - **Evidence:**
@@ -198,7 +198,7 @@ Actions: KEEP 1, UPDATE 11, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 - **2025 source state:** Fifty questions without answers, rubrics or acceptance criteria (F-PYH-007).
 - **Verified state at 2026-10-14:** Assessment framework requires outcome-mapped, rubric-graded artefacts and automated checks.
 - **Why:** Recall questions do not demonstrate skills.
-- **Destination:** PY-M11 (PLANNED)
+- **Destination:** PY-M11 (BUILT)
 - **Learner impact:** Capstone with published rubric and automated acceptance tests.
 - **Verification:** RESEARCH_VERIFIED - docs/standards/ASSESSMENT_FRAMEWORK.md
 - **Evidence:**
@@ -350,6 +350,38 @@ Actions: KEEP 1, UPDATE 11, REPLACE 7, EXPAND 1, ADD 1, MERGE 2, REMOVE 1.
 - **Evidence:**
   - `F-PYH-014`: P2 The memory and optimisation sections demonstrate reference counting without its caveats, present string identity as an optimisation and list speed-up tools without any measurement
   - `R-099`: Profiling, memory and object-identity behaviours by CPython version (reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0) (Python Software Foundation; EXECUTED; verified 2026-10-15) <https://docs.python.org/3/library/profile.html>
+  - `R-005`: Python Developer's Guide - Status of Python versions (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://devguide.python.org/versions/>
+
+### MC-PYH-25 - Web development and API engineering: CRUD without authentication, secrets in source, token helpers, uploads, tenant isolation and security bullets
+
+- **Action:** REPLACE  |  **Source:** SRC-PY-HANDBOOK, pages 222, 227-228, 234, 252, 258-261, 268-274, 281, 284-285, 289-291, 294-297
+- **2025 source state:** A Flask task API with four open routes and no validation, a FastAPI SaaS back end whose token helper uses datetime.utcnow(), modifies its argument and signs access and refresh tokens identically, secrets and a database URL as source literals, uploads saved under the client's file name, and security 'best practices' as bullet lists (pp. 222, 227-228, 234, 252, 258-261, 268-274, 281, 284-285, 289-291, 294-297; F-PYH-015, F-PYH-002).
+- **Verified state at 2026-10-14:** FastAPI 0.143.1 services whose bodies, queries and paths are validated, whose callers are authenticated with a pinned algorithm and an injectable clock, whose objects, functions and fields are authorised separately, whose SQL binds values and takes names from fixed tables, whose errors are problem documents that never echo input, and which are tested through the in-process client with a corpus of hostile input on five Python versions (R-100).
+- **Why:** A chapter that teaches an API without authentication, validation or tests, and treats the security of the result as a list of nouns, leaves the learner able to build something that works and cannot be defended; the catalog also lacked a module that assessed it (DEF-018).
+- **Destination:** PY-M10 (BUILT)
+- **Learner impact:** Learners build a ticket API and a multi-tenant inventory API that pass contract tests, an injection suite and a hidden review suite, and can say for each rule which attack it stops.
+- **Verification:** EXECUTED - PY-M10 lesson blocks, guided and independent labs executed on CPython 3.11-3.15 (tests/test_python_engineering_labs.py and the lab matrix)
+- **Evidence:**
+  - `F-PYH-015`: P1 The web-development chapter builds a CRUD API with no authentication or validation and teaches secrets in source, a token helper that changes its argument and uses a deprecated clock, one token for two purposes, uploads under a client-chosen name and security measures as unverified bullets
+  - `F-PYH-002`: P1 Automation examples teach insecure credential, TLS, SSH and shell patterns without warnings
+  - `R-100`: HTTP API behaviours by CPython version and library (FastAPI 0.143.1, Starlette 1.8.0, pydantic 2.14.1, PyJWT 2.15.1, httpx2 2.13.1), reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0 (FastAPI documentation (with the pydantic, PyJWT and Python documentation named in the lesson); EXECUTED; verified 2026-10-15) <https://fastapi.tiangolo.com/>
+  - `R-018`: datetime.datetime.utcnow() deprecation (reproduced) (Python Software Foundation; EXECUTED; verified 2026-10-14) <https://docs.python.org/3/library/datetime.html#datetime.datetime.utcnow>
+  - `probe:pyjwt-decode-algorithms`: executed probe, status OK, 2026-10-14T09:09:06Z, Python 3.13.16
+  - `probe:fastapi-on-event`: executed probe, status OK, 2026-10-14T09:08:31Z, Python 3.13.16
+
+### MC-PYH-26 - Capstone: a log monitor with no specification, tests, package or pipeline, and closing chapters made of bullet lists, interview questions and link lists
+
+- **Action:** REPLACE  |  **Source:** SRC-PY-HANDBOOK, pages 93-106, 645-654
+- **2025 source state:** A forty-line log monitor presented as production-grade (an alert for every line after the fifth, substring matches, naive time, a missing import, no tests, types, package or pipeline), three design patterns with mutable state, robustness and security bullets, interview questions, assignments that name a task, a module summary and link lists (pp. 93-106; F-PYH-016, F-PYH-007).
+- **Verified state at 2026-10-14:** A specified command-line application, authwatch, built in two parts: a walking skeleton that must pass a release gate (layout, metadata, offline build, wheel contents, clean install, mypy strict, ruff with the S rules, a pinned and least-privilege workflow, a lock file checked against advisories, hygiene, documents) and the application itself, graded by a hidden behavioural suite, a mutation check of the learner's own tests and a rubric (R-101).
+- **Why:** A project with no contract cannot be checked, and a closing chapter of topic lists is not evidence of a skill; the learner finishes the handbook with nothing that a hiring manager, a colleague or an auditor could run (DEF-020).
+- **Destination:** PY-M11 (BUILT)
+- **Learner impact:** Learners hand in an installable, typed, tested and documented application with a pipeline, a risk table and a characterisation of the script it replaces, and can say for each gate which mistake it would have caught.
+- **Verification:** EXECUTED - PY-M11 lesson blocks, the walking-skeleton gate, the published checks, the hidden suite and the mutation check executed on CPython 3.11-3.15 (tests/test_python_engineering_labs.py and the lab matrix)
+- **Evidence:**
+  - `F-PYH-016`: P2 The capstone project is a 40-line log monitor presented as production-grade: it raises an alert for every line after the fifth, matches substrings of prose, misses real events, uses naive local time, writes into a folder it does not create, calls a function it never imports, and has no test, type, package or pipeline; the closing chapters are bullet lists, interview questions and link lists
+  - `F-PYH-007`: P1 No graded assessment, rubric or capstone acceptance criteria
+  - `R-101`: Packaging, typing, test and pipeline tool behaviours for the Python Engineering capstone (coverage 7.16.2, types-PyYAML 6.0.12.20260906, mypy 2.4.0, ruff 0.17.0, build 1.6.1, setuptools 84.0.0, PyYAML 6.0.3, pytest 9.1.1), GitHub Actions security guidance, and standard-library behaviours reproduced on 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0 (GitHub Docs (secure use reference for GitHub Actions); the actions/checkout and actions/setup-python repositories; PyPI; the Python documentation; EXECUTED; verified 2026-10-15) <https://docs.github.com/en/actions/reference/security/secure-use>
   - `R-005`: Python Developer's Guide - Status of Python versions (Python Software Foundation; OFFICIAL_PAGE_SUMMARY; verified 2026-10-14) <https://devguide.python.org/versions/>
 
 ## New developments relevant to this course

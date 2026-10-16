@@ -59,3 +59,8 @@ mappings:
     disposition: CORRECTED
     new_content: "lesson.md sections 2 and 9; lab-guided steps C and D; lab-independent"
     note: "The skeletons contain no behaviour, and the Observer keeps its list on the class so that every subject shares it (executed). Replaced by working Strategy and Observer designs with unsubscribe, error isolation and weak references to bound methods, and by an independent lab that builds a rule engine on the same ideas. F-PYH-011."
+  - source_pages: [46]
+    source_topic: "31.15-31.16 Static methods (`@staticmethod def help()`) and 'real-world OOP use cases'"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 4.1 (class methods, static methods and alternative constructors)"
+    note: "Kept with the question the page does not ask: when a function belongs to a class and when it belongs to a module."

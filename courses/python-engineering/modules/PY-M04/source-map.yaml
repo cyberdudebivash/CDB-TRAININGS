@@ -19,3 +19,8 @@ mappings:
     disposition: REPLACED
     new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
     note: "Finding F-PYH-007: replaced by outcome-mapped items and a rubric-graded independent lab with automated checks."
+  - source_pages: [47]
+    source_topic: "33. Virtual environments: `python -m venv env`, activation commands for Windows and Linux"
+    disposition: RETAINED_IDEA
+    new_content: "lesson.md section 2 (isolated environments)"
+    note: "Kept and extended: the lesson executes creation, isolation and a clean install; activation is shown as a convenience and never required (the lessons call the environment's interpreter)."

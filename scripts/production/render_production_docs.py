@@ -233,15 +233,16 @@ class Renderer:
         course_rows = []
         for c in self.p.courses.values():
             cp = c["course_pdf"]
-            course_rows.append([c["id"], "built" if cp else "not built", cp.get("pdf_pages", "-") if cp else "-", "yes" if cp and cp.get("passed") else "no", "yes" if cp and set(cp.get("modules", [])) >= set(c["modules"]) else "no"])
+            course_rows.append([c["id"], ("built (" + str(cp.get("kind", "FINAL")).lower() + ")") if cp else "not built", cp.get("pdf_pages", "-") if cp else "-", "yes" if cp and cp.get("passed") else "no",
+                                "yes" if cp and set(cp.get("modules", [])) >= set(c["modules"]) else "no"])
         return "\n".join([
             "# PDF release integrity", "", HEADER,
-            "A *course edition* is the PDF built from the whole approved curriculum of a course. A module preview is not a course edition and cannot satisfy criterion A14. "
-            "A PDF built while any required module is missing fails the build gate.", "",
+            "A *course edition* is the PDF built from the whole approved curriculum of a course. A module preview is not a course edition and cannot satisfy criterion A14, and neither can a complete-course "
+            "*preview* (every module in one PDF, built from content that nobody has reviewed or approved). A PDF built while any required module is missing fails the build gate.", "",
             "## 1. Module student editions", "",
             md_table(["Module", "Edition", "Pages", "HTML sha256 (prefix)", "Passed gates", "Fresh vs sources"], mod_rows) if mod_rows else "No module edition is recorded in `docs/production/data/pdf_manifest.json`.", "",
             "## 2. Complete course editions", "", md_table(["Course", "Course PDF", "Pages", "Passed", "Contains every required module"], course_rows), "",
-            f"Complete course editions validated: {frac(self.t['course_pdfs_validated'], self.t['course_pdfs_required'])}.", "",
+            f"Complete course editions validated as final editions: {frac(self.t['course_pdfs_validated'], self.t['course_pdfs_required'])}.", "",
             "## 3. Gates every edition must pass", "",
             "- Built only from tracked source files whose sha256 values are recorded; a stale manifest (sources changed after the build) is not evidence.",
             "- Student edition contains no instructor key, answer or hidden-test content; the refusal list and forbidden markers are enforced by `scripts/build/build_student_edition.py`.",

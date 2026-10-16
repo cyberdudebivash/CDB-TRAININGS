@@ -9,9 +9,9 @@ Per-course quality-assurance status from the evidence files. Automated check res
 
 | Course | Modules built | Labs verified | Outcomes assessed | Source pages audited | Pages P0 / P1 | Pages needing visual review | Change records verified | Catalog qa_status | Catalog review_status |
 |---|---|---|---|---|---|---|---|---|---|
-| COURSE-FND-DIGITAL | 1 / 6 | 0 / 12 | 1 / 6 | - | 0 / 0 | 0 | 0 / 0 | PARTIAL | AUTOMATED_ONLY |
+| COURSE-FND-DIGITAL | 2 / 6 | 0 / 12 | 2 / 6 | - | 0 / 0 | 0 | 0 / 0 | PARTIAL | AUTOMATED_ONLY |
 | COURSE-SOC | 1 / 14 | 2 / 27 | 6 / 19 | 43 | 0 / 11 | 1 | 6 / 8 | PARTIAL | AUTOMATED_ONLY |
-| COURSE-PY-ENG | 11 / 13 | 22 / 25 | 11 / 13 | 654 | 2 / 12 | 1 | 21 / 24 | PARTIAL | AUTOMATED_ONLY |
+| COURSE-PY-ENG | 13 / 13 | 25 / 25 | 13 / 13 | 654 | 2 / 24 | 1 | 23 / 26 | PARTIAL | AUTOMATED_ONLY |
 | COURSE-PY-AUTO | 0 / 10 | 0 / 19 | 0 / 10 | 1,458 | 0 / 5 | 1 | 5 / 11 | NOT_RUN | NOT_REVIEWED |
 | COURSE-JAVA-QA | 0 / 10 | 0 / 19 | 0 / 10 | 709 | 0 / 1 | 1 | 5 / 10 | NOT_RUN | NOT_REVIEWED |
 | COURSE-AI-ENG | 0 / 12 | 0 / 23 | 0 / 12 | 937 | 0 / 10 | 1 | 8 / 9 | NOT_RUN | NOT_REVIEWED |
@@ -38,8 +38,8 @@ Source pages are audited by rules over **all** pages; only finding-cited pages w
 
 ### COURSE-FND-DIGITAL - Digital and Technical Foundations
 
-- Built modules: FND-M01.
-- Labs: 12 planned, 2 built, 0 verified executable.
+- Built modules: FND-M01, FND-M02.
+- Labs: 12 planned, 4 built, 0 verified executable.
 - Blocking findings: none.
 
 ### COURSE-SOC - SOC Analyst Professional Pathway
@@ -60,10 +60,10 @@ Source pages are audited by rules over **all** pages; only finding-cited pages w
 
 ### COURSE-PY-ENG - Python Engineering Pathway
 
-- Built modules: PY-M01, PY-M02, PY-M13, PY-M03, PY-M12, PY-M04, PY-M05, PY-M06, PY-M07, PY-M08, PY-M09.
-- Labs: 25 planned, 22 built, 22 verified executable.
-- Blocking findings: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007.
-- Source audit: 654 pages; severity P0 2, P1 12, P2 75, P3 14, P4 12, NONE 539; currency BASELINE_AVAILABLE 295, UNVERIFIED_CURRENCY 183, NO_TECHNOLOGY_DETECTED 167, CURRENCY_FLAGGED 9.
+- Built modules: PY-M01, PY-M02, PY-M13, PY-M03, PY-M12, PY-M04, PY-M05, PY-M06, PY-M07, PY-M08, PY-M09, PY-M10, PY-M11.
+- Labs: 25 planned, 25 built, 25 verified executable.
+- Blocking findings: F-PYH-001, F-PYH-002, F-PYH-003, F-PYH-007, F-PYH-015.
+- Source audit: 654 pages; severity P0 2, P1 24, P2 84, P3 12, P4 12, NONE 520; currency BASELINE_AVAILABLE 295, UNVERIFIED_CURRENCY 183, NO_TECHNOLOGY_DETECTED 167, CURRENCY_FLAGGED 9.
 - Open verification items: MC-PYH-01, MC-PYH-10, MC-PYH-11.
 - Lab matrix: PASS on CPython 3.11.17, CPython 3.12.3, CPython 3.13.16, CPython 3.14.8, CPython 3.15.0; not executed or failing: none.
 
@@ -73,6 +73,7 @@ Source pages are audited by rules over **all** pages; only finding-cited pages w
 | F-PYH-002 | P1 | Automation examples teach insecure credential, TLS, SSH and shell patterns without warnings |
 | F-PYH-003 | P1 | Packaging taught as `python setup.py sdist`; no pyproject.toml or build workflow |
 | F-PYH-007 | P1 | No graded assessment, rubric or capstone acceptance criteria |
+| F-PYH-015 | P1 | The web-development chapter builds a CRUD API with no authentication or validation and teaches secrets in source, a token helper that changes its argument and uses a deprecated clock, one token for two purposes, uploads under a client-chosen name and security measures as unverified bullets |
 
 ### COURSE-PY-AUTO - Python Automation Pathway
 

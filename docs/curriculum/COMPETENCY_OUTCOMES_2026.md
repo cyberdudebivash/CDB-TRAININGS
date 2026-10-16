@@ -9,12 +9,12 @@ Bloom classification is derived from the outcome's leading verb by a fixed table
 
 ## COURSE-FND-DIGITAL - Digital and Technical Foundations
 
-Outcomes total: **6**; assessed: **1**; labs planned/built/verified: 12/2/0; release status `REENGINEERING`.
+Outcomes total: **6**; assessed: **2**; labs planned/built/verified: 12/4/0; release status `REENGINEERING`.
 
 | Module | Level | Outcome (observable) | Bloom | Planned evidence | Lab / build state | Change records | Developments |
 |---|---|---|---|---|---|---|---|
 | FND-M01 | 0 | Navigate a Linux and a Windows file system and explain how permissions restrict access to a file. | Apply | Guided-lab automated checks plus a retrieval quiz | BUILT | - | - |
-| FND-M02 | 0 | Complete a file-management task using only shell commands and record the commands used. | Apply | Guided-lab automated checks plus a retrieval quiz | PLANNED | - | - |
+| FND-M02 | 0 | Execute a bounded diagnostic CLI, explain process exit statuses and record reproducible synthetic evidence. | Apply | Guided-lab automated checks plus a retrieval quiz | BUILT | - | - |
 | FND-M03 | 0 | Trace an HTTP request from browser to server and identify the DNS, TCP and HTTP steps in a packet capture. | Analyse | Guided-lab automated checks plus a retrieval quiz | PLANNED | - | - |
 | FND-M04 | 0 | Create a branch, commit a change and open a pull request in a practice repository. | Create | Guided-lab automated checks plus a retrieval quiz | PLANNED | - | - |
 | FND-M05 | 0 | Write a Python script with functions that passes a provided automated test suite. | Apply | Guided-lab automated checks plus a retrieval quiz | PLANNED | MC-PYH-01 | - |
@@ -43,7 +43,7 @@ Outcomes total: **19**; assessed: **6**; labs planned/built/verified: 27/2/2; re
 
 ## COURSE-PY-ENG - Python Engineering Pathway
 
-Outcomes total: **13**; assessed: **11**; labs planned/built/verified: 25/22/22; release status `REENGINEERING`.
+Outcomes total: **13**; assessed: **13**; labs planned/built/verified: 25/25/25; release status `REENGINEERING`.
 
 | Module | Level | Outcome (observable) | Bloom | Planned evidence | Lab / build state | Change records | Developments |
 |---|---|---|---|---|---|---|---|
@@ -58,8 +58,8 @@ Outcomes total: **13**; assessed: **11**; labs planned/built/verified: 25/22/22;
 | PY-M07 | 2 | Find and fix eight seeded vulnerabilities (injection, secrets, TLS, deserialisation) and add a regression test for each. | Analyse | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-04, MC-PYH-05, MC-PYH-06 | ND-PY-02 |
 | PY-M08 | 2 | Implement a repository layer using parameterised SQL, a versioned schema and atomic writes, and demonstrate that an injection attempt, a retry and a concurrent edit do not corrupt the data. | Apply | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-08, MC-PYH-23 | - |
 | PY-M09 | 3 | Identify the dominant bottleneck of a slow program with a profiler and cut its runtime by at least 30 percent without changing an answer, and prove it with tests that do not depend on the speed of the machine. | Understand | Capstone or multi-source case with a written decision record, graded against a published rubric | VERIFIED_EXECUTABLE | MC-PYH-24 | ND-PY-01 |
-| PY-M10 | 2 | Build a typed HTTP API with request validation and authentication that passes contract tests and an injection test suite. | Create | Independent lab graded by automated criteria and a reviewer rubric | PLANNED | MC-PYH-06, MC-PYH-08 | - |
-| PY-M11 | 3 | Deliver a packaged application whose tests, type checks and security scan pass in a clean environment. | Create | Capstone or multi-source case with a written decision record, graded against a published rubric | PLANNED | MC-PYH-14 | - |
+| PY-M10 | 2 | Build a typed HTTP API with request validation and authentication that passes contract tests and an injection test suite, and a multi-tenant API that survives a hidden review suite. | Create | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-06, MC-PYH-08, MC-PYH-25 | - |
+| PY-M11 | 3 | Deliver a packaged application whose tests, type checks and security scan pass in a clean environment, whose behaviour passes a hidden suite and whose own tests detect seeded defects. | Create | Capstone or multi-source case with a written decision record, graded against a published rubric | VERIFIED_EXECUTABLE | MC-PYH-14, MC-PYH-26 | - |
 
 ## COURSE-PY-AUTO - Python Automation Pathway
 

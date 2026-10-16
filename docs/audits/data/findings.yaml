@@ -583,6 +583,49 @@ findings:
     recommendation: "Teach measurement first (perf_counter, timeit with the minimum of repeats, cProfile and pstats, the 3.15 sampling profiler), Amdahl's law, algorithmic fixes proved equivalent, tracemalloc, the real meaning of reference counts, cycles, interning and slots, performance tests built from counts and size ratios, and a core/edge structure with a dependency rule enforced by a test."
     remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M09 (courses/python-engineering/modules/PY-M09)"}
 
+  - id: F-PYH-015
+    source_id: SRC-PY-HANDBOOK
+    severity: P1
+    dimension: technical_correctness
+    title: "The web-development chapter builds a CRUD API with no authentication or validation and teaches secrets in source, a token helper that changes its argument and uses a deprecated clock, one token for two purposes, uploads under a client-chosen name and security measures as unverified bullets"
+    evidence:
+      - {page: 259, note: "`create_task` stores `data[\"title\"]` from `request.get_json()` with no validation and no authentication (pp. 259-260: create, read all, update, delete)."}
+      - {page: 260, note: "`update_task` and `delete_task` call `Task.query.get(id)` and use the result without checking for None (a missing id is an exception, not a 404); every route is open to any caller."}
+      - {page: 227, note: "`app.config['SECRET_KEY'] = 'cyberdudebivash_secret'` (also p. 274: `\"DUDExBIVASH\"`) and `app.run(debug=True)` (p. 228)."}
+      - {page: 268, note: "`DATABASE_URL = \"postgresql://admin:password@localhost/saasdb\"` in source."}
+      - {page: 270, note: "`create_token` builds the expiry with `datetime.utcnow()` (deprecated from Python 3.12) and calls `data.update(...)` on the dictionary it was given; the signing secret is the literal `\"CYBERDUDEBIVASH_SECRET\"` (p. 269)."}
+      - {page: 290, note: "The refresh token is signed with the same secret and verified by the same `verify_token` as an access token: nothing in the claims says which kind it is."}
+      - {page: 234, note: "File upload saves under `os.path.join(UPLOAD_FOLDER, file.filename)` with the client-supplied name (also p. 258)."}
+      - {page: 261, note: "Search passes `request.args.get(\"q\")`, which may be absent, straight to `Contact.name.contains(q)` with no validation or length limit."}
+      - {page: 285, note: "A multi-tenant model declares `tenant_id` and a `require_role` helper; no query in the chapter filters by tenant."}
+      - {page: 294, note: "A single `/health` route is used as the Kubernetes readiness probe."}
+      - {page: 281, note: "Security 'best practices' (SQL injection and CSRF protection, validate all inputs, hide debug mode) are bullets with no code and no test; p. 295 repeats them ('Use SQLAlchemy ORM (no raw SQL)')."}
+      - {page: 297, note: "The JWT is kept in `localStorage`, readable by any script on the page."}
+    verification: EXECUTED
+    detail: "Read in the page text; the Python-side claims were executed on CPython 3.11-3.15 (PY-M10 lesson, R-100): datetime.utcnow() warns from 3.12 and create_token's `exp` appears in the caller's dictionary; a 30-day token verifies exactly as a 1-hour token; FastAPI's default 422 body repeats the rejected input; unknown fields are dropped; `pattern` is a search; os.path.join discards the base for an absolute second part; int() accepts '01', '+1', '1_0' and ' 1'. The framework-side claims about Flask-SQLAlchemy `contains`, `Task.query.get` and the front-end storage were read, not executed (Flask is not part of the course dependencies) and are worded as what the page shows."
+    recommendation: "Teach the API as a service that is attacked: validated bodies, queries and paths; authentication that pins the algorithm and reads time from an injectable clock; authorisation at object, function and field level; parameterised SQL with fixed tables for names; a problem-details error shape that never echoes input; configuration that fails closed; an audit trail without content; and an injection suite that runs on every change."
+    remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M10 (courses/python-engineering/modules/PY-M10)"}
+
+  - id: F-PYH-016
+    source_id: SRC-PY-HANDBOOK
+    severity: P2
+    dimension: technical_correctness
+    title: "The capstone project is a 40-line log monitor presented as production-grade: it raises an alert for every line after the fifth, matches substrings of prose, misses real events, uses naive local time, writes into a folder it does not create, calls a function it never imports, and has no test, type, package or pipeline; the closing chapters are bullet lists, interview questions and link lists"
+    evidence:
+      - {page: 93, note: "The project is announced as 'Reads live logs' and 'Production-grade folder structure' (p. 93); the code reads a finished file from start to end."}
+      - {page: 95, note: "`analyze` returns the first keyword of [\"ERROR\", \"FAILED\", \"CRITICAL\"] that is a substring of the line (`if key in line`): `RETRY_FAILED_COUNT=0` and `CRITICALITY=low` match, `error: disk full` and `Failed password for root` do not."}
+      - {page: 96, note: "`send_alert` prints `datetime.now()`: naive local time with no zone; `write_summary` opens `reports/summary.txt` for writing and does not create `reports/` (the tree on p. 94 lists the folder)."}
+      - {page: 97, note: "`main.py` alerts `if counts[match] >= ALERT_THRESHOLD` (threshold 5): every matching line from the fifth on raises an alert (100 identical errors give 96 alerts), and `write_summary` is called without being imported (a NameError after the loop)."}
+      - {page: 98, note: "The project 'could run in: SOC, Server, DevOps environment, Cloud system, Automation pipeline'; it has no test, no type annotation, no package metadata and no pipeline."}
+      - {page: 101, note: "'Robust code' and 'security best practices' (including bandit and pip-audit) are bullet lists with no code, no configuration and no check; p. 102 repeats them."}
+      - {page: 102, note: "Python interview preparation is a list of questions with one-line answers."}
+      - {page: 104, note: "The module summary is a checklist of topics; the five assignments (p. 105) name a task and nothing else: no input format, no failure behaviour, no acceptance check."}
+      - {page: 106, note: "'Bonus resources' is a list of sites and documents that were not checked."}
+    verification: EXECUTED
+    detail: "The project of pp. 93-97 was executed as printed on CPython 3.11.17, 3.12.3, 3.13.16, 3.14.8 and 3.15.0 (PY-M11 lesson section 2, R-101): 100 identical error lines raise 96 alerts; the three substring matches and the two missed events above; the alert time has no tzinfo; opening reports/summary.txt in a folder without reports/ raises FileNotFoundError; the main of p. 97, compiled with exactly the names that the page imports, ends with a NameError for write_summary. 'Reads live logs' is a statement about the code, which opens a path and iterates to end of file: that is a reading of the code, not a measurement. The claims about the closing chapters are readings of the page text. Nothing here says the author's intent was other than teaching; the finding is that the project is presented as production-grade and is not."
+    recommendation: "Teach the capstone as a specified, packaged, tested and operated application: characterise the script before changing it; write a specification with a decision for every observed behaviour; build a package that installs from a wheel and runs from elsewhere; test through the public interface and grade the tests by mutation; bound every read of untrusted input; load configuration with a safe parser; keep input text out of diagnostics; write output atomically with a restrictive mode; check the supply chain and the pipeline; and assess the result with a hidden suite, a mutation check and a rubric instead of a list of topics."
+    remediation: {status: PLANNED_IN_TRACK, where: "Module PY-M11 (courses/python-engineering/modules/PY-M11)"}
+
   # ------------------------------------------------------------------------- Python Automation Training
   - id: F-PYA-001
     source_id: SRC-PY-AUTOMATION

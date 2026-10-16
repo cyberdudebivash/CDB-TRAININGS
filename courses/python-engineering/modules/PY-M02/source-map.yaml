@@ -24,3 +24,8 @@ mappings:
     disposition: REPLACED
     new_content: "assessment/quiz.yaml, assessment/rubric.yaml, lab-independent"
     note: "Finding F-PYH-007: recall questions replaced by outcome-mapped items and a rubric-graded independent lab with automated mutant detection."
+  - source_pages: [62]
+    source_topic: "41. Python debugging: `import pdb; pdb.set_trace()` and the commands n, s, c, l, q"
+    disposition: DROPPED
+    new_content: "not covered by PY-M02"
+    note: "Reading a traceback is taught in PY-M01 section 2 and a failing test that reproduces a defect in PY-M02 sections 4 to 6; the interactive debugger is a tool-interface topic that is not covered and no replacement is claimed."
