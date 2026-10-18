@@ -19,6 +19,7 @@ destination that is itself unbuilt, and offensive tooling is not carried by any 
 python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt -r courses/python-engineering/labs/requirements.txt
 pytest tests --ignore=tests/test_python_engineering_labs.py        # structure, registers, Gate A, edition builds: minutes
 python scripts/validation/run_lab_matrix.py --resume               # every lab and lesson on CPython 3.11-3.15 in fresh environments: hours; needs network for pip only
+python scripts/validation/run_lab_matrix.py --resume --reuse-record  # after a change: only the pieces whose scope changed run again (minutes)
 python scripts/validation/render_lab_evidence.py                   # docs/qa/LAB_EXECUTION_EVIDENCE.md from the recorded run
 python scripts/validation/validate_gate_a.py                       # no status, review or scenario claims more than the evidence supports
 python scripts/production/render_production_docs.py --check        # generated documents agree with the data
@@ -49,7 +50,7 @@ The gate itself has a negative control for every gate (a damaged copy of the ref
 ## 5. What is NOT done
 
 - No subject-matter, editorial or learner review exists; no rubric, quiz item or lab has been piloted with a person. The adversarial reviews recorded in `docs/production/data/adversarial_reviews.yaml` were performed by the assistant, are labelled as such, and are not human review.
-- The lab matrix ran on CPython 3.11 to 3.15 on Linux in fresh environments: 220 tests on 3.11 and 3.12, 222 on 3.13 to 3.15 (two unit tests were added between the runs; the notes in `docs/qa/data/lab_matrix_notes.yaml` say why that does not change what was executed) and one piece failed once on 3.13 after a container restart (cause probable, not proven; the mutation tests now run a surviving defect a second time).
+- The lab matrix ran on CPython 3.11 to 3.15 on Linux in fresh environments: 261 tests on each interpreter on the merged tree, of which seven lab pieces were carried from an earlier full run of identical scope (`--reuse-record`; listed in `docs/qa/LAB_EXECUTION_EVIDENCE.md`). One piece failed once on 3.13 in an earlier attempt after a container restart (cause probable, not proven; the mutation tests now run a surviving defect a second time). Run the matrix without `--reuse-record` after 2026-10-24.
 - The October 24 technical refresh has not been executed (it cannot be before that date) and nothing here claims it.
 - The complete-course PDF is a **preview** built from unreviewed content; a final edition needs the approved curriculum (Gate A criteria A17 to A19). Module previews and the course preview are build outputs in the git-ignored `dist/` folder, not published files.
 - Source provenance and licensing (D4) are unresolved, and the privacy incident INC-001 (third-party personal data in a source file of another course, in the public tree and its history) is `OPEN_OWNER_ACTION`; no history was rewritten.

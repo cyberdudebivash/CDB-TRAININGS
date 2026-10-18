@@ -8,22 +8,22 @@
 
 ### REPOSITORY STATE
 - Courses in the catalog: 10; modules required by the approved catalog: 113; planned labs: 217; planned learning outcomes: 118.
-- Branch content recomputed from files at the latest lab-matrix commit `52ed97e6c141`; the matrix covers 5 interpreters.
+- Branch content recomputed from files at the latest lab-matrix commit `3e8fd6b050ca`; the matrix covers 5 interpreters.
 
 ### CONTENT STATE
-- Modules implemented (all required files present): 17 of 113 (15%); technically verified: 16 of 113 (14%).
-- Module states: NOT_STARTED 95, IN_PROGRESS 1, IMPLEMENTED_UNVERIFIED 1, TECHNICALLY_VERIFIED 14, REVIEW_REQUIRED 2.
-- Substantive executed lessons: 16 of 113 (14%).
-- Labs verified executable: 27 of 217 (12%); outcomes assessed: 22 of 118 (19%).
+- Modules implemented (all required files present): 18 of 113 (16%); technically verified: 18 of 113 (16%).
+- Module states: NOT_STARTED 94, IN_PROGRESS 1, TECHNICALLY_VERIFIED 16, REVIEW_REQUIRED 2.
+- Substantive executed lessons: 18 of 113 (16%).
+- Labs verified executable: 27 of 217 (12%); outcomes assessed: 23 of 118 (19%).
 - Source pages with a recorded module disposition: 674 of 8186 (8%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
-- Python Engineering: 13 of 13 catalog modules implemented, score 89.7 of 100, state TECHNICALLY_VERIFIED.
+- Python Engineering: 13 of 13 catalog modules implemented, score 90.5 of 100, state TECHNICALLY_VERIFIED.
 
 ### OPERATIONS STATE
 - Operational scenarios technically verified: 12 of 89 (13%); scenario states: IN_PROGRESS 3, NOT_STARTED 74, TECHNICALLY_VERIFIED 12.
 - Courses with at least one verified time-dependent scenario (CONTROLLED_LIVE or REPLAY_SIMULATION): 2 of 10 (20%); EXTERNAL_LIVE scenarios: 0.
 
 ### PUBLICATION STATE
-- Complete course PDF editions validated: 0 of 10 (0%); module student editions passing every gate: 16 (this file reports the committed manifest, not a file on disk).
+- Complete course PDF editions validated: 0 of 10 (0%); module student editions passing every gate: 18 (this file reports the committed manifest, not a file on disk).
 - Nothing has been published, deployed, sold or priced. Instructor material is not in the public repository.
 
 ### RELEASE STATE

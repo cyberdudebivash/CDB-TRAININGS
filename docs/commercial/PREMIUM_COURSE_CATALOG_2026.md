@@ -10,17 +10,17 @@ Every edition, when it exists, must disclose these items on its front matter: co
 
 ## Digital and Technical Foundations
 
-- Course id `COURSE-FND-DIGITAL`, catalog version `0.3.0-build`, audience: Career changers and students with basic computer literacy and no technical background.
+- Course id `COURSE-FND-DIGITAL`, catalog version `0.4.0-build`, audience: Career changers and students with basic computer literacy and no technical background.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Digital and Technical Foundations — October 2026 Premium Edition`
 - Planned duration 32 hours across 6 modules (planning estimate, not measured learner time); capstone: Automate a small file-reporting task in a Git repository, with tests, a README and a pull request reviewed against a checklist.
-- State today: 3 of 6 modules built; labs verified 0 of 12; release status `REENGINEERING`; evidence index 12.5 / 100.
+- State today: 4 of 6 modules built; labs verified 0 of 12; release status `REENGINEERING`; evidence index 16.7 / 100.
 - Unmet readiness fields: Research currency, Technical correctness, Curriculum completeness, Lab readiness, Assessment readiness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
 
 | Item | Value |
 |---|---|
-| Content revision date | 2026-10-14 (latest catalog verification; built modules carry their own `last_verified`) |
+| Content revision date | 2026-10-16 (latest catalog verification; built modules carry their own `last_verified`) |
 | Research verification date | Stage A 2026-10-14; Stage B 2026-10-24 `PENDING_FUTURE_REFRESH` |
 | Technical baseline | no verified baseline (net-new course; fixed when its modules are built) |
 | Unverified external changes | none recorded |
@@ -32,7 +32,7 @@ Edition disclosure (values today):
 | FND-M02 | Command-line fundamentals | 0 | 5 | BUILT |
 | FND-M03 | Networking and HTTP basics | 0 | 6 | BUILT |
 | FND-M04 | Git and GitHub workflow | 0 | 4 | PLANNED |
-| FND-M05 | Programming fundamentals with Python | 0 | 10 | PLANNED |
+| FND-M05 | Programming fundamentals with Python | 0 | 10 | BUILT |
 | FND-M06 | Troubleshooting and safe computing | 0 | 3 | PLANNED |
 
 ## SOC Analyst Professional Pathway
@@ -75,7 +75,7 @@ Edition disclosure (values today):
 - Course id `COURSE-PY-ENG`, catalog version `0.1.0-build`, audience: Developers and analysts who need production-quality Python; Learners continuing from Digital Foundations.
 - Reserved edition title (**not usable**): `CYBERDUDEBIVASH — Python Engineering Pathway — October 2026 Premium Edition`
 - Planned duration 112 hours across 13 modules (planning estimate, not measured learner time); capstone: A typed, tested, documented, packaged Python application with continuous validation and a dependency/security scan.
-- State today: 13 of 13 modules built; labs verified 25 of 25; release status `REENGINEERING`; evidence index 61.1 / 100.
+- State today: 13 of 13 modules built; labs verified 25 of 25; release status `REENGINEERING`; evidence index 61.5 / 100.
 - Unmet readiness fields: Research currency, Technical correctness, Editorial review, IP / licensing, Human approval.
 
 Edition disclosure (values today):
@@ -85,7 +85,7 @@ Edition disclosure (values today):
 | Content revision date | 2026-10-14 (latest catalog verification; built modules carry their own `last_verified`) |
 | Research verification date | Stage A 2026-10-14; Stage B 2026-10-24 `PENDING_FUTURE_REFRESH` |
 | Technical baseline | python 3.15.0 (2026-10-09); pip 26.2.1 (2026-08-04); flask 3.1.3 (2026-02-19); requests 2.34.2 (2026-05-14); fastapi 0.143.0 (2026-10-08); docker 29.9.0 (2026-10-08); kubernetes 1.37.1 (2026-09-23); spark 4.2.0 (2026-07-14) |
-| Unverified external changes | MC-PYH-01, MC-PYH-10, MC-PYH-11 (see the course change log) |
+| Unverified external changes | MC-PYH-10, MC-PYH-11 (see the course change log) |
 | Next review date (proposed) | 2026-10-24 (Stage B), then at least every 90 days |
 
 | Module | Title | Level | Hours | State |

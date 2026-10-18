@@ -163,6 +163,8 @@ def test_the_matrix_pieces_cover_every_test_exactly_once():
     everything = collected(module.SUITES, None)
     pieces = [test for _, files, expr in module.chunks() for test in collected(files, expr)]
     assert len(everything) > 200 and sorted(pieces) == sorted(everything), (len(everything), len(pieces))      # a test in no piece would never be recorded; one in two pieces would be recorded twice
+    wrong = [(name, test) for name, files, expr in module.chunks() for test in collected(files, expr) if module.chunk_of(test) != name]
+    assert wrong == [], wrong[:5]                                   # chunk_of is how a recorded run is cut back into its pieces: it must agree with the -k expressions
 
 
 def test_an_interrupted_matrix_run_resumes_only_with_identical_content(tmp_path):
@@ -283,3 +285,73 @@ def test_every_flagged_source_page_has_a_recorded_visual_inspection_that_is_not_
     extra = copy.deepcopy(baseline.visual)
     extra["pages"].append({"source": "SRC-PY-HANDBOOK", "page": 2, "content_type": "cover", "summary": "x", "disposition": "y"})
     assert any("not a flagged page" in f for f in V.check_visual_review(G.Portfolio({"visual": extra})))
+
+
+def test_the_matrix_runner_restores_sigint_that_a_background_launch_ignored():
+    """Started with SIGINT ignored (as `( cmd & )` does), the runner must hand a default SIGINT to everything below it, or the Ctrl-C tests of the labs fail for a reason that has nothing to do with the content."""
+    import signal
+    import subprocess
+    import sys
+
+    script = ("import sys, signal, subprocess; sys.path.insert(0, 'scripts/validation'); import launch_env as m\n"
+              "print(m.restore_default_sigint())\n"
+              "print(subprocess.run([sys.executable, '-c', 'import signal;print(signal.getsignal(signal.SIGINT) is signal.default_int_handler)'], capture_output=True, text=True).stdout.strip())\n"
+              "print(m.restore_default_sigint())")
+    ignoring = subprocess.run([sys.executable, "-c", script], cwd=ROOT, capture_output=True, text=True, preexec_fn=lambda: signal.signal(signal.SIGINT, signal.SIG_IGN))
+    assert ignoring.stdout.split() == ["True", "True", "False"], ignoring
+    normal = subprocess.run([sys.executable, "-c", script], cwd=ROOT, capture_output=True, text=True, preexec_fn=lambda: signal.signal(signal.SIGINT, signal.SIG_DFL))
+    assert normal.stdout.split() == ["False", "True", "False"], normal
+
+
+def _matrix_module():
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("run_lab_matrix", ROOT / "scripts" / "validation" / "run_lab_matrix.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_a_piece_is_reused_only_for_an_identical_scope():
+    m = _matrix_module()
+    fps = {"PY-M09": "a", "PY-M10": "b", "FND-M01": "c"}
+    hashes = {f: "h" for f in m.SUITES}
+    labs_m10 = next((name, files, expr) for name, files, expr in m.chunks() if name == "labs-m10")
+    base = m.piece_scope(*labs_m10, fps, {}, hashes)
+    assert base == m.piece_scope(*labs_m10, dict(fps), {}, dict(hashes))
+    assert base == m.piece_scope(*labs_m10, {**fps, "FND-M01": "other", "FND-M05": "new"}, {}, hashes)         # a module that the piece does not run does not matter
+    assert base != m.piece_scope(*labs_m10, {**fps, "PY-M10": "changed"}, {}, hashes)                         # the module it runs does
+    assert base != m.piece_scope(*labs_m10, fps, {"PY-M10": "pack"}, hashes)                                  # and so does its private pack
+    assert base != m.piece_scope(*labs_m10, fps, {}, {**hashes, "tests/test_python_engineering_labs.py": "edited"})   # and its test file
+    packs = next((name, files, expr) for name, files, expr in m.chunks() if name == "module-packs")
+    assert m.piece_scope(*packs, fps, {}, hashes) != m.piece_scope(*packs, {**fps, "FND-M05": "new"}, {}, hashes)   # pieces that read the whole tree are run again for any new module
+    fnd = next((name, files, expr) for name, files, expr in m.chunks() if name == "foundations")
+    assert m.piece_scope(*fnd, fps, {}, hashes) != m.piece_scope(fnd[0], [*fnd[1], "tests/test_fnd_m99.py"], fnd[2], fps, {}, {**hashes, "tests/test_fnd_m99.py": "h"})
+
+
+def test_carried_pieces_are_rebuilt_only_from_a_record_that_agrees_with_itself():
+    m = _matrix_module()
+    tests = [{"id": "tests/test_module_packs::test_a[PY-M01]", "outcome": "passed"}, {"id": "tests/test_python_engineering_labs::test_m10_guided_x", "outcome": "passed"},
+             {"id": "tests/test_python_engineering_labs::test_something_else", "outcome": "passed"}, {"id": "tests/test_fnd_m01::test_f", "outcome": "passed"}]
+    assert [m.chunk_of(t["id"]) for t in tests] == ["module-packs", "labs-m10", "labs-other", "foundations"]
+    suites = ["tests/test_python_engineering_labs.py", "tests/test_module_packs.py", "tests/test_fnd_m01.py"]
+    pieces = [{"name": "module-packs", "exit": 0, "duration_s": 1.0, "tests": 1}, {"name": "labs-m10", "exit": 0, "duration_s": 2.0, "tests": 1},
+              {"name": "labs-other", "exit": 0, "duration_s": 0.5, "tests": 1}, {"name": "foundations", "exit": 0, "duration_s": 0.5, "tests": 1}]
+    record = {"commit": "abc", "run_utc": "t", "suites": suites, "fingerprints": {"PY-M10": "x"}, "private_fingerprints": {}, "suite_hashes": {f: "h" for f in suites},
+              "interpreters": [{"requested": "3.13", "python": "3.13.16", "status": "PASS", "pieces": pieces, "tests": tests, "skipped": []}]}
+    got = m.carried_pieces(record)["3.13"]
+    assert sorted(got) == ["foundations", "labs-m10", "labs-other", "module-packs"] and got["labs-m10"]["result"]["carried_from"] == "abc (t)"
+    assert m.usable_carry(got["labs-m10"], got["labs-m10"]["scope_id"], "3.13.16")
+    assert not m.usable_carry(got["labs-m10"], got["labs-m10"]["scope_id"], "3.13.17")                          # another interpreter build
+    assert not m.usable_carry(got["labs-m10"], "0" * 64, "3.13.16")                                              # another scope
+    assert not m.usable_carry(None, "x", "y")
+    short = json.loads(json.dumps(record))
+    short["interpreters"][0]["pieces"][1]["tests"] = 2                                                         # the record does not agree with itself
+    assert "labs-m10" not in m.carried_pieces(short)["3.13"]
+    failed = json.loads(json.dumps(record))
+    failed["interpreters"][0]["tests"][1]["outcome"] = "failed"
+    assert "labs-m10" not in m.carried_pieces(failed).get("3.13", {})
+    failed_exit = json.loads(json.dumps(record))
+    failed_exit["interpreters"][0]["pieces"][1]["exit"] = 1
+    assert "labs-m10" not in m.carried_pieces(failed_exit)["3.13"]
+    assert m.carried_pieces({**record, "suite_hashes": {}, "commit": "0" * 40}) == {}                           # no hashes and no commit to read them from: nothing is carried

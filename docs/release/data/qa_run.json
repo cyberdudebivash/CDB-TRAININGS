@@ -1,6 +1,6 @@
 {
   "branch": "claude/cyberdudebivash-training-audit-ilfgze",
-  "commit": "4e4700ffaf7d",
+  "commit": "791d2caec2bc",
   "fingerprints": {
     "SOC-M04": "7882c0840f77f0ec999fbe3150aa0b2a32c4cf510e3c90af0bc47b6e46bbbc79"
   },
@@ -92,7 +92,7 @@
       "title": "Gate A acceptance documents (docs/production/) reproduce from the evidence"
     },
     {
-      "detail": "346 passed, 0 failed, 0 errors, 0 skipped",
+      "detail": "515 passed, 0 failed, 0 errors, 0 skipped",
       "id": "pytest",
       "skipped": [],
       "status": "PASS",
@@ -157,7 +157,7 @@
           "errors": 0,
           "failed": 0,
           "module": "tests/test_build_student_edition",
-          "passed": 33,
+          "passed": 39,
           "skipped": 0
         },
         {
@@ -170,8 +170,43 @@
         {
           "errors": 0,
           "failed": 0,
+          "module": "tests/test_fnd_m01",
+          "passed": 5,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/test_fnd_m02",
+          "passed": 6,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/test_fnd_m03",
+          "passed": 6,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/test_fnd_m04",
+          "passed": 6,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
           "module": "tests/test_gate_a",
-          "passed": 28,
+          "passed": 34,
+          "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/test_learner_dry_run",
+          "passed": 6,
           "skipped": 0
         },
         {
@@ -185,7 +220,7 @@
           "errors": 0,
           "failed": 0,
           "module": "tests/test_module_packs",
-          "passed": 65,
+          "passed": 121,
           "skipped": 0
         },
         {
@@ -206,7 +241,7 @@
           "errors": 0,
           "failed": 0,
           "module": "tests/test_python_engineering_labs",
-          "passed": 47,
+          "passed": 104,
           "skipped": 0
         },
         {
@@ -215,18 +250,25 @@
           "module": "tests/test_repo_hygiene",
           "passed": 23,
           "skipped": 0
+        },
+        {
+          "errors": 0,
+          "failed": 0,
+          "module": "tests/test_track_starter_labs",
+          "passed": 15,
+          "skipped": 0
         }
       ],
       "tail": [
-        "........................................................................ [ 83%]",
-        "..........................................................               [100%]",
-        "346 passed in 480.76s (0:08:00)"
+        "........................................................................ [ 97%]",
+        "...........                                                              [100%]",
+        "515 passed in 3388.56s (0:56:28)"
       ],
       "title": "Full pytest suite",
       "totals": {
         "errors": 0,
         "failed": 0,
-        "passed": 346,
+        "passed": 515,
         "skipped": 0
       }
     },
@@ -249,6 +291,6 @@
       "title": "Student-edition build (HTML + tagged PDF, strict gates)"
     }
   ],
-  "run_utc": "2026-10-15 09:19",
-  "working_tree_dirty": true
+  "run_utc": "2026-10-16 14:24",
+  "working_tree_dirty": false
 }

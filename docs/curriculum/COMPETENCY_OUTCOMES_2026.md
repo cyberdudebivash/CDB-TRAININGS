@@ -9,15 +9,15 @@ Bloom classification is derived from the outcome's leading verb by a fixed table
 
 ## COURSE-FND-DIGITAL - Digital and Technical Foundations
 
-Outcomes total: **6**; assessed: **3**; labs planned/built/verified: 12/6/0; release status `REENGINEERING`.
+Outcomes total: **6**; assessed: **4**; labs planned/built/verified: 12/8/0; release status `REENGINEERING`.
 
 | Module | Level | Outcome (observable) | Bloom | Planned evidence | Lab / build state | Change records | Developments |
 |---|---|---|---|---|---|---|---|
 | FND-M01 | 0 | Navigate a Linux and a Windows file system and explain how permissions restrict access to a file. | Apply | Guided-lab automated checks plus a retrieval quiz | BUILT | - | - |
 | FND-M02 | 0 | Execute a bounded diagnostic CLI, explain process exit statuses and record reproducible synthetic evidence. | Apply | Guided-lab automated checks plus a retrieval quiz | BUILT | - | - |
-| FND-M03 | 0 | Observe a controlled local TCP/HTTP exchange and distinguish that evidence from synthetic DNS and TLS failure records. | Unclassified | Guided-lab automated checks plus a retrieval quiz | BUILT | - | - |
+| FND-M03 | 0 | Classify a controlled local TCP/HTTP exchange as observed evidence and distinguish it from synthetic DNS and TLS failure records. | Analyse | Guided-lab automated checks plus a retrieval quiz | BUILT | - | - |
 | FND-M04 | 0 | Create a branch, commit a change and open a pull request in a practice repository. | Create | Guided-lab automated checks plus a retrieval quiz | PLANNED | - | - |
-| FND-M05 | 0 | Write a Python script with functions that passes a provided automated test suite. | Apply | Guided-lab automated checks plus a retrieval quiz | PLANNED | MC-PYH-01 | - |
+| FND-M05 | 0 | Validate synthetic data, produce deterministic reports and test a learner-authored Python implementation. | Evaluate | Guided-lab automated checks plus a retrieval quiz | BUILT | MC-PYH-01 | - |
 | FND-M06 | 0 | Diagnose a deliberately broken script from its error output and describe the fix and the safe-lab rules followed. | Analyse | Guided-lab automated checks plus a retrieval quiz | PLANNED | - | - |
 
 ## COURSE-SOC - SOC Analyst Professional Pathway
@@ -51,7 +51,7 @@ Outcomes total: **13**; assessed: **13**; labs planned/built/verified: 25/25/25;
 | PY-M02 | 1 | Write parametrised pytest tests that detect three seeded defects in a provided module. | Apply | Guided-lab automated checks plus a short rubric-scored artefact | VERIFIED_EXECUTABLE | MC-PYH-15, MC-PYH-17 | - |
 | PY-M13 | 2 | Build a lazy stream-processing toolkit whose generators, decorators and context managers consume only what they need and release every resource on every path, verified by tests that count consumption. | Create | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-22 | - |
 | PY-M03 | 2 | Refactor a script into a typed package that passes a static type checker without errors. | Apply | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
-| PY-M12 | 2 | Model a small domain with frozen value types, per-instance state, injected behaviour and an event bus, and keep every rule true under a hidden suite that tests equality, immutability, isolation and refusal. | Create | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-21 | - |
+| PY-M12 | 2 | Model a small domain with frozen value types, per-instance state, injected behaviour and an event bus, and keep every rule true under a hidden suite that tests equality, immutability, isolation and refusal. | Create | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-01, MC-PYH-21 | - |
 | PY-M04 | 2 | Build, install and import a wheel produced with python -m build in a clean virtual environment. | Create | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
 | PY-M05 | 2 | Consume a paginated API fixture with retries and timeouts and validate every response against a schema. | Apply | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-19 | - |
 | PY-M06 | 2 | Reduce the runtime of an I/O-bound job with asyncio and prove the speed-up with a benchmark. | Evaluate | Independent lab graded by automated criteria and a reviewer rubric | VERIFIED_EXECUTABLE | MC-PYH-16, MC-PYH-20 | ND-PY-02 |
@@ -194,11 +194,10 @@ Outcomes total: **14**; assessed: **0**; labs planned/built/verified: 27/0/0; re
 
 | Bloom level | Modules |
 |---|---|
-| Apply | 47 |
+| Apply | 46 |
 | Create | 34 |
-| Analyse | 17 |
-| Evaluate | 11 |
+| Analyse | 18 |
+| Evaluate | 12 |
 | Understand | 3 |
-| Unclassified | 1 |
 
 A portfolio that is mostly `Apply` and `Analyse` with `Create` at capstones matches the framework's intent that performance, not recall, is assessed. Outcome counts in the catalog (`outcomes_total`) include capstone sub-outcomes that are not separate rows here.

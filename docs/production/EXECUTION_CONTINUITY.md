@@ -32,7 +32,7 @@
 
 | Cycle | Date | Done | Next |
 |---|---|---|---|
-| C-03 | 2026-10-16 | Python Engineering completed to TECHNICALLY_VERIFIED: PY-M10 (secure HTTP services; 432 guided and 274 required independent seeded defects killed) and PY-M11 (capstone; 13-gate release gate with a negative control per gate, 585-case hidden suite, 312 of 312 required seeded defects killed) installed; lab matrix 13 passes on CPython 3.11-3.15 (220/220/222/222/222 tests, none failed or skipped); 10 of 10 operational scenarios technically verified; 654 of 654 handbook pages with a disposition; 16 module editions and one course PREVIEW (397 pages) built; two model-performed adversarial reviews recorded (PY-M10, PY-M11), not human review. COURSE-PY-ENG is TECHNICALLY_VERIFIED, not TRAINING_CONTENT_GO; 0 of 10 courses are. | Owner: D4 licence and provenance, D8 private repository for instructor material, INC-001 purge decision, named SME and editorial reviewers, a real learner pilot, owner acceptance. Engineering: re-run the research and lab matrix on or after 2026-10-24; build the remaining nine courses. |
+| C-03 | 2026-10-16 | Python Engineering completed to TECHNICALLY_VERIFIED: PY-M10 (secure HTTP services; 432 guided and 274 required independent seeded defects killed) and PY-M11 (capstone; 13-gate release gate with a negative control per gate, 585-case hidden suite, 312 of 312 required seeded defects killed) installed; lab matrix 13 passes on CPython 3.11-3.15 on the merged tree (261 tests on each, none failed or skipped; seven lab pieces carried from the full run of 248 tests per interpreter, see docs/qa/LAB_EXECUTION_EVIDENCE.md); 10 of 10 operational scenarios technically verified; 654 of 654 handbook pages with a disposition; 16 module editions and one course PREVIEW (397 pages) built; two model-performed adversarial reviews recorded (PY-M10, PY-M11), not human review. COURSE-PY-ENG is TECHNICALLY_VERIFIED, not TRAINING_CONTENT_GO; 0 of 10 courses are. | Owner: D4 licence and provenance, D8 private repository for instructor material, INC-001 purge decision, named SME and editorial reviewers, a real learner pilot, owner acceptance. Owner: choose how the page-record check treats the quarantined source (protected copy via CDB_PRIVATE_SOURCE_DIR, or an explicit historical status). Engineering: re-run the research and a full lab matrix (not --reuse-record) on or after 2026-10-24; build the remaining nine courses. |
 | C-02 | 2026-10-15 | Gate A system finished and wired into QA; lab matrix re-run after a fixture defect (a backlog setting skewed a concurrency measurement on CPython 3.14) and recorded as passing on five interpreters; 58 flagged source pages visually inspected by the model; personal-data guard and incident register in place; PY-M12 (object-oriented design) drafted and mutation-tested. | Open the pull request; install PY-M12 and rerun the matrix; extend the research re-check to the execution date; run the learner dry run; build the OOP-gap closure into the page-to-module mapping; continue with PY-M08 to PY-M11. |
 | C-01 | 2026-10-15 | Independent audit started: baseline recomputed, privacy exposure verified and scoped, personal-data guard added, Gate A computation engine written, PY-M06 built. | Render the acceptance documents, wire the validator into QA, re-run the lab matrix with PY-M06, push on a new branch from the merged default branch and open a draft pull request. |
 
@@ -40,22 +40,22 @@
 
 ### REPOSITORY STATE
 - Courses in the catalog: 10; modules required by the approved catalog: 113; planned labs: 217; planned learning outcomes: 118.
-- Branch content recomputed from files at the latest lab-matrix commit `52ed97e6c141`; the matrix covers 5 interpreters.
+- Branch content recomputed from files at the latest lab-matrix commit `3e8fd6b050ca`; the matrix covers 5 interpreters.
 
 ### CONTENT STATE
-- Modules implemented (all required files present): 17 of 113 (15%); technically verified: 16 of 113 (14%).
-- Module states: NOT_STARTED 95, IN_PROGRESS 1, IMPLEMENTED_UNVERIFIED 1, TECHNICALLY_VERIFIED 14, REVIEW_REQUIRED 2.
-- Substantive executed lessons: 16 of 113 (14%).
-- Labs verified executable: 27 of 217 (12%); outcomes assessed: 22 of 118 (19%).
+- Modules implemented (all required files present): 18 of 113 (16%); technically verified: 18 of 113 (16%).
+- Module states: NOT_STARTED 94, IN_PROGRESS 1, TECHNICALLY_VERIFIED 16, REVIEW_REQUIRED 2.
+- Substantive executed lessons: 18 of 113 (16%).
+- Labs verified executable: 27 of 217 (12%); outcomes assessed: 23 of 118 (19%).
 - Source pages with a recorded module disposition: 674 of 8186 (8%) (all 8186 pages are machine-scanned; see MASTER_CONTENT_ACCEPTANCE.md for the review categories).
-- Python Engineering: 13 of 13 catalog modules implemented, score 89.7 of 100, state TECHNICALLY_VERIFIED.
+- Python Engineering: 13 of 13 catalog modules implemented, score 90.5 of 100, state TECHNICALLY_VERIFIED.
 
 ### OPERATIONS STATE
 - Operational scenarios technically verified: 12 of 89 (13%); scenario states: IN_PROGRESS 3, NOT_STARTED 74, TECHNICALLY_VERIFIED 12.
 - Courses with at least one verified time-dependent scenario (CONTROLLED_LIVE or REPLAY_SIMULATION): 2 of 10 (20%); EXTERNAL_LIVE scenarios: 0.
 
 ### PUBLICATION STATE
-- Complete course PDF editions validated: 0 of 10 (0%); module student editions passing every gate: 16 (this file reports the committed manifest, not a file on disk).
+- Complete course PDF editions validated: 0 of 10 (0%); module student editions passing every gate: 18 (this file reports the committed manifest, not a file on disk).
 - Nothing has been published, deployed, sold or priced. Instructor material is not in the public repository.
 
 ### RELEASE STATE

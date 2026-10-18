@@ -8,6 +8,7 @@ email_domains:
   - evil.test          # lab examples under the reserved .test top-level domain (RFC 2606)
   - localhost
   - invalid
+  - example.invalid    # a name under the reserved .invalid top-level domain (RFC 2606): it can never be a real mailbox; used by the synthetic Git identity of FND-M04
   - users.noreply.github.com   # GitHub's no-reply commit identity
   - cyberdudebivash.com        # the owner's own public project domain
 phone_digits: []      # numbers that are known to be fictitious and may appear verbatim (digits only); empty on purpose

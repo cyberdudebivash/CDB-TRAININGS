@@ -51,7 +51,7 @@ Catalog slug `python-engineering`; legacy sources: SRC-PY-HANDBOOK.
 | PY-M02 | Functions, errors and testing with pytest | 9 | SRC-PY-HANDBOOK: 9 pp (62, 80-81, 83-84, 87-89, ... (+1 more ranges)) | KEEP 5, UPDATE 2, REPLACE 2 | MC-PYH-15, MC-PYH-17 | - |
 | PY-M13 | Iterators, generators, closures, decorators and context managers | NET_NEW | - | - | MC-PYH-22 | - |
 | PY-M03 | Types, modules and project layout | NET_NEW | - | - | MC-PYH-15, MC-PYH-18 | ND-PY-02 |
-| PY-M12 | Classes, dataclasses and object-oriented design | NET_NEW | - | - | MC-PYH-21 | - |
+| PY-M12 | Classes, dataclasses and object-oriented design | NET_NEW | - | - | MC-PYH-01, MC-PYH-21 | - |
 | PY-M04 | Environments, dependencies and packaging (pyproject, build) | NET_NEW | - | - | MC-PYH-02, MC-PYH-03 | ND-PY-01, ND-PY-03 |
 | PY-M05 | Files, structured data and HTTP clients | 6 | SRC-PY-HANDBOOK: 6 pp (82, 90, 125-126, 128-129) | KEEP 3, UPDATE 1, REPLACE 2 | MC-PYH-19 | - |
 | PY-M06 | Concurrency and asynchronous programming | 1 | SRC-PY-HANDBOOK: 1 pp (177) | REPLACE 1 | MC-PYH-16, MC-PYH-20 | ND-PY-02 |

@@ -39,11 +39,10 @@ Items due after 2026-10-24 (for example SB-04 and SB-05) cannot be closed by the
 
 ## 3. Open verification items carried from Stage A
 
-28 change records are not yet EXECUTED or RESEARCH_VERIFIED. Each needs a primary-source read or an executed check, then an updated record.
+27 change records are not yet EXECUTED or RESEARCH_VERIFIED. Each needs a primary-source read or an executed check, then an updated record.
 
 | Record | Course | Concept | Status | What is missing |
 |---|---|---|---|---|
-| MC-PYH-01 | COURSE-PY-ENG | Python language foundations (installing, syntax, types, control flow, functions, data structures) | MACHINE_ONLY | Syntax-checked in the first audit. PY-M01 re-teaches pp. 2-28, 58 and 61 with every lesson example executed on CPython 3.11-3.15 (docs/qa/LAB_EXECUTION_EVIDENCE.md); the object-oriented, internals and higher-order-function pages (pp. 48-57, 59, 60) are not covered by any module yet. |
 | MC-PYH-10 | COURSE-PY-ENG | Python cybersecurity development (mini SIEM, EDR agent, IDS/IPS, TIP, malware sandbox) | NEEDS_VERIFICATION | Page-level read pending; mapping is heuristic. |
 | MC-PYH-11 | COURSE-PY-ENG | Python for blockchain, Web3 and crypto engineering | MACHINE_ONLY | Heading-level mapping; no technical claim is made about the content. |
 | MC-PYA-01 | COURSE-PY-AUTO | Volumes 1-12 curriculum structure | MACHINE_ONLY | outline and page records |
