@@ -1,0 +1,11 @@
+# Optional media toolchain for scripts/media/generate_sentinel_apex_60s.py (all free / open source). Not needed by the course tests.
+# Exact versions the renderer was executed with on CPython 3.13. moviepy 2.x removed `moviepy.editor`, so 1.0.3 is required
+# (and moviepy 1.0.3 needs decorator<5). ffmpeg itself ships inside imageio-ffmpeg; no system ffmpeg or ImageMagick is needed.
+moviepy==1.0.3
+decorator==4.4.2
+imageio==2.38.1
+imageio-ffmpeg==0.6.0
+numpy==2.5.4
+Pillow==13.0.0
+proglog==0.1.12
+tqdm==4.70.1
